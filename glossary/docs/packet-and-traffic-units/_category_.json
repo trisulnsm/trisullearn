@@ -1,0 +1,10 @@
+{
+  "label": "Packet and Traffic Units",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "slug": "/packet-and-traffic-units",
+    "title": "Packet and Traffic Units",
+    "description": "Understand the fundamental building blocks of network traffic, including packets, bandwidth, throughput, bitrate, packet rate, flow rate, and traffic volume."
+  }
+}

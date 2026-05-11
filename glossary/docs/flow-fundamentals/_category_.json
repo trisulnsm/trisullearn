@@ -1,0 +1,10 @@
+{
+  "label": "Flow Fundamentals",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/flow-fundamentals",
+    "title": "Flow Fundamentals",
+    "description": "Core concepts in network flow monitoring"
+  }
+}

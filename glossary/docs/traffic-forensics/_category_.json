@@ -1,0 +1,10 @@
+{
+  "label": "Traffic Forensics",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "slug": "/traffic-forensics",
+    "title": "Traffic Forensics",
+    "description": "Explore network traffic forensics including traffic drilldown, flow stitching, flow deduplication, conversation analysis, incident investigation, and traffic reconstruction for troubleshooting and root cause analysis."
+  }
+}

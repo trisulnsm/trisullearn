@@ -1,0 +1,79 @@
+.hero {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top left, var(--hero-accent-1) 0%, transparent 35%),
+    radial-gradient(circle at top right, var(--hero-accent-2) 0%, transparent 35%),
+    linear-gradient(
+      180deg,
+      var(--hero-bg-start) 0%,
+      var(--hero-bg-end) 100%
+    );
+}
+
+.container {
+  max-width: 850px;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  font-size: 1.35rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  color: var(--ifm-font-color-base);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchBox {
+  width: 100%;
+  max-width: 720px;
+  padding: 22px 24px;
+  font-size: 18px;
+  border: 1px solid var(--search-border);
+  border-radius: 16px;
+  background: var(--search-bg);
+  color: var(--ifm-font-color-base);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.searchBox:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.12);
+}
+
+/* Light mode */
+:root {
+  --hero-bg-start: #ffffff;
+  --hero-bg-end: #f8fbff;
+  --hero-accent-1: #dbeafe;
+  --hero-accent-2: #bfdbfe;
+  --search-bg: #ffffff;
+  --search-border: #dbeafe;
+}
+
+/* Dark mode */
+[data-theme='dark'] {
+  --hero-bg-start: #0f172a;
+  --hero-bg-end: #111827;
+  --hero-accent-1: rgba(37, 99, 235, 0.15);
+  --hero-accent-2: rgba(59, 130, 246, 0.15);
+  --search-bg: #1f2937;
+  --search-border: #374151;
+}
