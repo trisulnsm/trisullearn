@@ -2,7 +2,7 @@
 title: What is a Flow Analyzer?
 sidebar_label: Flow Analyzer
 sidebar_position: 11
-slug: /glossary/flow-analyzer
+slug: /flow-fundamentals/flow-analyzer
 description: Learn what a flow analyzer is, how it works, and how it helps analyze network traffic using flow records from NetFlow, IPFIX, and sFlow.
 keywords:
   - flow analyzer

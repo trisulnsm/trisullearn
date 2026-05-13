@@ -2,7 +2,7 @@
 title: What is Flow Sampling?
 sidebar_label: Flow Sampling
 sidebar_position: 15
-slug: /glossary/flow-sampling
+slug: /flow-fundamentals/flow-sampling
 description: Learn what flow sampling is, how sampled flow data works, and how flow sampling helps scale network monitoring in high-traffic environments.
 keywords:
   - flow sampling

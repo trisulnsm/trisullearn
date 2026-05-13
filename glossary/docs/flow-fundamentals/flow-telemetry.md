@@ -2,7 +2,7 @@
 title: What is Flow Telemetry?
 sidebar_label: Flow Telemetry
 sidebar_position: 6
-slug: /glossary/flow-telemetry
+slug: /flow-fundamentals/flow-telemetry
 description: Learn what flow telemetry is, how it works, and how network flow telemetry helps monitor traffic, performance, and security.
 keywords:
   - flow telemetry

@@ -2,7 +2,7 @@
 title: What is a Network Flow?
 sidebar_label: Network Flow
 sidebar_position: 4
-slug: /glossary/network-flow
+slug: /flow-fundamentals/network-flow
 description: Learn what a network flow is, how flows are identified, how flow records are created, and why flow data is important for network monitoring and analysis.
 keywords:
   - network flow

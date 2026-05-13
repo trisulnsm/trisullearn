@@ -2,7 +2,7 @@
 title: What is NetFlow Analysis?
 sidebar_label: NetFlow Analysis
 sidebar_position: 3
-slug: /glossary/netflow-analysis
+slug: /flow-fundamentals/netflow-analysis
 description: Learn what NetFlow Analysis is, how it works, why it matters, and how network teams use flow data for monitoring, troubleshooting, and security.
 keywords:
   - netflow analysis

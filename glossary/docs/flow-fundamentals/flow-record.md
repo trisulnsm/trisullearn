@@ -2,7 +2,7 @@
 title: What is a Flow Record?
 sidebar_label: Flow Record
 sidebar_position: 5
-slug: /glossary/flow-record
+slug: /flow-fundamentals/flow-record
 description: Learn what a flow record is, what data it contains, how it is generated, and why flow records are important in network monitoring and analysis.
 keywords:
   - flow record

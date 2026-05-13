@@ -2,7 +2,7 @@
 title: What is Flow Monitoring?
 sidebar_label: Flow Monitoring
 sidebar_position: 8
-slug: /glossary/flow-monitoring
+slug: /flow-fundamentals/flow-monitoring
 description: Learn what flow monitoring is, how it works, and how flow monitoring helps analyze bandwidth, applications, traffic behavior, and network anomalies.
 keywords:
   - flow monitoring

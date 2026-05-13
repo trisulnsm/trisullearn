@@ -2,6 +2,15 @@
 title: What is NetFlow?
 sidebar_label: NetFlow
 sidebar_position: 1
+slug: /flow-fundamentals/netflow
+description: Learn what NetFlow is, how it works, what flow records contain, and how NetFlow helps monitor bandwidth usage, analyze traffic, troubleshoot networks, and detect anomalies.
+keywords:  
+  - netflow
+  - what is netflow
+  - netflow monitoring
+  - network flow monitoring
+  - netflow analyzer
+
 ---
 # What is NetFlow?
 

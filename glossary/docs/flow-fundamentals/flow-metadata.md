@@ -2,7 +2,7 @@
 title: What is Flow Metadata?
 sidebar_label: Flow Metadata
 sidebar_position: 12
-slug: /glossary/flow-metadata
+slug: /flow-fundamentals/flow-metadata
 description: Learn what flow metadata is, what it contains, and how flow metadata helps analyze network traffic without inspecting packet payloads.
 keywords:
   - flow metadata

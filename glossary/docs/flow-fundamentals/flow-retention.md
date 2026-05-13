@@ -2,7 +2,7 @@
 title: What is Flow Retention?
 sidebar_label: Flow Retention
 sidebar_position: 14
-slug: /glossary/flow-retention
+slug: /flow-fundamentals/flow-retention
 description: Learn what flow retention is, why retaining network flow data matters, and how long-term retention helps with analysis, troubleshooting, and security investigations.
 keywords:
   - flow retention

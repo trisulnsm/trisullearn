@@ -2,7 +2,7 @@
 title: What is Flow Visibility?
 sidebar_label: Flow Visibility
 sidebar_position: 7
-slug: /glossary/flow-visibility
+slug: /flow-fundamentals/flow-visibility
 description: Learn what flow visibility is, how it works, and why network flow visibility is important for traffic monitoring, troubleshooting, and security.
 keywords:
   - flow visibility

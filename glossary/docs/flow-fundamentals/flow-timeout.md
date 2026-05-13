@@ -2,7 +2,7 @@
 title: What is Flow Timeout?
 sidebar_label: Flow Timeout
 sidebar_position: 16
-slug: /glossary/flow-timeout
+slug: /flow-fundamentals/flow-timeout
 description: Learn what flow timeout is, how active and inactive timeouts work, and why flow timeout settings matter in flow monitoring and analysis.
 keywords:
   - flow timeout

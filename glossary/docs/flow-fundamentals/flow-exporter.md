@@ -2,7 +2,7 @@
 title: What is a Flow Exporter?
 sidebar_label: Flow Exporter
 sidebar_position: 9
-slug: /glossary/flow-exporter
+slug: /flow-fundamentals/flow-exporter
 description: Learn what a flow exporter is, how it works, and how network devices export flow records for traffic monitoring and analysis.
 keywords:
   - flow exporter

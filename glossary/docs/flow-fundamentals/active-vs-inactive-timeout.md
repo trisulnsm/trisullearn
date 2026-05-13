@@ -2,7 +2,7 @@
 title: Active vs Inactive Timeout
 sidebar_label: Active vs Inactive Timeout
 sidebar_position: 17
-slug: /glossary/active-vs-inactive-timeout
+slug: /flow-fundamentals/active-vs-inactive-timeout
 description: Learn the difference between active timeout and inactive timeout in NetFlow and IPFIX, how each works, and when to tune them for better visibility.
 keywords:
   - active vs inactive timeout

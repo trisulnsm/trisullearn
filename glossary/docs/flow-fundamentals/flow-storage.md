@@ -2,7 +2,7 @@
 title: What is Flow Storage?
 sidebar_label: Flow Storage
 sidebar_position: 13
-slug: /glossary/flow-storage
+slug: /flow-fundamentals/flow-storage
 description: Learn what flow storage is, how network flow data is stored, and why flow storage is important for traffic analysis, retention, and investigations.
 keywords:
   - flow storage

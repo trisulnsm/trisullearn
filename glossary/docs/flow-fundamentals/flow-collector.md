@@ -2,7 +2,7 @@
 title: What is a Flow Collector?
 sidebar_label: Flow Collector
 sidebar_position: 10
-slug: /glossary/flow-collector
+slug: /flow-fundamentalsflow-collector
 description: Learn what a flow collector is, how it works, and how it receives, stores, and analyzes flow records for network monitoring and analysis.
 keywords:
   - flow collector
