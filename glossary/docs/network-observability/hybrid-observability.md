@@ -2,7 +2,7 @@
 title: What is Hybrid Observability?
 sidebar_label: Hybrid Observability
 sidebar_position: 95
-slug: /transport-and-application-protocols/hybrid-observability
+slug: /network-observability/hybrid-observability
 description: Learn what hybrid observability is, how it works, and why correlating telemetry across on-prem and cloud environments improves visibility, performance, and security.
 keywords:
   - hybrid observability

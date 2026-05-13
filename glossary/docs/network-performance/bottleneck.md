@@ -2,7 +2,7 @@
 title: What is a Bottleneck?
 sidebar_label: Bottleneck
 sidebar_position: 38
-slug: /transport-and-application-protocols/bottleneck
+slug: /network-performance/bottleneck
 description: Learn what a network bottleneck is, what causes bottlenecks, how they affect performance, and how to identify and fix them.
 keywords:
   - bottleneck

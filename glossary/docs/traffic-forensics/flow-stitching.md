@@ -2,7 +2,7 @@
 title: What is Flow Stitching?
 sidebar_label: Flow Stitching
 sidebar_position: 54
-slug: /transport-and-application-protocols/flow-stitching
+slug: /traffic-forensics/flow-stitching
 description: Learn what flow stitching is, how it works, and why stitching related flow records helps reconstruct complete sessions and improve traffic visibility.
 keywords:
   - flow stitching

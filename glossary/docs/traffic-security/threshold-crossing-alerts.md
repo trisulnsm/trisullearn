@@ -2,7 +2,7 @@
 title: What are Threshold Crossing Alerts?
 sidebar_label: Threshold Crossing Alerts
 sidebar_position: 67
-slug: /transport-and-application-protocols/threshold-crossing-alerts
+slug: /traffic-security/threshold-crossing-alerts
 description: Learn what threshold crossing alerts are, how they work, and why threshold-based event notifications are critical for network monitoring and incident response.
 keywords:
   - threshold crossing alerts

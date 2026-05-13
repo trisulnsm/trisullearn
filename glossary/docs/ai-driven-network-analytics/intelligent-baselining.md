@@ -2,7 +2,7 @@
 title: What is Intelligent Baselining?
 sidebar_label: Intelligent Baselining
 sidebar_position: 107
-slug: /transport-and-application-protocols/intelligent-baselining
+slug: /ai-driven-network-analytics/intelligent-baselining
 description: Learn what intelligent baselining is, how it works, and why adaptive baselines improve anomaly detection, performance monitoring, and operational visibility.
 keywords:
   - intelligent baselining

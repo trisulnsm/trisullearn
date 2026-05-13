@@ -2,7 +2,7 @@
 title: What is Path Analysis?
 sidebar_label: Path Analysis
 sidebar_position: 44
-slug: /transport-and-application-protocols/path-analysis
+slug: /network-performance/path-analysis
 description: Learn what path analysis is, how it works, and why analyzing network paths helps troubleshoot latency, packet loss, and routing issues.
 keywords:
   - path analysis

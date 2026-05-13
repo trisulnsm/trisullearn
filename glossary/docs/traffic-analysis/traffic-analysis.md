@@ -2,7 +2,7 @@
 title: What is Traffic Analysis?
 sidebar_label: Traffic Analysis
 sidebar_position: 9
-slug: /transport-and-application-protocols/traffic-analysis
+slug: /traffic-analysis/traffic-analysis
 description: Learn what traffic analysis is, how it works, why it matters, and how organizations use traffic analysis for monitoring, troubleshooting, and security.
 keywords:
   - traffic analysis

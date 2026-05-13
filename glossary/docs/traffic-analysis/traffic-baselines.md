@@ -2,7 +2,7 @@
 title: What are Traffic Baselines?
 sidebar_label: Traffic Baselines
 sidebar_position: 26
-slug: /transport-and-application-protocols/traffic-baselines
+slug: /traffic-analysis/traffic-baselines
 description: Learn what traffic baselines are, how they are created, and why traffic baselines are critical for anomaly detection, performance monitoring, and capacity planning.
 keywords:
   - traffic baselines

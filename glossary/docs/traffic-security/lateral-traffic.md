@@ -2,7 +2,7 @@
 title: What is Lateral Traffic?
 sidebar_label: Lateral Traffic
 sidebar_position: 76
-slug: /transport-and-application-protocols/lateral-traffic
+slug: /traffic-security/lateral-traffic
 description: Learn what lateral traffic is, how it works, and why monitoring internal east-west communication is critical for performance, visibility, and security.
 keywords:
   - lateral traffic

@@ -2,7 +2,7 @@
 title: What is WAN Monitoring?
 sidebar_label: WAN Monitoring
 sidebar_position: 81
-slug: /transport-and-application-protocols/wan-monitoring
+slug: /enterprise-monitoring/wan-monitoring
 description: Learn what WAN monitoring is, how it works, and why monitoring wide area network links is critical for performance, reliability, and branch connectivity.
 keywords:
   - wan monitoring

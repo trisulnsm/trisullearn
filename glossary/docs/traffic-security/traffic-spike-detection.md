@@ -2,7 +2,7 @@
 title: What is Traffic Spike Detection?
 sidebar_label: Traffic Spike Detection
 sidebar_position: 68
-slug: /transport-and-application-protocols/traffic-spike-detection
+slug: /traffic-security/traffic-spike-detection
 description: Learn what traffic spike detection is, how it works, and why detecting sudden network traffic surges is critical for performance, capacity, and security.
 keywords:
   - traffic spike detection

@@ -2,7 +2,7 @@
 title: What is Interface Monitoring?
 sidebar_label: Interface Monitoring
 sidebar_position: 10
-slug: /transport-and-application-protocols/interface-monitoring
+slug: /traffic-analysis/interface-monitoring
 description: Learn what interface monitoring is, how it works, what metrics to monitor, and why it matters for network performance, troubleshooting, and capacity planning.
 keywords:
   - interface monitoring

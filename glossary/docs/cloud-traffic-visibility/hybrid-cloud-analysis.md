@@ -2,7 +2,7 @@
 title: What is Hybrid Cloud Analysis?
 sidebar_label: Hybrid Cloud Analysis
 sidebar_position: 100
-slug: /transport-and-application-protocols/hybrid-cloud-analysis
+slug: /cloud-traffic-visibility/hybrid-cloud-analysis
 description: Learn what hybrid cloud analysis is, how it works, and why analyzing traffic and performance across on-prem and cloud environments improves visibility and troubleshooting.
 keywords:
   - hybrid cloud analysis

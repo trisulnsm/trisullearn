@@ -2,7 +2,7 @@
 title: What is East-West Traffic?
 sidebar_label: East-West Traffic
 sidebar_position: 61
-slug: /transport-and-application-protocols/east-west-traffic
+slug: /traffic-forensics/east-west-traffic
 description: Learn what east-west traffic is, how it works, and why monitoring internal lateral traffic is critical for performance, security, and application visibility.
 keywords:
   - east west traffic

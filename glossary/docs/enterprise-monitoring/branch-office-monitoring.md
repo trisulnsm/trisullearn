@@ -2,7 +2,7 @@
 title: What is Branch Office Monitoring?
 sidebar_label: Branch Office Monitoring
 sidebar_position: 80
-slug: /transport-and-application-protocols/branch-office-monitoring
+slug: /enterprise-monitoring/branch-office-monitoring
 description: Learn what branch office monitoring is, how it works, and why monitoring remote office networks is critical for performance, reliability, and user experience.
 keywords:
   - branch office monitoring

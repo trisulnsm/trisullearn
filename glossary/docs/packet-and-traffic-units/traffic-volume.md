@@ -2,7 +2,7 @@
 title: What is Traffic Volume?
 sidebar_label: Traffic Volume
 sidebar_position: 8
-slug: /glossary/traffic-volume
+slug: /packet-and-traffic-units/traffic-volume
 description: Learn what traffic volume is, how it is measured, and why total network data volume matters for capacity planning, monitoring, and analysis.
 keywords:
   - traffic volume

@@ -2,7 +2,7 @@
 title: What is Flow Rate?
 sidebar_label: Flow Rate
 sidebar_position: 7
-slug: /glossary/flow-rate
+slug: /packet-and-traffic-units/flow-rate
 description: Learn what flow rate is, how it is measured, and why flows per second matter in network traffic analysis, performance monitoring, and security.
 keywords:
   - flow rate

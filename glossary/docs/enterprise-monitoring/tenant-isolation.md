@@ -2,7 +2,7 @@
 title: What is Tenant Isolation?
 sidebar_label: Tenant Isolation
 sidebar_position: 89
-slug: /transport-and-application-protocols/tenant-isolation
+slug: /enterprise-monitoring/tenant-isolation
 description: Learn what tenant isolation is, how it works, and why logical separation of data and access is critical in multi-tenant monitoring and shared infrastructure.
 keywords:
   - tenant isolation

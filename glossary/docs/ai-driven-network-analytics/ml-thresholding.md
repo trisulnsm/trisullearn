@@ -2,7 +2,7 @@
 title: What is ML Thresholding?
 sidebar_label: ML Thresholding
 sidebar_position: 105
-slug: /transport-and-application-protocols/ml-thresholding
+slug: /ai-driven-network-analytics/ml-thresholding
 description: Learn what ML thresholding is, how it works, and why machine learning-based dynamic thresholds improve anomaly detection and monitoring accuracy.
 keywords:
   - ml thresholding

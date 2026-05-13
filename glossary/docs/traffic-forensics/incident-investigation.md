@@ -2,7 +2,7 @@
 title: What is Incident Investigation?
 sidebar_label: Incident Investigation
 sidebar_position: 58
-slug: /transport-and-application-protocols/incident-investigation
+slug: /traffic-forensics/incident-investigation
 description: Learn what incident investigation is, how it works, and why investigating network and security incidents is critical for response, recovery, and prevention.
 keywords:
   - incident investigation

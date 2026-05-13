@@ -2,7 +2,7 @@
 title: What is Host Analysis?
 sidebar_label: Host Analysis
 sidebar_position: 12
-slug: /transport-and-application-protocols/host-analysis
+slug: /traffic-analysis/host-analysis
 description: Learn what host analysis is, how it works, what host metrics to monitor, and why host-level traffic analysis is important for troubleshooting, security, and performance.
 keywords:
   - host analysis

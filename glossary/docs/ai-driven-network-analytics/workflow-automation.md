@@ -2,7 +2,7 @@
 title: What is Workflow Automation?
 sidebar_label: Workflow Automation
 sidebar_position: 110
-slug: /transport-and-application-protocols/workflow-automation
+slug: /ai-driven-network-analytics/workflow-automation
 description: Learn what workflow automation is, how it works, and why automating operational workflows improves efficiency, incident response, and operational consistency.
 keywords:
   - workflow automation

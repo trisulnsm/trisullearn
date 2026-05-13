@@ -2,7 +2,7 @@
 title: NetFlow vs SNMP
 sidebar_label: NetFlow vs SNMP
 sidebar_position: 26
-slug: /glossary/netflow-vs-snmp
+slug: /flow-protocols/netflow-vs-snmp
 description: Learn the differences between NetFlow and SNMP, how they work, and which is better for network monitoring and traffic visibility.
 keywords:
   - netflow vs snmp

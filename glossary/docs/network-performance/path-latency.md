@@ -2,7 +2,7 @@
 title: What is Path Latency?
 sidebar_label: Path Latency
 sidebar_position: 47
-slug: /transport-and-application-protocols/path-latency
+slug: /network-performance/path-latency
 description: Learn what path latency is, how it is measured, what affects it, and why path latency matters for application performance and troubleshooting.
 keywords:
   - path latency

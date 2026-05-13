@@ -2,7 +2,7 @@
 title: What are Top Hosts?
 sidebar_label: Top Hosts
 sidebar_position: 17
-slug: /transport-and-application-protocols/top-hosts
+slug: /traffic-analysis/top-hosts
 description: Learn what top hosts are, how top host analysis works, and why identifying the highest-traffic hosts is important for troubleshooting, monitoring, and security.
 keywords:
   - top hosts

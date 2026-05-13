@@ -2,7 +2,7 @@
 title: What is Traffic Congestion?
 sidebar_label: Traffic Congestion
 sidebar_position: 21
-slug: /transport-and-application-protocols/traffic-congestion
+slug: /traffic-analysis/traffic-congestion
 description: Learn what traffic congestion is, why it happens, how it affects network performance, and how to detect and reduce congestion.
 keywords:
   - traffic congestion

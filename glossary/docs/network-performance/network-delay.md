@@ -2,7 +2,7 @@
 title: What is Network Delay?
 sidebar_label: Network Delay
 sidebar_position: 37
-slug: /transport-and-application-protocols/network-delay
+slug: /network-performance/network-delay
 description: Learn what network delay is, the types of delays in networking, what causes delay, and how it affects performance and applications.
 keywords:
   - network delay

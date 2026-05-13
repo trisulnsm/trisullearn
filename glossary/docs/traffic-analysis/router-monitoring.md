@@ -2,7 +2,7 @@
 title: What is Router Monitoring?
 sidebar_label: Router Monitoring
 sidebar_position: 11
-slug: /transport-and-application-protocols/router-monitoring
+slug: /traffic-analysis/router-monitoring
 description: Learn what router monitoring is, how it works, what metrics to monitor, and why it matters for network performance, troubleshooting, and security.
 keywords:
   - router monitoring

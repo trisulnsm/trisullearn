@@ -2,7 +2,7 @@
 title: What is Ingress Traffic?
 sidebar_label: Ingress Traffic
 sidebar_position: 59
-slug: /transport-and-application-protocols/ingress-traffic
+slug: /traffic-forensics/ingress-traffic
 description: Learn what ingress traffic is, how it works, how it is measured, and why monitoring incoming network traffic is important for performance and security.
 keywords:
   - ingress traffic

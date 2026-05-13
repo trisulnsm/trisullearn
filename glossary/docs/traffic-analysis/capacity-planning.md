@@ -2,7 +2,7 @@
 title: What is Capacity Planning?
 sidebar_label: Capacity Planning
 sidebar_position: 24
-slug: /transport-and-application-protocols/capacity-planning
+slug: /traffic-analysis/capacity-planning
 description: Learn what capacity planning is, how it works, and why it is essential for forecasting bandwidth growth, avoiding congestion, and optimizing network performance.
 keywords:
   - capacity planning

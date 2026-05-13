@@ -2,7 +2,7 @@
 title: What is Flow Automation?
 sidebar_label: Flow Automation
 sidebar_position: 109
-slug: /transport-and-application-protocols/flow-automation
+slug: /ai-driven-network-analytics/flow-automation
 description: Learn what flow automation is, how it works, and why automating network operations using flow telemetry improves efficiency, detection, and response.
 keywords:
   - flow automation

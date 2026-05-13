@@ -2,7 +2,7 @@
 title: What is Flow Deduplication?
 sidebar_label: Flow Deduplication
 sidebar_position: 55
-slug: /transport-and-application-protocols/flow-deduplication
+slug: /traffic-forensics/flow-deduplication
 description: Learn what flow deduplication is, how it works, and why removing duplicate flow records improves traffic accuracy and network visibility.
 keywords:
   - flow deduplication

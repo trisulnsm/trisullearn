@@ -2,7 +2,7 @@
 title: What is Predictive Analytics?
 sidebar_label: Predictive Analytics
 sidebar_position: 106
-slug: /transport-and-application-protocols/predictive-analytics
+slug: /ai-driven-network-analytics/predictive-analytics
 description: Learn what predictive analytics is, how it works, and why forecasting future network and operational behavior improves planning, reliability, and incident prevention.
 keywords:
   - predictive analytics

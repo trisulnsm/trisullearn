@@ -2,7 +2,7 @@
 title: What are Traffic Trends?
 sidebar_label: Traffic Trends
 sidebar_position: 23
-slug: /transport-and-application-protocols/traffic-trends
+slug: /traffic-analysis/traffic-trends
 description: Learn what traffic trends are, how trend analysis works, and why analyzing network traffic trends is important for capacity planning, troubleshooting, and security.
 keywords:
   - traffic trends

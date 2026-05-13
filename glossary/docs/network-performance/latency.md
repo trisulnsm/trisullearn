@@ -2,7 +2,7 @@
 title: What is Latency?
 sidebar_label: Latency
 sidebar_position: 31
-slug: /transport-and-application-protocols/latency
+slug: /network-performance/latency
 description: Learn what latency is, how it is measured, what causes it, and why it matters for network performance, applications, and user experience.
 keywords:
   - latency

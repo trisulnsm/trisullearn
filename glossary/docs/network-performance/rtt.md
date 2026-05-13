@@ -2,7 +2,7 @@
 title: What is RTT (Round Trip Time)?
 sidebar_label: RTT
 sidebar_position: 32
-slug: /transport-and-application-protocols/rtt
+slug: /network-performance/rtt
 description: Learn what Round Trip Time (RTT) is, how it is measured, what affects it, and why it matters for network performance and application responsiveness.
 keywords:
   - rtt

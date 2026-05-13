@@ -2,7 +2,7 @@
 title: What is Packet Rate?
 sidebar_label: Packet Rate
 sidebar_position: 5
-slug: /glossary/packet-rate
+slug: /packet-and-traffic-units/packet-rate
 description: Learn what packet rate is, how it is measured, and why packets per second (PPS) matter in network performance, security, and capacity planning.
 keywords:
   - packet rate

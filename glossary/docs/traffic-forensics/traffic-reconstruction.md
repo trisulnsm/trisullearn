@@ -2,7 +2,7 @@
 title: What is Traffic Reconstruction?
 sidebar_label: Traffic Reconstruction
 sidebar_position: 57
-slug: /transport-and-application-protocols/traffic-reconstruction
+slug: /traffic-forensics/traffic-reconstruction
 description: Learn what traffic reconstruction is, how it works, and why reconstructing network traffic helps troubleshoot incidents, security events, and performance issues.
 keywords:
   - traffic reconstruction

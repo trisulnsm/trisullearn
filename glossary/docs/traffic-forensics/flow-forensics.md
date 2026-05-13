@@ -2,7 +2,7 @@
 title: What is Flow Forensics?
 sidebar_label: Flow Forensics
 sidebar_position: 50
-slug: /transport-and-application-protocols/flow-forensics
+slug: /traffic-forensics/flow-forensics
 description: Learn what flow forensics is, how it works, and why analyzing historical flow records helps investigate security incidents and performance issues.
 keywords:
   - flow forensics

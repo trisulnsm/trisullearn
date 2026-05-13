@@ -2,7 +2,7 @@
 title: What is Traffic Exfiltration?
 sidebar_label: Traffic Exfiltration
 sidebar_position: 72
-slug: /transport-and-application-protocols/traffic-exfiltration
+slug: /traffic-security/traffic-exfiltration
 description: Learn what traffic exfiltration is, how it works, and how analyzing outbound traffic patterns helps detect unauthorized data transfers.
 keywords:
   - traffic exfiltration

@@ -2,7 +2,7 @@
 title: What is Conversation Analysis?
 sidebar_label: Conversation Analysis
 sidebar_position: 53
-slug: /transport-and-application-protocols/conversation-analysis
+slug: /traffic-forensics/conversation-analysis
 description: Learn what conversation analysis is, how it works, and why analyzing host-to-host communication helps troubleshoot performance and investigate security issues.
 keywords:
   - conversation analysis

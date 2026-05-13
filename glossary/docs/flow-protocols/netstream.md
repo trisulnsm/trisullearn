@@ -2,7 +2,7 @@
 title: What is NetStream?
 sidebar_label: NetStream
 sidebar_position: 23
-slug: /glossary/netstream
+slug: /flow-protocols/netstream
 description: Learn what NetStream is, how Huawei flow monitoring works, and how NetStream compares to NetFlow, IPFIX, and sFlow.
 keywords:
   - netstream

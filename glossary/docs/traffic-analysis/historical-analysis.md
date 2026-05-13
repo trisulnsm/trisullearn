@@ -2,7 +2,7 @@
 title: What is Historical Analysis?
 sidebar_label: Historical Analysis
 sidebar_position: 22
-slug: /transport-and-application-protocols/historical-analysis
+slug: /traffic-analysis/historical-analysis
 description: Learn what historical analysis is, how it works, and why analyzing historical network traffic data is critical for troubleshooting, security, and capacity planning.
 keywords:
   - historical analysis

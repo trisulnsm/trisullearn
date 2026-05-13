@@ -2,7 +2,7 @@
 title: What is Path Visibility?
 sidebar_label: Path Visibility
 sidebar_position: 46
-slug: /transport-and-application-protocols/path-visibility
+slug: /network-performance/path-visibility
 description: Learn what path visibility is, how it works, and why path visibility is critical for troubleshooting latency, packet loss, and routing issues.
 keywords:
   - path visibility

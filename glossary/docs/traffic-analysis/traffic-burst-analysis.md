@@ -2,7 +2,7 @@
 title: What is Traffic Burst Analysis?
 sidebar_label: Traffic Burst Analysis
 sidebar_position: 28
-slug: /transport-and-application-protocols/traffic-burst-analysis
+slug: /traffic-analysis/traffic-burst-analysis
 description: Learn what traffic burst analysis is, how it works, and why detecting short traffic spikes is critical for troubleshooting, performance monitoring, and security.
 keywords:
   - traffic burst analysis

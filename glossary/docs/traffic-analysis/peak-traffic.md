@@ -2,7 +2,7 @@
 title: What is Peak Traffic?
 sidebar_label: Peak Traffic
 sidebar_position: 30
-slug: /transport-and-application-protocols/peak-traffic
+slug: /traffic-analysis/peak-traffic
 description: Learn what peak traffic is, how it is measured, and why understanding peak traffic is critical for capacity planning, congestion prevention, and performance monitoring.
 keywords:
   - peak traffic

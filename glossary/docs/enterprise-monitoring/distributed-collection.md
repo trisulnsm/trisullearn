@@ -2,7 +2,7 @@
 title: What is Distributed Collection?
 sidebar_label: Distributed Collection
 sidebar_position: 86
-slug: /transport-and-application-protocols/distributed-collection
+slug: /enterprise-monitoring/distributed-collection
 description: Learn what distributed collection is, how it works, and why using multiple local collectors improves scalability, visibility, and efficiency in network monitoring.
 keywords:
   - distributed collection

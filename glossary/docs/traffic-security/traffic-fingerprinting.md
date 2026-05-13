@@ -2,7 +2,7 @@
 title: What is Traffic Fingerprinting?
 sidebar_label: Traffic Fingerprinting
 sidebar_position: 79
-slug: /transport-and-application-protocols/traffic-fingerprinting
+slug: /traffic-security/traffic-fingerprinting
 description: Learn what traffic fingerprinting is, how it works, and why identifying unique traffic patterns helps improve application visibility, security, and protocol analysis.
 keywords:
   - traffic fingerprinting

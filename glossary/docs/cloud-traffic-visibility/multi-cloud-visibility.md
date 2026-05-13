@@ -2,7 +2,7 @@
 title: What is Multi-Cloud Visibility?
 sidebar_label: Multi-Cloud Visibility
 sidebar_position: 101
-slug: /transport-and-application-protocols/multi-cloud-visibility
+slug: /cloud-traffic-visibility/multi-cloud-visibility
 description: Learn what multi-cloud visibility is, how it works, and why unified visibility across multiple cloud providers improves performance, security, and troubleshooting.
 keywords:
   - multi cloud visibility

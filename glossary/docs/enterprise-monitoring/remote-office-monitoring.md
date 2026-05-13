@@ -2,7 +2,7 @@
 title: What is Remote Office Monitoring?
 sidebar_label: Remote Office Monitoring
 sidebar_position: 85
-slug: /transport-and-application-protocols/remote-office-monitoring
+slug: /enterprise-monitoring/remote-office-monitoring
 description: Learn what remote office monitoring is, how it works, and why monitoring distributed office networks is critical for connectivity, performance, and user experience.
 keywords:
   - remote office monitoring

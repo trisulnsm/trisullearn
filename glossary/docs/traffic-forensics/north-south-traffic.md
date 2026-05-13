@@ -2,7 +2,7 @@
 title: What is North-South Traffic?
 sidebar_label: North-South Traffic
 sidebar_position: 62
-slug: /transport-and-application-protocols/north-south-traffic
+slug: /traffic-forensics/north-south-traffic
 description: Learn what north-south traffic is, how it works, and why monitoring inbound and outbound traffic across network boundaries is critical for performance and security.
 keywords:
   - north south traffic

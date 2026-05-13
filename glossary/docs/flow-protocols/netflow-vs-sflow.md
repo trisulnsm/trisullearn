@@ -2,7 +2,7 @@
 title: NetFlow vs sFlow
 sidebar_label: NetFlow vs sFlow
 sidebar_position: 25
-slug: /glossary/netflow-vs-sflow
+slug: /flow-protocols/netflow-vs-sflow
 description: Learn the differences between NetFlow and sFlow, how they work, and which network monitoring protocol is better for your environment.
 keywords:
   - netflow vs sflow

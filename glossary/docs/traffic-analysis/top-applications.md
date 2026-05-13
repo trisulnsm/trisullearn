@@ -2,7 +2,7 @@
 title: What are Top Applications?
 sidebar_label: Top Applications
 sidebar_position: 16
-slug: /transport-and-application-protocols/top-applications
+slug: /traffic-analysis/top-applications
 description: Learn what top applications are, how top application analysis works, and why identifying bandwidth-heavy applications is important for network monitoring and optimization.
 keywords:
   - top applications

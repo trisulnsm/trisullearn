@@ -2,7 +2,7 @@
 title: What is Root Cause Analysis?
 sidebar_label: Root Cause Analysis
 sidebar_position: 108
-slug: /transport-and-application-protocols/root-cause-analysis
+slug: /ai-driven-network-analytics/root-cause-analysis
 description: Learn what root cause analysis is, how it works, and why identifying the real cause of network and operational issues improves troubleshooting and reliability.
 keywords:
   - root cause analysis

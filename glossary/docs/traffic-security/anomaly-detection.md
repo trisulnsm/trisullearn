@@ -2,7 +2,7 @@
 title: What is Anomaly Detection?
 sidebar_label: Anomaly Detection
 sidebar_position: 64
-slug: /transport-and-application-protocols/anomaly-detection
+slug: /traffic-security/anomaly-detection
 description: Learn what anomaly detection is, how it works, and why detecting unusual traffic patterns is critical for security, performance, and incident response.
 keywords:
   - anomaly detection

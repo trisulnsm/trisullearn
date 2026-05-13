@@ -2,7 +2,7 @@
 title: What are Top Talkers?
 sidebar_label: Top Talkers
 sidebar_position: 15
-slug: /transport-and-application-protocols/top-talkers
+slug: /traffic-analysis/top-talkers
 description: Learn what top talkers are, how top talker analysis works, and why identifying top traffic generators is important for troubleshooting, monitoring, and security.
 keywords:
   - top talkers

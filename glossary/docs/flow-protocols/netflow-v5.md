@@ -2,7 +2,7 @@
 title: What is NetFlow v5?
 sidebar_label: NetFlow v5
 sidebar_position: 18
-slug: /glossary/netflow-v5
+slug: /flow-protocols/netflow-v5
 description: Learn what NetFlow v5 is, how it works, what fields it exports, and how it differs from NetFlow v9 and IPFIX.
 keywords:
   - netflow v5

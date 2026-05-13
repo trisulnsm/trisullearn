@@ -2,7 +2,7 @@
 title: What is Packet Delay Variation?
 sidebar_label: Packet Delay Variation
 sidebar_position: 34
-slug: /transport-and-application-protocols/packet-delay-variation
+slug: /network-performance/packet-delay-variation
 description: Learn what packet delay variation is, how it is measured, and why it matters for VoIP, video, streaming, and real-time applications.
 keywords:
   - packet delay variation

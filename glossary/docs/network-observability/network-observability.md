@@ -2,7 +2,7 @@
 title: What is Network Observability?
 sidebar_label: Network Observability
 sidebar_position: 90
-slug: /transport-and-application-protocols/network-observability
+slug: /network-observability/network-observability
 description: Learn what network observability is, how it works, and why correlating telemetry across networks improves troubleshooting, security, and performance visibility.
 keywords:
   - network observability

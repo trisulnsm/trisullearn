@@ -2,7 +2,7 @@
 title: What is sFlow?
 sidebar_label: sFlow
 sidebar_position: 21
-slug: /glossary/sflow
+slug: /flow-protocols/sflow
 description: Learn what sFlow is, how it works, how packet sampling differs from NetFlow and IPFIX, and why sFlow is used for scalable network monitoring.
 keywords:
   - sflow

@@ -2,7 +2,7 @@
 title: What is Packet Loss?
 sidebar_label: Packet Loss
 sidebar_position: 35
-slug: /transport-and-application-protocols/packet-loss
+slug: /network-performance/packet-loss
 description: Learn what packet loss is, how it is measured, what causes it, and why it affects network performance, VoIP, streaming, and application reliability.
 keywords:
   - packet loss

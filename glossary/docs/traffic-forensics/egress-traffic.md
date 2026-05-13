@@ -2,7 +2,7 @@
 title: What is Egress Traffic?
 sidebar_label: Egress Traffic
 sidebar_position: 60
-slug: /transport-and-application-protocols/egress-traffic
+slug: /traffic-forensics/egress-traffic
 description: Learn what egress traffic is, how it works, how it is measured, and why monitoring outgoing traffic is important for performance, cost, and security.
 keywords:
   - egress traffic

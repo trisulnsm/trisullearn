@@ -2,7 +2,7 @@
 title: What are Top Conversations?
 sidebar_label: Top Conversations
 sidebar_position: 18
-slug: /transport-and-application-protocols/top-conversations
+slug: /traffic-analysis/top-conversations
 description: Learn what top conversations are, how conversation analysis works, and why identifying high-traffic communication pairs is important for troubleshooting and security.
 keywords:
   - top conversations

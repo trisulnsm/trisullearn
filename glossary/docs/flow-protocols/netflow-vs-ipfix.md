@@ -2,7 +2,7 @@
 title: NetFlow vs IPFIX
 sidebar_label: NetFlow vs IPFIX
 sidebar_position: 24
-slug: /glossary/netflow-vs-ipfix
+slug: /flow-protocols/netflow-vs-ipfix
 description: Learn the differences between NetFlow and IPFIX, how they work, and which flow telemetry protocol is better for modern network monitoring.
 keywords:
   - netflow vs ipfix

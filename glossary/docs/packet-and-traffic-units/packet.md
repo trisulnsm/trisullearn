@@ -2,7 +2,7 @@
 title: What is a Packet?
 sidebar_label: Packet
 sidebar_position: 1
-slug: /glossary/packet
+slug: /packet-and-traffic-units/packet
 description: Learn what a packet is, how network packets work, what a packet contains, and why packets are the foundation of digital communication.
 keywords:
   - packet

@@ -2,7 +2,7 @@
 title: What is Traffic Flood Detection?
 sidebar_label: Traffic Flood Detection
 sidebar_position: 69
-slug: /transport-and-application-protocols/traffic-flood-detection
+slug: /traffic-securitytraffic-flood-detection
 description: Learn what traffic flood detection is, how it works, and why detecting sustained high-volume traffic floods is critical for security and service availability.
 keywords:
   - traffic flood detection

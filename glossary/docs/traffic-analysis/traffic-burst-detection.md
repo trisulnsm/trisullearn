@@ -2,7 +2,7 @@
 title: What is Traffic Burst Detection?
 sidebar_label: Traffic Burst Detection
 sidebar_position: 29
-slug: /transport-and-application-protocols/traffic-burst-detection
+slug: /traffic-analysis/traffic-burst-detection
 description: Learn what traffic burst detection is, how it works, and why detecting short-lived traffic spikes in real time is critical for performance and security.
 keywords:
   - traffic burst detection

@@ -2,7 +2,7 @@
 title: What is AIOps?
 sidebar_label: AIOps
 sidebar_position: 103
-slug: /transport-and-application-protocols/aiops
+slug: /ai-driven-network-analytics/aiops
 description: Learn what AIOps is, how it works, and why applying AI and machine learning to IT operations improves monitoring, anomaly detection, and incident response.
 keywords:
   - aiops

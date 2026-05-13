@@ -2,7 +2,7 @@
 title: What is Traffic Intelligence?
 sidebar_label: Traffic Intelligence
 sidebar_position: 93
-slug: /transport-and-application-protocols/traffic-intelligence
+slug: /network-observability/traffic-intelligence
 description: Learn what traffic intelligence is, how it works, and why analyzing network traffic helps improve visibility, security, and performance management.
 keywords:
   - traffic intelligence

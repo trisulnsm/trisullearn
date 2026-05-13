@@ -2,7 +2,7 @@
 title: What is Bandwidth Forecasting?
 sidebar_label: Bandwidth Forecasting
 sidebar_position: 25
-slug: /transport-and-application-protocols/bandwidth-forecasting
+slug: /traffic-analysis/bandwidth-forecasting
 description: Learn what bandwidth forecasting is, how it works, and why forecasting future bandwidth demand is essential for capacity planning and network performance.
 keywords:
   - bandwidth forecasting

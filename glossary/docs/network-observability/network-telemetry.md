@@ -2,7 +2,7 @@
 title: What is Network Telemetry?
 sidebar_label: Network Telemetry
 sidebar_position: 94
-slug: /transport-and-application-protocols/network-telemetry
+slug: /network-observability/network-telemetry
 description: Learn what network telemetry is, how it works, and why collecting operational network data is essential for monitoring, observability, and security analysis.
 keywords:
   - network telemetry

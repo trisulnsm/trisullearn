@@ -2,7 +2,7 @@
 title: What is Command and Control (C2)?
 sidebar_label: Command and Control
 sidebar_position: 78
-slug: /transport-and-application-protocols/command-and-control
+slug: /traffic-security/command-and-control
 description: Learn what command and control (C2) is, how it works, and why detecting attacker communication channels is critical for malware defense and incident response.
 keywords:
   - command and control

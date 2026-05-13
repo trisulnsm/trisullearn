@@ -2,7 +2,7 @@
 title: NetFlow vs Packet Capture
 sidebar_label: NetFlow vs Packet Capture
 sidebar_position: 27
-slug: /glossary/netflow-vs-packet-capture
+slug: /flow-protocols/netflow-vs-packet-capture
 description: Learn the differences between NetFlow and packet capture, how they work, and when to use each for network monitoring, troubleshooting, and security.
 keywords:
   - netflow vs packet capture

@@ -2,7 +2,7 @@
 title: Monitoring vs Observability
 sidebar_label: Monitoring vs Observability
 sidebar_position: 91
-slug: /transport-and-application-protocols/monitoring-vs-observability
+slug: /network-observability/monitoring-vs-observability
 description: Learn the difference between monitoring and observability, how they work, and why both are essential for performance, troubleshooting, and network operations.
 keywords:
   - monitoring vs observability

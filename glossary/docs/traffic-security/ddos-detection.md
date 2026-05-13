@@ -2,7 +2,7 @@
 title: What is DDoS Detection?
 sidebar_label: DDoS Detection
 sidebar_position: 63
-slug: /transport-and-application-protocols/ddos-detection
+slug: /traffic-security/ddos-detection
 description: Learn what DDoS detection is, how it works, and why detecting distributed denial-of-service attacks quickly is critical for network availability and security.
 keywords:
   - ddos detection

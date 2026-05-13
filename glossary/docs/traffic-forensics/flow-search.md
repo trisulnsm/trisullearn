@@ -2,7 +2,7 @@
 title: What is Flow Search?
 sidebar_label: Flow Search
 sidebar_position: 52
-slug: /transport-and-application-protocols/flow-search
+slug: /traffic-forensics/flow-search
 description: Learn what flow search is, how it works, and why searching flow records helps troubleshoot network issues and investigate traffic behavior.
 keywords:
   - flow search

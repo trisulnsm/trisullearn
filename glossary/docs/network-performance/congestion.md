@@ -2,7 +2,7 @@
 title: What is Congestion?
 sidebar_label: Congestion
 sidebar_position: 36
-slug: /transport-and-application-protocols/congestion
+slug: /network-performance/congestion
 description: Learn what network congestion is, how it happens, what causes it, and why it affects latency, packet loss, and application performance.
 keywords:
   - congestion

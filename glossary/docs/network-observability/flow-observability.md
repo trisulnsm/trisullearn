@@ -2,7 +2,7 @@
 title: What is Flow Observability?
 sidebar_label: Flow Observability
 sidebar_position: 92
-slug: /transport-and-application-protocols/flow-observability
+slug: /network-observability/flow-observability
 description: Learn what flow observability is, how it works, and why flow telemetry improves network visibility, troubleshooting, and security analysis.
 keywords:
   - flow observability

@@ -2,7 +2,7 @@
 title: What is QoS Monitoring?
 sidebar_label: QoS Monitoring
 sidebar_position: 39
-slug: /transport-and-application-protocols/qos-monitoring
+slug: /network-performance/qos-monitoring
 description: Learn what QoS monitoring is, how it works, and why monitoring Quality of Service policies is important for application performance and network reliability.
 keywords:
   - qos monitoring

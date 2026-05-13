@@ -2,7 +2,7 @@
 title: What is Route Visibility?
 sidebar_label: Route Visibility
 sidebar_position: 98
-slug: /transport-and-application-protocols/route-visibility
+slug: /network-observability/route-visibility
 description: Learn what route visibility is, how it works, and why monitoring routing paths and changes improves troubleshooting, performance, and network reliability.
 keywords:
   - route visibility

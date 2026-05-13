@@ -2,7 +2,7 @@
 title: What is Protocol Analysis?
 sidebar_label: Protocol Analysis
 sidebar_position: 14
-slug: /transport-and-application-protocols/protocol-analysis
+slug: /traffic-analysis/protocol-analysis
 description: Learn what protocol analysis is, how it works, why it matters, and how protocol analysis helps troubleshoot network and application communication.
 keywords:
   - protocol analysis

@@ -2,7 +2,7 @@
 title: What is Flow Security Monitoring?
 sidebar_label: Flow Security Monitoring
 sidebar_position: 75
-slug: /transport-and-application-protocols/flow-security-monitoring
+slug: /traffic-security/flow-security-monitoring
 description: Learn what flow security monitoring is, how it works, and why using flow telemetry improves threat detection, anomaly detection, and network visibility.
 keywords:
   - flow security monitoring

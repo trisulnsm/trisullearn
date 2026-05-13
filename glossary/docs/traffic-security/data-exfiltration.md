@@ -2,7 +2,7 @@
 title: What is Data Exfiltration?
 sidebar_label: Data Exfiltration
 sidebar_position: 71
-slug: /transport-and-application-protocols/data-exfiltration
+slug: /traffic-security/data-exfiltration
 description: Learn what data exfiltration is, how it happens, how it is detected, and why preventing unauthorized data transfer is critical for security and compliance.
 keywords:
   - data exfiltration

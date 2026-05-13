@@ -2,7 +2,7 @@
 title: What is Application Analysis?
 sidebar_label: Application Analysis
 sidebar_position: 13
-slug: /transport-and-application-protocols/application-analysis
+slug: /traffic-analysis/application-analysis
 description: Learn what application analysis is, how it works, what application metrics to analyze, and why it matters for performance, troubleshooting, and security.
 keywords:
   - application analysis

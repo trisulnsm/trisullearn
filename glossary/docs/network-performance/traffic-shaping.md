@@ -2,7 +2,7 @@
 title: What is Traffic Shaping?
 sidebar_label: Traffic Shaping
 sidebar_position: 41
-slug: /transport-and-application-protocols/traffic-shaping
+slug: /network-performance/traffic-shaping
 description: Learn what traffic shaping is, how it works, and why controlling traffic rates improves network performance, QoS, and congestion management.
 keywords:
   - traffic shaping

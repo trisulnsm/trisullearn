@@ -2,7 +2,7 @@
 title: What is Behavioral Analytics?
 sidebar_label: Behavioral Analytics
 sidebar_position: 73
-slug: /transport-and-application-protocols/behavioral-analytics
+slug: /traffic-security/behavioral-analytics
 description: Learn what behavioral analytics is, how it works, and why analyzing behavior patterns helps improve security, performance, and anomaly detection.
 keywords:
   - behavioral analytics

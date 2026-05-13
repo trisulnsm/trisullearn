@@ -2,7 +2,7 @@
 title: What is Bidirectional Analysis?
 sidebar_label: Bidirectional Analysis
 sidebar_position: 56
-slug: /transport-and-application-protocols/bidirectional-analysis
+slug: /traffic-forensics/bidirectional-analysis
 description: Learn what bidirectional analysis is, how it works, and why analyzing traffic in both directions improves troubleshooting, security, and performance visibility.
 keywords:
   - bidirectional analysis

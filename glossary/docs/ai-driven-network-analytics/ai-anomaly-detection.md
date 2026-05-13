@@ -2,7 +2,7 @@
 title: What is AI Anomaly Detection?
 sidebar_label: AI Anomaly Detection
 sidebar_position: 104
-slug: /transport-and-application-protocols/ai-anomaly-detection
+slug: /ai-driven-network-analytics/ai-anomaly-detection
 description: Learn what AI anomaly detection is, how it works, and why machine learning improves threat detection, performance monitoring, and operational visibility.
 keywords:
   - ai anomaly detection

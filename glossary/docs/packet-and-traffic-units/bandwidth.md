@@ -2,7 +2,7 @@
 title: What is Bandwidth?
 sidebar_label: Bandwidth
 sidebar_position: 3
-slug: /glossary/bandwidth
+slug: /packet-and-traffic-units/bandwidth
 description: Learn what bandwidth is, how bandwidth works, how it is measured, and why bandwidth matters in network performance and traffic analysis.
 keywords:
   - bandwidth

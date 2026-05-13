@@ -2,7 +2,7 @@
 title: What is Route Analysis?
 sidebar_label: Route Analysis
 sidebar_position: 45
-slug: /transport-and-application-protocols/route-analysis
+slug: /network-performance/route-analysis
 description: Learn what route analysis is, how it works, and why analyzing routing behavior helps optimize performance, troubleshoot issues, and improve network reliability.
 keywords:
   - route analysis

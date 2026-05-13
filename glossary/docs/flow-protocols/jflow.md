@@ -2,7 +2,7 @@
 title: What is J-Flow?
 sidebar_label: J-Flow
 sidebar_position: 22
-slug: /glossary/jflow
+slug: /flow-protocols/jflow
 description: Learn what J-Flow is, how Juniper flow monitoring works, and how J-Flow compares to NetFlow, IPFIX, and sFlow.
 keywords:
   - jflow

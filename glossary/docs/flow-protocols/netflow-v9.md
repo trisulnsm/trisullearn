@@ -2,7 +2,7 @@
 title: What is NetFlow v9?
 sidebar_label: NetFlow v9
 sidebar_position: 19
-slug: /glossary/netflow-v9
+slug: /flow-protocols/netflow-v9
 description: Learn what NetFlow v9 is, how it works, how template-based flow exports differ from NetFlow v5, and why NetFlow v9 is more flexible.
 keywords:
   - netflow v9

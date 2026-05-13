@@ -2,7 +2,7 @@
 title: What is Traffic Distribution?
 sidebar_label: Traffic Distribution
 sidebar_position: 19
-slug: /transport-and-application-protocols/traffic-distribution
+slug: /traffic-analysis/traffic-distribution
 description: Learn what traffic distribution is, how it works, and why analyzing traffic distribution is important for network visibility, capacity planning, and troubleshooting.
 keywords:
   - traffic distribution

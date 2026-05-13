@@ -2,7 +2,7 @@
 title: What is Flow Exploration?
 sidebar_label: Flow Exploration
 sidebar_position: 51
-slug: /transport-and-application-protocols/flow-exploration
+slug: /traffic-forensics/flow-exploration
 description: Learn what flow exploration is, how it works, and why exploring flow records helps understand traffic behavior, applications, hosts, and anomalies.
 keywords:
   - flow exploration

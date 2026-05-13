@@ -2,7 +2,7 @@
 title: NetFlow vs Packet Monitoring
 sidebar_label: NetFlow vs Packet Monitoring
 sidebar_position: 28
-slug: /glossary/netflow-vs-packet-monitoring
+slug: /flow-protocols/netflow-vs-packet-monitoring
 description: Learn the differences between NetFlow and packet monitoring, how each works, and when to use flow-based versus packet-level network visibility.
 keywords:
   - netflow vs packet monitoring

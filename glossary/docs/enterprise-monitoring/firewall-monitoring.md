@@ -2,7 +2,7 @@
 title: What is Firewall Monitoring?
 sidebar_label: Firewall Monitoring
 sidebar_position: 84
-slug: /transport-and-application-protocols/firewall-monitoring
+slug: /enterprise-monitoring/firewall-monitoring
 description: Learn what firewall monitoring is, how it works, and why monitoring firewall traffic, policies, and security events is critical for network security and performance.
 keywords:
   - firewall monitoring

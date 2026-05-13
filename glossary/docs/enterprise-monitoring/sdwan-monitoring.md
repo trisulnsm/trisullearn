@@ -2,7 +2,7 @@
 title: What is SD-WAN Monitoring?
 sidebar_label: SD-WAN Monitoring
 sidebar_position: 83
-slug: /transport-and-application-protocols/sd-wan-monitoring
+slug: /enterprise-monitoring/sd-wan-monitoring
 description: Learn what SD-WAN monitoring is, how it works, and why monitoring software-defined WAN environments is critical for performance, application delivery, and path visibility.
 keywords:
   - sd wan monitoring

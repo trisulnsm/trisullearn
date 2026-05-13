@@ -2,7 +2,7 @@
 title: "Bandwidth Utilization: What It Is and How to Monitor It"
 sidebar_label: "Bandwidth Utilization"
 sidebar_position: 20
-slug: /transport-and-application-protocols/bandwidth-utilization
+slug: /traffic-analysis/bandwidth-utilization
 description: "Learn what bandwidth utilization is, how it is measured, how bandwidth monitoring works, and why it matters for network performance and capacity planning."
 keywords:
   - bandwidth utilization

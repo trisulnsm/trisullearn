@@ -2,7 +2,7 @@
 title: What is MPLS Monitoring?
 sidebar_label: MPLS Monitoring
 sidebar_position: 82
-slug: /transport-and-application-protocols/mpls-monitoring
+slug: /enterprise-monitoring/mpls-monitoring
 description: Learn what MPLS monitoring is, how it works, and why monitoring MPLS links is critical for WAN performance, branch connectivity, and service quality.
 keywords:
   - mpls monitoring

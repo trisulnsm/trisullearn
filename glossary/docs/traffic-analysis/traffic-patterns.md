@@ -2,7 +2,7 @@
 title: What are Traffic Patterns?
 sidebar_label: Traffic Patterns
 sidebar_position: 27
-slug: /transport-and-application-protocols/traffic-patterns
+slug: /traffic-analysis/traffic-patterns
 description: Learn what traffic patterns are, how they are analyzed, and why understanding traffic patterns is critical for monitoring, troubleshooting, and security.
 keywords:
   - traffic patterns

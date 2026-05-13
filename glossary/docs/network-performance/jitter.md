@@ -2,7 +2,7 @@
 title: What is Jitter?
 sidebar_label: Jitter
 sidebar_position: 33
-slug: /transport-and-application-protocols/jitter
+slug: /network-performance/jitter
 description: Learn what jitter is, how it is measured, what causes it, and why it matters for VoIP, video calls, streaming, and network performance.
 keywords:
   - jitter

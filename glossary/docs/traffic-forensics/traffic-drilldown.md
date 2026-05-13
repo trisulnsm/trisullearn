@@ -2,7 +2,7 @@
 title: What is Traffic Drilldown?
 sidebar_label: Traffic Drilldown
 sidebar_position: 49
-slug: /transport-and-application-protocols/traffic-drilldown
+slug: /traffic-forensics/traffic-drilldown
 description: Learn what traffic drilldown is, how it works, and why drilling into network traffic data helps troubleshoot issues and identify traffic sources.
 keywords:
   - traffic drilldown

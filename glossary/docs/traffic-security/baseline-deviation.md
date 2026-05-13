@@ -2,7 +2,7 @@
 title: What is Baseline Deviation?
 sidebar_label: Baseline Deviation
 sidebar_position: 74
-slug: /transport-and-application-protocols/baseline-deviation
+slug: /traffic-security/baseline-deviation
 description: Learn what baseline deviation is, how it works, and why comparing current behavior against normal baselines helps detect anomalies, threats, and performance issues.
 keywords:
   - baseline deviation

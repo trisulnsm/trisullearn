@@ -2,7 +2,7 @@
 title: What is Traffic Prioritization?
 sidebar_label: Traffic Prioritization
 sidebar_position: 40
-slug: /transport-and-application-protocols/traffic-prioritization
+slug: /network-performance/traffic-prioritization
 description: Learn what traffic prioritization is, how it works, and why prioritizing critical network traffic improves performance and reliability.
 keywords:
   - traffic prioritization

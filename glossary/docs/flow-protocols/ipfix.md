@@ -2,7 +2,7 @@
 title: What is IPFIX?
 sidebar_label: IPFIX
 sidebar_position: 20
-slug: /glossary/ipfix
+slug: /flow-protocols/ipfix
 description: Learn what IPFIX is, how it works, how it differs from NetFlow, and why IPFIX is the standard protocol for flow telemetry.
 keywords:
   - ipfix

@@ -2,7 +2,7 @@
 title: What is Bitrate?
 sidebar_label: Bitrate
 sidebar_position: 6
-slug: /glossary/bitrate
+slug: /packet-and-traffic-units/bitrate
 description: Learn what bitrate is, how it is measured, and how bitrate differs from bandwidth and throughput in network and media transmission.
 keywords:
   - bitrate

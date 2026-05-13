@@ -2,7 +2,7 @@
 title: What is Rate Limiting?
 sidebar_label: Rate Limiting
 sidebar_position: 42
-slug: /transport-and-application-protocols/rate-limiting
+slug: /network-performance/rate-limiting
 description: Learn what rate limiting is, how it works, and why limiting traffic rates helps prevent abuse, congestion, and resource exhaustion.
 keywords:
   - rate limiting

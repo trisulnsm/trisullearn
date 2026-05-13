@@ -2,7 +2,7 @@
 title: What are Threshold Bands?
 sidebar_label: Threshold Bands
 sidebar_position: 66
-slug: /transport-and-application-protocols/threshold-bands
+slug: /traffic-security/threshold-bands
 description: Learn what threshold bands are, how they work, and why multi-level threshold ranges improve monitoring accuracy and alerting.
 keywords:
   - threshold bands

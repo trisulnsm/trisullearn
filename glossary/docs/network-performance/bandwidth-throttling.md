@@ -2,7 +2,7 @@
 title: What is Bandwidth Throttling?
 sidebar_label: Bandwidth Throttling
 sidebar_position: 43
-slug: /transport-and-application-protocols/bandwidth-throttling
+slug: /network-performance/bandwidth-throttling
 description: Learn what bandwidth throttling is, how it works, and why organizations use throttling to control traffic, prevent congestion, and manage bandwidth fairly.
 keywords:
   - bandwidth throttling

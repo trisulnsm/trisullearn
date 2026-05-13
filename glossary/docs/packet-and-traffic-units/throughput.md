@@ -2,7 +2,7 @@
 title: What is Throughput?
 sidebar_label: Throughput
 sidebar_position: 4
-slug: /glossary/throughput
+slug: /packet-and-traffic-units/throughput
 description: Learn what throughput is, how it is measured, how it differs from bandwidth, and why throughput matters in network performance.
 keywords:
   - throughput

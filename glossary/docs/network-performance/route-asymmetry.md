@@ -2,7 +2,7 @@
 title: What is Route Asymmetry?
 sidebar_label: Route Asymmetry
 sidebar_position: 48
-slug: /transport-and-application-protocols/route-asymmetry
+slug: /network-performance/route-asymmetry
 description: Learn what route asymmetry is, how asymmetric routing works, what causes it, and why it matters for troubleshooting, security, and performance monitoring.
 keywords:
   - route asymmetry

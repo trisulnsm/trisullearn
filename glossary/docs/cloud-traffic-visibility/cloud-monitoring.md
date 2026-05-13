@@ -2,7 +2,7 @@
 title: What is Cloud Monitoring?
 sidebar_label: Cloud Monitoring
 sidebar_position: 99
-slug: /transport-and-application-protocols/cloud-monitoring
+slug: /cloud-traffic-visibility/cloud-monitoring
 description: Learn what cloud monitoring is, how it works, and why monitoring cloud infrastructure and traffic improves performance, reliability, and security.
 keywords:
   - cloud monitoring

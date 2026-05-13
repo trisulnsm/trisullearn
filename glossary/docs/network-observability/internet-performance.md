@@ -2,7 +2,7 @@
 title: What is Internet Performance?
 sidebar_label: Internet Performance
 sidebar_position: 96
-slug: /transport-and-application-protocols/internet-performance
+slug: /network-observability/internet-performance
 description: Learn what internet performance is, how it works, and why measuring latency, packet loss, throughput, and jitter is critical for user experience and application reliability.
 keywords:
   - internet performance

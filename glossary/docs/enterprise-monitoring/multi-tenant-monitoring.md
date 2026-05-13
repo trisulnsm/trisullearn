@@ -2,7 +2,7 @@
 title: What is Multi-Tenant Monitoring?
 sidebar_label: Multi-Tenant Monitoring
 sidebar_position: 88
-slug: /transport-and-application-protocols/multi-tenant-monitoring
+slug: /enterprise-monitoring/multi-tenant-monitoring
 description: Learn what multi-tenant monitoring is, how it works, and why shared monitoring platforms with tenant isolation are essential for MSPs, ISPs, and large enterprises.
 keywords:
   - multi tenant monitoring

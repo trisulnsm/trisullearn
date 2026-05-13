@@ -2,7 +2,7 @@
 title: What is Outbound Traffic Detection?
 sidebar_label: Outbound Traffic Detection
 sidebar_position: 70
-slug: /transport-and-application-protocols/outbound-traffic-detection
+slug: /traffic-security/outbound-traffic-detection
 description: Learn what outbound traffic detection is, how it works, and why monitoring outgoing traffic is critical for detecting threats, data leaks, and abnormal network behavior.
 keywords:
   - outbound traffic detection

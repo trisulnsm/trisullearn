@@ -2,7 +2,7 @@
 title: What is Centralized Analysis?
 sidebar_label: Centralized Analysis
 sidebar_position: 87
-slug: /transport-and-application-protocols/centralized-analysis
+slug: /enterprise-monitoring/centralized-analysis
 description: Learn what centralized analysis is, how it works, and why aggregating telemetry into a central platform improves visibility, correlation, and incident response.
 keywords:
   - centralized analysis

@@ -2,7 +2,7 @@
 title: What is a Packet Flow?
 sidebar_label: Packet Flow
 sidebar_position: 2
-slug: /glossary/packet-flow
+slug: /packet-and-traffic-units/packet-flow
 description: Learn what a packet flow is, how packet flows work, and how they help analyze communication patterns and traffic behavior across networks.
 keywords:
   - packet flow

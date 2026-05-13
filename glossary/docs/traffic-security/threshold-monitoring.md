@@ -2,7 +2,7 @@
 title: What is Threshold Monitoring?
 sidebar_label: Threshold Monitoring
 sidebar_position: 65
-slug: /transport-and-application-protocols/threshold-monitoring
+slug: /traffic-security/threshold-monitoring
 description: Learn what threshold monitoring is, how it works, and why monitoring predefined metric limits is critical for performance, capacity, and incident response.
 keywords:
   - threshold monitoring

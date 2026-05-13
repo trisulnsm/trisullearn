@@ -2,7 +2,7 @@
 title: What is Beaconing Detection?
 sidebar_label: Beaconing Detection
 sidebar_position: 77
-slug: /transport-and-application-protocols/beaconing-detection
+slug: /traffic-security/beaconing-detection
 description: Learn what beaconing detection is, how it works, and why identifying repetitive outbound communication patterns is critical for malware detection and security monitoring.
 keywords:
   - beaconing detection
