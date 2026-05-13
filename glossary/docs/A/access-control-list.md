@@ -37,8 +37,8 @@ A typical ACL evaluation process works like this:
 
 Most ACLs follow a top-down evaluation process, meaning rule order is important.
 
-<!-- IMAGE: Simple ACL workflow diagram -->
-<!-- Packet → ACL Rule Check → Permit / Deny -->
+/* text IMAGE: Simple ACL workflow diagram */ 
+/* Packet → ACL Rule Check → Permit / Deny */   
 
 ## Types of ACLs
 
