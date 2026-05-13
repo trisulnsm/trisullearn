@@ -2,7 +2,7 @@
 title: What is a NetFlow Analyzer?
 sidebar_label: NetFlow Analyzer
 sidebar_position: 2
-slug: /glossary/netflow-analyzer
+slug: /flow-fundamentals/netflow-analyzer
 description: Learn what a NetFlow Analyzer is, how it works, what features to look for, and how it helps monitor network traffic.
 keywords:
   - netflow analyzer
