@@ -42,7 +42,17 @@ For example:
 3. Utilization approaches link capacity limits
 4. Network teams plan upgrades before congestion affects users
 
-/* IMAGE: Network traffic growth and capacity forecasting graph /*
+```mermaid
+xychart-beta
+    title "Network Traffic Growth and Capacity Forecasting"
+    x-axis ["Q1","Q2","Q3","Q4","Q5","Q6"]
+    y-axis "Bandwidth Utilization (%)" 0 --> 100
+
+    line "Current Traffic Growth" [25,35,48,60,72,85]
+    line "Link Capacity Threshold" [80,80,80,80,80,80]
+```
+
+*Figure: Capacity planning graph showing long-term traffic growth approaching network capacity limits over time.*
 
 ## Why Capacity Planning Matters
 

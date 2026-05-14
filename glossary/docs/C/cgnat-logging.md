@@ -48,7 +48,22 @@ For example:
 
 The log allows operators to identify which subscriber used a specific public IP and port at a given time.
 
-/* IMAGE: CGNAT translation and logging workflow /*
+```mermaid
+flowchart LR
+    A[Subscriber Device<br/>10.1.5.25] --> B[CGNAT Gateway]
+
+    B --> C[Translate Private IP<br/>to Shared Public IP]
+
+    C --> D[Public IP<br/>203.0.113.10:45122]
+
+    C --> E[Create NAT Mapping Log]
+
+    E --> F[CGNAT Logging Database]
+
+    F --> G[Subscriber Investigation<br/>and Compliance Tracking]
+```
+ 
+*Figure: CGNAT workflow showing private-to-public IP translation and NAT mapping logs used for subscriber traceability and compliance.*
 
 ## Why CGNAT Logging Matters
 

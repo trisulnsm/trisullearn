@@ -51,7 +51,27 @@ Counter Groupsᵀ may organize metrics by:
 - traffic direction
 - security events
 
-/* IMAGE: Counter Groups traffic metrics aggregation diagram /*
+```mermaid
+flowchart TD
+    A[Network Monitoring System] --> B[Counter Groupsᵀ]
+
+    B --> C[Bandwidth Counters]
+    B --> D[Protocol Counters]
+    B --> E[Application Counters]
+    B --> F[Interface Counters]
+    B --> G[Security Event Counters]
+
+    C --> H[Traffic Metrics]
+    D --> I[Protocol Distribution]
+    E --> J[Application Usage]
+    F --> K[Interface Utilization]
+    G --> L[Anomaly Indicators]
+```
+
+*Figure: Counter Groupsᵀ organizing related network metrics into logical monitoring categories for operational analysis.*
+
+*Figure: Counter Groupsᵀ organizing related traffic metrics into structured monitoring categories for analysis and visibility.*
+*Figure: Counter Groupsᵀ workflow showing how traffic metrics from multiple sources are aggregated into organized monitoring and analytics categories.*
 
 ## Why Counter Groupsᵀ Matter
 

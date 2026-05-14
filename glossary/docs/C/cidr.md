@@ -38,7 +38,7 @@ The prefix length defines how many bits belong to the network portion of the add
 Common examples:
 
 |CIDR Block  | Subnet Mask | Approximate Hosts|
-|-----------|---------------|
+|-----------|---------------|------------------|
 |/8 |  255.0.0.0 | 16 million+|
 |/16 | 255.255.0.0 | 65,534|
 |/24 | 255.255.255.0 | 254|
@@ -46,7 +46,24 @@ Common examples:
 
 CIDR allows network administrators to allocate address ranges more efficiently than traditional class-based addressing.
 
-/* IMAGE: CIDR subnetting and IP prefix diagram /*
+```mermaid
+flowchart TD
+    A[192.168.1.0/24 Network] --> B[Network Prefix<br/>192.168.1]
+
+    A --> C[Host Portion<br/>0 - 255]
+
+    B --> D[Subnet Mask<br/>255.255.255.0]
+
+    D --> E[254 Usable Hosts]
+
+    A --> F[Smaller Subnets Possible]
+
+    F --> G[192.168.1.0/26]
+    F --> H[192.168.1.64/26]
+    F --> I[192.168.1.128/26]
+```
+
+*Figure: CIDR subnetting diagram showing network prefixes, subnet masks, and how IP ranges can be divided into smaller subnets using CIDR notation.*
 
 ## Why CIDR Matters
 

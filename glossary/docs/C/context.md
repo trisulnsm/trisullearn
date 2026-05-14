@@ -50,7 +50,9 @@ Contextᵀ may combine:
 - protocol behavior
 - historical traffic records
 
-/* IMAGE: Context-based traffic investigation workflow /*
+![](images/context.png)
+
+*Figure: Context-based investigation workflow showing how related traffic data is correlated into a unified operational analysis view.*
 
 ## Why Contextᵀ Matters
 
