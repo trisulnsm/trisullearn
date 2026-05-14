@@ -44,7 +44,20 @@ For example:
 3. The exporter sends updated flow records every 60 seconds
 4. Monitoring tools receive continuous visibility into the session
 
-/* IMAGE: Active Flow Timeout export workflow /*
+```mermaid
+flowchart LR
+    A[Network Traffic Flow Starts] --> B[Flow Collector Tracks Activity]
+
+    B --> C{Active Timeout Reached?}
+
+    C -->|Yes| D[Export Flow Record]
+    C -->|No| E[Continue Monitoring Flow]
+
+    D --> F[Analytics and Storage]
+    E --> B
+```
+
+*Figure: Active Flow Timeout workflow showing how long-running flows are periodically exported while traffic monitoring continues.*
 
 ## Why Active Flow Timeout Matters
 

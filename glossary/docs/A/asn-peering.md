@@ -44,7 +44,21 @@ For example:
 - Traffic between their users flows directly
 - Latency and transit costs are reduced
 
-/* IMAGE: ASN peering and BGP route exchange diagram /*
+```mermaid
+flowchart LR
+    A[ISP ASN 64501] <-->|BGP Route Exchange| B[Cloud Provider ASN 64502]
+
+    A --> C[Advertise IP Prefixes]
+    B --> D[Advertise IP Prefixes]
+
+    A --> E[Direct Traffic Exchange]
+    B --> E
+
+    E --> F[Lower Latency and Reduced Transit Costs]
+```
+
+*Figure: ASN peering workflow showing two autonomous systems exchanging BGP routes and directly forwarding traffic between networks.*
+
 
 ## Why ASN Peering Matters
 

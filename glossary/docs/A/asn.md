@@ -44,7 +44,21 @@ For example:
 - AS13335 → Cloudflare
 - AS32934 → Meta
 
-/* IMAGE: BGP ASN routing and peering diagram /*
+```mermaid
+flowchart LR
+    A[User Traffic] --> B[ISP ASN 64501]
+
+    B --> C[Transit ASN 64510]
+
+    C --> D[Cloud Provider ASN 64520]
+
+    D --> E[Destination Service]
+
+    B <-->|BGP Peering| C
+    C <-->|BGP Route Exchange| D
+```
+
+*Figure: BGP ASN routing workflow showing how traffic moves between autonomous systems using peering and route advertisements.*
 
 ## Why ASNs Matter
 

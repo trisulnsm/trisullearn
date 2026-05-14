@@ -41,7 +41,28 @@ For example:
 3. The application is classified as YouTube, Netflix, or another service
 4. Traffic statistics are grouped by application
 
-/* IMAGE: Application visibility traffic classification workflow /*
+```mermaid
+flowchart LR
+    A[Network Traffic] --> B[Traffic Collection]
+
+    B --> C[Flow Records / DPI / Packet Analysis]
+
+    C --> D[Application Classification Engine]
+
+    D --> E[Identify Application]
+
+    E --> F[YouTube]
+    E --> G[Netflix]
+    E --> H[Zoom]
+    E --> I[Business Apps]
+
+    F --> J[Application Analytics Dashboard]
+    G --> J
+    H --> J
+    I --> J
+```
+
+*Figure: Application visibility workflow showing how network traffic is analyzed and classified into identifiable applications for monitoring and analytics.*
 
 ## Why Application Visibility Matters
 

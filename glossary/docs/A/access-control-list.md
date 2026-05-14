@@ -37,8 +37,16 @@ A typical ACL evaluation process works like this:
 
 Most ACLs follow a top-down evaluation process, meaning rule order is important.
 
-/* text IMAGE: Simple ACL workflow diagram /* 
-/* Packet → ACL Rule Check → Permit / Deny /* 
+```mermaid
+flowchart TD
+    A[Incoming Packet] --> B[ACL Rule Check]
+    B -->|Match Permit Rule| C[Permit Packet]
+    B -->|Match Deny Rule| D[Deny Packet]
+    B -->|No Match| E[Check Next Rule]
+    E --> B
+```
+
+*Figure: ACL workflow showing how incoming packets are evaluated against ordered rules before being permitted or denied.*
 
 ## Types of ACLs
 

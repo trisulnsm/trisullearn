@@ -45,7 +45,17 @@ For example:
 3. The monitoring platform detects the deviation
 4. The activity is flagged as anomalous
 
-/* IMAGE: Network traffic baseline vs anomaly detection graph /*
+```mermaid
+xychart-beta
+    title "Network Traffic Baseline vs Anomaly Detection"
+    x-axis ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00", "24:00"]
+    y-axis "Traffic Volume (GB)" 0 --> 50
+
+    line "Normal Baseline" [5, 7, 10, 12, 11, 9, 6]
+    line "Observed Traffic" [5, 7, 10, 42, 11, 9, 6]
+```
+
+*Figure: Traffic anomaly detection comparing normal baseline behavior against a sudden abnormal traffic spike.*
 
 ## Why Anomaly Detection Matters
 
