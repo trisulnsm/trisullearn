@@ -57,7 +57,7 @@ the resulting flow records estimate broader traffic behavior
 
 Sampling significantly reduces monitoring overhead while still providing meaningful traffic visibility.
 
-<!-- IMAGE: Full NetFlow monitoring vs sampled NetFlow workflow -->
+/*IMAGE: Full NetFlow monitoring vs sampled NetFlow workflow /*
 Why NetFlow Sampling Matters
 
 Modern high-speed networks generate enormous traffic volumes.

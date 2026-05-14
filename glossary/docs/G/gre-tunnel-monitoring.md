@@ -47,7 +47,7 @@ GRE tunnels are commonly used for:
 - traffic segmentation
 - VPN-style communication
 
-<!-- IMAGE: GRE tunnel encapsulation and traffic monitoring workflow -->
+/*IMAGE: GRE tunnel encapsulation and traffic monitoring workflow /*
 
 ## Why GRE Tunnel Monitoring Matters
 

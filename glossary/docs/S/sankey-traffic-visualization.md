@@ -63,7 +63,7 @@ which applications consume the most bandwidth
 how traffic moves across networks
 where congestion occurs
 which destinations dominate communication
-<!-- IMAGE: Sankey diagram showing traffic flows and bandwidth distribution -->
+/*IMAGE: Sankey diagram showing traffic flows and bandwidth distribution /*
 Why Sankey Traffic Visualization Matters
 
 Traditional charts and tables can make large-scale traffic relationships difficult to understand.

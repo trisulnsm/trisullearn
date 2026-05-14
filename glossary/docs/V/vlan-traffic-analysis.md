@@ -66,7 +66,7 @@ A data center VLAN experiences congestion
 VLAN analytics identify excessive backup traffic
 Teams optimize segmentation or traffic policies
 Network performance improves
-<!-- IMAGE: VLAN segmentation and traffic visibility -->
+/*IMAGE: VLAN segmentation and traffic visibility /*
 Why VLAN Traffic Analysis Matters
 
 Modern enterprise and data center networks rely heavily on segmentation for:

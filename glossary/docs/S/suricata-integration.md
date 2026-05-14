@@ -74,7 +74,7 @@ command-and-control traffic
 protocol anomalies
 lateral movement
 suspicious payloads
-<!-- IMAGE: Suricata IDS integration with network analytics -->
+/*IMAGE: Suricata IDS integration with network analytics /*
 Why Suricata Integration Matters
 
 Security alerts alone often lack sufficient operational context.

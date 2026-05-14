@@ -72,7 +72,7 @@ user activity
 latency patterns
 traffic direction
 seasonal traffic changes
-<!-- IMAGE: Normal traffic baseline vs anomalous traffic spike -->
+/*IMAGE: Normal traffic baseline vs anomalous traffic spike /*
 Why Traffic Baselines Matter
 
 Modern networks generate constantly changing traffic patterns.

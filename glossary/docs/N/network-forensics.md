@@ -65,7 +65,7 @@ Forensic analysis may include:
 - timeline analysis
 - communication mapping
 
-<!-- IMAGE: Network forensic investigation workflow -->
+/*IMAGE: Network forensic investigation workflow /*
 
 ## Why Network Forensics Matters
 

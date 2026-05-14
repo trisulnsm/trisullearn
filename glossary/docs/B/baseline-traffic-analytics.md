@@ -42,7 +42,7 @@ For example:
 3. Current traffic is continuously compared against historical patterns
 4. Significant deviations are flagged for investigation
 
-<!-- IMAGE: Network traffic baseline vs anomaly graph -->
+/* IMAGE: Network traffic baseline vs anomaly graph /*
 
 ## Why Baseline Traffic Analysis Matters
 

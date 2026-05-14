@@ -59,7 +59,7 @@ High jitter may cause:
 - delayed responses
 - session instability
 
-<!-- IMAGE: Stable packet timing vs jitter variation -->
+/*IMAGE: Stable packet timing vs jitter variation /*
 
 ## Why Jitter Monitoring Matters
 

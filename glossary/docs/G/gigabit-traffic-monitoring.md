@@ -62,7 +62,7 @@ Monitoring high-speed environments requires optimized:
 - traffic indexing
 - analytics pipelines
 
-<!-- IMAGE: High-speed gigabit traffic monitoring workflow -->
+/*IMAGE: High-speed gigabit traffic monitoring workflow /*
 
 ## Why Gigabit Traffic Monitoring Matters
 

@@ -67,7 +67,7 @@ A broadband subscriber connects to the ISP network
 The RADIUS server authenticates the session
 Session accounting logs are created
 The logs are retained for monitoring and compliance
-<!-- IMAGE: RADIUS authentication and logging workflow -->
+/*IMAGE: RADIUS authentication and logging workflow /*
 Why RADIUS Logging Matters
 
 Modern networks require strong visibility into user access and subscriber activity.

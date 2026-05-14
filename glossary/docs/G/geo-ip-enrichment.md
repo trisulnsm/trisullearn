@@ -52,7 +52,7 @@ For example:
 3. Analysts detect unexpected communication from unusual regions
 4. The traffic is investigated for possible threats
 
-<!-- IMAGE: GeoIP traffic enrichment and geographic visibility workflow -->
+/*IMAGE: GeoIP traffic enrichment and geographic visibility workflow /*
 
 ## Why GeoIP Enrichment Matters
 

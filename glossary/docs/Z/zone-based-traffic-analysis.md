@@ -86,7 +86,7 @@ abnormal application access
 excessive east-west traffic
 segmentation violations
 suspicious inter-zone behavior
-<!-- IMAGE: Network zones and inter-zone traffic visibility -->
+/*IMAGE: Network zones and inter-zone traffic visibility /*
 Why Zone-Based Traffic Analysis Matters
 
 Modern infrastructures rely heavily on segmentation and zero trust architectures.

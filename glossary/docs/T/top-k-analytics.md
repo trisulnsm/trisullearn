@@ -71,7 +71,7 @@ For example:
 WAN congestion occurs
 Top-K Analyticsᵀ identifies the top bandwidth-consuming applications
 Analysts investigate and optimize traffic policies
-<!-- IMAGE: Top-K Analyticsᵀ ranking dashboard -->
+/*IMAGE: Top-K Analyticsᵀ ranking dashboard /*
 Why Top-K Analyticsᵀ Matters
 
 Modern networks generate massive amounts of distributed traffic continuously.

@@ -49,7 +49,7 @@ Packet drops may happen:
 - continuously during congestion
 - intentionally through filtering policies
 
-<!-- IMAGE: Network congestion and dropped packet workflow -->
+/* IMAGE: Network congestion and dropped packet workflow /*
 
 ## Why Dropped Packets Matter
 

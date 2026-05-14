@@ -55,7 +55,7 @@ CPU usage
 memory usage
 export load
 storage requirements
-<!-- IMAGE: Accurate vs inaccurate traffic sampling representation -->
+/*IMAGE: Accurate vs inaccurate traffic sampling representation /*
 Why Sampling Accuracy Matters
 
 Large-scale networks generate enormous traffic volumes that may be impractical to monitor fully.

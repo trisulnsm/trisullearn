@@ -57,7 +57,7 @@ SLA violations
 interface failures
 unusual application behavior
 excessive packet drops
-<!-- IMAGE: Threshold-based alerting dashboard and alert workflow -->
+/*IMAGE: Threshold-based alerting dashboard and alert workflow /*
 Why Threshold-Based Alerting Matters
 
 Modern infrastructures generate enormous volumes of operational data continuously.

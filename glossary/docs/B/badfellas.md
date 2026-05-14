@@ -41,7 +41,7 @@ For example:
 3. The host triggers multiple suspicious indicators
 4. The system is flagged as a Badfellasᵀ entity for investigation
 
-<!-- IMAGE: Suspicious host detection and Badfellas workflow -->
+/* IMAGE: Suspicious host detection and Badfellas workflow /*
 
 ## Why Badfellasᵀ Matters
 

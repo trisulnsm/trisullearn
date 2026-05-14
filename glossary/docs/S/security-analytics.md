@@ -74,7 +74,7 @@ suspicious authentication patterns
 traffic anomalies
 data exfiltration
 command-and-control traffic
-<!-- IMAGE: Security analytics and threat investigation workflow -->
+/*IMAGE: Security analytics and threat investigation workflow /*
 Why Security Analytics Matters
 
 Modern attacks are:

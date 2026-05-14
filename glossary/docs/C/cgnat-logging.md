@@ -48,7 +48,7 @@ For example:
 
 The log allows operators to identify which subscriber used a specific public IP and port at a given time.
 
-<!-- IMAGE: CGNAT translation and logging workflow -->
+/* IMAGE: CGNAT translation and logging workflow /*
 
 ## Why CGNAT Logging Matters
 

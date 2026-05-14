@@ -45,7 +45,7 @@ For example:
 3. The monitoring platform detects the deviation
 4. The activity is flagged as anomalous
 
-<!-- IMAGE: Network traffic baseline vs anomaly detection graph -->
+/* IMAGE: Network traffic baseline vs anomaly detection graph /*
 
 ## Why Anomaly Detection Matters
 

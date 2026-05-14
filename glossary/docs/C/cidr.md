@@ -46,7 +46,7 @@ Common examples:
 
 CIDR allows network administrators to allocate address ranges more efficiently than traditional class-based addressing.
 
-<-- IMAGE: CIDR subnetting and IP prefix diagram -->
+/* IMAGE: CIDR subnetting and IP prefix diagram /*
 
 ## Why CIDR Matters
 

@@ -56,7 +56,7 @@ For example:
 3. Analysts identify lateral movement and traffic patterns
 4. The incident scope becomes clearer
 
-<!-- IMAGE: Historical flow forensic investigation workflow -->
+/* IMAGE: Historical flow forensic investigation workflow /*
 
 ## Why Flow Forensics Matters
 

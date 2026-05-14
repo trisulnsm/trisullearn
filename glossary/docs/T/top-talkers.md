@@ -76,7 +76,7 @@ For example:
 A WAN link becomes congested
 Top Talker analytics identify a backup application consuming bandwidth
 Teams optimize traffic policies to reduce congestion
-<!-- IMAGE: Top Talkers bandwidth visibility dashboard -->
+/*IMAGE: Top Talkers bandwidth visibility dashboard /*
 Why Top Talker Visibility Matters
 
 Modern networks carry enormous volumes of distributed traffic continuously.

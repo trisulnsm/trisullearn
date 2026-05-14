@@ -70,7 +70,7 @@ If no packets are observed for 15 seconds:
 
 the flow is considered complete
 the flow record is exported and closed
-<!-- IMAGE: Active and inactive flow timeout workflow -->
+/*IMAGE: Active and inactive flow timeout workflow /*
 Why Flow Timeout Matters
 
 Incorrect timeout settings can affect:

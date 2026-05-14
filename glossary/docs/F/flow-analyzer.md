@@ -50,7 +50,7 @@ Flow analyzers commonly process:
 - traffic statistics
 - protocol information
 
-<!-- IMAGE: Flow analyzer traffic processing workflow -->
+/* IMAGE: Flow analyzer traffic processing workflow /*
 
 ## Why Flow Analyzers Matter
 

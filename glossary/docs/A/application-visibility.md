@@ -41,7 +41,7 @@ For example:
 3. The application is classified as YouTube, Netflix, or another service
 4. Traffic statistics are grouped by application
 
-<!-- IMAGE: Application visibility traffic classification workflow -->
+/* IMAGE: Application visibility traffic classification workflow /*
 
 ## Why Application Visibility Matters
 

@@ -79,7 +79,7 @@ and:
 
 may be stored as two independent flow records.
 
-<!-- IMAGE: Separate inbound and outbound uni-directional flow records -->
+/*IMAGE: Separate inbound and outbound uni-directional flow records /*
 Why Uni-directional Flows Matter
 
 Uni-directional flows provide detailed visibility into traffic direction and asymmetric communication behavior.

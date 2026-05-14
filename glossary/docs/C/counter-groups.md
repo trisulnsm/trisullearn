@@ -51,7 +51,7 @@ Counter Groupsᵀ may organize metrics by:
 - traffic direction
 - security events
 
-<!-- IMAGE: Counter Groups traffic metrics aggregation diagram -->
+/* IMAGE: Counter Groups traffic metrics aggregation diagram /*
 
 ## Why Counter Groupsᵀ Matter
 

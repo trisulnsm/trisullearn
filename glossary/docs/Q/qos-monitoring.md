@@ -75,7 +75,7 @@ Backup traffic receives lower priority
 Congestion occurs on a WAN link
 QoS policies preserve voice quality
 Monitoring platforms validate policy effectiveness
-<!-- IMAGE: QoS traffic prioritization and monitoring workflow -->
+/*IMAGE: QoS traffic prioritization and monitoring workflow /*
 Why QoS Monitoring Matters
 
 Modern networks carry many competing applications simultaneously.

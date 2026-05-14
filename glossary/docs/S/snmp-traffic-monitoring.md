@@ -75,7 +75,7 @@ An interface experiences unusually high utilization
 SNMP monitoring detects the bandwidth spike
 Alerts are triggered
 Teams investigate the traffic source
-<!-- IMAGE: SNMP traffic and device monitoring dashboard -->
+/*IMAGE: SNMP traffic and device monitoring dashboard /*
 Why SNMP Traffic Monitoring Matters
 
 Network infrastructure requires continuous operational visibility.

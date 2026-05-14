@@ -44,7 +44,7 @@ For example:
 - AS13335 → Cloudflare
 - AS32934 → Meta
 
-<!-- IMAGE: BGP ASN routing and peering diagram -->
+/* IMAGE: BGP ASN routing and peering diagram /*
 
 ## Why ASNs Matter
 

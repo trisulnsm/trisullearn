@@ -44,7 +44,7 @@ For example:
 - Traffic between their users flows directly
 - Latency and transit costs are reduced
 
-<!-- IMAGE: ASN peering and BGP route exchange diagram -->
+/* IMAGE: ASN peering and BGP route exchange diagram /*
 
 ## Why ASN Peering Matters
 

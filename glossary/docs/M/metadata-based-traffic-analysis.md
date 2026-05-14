@@ -67,7 +67,7 @@ Metadata may come from:
 - application analytics
 - traffic sensors
 
-<!-- IMAGE: Metadata-based traffic visibility and flow analysis -->
+/*IMAGE: Metadata-based traffic visibility and flow analysis /*
 
 ## Why Metadata-Based Traffic Analysis Matters
 

@@ -51,7 +51,7 @@ Drilldown analysis may move between:
 - individual traffic sessions
 - packet captures
 
-<!-- IMAGE: Network drilldown investigation workflow -->
+/* IMAGE: Network drilldown investigation workflow /*
 
 ## Why Drilldown Analysis Matters
 

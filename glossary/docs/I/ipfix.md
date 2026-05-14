@@ -56,7 +56,7 @@ IPFIX records may include:
 - MPLS labels
 - custom metadata fields
 
-<!-- IMAGE: IPFIX export and flow monitoring workflow -->
+/*IMAGE: IPFIX export and flow monitoring workflow /*
 
 ## Why IPFIX Matters
 

@@ -54,7 +54,7 @@ A typical workflow looks like this:
 4. Logs are retained according to compliance requirements
 5. Authorized queries can retrieve subscriber activity records
 
-<!-- IMAGE: ISP subscriber logging and DoT compliance workflow -->
+/* IMAGE: ISP subscriber logging and DoT compliance workflow /*
 
 ## Why DoT Compliance Matters
 

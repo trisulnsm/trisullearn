@@ -45,7 +45,7 @@ A bi-directional flow may include:
 - session duration
 - response behavior
 
-<!-- IMAGE: Uni-directional vs bi-directional flow comparison -->
+/* IMAGE: Uni-directional vs bi-directional flow comparison /*
 
 ## Why Bi-directional Flows Matter
 

@@ -71,7 +71,7 @@ application behavior
 bandwidth usage
 communication destinations
 external connectivity
-<!-- IMAGE: North-South traffic entering and leaving a network -->
+/*IMAGE: North-South traffic entering and leaving a network /*
 Why North-South Traffic Matters
 
 North-South communication is a major source of:

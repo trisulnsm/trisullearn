@@ -63,7 +63,7 @@ The dashboard may display:
 - interface utilization
 - suspicious traffic behavior
 
-<!-- IMAGE: Centralized network analytics dashboard -->
+/*IMAGE: Centralized network analytics dashboard /*
 
 ## Why Key Dashboardᵀ Matters
 

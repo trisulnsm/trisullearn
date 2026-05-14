@@ -75,7 +75,7 @@ Users report poor voice quality
 Monitoring detects excessive jitter and packet loss
 WAN congestion is identified
 QoS policies are optimized
-<!-- IMAGE: VoIP traffic monitoring and call quality analytics -->
+/*IMAGE: VoIP traffic monitoring and call quality analytics /*
 Why VoIP Traffic Monitoring Matters
 
 Voice communication is highly sensitive to network performance issues.

@@ -58,7 +58,7 @@ For example:
 4. Compromised systems are remediated
 5. Historical traffic is reviewed for additional impact
 
-<!-- IMAGE: Security incident response workflow -->
+/*IMAGE: Security incident response workflow /*
 
 ## Why Incident Response Matters
 

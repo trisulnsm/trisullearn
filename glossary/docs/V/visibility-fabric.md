@@ -72,7 +72,7 @@ packet capture systems
 SIEMs
 network analytics platforms
 performance monitoring tools
-<!-- IMAGE: Visibility fabric architecture with distributed monitoring tools -->
+/*IMAGE: Visibility fabric architecture with distributed monitoring tools /*
 Why Visibility Fabrics Matter
 
 Modern infrastructures generate massive and highly distributed traffic visibility requirements.

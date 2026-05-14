@@ -66,7 +66,7 @@ directional latency
 upload/download ratios
 application traffic direction
 subscriber usage patterns
-<!-- IMAGE: Upstream and downstream traffic flow visualization -->
+/*IMAGE: Upstream and downstream traffic flow visualization /*
 Why Upstream vs Downstream Visibility Matters
 
 Modern applications generate very different traffic patterns depending on usage behavior.

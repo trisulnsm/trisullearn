@@ -65,7 +65,7 @@ Retention strategies may vary depending on:
 - investigation needs
 - operational goals
 
-<!-- IMAGE: Long-term traffic retention and historical analysis workflow -->
+/*IMAGE: Long-term traffic retention and historical analysis workflow /*
 
 ## Why Long-Term Traffic Retention Matters
 

@@ -74,7 +74,7 @@ suspicious authentication behavior
 lateral movement
 cloud-based attacks
 anomalous traffic patterns
-<!-- IMAGE: SOC visibility dashboard and security analytics -->
+/*IMAGE: SOC visibility dashboard and security analytics /*
 Why SOC Visibility Matters
 
 Modern threats are:

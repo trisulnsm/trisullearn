@@ -78,7 +78,7 @@ bandwidth abuse
 suspicious connections
 lateral movement
 operational bottlenecks
-<!-- IMAGE: Traffic investigation and correlation workflow -->
+/*IMAGE: Traffic investigation and correlation workflow /*
 Why Traffic Investigation Matters
 
 Modern networks generate massive amounts of distributed communication continuously.

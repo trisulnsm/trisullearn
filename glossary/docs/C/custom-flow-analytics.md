@@ -57,7 +57,7 @@ Custom flow analytics may focus on:
 - traffic direction
 - security behavior
 
-<!-- IMAGE: Custom flow analytics dashboard and traffic filtering workflow -->
+/* IMAGE: Custom flow analytics dashboard and traffic filtering workflow /*
 
 ## Why Custom Flow Analytics Matters
 

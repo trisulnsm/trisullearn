@@ -42,7 +42,7 @@ For example:
 3. Utilization approaches link capacity limits
 4. Network teams plan upgrades before congestion affects users
 
-<!-- IMAGE: Network traffic growth and capacity forecasting graph -->
+/* IMAGE: Network traffic growth and capacity forecasting graph /*
 
 ## Why Capacity Planning Matters
 

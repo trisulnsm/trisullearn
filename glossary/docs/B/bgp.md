@@ -46,7 +46,7 @@ BGP decisions can consider:
 - MED values
 - peering relationships
 
-<!-- IMAGE: BGP route advertisement and ASN path selection diagram -->
+/* IMAGE: BGP route advertisement and ASN path selection diagram /*
 
 ## Why BGP Matters
 

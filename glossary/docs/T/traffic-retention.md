@@ -72,7 +72,7 @@ protocol behavior
 bandwidth trends
 user sessions
 attack indicators
-<!-- IMAGE: Historical traffic retention and investigation workflow -->
+/*IMAGE: Historical traffic retention and investigation workflow /*
 Why Traffic Retention Matters
 
 Many operational and security incidents are identified long after they occur.

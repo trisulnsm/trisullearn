@@ -72,7 +72,7 @@ suspicious communication
 application degradation
 latency anomalies
 operational failures
-<!-- IMAGE: Streaming analytics and live traffic processing -->
+/*IMAGE: Streaming analytics and live traffic processing /*
 Why Streaming Analytics Matters
 
 Modern networks generate massive amounts of continuous operational data.

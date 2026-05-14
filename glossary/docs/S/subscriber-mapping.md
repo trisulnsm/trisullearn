@@ -64,7 +64,7 @@ session timestamps
 usage duration
 access methods
 traffic behavior
-<!-- IMAGE: Subscriber identity and traffic correlation workflow -->
+/*IMAGE: Subscriber identity and traffic correlation workflow /*
 Why Subscriber Mapping Matters
 
 Modern networks frequently use:

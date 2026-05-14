@@ -65,7 +65,7 @@ routing behavior
 peering relationships
 application traffic
 congestion patterns
-<!-- IMAGE: Internet transit traffic between networks and providers -->
+/*IMAGE: Internet transit traffic between networks and providers /*
 Why Transit Traffic Matters
 
 Transit connectivity is essential for global internet communication.

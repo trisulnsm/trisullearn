@@ -64,7 +64,7 @@ access historical traffic quickly
 isolate investigation time windows efficiently
 optimize long-term storage performance
 reduce overhead during retrospective analysis
-<!-- IMAGE: Time-sliced traffic retention architecture -->
+/*IMAGE: Time-sliced traffic retention architecture /*
 Why Slice Retentionᵀ Matters
 
 Modern monitoring environments generate enormous amounts of historical traffic data continuously.

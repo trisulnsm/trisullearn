@@ -69,7 +69,7 @@ This means:
 
 sFlow is designed for scalable monitoring in high-volume environments where monitoring every packet or flow may be impractical.
 
-<!-- IMAGE: sFlow packet sampling and analytics workflow -->
+/*IMAGE: sFlow packet sampling and analytics workflow /*
 Why sFlow Matters
 
 Modern networks generate enormous traffic volumes that can overwhelm monitoring systems.

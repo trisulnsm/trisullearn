@@ -51,7 +51,7 @@ Flow collectors commonly handle:
 - multi-device aggregation
 - scalable storage workflows
 
-<!-- IMAGE: Flow collector and flow export workflow -->
+/* IMAGE: Flow collector and flow export workflow /*
 
 ## Why Flow Collectors Matter
 

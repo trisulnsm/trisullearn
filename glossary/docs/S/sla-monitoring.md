@@ -72,7 +72,7 @@ application response time
 packet delivery quality
 bandwidth guarantees
 voice quality metrics
-<!-- IMAGE: SLA monitoring dashboard and threshold analysis -->
+/*IMAGE: SLA monitoring dashboard and threshold analysis /*
 Why SLA Monitoring Matters
 
 Organizations depend on stable and predictable service performance.

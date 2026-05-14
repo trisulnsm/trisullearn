@@ -71,7 +71,7 @@ timestamps
 session duration
 application identifiers
 QoS information
-<!-- IMAGE: Network flow monitoring architecture -->
+/*IMAGE: Network flow monitoring architecture /*
 Why Network Flow Monitoring Matters
 
 Modern networks generate massive traffic volumes that are difficult to analyze packet-by-packet continuously.

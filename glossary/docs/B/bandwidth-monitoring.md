@@ -48,7 +48,7 @@ For example:
 3. Bandwidth usage is grouped by application, interface, or user
 4. Network teams identify high-usage patterns or congestion
 
-<!-- IMAGE: Bandwidth monitoring dashboard and traffic flow visualization -->
+/* IMAGE: Bandwidth monitoring dashboard and traffic flow visualization /*
 
 ## Why Bandwidth Monitoring Matters
 

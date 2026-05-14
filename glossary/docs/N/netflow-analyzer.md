@@ -60,7 +60,7 @@ protocol distribution
 traffic trends
 ASN activity
 suspicious communication
-<!-- IMAGE: NetFlow analyzer dashboard and traffic analytics -->
+/*IMAGE: NetFlow analyzer dashboard and traffic analytics /*
 Why NetFlow Analyzers Matter
 
 Modern networks generate massive amounts of traffic continuously.

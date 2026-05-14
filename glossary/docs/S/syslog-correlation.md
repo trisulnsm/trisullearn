@@ -74,7 +74,7 @@ abnormal login activity
 routing instability
 device outages
 suspicious configuration changes
-<!-- IMAGE: Centralized syslog correlation and investigation workflow -->
+/*IMAGE: Centralized syslog correlation and investigation workflow /*
 Why Syslog Correlation Matters
 
 Modern infrastructures generate enormous volumes of log events continuously.

@@ -70,7 +70,7 @@ suspicious activity
 application latency
 malware communication
 traffic anomalies
-<!-- IMAGE: Packet capture and packet analysis workflow -->
+/*IMAGE: Packet capture and packet analysis workflow /*
 Why Packet Capture Matters
 
 Flow monitoring provides summarized traffic visibility, but many issues require deeper inspection of the actual packets.

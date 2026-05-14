@@ -71,7 +71,7 @@ scanning activity
 lateral movement
 traffic anomalies
 unexpected bandwidth usage
-<!-- IMAGE: Focused anomaly isolation and investigation workflow -->
+/*IMAGE: Focused anomaly isolation and investigation workflow /*
 Why Stabberᵀ Matters
 
 Modern networks generate enormous amounts of operational and security telemetry continuously.

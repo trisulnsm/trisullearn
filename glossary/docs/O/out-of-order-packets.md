@@ -56,7 +56,7 @@ load balancing distributes traffic unevenly
 
 Protocols such as TCP can often reorder packets automatically, but excessive reordering may reduce performance.
 
-<!-- IMAGE: Ordered vs out-of-order packet delivery -->
+/*IMAGE: Ordered vs out-of-order packet delivery /*
 Why Out-of-Order Packets Matter
 
 Packet sequencing is important for reliable communication.

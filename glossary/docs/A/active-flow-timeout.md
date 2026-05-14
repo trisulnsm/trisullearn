@@ -44,7 +44,7 @@ For example:
 3. The exporter sends updated flow records every 60 seconds
 4. Monitoring tools receive continuous visibility into the session
 
-<!-- IMAGE: Active Flow Timeout export workflow -->
+/* IMAGE: Active Flow Timeout export workflow /*
 
 ## Why Active Flow Timeout Matters
 

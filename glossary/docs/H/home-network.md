@@ -59,7 +59,7 @@ This improves:
 - application visibility
 - traffic investigation workflows
 
-<!-- IMAGE: Home Network internal vs external traffic visibility -->
+/*IMAGE: Home Network internal vs external traffic visibility /*
 
 ## Why Home Networkᵀ Matters
 

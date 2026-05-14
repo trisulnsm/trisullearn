@@ -75,7 +75,7 @@ A VPN tunnel experiences degraded performance
 Tunnel analytics identify excessive bandwidth usage
 Application visibility reveals backup traffic saturating the tunnel
 QoS or routing adjustments are applied
-<!-- IMAGE: Encapsulated tunnel traffic and overlay visibility -->
+/*IMAGE: Encapsulated tunnel traffic and overlay visibility /*
 Why Tunnel Traffic Analysis Matters
 
 Modern infrastructures rely heavily on overlay and encrypted communication.

@@ -66,7 +66,7 @@ retransmissions
 packet loss
 latency behavior
 application transactions
-<!-- IMAGE: Packet analysis and protocol inspection workflow -->
+/*IMAGE: Packet analysis and protocol inspection workflow /*
 Why Packet Analysis Matters
 
 Many network and security issues cannot be fully understood using only summarized traffic metadata.

@@ -72,7 +72,7 @@ A 100 Gbps backbone experiences a DDoS attack
 The capture platform records all traffic successfully
 Analysts reconstruct the complete attack timeline
 No visibility gaps exist in the investigation
-<!-- IMAGE: Lossless packet capture and forensic visibility workflow -->
+/*IMAGE: Lossless packet capture and forensic visibility workflow /*
 Why Zero Packet Loss Capture Matters
 
 Modern networks generate enormous traffic volumes continuously.

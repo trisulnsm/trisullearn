@@ -53,7 +53,7 @@ For example:
 3. The endpoint is correlated with user and application information
 4. Analysts investigate the device for potential compromise
 
-<!-- IMAGE: Endpoint visibility and device communication workflow -->
+/* IMAGE: Endpoint visibility and device communication workflow /*
 
 ## Why Endpoint Visibility Matters
 

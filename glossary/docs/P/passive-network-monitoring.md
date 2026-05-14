@@ -62,7 +62,7 @@ bandwidth
 latency
 application performance
 communication stability
-<!-- IMAGE: Passive traffic monitoring architecture -->
+/*IMAGE: Passive traffic monitoring architecture /*
 Why Passive Network Monitoring Matters
 
 Many organizations require visibility without introducing operational risk or additional network overhead.

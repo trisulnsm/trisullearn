@@ -63,7 +63,7 @@ how long the session lasted
 
 This allows organizations to later trace internet activity back to specific internal users or subscribers.
 
-<!-- IMAGE: NAT translation and logging workflow -->
+/*IMAGE: NAT translation and logging workflow /*
 Why NAT Logging Matters
 
 Without NAT logging, organizations may struggle to:

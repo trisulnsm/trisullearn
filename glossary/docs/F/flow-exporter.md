@@ -55,7 +55,7 @@ The workflow usually looks like this:
 
 Network Device → Flow Exporter → Flow Collector → Flow Analyzer
 
-<!-- IMAGE: Flow exporter and flow collection workflow -->
+/* IMAGE: Flow exporter and flow collection workflow /*
 Why Flow Exporters Matter
 
 Without exporters, monitoring platforms would not receive traffic visibility data.

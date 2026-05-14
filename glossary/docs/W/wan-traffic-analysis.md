@@ -79,7 +79,7 @@ A branch office experiences slow application performance
 WAN analytics identify backup traffic saturating the link
 QoS policies are adjusted
 Application responsiveness improves
-<!-- IMAGE: WAN traffic visibility across distributed branch networks -->
+/*IMAGE: WAN traffic visibility across distributed branch networks /*
 Why WAN Traffic Analysis Matters
 
 WAN links often carry critical business communication and cloud traffic.

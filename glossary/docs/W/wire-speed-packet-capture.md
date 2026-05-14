@@ -71,7 +71,7 @@ A DDoS attack occurs at 40 Gbps
 The capture system records all packets without loss
 Analysts reconstruct the attack timeline later
 Detailed forensic analysis becomes possible
-<!-- IMAGE: High-speed packet capture architecture -->
+/*IMAGE: High-speed packet capture architecture /*
 Why Wire-Speed Packet Capture Matters
 
 High-speed networks generate enormous traffic volumes continuously.

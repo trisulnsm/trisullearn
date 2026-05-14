@@ -73,7 +73,7 @@ ingress vs egress traffic
 protocol distribution
 application traffic
 congestion behavior
-<!-- IMAGE: Peering traffic visibility between interconnected ASNs -->
+/*IMAGE: Peering traffic visibility between interconnected ASNs /*
 Why Peering Traffic Analysis Matters
 
 Large-scale networks depend heavily on peering relationships for:

@@ -54,7 +54,7 @@ packet capture
 network forensics
 high-speed traffic analysis
 compliance environments
-<!-- IMAGE: Network TAP deployment architecture -->
+/*IMAGE: Network TAP deployment architecture /*
 What is a SPAN Port?
 
 A SPAN (Switched Port Analyzer) port is a switch feature that mirrors traffic from one or more interfaces to a monitoring interface.
@@ -85,7 +85,7 @@ troubleshooting
 temporary monitoring
 operational visibility
 basic packet analysis
-<!-- IMAGE: SPAN port traffic mirroring workflow -->
+/*IMAGE: SPAN port traffic mirroring workflow /*
 TAP vs SPAN Port Comparison
 Feature TAP SPAN Port
 Traffic Visibility Accuracy Very high Moderate

@@ -62,7 +62,7 @@ Traffic analytics may include:
 - attack detection
 - traffic engineering metrics
 
-<!-- IMAGE: ISP traffic analytics and backbone visibility workflow -->
+/*IMAGE: ISP traffic analytics and backbone visibility workflow /*
 
 ## Why ISP Traffic Analytics Matters
 

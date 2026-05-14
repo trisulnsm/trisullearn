@@ -54,7 +54,7 @@ Although short-lived, these bursts can heavily affect:
 - storage traffic
 - real-time applications
 
-<!-- IMAGE: Normal traffic flow vs microburst traffic spike -->
+/*IMAGE: Normal traffic flow vs microburst traffic spike /*
 
 ## Why Microburst Detection Matters
 

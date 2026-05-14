@@ -61,7 +61,7 @@ For example:
 3. Network congestion increases delay
 4. The application becomes slow or unresponsive
 
-<!-- IMAGE: Low latency vs high latency network communication -->
+/*IMAGE: Low latency vs high latency network communication /*
 
 ## Why Latency Monitoring Matters
 

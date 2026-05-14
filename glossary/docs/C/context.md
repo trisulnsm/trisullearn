@@ -50,7 +50,7 @@ Contextᵀ may combine:
 - protocol behavior
 - historical traffic records
 
-<!-- IMAGE: Context-based traffic investigation workflow -->
+/* IMAGE: Context-based traffic investigation workflow /*
 
 ## Why Contextᵀ Matters
 

@@ -56,7 +56,7 @@ millions of flow records
 distributed exporters
 high-speed traffic environments
 long-term retention workflows
-<!-- IMAGE: NetFlow collector and flow ingestion workflow -->
+/*IMAGE: NetFlow collector and flow ingestion workflow /*
 Why NetFlow Collectors Matter
 
 Modern networks generate enormous traffic visibility data continuously.

@@ -56,7 +56,7 @@ This helps analysts visualize:
 - which systems participated
 - where latency or anomalies occurred
 
-<!-- IMAGE: Multi-hop traffic path using Flow Legs -->
+/* IMAGE: Multi-hop traffic path using Flow Legs /*
 
 ## Why Flow Legsᵀ Matter
 

@@ -43,7 +43,7 @@ For example:
 
 This internal communication is considered east-west traffic.
 
-<!-- IMAGE: East-west traffic movement inside a data center -->
+/* IMAGE: East-west traffic movement inside a data center /*
 
 ## Why East-West Traffic Matters
 

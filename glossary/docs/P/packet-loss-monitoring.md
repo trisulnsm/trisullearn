@@ -59,7 +59,7 @@ Users experience degraded call quality
 
 Packet loss is commonly measured as a percentage of lost packets compared to total transmitted packets.
 
-<!-- IMAGE: Normal packet delivery vs packet loss -->
+/*IMAGE: Normal packet delivery vs packet loss /*
 Why Packet Loss Monitoring Matters
 
 Even small amounts of packet loss can severely affect network performance and user experience.

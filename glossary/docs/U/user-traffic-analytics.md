@@ -77,7 +77,7 @@ abnormal login activity
 suspicious communication
 policy violations
 subscriber usage trends
-<!-- IMAGE: User-level traffic analytics and behavioral visibility -->
+/*IMAGE: User-level traffic analytics and behavioral visibility /*
 Why User Traffic Analytics Matters
 
 Modern networks are highly dynamic and user-driven.

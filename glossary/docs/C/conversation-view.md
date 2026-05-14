@@ -48,7 +48,7 @@ This provides better visibility into:
 - how long the session lasted
 - how the application behaved
 
-<!-- IMAGE: Conversation View client-server communication diagram -->
+/* IMAGE: Conversation View client-server communication diagram /*
 
 ## Why Conversation View Matters
 

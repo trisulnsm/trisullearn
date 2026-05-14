@@ -62,7 +62,7 @@ KPIs may be monitored in:
 - historical trend reports
 - SLA dashboards
 
-<!-- IMAGE: KPI monitoring dashboard and performance metrics -->
+/*IMAGE: KPI monitoring dashboard and performance metrics /*
 
 ## Why KPI Monitoring Matters
 

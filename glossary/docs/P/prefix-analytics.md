@@ -31,7 +31,7 @@ routing anomalies
 DDoS targets
 cloud traffic patterns
 peering traffic distribution
-<!-- IMAGE: Prefix-level traffic analytics and routing visibility -->
+/*IMAGE: Prefix-level traffic analytics and routing visibility /*
 Why Prefix Analytics Matters
 
 Large-scale networks manage traffic across thousands or millions of IP addresses.

@@ -60,7 +60,7 @@ For example:
 3. Analysts identify the source immediately
 4. Mitigation or troubleshooting begins quickly
 
-<!-- IMAGE: Real-time live traffic monitoring dashboard -->
+/*IMAGE: Real-time live traffic monitoring dashboard /*
 
 ## Why Live Traffic Monitoring Matters
 

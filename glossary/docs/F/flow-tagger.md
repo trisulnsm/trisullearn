@@ -64,7 +64,7 @@ Traffic can be tagged as:
 - regional traffic
 - security events
 
-<!-- IMAGE: Flow tagging and traffic classification workflow -->
+/*IMAGE: Flow tagging and traffic classification workflow /*
 
 ## Why Flow Taggerᵀ Matters
 

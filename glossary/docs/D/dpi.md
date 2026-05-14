@@ -53,7 +53,7 @@ DPI can identify:
 - malware communication
 - suspicious payload behavior
 
-<!-- IMAGE: Deep Packet Inspection traffic analysis workflow -->
+/* IMAGE: Deep Packet Inspection traffic analysis workflow /*
 
 ## Why DPI Matters
 

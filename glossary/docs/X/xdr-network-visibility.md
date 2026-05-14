@@ -81,7 +81,7 @@ data exfiltration
 suspicious DNS activity
 cloud-based attacks
 encrypted threat traffic
-<!-- IMAGE: XDR platform correlating network and endpoint visibility -->
+/*IMAGE: XDR platform correlating network and endpoint visibility /*
 Why XDR Network Visibility Matters
 
 Modern attacks often move across multiple environments and security layers.
