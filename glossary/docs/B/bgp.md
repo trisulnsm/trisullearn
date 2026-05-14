@@ -46,7 +46,22 @@ BGP decisions can consider:
 - MED values
 - peering relationships
 
-/* IMAGE: BGP route advertisement and ASN path selection diagram /*
+```mermaid
+flowchart LR
+    A[ASN 64501] -->|Advertise Routes| B[BGP Router]
+
+    C[ASN 64510] -->|Advertise Routes| B
+
+    D[ASN 64520] -->|Advertise Routes| B
+
+    B --> E{Best Path Selection}
+
+    E -->|Shortest AS Path| F[Selected Route]
+
+    F --> G[Traffic Forwarding]
+```
+
+*Figure: BGP routing workflow showing route advertisements from multiple ASNs and best path selection based on routing attributes.*
 
 ## Why BGP Matters
 

@@ -41,7 +41,23 @@ For example:
 3. The host triggers multiple suspicious indicators
 4. The system is flagged as a Badfellasᵀ entity for investigation
 
-/* IMAGE: Suspicious host detection and Badfellas workflow /*
+```mermaid
+flowchart TD
+    A[Network Traffic Activity] --> B[Behavioral Analysis Engine]
+
+    B --> C{Suspicious Behavior Detected?}
+
+    C -->|Yes| D[Flag Host as Badfellasᵀ]
+    C -->|No| E[Continue Normal Monitoring]
+
+    D --> F[Security Investigation]
+
+    F --> G[Traffic Analysis]
+    F --> H[Packet Capture Review]
+    F --> I[Threat Correlation]
+```
+
+*Figure: Badfellasᵀ workflow showing how suspicious traffic behavior is analyzed, flagged, and escalated for investigation.*
 
 ## Why Badfellasᵀ Matters
 

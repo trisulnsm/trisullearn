@@ -44,7 +44,17 @@ Burst traffic may last:
 - minutes
 - longer during sustained congestion or attacks
 
-/* IMAGE: Burst traffic spike on bandwidth utilization graph /*
+```mermaid
+xychart-beta
+    title "Burst Traffic Spike on Bandwidth Utilization"
+    x-axis ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00", "24:00"]
+    y-axis "Bandwidth Utilization (%)" 0 --> 100
+
+    line "Normal Traffic" [25, 30, 35, 40, 38, 34, 28]
+    line "Burst Traffic" [25, 30, 35, 92, 38, 34, 28]
+```
+
+*Figure: Burst traffic visualization showing a sudden short-duration spike in bandwidth utilization compared to normal traffic levels.*
 
 ## Why Burst Traffic Matters
 

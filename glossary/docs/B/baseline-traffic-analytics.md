@@ -42,7 +42,17 @@ For example:
 3. Current traffic is continuously compared against historical patterns
 4. Significant deviations are flagged for investigation
 
-/* IMAGE: Network traffic baseline vs anomaly graph /*
+```mermaid
+xychart-beta
+    title "Network Traffic Baseline vs Anomaly"
+    x-axis ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    y-axis "Traffic Volume (GB)" 0 --> 100
+
+    line "Normal Baseline" [35, 38, 40, 42, 41, 39, 36]
+    line "Observed Traffic" [35, 38, 40, 88, 41, 39, 36]
+```
+
+*Figure: Baseline traffic analysis comparing expected network behavior against an abnormal traffic spike detected during monitoring.*
 
 ## Why Baseline Traffic Analysis Matters
 

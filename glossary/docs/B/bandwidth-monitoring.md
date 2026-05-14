@@ -48,7 +48,26 @@ For example:
 3. Bandwidth usage is grouped by application, interface, or user
 4. Network teams identify high-usage patterns or congestion
 
-/* IMAGE: Bandwidth monitoring dashboard and traffic flow visualization /*
+```mermaid
+flowchart LR
+    A[Routers / Switches / Firewalls] --> B[Traffic Collection]
+
+    B --> C[NetFlow / SNMP / IPFIX Analysis]
+
+    C --> D[Bandwidth Monitoring Engine]
+
+    D --> E[Interface Utilization]
+    D --> F[Top Applications]
+    D --> G[Top Talkers]
+    D --> H[Traffic Trends]
+
+    E --> I[Bandwidth Dashboard]
+    F --> I
+    G --> I
+    H --> I
+```
+
+*Figure: Bandwidth monitoring workflow showing how network traffic data is collected, analyzed, and visualized through monitoring dashboards and traffic analytics.*
 
 ## Why Bandwidth Monitoring Matters
 

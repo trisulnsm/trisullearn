@@ -45,7 +45,20 @@ A bi-directional flow may include:
 - session duration
 - response behavior
 
-/* IMAGE: Uni-directional vs bi-directional flow comparison /*
+```mermaid
+flowchart TB
+
+    subgraph U["Uni-directional Flow"]
+        A1[Client → Server]
+        A2[Server → Client]
+    end
+
+    subgraph B["Bi-directional Flow"]
+        C1[Client ↔ Server<br/>Single Combined Conversation]
+    end
+```
+
+*Figure: Comparison between uni-directional flows, which store each traffic direction separately, and bi-directional flows, which combine both directions into a single session view.*
 
 ## Why Bi-directional Flows Matter
 

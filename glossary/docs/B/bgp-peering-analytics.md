@@ -46,7 +46,25 @@ For example:
 3. Traffic is grouped by peering ASN
 4. Teams analyze traffic volume, routing changes, and peering behavior
 
-/* IMAGE: BGP peering traffic analysis and ASN relationship diagram /*
+```mermaid
+flowchart LR
+    A[ISP ASN 64501] <-->|BGP Peering| B[Transit ASN 64510]
+
+    B <-->|BGP Peering| C[Cloud ASN 64520]
+
+    A --> D[NetFlow / IPFIX Export]
+    B --> D
+    C --> D
+
+    D --> E[BGP Peering Analytics Engine]
+
+    E --> F[ASN Relationship Mapping]
+    E --> G[Traffic Volume Analysis]
+    E --> H[Route Path Visibility]
+    E --> I[Peering Utilization Monitoring]
+```
+
+*Figure: BGP peering analytics workflow showing ASN relationships, route exchanges, and traffic visibility across peering networks.*
 
 ## Why BGP Peering Analytics Matters
 
