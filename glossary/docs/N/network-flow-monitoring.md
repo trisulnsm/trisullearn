@@ -61,132 +61,138 @@ The device exports metadata using technologies such as:
 
 A typical workflow looks like this:
 
+```
 Network Device → Flow Exporter → Flow Collector → Flow Analyzer
+```
 
 Flow records may include:
 
-packet counts
-byte counts
-timestamps
-session duration
-application identifiers
-QoS information
-/*IMAGE: Network flow monitoring architecture /*
-Why Network Flow Monitoring Matters
+- packet counts
+- byte counts
+- timestamps
+- session duration
+- application identifiers
+- QoS information
+
+## Why Network Flow Monitoring Matters
 
 Modern networks generate massive traffic volumes that are difficult to analyze packet-by-packet continuously.
 
 Flow monitoring helps organizations:
 
-scale traffic visibility
-monitor bandwidth usage
-identify top talkers
-analyze application traffic
-troubleshoot congestion
-investigate anomalies
+- scale traffic visibility
+- monitor bandwidth usage
+- identify top talkers
+- analyze application traffic
+- troubleshoot congestion
+- investigate anomalies
 
 Without flow visibility, teams may struggle to:
 
-understand communication behavior
-identify traffic bottlenecks
-analyze long-term trends
-investigate suspicious traffic
-optimize network performance
+- understand communication behavior
+- identify traffic bottlenecks
+- analyze long-term trends
+- investigate suspicious traffic
+- optimize network performance
 
 Flow monitoring is especially important in:
 
-enterprise networks
-ISP infrastructures
-cloud environments
-SOC operations
-data centers
-hybrid networks
-Common Operational Use Cases
-Bandwidth Monitoring
+- enterprise networks
+- ISP infrastructures
+- cloud environments
+- SOC operations
+- data centers
+- hybrid networks
+
+## Common Operational Use Cases
+
+### Bandwidth Monitoring
 
 Analyze traffic utilization and identify top consumers.
 
-Application Visibility
+### Application Visibility
 
 Monitor application and cloud traffic behavior.
 
-Security Monitoring
+### Security Monitoring
 
 Detect suspicious communication and traffic anomalies.
 
-Capacity Planning
+### Capacity Planning
 
 Analyze long-term traffic growth and infrastructure usage.
 
-ISP Traffic Analytics
+### ISP Traffic Analytics
 
 Monitor subscriber and backbone traffic visibility.
 
-Network Flow Monitoring vs Packet Capture
-Feature Network Flow Monitoring Packet Capture
-Visibility Type Traffic metadata  Full packet contents
-Storage Requirement Lower Much higher
-Scalability High  Moderate
-Payload Visibility  Minimal or none Full
-Common Use  Traffic analytics Deep forensics
+## Network Flow Monitoring vs Packet Capture
+
+| Feature | Network Flow Monitoring | Packet Capture| 
+|----------|----------------------|-----------------|
+| Visibility Type | Traffic metadata  | Full packet contents| 
+| Storage Requirement | Lower | Much higher| 
+| Scalability | High |  Moderate| 
+| Payload Visibility |  Minimal or none | Full| 
+| Common Use |  Traffic analytics|  Deep forensics| 
 
 Flow monitoring provides scalable traffic visibility, while packet capture provides deeper packet-level inspection.
 
-How Trisul Handles Network Flow Monitoring
+## How Trisul Handles Network Flow Monitoring
 
 Trisul provides scalable flow analytics for enterprise, ISP, and cloud environments.
 
 Combined with:
 
-Flow Analysis
-Top-K Analyticsᵀ
-Flow Stitchingᵀ
-Contextᵀ
-Retro Analysisᵀ
-Long-Term Traffic Retention
+- Flow Analysis
+- Top-K Analyticsᵀ
+- Flow Stitchingᵀ
+- Contextᵀ
+- Retro Analysisᵀ
+- Long-Term Traffic Retention
 
 Trisul helps teams:
 
-analyze communication behavior
-monitor bandwidth usage
-identify top talkers
-investigate anomalies
-visualize application traffic
-retain historical visibility
+- analyze communication behavior
+- monitor bandwidth usage
+- identify top talkers
+- investigate anomalies
+- visualize application traffic
+- retain historical visibility
 
-Trisul can also integrate NetFlow
-, IPFIX
-, and Application Visibility
- workflows for deeper traffic analytics.
+Trisul can also integrate NetFlow, IPFIX, and Application Visibility workflows for deeper traffic analytics.
 
-Related Terms
-NetFlow
-IPFIX
-Flow Analysis
-Flow Collector
-Bandwidth Monitoring
-Application Visibility
-FAQ
-What is network flow monitoring?
+## Related Terms
+
+- NetFlow
+- IPFIX
+- Flow Analysis
+- Flow Collector
+- Bandwidth Monitoring
+- Application Visibility
+
+## FAQ
+
+### What is network flow monitoring?
 
 Network flow monitoring is the process of collecting and analyzing flow records that summarize network communication behavior.
 
-Why is network flow monitoring important?
+### Why is network flow monitoring important?
 
 It helps organizations monitor bandwidth usage, analyze traffic patterns, troubleshoot issues, and detect anomalies.
 
-What technologies are used for flow monitoring?
+### What technologies are used for flow monitoring?
 
 Common technologies include NetFlow, IPFIX, and sFlow.
 
-What information do flow records contain?
+### What information do flow records contain?
 
 Flow records may include IP addresses, ports, protocols, timestamps, bandwidth usage, and session duration.
 
-What's the difference between flow monitoring and packet capture?
+### What's the difference between flow monitoring and packet capture?
 
 Flow monitoring summarizes communication into metadata, while packet capture stores full packet contents.
 
-Is network flow monitoring useful for security operations?
+### Is network flow monitoring useful for security operations?
 
 Yes. It helps detect suspicious communication, anomalous traffic patterns, and abnormal network behavior.

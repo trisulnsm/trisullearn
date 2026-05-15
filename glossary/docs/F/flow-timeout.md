@@ -53,135 +53,141 @@ Active Timeout = 60 seconds
 
 If a connection remains active longer than 60 seconds:
 
-the device exports the current flow statistics
-the flow continues monitoring afterward
+- the device exports the current flow statistics
+- the flow continues monitoring afterward
 
 This improves visibility into long-lived sessions.
 
-Inactive Flow Timeout
+### Inactive Flow Timeout
 
 The Inactive Flow Timeout defines how long a flow can remain idle before the device closes and exports it.
 
 For example:
 
+```
 Inactive Timeout = 15 seconds
+```
 
 If no packets are observed for 15 seconds:
 
-the flow is considered complete
-the flow record is exported and closed
-/*IMAGE: Active and inactive flow timeout workflow /*
-Why Flow Timeout Matters
+- the flow is considered complete
+- the flow record is exported and closed
+
+## Why Flow Timeout Matters
 
 Incorrect timeout settings can affect:
 
-traffic visibility
-reporting accuracy
-flow volume
-monitoring performance
-storage usage
+- traffic visibility
+- reporting accuracy
+- flow volume
+- monitoring performance
+- storage usage
 
 Flow timeout tuning helps organizations:
 
-improve flow accuracy
-reduce exporter load
-optimize analytics performance
-improve troubleshooting visibility
-manage long-lived connections efficiently
+- improve flow accuracy
+- reduce exporter load
+- optimize analytics performance
+- improve troubleshooting visibility
+- manage long-lived connections efficiently
 
 Timeout settings are especially important in:
 
-ISP environments
-high-speed networks
-cloud infrastructures
-data centers
-long-duration application sessions
-Common Operational Use Cases
-Long-Lived Application Monitoring
+- ISP environments
+- high-speed networks
+- cloud infrastructures
+- data centers
+- long-duration application sessions
+
+## Common Operational Use Cases
+
+### Long-Lived Application Monitoring
 
 Track VPNs, streaming sessions, or persistent cloud connections.
 
-Bandwidth Analysis
+### Bandwidth Analysis
 
 Improve visibility into traffic usage over time.
 
-Exporter Performance Optimization
+### Exporter Performance Optimization
 
 Reduce excessive flow exports during high traffic loads.
 
-Traffic Investigation
+### Traffic Investigation
 
 Improve visibility into short-lived or burst traffic behavior.
 
-Security Monitoring
+### Security Monitoring
 
-Analyze suspicious sessions and long-running communication patterns.
+## Analyze suspicious sessions and long-running communication patterns.
 
-Active vs Inactive Flow Timeout
-Feature Active Flow Timeout Inactive Flow Timeout
-Purpose Export ongoing flows periodically Close idle flows
-Trigger Time duration reached No traffic activity
-Flow Status Still active  Considered complete
-Visibility Role Long-session updates  Session completion
-Common Use  Persistent traffic visibility Cleanup and export
+## Active vs Inactive Flow Timeout
+
+| Feature | Active Flow Timeout|  Inactive Flow Timeout| 
+|----------|-------------------|-----------------------|
+| Purpose | Export ongoing flows periodically | Close idle flows| 
+| Trigger | Time duration reached|  No traffic activity| 
+| Flow Status|  Still active  | Considered complete| 
+| Visibility | Role Long-session updates |  Session completion| 
+| Common Use |  Persistent traffic visibility | Cleanup and export| 
 
 Both timeout types work together to maintain accurate and scalable flow monitoring.
 
-How Trisul Uses Flow Timeout Visibility
+## How Trisul Uses Flow Timeout Visibility
 
 Trisul analyzes flow behavior and session activity across large-scale traffic monitoring environments.
 
 Combined with:
 
-Flow Analysis
-Flow Stitchingᵀ
-Conversation View
-Top-K Analyticsᵀ
-Retro Analysisᵀ
-Contextᵀ
+- Flow Analysis
+- Flow Stitchingᵀ
+- Conversation View
+- Top-K Analyticsᵀ
+- Retro Analysisᵀ
+- Contextᵀ
 
 Trisul helps teams:
 
-analyze session behavior
-monitor long-lived traffic
-investigate short-lived communication
-optimize traffic visibility
-correlate historical flow activity
-troubleshoot exporter behavior
+- analyze session behavior
+- monitor long-lived traffic
+- investigate short-lived communication
+- optimize traffic visibility
+- correlate historical flow activity
+- troubleshoot exporter behavior
 
-Trisul can also integrate NetFlow
-, IPFIX
-, and Traffic Investigation
- workflows for deeper operational visibility.
+Trisul can also integrate NetFlow, IPFIX, and Traffic Investigation workflows for deeper operational visibility.
 
-Related Terms
-Active Flow Timeout
-Flow Monitoring
-Flow Exporter
-Flow Analysis
-NetFlow
-IPFIX
-FAQ
-What is flow timeout?
+## Related Terms
+- Active Flow Timeout
+- Flow Monitoring
+- Flow Exporter
+- Flow Analysis
+- NetFlow
+- IPFIX
+
+
+## FAQ
+
+### What is flow timeout?
 
 Flow timeout is a setting that determines when a network device exports or closes a flow record.
 
-What is active flow timeout?
+### What is active flow timeout?
 
 Active flow timeout exports ongoing flows periodically even if traffic is still active.
 
-What is inactive flow timeout?
+### What is inactive flow timeout?
 
 Inactive flow timeout closes and exports flows after a period of inactivity.
 
-Why are flow timeout settings important?
+### Why are flow timeout settings important?
 
 They affect traffic visibility, reporting accuracy, exporter performance, and monitoring scalability.
 
-Can incorrect timeout settings affect analytics?
+### Can incorrect timeout settings affect analytics?
 
 Yes. Poor timeout configuration can create inaccurate traffic reporting or excessive flow exports.
 
-Are flow timeouts important in ISP environments?
+### Are flow timeouts important in ISP environments?
 
 Yes. ISPs use timeout tuning to optimize large-scale traffic visibility and exporter performance.

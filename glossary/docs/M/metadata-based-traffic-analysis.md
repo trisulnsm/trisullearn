@@ -67,8 +67,6 @@ Metadata may come from:
 - application analytics
 - traffic sensors
 
-/*IMAGE: Metadata-based traffic visibility and flow analysis /*
-
 ## Why Metadata-Based Traffic Analysis Matters
 
 Modern networks generate enormous traffic volumes that are difficult to store as full packets continuously.

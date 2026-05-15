@@ -58,8 +58,6 @@ For example:
 3. Multiple visibility sources generate traffic metadata
 4. The monitoring platform combines the visibility into unified analytics
 
-/*IMAGE: Hybrid flow monitoring across cloud and on-prem infrastructure /*
-
 ## Why Hybrid Flow Monitoring Matters
 
 Traditional monitoring tools were often designed only for physical networks.

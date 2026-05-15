@@ -56,8 +56,6 @@ Traffic direction is often analyzed using:
 - firewall zones
 - Home Networkᵀ configurations
 
-/*IMAGE: Inbound vs outbound traffic direction workflow /*
-
 ## Why Inbound and Outbound Traffic Matter
 
 Traffic direction provides operational context that helps organizations:

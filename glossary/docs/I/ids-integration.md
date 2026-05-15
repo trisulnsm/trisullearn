@@ -56,7 +56,7 @@ For example:
 3. Packet captures reveal additional communication details
 4. Analysts reconstruct the attack timeline
 
-/*IMAGE: IDS integration with traffic analytics and packet visibility /*
+![](images/idsintegration.png)
 
 ## Why IDS Integration Matters
 

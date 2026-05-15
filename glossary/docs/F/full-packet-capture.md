@@ -68,8 +68,6 @@ For example:
 3. The payload reveals malicious activity
 4. Investigators reconstruct the entire communication session
 
-/*IMAGE: Full packet capture and packet analysis workflow /*
-
 ## Why Full Packet Capture Matters
 
 Flow data provides summarized visibility, but sometimes deeper inspection is required.

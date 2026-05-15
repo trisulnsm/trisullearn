@@ -63,7 +63,7 @@ For example:
 3. NAT mappings and timestamps are recorded
 4. Analysts can later trace the subscriber activity if required
 
-/*IMAGE: IPDR generation and subscriber traceability workflow /*
+![](images/ipdr.png)
 
 ## Why IPDR Matters
 

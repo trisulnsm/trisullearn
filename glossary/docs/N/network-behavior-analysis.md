@@ -65,8 +65,6 @@ Behavior analysis may detect:
 - lateral movement
 - traffic spikes
 
-/*IMAGE: Normal traffic behavior vs anomalous communication /*
-
 ## Why Network Behavior Analysis Matters
 
 Modern threats often bypass traditional signature-based detection methods.

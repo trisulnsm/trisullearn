@@ -48,136 +48,144 @@ The NetFlow analyzer:
 
 A typical workflow looks like this:
 
+```
 Network Device → Flow Exporter → NetFlow Analyzer
+```
 
 The analyzer may display:
 
-top applications
-top IPs
-bandwidth usage
-interface utilization
-protocol distribution
-traffic trends
-ASN activity
-suspicious communication
-/*IMAGE: NetFlow analyzer dashboard and traffic analytics /*
-Why NetFlow Analyzers Matter
+- top applications
+- top IPs
+- bandwidth usage
+- interface utilization
+- protocol distribution
+- traffic trends
+- ASN activity
+- suspicious communication
+
+![](images/netflowanalyzer.png)
+
+## Why NetFlow Analyzers Matter
 
 Modern networks generate massive amounts of traffic continuously.
 
 Without traffic analytics platforms, organizations may struggle to:
 
-identify bandwidth bottlenecks
-analyze application usage
-troubleshoot congestion
-investigate anomalies
-monitor distributed infrastructures
-maintain historical traffic visibility
+- identify bandwidth bottlenecks
+- analyze application usage
+- troubleshoot congestion
+- investigate anomalies
+- monitor distributed infrastructures
+- maintain historical traffic visibility
 
 NetFlow analyzers help teams:
 
-improve traffic visibility
-optimize bandwidth usage
-monitor network performance
-analyze user behavior
-investigate suspicious activity
-improve troubleshooting workflows
+- improve traffic visibility
+- optimize bandwidth usage
+- monitor network performance
+- analyze user behavior
+- investigate suspicious activity
+- improve troubleshooting workflows
 
 They are especially important in:
 
-enterprise networks
-ISP infrastructures
-cloud environments
-SOC operations
-data centers
-multi-site networks
-Common Operational Use Cases
-Bandwidth Monitoring
+- enterprise networks
+- ISP infrastructures
+- cloud environments
+- SOC operations
+- data centers
+- multi-site networks
+
+## Common Operational Use Cases
+
+### Bandwidth Monitoring
 
 Analyze traffic utilization and identify top consumers.
 
-Application Visibility
+### Application Visibility
 
 Monitor business and cloud application usage.
 
-Security Monitoring
+### Security Monitoring
 
 Detect suspicious communication and traffic anomalies.
 
-Capacity Planning
+### Capacity Planning
 
 Analyze long-term traffic growth and infrastructure usage.
 
-ISP Traffic Analytics
+### ISP Traffic Analytics
 
 Monitor subscriber and backbone traffic behavior.
 
-NetFlow Analyzer vs Flow Collector
-Feature NetFlow Analyzer  Flow Collector
-Primary Role  Analyze and visualize traffic Receive and store flow records
-Visibility Depth  High  Limited
-Dashboards and Reports  Included  Usually minimal
-Traffic Analytics Advanced  Basic
-Operational Context Rich  Moderate
+## NetFlow Analyzer vs Flow Collector
+
+| Feature | NetFlow Analyzer  | Flow Collector| 
+|---------|-------------------|----------------|
+| Primary Role |  Analyze and visualize traffic|  Receive and store flow records| 
+| Visibility Depth |  High |  Limited| 
+| Dashboards and Reports |  Included |  Usually minimal| 
+| Traffic Analytics | Advanced  | Basic| 
+| Operational Context | Rich  | Moderate| 
 
 A flow collector mainly ingests flow data, while a NetFlow analyzer transforms the data into operational visibility and analytics.
 
-How Trisul Works as a NetFlow Analyzer
+## How Trisul Works as a NetFlow Analyzer
 
 Trisul is a scalable NetFlow analytics platform designed for enterprise and ISP environments.
 
 Combined with:
 
-Flow Analysis
-Top-K Analyticsᵀ
-Flow Stitchingᵀ
-Contextᵀ
-Retro Analysisᵀ
-Long-Term Traffic Retention
+- Flow Analysis
+- Top-K Analyticsᵀ
+- Flow Stitchingᵀ
+- Contextᵀ
+- Retro Analysisᵀ
+- Long-Term Traffic Retention
 
 Trisul helps teams:
 
-analyze traffic behavior
-monitor bandwidth utilization
-identify top talkers
-investigate anomalies
-visualize application traffic
-retain long-term historical visibility
+- analyze traffic behavior
+- monitor bandwidth utilization
+- identify top talkers
+- investigate anomalies
+- visualize application traffic
+- retain long-term historical visibility
 
-Trisul can also integrate IPFIX
-, Application Visibility
-, and Traffic Investigation
- workflows for deeper traffic analytics.
+Trisul can also integrate IPFIX, Application Visibility, and Traffic Investigation workflows for deeper traffic analytics.
 
-Related Terms
-NetFlow
-Flow Analyzer
-Flow Collector
-Bandwidth Monitoring
-Application Visibility
-Traffic Investigation
-FAQ
-What is a NetFlow Analyzer?
+## Related Terms
+
+- NetFlow
+- Flow Analyzer
+- Flow Collector
+- Bandwidth Monitoring
+- Application Visibility
+- Traffic Investigation
+
+## FAQ
+
+### What is a NetFlow Analyzer?
 
 A NetFlow Analyzer is a platform that collects and analyzes NetFlow data to provide network traffic visibility.
 
-Why is a NetFlow Analyzer important?
+### Why is a NetFlow Analyzer important?
 
 It helps organizations monitor bandwidth usage, troubleshoot issues, detect anomalies, and analyze application traffic.
 
-What information does a NetFlow Analyzer display?
+### What information does a NetFlow Analyzer display?
 
 It may display bandwidth usage, top talkers, applications, protocols, traffic trends, and suspicious communication activity.
 
-What's the difference between a NetFlow Analyzer and a flow collector?
+### What's the difference between a NetFlow Analyzer and a flow collector?
 
 A flow collector mainly stores flow records, while a NetFlow Analyzer provides dashboards, analytics, and operational visibility.
 
-Can a NetFlow Analyzer monitor cloud applications?
+### Can a NetFlow Analyzer monitor cloud applications?
 
 Yes. Modern analyzers can identify cloud and SaaS application traffic behavior.
 
-Is a NetFlow Analyzer useful for ISPs?
+### Is a NetFlow Analyzer useful for ISPs?
 
 Yes. ISPs use NetFlow analyzers for subscriber analytics, backbone monitoring, and peering visibility.
 Humanity really did invent entire platforms just to answer the question: “who is eating all the bandwidth?” A noble species.

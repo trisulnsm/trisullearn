@@ -50,8 +50,6 @@ A single flow may represent:
 - a VoIP call
 - an application conversation
 
-/*IMAGE: Network packets grouped into a flow record /*
-
 ## Why Flows Matter
 
 Capturing every packet in large networks can be resource intensive.

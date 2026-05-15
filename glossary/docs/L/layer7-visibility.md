@@ -62,7 +62,7 @@ For example:
    - Dropbox
 4. Teams gain application-aware visibility
 
-/*IMAGE: Layer 7 application identification workflow /*
+![](images/layer7.png)
 
 ## Why Layer 7 Visibility Matters
 

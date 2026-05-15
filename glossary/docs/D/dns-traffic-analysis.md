@@ -46,7 +46,7 @@ For example:
 3. The monitoring platform identifies abnormal behavior
 4. Analysts investigate the traffic for possible malware activity
 
-/* IMAGE: DNS query and response traffic analysis workflow /*
+![](images/dns.png)
 
 ## Why DNS Traffic Analysis Matters
 

@@ -49,7 +49,7 @@ Flow analysis platforms help teams analyze:
 - subscriber activity
 - traffic anomalies
 
-/* IMAGE: Flow analysis and traffic visibility workflow /*
+![](images/flowanalysis.png)
 
 ## Why Flow Analysis Matters
 

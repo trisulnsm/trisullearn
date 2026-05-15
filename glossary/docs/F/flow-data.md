@@ -53,8 +53,6 @@ For example:
 3. The device summarizes the session into a flow record
 4. The flow data is exported to a monitoring platform
 
-/* IMAGE: Network packets converted into flow data /*
-
 ## Why Flow Data Matters
 
 Modern networks generate enormous volumes of traffic that are difficult to monitor packet by packet.

@@ -49,8 +49,6 @@ Flow monitoring platforms help teams analyze:
 - protocol activity
 - traffic anomalies
 
-/* IMAGE: Flow monitoring architecture and traffic visibility workflow /*
-
 ## Why Flow Monitoring Matters
 
 Modern networks generate enormous volumes of traffic that are difficult to analyze manually.

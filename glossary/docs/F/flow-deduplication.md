@@ -45,7 +45,7 @@ Duplicate records may contain:
 - similar timestamps
 - overlapping packet and byte counts
 
-/* IMAGE: Duplicate flow records and deduplication workflow /*
+![](images/flowdeduplication.png)
 
 ## Why Flow Deduplication Matters
 

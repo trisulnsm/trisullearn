@@ -47,8 +47,6 @@ For example:
 3. Traffic metadata and communication behavior are analyzed
 4. The monitoring platform identifies unusual or suspicious patterns
 
-/* IMAGE: Encrypted traffic metadata and TLS analysis workflow /*
-
 ## Why Encrypted Traffic Analysis Matters
 
 Most modern applications and services now use encryption by default.

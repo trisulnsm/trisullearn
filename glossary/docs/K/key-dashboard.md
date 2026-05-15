@@ -63,8 +63,6 @@ The dashboard may display:
 - interface utilization
 - suspicious traffic behavior
 
-/*IMAGE: Centralized network analytics dashboard /*
-
 ## Why Key Dashboardᵀ Matters
 
 Large networks generate massive amounts of operational data continuously.

@@ -51,8 +51,6 @@ Drilldown analysis may move between:
 - individual traffic sessions
 - packet captures
 
-/* IMAGE: Network drilldown investigation workflow /*
-
 ## Why Drilldown Analysis Matters
 
 Large networks generate too much traffic data to investigate manually from raw records alone.

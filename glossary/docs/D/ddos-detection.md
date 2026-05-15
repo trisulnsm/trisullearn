@@ -44,7 +44,8 @@ For example:
 3. Thousands of source IPs begin sending requests simultaneously
 4. The monitoring system identifies the activity as a potential DDoS attack
 
-/* IMAGE: DDoS traffic spike and attack detection workflow /*
+![](images/ddosdetection.png)
+
 ## Why DDoS Detection Matters
 
 DDoS attacks can:

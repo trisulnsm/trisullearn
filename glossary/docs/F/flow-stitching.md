@@ -60,8 +60,6 @@ This creates better visibility into:
 - which systems participated
 - how communication evolved across the network
 
-/*IMAGE: Flow Stitching and end-to-end traffic correlation /*
-
 ## Why Flow Stitchingᵀ Matters
 
 Traditional flow analysis may show fragmented traffic records independently.

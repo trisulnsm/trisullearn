@@ -53,135 +53,141 @@ A flow exporter may include:
 
 The workflow usually looks like this:
 
+```
 Network Device → Flow Exporter → Flow Collector → Flow Analyzer
+```
 
-/* IMAGE: Flow exporter and flow collection workflow /*
-Why Flow Exporters Matter
+## Why Flow Exporters Matter
 
 Without exporters, monitoring platforms would not receive traffic visibility data.
 
 Flow exporters help organizations:
 
-monitor bandwidth usage
-analyze traffic behavior
-investigate communication patterns
-detect anomalies
-monitor applications
-troubleshoot network issues
-support ISP traffic analytics
+- monitor bandwidth usage
+- analyze traffic behavior
+- investigate communication patterns
+- detect anomalies
+- monitor applications
+- troubleshoot network issues
+- support ISP traffic analytics
 
 They provide scalable traffic visibility without requiring full packet capture for every communication session.
 
 Flow exporters are especially important in:
 
-enterprise networks
-ISPs
-data centers
-cloud environments
-SOC operations
-Common Types of Flow Exporters
-NetFlow Exporters
+- enterprise networks
+- ISPs
+- data centers
+- cloud environments
+- SOC operations
+
+## Common Types of Flow Exporters
+
+### NetFlow Exporters
 
 Generate Cisco-style NetFlow records for traffic analysis.
 
-IPFIX Exporters
+### IPFIX Exporters
 
 Export flexible standardized flow records using IPFIX.
 
-sFlow Exporters
+### sFlow Exporters
 
 Export sampled traffic statistics and packet information.
 
-Virtual Flow Exporters
+### Virtual Flow Exporters
 
 Generate flow visibility from virtualized or cloud environments.
 
-Common Operational Use Cases
-Bandwidth Monitoring
+## Common Operational Use Cases
+
+### Bandwidth Monitoring
 
 Export traffic data for utilization and congestion analysis.
 
-Security Monitoring
+### Security Monitoring
 
 Provide visibility into suspicious communication and anomalies.
 
-Application Visibility
+### Application Visibility
 
 Identify applications generating network traffic.
 
-Traffic Investigation
+### Traffic Investigation
 
 Support troubleshooting and forensic workflows.
 
-ISP Traffic Analytics
+### ISP Traffic Analytics
 
 Export subscriber and backbone traffic visibility data.
 
-Flow Exporter vs Flow Collector
-Feature Flow Exporter Flow Collector
-Primary Role  Generate and send flow records  Receive and store flow records
-Location  Network device  Monitoring infrastructure
-Main Function Traffic observation Data ingestion and retention
-Traffic Visibility Source Direct  Indirect
-Operational Layer Traffic generation  Backend collection
+## Flow Exporter vs Flow Collector
+
+| Feature | Flow Exporter | Flow Collector| 
+|---------|---------------|----------------|
+| Primary Role |  Generate and send flow records  | Receive and store flow records| 
+| Location |  Network device |  Monitoring infrastructure| 
+| Main Function | Traffic observation | Data ingestion and retention| 
+| Traffic Visibility Source | Direct |  Indirect| 
+| Operational Layer | Traffic generation |  Backend collection| 
 
 Exporters create flow records, while collectors receive and store them.
 
-How Trisul Works with Flow Exporters
+## How Trisul Works with Flow Exporters
 
 Trisul integrates with a wide range of flow exporters to provide scalable traffic analytics and operational visibility.
 
 Combined with:
 
-Flow Analysis
-Flow Stitchingᵀ
-Top-K Analyticsᵀ
-Contextᵀ
-Retro Analysisᵀ
-Long-Term Traffic Retention
+- Flow Analysis
+- Flow Stitchingᵀ
+- Top-K Analyticsᵀ
+- Contextᵀ
+- Retro Analysisᵀ
+- Long-Term Traffic Retention
 
 Trisul helps teams:
 
-ingest flow exports from multiple vendors
-analyze traffic behavior
-monitor bandwidth utilization
-investigate suspicious communication
-visualize traffic patterns
-correlate historical traffic activity
+- ingest flow exports from multiple vendors
+- analyze traffic behavior
+- monitor bandwidth utilization
+- investigate suspicious communication
+- visualize traffic patterns
+- correlate historical traffic activity
 
-Trisul can also combine Packet Capture
-, Flow Analysis
-, and Conversation View
- workflows for deeper network visibility.
+Trisul can also combine Packet Capture, Flow Analysis, and Conversation View workflows for deeper network visibility.
 
-Related Terms
-Flow Collector
-Flow Analyzer
-NetFlow
-IPFIX
-Flow Data
-Flow Analysis
-FAQ
-What is a flow exporter?
+## Related Terms
+
+- Flow Collector
+- Flow Analyzer
+- NetFlow
+- IPFIX
+- Flow Data
+- Flow Analysis
+
+## FAQ
+
+### What is a flow exporter?
 
 A flow exporter is a device or software component that generates and sends flow records to monitoring systems.
 
-What information does a flow exporter send?
+### What information does a flow exporter send?
 
 Flow exporters send metadata such as IP addresses, ports, protocols, packet counts, bandwidth usage, and timestamps.
 
-Which devices can act as flow exporters?
+### Which devices can act as flow exporters?
 
 Routers, switches, firewalls, probes, and virtual appliances can all function as flow exporters.
 
-What's the difference between a flow exporter and a flow collector?
+### What's the difference between a flow exporter and a flow collector?
 
 An exporter generates flow records, while a collector receives and stores those records.
 
-Why are flow exporters important?
+### Why are flow exporters important?
 
 They provide scalable traffic visibility for monitoring, analytics, troubleshooting, and security investigations.
 
-Can flow exporters support security monitoring?
+### Can flow exporters support security monitoring?
 
 Yes. Exported flow data helps detect anomalies, suspicious communication, and abnormal traffic behavior.

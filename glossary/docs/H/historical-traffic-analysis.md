@@ -54,7 +54,7 @@ For example:
 3. Analysts identify a bandwidth spike during the incident
 4. Root cause analysis begins
 
-/*IMAGE: Historical traffic analysis and trend investigation workflow /*
+![](images/historicalanalysis.png)
 
 ## Why Historical Traffic Analysis Matters
 

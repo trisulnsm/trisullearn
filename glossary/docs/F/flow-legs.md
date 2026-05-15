@@ -56,8 +56,6 @@ This helps analysts visualize:
 - which systems participated
 - where latency or anomalies occurred
 
-/* IMAGE: Multi-hop traffic path using Flow Legs /*
-
 ## Why Flow Legsᵀ Matter
 
 Traditional flow analysis may only show endpoint-to-endpoint communication.

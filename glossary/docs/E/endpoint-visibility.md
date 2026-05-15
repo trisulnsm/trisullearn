@@ -53,8 +53,6 @@ For example:
 3. The endpoint is correlated with user and application information
 4. Analysts investigate the device for potential compromise
 
-/* IMAGE: Endpoint visibility and device communication workflow /*
-
 ## Why Endpoint Visibility Matters
 
 Modern networks contain thousands of connected devices generating large volumes of traffic.

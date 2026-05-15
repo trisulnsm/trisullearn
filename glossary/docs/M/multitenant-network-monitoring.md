@@ -59,8 +59,6 @@ For example:
 3. Each customer accesses only their own dashboards
 4. Administrators maintain centralized operational control
 
-/*IMAGE: Multi-tenant traffic visibility and tenant isolation /*
-
 ## Why Multi-Tenant Network Monitoring Matters
 
 Shared environments require strong visibility separation and operational control.

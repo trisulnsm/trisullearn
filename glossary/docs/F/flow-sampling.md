@@ -50,7 +50,7 @@ Sampling ratios commonly look like:
 
 Higher sampling reduces resource usage but may lower visibility accuracy for smaller traffic flows.
 
-/*IMAGE: Flow sampling and sampled traffic visibility workflow /*
+![](images/flowsampling.png)
 
 ## Why Flow Sampling Matters
 

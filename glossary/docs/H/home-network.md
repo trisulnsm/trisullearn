@@ -59,8 +59,6 @@ This improves:
 - application visibility
 - traffic investigation workflows
 
-/*IMAGE: Home Network internal vs external traffic visibility /*
-
 ## Why Home Networkᵀ Matters
 
 Without clear internal network definitions, monitoring platforms may struggle to:

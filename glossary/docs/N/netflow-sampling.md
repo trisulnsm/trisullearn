@@ -48,128 +48,134 @@ Sampling methods may include:
 
 For example:
 
+```
 Sampling Ratio: 1:1000
+```
 
 This means:
 
-1 out of every 1,000 packets is analyzed
-the resulting flow records estimate broader traffic behavior
+- 1 out of every 1,000 packets is analyzed
+- the resulting flow records estimate broader traffic behavior
 
 Sampling significantly reduces monitoring overhead while still providing meaningful traffic visibility.
 
-/*IMAGE: Full NetFlow monitoring vs sampled NetFlow workflow /*
-Why NetFlow Sampling Matters
+
+## Why NetFlow Sampling Matters
 
 Modern high-speed networks generate enormous traffic volumes.
 
 Without sampling, devices may struggle to:
 
-process traffic efficiently
-export large flow volumes
-maintain monitoring performance
-scale visibility infrastructure
+- process traffic efficiently
+- export large flow volumes
+- maintain monitoring performance
+- scale visibility infrastructure
 
 NetFlow sampling helps organizations:
 
-scale traffic monitoring
-reduce exporter load
-optimize storage usage
-monitor backbone traffic efficiently
-maintain visibility in large environments
+- scale traffic monitoring
+- reduce exporter load
+- optimize storage usage
+- monitor backbone traffic efficiently
+- maintain visibility in large environments
 
 It is especially important in:
 
-ISP infrastructures
-high-speed enterprise networks
-cloud data centers
-multi-terabit backbones
-distributed monitoring environments
-Common Operational Use Cases
-ISP Backbone Monitoring
+- ISP infrastructures
+- high-speed enterprise networks
+- cloud data centers
+- multi-terabit backbones
+- distributed monitoring environments
+
+## Common Operational Use Cases
+
+### ISP Backbone Monitoring
 
 Monitor large-scale subscriber and backbone traffic efficiently.
 
-High-Speed Traffic Analytics
+### High-Speed Traffic Analytics
 
 Analyze traffic behavior without overwhelming monitoring systems.
 
-Capacity Planning
+### Capacity Planning
 
 Track traffic growth trends using sampled visibility.
 
-DDoS Visibility
+### DDoS Visibility
 
 Identify abnormal traffic spikes and volumetric attacks.
 
-Cloud Traffic Monitoring
+### Cloud Traffic Monitoring
 
 Scale visibility across distributed cloud workloads.
 
-NetFlow Sampling vs Full NetFlow Monitoring
-Feature NetFlow Sampling  Full NetFlow Monitoring
-Traffic Coverage  Partial Complete
-Resource Usage  Lower Higher
-Scalability High  Moderate
-Visibility Accuracy Approximate Precise
-High-Speed Suitability  Excellent More demanding
+## NetFlow Sampling vs Full NetFlow Monitoring
+
+| Feature | NetFlow Sampling  | Full NetFlow Monitoring| 
+|----------|----------------------|--------------------|
+| Traffic Coverage  | Partial|  Complete| 
+| Resource Usage |  Lower | Higher| 
+| Scalability|  High |  Moderate| 
+| Visibility Accuracy | Approximate | Precise| 
+| High-Speed Suitability |  Excellent|  More demanding| 
 
 NetFlow sampling improves scalability, while full monitoring provides more precise traffic visibility.
 
-How Trisul Handles Sampled NetFlow Visibility
+## How Trisul Handles Sampled NetFlow Visibility
 
 Trisul provides scalable flow analytics for sampled and high-volume NetFlow environments.
 
 Combined with:
 
-Flow Analysis
-Top-K Analyticsᵀ
-Multigraph Analyticsᵀ
-Long-Term Traffic Retention
-Retro Analysisᵀ
-Flow Stitchingᵀ
+- Flow Analysis
+- Top-K Analyticsᵀ
+- Multigraph Analyticsᵀ
+- Long-Term Traffic Retention
+- Retro Analysisᵀ
+- Flow Stitchingᵀ
 
 Trisul helps teams:
 
-analyze sampled traffic behavior
-monitor backbone utilization
-investigate traffic spikes
-identify major bandwidth consumers
-analyze large-scale communication patterns
-correlate sampled traffic trends
+- analyze sampled traffic behavior
+- monitor backbone utilization
+- investigate traffic spikes
+- identify major bandwidth consumers
+- analyze large-scale communication patterns
+- correlate sampled traffic trends
 
-Trisul can also integrate NetFlow
-, Flow Sampling
-, and ISP Traffic Analytics
- workflows for scalable traffic visibility.
+Trisul can also integrate NetFlow, Flow Sampling, and ISP Traffic Analytics workflows for scalable traffic visibility.
 
-Related Terms
-NetFlow
-Flow Sampling
-Flow Monitoring
-Bandwidth Monitoring
-ISP Traffic Analytics
-Capacity Planning
-FAQ
-What is NetFlow sampling?
+## Related Terms
+
+- NetFlow
+- Flow Sampling
+- Flow Monitoring
+- Bandwidth Monitoring
+- ISP Traffic Analytics
+- Capacity Planning
+
+## FAQ
+
+### What is NetFlow sampling?
 
 NetFlow sampling is a method where only a subset of packets or flows is analyzed and exported as NetFlow data.
 
-Why is NetFlow sampling important?
+### Why is NetFlow sampling important?
 
 It reduces monitoring overhead and helps scale visibility in high-speed traffic environments.
 
-How does NetFlow sampling work?
+### How does NetFlow sampling work?
 
 Devices select packets using predefined sampling ratios or probabilistic methods before generating flow records.
 
-What's the difference between sampled and full NetFlow monitoring?
+### What's the difference between sampled and full NetFlow monitoring?
 
 Sampled monitoring provides approximate visibility with lower resource usage, while full monitoring provides complete traffic visibility.
 
-Is NetFlow sampling useful for ISPs?
+### Is NetFlow sampling useful for ISPs?
 
 Yes. ISPs commonly use sampling to monitor backbone traffic efficiently at large scale.
 
-Can NetFlow sampling miss smaller traffic flows?
+### Can NetFlow sampling miss smaller traffic flows?
 
 Yes. Depending on the sampling ratio, short-lived or low-volume traffic may not always appear in sampled visibility.
