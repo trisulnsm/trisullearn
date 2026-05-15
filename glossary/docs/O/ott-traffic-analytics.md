@@ -74,8 +74,6 @@ OTT visibility may include:
 - geographic distribution
 - subscriber behavior
 
-/*IMAGE: OTT application traffic visibility and analytics /*
-
 ## Why OTT Traffic Analytics Matters
 
 OTT applications generate significant portions of modern internet traffic.
