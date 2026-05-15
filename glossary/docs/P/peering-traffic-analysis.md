@@ -80,7 +80,7 @@ Peering visibility may include:
 - application traffic
 - congestion behavior
 
-![](images/peeringtrafficanalysis.png)
+![](images/peeringtrafficanalytics.png)
 
 ---
 
