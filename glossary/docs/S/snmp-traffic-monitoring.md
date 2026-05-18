@@ -43,7 +43,7 @@ It is widely used for:
 - performance monitoring
 - operational troubleshooting
 
-## How SNMP Traffic Monitoring Works
+## **How SNMP Traffic Monitoring Works**
 
 SNMP-enabled devices expose operational metrics through managed objects called:
 
@@ -80,7 +80,7 @@ For example:
 
 ---
 
-## Why SNMP Traffic Monitoring Matters
+## **Why SNMP Traffic Monitoring Matters**
 
 Network infrastructure requires continuous operational visibility.
 
@@ -115,7 +115,7 @@ Humans created a protocol so devices could constantly report, “I’m overloade
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Interface Utilization Monitoring
 
@@ -139,7 +139,7 @@ Identify link failures and abnormal interface behavior.
 
 ---
 
-## SNMP Monitoring vs Flow Monitoring
+## **SNMP Monitoring vs Flow Monitoring**
 
 | Feature | SNMP Monitoring | Flow Monitoring |
 |---|---|---|
@@ -153,7 +153,7 @@ SNMP monitoring focuses on infrastructure and interface health, while flow monit
 
 ---
 
-## How Trisul Handles SNMP Traffic Monitoring
+## **How Trisul Handles SNMP Traffic Monitoring**
 
 Trisul provides integrated traffic and infrastructure visibility for enterprise and ISP environments.
 
@@ -185,7 +185,7 @@ workflows for deeper infrastructure visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Bandwidth Monitoring
 - Router Traffic Monitoring
@@ -196,7 +196,7 @@ workflows for deeper infrastructure visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is SNMP?
 

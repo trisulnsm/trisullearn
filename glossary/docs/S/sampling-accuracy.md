@@ -34,7 +34,7 @@ It is especially important in:
 - carrier-grade monitoring
 - traffic engineering workflows
 
-## How Sampling Accuracy Works
+## **How Sampling Accuracy Works**
 
 Traffic sampling selects only part of the total traffic for analysis.
 
@@ -58,7 +58,7 @@ Higher sampling rates generally improve visibility precision but increase:
 
 ---
 
-## Why Sampling Accuracy Matters
+## **Why Sampling Accuracy Matters**
 
 Large-scale networks generate enormous traffic volumes that may be impractical to monitor fully.
 
@@ -93,7 +93,7 @@ Humans invented “sampling” because monitoring every packet melted their hard
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### High-Speed Traffic Monitoring
 
@@ -117,7 +117,7 @@ Optimize routing and bandwidth allocation decisions.
 
 ---
 
-## Sampling Accuracy vs Full Traffic Visibility
+## **Sampling Accuracy vs Full Traffic Visibility**
 
 | Feature | Sampling Accuracy | Full Traffic Visibility |
 |---|---|---|
@@ -131,7 +131,7 @@ Sampling improves scalability, while full visibility provides maximum analytical
 
 ---
 
-## How Trisul Handles Sampled Traffic Analytics
+## **How Trisul Handles Sampled Traffic Analytics**
 
 Trisul provides scalable traffic analytics for sampled and high-volume environments.
 
@@ -163,7 +163,7 @@ workflows for scalable monitoring visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - NetFlow Sampling
 - Flow Sampling
@@ -174,7 +174,7 @@ workflows for scalable monitoring visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is sampling accuracy?
 

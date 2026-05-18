@@ -40,7 +40,7 @@ It is especially important in:
 
 ---
 
-## How Peering Traffic Analysis Works
+## **How Peering Traffic Analysis Works**
 
 Networks exchange traffic through:
 
@@ -84,7 +84,7 @@ Peering visibility may include:
 
 ---
 
-## Why Peering Traffic Analysis Matters
+## **Why Peering Traffic Analysis Matters**
 
 Large-scale networks depend heavily on peering relationships for:
 
@@ -125,7 +125,7 @@ Humanity built a global interconnected internet and immediately started negotiat
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### ASN Traffic Visibility
 
@@ -149,7 +149,7 @@ Track interconnect growth and utilization trends.
 
 ---
 
-## Peering Traffic Analysis vs General Traffic Monitoring
+## **Peering Traffic Analysis vs General Traffic Monitoring**
 
 | Feature | Peering Traffic Analysis | General Traffic Monitoring |
 |---|---|---|
@@ -163,7 +163,7 @@ Peering analytics focuses specifically on traffic exchanged between interconnect
 
 ---
 
-## How Trisul Handles Peering Traffic Analysis
+## **How Trisul Handles Peering Traffic Analysis**
 
 Trisul provides scalable ASN-aware traffic analytics for enterprise and ISP environments.
 
@@ -195,7 +195,7 @@ workflows for deeper peering visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - ASN
 - ASN Peering
@@ -206,7 +206,7 @@ workflows for deeper peering visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is peering traffic?
 

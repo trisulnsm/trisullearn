@@ -35,7 +35,7 @@ Latency visibility is especially important for:
 - financial systems
 - distributed applications
 
-## How Latency Works
+## **How Latency Works**
 
 Whenever devices communicate across a network, packets require time to travel between source and destination systems.
 
@@ -61,7 +61,7 @@ For example:
 3. Network congestion increases delay
 4. The application becomes slow or unresponsive
 
-## Why Latency Monitoring Matters
+## **Why Latency Monitoring Matters**
 
 High latency can affect:
 - application responsiveness
@@ -93,7 +93,7 @@ It is especially important in:
 - remote work deployments
 - unified communications platforms
 
-## Common Causes of Latency
+## **Common Causes of Latency**
 
 ### Network Congestion
 
@@ -115,7 +115,7 @@ Network devices require time to inspect and forward traffic.
 
 External routing and provider networks may introduce additional delay.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### WAN Performance Monitoring
 
@@ -137,7 +137,7 @@ Measure latency across high-speed provider networks.
 
 Ensure service response times meet operational targets.
 
-## Latency vs Jitter
+## **Latency vs Jitter**
 
 | Feature | Latency | Jitter |
 |---|---|---|
@@ -149,7 +149,7 @@ Ensure service response times meet operational targets.
 
 Latency measures delay, while jitter measures delay variation.
 
-## How Trisul Handles Latency Monitoring
+## **How Trisul Handles Latency Monitoring**
 
 Trisul provides traffic analytics and performance visibility workflows for analyzing latency and communication quality.
 
@@ -171,7 +171,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Jitter Monitoring](/glossary/jitter-monitoring), [Bandwidth Monitoring](/glossary/bandwidth-monitoring), and [Dropped Packets](/glossary/dropped-packets) workflows for deeper performance visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Jitter Monitoring](/glossary/jitter-monitoring)
 - [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
@@ -182,7 +182,7 @@ Trisul can also integrate [Jitter Monitoring](/glossary/jitter-monitoring), [Ban
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is network latency?
 

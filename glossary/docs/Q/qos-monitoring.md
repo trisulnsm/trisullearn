@@ -36,7 +36,7 @@ It is especially important for:
 - WAN optimization
 - critical business services
 
-## How QoS Monitoring Works
+## **How QoS Monitoring Works**
 
 Networks use QoS policies to classify and prioritize traffic based on:
 - application type
@@ -78,7 +78,7 @@ For example:
 
 ---
 
-## Why QoS Monitoring Matters
+## **Why QoS Monitoring Matters**
 
 Modern networks carry many competing applications simultaneously.
 
@@ -113,7 +113,7 @@ Because humans looked at overloaded networks and decided packets needed a caste 
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### VoIP Monitoring
 
@@ -137,7 +137,7 @@ Monitor how traffic classes consume bandwidth and queues.
 
 ---
 
-## QoS Monitoring vs Basic Bandwidth Monitoring
+## **QoS Monitoring vs Basic Bandwidth Monitoring**
 
 | Feature | QoS Monitoring | Basic Bandwidth Monitoring |
 |---|---|---|
@@ -151,7 +151,7 @@ QoS monitoring focuses on traffic prioritization behavior rather than only bandw
 
 ---
 
-## How Trisul Handles QoS Monitoring
+## **How Trisul Handles QoS Monitoring**
 
 Trisul provides traffic analytics and performance visibility for analyzing QoS behavior across enterprise and ISP environments.
 
@@ -183,7 +183,7 @@ workflows for deeper QoS visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Latency Monitoring
 - Jitter Monitoring
@@ -194,7 +194,7 @@ workflows for deeper QoS visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is QoS monitoring?
 

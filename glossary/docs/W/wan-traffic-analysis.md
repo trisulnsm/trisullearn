@@ -41,7 +41,7 @@ It is widely used for:
 - SD-WAN analytics
 - capacity planning
 
-## How WAN Traffic Analysis Works
+## **How WAN Traffic Analysis Works**
 
 Monitoring platforms collect visibility data from:
 - routers
@@ -82,7 +82,7 @@ For example:
 
 ---
 
-## Why WAN Traffic Analysis Matters
+## **Why WAN Traffic Analysis Matters**
 
 WAN links often carry critical business communication and cloud traffic.
 
@@ -117,7 +117,7 @@ Humans connected offices across continents, routed critical apps through unpredi
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Branch Office Monitoring
 
@@ -141,7 +141,7 @@ Investigate suspicious communication across WAN links.
 
 ---
 
-## WAN Traffic Analysis vs LAN Traffic Analysis
+## **WAN Traffic Analysis vs LAN Traffic Analysis**
 
 | Feature | WAN Traffic Analysis | LAN Traffic Analysis |
 |---|---|---|
@@ -155,7 +155,7 @@ WAN analysis focuses on geographically distributed communication and inter-site 
 
 ---
 
-## How Trisul Handles WAN Traffic Analysis
+## **How Trisul Handles WAN Traffic Analysis**
 
 Trisul provides scalable WAN visibility and distributed traffic analytics for enterprise and ISP environments.
 
@@ -187,7 +187,7 @@ workflows for deeper WAN visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Bandwidth Monitoring
 - Latency Monitoring
@@ -198,7 +198,7 @@ workflows for deeper WAN visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is WAN traffic analysis?
 

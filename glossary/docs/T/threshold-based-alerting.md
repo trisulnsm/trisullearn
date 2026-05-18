@@ -34,7 +34,7 @@ Threshold-based alerting is widely used for:
 - SLA monitoring
 - incident response
 
-## How Threshold-Based Alerting Works
+## **How Threshold-Based Alerting Works**
 
 Monitoring systems continuously collect visibility data from:
 
@@ -61,7 +61,7 @@ Alerts may be triggered by:
 
 ---
 
-## Why Threshold-Based Alerting Matters
+## **Why Threshold-Based Alerting Matters**
 
 Modern infrastructures generate enormous volumes of operational data continuously.
 
@@ -96,7 +96,7 @@ Humans taught machines to panic automatically whenever a number gets too big. En
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -120,7 +120,7 @@ Detect degraded application responsiveness.
 
 ---
 
-## Threshold-Based Alerting vs Behavioral Analytics
+## **Threshold-Based Alerting vs Behavioral Analytics**
 
 | Feature | Threshold-Based Alerting | Behavioral Analytics |
 |---|---|---|
@@ -134,7 +134,7 @@ Threshold-based alerting uses predefined operational limits, while behavioral an
 
 ---
 
-## How Trisul Handles Threshold-Based Alerting
+## **How Trisul Handles Threshold-Based Alerting**
 
 Trisul provides scalable operational analytics and real-time visibility for intelligent monitoring workflows.
 
@@ -166,7 +166,7 @@ workflows for broader operational visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Anomaly Detection
 - SLA Monitoring
@@ -177,7 +177,7 @@ workflows for broader operational visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is threshold-based alerting?
 

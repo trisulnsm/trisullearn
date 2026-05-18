@@ -34,7 +34,7 @@ It is widely used for:
 - troubleshooting
 - ISP analytics
 
-## How Network Flow Monitoring Works
+## **How Network Flow Monitoring Works**
 
 Network devices such as:
 - routers
@@ -74,7 +74,7 @@ Flow records may include:
 - application identifiers
 - QoS information
 
-## Why Network Flow Monitoring Matters
+## **Why Network Flow Monitoring Matters**
 
 Modern networks generate massive traffic volumes that are difficult to analyze packet-by-packet continuously.
 
@@ -104,7 +104,7 @@ Flow monitoring is especially important in:
 - data centers
 - hybrid networks
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -126,7 +126,7 @@ Analyze long-term traffic growth and infrastructure usage.
 
 Monitor subscriber and backbone traffic visibility.
 
-## Network Flow Monitoring vs Packet Capture
+## **Network Flow Monitoring vs Packet Capture**
 
 | Feature | Network Flow Monitoring | Packet Capture| 
 |----------|----------------------|-----------------|
@@ -138,7 +138,7 @@ Monitor subscriber and backbone traffic visibility.
 
 Flow monitoring provides scalable traffic visibility, while packet capture provides deeper packet-level inspection.
 
-## How Trisul Handles Network Flow Monitoring
+## **How Trisul Handles Network Flow Monitoring**
 
 Trisul provides scalable flow analytics for enterprise, ISP, and cloud environments.
 
@@ -162,7 +162,7 @@ Trisul helps teams:
 
 Trisul can also integrate NetFlow, IPFIX, and Application Visibility workflows for deeper traffic analytics.
 
-## Related Terms
+## **Related Terms**
 
 - NetFlow
 - IPFIX
@@ -171,7 +171,7 @@ Trisul can also integrate NetFlow, IPFIX, and Application Visibility workflows f
 - Bandwidth Monitoring
 - Application Visibility
 
-## FAQ
+## **FAQ**
 
 ### What is network flow monitoring?
 

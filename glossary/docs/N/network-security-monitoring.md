@@ -28,7 +28,7 @@ NSM helps organizations define security roles by continuously monitoring:
 
 Unlike traditional perimeter-only security approaches, NSM focuses on maintaining ongoing visibility into how systems and users behave across the network.
 
-## How Network Security Monitoring Works
+## **How Network Security Monitoring Works**
 
 NSM platforms collect visibility data from multiple sources such as:
 - flow records
@@ -60,7 +60,7 @@ For example:
 
 ![](images/nsm.png)
 
-## Why Network Security Monitoring Matters
+## **Why Network Security Monitoring Matters**
 
 Modern cyberattacks are often:
 
@@ -96,7 +96,7 @@ It is especially important in:
 - hybrid networks
 - regulated industries
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Threat Detection
 
@@ -118,7 +118,7 @@ Monitor east-west communication inside the network.
 
 Detect abnormal user or device behavior.
 
-## Network Security Monitoring vs Traditional Security Monitoring
+## **Network Security Monitoring vs Traditional Security Monitoring**
 
 | Feature | Network Security Monitoring | Traditional Security Monitoring| 
 |---------|-----------------------------|---------------------------------|
@@ -130,7 +130,7 @@ Detect abnormal user or device behavior.
 
 NSM focuses on continuous network visibility and behavioral investigation rather than only isolated alerts.
 
-## How Trisul Supports Network Security Monitoring
+## **How Trisul Supports Network Security Monitoring**
 
 Trisul provides deep traffic analytics and forensic visibility for NSM-driven security operations.
 
@@ -154,7 +154,7 @@ Trisul helps teams:
 
 Trisul can also integrate Incident Response, Network Forensics, and Anomaly Detection workflows for deeper threat visibility.
 
-## Related Terms
+## **Related Terms**
 
 - Incident Response
 - Network Forensics
@@ -163,7 +163,7 @@ Trisul can also integrate Incident Response, Network Forensics, and Anomaly Dete
 - Packet Capture
 - Traffic Investigation
 
-## FAQ
+## **FAQ**
 
 ### What is Network Security Monitoring?
 

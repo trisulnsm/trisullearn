@@ -21,7 +21,7 @@ Because most internet communication begins with a DNS lookup, DNS traffic provid
 
 DNS traffic analysis is widely used in [Traffic Investigation](/glossary/traffic-investigation), [Anomaly Detection](/glossary/anomaly-detection), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) workflows.
 
-## How DNS Traffic Analysis Works
+## **How DNS Traffic Analysis Works**
 
 When a user or application attempts to access a website or service:
 
@@ -48,7 +48,7 @@ For example:
 
 ![](images/dns.png)
 
-## Why DNS Traffic Analysis Matters
+## **Why DNS Traffic Analysis Matters**
 
 DNS traffic often reveals network activity before other traffic analysis methods detect issues.
 
@@ -75,7 +75,7 @@ DNS analysis is especially important in:
 - cloud infrastructures
 - threat hunting workflows
 
-## Types of DNS Analysis
+## **Types of DNS Analysis**
 
 ### Query Analysis
 
@@ -97,7 +97,7 @@ Identify unusual DNS communication patterns or anomalies.
 
 Monitor DNS latency, failures, and resolution issues.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Malware Detection
 
@@ -119,7 +119,7 @@ Understand which services and domains applications communicate with.
 
 Investigate suspicious outbound traffic and domain activity.
 
-## DNS Traffic Analysis vs General Traffic Monitoring
+## **DNS Traffic Analysis vs General Traffic Monitoring**
 
 | Feature | DNS Traffic Analysis | General Traffic Monitoring |
 |---|---|---|
@@ -131,7 +131,7 @@ Investigate suspicious outbound traffic and domain activity.
 
 DNS traffic analysis provides domain-level visibility that complements broader network monitoring workflows.
 
-## How Trisul Handles DNS Traffic Analysis
+## **How Trisul Handles DNS Traffic Analysis**
 
 Trisul provides DNS-aware traffic visibility using packet analysis, flow analytics, and behavioral monitoring workflows.
 
@@ -153,7 +153,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Packet Capture](/glossary/packet-capture), [Flow Analysis](/glossary/flow-analysis), and [Anomaly Detection](/glossary/anomaly-detection) workflows for deeper DNS investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Packet Capture](/glossary/packet-capture)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -164,7 +164,7 @@ Trisul can also correlate [Packet Capture](/glossary/packet-capture), [Flow Anal
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is DNS traffic analysis?
 

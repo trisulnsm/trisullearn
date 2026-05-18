@@ -36,7 +36,7 @@ It is widely used for:
 - application analysis
 - traffic correlation
 
-## How Query-Based Traffic Investigation Works
+## **How Query-Based Traffic Investigation Works**
 
 Monitoring platforms collect visibility data from:
 - flow records
@@ -78,7 +78,7 @@ Queries may reveal:
 
 ---
 
-## Why Query-Based Traffic Investigation Matters
+## **Why Query-Based Traffic Investigation Matters**
 
 Modern networks generate enormous amounts of traffic visibility data.
 
@@ -113,7 +113,7 @@ Because apparently staring at billions of packets wasn’t difficult enough, hum
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -137,7 +137,7 @@ Correlate traffic behavior during security incidents.
 
 ---
 
-## Query-Based Investigation vs Static Dashboards
+## **Query-Based Investigation vs Static Dashboards**
 
 | Feature | Query-Based Investigation | Static Dashboards |
 |---|---|---|
@@ -151,7 +151,7 @@ Query-driven investigation provides flexible and targeted traffic exploration in
 
 ---
 
-## How Trisul Handles Query-Based Traffic Investigation
+## **How Trisul Handles Query-Based Traffic Investigation**
 
 Trisul provides contextual traffic analytics and deep investigation workflows for enterprise and ISP environments.
 
@@ -183,7 +183,7 @@ workflows for deeper visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Traffic Investigation
 - Network Forensics
@@ -194,7 +194,7 @@ workflows for deeper visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is query-based traffic investigation?
 

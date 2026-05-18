@@ -27,7 +27,7 @@ Flow exporters observe network traffic and summarize communication sessions into
 
 Flow exporters are a core part of technologies such as [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [sFlow](/glossary/sflow).
 
-## How a Flow Exporter Works
+## **How a Flow Exporter Works**
 
 Flow exporters continuously observe traffic passing through a device such as:
 - routers
@@ -57,7 +57,7 @@ The workflow usually looks like this:
 Network Device → Flow Exporter → Flow Collector → Flow Analyzer
 ```
 
-## Why Flow Exporters Matter
+## **Why Flow Exporters Matter**
 
 Without exporters, monitoring platforms would not receive traffic visibility data.
 
@@ -81,7 +81,7 @@ Flow exporters are especially important in:
 - cloud environments
 - SOC operations
 
-## Common Types of Flow Exporters
+## **Common Types of Flow Exporters**
 
 ### NetFlow Exporters
 
@@ -99,7 +99,7 @@ Export sampled traffic statistics and packet information.
 
 Generate flow visibility from virtualized or cloud environments.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -121,7 +121,7 @@ Support troubleshooting and forensic workflows.
 
 Export subscriber and backbone traffic visibility data.
 
-## Flow Exporter vs Flow Collector
+## **Flow Exporter vs Flow Collector**
 
 | Feature | Flow Exporter | Flow Collector| 
 |---------|---------------|----------------|
@@ -133,7 +133,7 @@ Export subscriber and backbone traffic visibility data.
 
 Exporters create flow records, while collectors receive and store them.
 
-## How Trisul Works with Flow Exporters
+## **How Trisul Works with Flow Exporters**
 
 Trisul integrates with a wide range of flow exporters to provide scalable traffic analytics and operational visibility.
 
@@ -157,7 +157,7 @@ Trisul helps teams:
 
 Trisul can also combine Packet Capture, Flow Analysis, and Conversation View workflows for deeper network visibility.
 
-## Related Terms
+## **Related Terms**
 
 - Flow Collector
 - Flow Analyzer
@@ -166,7 +166,7 @@ Trisul can also combine Packet Capture, Flow Analysis, and Conversation View wor
 - Flow Data
 - Flow Analysis
 
-## FAQ
+## **FAQ**
 
 ### What is a flow exporter?
 

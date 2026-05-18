@@ -21,7 +21,7 @@ Unlike traditional traffic monitoring that only analyzes IP addresses and ports,
 
 DPI is widely used in [Application Visibility](/glossary/application-visibility), [Traffic Investigation](/glossary/traffic-investigation), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) workflows.
 
-## How Deep Packet Inspection Works
+## **How Deep Packet Inspection Works**
 
 Network packets contain:
 - headers
@@ -55,7 +55,7 @@ DPI can identify:
 
 ![](images/dpi.png)
 
-## Why DPI Matters
+## **Why DPI Matters**
 
 Basic traffic monitoring often cannot identify which applications or services generate network traffic.
 
@@ -82,7 +82,7 @@ DPI is especially important in:
 - cloud deployments
 - application-aware monitoring systems
 
-## Types of DPI Analysis
+## **Types of DPI Analysis**
 
 ### Application Identification
 
@@ -104,7 +104,7 @@ Apply traffic filtering or prioritization based on application behavior.
 
 Analyze communication patterns and traffic anomalies.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Application Visibility
 
@@ -126,7 +126,7 @@ Analyze subscriber application usage patterns.
 
 Investigate protocol issues and abnormal application behavior.
 
-## DPI vs Flow Analysis
+## **DPI vs Flow Analysis**
 
 | Feature | DPI | Flow Analysis |
 |---|---|---|
@@ -138,7 +138,7 @@ Investigate protocol issues and abnormal application behavior.
 
 DPI provides deeper application visibility, while flow analysis provides scalable traffic-wide visibility.
 
-## How Trisul Handles DPI Workflows
+## **How Trisul Handles DPI Workflows**
 
 Trisul combines packet analysis and flow analytics to improve Layer 7 visibility and operational traffic analysis.
 
@@ -160,7 +160,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Packet Capture](/glossary/packet-capture), [NetFlow](/glossary/netflow), and [Application Visibility](/glossary/application-visibility) workflows for deeper traffic investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Packet Capture](/glossary/packet-capture)
 - [Application Visibility](/glossary/application-visibility)
@@ -171,7 +171,7 @@ Trisul can also correlate [Packet Capture](/glossary/packet-capture), [NetFlow](
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Deep Packet Inspection?
 

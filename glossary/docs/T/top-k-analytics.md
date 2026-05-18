@@ -35,7 +35,7 @@ It is especially useful for:
 - ISP analytics
 - operational troubleshooting
 
-## How Top-K Analyticsᵀ Works
+## **How Top-K Analyticsᵀ Works**
 
 Trisul continuously analyzes traffic visibility data from:
 - flow records
@@ -74,7 +74,7 @@ For example:
 
 ---
 
-## Why Top-K Analyticsᵀ Matters
+## **Why Top-K Analyticsᵀ Matters**
 
 Modern networks generate massive amounts of distributed traffic continuously.
 
@@ -109,7 +109,7 @@ Humans eventually realized analyzing every packet equally was madness, so they i
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Visibility
 
@@ -133,7 +133,7 @@ Identify applications dominating network utilization.
 
 ---
 
-## Top-K Analyticsᵀ vs General Traffic Analytics
+## **Top-K Analyticsᵀ vs General Traffic Analytics**
 
 | Feature | Top-K Analyticsᵀ | General Traffic Analytics |
 |---|---|---|
@@ -147,7 +147,7 @@ Top-K Analyticsᵀ focuses specifically on the highest-priority traffic entities
 
 ---
 
-## How Trisul Uses Top-K Analyticsᵀ
+## **How Trisul Uses Top-K Analyticsᵀ**
 
 Top-K Analyticsᵀ works alongside Trisul’s advanced contextual and forensic analytics architecture.
 
@@ -179,7 +179,7 @@ workflows for deeper operational visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Top Talkers
 - Bandwidth Monitoring
@@ -190,7 +190,7 @@ workflows for deeper operational visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Top-K Analyticsᵀ?
 

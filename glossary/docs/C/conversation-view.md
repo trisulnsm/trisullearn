@@ -21,7 +21,7 @@ It helps network and security teams understand how systems, applications, and us
 
 Conversation View is commonly used in [Flow Analysis](/glossary/flow-analysis), [Traffic Investigation](/glossary/traffic-investigation), and [Bi-directional Flow](/glossary/bi-directional-flow) workflows.
 
-## How Conversation View Works
+## **How Conversation View Works**
 
 Traditional traffic monitoring often displays flows or packets independently.
 
@@ -50,7 +50,7 @@ This provides better visibility into:
 
 ![](images/conversationview.png)
 
-## Why Conversation View Matters
+## **Why Conversation View Matters**
 
 Viewing traffic as isolated records can make investigations difficult and fragmented.
 
@@ -76,7 +76,7 @@ Conversation visibility is especially useful in:
 - network forensics
 - performance monitoring
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Traffic Investigation
 
@@ -98,7 +98,7 @@ Monitor internal traffic movement between servers and network segments.
 
 Understand how applications and devices interact across the network.
 
-## Conversation View vs Raw Flow Records
+## **Conversation View vs Raw Flow Records**
 
 | Feature | Conversation View | Raw Flow Records |
 |---|---|---|
@@ -110,7 +110,7 @@ Understand how applications and devices interact across the network.
 
 Conversation View improves operational visibility by grouping related traffic into meaningful communication sessions.
 
-## How Trisul Handles Conversation View
+## **How Trisul Handles Conversation View**
 
 Trisul provides conversation-level traffic visibility using correlated flow analytics and session-aware traffic analysis.
 
@@ -131,7 +131,7 @@ Trisul helps teams:
 
 Trisul can also combine [Packet Capture](/glossary/packet-capture), [Flow Analysis](/glossary/flow-analysis), and [Application Visibility](/glossary/application-visibility) workflows for deeper session analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Bi-directional Flow](/glossary/bi-directional-flow)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -142,7 +142,7 @@ Trisul can also combine [Packet Capture](/glossary/packet-capture), [Flow Analys
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Conversation View in network monitoring?
 

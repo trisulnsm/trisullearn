@@ -21,7 +21,7 @@ DDoS attacks attempt to overwhelm servers, applications, or network infrastructu
 
 DDoS detection helps network and security teams identify attacks quickly and respond before services become unavailable.
 
-## How DDoS Detection Works
+## **How DDoS Detection Works**
 
 DDoS detection systems continuously monitor network traffic and compare current behavior against expected traffic patterns or baselines.
 
@@ -46,7 +46,7 @@ For example:
 
 ![](images/ddosdetection.png)
 
-## Why DDoS Detection Matters
+## **Why DDoS Detection Matters**
 
 DDoS attacks can:
 - disrupt business services
@@ -72,7 +72,7 @@ DDoS detection is especially important in:
 - financial services
 - public-facing infrastructures
 
-## Types of DDoS Attacks
+## **Types of DDoS Attacks**
 
 ### Volumetric Attacks
 
@@ -90,7 +90,7 @@ Target specific applications or services using Layer 7 requests.
 
 Use third-party systems to amplify attack traffic volume.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Traffic Flood Detection
 
@@ -112,7 +112,7 @@ Monitor suspicious inbound and outbound traffic behavior.
 
 Activate filtering, rate limiting, or upstream mitigation systems.
 
-## DDoS Detection vs DDoS Mitigation
+## **DDoS Detection vs DDoS Mitigation**
 
 | Feature | DDoS Detection | DDoS Mitigation |
 |---|---|---|
@@ -124,7 +124,7 @@ Activate filtering, rate limiting, or upstream mitigation systems.
 
 Detection identifies attacks, while mitigation actively reduces or blocks malicious traffic.
 
-## How Trisul Handles DDoS Detection
+## **How Trisul Handles DDoS Detection**
 
 Trisul provides real-time traffic visibility and behavioral analytics for identifying abnormal traffic floods and DDoS attack patterns.
 
@@ -146,7 +146,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [Packet Capture](/glossary/packet-capture), and [Anomaly Detection](/glossary/anomaly-detection) workflows for deeper DDoS investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Anomaly Detection](/glossary/anomaly-detection)
 - [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
@@ -157,7 +157,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [Packet Capture](/glossa
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is DDoS detection?
 

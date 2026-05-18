@@ -34,7 +34,7 @@ It is especially important for:
 - compliance systems
 - security investigations
 
-## How Subscriber Mapping Works
+## **How Subscriber Mapping Works**
 
 Subscriber mapping systems correlate visibility data from:
 
@@ -70,7 +70,7 @@ Subscriber mapping may track:
 
 ---
 
-## Why Subscriber Mapping Matters
+## **Why Subscriber Mapping Matters**
 
 Modern networks frequently use:
 
@@ -110,7 +110,7 @@ Humans ran out of IPv4 addresses, stuffed thousands of users behind shared IPs, 
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Telecom Compliance
 
@@ -134,7 +134,7 @@ Monitor subscriber behavior and traffic trends.
 
 ---
 
-## Subscriber Mapping vs NAT Logging
+## **Subscriber Mapping vs NAT Logging**
 
 | Feature | Subscriber Mapping | NAT Logging |
 |---|---|---|
@@ -148,7 +148,7 @@ Subscriber mapping connects traffic activity to actual user identities, while NA
 
 ---
 
-## How Trisul Handles Subscriber Mapping
+## **How Trisul Handles Subscriber Mapping**
 
 Trisul provides scalable subscriber visibility and traffic correlation for enterprise and ISP environments.
 
@@ -180,7 +180,7 @@ workflows for deeper subscriber visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - IPDR
 - NAT Logging
@@ -191,7 +191,7 @@ workflows for deeper subscriber visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is subscriber mapping?
 

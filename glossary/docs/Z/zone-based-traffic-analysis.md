@@ -50,7 +50,7 @@ It is widely used for:
 - traffic investigation
 - operational troubleshooting
 
-## How Zone-Based Traffic Analysis Works
+## **How Zone-Based Traffic Analysis Works**
 
 Monitoring platforms collect visibility data from:
 - flow records
@@ -89,7 +89,7 @@ Zone-based analytics may reveal:
 
 ---
 
-## Why Zone-Based Traffic Analysis Matters
+## **Why Zone-Based Traffic Analysis Matters**
 
 Modern infrastructures rely heavily on segmentation and zero trust architectures.
 
@@ -124,7 +124,7 @@ Humans divided networks into “trusted” and “untrusted” zones, then spent
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Zone Monitoring
 
@@ -148,7 +148,7 @@ Identify lateral movement and suspicious inter-zone communication.
 
 ---
 
-## Zone-Based Traffic Analysis vs General Traffic Monitoring
+## **Zone-Based Traffic Analysis vs General Traffic Monitoring**
 
 | Feature | Zone-Based Traffic Analysis | General Traffic Monitoring |
 |---|---|---|
@@ -162,7 +162,7 @@ Zone-based analysis focuses specifically on communication behavior between segme
 
 ---
 
-## How Trisul Handles Zone-Based Traffic Analysis
+## **How Trisul Handles Zone-Based Traffic Analysis**
 
 Trisul provides contextual segmented traffic visibility for enterprise and ISP environments.
 
@@ -194,7 +194,7 @@ workflows for deeper segmentation visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - East-West Traffic
 - Network Segmentation
@@ -205,7 +205,7 @@ workflows for deeper segmentation visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is zone-based traffic analysis?
 

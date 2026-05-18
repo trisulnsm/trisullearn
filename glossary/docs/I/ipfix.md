@@ -27,7 +27,7 @@ IPFIX helps network and security teams monitor:
 
 It is considered the standardized evolution of [NetFlow](/glossary/netflow), offering more flexible and extensible traffic visibility.
 
-## How IPFIX Works
+## **How IPFIX Works**
 
 Network devices observe traffic flowing through their interfaces and group packets into flows based on shared characteristics such as:
 - source IP address
@@ -58,7 +58,7 @@ IPFIX records may include:
 
 ![](images/ipfix.png)
 
-## Why IPFIX Matters
+## **Why IPFIX Matters**
 
 Modern networks generate large volumes of traffic across cloud, enterprise, and ISP environments.
 
@@ -83,7 +83,7 @@ IPFIX is especially important in:
 - data centers
 - SOC environments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -105,7 +105,7 @@ Monitor subscriber traffic and backbone utilization.
 
 Investigate abnormal communication patterns and network incidents.
 
-## IPFIX vs NetFlow
+## **IPFIX vs NetFlow**
 
 | Feature | IPFIX | NetFlow |
 |---|---|---|
@@ -117,7 +117,7 @@ Investigate abnormal communication patterns and network incidents.
 
 IPFIX extends traditional flow monitoring with more flexible and standardized metadata support.
 
-## How Trisul Handles IPFIX Visibility
+## **How Trisul Handles IPFIX Visibility**
 
 Trisul provides scalable IPFIX analytics and flow visibility for enterprise and ISP environments.
 
@@ -139,7 +139,7 @@ Trisul helps teams:
 
 Trisul can also integrate [NetFlow](/glossary/netflow), [Flow Monitoring](/glossary/flow-monitoring), and [Application Visibility](/glossary/application-visibility) workflows for deeper traffic analytics.
 
-## Related Terms
+## **Related Terms**
 
 - [NetFlow](/glossary/netflow)
 - [Flow Monitoring](/glossary/flow-monitoring)
@@ -150,7 +150,7 @@ Trisul can also integrate [NetFlow](/glossary/netflow), [Flow Monitoring](/gloss
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is IPFIX?
 

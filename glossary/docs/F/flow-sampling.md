@@ -26,7 +26,7 @@ Flow sampling is commonly used in:
 - cloud environments
 - large-scale traffic monitoring systems
 
-## How Flow Sampling Works
+## **How Flow Sampling Works**
 
 In full traffic monitoring, every packet or flow is processed and exported.
 
@@ -52,7 +52,7 @@ Higher sampling reduces resource usage but may lower visibility accuracy for sma
 
 ![](images/flowsampling.png)
 
-## Why Flow Sampling Matters
+## **Why Flow Sampling Matters**
 
 Modern networks can generate traffic volumes too large to monitor exhaustively.
 
@@ -71,7 +71,7 @@ Sampling is especially useful in:
 - large enterprise WANs
 - distributed monitoring systems
 
-## Types of Flow Sampling
+## **Types of Flow Sampling**
 
 ### Packet Sampling
 
@@ -93,7 +93,7 @@ Capture traffic at fixed intervals.
 
 Adjust sampling dynamically based on traffic conditions.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### ISP Traffic Monitoring
 
@@ -115,7 +115,7 @@ Track traffic growth trends efficiently.
 
 Monitor large-scale east-west and north-south traffic flows.
 
-## Flow Sampling vs Full Flow Monitoring
+## **Flow Sampling vs Full Flow Monitoring**
 
 | Feature | Flow Sampling | Full Flow Monitoring |
 |---|---|---|
@@ -127,7 +127,7 @@ Monitor large-scale east-west and north-south traffic flows.
 
 Flow sampling improves scalability, while full monitoring provides more precise visibility.
 
-## How Trisul Handles Sampled Flow Visibility
+## **How Trisul Handles Sampled Flow Visibility**
 
 Trisul supports scalable traffic analytics workflows for sampled and high-volume flow environments.
 
@@ -149,7 +149,7 @@ Trisul helps teams:
 
 Trisul can also integrate [NetFlow](/glossary/netflow), [sFlow](/glossary/sflow), and [Traffic Investigation](/glossary/traffic-investigation) workflows for scalable traffic analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Monitoring](/glossary/flow-monitoring)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -160,7 +160,7 @@ Trisul can also integrate [NetFlow](/glossary/netflow), [sFlow](/glossary/sflow)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is flow sampling?
 

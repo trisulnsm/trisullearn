@@ -40,7 +40,7 @@ It is widely used for:
 
 ---
 
-## How Performance Bottleneck Analysis Works
+## **How Performance Bottleneck Analysis Works**
 
 Monitoring platforms collect visibility data from:
 
@@ -72,7 +72,7 @@ For example:
 
 ---
 
-## Why Performance Bottleneck Analysis Matters
+## **Why Performance Bottleneck Analysis Matters**
 
 Modern applications depend on stable and responsive network communication.
 
@@ -107,7 +107,7 @@ Every “the network feels slow” complaint eventually turns into three enginee
 
 ---
 
-## Common Causes of Performance Bottlenecks
+## **Common Causes of Performance Bottlenecks**
 
 ### Bandwidth Saturation
 
@@ -131,7 +131,7 @@ Devices or servers cannot process traffic fast enough.
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### WAN Troubleshooting
 
@@ -155,7 +155,7 @@ Monitor bottlenecks affecting SaaS and cloud workloads.
 
 ---
 
-## Performance Bottleneck Analysis vs Basic Monitoring
+## **Performance Bottleneck Analysis vs Basic Monitoring**
 
 | Feature | Performance Bottleneck Analysis | Basic Monitoring |
 |---|---|---|
@@ -169,7 +169,7 @@ Bottleneck analysis focuses on identifying the root causes of degraded performan
 
 ---
 
-## How Trisul Handles Performance Bottleneck Analysis
+## **How Trisul Handles Performance Bottleneck Analysis**
 
 Trisul provides contextual traffic analytics and performance visibility for identifying operational bottlenecks.
 
@@ -201,7 +201,7 @@ workflows for deeper performance analysis.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Bandwidth Monitoring
 - Latency Monitoring
@@ -212,7 +212,7 @@ workflows for deeper performance analysis.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a performance bottleneck?
 

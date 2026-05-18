@@ -27,7 +27,7 @@ Multi-tenant monitoring is commonly used in:
 - telecom infrastructures
 - shared data centers
 
-## How Multi-Tenant Network Monitoring Works
+## **How Multi-Tenant Network Monitoring Works**
 
 In shared infrastructures, monitoring systems collect traffic visibility from:
 - multiple customers
@@ -59,7 +59,7 @@ For example:
 3. Each customer accesses only their own dashboards
 4. Administrators maintain centralized operational control
 
-## Why Multi-Tenant Network Monitoring Matters
+## **Why Multi-Tenant Network Monitoring Matters**
 
 Shared environments require strong visibility separation and operational control.
 
@@ -87,7 +87,7 @@ It is especially important in:
 - enterprise shared services
 - multi-site organizations
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Managed Service Providers (MSPs)
 
@@ -109,7 +109,7 @@ Maintain operational separation across customer environments.
 
 Monitor multiple tenants within shared hosting infrastructures.
 
-## Multi-Tenant Monitoring vs Single-Tenant Monitoring
+## **Multi-Tenant Monitoring vs Single-Tenant Monitoring**
 
 | Feature | Multi-Tenant Monitoring | Single-Tenant Monitoring |
 |---|---|---|
@@ -121,7 +121,7 @@ Monitor multiple tenants within shared hosting infrastructures.
 
 Multi-tenant monitoring enables centralized monitoring while maintaining tenant separation and visibility isolation.
 
-## How Trisul Handles Multi-Tenant Monitoring
+## **How Trisul Handles Multi-Tenant Monitoring**
 
 Trisul provides scalable multi-tenant traffic analytics for enterprise, ISP, and MSP environments.
 
@@ -143,7 +143,7 @@ Trisul helps organizations:
 
 Trisul can also integrate [ISP Traffic Analytics](/glossary/isp-traffic-analytics), [Application Visibility](/glossary/application-visibility), and [Bandwidth Monitoring](/glossary/bandwidth-monitoring) workflows for deeper tenant-aware visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Contextᵀ](/glossary/context)
 - [Counter Groupsᵀ](/glossary/counter-groups)
@@ -154,7 +154,7 @@ Trisul can also integrate [ISP Traffic Analytics](/glossary/isp-traffic-analytic
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is multi-tenant network monitoring?
 

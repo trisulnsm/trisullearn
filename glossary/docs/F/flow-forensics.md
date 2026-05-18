@@ -27,7 +27,7 @@ Flow forensics is widely used in:
 - compliance analysis
 - ISP traffic analytics
 
-## How Flow Forensics Works
+## **How Flow Forensics Works**
 
 Network devices continuously export flow records describing network communication.
 
@@ -56,7 +56,7 @@ For example:
 3. Analysts identify lateral movement and traffic patterns
 4. The incident scope becomes clearer
 
-## Why Flow Forensics Matters
+## **Why Flow Forensics Matters**
 
 Many security incidents are discovered after the original activity has already occurred.
 
@@ -82,7 +82,7 @@ Flow forensics is especially important in:
 - cloud environments
 - compliance workflows
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Incident Response
 
@@ -104,7 +104,7 @@ Track internal east-west traffic behavior during attacks.
 
 Review historical network activity for investigations and reporting.
 
-## Flow Forensics vs Packet Forensics
+## **Flow Forensics vs Packet Forensics**
 
 | Feature | Flow Forensics | Packet Forensics |
 |---|---|---|
@@ -116,7 +116,7 @@ Review historical network activity for investigations and reporting.
 
 Flow forensics provides scalable historical visibility, while packet forensics provides deeper packet-level analysis.
 
-## How Trisul Handles Flow Forensics
+## **How Trisul Handles Flow Forensics**
 
 Trisul provides long-term traffic retention and historical analytics workflows for investigating network activity over time.
 
@@ -138,7 +138,7 @@ Trisul helps teams:
 
 Trisul can also combine [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper forensic visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Traffic Investigation](/glossary/traffic-investigation)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -149,7 +149,7 @@ Trisul can also combine [Packet Capture](/glossary/packet-capture), [Conversatio
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is flow forensics?
 

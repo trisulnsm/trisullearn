@@ -21,7 +21,7 @@ Packet drops can occur due to congestion, overloaded interfaces, hardware limita
 
 Monitoring dropped packets helps network teams identify performance problems, congestion, and abnormal network behavior.
 
-## How Packet Drops Happen
+## **How Packet Drops Happen**
 
 Network devices process massive volumes of traffic continuously.
 
@@ -51,7 +51,7 @@ Packet drops may happen:
 
 ![](images/droppedpackets.png)
 
-## Why Dropped Packets Matter
+## **Why Dropped Packets Matter**
 
 Packet drops can significantly affect network performance and application behavior.
 
@@ -79,7 +79,7 @@ Packet loss visibility is especially important in:
 - real-time applications
 - high-speed networks
 
-## Common Causes of Dropped Packets
+## **Common Causes of Dropped Packets**
 
 ### Network Congestion
 
@@ -105,7 +105,7 @@ Low-priority traffic may be dropped during congestion.
 
 Incorrect routes or unstable paths cause packet loss.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Performance Troubleshooting
 
@@ -127,7 +127,7 @@ Identify interfaces approaching saturation limits.
 
 Analyze dropped traffic caused by filtering policies.
 
-## Dropped Packets vs Retransmissions
+## **Dropped Packets vs Retransmissions**
 
 | Feature | Dropped Packets | Retransmissions |
 |---|---|---|
@@ -139,7 +139,7 @@ Analyze dropped traffic caused by filtering policies.
 
 Dropped packets often lead to retransmissions in protocols such as TCP.
 
-## How Trisul Handles Dropped Packet Analysis
+## **How Trisul Handles Dropped Packet Analysis**
 
 Trisul provides traffic visibility and performance analytics for identifying packet loss, congestion, and abnormal traffic behavior.
 
@@ -161,7 +161,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Packet Capture](/glossary/packet-capture), [Bandwidth Monitoring](/glossary/bandwidth-monitoring), and [Burst Traffic](/glossary/burst-traffic) workflows for deeper performance analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Packet Loss Monitoring](/glossary/packet-loss-monitoring)
 - [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
@@ -172,7 +172,7 @@ Trisul can also correlate [Packet Capture](/glossary/packet-capture), [Bandwidth
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What are dropped packets?
 

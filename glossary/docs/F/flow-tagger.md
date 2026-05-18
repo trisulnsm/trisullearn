@@ -27,7 +27,7 @@ It improves visibility into:
 - business-critical traffic
 - operational analytics workflows
 
-## How Flow Taggerᵀ Works
+## **How Flow Taggerᵀ Works**
 
 Modern networks generate massive amounts of flow data from:
 - routers
@@ -64,7 +64,7 @@ Traffic can be tagged as:
 - regional traffic
 - security events
 
-## Why Flow Taggerᵀ Matters
+## **Why Flow Taggerᵀ Matters**
 
 Large networks generate traffic from thousands of applications and devices simultaneously.
 
@@ -91,7 +91,7 @@ It is especially useful in:
 - cloud infrastructures
 - multi-tenant deployments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Application Classification
 
@@ -113,7 +113,7 @@ Separate critical application traffic from non-essential traffic.
 
 Create tailored traffic categories for operational reporting.
 
-## Flow Taggerᵀ vs Traditional Flow Classification
+## **Flow Taggerᵀ vs Traditional Flow Classification**
 
 | Feature | Flow Taggerᵀ | Traditional Classification |
 |---|---|---|
@@ -125,7 +125,7 @@ Create tailored traffic categories for operational reporting.
 
 Flow Taggerᵀ provides more flexible and contextual traffic classification workflows.
 
-## How Trisul Uses Flow Taggerᵀ
+## **How Trisul Uses Flow Taggerᵀ**
 
 Flow Taggerᵀ works alongside Trisul’s advanced flow analytics and traffic investigation features.
 
@@ -147,7 +147,7 @@ Trisul helps teams:
 
 Trisul can also integrate [NetFlow](/glossary/netflow), [Application Visibility](/glossary/application-visibility), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper analytics visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [Application Visibility](/glossary/application-visibility)
@@ -158,7 +158,7 @@ Trisul can also integrate [NetFlow](/glossary/netflow), [Application Visibility]
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Flow Taggerᵀ in Trisul?
 

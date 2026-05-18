@@ -36,7 +36,7 @@ Traffic baselines are widely used for:
 - troubleshooting
 - operational visibility
 
-## How Traffic Baselines Work
+## **How Traffic Baselines Work**
 
 Monitoring platforms continuously collect visibility data from:
 - flow records
@@ -75,7 +75,7 @@ Traffic baselines may track:
 
 ---
 
-## Why Traffic Baselines Matter
+## **Why Traffic Baselines Matter**
 
 Modern networks generate constantly changing traffic patterns.
 
@@ -110,7 +110,7 @@ Humans spent decades making networks more complicated, then needed â€œbaselinesâ
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Anomaly Detection
 
@@ -134,7 +134,7 @@ Identify unusual utilization affecting branch connectivity.
 
 ---
 
-## Traffic Baseline vs Real-Time Monitoring
+## **Traffic Baseline vs Real-Time Monitoring**
 
 | Feature | Traffic Baseline | Real-Time Monitoring |
 |---|---|---|
@@ -148,7 +148,7 @@ Traffic baselines establish expected behavior, while real-time monitoring shows 
 
 ---
 
-## How Trisul Handles Traffic Baselines
+## **How Trisul Handles Traffic Baselines**
 
 Trisul provides contextual traffic analytics and long-term visibility for baseline-driven operational analysis.
 
@@ -180,7 +180,7 @@ workflows for deeper behavioral visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Anomaly Detection
 - Real-Time Traffic Monitoring
@@ -191,7 +191,7 @@ workflows for deeper behavioral visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a traffic baseline?
 

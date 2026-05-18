@@ -27,7 +27,7 @@ However, they differ significantly in:
 - scalability
 - operational behavior
 
-## What is a Network TAP?
+## **What is a Network TAP?**
 
 A Network TAP (Test Access Point) is a dedicated hardware device placed inline between network devices to copy traffic passively for monitoring tools.
 
@@ -57,7 +57,7 @@ TAPs are commonly used in:
 
 ![](images/tap-deploy.png)
 
-## What is a SPAN Port?
+## **What is a SPAN Port?**
 
 A SPAN (Switched Port Analyzer) port is a switch feature that mirrors traffic from one or more interfaces to a monitoring interface.
 
@@ -92,7 +92,7 @@ SPAN ports are commonly used for:
 
 ---
 
-## TAP vs SPAN Port Comparison
+## **TAP vs SPAN Port Comparison**
 
 | Feature | TAP | SPAN Port |
 |---|---|---|
@@ -107,7 +107,7 @@ SPAN ports are commonly used for:
 
 ---
 
-## Why TAP vs SPAN Choice Matters
+## **Why TAP vs SPAN Choice Matters**
 
 Monitoring quality directly affects:
 
@@ -136,7 +136,7 @@ Humans built two ways to spy on network traffic: one expensive and reliable, the
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### TAP-Based Monitoring
 
@@ -159,7 +159,7 @@ Used for:
 
 ---
 
-## How Trisul Works with TAP and SPAN Visibility
+## **How Trisul Works with TAP and SPAN Visibility**
 
 Trisul supports traffic visibility from both:
 
@@ -194,7 +194,7 @@ workflows for deeper traffic visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Packet Capture
 - Packet Analysis
@@ -205,7 +205,7 @@ workflows for deeper traffic visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a network TAP?
 

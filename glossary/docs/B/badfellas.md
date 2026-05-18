@@ -21,7 +21,7 @@ It helps network and security teams quickly detect systems involved in suspiciou
 
 Badfellasᵀ improves visibility into potentially compromised devices and risky network behavior across enterprise and ISP environments.
 
-## How Badfellasᵀ Works
+## **How Badfellasᵀ Works**
 
 Badfellasᵀ continuously analyzes traffic flows, packet behavior, and network activity patterns to identify hosts that exhibit suspicious characteristics.
 
@@ -59,7 +59,7 @@ flowchart TD
 
 *Figure: Badfellasᵀ workflow showing how suspicious traffic behavior is analyzed, flagged, and escalated for investigation.*
 
-## Why Badfellasᵀ Matters
+## **Why Badfellasᵀ Matters**
 
 Modern networks generate massive volumes of traffic, making manual threat detection difficult.
 
@@ -86,7 +86,7 @@ Badfellasᵀ is especially useful in:
 - incident response workflows
 - threat hunting environments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Malware Detection
 
@@ -108,7 +108,7 @@ Identify unauthorized internal communication or suspicious user activity.
 
 Correlate anomalous traffic behavior with suspicious hosts and events.
 
-## Badfellasᵀ vs Traditional Alerting
+## **Badfellasᵀ vs Traditional Alerting**
 
 | Feature | Badfellasᵀ | Traditional Alerts |
 |---|---|---|
@@ -120,7 +120,7 @@ Correlate anomalous traffic behavior with suspicious hosts and events.
 
 Badfellasᵀ focuses on suspicious network behavior and contextual visibility rather than isolated alert conditions.
 
-## How Trisul Uses Badfellasᵀ
+## **How Trisul Uses Badfellasᵀ**
 
 Badfellasᵀ works alongside Trisul’s traffic analytics and security visibility features to improve threat detection and investigation workflows.
 
@@ -142,7 +142,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Packet Capture](/glossary/packet-capture), [Traffic Investigation](/glossary/traffic-investigation), and [Anomaly Detection](/glossary/anomaly-detection) workflows for deeper threat analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Anomaly Detection](/glossary/anomaly-detection)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -153,7 +153,7 @@ Trisul can also correlate [Packet Capture](/glossary/packet-capture), [Traffic I
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Badfellasᵀ in Trisul?
 

@@ -35,7 +35,7 @@ It is widely monitored for:
 - bandwidth management
 - compliance monitoring
 
-## How North-South Traffic Works
+## **How North-South Traffic Works**
 
 Most organizations maintain internal systems such as:
 - servers
@@ -74,7 +74,7 @@ Monitoring platforms analyze:
 - communication destinations
 - external connectivity
 
-## Why North-South Traffic Matters
+## **Why North-South Traffic Matters**
 
 North-South communication is a major source of:
 
@@ -110,7 +110,7 @@ It is especially important in:
 - SOC operations
 - remote work environments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Internet Traffic Monitoring
 
@@ -132,7 +132,7 @@ Track communication between internal systems and cloud services.
 
 Analyze traffic crossing firewalls and internet gateways.
 
-## North-South Traffic vs East-West Traffic
+## **North-South Traffic vs East-West Traffic**
 
 | Feature | North-South Traffic | East-West Traffic |
 |---|---|---|
@@ -145,7 +145,7 @@ Analyze traffic crossing firewalls and internet gateways.
 North-South traffic focuses on external communication, while East-West traffic focuses on internal communication. Humanity really looked at packet directions and decided cardinal geography was the naming convention. Somehow it stuck.
 
 
-## How Trisul Handles North-South Traffic Visibility
+## **How Trisul Handles North-South Traffic Visibility**
 
 Trisul provides contextual traffic analytics for monitoring inbound and outbound communication across distributed environments.
 
@@ -176,7 +176,7 @@ Trisul can also integrate:
 workflows for deeper traffic visibility.
 
 
-## Related Terms
+## **Related Terms**
 
 - Inbound vs Outbound Traffic
 - East-West Traffic
@@ -186,7 +186,7 @@ workflows for deeper traffic visibility.
 - Home Networkᵀ
 
 
-## FAQ
+## **FAQ**
 
 ### What is North-South Traffic?
 

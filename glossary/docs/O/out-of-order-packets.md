@@ -34,7 +34,7 @@ Monitoring packet order helps organizations define performance roles by identify
 - latency variation
 - packet delivery problems
 
-## How Out-of-Order Packets Occur
+## **How Out-of-Order Packets Occur**
 
 Packets traveling across a network may follow different paths or experience different delays.
 
@@ -60,7 +60,7 @@ Protocols such as TCP can often reorder packets automatically, but excessive reo
 
 ---
 
-## Why Out-of-Order Packets Matter
+## **Why Out-of-Order Packets Matter**
 
 Packet sequencing is important for reliable communication. Tiny digital envelopes arriving in the wrong order. Humanity built the internet and still spends half its time yelling, “why did packet 3 get here before packet 2?”
 
@@ -100,7 +100,7 @@ It is especially important in:
 
 ---
 
-## Common Causes of Out-of-Order Packets
+## **Common Causes of Out-of-Order Packets**
 
 ### Multiple Routing Paths
 
@@ -124,7 +124,7 @@ Inconsistent network delay affects packet sequencing.
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### TCP Performance Troubleshooting
 
@@ -148,7 +148,7 @@ Investigate inconsistent communication behavior.
 
 ---
 
-## Out-of-Order Packets vs Packet Loss
+## **Out-of-Order Packets vs Packet Loss**
 
 | Feature | Out-of-Order Packets | Packet Loss |
 |---|---|---|
@@ -162,7 +162,7 @@ Out-of-order packets arrive late but still arrive, while packet loss means packe
 
 ---
 
-## How Trisul Helps Analyze Packet Ordering Issues
+## **How Trisul Helps Analyze Packet Ordering Issues**
 
 Trisul provides packet-level visibility and traffic analytics for troubleshooting communication instability and delivery issues.
 
@@ -194,7 +194,7 @@ workflows for deeper troubleshooting analysis.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Dropped Packets
 - Latency Monitoring
@@ -205,7 +205,7 @@ workflows for deeper troubleshooting analysis.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What are out-of-order packets?
 

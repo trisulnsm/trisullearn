@@ -34,7 +34,7 @@ NetFlow is widely used for:
 - ISP analytics
 - capacity planning
 
-## How NetFlow Works
+## **How NetFlow Works**
 
 Network devices observe packets flowing through their interfaces and group related traffic into flows.
 
@@ -83,7 +83,7 @@ flowchart LR
 
 *Figure: NetFlow workflow showing traffic observation, flow export, collection, and traffic analytics visibility.*
 
-## Why NetFlow Matters
+## **Why NetFlow Matters**
 
 Modern networks generate massive traffic volumes that are difficult to analyze packet-by-packet.
 
@@ -112,7 +112,7 @@ NetFlow is especially important in:
 - data centers
 - SOC operations
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -134,7 +134,7 @@ Monitor long-term traffic growth and infrastructure usage.
 
 Analyze subscriber behavior and backbone utilization.
 
-## NetFlow vs Packet Capture
+## **NetFlow vs Packet Capture**
 
 | Feature|  NetFlow | Packet Capture| 
 |--------|---------|----------------|
@@ -146,7 +146,7 @@ Analyze subscriber behavior and backbone utilization.
 
 NetFlow provides scalable traffic visibility, while packet capture provides deeper packet-level analysis.
 
-## How Trisul Handles NetFlow Visibility
+## **How Trisul Handles NetFlow Visibility**
 
 Trisul provides scalable NetFlow analytics for enterprise, ISP, and cloud environments.
 
@@ -170,7 +170,7 @@ Trisul helps teams:
 
 Trisul can also integrate IPFIX, Flow Monitoring, and Application Visibility workflows for deeper traffic analytics.
 
-## Related Terms
+## **Related Terms**
 
 - IPFIX
 - Flow Monitoring
@@ -179,7 +179,7 @@ Trisul can also integrate IPFIX, Flow Monitoring, and Application Visibility wor
 - Bandwidth Monitoring
 - Application Visibility
 
-## FAQ
+## **FAQ**
 
 ### What is NetFlow?
 

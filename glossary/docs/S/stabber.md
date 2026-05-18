@@ -35,7 +35,7 @@ It is especially useful for:
 - incident response
 - behavioral analytics
 
-## How Stabberᵀ Works
+## **How Stabberᵀ Works**
 
 Trisul continuously collects visibility data from:
 
@@ -76,7 +76,7 @@ Stabberᵀ may help identify:
 
 ---
 
-## Why Stabberᵀ Matters
+## **Why Stabberᵀ Matters**
 
 Modern networks generate enormous amounts of operational and security telemetry continuously.
 
@@ -111,7 +111,7 @@ Humans looked at oceans of traffic data and decided they needed a tool literally
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -135,7 +135,7 @@ Isolate communication causing operational degradation.
 
 ---
 
-## Stabberᵀ vs General Traffic Analytics
+## **Stabberᵀ vs General Traffic Analytics**
 
 | Feature | Stabberᵀ | General Traffic Analytics |
 |---|---|---|
@@ -149,7 +149,7 @@ Stabberᵀ focuses on isolating important traffic behavior quickly instead of on
 
 ---
 
-## How Trisul Uses Stabberᵀ
+## **How Trisul Uses Stabberᵀ**
 
 Stabberᵀ works alongside Trisul’s contextual traffic analytics and forensic investigation architecture.
 
@@ -181,7 +181,7 @@ workflows for deeper investigative visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Security Analytics
 - Traffic Investigation
@@ -192,7 +192,7 @@ workflows for deeper investigative visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Stabberᵀ?
 

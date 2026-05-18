@@ -36,7 +36,7 @@ Traffic retention is widely used for:
 - troubleshooting
 - capacity planning
 
-## How Traffic Retention Works
+## **How Traffic Retention Works**
 
 Monitoring platforms continuously collect network visibility data from:
 - NetFlow
@@ -75,7 +75,7 @@ Retained traffic data may include:
 
 ---
 
-## Why Traffic Retention Matters
+## **Why Traffic Retention Matters**
 
 Many operational and security incidents are identified long after they occur.
 
@@ -110,7 +110,7 @@ Humans finally realized that by the time they notice something suspicious, the p
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -134,7 +134,7 @@ Investigate intermittent or previously resolved issues.
 
 ---
 
-## Traffic Retention vs Real-Time Monitoring
+## **Traffic Retention vs Real-Time Monitoring**
 
 | Feature | Traffic Retention | Real-Time Monitoring |
 |---|---|---|
@@ -148,7 +148,7 @@ Traffic retention focuses on preserving historical visibility, while real-time m
 
 ---
 
-## How Trisul Handles Traffic Retention
+## **How Trisul Handles Traffic Retention**
 
 Trisul provides scalable long-term traffic visibility and forensic analytics for enterprise and ISP environments.
 
@@ -180,7 +180,7 @@ workflows for deeper retrospective visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Retention Policy
 - Historical Traffic Analysis
@@ -191,7 +191,7 @@ workflows for deeper retrospective visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is traffic retention?
 

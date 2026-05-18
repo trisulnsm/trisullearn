@@ -46,7 +46,7 @@ It is widely used for:
 - routing analysis
 - network troubleshooting
 
-## How Uni-directional Flows Work
+## **How Uni-directional Flows Work**
 
 Flow exporters such as:
 - NetFlow
@@ -77,7 +77,7 @@ may be stored as two independent flow records.
 
 ---
 
-## Why Uni-directional Flows Matter
+## **Why Uni-directional Flows Matter**
 
 Uni-directional flows provide detailed visibility into traffic direction and asymmetric communication behavior.
 
@@ -111,7 +111,7 @@ Humans discovered that even conversations between computers can become complicat
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Routing Analysis
 
@@ -135,7 +135,7 @@ Optimize routing paths and directional traffic handling.
 
 ---
 
-## Uni-directional Flow vs Bi-directional Flow
+## **Uni-directional Flow vs Bi-directional Flow**
 
 | Feature | Uni-directional Flow | Bi-directional Flow |
 |---|---|---|
@@ -149,7 +149,7 @@ Uni-directional flows provide more granular directional visibility, while bi-dir
 
 ---
 
-## How Trisul Handles Uni-directional Flow Analysis
+## **How Trisul Handles Uni-directional Flow Analysis**
 
 Trisul provides scalable directional traffic analytics for enterprise and ISP environments.
 
@@ -181,7 +181,7 @@ workflows for deeper communication visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Flow Monitoring
 - NetFlow
@@ -192,7 +192,7 @@ workflows for deeper communication visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a uni-directional flow?
 

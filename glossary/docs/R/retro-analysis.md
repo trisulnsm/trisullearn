@@ -36,7 +36,7 @@ Retro Analysisᵀ is especially important for:
 - historical analytics
 - capacity planning
 
-## How Retro Analysisᵀ Works
+## **How Retro Analysisᵀ Works**
 
 Trisul continuously collects and retains visibility data from:
 - flow records
@@ -73,7 +73,7 @@ Retro Analysisᵀ may reveal:
 
 ---
 
-## Why Retro Analysisᵀ Matters
+## **Why Retro Analysisᵀ Matters**
 
 Many operational and security incidents are discovered long after they occur.
 
@@ -108,7 +108,7 @@ Humans really said, “what if the network had memories?” and then built entir
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -132,7 +132,7 @@ Analyze problems that are no longer actively occurring.
 
 ---
 
-## Retro Analysisᵀ vs Real-Time Monitoring
+## **Retro Analysisᵀ vs Real-Time Monitoring**
 
 | Feature | Retro Analysisᵀ | Real-Time Monitoring |
 |---|---|---|
@@ -146,7 +146,7 @@ Retro Analysisᵀ focuses on past traffic visibility, while real-time monitoring
 
 ---
 
-## How Trisul Uses Retro Analysisᵀ
+## **How Trisul Uses Retro Analysisᵀ**
 
 Retro Analysisᵀ works alongside Trisul’s advanced contextual traffic visibility and forensic workflows.
 
@@ -178,7 +178,7 @@ workflows for deeper retrospective visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Historical Traffic Analysis
 - Network Forensics
@@ -189,7 +189,7 @@ workflows for deeper retrospective visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Retro Analysisᵀ in Trisul?
 

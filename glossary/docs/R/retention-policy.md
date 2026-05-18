@@ -42,7 +42,7 @@ They are especially important for:
 - operational reporting
 - capacity planning
 
-## How Retention Policies Work
+## **How Retention Policies Work**
 
 Monitoring and analytics systems continuously collect traffic visibility data.
 
@@ -72,7 +72,7 @@ Retention periods may vary depending on:
 
 ---
 
-## Why Retention Policies Matter
+## **Why Retention Policies Matter**
 
 Modern networks generate enormous volumes of traffic and security data continuously.
 
@@ -107,7 +107,7 @@ Humans generate oceans of logs, then invent policies to decide which digital fos
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -131,7 +131,7 @@ Analyze traffic behavior over extended periods.
 
 ---
 
-## Retention Policy vs Backup Policy
+## **Retention Policy vs Backup Policy**
 
 | Feature | Retention Policy | Backup Policy |
 |---|---|---|
@@ -145,7 +145,7 @@ Retention policies control how long data remains available, while backup policie
 
 ---
 
-## How Trisul Handles Retention Policies
+## **How Trisul Handles Retention Policies**
 
 Trisul provides scalable long-term traffic visibility and retention management for enterprise and ISP environments.
 
@@ -177,7 +177,7 @@ workflows for deeper historical visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Long-Term Traffic Retention
 - Network Forensics
@@ -188,7 +188,7 @@ workflows for deeper historical visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a retention policy?
 

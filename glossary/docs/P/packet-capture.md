@@ -46,7 +46,7 @@ It is widely used for:
 
 ---
 
-## How Packet Capture Works
+## **How Packet Capture Works**
 
 Monitoring systems collect packets from observation points such as:
 
@@ -81,7 +81,7 @@ Captured traffic can later be analyzed to investigate:
 
 ---
 
-## Why Packet Capture Matters
+## **Why Packet Capture Matters**
 
 Flow monitoring provides summarized traffic visibility, but many issues require deeper inspection of the actual packets.
 
@@ -114,7 +114,7 @@ It is especially important in:
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Protocol Troubleshooting
 
@@ -138,7 +138,7 @@ Reconstruct historical communication and attack timelines.
 
 ---
 
-## Packet Capture vs Flow Monitoring
+## **Packet Capture vs Flow Monitoring**
 
 | Feature | Packet Capture | Flow Monitoring |
 |---|---|---|
@@ -152,7 +152,7 @@ Packet capture provides detailed visibility into communication contents, while f
 
 ---
 
-## How Trisul Handles Packet Capture
+## **How Trisul Handles Packet Capture**
 
 Trisul provides scalable packet capture and forensic traffic visibility for enterprise and ISP environments.
 
@@ -184,7 +184,7 @@ workflows for deeper packet-level investigation.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Packet Analysis
 - Flow Analysis
@@ -195,7 +195,7 @@ workflows for deeper packet-level investigation.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is packet capture?
 

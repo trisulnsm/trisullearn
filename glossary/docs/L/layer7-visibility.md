@@ -30,7 +30,7 @@ It provides deeper operational roles by showing:
 
 Layer 7 visibility is essential for modern traffic analytics, security monitoring, and application-aware network operations.
 
-## How Layer 7 Visibility Works
+## **How Layer 7 Visibility Works**
 
 Traditional traffic monitoring focuses mainly on:
 - IP addresses
@@ -64,7 +64,7 @@ For example:
 
 ![](images/layer7.png)
 
-## Why Layer 7 Visibility Matters
+## **Why Layer 7 Visibility Matters**
 
 Modern networks are heavily application-driven.
 
@@ -92,7 +92,7 @@ It is especially important in:
 - SaaS-heavy deployments
 - remote work environments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Application Monitoring
 
@@ -114,7 +114,7 @@ Apply policies based on application importance.
 
 Investigate performance issues affecting business applications.
 
-## Layer 7 Visibility vs Basic Flow Visibility
+## **Layer 7 Visibility vs Basic Flow Visibility**
 
 | Feature | Layer 7 Visibility | Basic Flow Visibility |
 |---|---|---|
@@ -126,7 +126,7 @@ Investigate performance issues affecting business applications.
 
 Layer 7 visibility provides deeper awareness into how applications behave across the network.
 
-## How Trisul Handles Layer 7 Visibility
+## **How Trisul Handles Layer 7 Visibility**
 
 Trisul combines traffic analytics and DPI-driven workflows to provide application-aware network visibility.
 
@@ -148,7 +148,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Application Visibility](/glossary/application-visibility), [Encrypted Traffic Analysis](/glossary/encrypted-traffic-analysis), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper analytics visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Application Visibility](/glossary/application-visibility)
 - [Deep Packet Inspection (DPI)](/glossary/deep-packet-inspection-dpi)
@@ -159,7 +159,7 @@ Trisul can also integrate [Application Visibility](/glossary/application-visibil
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Layer 7 visibility?
 

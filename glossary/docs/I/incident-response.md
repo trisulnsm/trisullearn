@@ -28,7 +28,7 @@ A security incident may include:
 
 Incident response helps organizations minimize damage, restore operations, and prevent future attacks.
 
-## How Incident Response Works
+## **How Incident Response Works**
 
 Security teams use monitoring and investigation systems to identify suspicious activity across the network.
 
@@ -58,7 +58,7 @@ For example:
 4. Compromised systems are remediated
 5. Historical traffic is reviewed for additional impact
 
-## Why Incident Response Matters
+## **Why Incident Response Matters**
 
 Modern cyberattacks can spread rapidly across networks and cloud environments.
 
@@ -84,7 +84,7 @@ It is especially important in:
 - cloud environments
 - regulated industries
 
-## Common Incident Response Phases
+## **Common Incident Response Phases**
 
 ### Detection
 
@@ -110,7 +110,7 @@ Restore systems and validate operational stability.
 
 Improve monitoring, detection, and security policies after the incident.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Malware Investigation
 
@@ -132,7 +132,7 @@ Investigate attacks targeting cloud workloads and services.
 
 Reconstruct attack timelines using historical traffic visibility.
 
-## Incident Response vs Threat Detection
+## **Incident Response vs Threat Detection**
 
 | Feature | Incident Response | Threat Detection |
 |---|---|---|
@@ -144,7 +144,7 @@ Reconstruct attack timelines using historical traffic visibility.
 
 Threat detection identifies suspicious activity, while incident response manages the full investigation and recovery process.
 
-## How Trisul Supports Incident Response
+## **How Trisul Supports Incident Response**
 
 Trisul provides deep traffic visibility and forensic workflows for security investigations and operational response.
 
@@ -166,7 +166,7 @@ Trisul helps teams:
 
 Trisul can also integrate [IDS Integration](/glossary/ids-integration), [Packet Capture](/glossary/packet-capture), and [Flow Forensics](/glossary/flow-forensics) workflows for deeper incident investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Network Security Monitoring](/glossary/network-security-monitoring-nsm)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -177,7 +177,7 @@ Trisul can also integrate [IDS Integration](/glossary/ids-integration), [Packet 
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is incident response?
 

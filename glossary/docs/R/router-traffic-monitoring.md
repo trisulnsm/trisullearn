@@ -36,7 +36,7 @@ It is widely used for:
 - traffic engineering
 - capacity planning
 
-## How Router Traffic Monitoring Works
+## **How Router Traffic Monitoring Works**
 
 Routers continuously forward traffic between networks and interfaces.
 
@@ -72,7 +72,7 @@ For example:
 
 ---
 
-## Why Router Traffic Monitoring Matters
+## **Why Router Traffic Monitoring Matters**
 
 Routers are central visibility points in most network infrastructures.
 
@@ -107,7 +107,7 @@ Routers spend their entire existence directing traffic like exhausted city traff
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### WAN Monitoring
 
@@ -131,7 +131,7 @@ Analyze traffic growth and infrastructure utilization trends.
 
 ---
 
-## Router Traffic Monitoring vs Switch Monitoring
+## **Router Traffic Monitoring vs Switch Monitoring**
 
 | Feature | Router Traffic Monitoring | Switch Monitoring |
 |---|---|---|
@@ -145,7 +145,7 @@ Router monitoring focuses more heavily on routing, WAN communication, and inter-
 
 ---
 
-## How Trisul Handles Router Traffic Monitoring
+## **How Trisul Handles Router Traffic Monitoring**
 
 Trisul provides scalable router traffic analytics for enterprise and ISP environments.
 
@@ -177,7 +177,7 @@ workflows for deeper router visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Bandwidth Monitoring
 - Flow Monitoring
@@ -188,7 +188,7 @@ workflows for deeper router visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is router traffic monitoring?
 

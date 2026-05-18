@@ -45,7 +45,7 @@ It is especially important in:
 
 ---
 
-## How Upstream and Downstream Traffic Work
+## **How Upstream and Downstream Traffic Work**
 
 Every network communication has traffic flowing in multiple directions.
 
@@ -72,7 +72,7 @@ Monitoring systems analyze:
 
 ---
 
-## Why Upstream vs Downstream Visibility Matters
+## **Why Upstream vs Downstream Visibility Matters**
 
 Modern applications generate very different traffic patterns depending on usage behavior.
 
@@ -107,7 +107,7 @@ Humans mostly use the internet to consume absurd amounts of downstream video tra
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### ISP Bandwidth Monitoring
 
@@ -131,7 +131,7 @@ Forecast upstream and downstream bandwidth growth separately.
 
 ---
 
-## Upstream vs Downstream Traffic Comparison
+## **Upstream vs Downstream Traffic Comparison**
 
 | Feature | Upstream Traffic | Downstream Traffic |
 |---|---|---|
@@ -145,7 +145,7 @@ Consumer networks often experience much higher downstream usage due to streaming
 
 ---
 
-## How Trisul Handles Directional Traffic Analytics
+## **How Trisul Handles Directional Traffic Analytics**
 
 Trisul provides scalable directional traffic visibility for enterprise and ISP environments.
 
@@ -177,7 +177,7 @@ workflows for deeper directional visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Bandwidth Monitoring
 - ISP Traffic Analytics
@@ -188,7 +188,7 @@ workflows for deeper directional visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is upstream traffic?
 

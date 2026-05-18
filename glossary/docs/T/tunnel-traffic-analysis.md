@@ -36,7 +36,7 @@ It is especially important in:
 - data centers
 - hybrid networks
 
-## How Tunnel Traffic Analysis Works
+## **How Tunnel Traffic Analysis Works**
 
 Network tunnels encapsulate original traffic packets inside additional headers.
 
@@ -78,7 +78,7 @@ For example:
 
 ---
 
-## Why Tunnel Traffic Analysis Matters
+## **Why Tunnel Traffic Analysis Matters**
 
 Modern infrastructures rely heavily on overlay and encrypted communication.
 
@@ -113,7 +113,7 @@ Humans hid packets inside other packets to move traffic around more cleverly, th
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### VPN Monitoring
 
@@ -137,7 +137,7 @@ Analyze suspicious or anomalous encapsulated communication.
 
 ---
 
-## Tunnel Traffic Analysis vs Standard Traffic Analysis
+## **Tunnel Traffic Analysis vs Standard Traffic Analysis**
 
 | Feature | Tunnel Traffic Analysis | Standard Traffic Analysis |
 |---|---|---|
@@ -151,7 +151,7 @@ Tunnel analysis focuses specifically on encapsulated and overlay communication v
 
 ---
 
-## How Trisul Handles Tunnel Traffic Analysis
+## **How Trisul Handles Tunnel Traffic Analysis**
 
 Trisul provides scalable overlay traffic analytics and tunnel visibility for enterprise and ISP environments.
 
@@ -183,7 +183,7 @@ workflows for deeper overlay visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - GRE Tunnel Monitoring
 - Encrypted Traffic Analysis
@@ -194,7 +194,7 @@ workflows for deeper overlay visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is tunnel traffic?
 

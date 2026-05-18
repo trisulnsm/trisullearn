@@ -41,7 +41,7 @@ User traffic analytics is widely used for:
 - behavioral analytics
 - compliance monitoring
 
-## How User Traffic Analytics Works
+## **How User Traffic Analytics Works**
 
 Monitoring platforms collect visibility data from:
 - flow records
@@ -80,7 +80,7 @@ User traffic analytics may identify:
 
 ---
 
-## Why User Traffic Analytics Matters
+## **Why User Traffic Analytics Matters**
 
 Modern networks are highly dynamic and user-driven.
 
@@ -115,7 +115,7 @@ Humans wanted networks to stop treating everyone as anonymous IP addresses, so n
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Monitoring
 
@@ -139,7 +139,7 @@ Investigate user-specific connectivity and performance issues.
 
 ---
 
-## User Traffic Analytics vs Device Traffic Analytics
+## **User Traffic Analytics vs Device Traffic Analytics**
 
 | Feature | User Traffic Analytics | Device Traffic Analytics |
 |---|---|---|
@@ -153,7 +153,7 @@ User traffic analytics focuses on people and subscriber behavior rather than onl
 
 ---
 
-## How Trisul Handles User Traffic Analytics
+## **How Trisul Handles User Traffic Analytics**
 
 Trisul provides contextual user-centric traffic visibility for enterprise and ISP environments.
 
@@ -185,7 +185,7 @@ workflows for deeper behavioral visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Subscriber Mapping
 - IPDR
@@ -196,7 +196,7 @@ workflows for deeper behavioral visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is user traffic analytics?
 

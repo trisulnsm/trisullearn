@@ -21,7 +21,7 @@ Flow collectors act as the ingestion layer in flow monitoring environments, hand
 
 Collectors focus on scalable traffic data collection and retention rather than deep traffic analysis.
 
-## How a Flow Collector Works
+## **How a Flow Collector Works**
 
 Network devices continuously generate flow records describing traffic activity across the network.
 
@@ -54,7 +54,7 @@ Flow collectors commonly handle:
 ![](images/flowcollector.png)
 
 
-## Why Flow Collectors Matter
+## **Why Flow Collectors Matter**
 
 Large networks generate millions of flow records every second.
 
@@ -79,7 +79,7 @@ Flow collectors are especially important in:
 - cloud environments
 - large-scale monitoring systems
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Centralized Flow Collection
 
@@ -101,7 +101,7 @@ Handle large-scale traffic exports efficiently.
 
 Retain traffic metadata for operational or regulatory requirements.
 
-## Flow Collector vs Flow Analyzer
+## **Flow Collector vs Flow Analyzer**
 
 | Feature | Flow Collector | Flow Analyzer |
 |---|---|---|
@@ -113,7 +113,7 @@ Retain traffic metadata for operational or regulatory requirements.
 
 Collectors focus on traffic ingestion and storage, while analyzers focus on visibility and operational insights.
 
-## How Trisul Handles Flow Collection
+## **How Trisul Handles Flow Collection**
 
 Trisul combines scalable flow collection and advanced traffic analytics into a unified network visibility platform.
 
@@ -135,7 +135,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Packet Capture](/glossary/packet-capture), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analyzer](/glossary/flow-analyzer)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -146,7 +146,7 @@ Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Packet Capt
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a flow collector?
 

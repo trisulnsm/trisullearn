@@ -27,7 +27,7 @@ IDS integration improves visibility into:
 - lateral movement
 - security events
 
-## How IDS Integration Works
+## **How IDS Integration Works**
 
 An Intrusion Detection System analyzes network traffic using:
 - signature-based detection
@@ -58,7 +58,7 @@ For example:
 
 ![](images/idsintegration.png)
 
-## Why IDS Integration Matters
+## **Why IDS Integration Matters**
 
 Standalone IDS alerts often provide limited operational context.
 
@@ -84,7 +84,7 @@ It is especially important in:
 - cloud infrastructures
 - hybrid environments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Threat Detection
 
@@ -106,7 +106,7 @@ Reconstruct attack timelines using traffic metadata and packet captures.
 
 Improve visibility across distributed monitoring environments.
 
-## IDS Integration vs Standalone IDS Monitoring
+## **IDS Integration vs Standalone IDS Monitoring**
 
 | Feature | IDS Integration | Standalone IDS |
 |---|---|---|
@@ -118,7 +118,7 @@ Improve visibility across distributed monitoring environments.
 
 IDS integration improves visibility by combining threat detection with traffic analytics and investigation workflows.
 
-## How Trisul Supports IDS Integration
+## **How Trisul Supports IDS Integration**
 
 Trisul integrates traffic analytics and packet visibility workflows with IDS-driven security operations.
 
@@ -140,7 +140,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Network Security Monitoring](/glossary/network-security-monitoring-nsm), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper security analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Intrusion Detection System (IDS)](/glossary/intrusion-detection-system-ids)
 - [Network Security Monitoring](/glossary/network-security-monitoring-nsm)
@@ -151,7 +151,7 @@ Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Network S
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is IDS integration?
 

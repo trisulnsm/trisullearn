@@ -21,7 +21,7 @@ It helps ensure traffic analytics remain accurate by preventing the same network
 
 Flow deduplication is especially important in large-scale environments where traffic may be monitored from several routers, switches, probes, or collectors simultaneously.
 
-## How Duplicate Flow Records Occur
+## **How Duplicate Flow Records Occur**
 
 In complex networks, the same traffic flow can be exported by multiple devices or observation points.
 
@@ -47,7 +47,7 @@ Duplicate records may contain:
 
 ![](images/flowdeduplication.png)
 
-## Why Flow Deduplication Matters
+## **Why Flow Deduplication Matters**
 
 Without deduplication, traffic analytics can become inaccurate and misleading.
 
@@ -73,7 +73,7 @@ Deduplication is especially important in:
 - high-availability environments
 - traffic aggregation platforms
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Accurate Bandwidth Monitoring
 
@@ -95,7 +95,7 @@ Reduce duplicate alerts and redundant traffic visibility.
 
 Maintain accurate traffic accounting and reporting.
 
-## Flow Deduplication vs Flow Aggregation
+## **Flow Deduplication vs Flow Aggregation**
 
 | Feature | Flow Deduplication | Flow Aggregation |
 |---|---|---|
@@ -107,7 +107,7 @@ Maintain accurate traffic accounting and reporting.
 
 Deduplication removes repeated flow records, while aggregation combines related traffic into summarized views.
 
-## How Trisul Handles Flow Deduplication
+## **How Trisul Handles Flow Deduplication**
 
 Trisul provides scalable traffic analytics and flow correlation workflows designed for large distributed monitoring environments.
 
@@ -129,7 +129,7 @@ Trisul helps teams:
 
 Trisul can also integrate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Flow Analysis](/glossary/flow-analysis) workflows for deeper traffic normalization and visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [Flow Data](/glossary/flow-data)
@@ -140,7 +140,7 @@ Trisul can also integrate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is flow deduplication?
 

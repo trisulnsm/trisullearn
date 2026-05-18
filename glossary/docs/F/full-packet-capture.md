@@ -35,7 +35,7 @@ Full packet capture is widely used in:
 - compliance monitoring
 - protocol analysis
 
-## How Full Packet Capture Works
+## **How Full Packet Capture Works**
 
 Network monitoring systems observe traffic using:
 - network TAPs
@@ -68,7 +68,7 @@ For example:
 3. The payload reveals malicious activity
 4. Investigators reconstruct the entire communication session
 
-## Why Full Packet Capture Matters
+## **Why Full Packet Capture Matters**
 
 Flow data provides summarized visibility, but sometimes deeper inspection is required.
 
@@ -96,7 +96,7 @@ Full packet capture is especially important in:
 - compliance investigations
 - incident response workflows
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -118,7 +118,7 @@ Reconstruct historical communication sessions.
 
 Retain packet evidence for audit or investigation purposes.
 
-## Full Packet Capture vs Flow Monitoring
+## **Full Packet Capture vs Flow Monitoring**
 
 | Feature | Full Packet Capture | Flow Monitoring |
 |---|---|---|
@@ -130,7 +130,7 @@ Retain packet evidence for audit or investigation purposes.
 
 Full packet capture provides deeper visibility, while flow monitoring provides more scalable traffic analytics.
 
-## How Trisul Handles Full Packet Capture
+## **How Trisul Handles Full Packet Capture**
 
 Trisul combines packet capture and flow analytics to provide deep operational visibility across enterprise and ISP environments.
 
@@ -152,7 +152,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Deep Packet Inspection (DPI)](/glossary/deep-packet-inspection-dpi), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper forensic visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Packet Capture](/glossary/packet-capture)
 - [Deep Packet Inspection (DPI)](/glossary/deep-packet-inspection-dpi)
@@ -163,7 +163,7 @@ Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Deep Packet
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is full packet capture?
 

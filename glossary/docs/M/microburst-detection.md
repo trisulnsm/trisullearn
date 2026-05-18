@@ -29,7 +29,7 @@ Because microbursts happen so quickly, traditional monitoring systems may miss t
 
 Microburst detection helps organizations identify hidden performance problems affecting high-speed and latency-sensitive networks.
 
-## How Microbursts Work
+## **How Microbursts Work**
 
 In stable traffic conditions, packets arrive at relatively predictable rates.
 
@@ -54,7 +54,7 @@ Although short-lived, these bursts can heavily affect:
 - storage traffic
 - real-time applications
 
-## Why Microburst Detection Matters
+## **Why Microburst Detection Matters**
 
 Traditional monitoring tools often use:
 - 1-minute averages
@@ -86,7 +86,7 @@ It is especially important in:
 - cloud infrastructures
 - ISP backbones
 
-## Common Causes of Microbursts
+## **Common Causes of Microbursts**
 
 ### Simultaneous Traffic Streams
 
@@ -108,7 +108,7 @@ Large transfers create short-duration congestion bursts.
 
 Shared infrastructure produces unpredictable traffic patterns.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### VoIP Troubleshooting
 
@@ -130,7 +130,7 @@ Detect short-duration congestion events.
 
 Monitor low-latency communication stability.
 
-## Microburst Detection vs Standard Bandwidth Monitoring
+## **Microburst Detection vs Standard Bandwidth Monitoring**
 
 | Feature | Microburst Detection | Standard Bandwidth Monitoring |
 |---|---|---|
@@ -142,7 +142,7 @@ Monitor low-latency communication stability.
 
 Microburst detection focuses on very short traffic spikes that standard monitoring may overlook.
 
-## How Trisul Handles Microburst Detection
+## **How Trisul Handles Microburst Detection**
 
 Trisul provides high-resolution traffic analytics and packet visibility for analyzing burst traffic behavior.
 
@@ -164,7 +164,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Jitter Monitoring](/glossary/jitter-monitoring), [Latency Monitoring](/glossary/latency-monitoring), and [Dropped Packets](/glossary/dropped-packets) workflows for deeper performance analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Burst Traffic](/glossary/burst-traffic)
 - [Latency Monitoring](/glossary/latency-monitoring)
@@ -175,7 +175,7 @@ Trisul can also integrate [Jitter Monitoring](/glossary/jitter-monitoring), [Lat
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a network microburst?
 

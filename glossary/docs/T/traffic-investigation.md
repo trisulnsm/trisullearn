@@ -41,7 +41,7 @@ It is widely used for:
 - anomaly analysis
 - performance monitoring
 
-## How Traffic Investigation Works
+## **How Traffic Investigation Works**
 
 Monitoring platforms collect visibility data from:
 - NetFlow
@@ -83,7 +83,7 @@ Traffic investigation may reveal:
 
 ---
 
-## Why Traffic Investigation Matters
+## **Why Traffic Investigation Matters**
 
 Modern networks generate massive amounts of distributed communication continuously.
 
@@ -118,7 +118,7 @@ Humans built networks so complicated that solving one outage now resembles detec
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -142,7 +142,7 @@ Analyze application usage and communication flows.
 
 ---
 
-## Traffic Investigation vs Basic Monitoring
+## **Traffic Investigation vs Basic Monitoring**
 
 | Feature | Traffic Investigation | Basic Monitoring |
 |---|---|---|
@@ -156,7 +156,7 @@ Traffic investigation focuses on deep analysis and correlation rather than only 
 
 ---
 
-## How Trisul Handles Traffic Investigation
+## **How Trisul Handles Traffic Investigation**
 
 Trisul provides contextual traffic analytics and forensic visibility for enterprise and ISP environments.
 
@@ -188,7 +188,7 @@ workflows for deeper investigative visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Network Forensics
 - Packet Analysis
@@ -199,7 +199,7 @@ workflows for deeper investigative visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is traffic investigation?
 

@@ -21,7 +21,7 @@ It helps network teams determine when to upgrade bandwidth, expand infrastructur
 
 Capacity planning is commonly used in [Bandwidth Monitoring](/glossary/bandwidth-monitoring), [Baseline Traffic Analysis](/glossary/baseline-traffic-analysis), and [Traffic Investigation](/glossary/traffic-investigation) workflows.
 
-## How Capacity Planning Works
+## **How Capacity Planning Works**
 
 Capacity planning platforms analyze historical and real-time traffic data to identify long-term usage patterns and growth trends.
 
@@ -54,7 +54,7 @@ xychart-beta
 
 *Figure: Capacity planning graph showing long-term traffic growth approaching network capacity limits over time.*
 
-## Why Capacity Planning Matters
+## **Why Capacity Planning Matters**
 
 Without capacity planning, networks may experience:
 - congestion
@@ -79,7 +79,7 @@ It is especially important in:
 - data centers
 - high-growth network infrastructures
 
-## Types of Capacity Planning
+## **Types of Capacity Planning**
 
 ### Bandwidth Capacity Planning
 
@@ -97,7 +97,7 @@ Monitor application growth and service consumption trends.
 
 Analyze user growth and traffic demand in ISP environments.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### WAN Upgrade Planning
 
@@ -119,7 +119,7 @@ Monitor hybrid and cloud traffic growth patterns.
 
 Prepare infrastructure for high-demand periods and traffic surges.
 
-## Capacity Planning vs Real-Time Monitoring
+## **Capacity Planning vs Real-Time Monitoring**
 
 | Feature | Capacity Planning | Real-Time Monitoring |
 |---|---|---|
@@ -131,7 +131,7 @@ Prepare infrastructure for high-demand periods and traffic surges.
 
 Capacity planning focuses on future scalability, while real-time monitoring focuses on current network conditions.
 
-## How Trisul Handles Capacity Planning
+## **How Trisul Handles Capacity Planning**
 
 Trisul provides long-term traffic visibility and historical flow analytics for analyzing growth trends and forecasting infrastructure requirements.
 
@@ -152,7 +152,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows for deeper infrastructure analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
 - [Baseline Traffic Analysis](/glossary/baseline-traffic-analysis)
@@ -163,7 +163,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is capacity planning in networking?
 

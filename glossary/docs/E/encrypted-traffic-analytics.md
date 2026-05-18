@@ -21,7 +21,7 @@ It helps network and security teams identify applications, detect suspicious beh
 
 Encrypted traffic analysis is widely used in [Network Security Monitoring](/glossary/network-security-monitoring-nsm), [Traffic Investigation](/glossary/traffic-investigation), and [Application Visibility](/glossary/application-visibility) workflows.
 
-## How Encrypted Traffic Analysis Works
+## **How Encrypted Traffic Analysis Works**
 
 Modern internet traffic is increasingly encrypted using protocols such as:
 - HTTPS
@@ -47,7 +47,7 @@ For example:
 3. Traffic metadata and communication behavior are analyzed
 4. The monitoring platform identifies unusual or suspicious patterns
 
-## Why Encrypted Traffic Analysis Matters
+## **Why Encrypted Traffic Analysis Matters**
 
 Most modern applications and services now use encryption by default.
 
@@ -73,7 +73,7 @@ It is especially important in:
 - ISP environments
 - zero-trust architectures
 
-## Types of Encrypted Traffic Analysis
+## **Types of Encrypted Traffic Analysis**
 
 ### TLS Metadata Analysis
 
@@ -95,7 +95,7 @@ Recognize applications or services based on traffic characteristics.
 
 Monitor encrypted session duration, timing, and communication behavior.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Malware Detection
 
@@ -117,7 +117,7 @@ Detect anomalous encrypted traffic behavior and unauthorized tunnels.
 
 Monitor encrypted application traffic and session quality.
 
-## Encrypted Traffic Analysis vs Deep Packet Inspection
+## **Encrypted Traffic Analysis vs Deep Packet Inspection**
 
 | Feature | Encrypted Traffic Analysis | Deep Packet Inspection |
 |---|---|---|
@@ -129,7 +129,7 @@ Monitor encrypted application traffic and session quality.
 
 Encrypted traffic analysis focuses on metadata and behavior, while DPI relies more heavily on payload inspection.
 
-## How Trisul Handles Encrypted Traffic Analysis
+## **How Trisul Handles Encrypted Traffic Analysis**
 
 Trisul provides encrypted traffic visibility using flow analytics, behavioral monitoring, and packet-level metadata analysis.
 
@@ -151,7 +151,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [Packet Capture](/glossary/packet-capture), and [Anomaly Detection](/glossary/anomaly-detection) workflows for deeper encrypted traffic investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Deep Packet Inspection (DPI)](/glossary/deep-packet-inspection-dpi)
 - [Application Visibility](/glossary/application-visibility)
@@ -162,7 +162,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [Packet Capture](/glossa
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is encrypted traffic analysis?
 

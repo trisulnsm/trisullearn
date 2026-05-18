@@ -21,7 +21,7 @@ CIDR replaces the older class-based IP addressing model by allowing networks to 
 
 CIDR is widely used in IP routing, subnetting, cloud networking, and [BGP](/glossary/bgp) route advertisement workflows.
 
-## How CIDR Works
+## **How CIDR Works**
 
 CIDR represents IP networks using a prefix length format called CIDR notation.
 
@@ -65,7 +65,7 @@ flowchart TD
 
 *Figure: CIDR subnetting diagram showing network prefixes, subnet masks, and how IP ranges can be divided into smaller subnets using CIDR notation.*
 
-## Why CIDR Matters
+## **Why CIDR Matters**
 
 Before CIDR, IP addressing relied on fixed classes such as:
 
@@ -91,7 +91,7 @@ cloud infrastructure
 BGP route advertisement
 subnet design
 
-## Common Operational Use Cases  
+## **Common Operational Use Cases  **
 
 ### IP Subnetting
 
@@ -113,7 +113,7 @@ Advertise aggregated network prefixes through BGP.
 
 Define IP ranges in firewall and ACL rules.
 
-## CIDR vs Classful Addressing
+## **CIDR vs Classful Addressing**
 
 |Feature |CIDR  |Classful Addressing|
 |-------------|--------------|------|
@@ -125,7 +125,7 @@ Define IP ranges in firewall and ACL rules.
 
 CIDR provides more flexible and efficient IP address allocation than the older class-based model.
 
-## How Trisul Uses CIDR Visibility
+## **How Trisul Uses CIDR Visibility**
 
 Trisul uses CIDR-aware traffic analysis and subnet visibility to help teams analyze traffic distribution across IP ranges and network segments.
 
@@ -151,7 +151,7 @@ Trisul can also correlate NetFlow
 , and Packet Capture
  workflows with CIDR-based network analysis.
 
-## Related Terms
+## **Related Terms**
 
 BGP
 ASN
@@ -160,7 +160,7 @@ Access Control List (ACL)
 Traffic Investigation
 Network Security Monitoring
 
-## FAQ
+## **FAQ**
 
 ### What does CIDR stand for?
 

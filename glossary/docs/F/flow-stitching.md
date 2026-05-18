@@ -27,7 +27,7 @@ It improves visibility into:
 - application dependencies
 - traffic investigation workflows
 
-## How Flow Stitchingᵀ Works
+## **How Flow Stitchingᵀ Works**
 
 Modern network traffic often traverses multiple systems before reaching its destination.
 
@@ -60,7 +60,7 @@ This creates better visibility into:
 - which systems participated
 - how communication evolved across the network
 
-## Why Flow Stitchingᵀ Matters
+## **Why Flow Stitchingᵀ Matters**
 
 Traditional flow analysis may show fragmented traffic records independently.
 
@@ -87,7 +87,7 @@ It is especially useful in:
 - hybrid networks
 - data centers
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Distributed Application Troubleshooting
 
@@ -109,7 +109,7 @@ Reconstruct suspicious communication across multiple monitoring points.
 
 Analyze traffic paths between cloud workloads and services.
 
-## Flow Stitchingᵀ vs Traditional Flow Analysis
+## **Flow Stitchingᵀ vs Traditional Flow Analysis**
 
 | Feature | Flow Stitchingᵀ | Traditional Flow Analysis |
 |---|---|---|
@@ -121,7 +121,7 @@ Analyze traffic paths between cloud workloads and services.
 
 Flow Stitchingᵀ provides unified traffic visibility across distributed communication paths.
 
-## How Trisul Uses Flow Stitchingᵀ
+## **How Trisul Uses Flow Stitchingᵀ**
 
 Flow Stitchingᵀ works alongside Trisul’s advanced traffic analytics and contextual visibility workflows.
 
@@ -143,7 +143,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper operational visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Legsᵀ](/glossary/flow-legs)
 - [Conversation View](/glossary/conversation-view)
@@ -154,7 +154,7 @@ Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversat
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Flow Stitchingᵀ in Trisul?
 

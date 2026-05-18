@@ -31,7 +31,7 @@ NetFlow sampling is commonly used in:
 - cloud infrastructures
 - carrier-grade networks
 
-## How NetFlow Sampling Works
+## **How NetFlow Sampling Works**
 
 In full NetFlow monitoring, every packet contributes to flow generation.
 
@@ -60,7 +60,7 @@ This means:
 Sampling significantly reduces monitoring overhead while still providing meaningful traffic visibility.
 
 
-## Why NetFlow Sampling Matters
+## **Why NetFlow Sampling Matters**
 
 Modern high-speed networks generate enormous traffic volumes.
 
@@ -87,7 +87,7 @@ It is especially important in:
 - multi-terabit backbones
 - distributed monitoring environments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### ISP Backbone Monitoring
 
@@ -109,7 +109,7 @@ Identify abnormal traffic spikes and volumetric attacks.
 
 Scale visibility across distributed cloud workloads.
 
-## NetFlow Sampling vs Full NetFlow Monitoring
+## **NetFlow Sampling vs Full NetFlow Monitoring**
 
 | Feature | NetFlow Sampling  | Full NetFlow Monitoring| 
 |----------|----------------------|--------------------|
@@ -121,7 +121,7 @@ Scale visibility across distributed cloud workloads.
 
 NetFlow sampling improves scalability, while full monitoring provides more precise traffic visibility.
 
-## How Trisul Handles Sampled NetFlow Visibility
+## **How Trisul Handles Sampled NetFlow Visibility**
 
 Trisul provides scalable flow analytics for sampled and high-volume NetFlow environments.
 
@@ -145,7 +145,7 @@ Trisul helps teams:
 
 Trisul can also integrate NetFlow, Flow Sampling, and ISP Traffic Analytics workflows for scalable traffic visibility.
 
-## Related Terms
+## **Related Terms**
 
 - NetFlow
 - Flow Sampling
@@ -154,7 +154,7 @@ Trisul can also integrate NetFlow, Flow Sampling, and ISP Traffic Analytics work
 - ISP Traffic Analytics
 - Capacity Planning
 
-## FAQ
+## **FAQ**
 
 ### What is NetFlow sampling?
 

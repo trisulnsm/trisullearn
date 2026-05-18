@@ -21,7 +21,7 @@ They help network and security teams analyze traffic behavior by grouping simila
 
 Counter Groupsᵀ improve visibility across large-scale traffic monitoring and analytics environments.
 
-## How Counter Groupsᵀ Work
+## **How Counter Groupsᵀ Work**
 
 Modern networks generate massive volumes of telemetry and traffic statistics from:
 - flow records
@@ -53,7 +53,7 @@ Counter Groupsᵀ may organize metrics by:
 
 ![](images/countergroup.png)
 
-## Why Counter Groupsᵀ Matter
+## **Why Counter Groupsᵀ Matter**
 
 Without structured grouping, large-scale traffic metrics can become difficult to analyze and manage.
 
@@ -80,7 +80,7 @@ Counter Groupsᵀ are especially useful in:
 - multi-tenant deployments
 - high-volume traffic infrastructures
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Analysis
 
@@ -102,7 +102,7 @@ Group suspicious traffic indicators and anomaly metrics.
 
 Separate metrics across customers, regions, or network segments.
 
-## Counter Groupsᵀ vs Individual Counters
+## **Counter Groupsᵀ vs Individual Counters**
 
 | Feature | Counter Groupsᵀ | Individual Counters |
 |---|---|---|
@@ -114,7 +114,7 @@ Separate metrics across customers, regions, or network segments.
 
 Counter Groupsᵀ improve visibility by organizing related traffic measurements into meaningful monitoring categories.
 
-## How Trisul Uses Counter Groupsᵀ
+## **How Trisul Uses Counter Groupsᵀ**
 
 Trisul uses Counter Groupsᵀ across its traffic analytics and monitoring workflows to organize large-scale network telemetry and operational metrics.
 
@@ -135,7 +135,7 @@ Trisul helps teams:
 
 Trisul can also integrate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Bandwidth Monitoring](/glossary/bandwidth-monitoring) workflows with grouped analytics views.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
@@ -146,7 +146,7 @@ Trisul can also integrate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What are Counter Groupsᵀ in Trisul?
 

@@ -21,7 +21,7 @@ In network monitoring and security analytics, anomaly detection helps identify t
 
 Anomaly detection is widely used in [Network Security Monitoring](/glossary/network-security-monitoring-nsm), [Flow Analysis](/glossary/flow-analysis), and [Traffic Investigation](/glossary/traffic-investigation) workflows.
 
-## How Anomaly Detection Works
+## **How Anomaly Detection Works**
 
 Anomaly detection systems analyze network traffic and compare current activity against established baselines or expected behavior patterns.
 
@@ -57,7 +57,7 @@ xychart-beta
 
 *Figure: Traffic anomaly detection comparing normal baseline behavior against a sudden abnormal traffic spike.*
 
-## Why Anomaly Detection Matters
+## **Why Anomaly Detection Matters**
 
 Traditional rule-based monitoring only detects known conditions or predefined signatures.
 
@@ -84,7 +84,7 @@ Anomaly detection is especially important in:
 - cloud infrastructure
 - high-volume traffic environments
 
-## Types of Network Anomalies
+## **Types of Network Anomalies**
 
 ### Traffic Volume Anomalies
 
@@ -106,7 +106,7 @@ Traffic originating from unusual locations or regions.
 
 Indicators of scanning, malware communication, brute-force attempts, or suspicious outbound traffic.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### DDoS Detection
 
@@ -128,7 +128,7 @@ Detect unexpected latency, congestion, or routing anomalies.
 
 Compare current traffic against historical traffic behavior.
 
-## Anomaly Detection vs Signature-Based Detection
+## **Anomaly Detection vs Signature-Based Detection**
 
 | Feature | Anomaly Detection | Signature-Based Detection |
 |---|---|---|
@@ -140,7 +140,7 @@ Compare current traffic against historical traffic behavior.
 
 Anomaly detection helps identify behaviors that traditional signature-based systems may miss.
 
-## How Trisul Handles Anomaly Detection
+## **How Trisul Handles Anomaly Detection**
 
 Trisul uses flow analytics, behavioral monitoring, and long-term traffic visibility to help network teams identify anomalous activity across enterprise and ISP environments.
 
@@ -161,7 +161,7 @@ Trisul helps detect:
 
 Trisul can also correlate anomalous flow behavior with [Packet Capture](/glossary/packet-capture) and [PCAP Analysis](/glossary/pcap-analysis) workflows for deeper investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -172,7 +172,7 @@ Trisul can also correlate anomalous flow behavior with [Packet Capture](/glossar
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is anomaly detection in networking?
 

@@ -27,7 +27,7 @@ Traffic direction visibility is important for:
 - access control
 - operational analytics
 
-## How Inbound and Outbound Traffic Work
+## **How Inbound and Outbound Traffic Work**
 
 Every network communication involves traffic moving between systems.
 
@@ -56,7 +56,7 @@ Traffic direction is often analyzed using:
 - firewall zones
 - Home Networkᵀ configurations
 
-## Why Inbound and Outbound Traffic Matter
+## **Why Inbound and Outbound Traffic Matter**
 
 Traffic direction provides operational context that helps organizations:
 - detect suspicious communication
@@ -80,7 +80,7 @@ Traffic direction visibility is especially important in:
 - cloud environments
 - perimeter security deployments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Monitoring
 
@@ -102,7 +102,7 @@ Track inbound traffic floods targeting services.
 
 Monitor traffic crossing security boundaries and firewall zones.
 
-## Inbound vs Outbound Traffic
+## **Inbound vs Outbound Traffic**
 
 | Feature | Inbound Traffic | Outbound Traffic |
 |---|---|---|
@@ -114,7 +114,7 @@ Monitor traffic crossing security boundaries and firewall zones.
 
 Both traffic directions are important for complete network visibility.
 
-## How Trisul Handles Traffic Direction Visibility
+## **How Trisul Handles Traffic Direction Visibility**
 
 Trisul provides contextual traffic analytics for analyzing inbound, outbound, and internal communication behavior.
 
@@ -136,7 +136,7 @@ Trisul helps teams:
 
 Trisul can also integrate [East-West Traffic](/glossary/east-west-traffic), [Traffic Investigation](/glossary/traffic-investigation), and [Application Visibility](/glossary/application-visibility) workflows for deeper traffic analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [East-West Traffic](/glossary/east-west-traffic)
 - [Home Networkᵀ](/glossary/home-network)
@@ -147,7 +147,7 @@ Trisul can also integrate [East-West Traffic](/glossary/east-west-traffic), [Tra
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is inbound traffic?
 

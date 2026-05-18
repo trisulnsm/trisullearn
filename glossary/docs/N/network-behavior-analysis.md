@@ -34,7 +34,7 @@ NBA is widely used for:
 - insider threat detection
 - operational analytics
 
-## How Network Behavior Analysis Works
+## **How Network Behavior Analysis Works**
 
 Monitoring systems continuously collect visibility data from:
 - flow records
@@ -65,7 +65,7 @@ Behavior analysis may detect:
 - lateral movement
 - traffic spikes
 
-## Why Network Behavior Analysis Matters
+## **Why Network Behavior Analysis Matters**
 
 Modern threats often bypass traditional signature-based detection methods.
 
@@ -92,7 +92,7 @@ It is especially important in:
 - zero-trust architectures
 - hybrid networks
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Anomaly Detection
 
@@ -114,7 +114,7 @@ Monitor suspicious east-west communication between systems.
 
 Detect unexpected traffic spikes and abnormal usage patterns.
 
-## Network Behavior Analysis vs Signature-Based Detection
+## **Network Behavior Analysis vs Signature-Based Detection**
 
 | Feature | Network Behavior Analysis | Signature-Based Detection |
 |---|---|---|
@@ -126,7 +126,7 @@ Detect unexpected traffic spikes and abnormal usage patterns.
 
 Behavior analysis focuses on abnormal communication patterns, while signature detection focuses on known attack indicators.
 
-## How Trisul Handles Network Behavior Analysis
+## **How Trisul Handles Network Behavior Analysis**
 
 Trisul provides traffic analytics and contextual visibility for behavioral monitoring and anomaly investigation.
 
@@ -148,7 +148,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Anomaly Detection](/glossary/anomaly-detection), [Traffic Investigation](/glossary/traffic-investigation), and [Encrypted Traffic Analysis](/glossary/encrypted-traffic-analysis) workflows for deeper behavioral visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Anomaly Detection](/glossary/anomaly-detection)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -159,7 +159,7 @@ Trisul can also integrate [Anomaly Detection](/glossary/anomaly-detection), [Tra
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Network Behavior Analysis?
 

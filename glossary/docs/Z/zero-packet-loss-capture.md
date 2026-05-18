@@ -38,7 +38,7 @@ It is especially important for:
 - compliance monitoring
 - incident reconstruction
 
-## How Zero Packet Loss Capture Works
+## **How Zero Packet Loss Capture Works**
 
 Zero packet loss capture systems are engineered to process traffic at full network speed using:
 - high-performance NICs
@@ -74,7 +74,7 @@ For example:
 
 ---
 
-## Why Zero Packet Loss Capture Matters
+## **Why Zero Packet Loss Capture Matters**
 
 Modern networks generate enormous traffic volumes continuously.
 
@@ -109,7 +109,7 @@ Humans finally realized that “mostly captured the attack traffic” is not a c
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -133,7 +133,7 @@ Retain reliable packet evidence for audits and investigations.
 
 ---
 
-## Zero Packet Loss Capture vs Standard Packet Capture
+## **Zero Packet Loss Capture vs Standard Packet Capture**
 
 | Feature | Zero Packet Loss Capture | Standard Packet Capture |
 |---|---|---|
@@ -147,7 +147,7 @@ Zero packet loss capture is specifically designed for forensic-grade visibility 
 
 ---
 
-## How Trisul Handles Zero Packet Loss Visibility
+## **How Trisul Handles Zero Packet Loss Visibility**
 
 Trisul provides scalable high-speed packet analytics and forensic visibility for enterprise and ISP environments.
 
@@ -179,7 +179,7 @@ workflows for deeper forensic visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Wire-Speed Packet Capture
 - Full Packet Capture
@@ -190,7 +190,7 @@ workflows for deeper forensic visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is zero packet loss capture?
 

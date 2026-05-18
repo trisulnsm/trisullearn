@@ -36,7 +36,7 @@ It is widely used for:
 - network forensics
 - security monitoring
 
-## How Suricata Integration Works
+## **How Suricata Integration Works**
 
 Suricata analyzes network traffic using:
 
@@ -79,7 +79,7 @@ Suricata integration may reveal:
 
 ---
 
-## Why Suricata Integration Matters
+## **Why Suricata Integration Matters**
 
 Security alerts alone often lack sufficient operational context.
 
@@ -114,7 +114,7 @@ Humans created systems to detect intrusions, then realized the alerts alone were
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Threat Detection
 
@@ -138,7 +138,7 @@ Correlate IDS alerts with traffic anomalies and application behavior.
 
 ---
 
-## Suricata Integration vs Standalone IDS Monitoring
+## **Suricata Integration vs Standalone IDS Monitoring**
 
 | Feature | Suricata Integration | Standalone IDS |
 |---|---|---|
@@ -152,7 +152,7 @@ Integrated visibility provides deeper operational context than standalone alert 
 
 ---
 
-## How Trisul Handles Suricata Integration
+## **How Trisul Handles Suricata Integration**
 
 Trisul integrates Suricata visibility with advanced traffic analytics and forensic workflows.
 
@@ -184,7 +184,7 @@ workflows for deeper threat visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Security Analytics
 - Network Security Monitoring (NSM)
@@ -195,7 +195,7 @@ workflows for deeper threat visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Suricata?
 

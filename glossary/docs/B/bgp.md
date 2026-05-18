@@ -21,7 +21,7 @@ BGP helps internet service providers (ISPs), cloud providers, enterprises, and l
 
 It is often referred to as the routing protocol that powers the internet.
 
-## How BGP Works
+## **How BGP Works**
 
 BGP allows routers in different [Autonomous Systems](/glossary/asn) to exchange routing information using BGP sessions called peering relationships.
 
@@ -63,7 +63,7 @@ flowchart LR
 
 *Figure: BGP routing workflow showing route advertisements from multiple ASNs and best path selection based on routing attributes.*
 
-## Why BGP Matters
+## **Why BGP Matters**
 
 The internet consists of thousands of independently managed networks.
 
@@ -83,7 +83,7 @@ BGP visibility is especially important in:
 - data centers
 - enterprise WAN environments
 
-## Types of BGP
+## **Types of BGP**
 
 ### eBGP (External BGP)
 
@@ -97,7 +97,7 @@ iBGP distributes BGP routing information within the same Autonomous System.
 
 It helps large networks maintain consistent routing policies internally.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### ISP Routing
 
@@ -119,7 +119,7 @@ Maintain internet connectivity during link failures or outages.
 
 Analyze and reroute attack traffic during large-scale attacks.
 
-## BGP vs OSPF
+## **BGP vs OSPF**
 
 | Feature | BGP | OSPF |
 |---|---|---|
@@ -131,7 +131,7 @@ Analyze and reroute attack traffic during large-scale attacks.
 
 BGP is designed for large-scale internet routing, while OSPF is mainly used for internal enterprise routing.
 
-## How Trisul Handles BGP Visibility
+## **How Trisul Handles BGP Visibility**
 
 Trisul provides BGP-aware traffic visibility and ASN analytics for monitoring internet routing behavior and peering relationships.
 
@@ -152,7 +152,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows with BGP routing information.
 
-## Related Terms
+## **Related Terms**
 
 - [ASN](/glossary/asn)
 - [ASN Peering](/glossary/asn-peering)
@@ -163,7 +163,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What does BGP stand for?
 

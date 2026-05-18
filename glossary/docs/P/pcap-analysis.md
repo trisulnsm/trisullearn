@@ -40,7 +40,7 @@ It is widely used for:
 
 ---
 
-## How PCAP Analysis Works
+## **How PCAP Analysis Works**
 
 Packet capture systems record traffic flowing through observation points such as:
 
@@ -76,7 +76,7 @@ PCAP analysis may reveal:
 
 ---
 
-## Why PCAP Analysis Matters
+## **Why PCAP Analysis Matters**
 
 Many network and security issues cannot be fully understood using summarized metadata alone.
 
@@ -111,7 +111,7 @@ Because apparently one corrupted packet at 2:13 AM six weeks ago deserves its ow
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Protocol Troubleshooting
 
@@ -135,7 +135,7 @@ Reconstruct historical communication activity and attack timelines.
 
 ---
 
-## PCAP Analysis vs Flow Analysis
+## **PCAP Analysis vs Flow Analysis**
 
 | Feature | PCAP Analysis | Flow Analysis |
 |---|---|---|
@@ -149,7 +149,7 @@ PCAP analysis provides detailed packet-level visibility, while flow analysis pro
 
 ---
 
-## How Trisul Handles PCAP Analysis
+## **How Trisul Handles PCAP Analysis**
 
 Trisul provides scalable PCAP analytics and forensic visibility for enterprise and ISP environments.
 
@@ -181,7 +181,7 @@ workflows for deeper packet investigation.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Packet Capture
 - Packet Analysis
@@ -192,7 +192,7 @@ workflows for deeper packet investigation.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is PCAP analysis?
 

@@ -36,7 +36,7 @@ It is widely used for:
 - application visibility
 - operational monitoring
 
-## How Real-Time Traffic Monitoring Works
+## **How Real-Time Traffic Monitoring Works**
 
 Monitoring platforms continuously collect visibility data from:
 - flow exporters
@@ -78,7 +78,7 @@ Real-time visibility may include:
 
 ---
 
-## Why Real-Time Traffic Monitoring Matters
+## **Why Real-Time Traffic Monitoring Matters**
 
 Modern networks change constantly and generate massive traffic volumes.
 
@@ -112,7 +112,7 @@ Because apparently humans cannot tolerate waiting five minutes to discover the n
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Live Troubleshooting
 
@@ -136,7 +136,7 @@ Identify traffic floods and abnormal traffic behavior in real time.
 
 ---
 
-## Real-Time Monitoring vs Historical Traffic Analysis
+## **Real-Time Monitoring vs Historical Traffic Analysis**
 
 | Feature | Real-Time Monitoring | Historical Traffic Analysis |
 |---|---|---|
@@ -150,7 +150,7 @@ Real-time monitoring focuses on current network activity, while historical analy
 
 ---
 
-## How Trisul Handles Real-Time Traffic Monitoring
+## **How Trisul Handles Real-Time Traffic Monitoring**
 
 Trisul provides scalable real-time traffic analytics for enterprise and ISP environments.
 
@@ -182,7 +182,7 @@ workflows for deeper operational visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Live Traffic Monitoring
 - Bandwidth Monitoring
@@ -193,7 +193,7 @@ workflows for deeper operational visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is real-time traffic monitoring?
 

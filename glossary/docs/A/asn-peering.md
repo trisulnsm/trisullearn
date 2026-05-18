@@ -21,7 +21,7 @@ Peering allows networks such as ISPs, cloud providers, enterprises, and content 
 
 ASN peering is a foundational part of internet routing and traffic engineering.
 
-## How ASN Peering Works
+## **How ASN Peering Works**
 
 Each network participating in internet routing operates as an Autonomous System identified by an [ASN](/glossary/asn).
 
@@ -60,7 +60,7 @@ flowchart LR
 *Figure: ASN peering workflow showing two autonomous systems exchanging BGP routes and directly forwarding traffic between networks.*
 
 
-## Why ASN Peering Matters
+## **Why ASN Peering Matters**
 
 ASN peering improves:
 - routing efficiency
@@ -82,7 +82,7 @@ Peering visibility is especially important in:
 - cloud networking
 - internet exchange infrastructure
 
-## Types of ASN Peering
+## **Types of ASN Peering**
 
 ### Public Peering
 
@@ -100,7 +100,7 @@ One ASN pays another provider for internet connectivity instead of directly peer
 
 Two networks exchange traffic without financial settlement when traffic exchange is mutually beneficial.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### ISP Traffic Optimization
 
@@ -122,7 +122,7 @@ Analyze attack traffic sources and upstream ASN paths.
 
 Improve content delivery performance through direct peering relationships.
 
-## ASN Peering vs Transit
+## **ASN Peering vs Transit**
 
 | Feature | ASN Peering | Transit |
 |---|---|---|
@@ -134,7 +134,7 @@ Improve content delivery performance through direct peering relationships.
 
 Peering improves direct connectivity, while transit provides broader internet reachability.
 
-## How Trisul Handles ASN Peering Visibility
+## **How Trisul Handles ASN Peering Visibility**
 
 Trisul provides ASN-aware traffic analytics and BGP visibility for monitoring peering relationships and internet traffic behavior.
 
@@ -155,7 +155,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) data with ASN metadata for deeper routing analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [ASN](/glossary/asn)
 - [BGP](/glossary/bgp)
@@ -166,7 +166,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is ASN peering?
 

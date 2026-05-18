@@ -29,7 +29,7 @@ By defining a Home Networkᵀ, Trisul can better understand:
 
 This improves operational context and makes traffic analysis easier and more meaningful.
 
-## How Home Networkᵀ Works
+## **How Home Networkᵀ Works**
 
 In most environments, organizations monitor traffic flowing between:
 - internal systems
@@ -59,7 +59,7 @@ This improves:
 - application visibility
 - traffic investigation workflows
 
-## Why Home Networkᵀ Matters
+## **Why Home Networkᵀ Matters**
 
 Without clear internal network definitions, monitoring platforms may struggle to:
 - distinguish inbound vs outbound traffic
@@ -84,7 +84,7 @@ It is especially useful in:
 - hybrid networks
 - SOC operations
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Internal Traffic Visibility
 
@@ -106,7 +106,7 @@ Separate local traffic from internet-bound traffic.
 
 Analyze how internal applications communicate across the network.
 
-## Home Networkᵀ vs External Network Visibility
+## **Home Networkᵀ vs External Network Visibility**
 
 | Feature | Home Networkᵀ | External Traffic Visibility |
 |---|---|---|
@@ -118,7 +118,7 @@ Analyze how internal applications communicate across the network.
 
 Home Networkᵀ improves visibility into trusted internal traffic environments.
 
-## How Trisul Uses Home Networkᵀ
+## **How Trisul Uses Home Networkᵀ**
 
 Trisul uses Home Networkᵀ to improve contextual traffic visibility and traffic role awareness across monitoring workflows.
 
@@ -140,7 +140,7 @@ Trisul helps teams:
 
 Trisul can also integrate [East-West Traffic](/glossary/east-west-traffic), [Conversation View](/glossary/conversation-view), and [Application Visibility](/glossary/application-visibility) workflows for deeper internal network visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [East-West Traffic](/glossary/east-west-traffic)
 - [Conversation View](/glossary/conversation-view)
@@ -151,7 +151,7 @@ Trisul can also integrate [East-West Traffic](/glossary/east-west-traffic), [Con
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Home Networkᵀ in Trisul?
 

@@ -21,7 +21,7 @@ It helps network and security teams understand what “normal” traffic looks l
 
 Baseline traffic analysis is commonly used in [Anomaly Detection](/glossary/anomaly-detection), [Network Security Monitoring](/glossary/network-security-monitoring-nsm), and [Bandwidth Monitoring](/glossary/bandwidth-monitoring) workflows.
 
-## How Baseline Traffic Analysis Works
+## **How Baseline Traffic Analysis Works**
 
 Network monitoring platforms collect and analyze traffic patterns over time to build historical baselines.
 
@@ -54,7 +54,7 @@ xychart-beta
 
 *Figure: Baseline traffic analysis comparing expected network behavior against an abnormal traffic spike detected during monitoring.*
 
-## Why Baseline Traffic Analysis Matters
+## **Why Baseline Traffic Analysis Matters**
 
 Without a traffic baseline, it is difficult to determine whether network activity is normal or suspicious.
 
@@ -82,7 +82,7 @@ Baseline analysis is especially important in:
 - cloud infrastructures
 - high-volume traffic environments
 
-## Types of Traffic Baselines
+## **Types of Traffic Baselines**
 
 ### Bandwidth Baselines
 
@@ -100,7 +100,7 @@ Track expected protocol and application usage patterns.
 
 Analyze traffic behavior during specific periods such as business hours or peak usage windows.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Anomaly Detection
 
@@ -122,7 +122,7 @@ Detect suspicious outbound communication or unusual internal traffic.
 
 Identify latency, congestion, or unexpected traffic behavior.
 
-## Baseline Traffic Analysis vs Real-Time Monitoring
+## **Baseline Traffic Analysis vs Real-Time Monitoring**
 
 | Feature | Baseline Traffic Analysis | Real-Time Monitoring |
 |---|---|---|
@@ -134,7 +134,7 @@ Identify latency, congestion, or unexpected traffic behavior.
 
 Baseline analysis provides historical context, while real-time monitoring focuses on current network activity.
 
-## How Trisul Handles Baseline Traffic Analysis
+## **How Trisul Handles Baseline Traffic Analysis**
 
 Trisul uses long-term flow analytics and traffic retention to help teams establish historical traffic baselines and identify abnormal network behavior.
 
@@ -155,7 +155,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Flow Analysis](/glossary/flow-analysis) and [Packet Capture](/glossary/packet-capture) workflows for deeper anomaly investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Anomaly Detection](/glossary/anomaly-detection)
 - [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
@@ -166,7 +166,7 @@ Trisul can also correlate [Flow Analysis](/glossary/flow-analysis) and [Packet C
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is baseline traffic analysis?
 

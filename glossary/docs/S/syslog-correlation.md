@@ -45,7 +45,7 @@ It is widely used for:
 - infrastructure monitoring
 - operational visibility
 
-## How Syslog Correlation Works
+## **How Syslog Correlation Works**
 
 Network and security devices continuously generate syslog messages.
 
@@ -78,7 +78,7 @@ Syslog correlation may identify:
 
 ---
 
-## Why Syslog Correlation Matters
+## **Why Syslog Correlation Matters**
 
 Modern infrastructures generate enormous volumes of log events continuously.
 
@@ -113,7 +113,7 @@ Humans generate millions of logs screaming “something happened,” then build 
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -137,7 +137,7 @@ Retain and analyze historical system activity for audits.
 
 ---
 
-## Syslog Correlation vs Basic Log Collection
+## **Syslog Correlation vs Basic Log Collection**
 
 | Feature | Syslog Correlation | Basic Log Collection |
 |---|---|---|
@@ -151,7 +151,7 @@ Syslog correlation focuses on identifying relationships between events rather th
 
 ---
 
-## How Trisul Handles Syslog Correlation
+## **How Trisul Handles Syslog Correlation**
 
 Trisul provides contextual traffic analytics and operational visibility that can complement syslog-based investigations.
 
@@ -183,7 +183,7 @@ workflows for broader operational correlation.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Security Analytics
 - SOC Visibility
@@ -194,7 +194,7 @@ workflows for broader operational correlation.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is syslog?
 

@@ -27,7 +27,7 @@ Instead of storing every packet individually, flow data records key details abou
 
 Flow data is the foundation of technologies such as [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [sFlow](/glossary/sflow).
 
-## How Flow Data Works
+## **How Flow Data Works**
 
 Network devices such as routers, switches, and firewalls observe traffic flowing through their interfaces.
 
@@ -53,7 +53,7 @@ For example:
 3. The device summarizes the session into a flow record
 4. The flow data is exported to a monitoring platform
 
-## Why Flow Data Matters
+## **Why Flow Data Matters**
 
 Modern networks generate enormous volumes of traffic that are difficult to monitor packet by packet.
 
@@ -81,7 +81,7 @@ Flow visibility is especially important in:
 - cloud infrastructures
 - data centers
 
-## Types of Flow Data
+## **Types of Flow Data**
 
 ### NetFlow Data
 
@@ -99,7 +99,7 @@ Sampled traffic visibility combining packet sampling and interface statistics.
 
 Enhanced flow records containing Layer 7 or application visibility information.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -121,7 +121,7 @@ Detect traffic floods and abnormal traffic spikes.
 
 Monitor subscriber behavior and backbone traffic distribution.
 
-## Flow Data vs Packet Data
+## **Flow Data vs Packet Data**
 
 | Feature | Flow Data | Packet Data |
 |---|---|---|
@@ -133,7 +133,7 @@ Monitor subscriber behavior and backbone traffic distribution.
 
 Flow data provides scalable traffic summaries, while packet data provides detailed communication visibility.
 
-## How Trisul Uses Flow Data
+## **How Trisul Uses Flow Data**
 
 Trisul uses flow data as a core part of its traffic visibility and analytics workflows.
 
@@ -155,7 +155,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow](/glossary/flow)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -166,7 +166,7 @@ Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversat
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is flow data?
 

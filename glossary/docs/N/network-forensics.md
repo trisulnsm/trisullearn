@@ -33,7 +33,7 @@ Network forensics is widely used for:
 - compliance analysis
 - traffic reconstruction
 
-## How Network Forensics Works
+## **How Network Forensics Works**
 
 Network forensic systems collect and retain visibility data from:
 - packet captures
@@ -65,7 +65,7 @@ Forensic analysis may include:
 - timeline analysis
 - communication mapping
 
-## Why Network Forensics Matters
+## **Why Network Forensics Matters**
 
 Modern attacks are often stealthy and distributed across multiple systems and timelines.
 
@@ -93,7 +93,7 @@ It is especially important in:
 - cloud environments
 - regulated industries
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Incident Response
 
@@ -115,7 +115,7 @@ Understand how attackers moved through the environment.
 
 Retain historical traffic evidence for investigations and reporting.
 
-## Network Forensics vs Real-Time Monitoring
+## **Network Forensics vs Real-Time Monitoring**
 
 | Feature | Network Forensics | Real-Time Monitoring |
 |---|---|---|
@@ -127,7 +127,7 @@ Retain historical traffic evidence for investigations and reporting.
 
 Network forensics focuses on historical reconstruction and investigation, while real-time monitoring focuses on active visibility.
 
-## How Trisul Handles Network Forensics
+## **How Trisul Handles Network Forensics**
 
 Trisul provides scalable forensic traffic analytics for enterprise and ISP environments.
 
@@ -149,7 +149,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Incident Response](/glossary/incident-response), [Flow Forensics](/glossary/flow-forensics), and [Historical Traffic Analysis](/glossary/historical-traffic-analysis) workflows for deeper investigation visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Incident Response](/glossary/incident-response)
 - [Flow Forensics](/glossary/flow-forensics)
@@ -160,7 +160,7 @@ Trisul can also integrate [Incident Response](/glossary/incident-response), [Flo
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is network forensics?
 

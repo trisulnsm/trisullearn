@@ -27,7 +27,7 @@ Jitter monitoring is especially important for real-time applications such as:
 - remote desktop sessions
 - cloud collaboration tools
 
-## How Jitter Works
+## **How Jitter Works**
 
 When traffic flows across a network, packets may experience:
 - varying latency
@@ -59,7 +59,7 @@ High jitter may cause:
 - delayed responses
 - session instability
 
-## Why Jitter Monitoring Matters
+## **Why Jitter Monitoring Matters**
 
 Modern applications increasingly depend on real-time communication.
 
@@ -86,7 +86,7 @@ It is especially important in:
 - ISP networks
 - remote work infrastructures
 
-## Common Causes of Jitter
+## **Common Causes of Jitter**
 
 ### Network Congestion
 
@@ -108,7 +108,7 @@ Limited bandwidth increases packet delay variability.
 
 Wireless signal instability affects packet timing consistency.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### VoIP Monitoring
 
@@ -130,7 +130,7 @@ Track customer experience and traffic quality metrics.
 
 Measure responsiveness for interactive cloud applications.
 
-## Jitter vs Latency
+## **Jitter vs Latency**
 
 | Feature | Jitter | Latency |
 |---|---|---|
@@ -142,7 +142,7 @@ Measure responsiveness for interactive cloud applications.
 
 Latency measures delay, while jitter measures delay variation.
 
-## How Trisul Handles Jitter Monitoring
+## **How Trisul Handles Jitter Monitoring**
 
 Trisul provides traffic visibility and performance analytics for monitoring real-time communication quality and network stability.
 
@@ -164,7 +164,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Bandwidth Monitoring](/glossary/bandwidth-monitoring), [Dropped Packets](/glossary/dropped-packets), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper performance analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Latency Monitoring](/glossary/latency-monitoring)
 - [Dropped Packets](/glossary/dropped-packets)
@@ -175,7 +175,7 @@ Trisul can also integrate [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is network jitter?
 

@@ -27,7 +27,7 @@ Historical visibility is important for:
 - compliance analysis
 - operational reporting
 
-## How Historical Traffic Analysis Works
+## **How Historical Traffic Analysis Works**
 
 Monitoring platforms continuously collect and retain traffic data such as:
 - flow records
@@ -56,7 +56,7 @@ For example:
 
 ![](images/historicalanalysis.png)
 
-## Why Historical Traffic Analysis Matters
+## **Why Historical Traffic Analysis Matters**
 
 Real-time monitoring alone may miss:
 - intermittent issues
@@ -88,7 +88,7 @@ Historical analysis is especially important in:
 - cloud environments
 - compliance workflows
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -110,7 +110,7 @@ Reconstruct historical communication behavior.
 
 Monitor how application usage changes over time.
 
-## Historical Traffic Analysis vs Real-Time Monitoring
+## **Historical Traffic Analysis vs Real-Time Monitoring**
 
 | Feature | Historical Traffic Analysis | Real-Time Monitoring |
 |---|---|---|
@@ -122,7 +122,7 @@ Monitor how application usage changes over time.
 
 Historical analysis explains what happened previously, while real-time monitoring focuses on what is happening now.
 
-## How Trisul Handles Historical Traffic Analysis
+## **How Trisul Handles Historical Traffic Analysis**
 
 Trisul provides long-term traffic retention and scalable analytics workflows for historical network visibility.
 
@@ -144,7 +144,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Packet Capture](/glossary/packet-capture), and [Flow Forensics](/glossary/flow-forensics) workflows for deeper historical visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Retro Analysisᵀ](/glossary/retro-analysis)
 - [Flow Forensics](/glossary/flow-forensics)
@@ -155,7 +155,7 @@ Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Packet Capt
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is historical traffic analysis?
 

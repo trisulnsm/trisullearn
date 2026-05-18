@@ -33,7 +33,7 @@ It is especially important in:
 - enterprise WANs
 - carrier-grade networks
 
-## How Transit Traffic Works
+## **How Transit Traffic Works**
 
 When a network cannot directly reach a destination, traffic is forwarded through transit providers.
 
@@ -70,7 +70,7 @@ Transit traffic visibility may include:
 
 ---
 
-## Why Transit Traffic Matters
+## **Why Transit Traffic Matters**
 
 Transit connectivity is essential for global internet communication.
 
@@ -105,7 +105,7 @@ The internet is basically millions of networks borrowing roads from each other a
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### ISP Backbone Monitoring
 
@@ -129,7 +129,7 @@ Identify overloaded transit links and bottlenecks.
 
 ---
 
-## Transit Traffic vs Peering Traffic
+## **Transit Traffic vs Peering Traffic**
 
 | Feature | Transit Traffic | Peering Traffic |
 |---|---|---|
@@ -143,7 +143,7 @@ Transit traffic uses upstream providers for internet reachability, while peering
 
 ---
 
-## How Trisul Handles Transit Traffic Analytics
+## **How Trisul Handles Transit Traffic Analytics**
 
 Trisul provides scalable inter-network traffic visibility and routing analytics for enterprise and ISP environments.
 
@@ -175,7 +175,7 @@ workflows for deeper routing visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Peering Traffic Analysis
 - BGP
@@ -186,7 +186,7 @@ workflows for deeper routing visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is transit traffic?
 

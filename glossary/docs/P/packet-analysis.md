@@ -40,7 +40,7 @@ It is widely used for:
 
 ---
 
-## How Packet Analysis Works
+## **How Packet Analysis Works**
 
 Whenever devices communicate across a network, information is transmitted as packets.
 
@@ -75,7 +75,7 @@ Packet analysis may examine:
 
 ---
 
-## Why Packet Analysis Matters
+## **Why Packet Analysis Matters**
 
 Many network and security issues cannot be fully understood using only summarized traffic metadata.
 
@@ -108,7 +108,7 @@ It is especially important in:
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Protocol Troubleshooting
 
@@ -132,7 +132,7 @@ Analyze jitter, retransmissions, and packet sequencing.
 
 ---
 
-## Packet Analysis vs Flow Analysis
+## **Packet Analysis vs Flow Analysis**
 
 | Feature | Packet Analysis | Flow Analysis |
 |---|---|---|
@@ -146,7 +146,7 @@ Packet analysis provides detailed communication visibility, while flow analysis 
 
 ---
 
-## How Trisul Handles Packet Analysis
+## **How Trisul Handles Packet Analysis**
 
 Trisul provides scalable packet analytics and forensic visibility across enterprise and ISP environments.
 
@@ -178,7 +178,7 @@ workflows for deeper packet-level analysis.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Packet Capture
 - Flow Analysis
@@ -189,7 +189,7 @@ workflows for deeper packet-level analysis.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is packet analysis?
 

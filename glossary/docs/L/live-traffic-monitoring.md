@@ -28,7 +28,7 @@ Live traffic monitoring improves operational roles by providing immediate visibi
 - ongoing incidents
 - real-time user activity
 
-## How Live Traffic Monitoring Works
+## **How Live Traffic Monitoring Works**
 
 Monitoring systems continuously collect traffic visibility from:
 - routers
@@ -60,7 +60,7 @@ For example:
 3. Analysts identify the source immediately
 4. Mitigation or troubleshooting begins quickly
 
-## Why Live Traffic Monitoring Matters
+## **Why Live Traffic Monitoring Matters**
 
 Modern networks change continuously and rapidly.
 
@@ -87,7 +87,7 @@ It is especially important in:
 - enterprise WANs
 - real-time application networks
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Real-Time Troubleshooting
 
@@ -109,7 +109,7 @@ Analyze current application and cloud traffic behavior.
 
 Identify traffic floods and abnormal activity in real time.
 
-## Live Traffic Monitoring vs Historical Traffic Analysis
+## **Live Traffic Monitoring vs Historical Traffic Analysis**
 
 | Feature | Live Traffic Monitoring | Historical Traffic Analysis |
 |---|---|---|
@@ -121,7 +121,7 @@ Identify traffic floods and abnormal activity in real time.
 
 Live monitoring focuses on what is happening now, while historical analysis explains what happened earlier.
 
-## How Trisul Handles Live Traffic Monitoring
+## **How Trisul Handles Live Traffic Monitoring**
 
 Trisul provides scalable real-time traffic analytics for enterprise, ISP, and cloud environments.
 
@@ -143,7 +143,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Historical Traffic Analysis](/glossary/historical-traffic-analysis), [DDoS Detection](/glossary/ddos-detection), and [Application Visibility](/glossary/application-visibility) workflows for deeper operational visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Historical Traffic Analysis](/glossary/historical-traffic-analysis)
 - [Flow Monitoring](/glossary/flow-monitoring)
@@ -154,7 +154,7 @@ Trisul can also integrate [Historical Traffic Analysis](/glossary/historical-tra
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is live traffic monitoring?
 

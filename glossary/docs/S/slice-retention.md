@@ -35,7 +35,7 @@ Slice Retentionᵀ is especially important in:
 - SOC operations
 - large-scale monitoring architectures
 
-## How Slice Retentionᵀ Works
+## **How Slice Retentionᵀ Works**
 
 Trisul continuously collects traffic visibility data such as:
 
@@ -68,7 +68,7 @@ This approach allows analysts to:
 
 ---
 
-## Why Slice Retentionᵀ Matters
+## **Why Slice Retentionᵀ Matters**
 
 Modern monitoring environments generate enormous amounts of historical traffic data continuously.
 
@@ -102,7 +102,7 @@ Humans created so much traffic data that even storing the past became an enginee
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Historical Traffic Investigation
 
@@ -126,7 +126,7 @@ Analyze traffic growth trends over extended periods.
 
 ---
 
-## Slice Retentionᵀ vs Traditional Flat Retention
+## **Slice Retentionᵀ vs Traditional Flat Retention**
 
 | Feature | Slice Retentionᵀ | Traditional Flat Retention |
 |---|---|---|
@@ -140,7 +140,7 @@ Slice Retentionᵀ improves scalability and historical access efficiency by orga
 
 ---
 
-## How Trisul Uses Slice Retentionᵀ
+## **How Trisul Uses Slice Retentionᵀ**
 
 Slice Retentionᵀ works alongside Trisul’s historical analytics and forensic visibility architecture.
 
@@ -172,7 +172,7 @@ workflows for deeper long-term visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Retro Analysisᵀ
 - Long-Term Traffic Retention
@@ -183,7 +183,7 @@ workflows for deeper long-term visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Slice Retentionᵀ?
 

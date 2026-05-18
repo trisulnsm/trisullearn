@@ -39,7 +39,7 @@ Packet loss directly affects:
 
 ---
 
-## How Packet Loss Happens
+## **How Packet Loss Happens**
 
 During network communication, packets travel through multiple devices and paths.
 
@@ -68,7 +68,7 @@ Packet loss is commonly measured as a percentage of lost packets compared to tot
 
 ---
 
-## Why Packet Loss Monitoring Matters
+## **Why Packet Loss Monitoring Matters**
 
 Even small amounts of packet loss can severely affect network performance and user experience. Tiny invisible packets disappearing into the digital abyss, and suddenly an executive on a video call sounds like a haunted fax machine from 1998.
 
@@ -100,7 +100,7 @@ It is especially important in:
 
 ---
 
-## Common Causes of Packet Loss
+## **Common Causes of Packet Loss**
 
 ### Network Congestion
 
@@ -124,7 +124,7 @@ Unstable paths may introduce communication failures.
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### VoIP Monitoring
 
@@ -148,7 +148,7 @@ Monitor video conferencing and streaming stability.
 
 ---
 
-## Packet Loss vs Latency
+## **Packet Loss vs Latency**
 
 | Feature | Packet Loss | Latency |
 |---|---|---|
@@ -162,7 +162,7 @@ Packet loss means packets never arrive successfully, while latency measures deli
 
 ---
 
-## How Trisul Handles Packet Loss Monitoring
+## **How Trisul Handles Packet Loss Monitoring**
 
 Trisul provides packet-level visibility and traffic analytics for identifying communication instability and packet delivery issues.
 
@@ -194,7 +194,7 @@ workflows for deeper performance analysis.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Dropped Packets
 - Latency Monitoring
@@ -205,7 +205,7 @@ workflows for deeper performance analysis.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is packet loss?
 

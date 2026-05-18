@@ -28,7 +28,7 @@ These requirements commonly involve:
 
 DoT compliance is especially important for ISPs, broadband providers, and telecom operators operating in regulated environments.
 
-## How DoT Compliance Works
+## **How DoT Compliance Works**
 
 Telecom and internet providers generate large volumes of subscriber and traffic metadata from:
 - authentication systems
@@ -56,7 +56,7 @@ A typical workflow looks like this:
 
 ![](images/dotcompliance.png)
 
-## Why DoT Compliance Matters
+## **Why DoT Compliance Matters**
 
 Regulatory compliance helps telecom providers:
 - maintain subscriber traceability
@@ -79,7 +79,7 @@ DoT compliance is especially important in:
 - CGNAT environments
 - large subscriber networks
 
-## Common Compliance Components
+## **Common Compliance Components**
 
 ### IPDR Logging
 
@@ -101,7 +101,7 @@ Store traffic metadata for defined retention periods.
 
 Monitor suspicious traffic behavior and abuse activity.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Subscriber Traceability
 
@@ -123,7 +123,7 @@ Support incident response and lawful investigations.
 
 Monitor subscriber usage and operational network activity.
 
-## DoT Compliance vs General Network Monitoring
+## **DoT Compliance vs General Network Monitoring**
 
 | Feature | DoT Compliance | General Network Monitoring |
 |---|---|---|
@@ -135,7 +135,7 @@ Monitor subscriber usage and operational network activity.
 
 DoT compliance focuses on regulatory accountability, while general monitoring focuses on operational visibility and troubleshooting.
 
-## How Trisul Helps with DoT Compliance
+## **How Trisul Helps with DoT Compliance**
 
 Trisul provides scalable traffic analytics and subscriber visibility workflows designed for ISP and telecom compliance environments.
 
@@ -157,7 +157,7 @@ Trisul helps teams:
 
 Trisul can also correlate [CGNAT Logging](/glossary/cgnat-logging), [NetFlow](/glossary/netflow), and [IPDR](/glossary/ipdr) workflows for deeper compliance visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [IPDR](/glossary/ipdr)
 - [CGNAT Logging](/glossary/cgnat-logging)
@@ -168,7 +168,7 @@ Trisul can also correlate [CGNAT Logging](/glossary/cgnat-logging), [NetFlow](/g
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is DoT Compliance?
 

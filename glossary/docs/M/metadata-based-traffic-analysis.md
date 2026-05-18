@@ -30,7 +30,7 @@ This approach helps organizations analyze:
 
 Metadata-based analysis provides scalable visibility while reducing storage and processing requirements compared to full packet capture.
 
-## How Metadata-Based Traffic Analysis Works
+## **How Metadata-Based Traffic Analysis Works**
 
 Network devices and monitoring systems generate metadata from traffic flowing across the network.
 
@@ -67,7 +67,7 @@ Metadata may come from:
 - application analytics
 - traffic sensors
 
-## Why Metadata-Based Traffic Analysis Matters
+## **Why Metadata-Based Traffic Analysis Matters**
 
 Modern networks generate enormous traffic volumes that are difficult to store as full packets continuously.
 
@@ -93,7 +93,7 @@ Metadata-based analysis is especially important in:
 - cloud deployments
 - high-speed networks
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Traffic Monitoring
 
@@ -115,7 +115,7 @@ Analyze long-term traffic growth and utilization trends.
 
 Monitor communication patterns across large user environments.
 
-## Metadata Analysis vs Full Packet Analysis
+## **Metadata Analysis vs Full Packet Analysis**
 
 | Feature | Metadata-Based Analysis | Full Packet Analysis |
 |---|---|---|
@@ -127,7 +127,7 @@ Monitor communication patterns across large user environments.
 
 Metadata analysis focuses on traffic behavior, while full packet analysis focuses on packet content visibility.
 
-## How Trisul Handles Metadata-Based Traffic Analysis
+## **How Trisul Handles Metadata-Based Traffic Analysis**
 
 Trisul provides scalable metadata-driven traffic analytics for enterprise and ISP environments.
 
@@ -149,7 +149,7 @@ Trisul helps teams:
 
 Trisul can also integrate [IPFIX](/glossary/ipfix), [Encrypted Traffic Analysis](/glossary/encrypted-traffic-analysis), and [Historical Traffic Analysis](/glossary/historical-traffic-analysis) workflows for deeper analytics visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [IPFIX](/glossary/ipfix)
@@ -160,7 +160,7 @@ Trisul can also integrate [IPFIX](/glossary/ipfix), [Encrypted Traffic Analysis]
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is metadata-based traffic analysis?
 

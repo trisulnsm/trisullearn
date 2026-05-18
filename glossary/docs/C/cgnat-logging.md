@@ -21,7 +21,7 @@ These logs help map private subscriber IP addresses and ports to shared public I
 
 CGNAT logging is widely used in ISP environments, subscriber tracking systems, and [Traffic Investigation](/glossary/traffic-investigation) workflows.
 
-## How CGNAT Logging Works
+## **How CGNAT Logging Works**
 
 Carrier-Grade NAT allows multiple subscribers to share a smaller pool of public IPv4 addresses.
 
@@ -65,7 +65,7 @@ flowchart LR
  
 *Figure: CGNAT workflow showing private-to-public IP translation and NAT mapping logs used for subscriber traceability and compliance.*
 
-## Why CGNAT Logging Matters
+## **Why CGNAT Logging Matters**
 
 Without CGNAT logs, it becomes difficult to identify which subscriber generated specific internet traffic because multiple users share the same public IP address.
 
@@ -91,7 +91,7 @@ CGNAT logging is especially important in:
 - large-scale IPv4 environments
 - regulatory compliance systems
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Subscriber Identification
 
@@ -113,7 +113,7 @@ Trace malicious traffic back to originating subscribers.
 
 Support large-scale IPv4 sharing environments using CGNAT.
 
-## CGNAT Logging vs Traditional NAT Logging
+## **CGNAT Logging vs Traditional NAT Logging**
 
 | Feature | CGNAT Logging | Traditional NAT Logging |
 |---|---|---|
@@ -125,7 +125,7 @@ Support large-scale IPv4 sharing environments using CGNAT.
 
 CGNAT logging operates at much larger scale and requires high-performance logging and retention systems.
 
-## How Trisul Handles CGNAT Logging
+## **How Trisul Handles CGNAT Logging**
 
 Trisul provides scalable traffic analytics and subscriber visibility workflows for CGNAT environments and ISP infrastructures.
 
@@ -146,7 +146,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [NAT Logging](/glossary/nat-logging) workflows for deeper subscriber visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [NAT Logging](/glossary/nat-logging)
 - [Subscriber Mapping](/glossary/subscriber-mapping)
@@ -157,7 +157,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is CGNAT logging?
 

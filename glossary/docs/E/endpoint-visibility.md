@@ -28,7 +28,7 @@ Endpoints can include:
 
 Endpoint visibility helps network and security teams understand how devices interact with applications, users, and network services.
 
-## How Endpoint Visibility Works
+## **How Endpoint Visibility Works**
 
 Monitoring platforms collect traffic and operational data from:
 - flow records
@@ -53,7 +53,7 @@ For example:
 3. The endpoint is correlated with user and application information
 4. Analysts investigate the device for potential compromise
 
-## Why Endpoint Visibility Matters
+## **Why Endpoint Visibility Matters**
 
 Modern networks contain thousands of connected devices generating large volumes of traffic.
 
@@ -81,7 +81,7 @@ It is especially important in:
 - IoT deployments
 - zero-trust architectures
 
-## Types of Endpoint Visibility
+## **Types of Endpoint Visibility**
 
 ### Traffic Visibility
 
@@ -103,7 +103,7 @@ Detect suspicious traffic, malware activity, or lateral movement.
 
 Correlate endpoints with user identities and activity.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Threat Detection
 
@@ -125,7 +125,7 @@ Analyze connectivity and performance issues affecting endpoints.
 
 Identify unauthorized applications or unmanaged devices.
 
-## Endpoint Visibility vs Network Visibility
+## **Endpoint Visibility vs Network Visibility**
 
 | Feature | Endpoint Visibility | Network Visibility |
 |---|---|---|
@@ -137,7 +137,7 @@ Identify unauthorized applications or unmanaged devices.
 
 Endpoint visibility focuses on device behavior, while network visibility focuses on broader traffic and infrastructure activity.
 
-## How Trisul Handles Endpoint Visibility
+## **How Trisul Handles Endpoint Visibility**
 
 Trisul provides endpoint-aware traffic visibility using flow analytics, packet analysis, and behavioral monitoring workflows.
 
@@ -159,7 +159,7 @@ Trisul helps teams:
 
 Trisul can also correlate [DNS Traffic Analysis](/glossary/dns-traffic-analysis), [Packet Capture](/glossary/packet-capture), and [Conversation View](/glossary/conversation-view) workflows for deeper endpoint investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Network Security Monitoring](/glossary/network-security-monitoring-nsm)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -170,7 +170,7 @@ Trisul can also correlate [DNS Traffic Analysis](/glossary/dns-traffic-analysis)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is endpoint visibility?
 

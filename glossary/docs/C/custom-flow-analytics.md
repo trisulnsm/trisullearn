@@ -21,7 +21,7 @@ Instead of relying only on predefined dashboards or reports, custom flow analyti
 
 Custom flow analytics is widely used in [Traffic Investigation](/glossary/traffic-investigation), [Bandwidth Monitoring](/glossary/bandwidth-monitoring), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) workflows.
 
-## How Custom Flow Analytics Works
+## **How Custom Flow Analytics Works**
 
 Flow exporters generate traffic metadata containing details such as:
 - source and destination IP addresses
@@ -59,7 +59,7 @@ Custom flow analytics may focus on:
 
 ![](images/customflowanalytics.png)
 
-## Why Custom Flow Analytics Matters
+## **Why Custom Flow Analytics Matters**
 
 Every network environment has different visibility requirements.
 
@@ -86,7 +86,7 @@ It is especially useful in:
 - cloud environments
 - large-scale traffic monitoring deployments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Subscriber Traffic Analytics
 
@@ -108,7 +108,7 @@ Track traffic exchanged between peering networks and ASNs.
 
 Generate customized reports for operational and regulatory requirements.
 
-## Custom Flow Analytics vs Standard Flow Reporting
+## **Custom Flow Analytics vs Standard Flow Reporting**
 
 | Feature | Custom Flow Analytics | Standard Flow Reporting |
 |---|---|---|
@@ -120,7 +120,7 @@ Generate customized reports for operational and regulatory requirements.
 
 Custom flow analytics provides deeper operational flexibility compared to static reporting systems.
 
-## How Trisul Handles Custom Flow Analytics
+## **How Trisul Handles Custom Flow Analytics**
 
 Trisul provides flexible traffic analytics and customizable monitoring workflows for analyzing complex network environments.
 
@@ -142,7 +142,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows for deeper traffic analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -153,7 +153,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is custom flow analytics?
 

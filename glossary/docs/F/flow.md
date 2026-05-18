@@ -21,7 +21,7 @@ Instead of capturing every packet individually, flow monitoring summarizes netwo
 
 Flows are the foundation of technologies such as [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [sFlow](/glossary/sflow).
 
-## How Flows Work
+## **How Flows Work**
 
 When devices such as routers, switches, or firewalls observe network traffic, they group packets into flows based on shared attributes.
 
@@ -50,7 +50,7 @@ A single flow may represent:
 - a VoIP call
 - an application conversation
 
-## Why Flows Matter
+## **Why Flows Matter**
 
 Capturing every packet in large networks can be resource intensive.
 
@@ -78,7 +78,7 @@ Flow visibility is especially important in:
 - SOC operations
 - data centers
 
-## Common Flow Characteristics
+## **Common Flow Characteristics**
 
 ### Source and Destination IPs
 
@@ -100,7 +100,7 @@ Show how long the communication lasted.
 
 Identify inbound and outbound communication behavior.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -122,7 +122,7 @@ Detect traffic floods and abnormal flow behavior.
 
 Monitor subscriber traffic and backbone utilization.
 
-## Flow vs Packet
+## **Flow vs Packet**
 
 | Feature | Flow | Packet |
 |---|---|---|
@@ -134,7 +134,7 @@ Monitor subscriber traffic and backbone utilization.
 
 Flows provide scalable traffic summaries, while packets provide detailed communication data.
 
-## How Trisul Handles Flow Analytics
+## **How Trisul Handles Flow Analytics**
 
 Trisul provides advanced flow-based traffic visibility and analytics for monitoring large-scale network environments.
 
@@ -156,7 +156,7 @@ Trisul helps teams:
 
 Trisul can also combine [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper network visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [NetFlow](/glossary/netflow)
 - [IPFIX](/glossary/ipfix)
@@ -167,7 +167,7 @@ Trisul can also combine [Packet Capture](/glossary/packet-capture), [Conversatio
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a network flow?
 

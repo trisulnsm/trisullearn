@@ -36,7 +36,7 @@ Visibility fabrics are widely used for:
 - SOC operations
 - performance monitoring
 
-## How a Visibility Fabric Works
+## **How a Visibility Fabric Works**
 
 Traffic visibility data is collected from:
 - TAPs
@@ -75,7 +75,7 @@ Monitoring systems receiving the traffic may include:
 
 ---
 
-## Why Visibility Fabrics Matter
+## **Why Visibility Fabrics Matter**
 
 Modern infrastructures generate massive and highly distributed traffic visibility requirements.
 
@@ -110,7 +110,7 @@ Humans built so many monitoring tools that they eventually needed another giant 
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Monitoring
 
@@ -134,7 +134,7 @@ Scale visibility architectures across large environments.
 
 ---
 
-## Visibility Fabric vs Direct Monitoring Connections
+## **Visibility Fabric vs Direct Monitoring Connections**
 
 | Feature | Visibility Fabric | Direct Tool Connections |
 |---|---|---|
@@ -148,7 +148,7 @@ Visibility fabrics centralize and optimize traffic visibility distribution inste
 
 ---
 
-## How Trisul Fits into a Visibility Fabric
+## **How Trisul Fits into a Visibility Fabric**
 
 Trisul integrates into visibility fabric architectures as a scalable traffic analytics and monitoring platform.
 
@@ -180,7 +180,7 @@ workflows for broader visibility management.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Packet Capture
 - TAP vs SPAN Port
@@ -191,7 +191,7 @@ workflows for broader visibility management.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a visibility fabric?
 

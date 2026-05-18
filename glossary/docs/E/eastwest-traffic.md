@@ -21,7 +21,7 @@ Unlike north-south traffic, which moves in and out of a network, east-west traff
 
 East-west traffic visibility is important for security monitoring, application analysis, and internal traffic investigation.
 
-## How East-West Traffic Works
+## **How East-West Traffic Works**
 
 Modern applications and infrastructures often rely on multiple internal systems communicating continuously.
 
@@ -45,7 +45,7 @@ This internal communication is considered east-west traffic.
 
 ![](images/eastwesttraffic.png)
 
-## Why East-West Traffic Matters
+## **Why East-West Traffic Matters**
 
 Traditional security monitoring focused mainly on north-south traffic entering or leaving the network.
 
@@ -67,7 +67,7 @@ East-west traffic visibility is especially important in:
 - zero-trust architectures
 - SOC operations
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Lateral Movement Detection
 
@@ -89,7 +89,7 @@ Investigate suspicious communication between internal hosts.
 
 Validate traffic policies between network segments and zones.
 
-## East-West Traffic vs North-South Traffic
+## **East-West Traffic vs North-South Traffic**
 
 | Feature | East-West Traffic | North-South Traffic |
 |---|---|---|
@@ -101,7 +101,7 @@ Validate traffic policies between network segments and zones.
 
 East-west traffic focuses on internal communication, while north-south traffic focuses on traffic entering or leaving the network.
 
-## How Trisul Handles East-West Traffic Visibility
+## **How Trisul Handles East-West Traffic Visibility**
 
 Trisul provides deep internal traffic visibility using flow analytics, packet analysis, and conversation-based monitoring workflows.
 
@@ -123,7 +123,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Packet Capture](/glossary/packet-capture), [Flow Analysis](/glossary/flow-analysis), and [Conversation View](/glossary/conversation-view) workflows for deeper internal traffic analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [North-South Traffic](/glossary/north-south-traffic)
 - [Conversation View](/glossary/conversation-view)
@@ -134,7 +134,7 @@ Trisul can also correlate [Packet Capture](/glossary/packet-capture), [Flow Anal
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is east-west traffic?
 

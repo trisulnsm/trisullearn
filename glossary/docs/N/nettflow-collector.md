@@ -33,7 +33,7 @@ Collected flow records may contain:
 - traffic direction
 - application metadata
 
-## How a NetFlow Collector Works
+## **How a NetFlow Collector Works**
 
 Network devices continuously observe traffic flowing through their interfaces.
 
@@ -59,7 +59,7 @@ The collector may handle:
 - high-speed traffic environments
 - long-term retention workflows
 
-## Why NetFlow Collectors Matter
+## **Why NetFlow Collectors Matter**
 
 Modern networks generate enormous traffic visibility data continuously.
 
@@ -89,7 +89,7 @@ They are especially important in:
 - SOC operations
 - multi-site deployments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Centralized Traffic Visibility
 
@@ -111,7 +111,7 @@ Support anomaly detection and traffic investigation workflows.
 
 Collect subscriber and backbone traffic visibility at scale.
 
-## NetFlow Collector vs NetFlow Analyzer
+## **NetFlow Collector vs NetFlow Analyzer**
 
 | Feature | NetFlow Collector | NetFlow Analyzer| 
 |----------|------------------|-----------------|
@@ -123,7 +123,7 @@ Collect subscriber and backbone traffic visibility at scale.
 
 A collector focuses mainly on flow ingestion and storage, while an analyzer focuses on analytics and visualization.
 
-## How Trisul Handles NetFlow Collection
+## **How Trisul Handles NetFlow Collection**
 
 Trisul provides scalable NetFlow collection and traffic analytics for enterprise and ISP environments. Because apparently every router on Earth wakes up daily and decides to spray telemetry into the void.
 
@@ -155,7 +155,7 @@ workflows for deeper visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - NetFlow
 - NetFlow Analyzer
@@ -166,7 +166,7 @@ workflows for deeper visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a NetFlow Collector?
 

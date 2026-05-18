@@ -21,7 +21,7 @@ It helps network teams understand how network capacity is being used, identify c
 
 Bandwidth monitoring is widely used in [Flow Analysis](/glossary/flow-analysis), [Traffic Investigation](/glossary/traffic-investigation), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) environments.
 
-## How Bandwidth Monitoring Works
+## **How Bandwidth Monitoring Works**
 
 Bandwidth monitoring platforms collect traffic statistics from routers, switches, firewalls, and network devices using technologies such as:
 
@@ -69,7 +69,7 @@ flowchart LR
 
 *Figure: Bandwidth monitoring workflow showing how network traffic data is collected, analyzed, and visualized through monitoring dashboards and traffic analytics.*
 
-## Why Bandwidth Monitoring Matters
+## **Why Bandwidth Monitoring Matters**
 
 Without bandwidth visibility, network congestion and abnormal traffic patterns can remain unnoticed until users experience performance problems.
 
@@ -89,7 +89,7 @@ It is especially important in:
 - data centers
 - WAN and SD-WAN deployments
 
-## Types of Bandwidth Monitoring
+## **Types of Bandwidth Monitoring**
 
 ### Interface Bandwidth Monitoring
 
@@ -111,7 +111,7 @@ Provides live traffic visibility and near real-time bandwidth analysis.
 
 Analyzes long-term traffic trends and usage patterns.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Capacity Planning
 
@@ -133,7 +133,7 @@ Identify applications consuming excessive bandwidth.
 
 Detect unusual traffic spikes, scanning activity, or DDoS traffic floods.
 
-## Bandwidth Monitoring vs Traffic Monitoring
+## **Bandwidth Monitoring vs Traffic Monitoring**
 
 | Feature | Bandwidth Monitoring | Traffic Monitoring |
 |---|---|---|
@@ -145,7 +145,7 @@ Detect unusual traffic spikes, scanning activity, or DDoS traffic floods.
 
 Bandwidth monitoring focuses specifically on traffic volume and utilization, while traffic monitoring provides broader network visibility.
 
-## How Trisul Handles Bandwidth Monitoring
+## **How Trisul Handles Bandwidth Monitoring**
 
 Trisul provides real-time and historical bandwidth visibility using flow analytics, packet analysis, and traffic investigation workflows.
 
@@ -166,7 +166,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Packet Capture](/glossary/packet-capture) and [Flow Analysis](/glossary/flow-analysis) data for deeper bandwidth investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -177,7 +177,7 @@ Trisul can also correlate [Packet Capture](/glossary/packet-capture) and [Flow A
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is bandwidth monitoring?
 

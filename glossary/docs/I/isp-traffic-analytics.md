@@ -28,7 +28,7 @@ ISPs use traffic analytics to maintain visibility into:
 
 ISP traffic analytics helps providers optimize performance, troubleshoot issues, improve capacity planning, and maintain subscriber traceability.
 
-## How ISP Traffic Analytics Works
+## **How ISP Traffic Analytics Works**
 
 ISP networks generate massive amounts of traffic across:
 - broadband networks
@@ -62,7 +62,7 @@ Traffic analytics may include:
 - attack detection
 - traffic engineering metrics
 
-## Why ISP Traffic Analytics Matters
+## **Why ISP Traffic Analytics Matters**
 
 ISPs manage extremely large and complex traffic environments.
 
@@ -89,7 +89,7 @@ It is especially important in:
 - internet exchange points
 - multi-tenant ISP deployments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Subscriber Traffic Analysis
 
@@ -111,7 +111,7 @@ Identify traffic floods and abnormal traffic spikes.
 
 Maintain subscriber traceability and traffic retention visibility.
 
-## ISP Traffic Analytics vs Enterprise Traffic Monitoring
+## **ISP Traffic Analytics vs Enterprise Traffic Monitoring**
 
 | Feature | ISP Traffic Analytics | Enterprise Traffic Monitoring |
 |---|---|---|
@@ -123,7 +123,7 @@ Maintain subscriber traceability and traffic retention visibility.
 
 ISP analytics focuses heavily on subscriber visibility, backbone monitoring, and peering traffic behavior.
 
-## How Trisul Handles ISP Traffic Analytics
+## **How Trisul Handles ISP Traffic Analytics**
 
 Trisul is designed for scalable ISP and telecom traffic visibility across high-speed distributed environments.
 
@@ -145,7 +145,7 @@ Trisul helps ISPs:
 
 Trisul can also integrate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [DDoS Detection](/glossary/ddos-detection) workflows for deeper ISP traffic visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [IPDR](/glossary/ipdr)
 - [CGNAT Logging](/glossary/cgnat-logging)
@@ -156,7 +156,7 @@ Trisul can also integrate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is ISP traffic analytics?
 

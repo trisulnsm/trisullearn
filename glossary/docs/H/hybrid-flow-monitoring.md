@@ -27,7 +27,7 @@ Hybrid flow monitoring improves visibility into:
 - application behavior
 - distributed workloads
 
-## How Hybrid Flow Monitoring Works
+## **How Hybrid Flow Monitoring Works**
 
 Modern infrastructures often contain a mix of:
 - physical networks
@@ -58,7 +58,7 @@ For example:
 3. Multiple visibility sources generate traffic metadata
 4. The monitoring platform combines the visibility into unified analytics
 
-## Why Hybrid Flow Monitoring Matters
+## **Why Hybrid Flow Monitoring Matters**
 
 Traditional monitoring tools were often designed only for physical networks.
 
@@ -92,7 +92,7 @@ It is especially important in:
 - remote work environments
 - distributed application architectures
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Cloud Traffic Visibility
 
@@ -114,7 +114,7 @@ Investigate suspicious communication across cloud and on-prem environments.
 
 Monitor user experience across distributed services.
 
-## Hybrid Flow Monitoring vs Traditional Flow Monitoring
+## **Hybrid Flow Monitoring vs Traditional Flow Monitoring**
 
 | Feature | Hybrid Flow Monitoring | Traditional Flow Monitoring |
 |---|---|---|
@@ -126,7 +126,7 @@ Monitor user experience across distributed services.
 
 Hybrid flow monitoring provides unified visibility across modern distributed infrastructures.
 
-## How Trisul Handles Hybrid Flow Monitoring
+## **How Trisul Handles Hybrid Flow Monitoring**
 
 Trisul provides scalable traffic analytics and flow visibility across enterprise, ISP, and hybrid cloud environments.
 
@@ -148,7 +148,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Cloud Traffic Monitoring](/glossary/cloud-traffic-monitoring), [Flow Analysis](/glossary/flow-analysis), and [Application Visibility](/glossary/application-visibility) workflows for deeper hybrid visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Monitoring](/glossary/flow-monitoring)
 - [Cloud Traffic Monitoring](/glossary/cloud-traffic-monitoring)
@@ -159,7 +159,7 @@ Trisul can also integrate [Cloud Traffic Monitoring](/glossary/cloud-traffic-mon
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is hybrid flow monitoring?
 

@@ -27,7 +27,7 @@ This improves visibility into:
 - internal application communication
 - traffic troubleshooting
 
-## How Flow Legsᵀ Work
+## **How Flow Legsᵀ Work**
 
 In modern networks, traffic often traverses multiple systems before reaching its destination.
 
@@ -56,7 +56,7 @@ This helps analysts visualize:
 - which systems participated
 - where latency or anomalies occurred
 
-## Why Flow Legsᵀ Matter
+## **Why Flow Legsᵀ Matter**
 
 Traditional flow analysis may only show endpoint-to-endpoint communication.
 
@@ -83,7 +83,7 @@ It is especially useful in:
 - data centers
 - hybrid networks
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Application Troubleshooting
 
@@ -105,7 +105,7 @@ Track communication across branch and backbone networks.
 
 Investigate suspicious traffic movement between network segments.
 
-## Flow Legsᵀ vs Traditional Flow Analysis
+## **Flow Legsᵀ vs Traditional Flow Analysis**
 
 | Feature | Flow Legsᵀ | Traditional Flow Analysis |
 |---|---|---|
@@ -117,7 +117,7 @@ Investigate suspicious traffic movement between network segments.
 
 Flow Legsᵀ provides deeper visibility into how traffic traverses the network across multiple stages.
 
-## How Trisul Uses Flow Legsᵀ
+## **How Trisul Uses Flow Legsᵀ**
 
 Trisul uses Flow Legsᵀ alongside its advanced traffic analytics and contextual monitoring workflows to improve traffic path visibility.
 
@@ -139,7 +139,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper operational visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Stitching](/glossary/flow-stitching)
 - [Conversation View](/glossary/conversation-view)
@@ -150,7 +150,7 @@ Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversat
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What are Flow Legsᵀ in Trisul?
 

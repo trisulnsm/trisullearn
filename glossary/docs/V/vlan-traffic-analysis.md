@@ -36,7 +36,7 @@ It is widely used for:
 - data center analytics
 - enterprise network management
 
-## How VLAN Traffic Analysis Works
+## **How VLAN Traffic Analysis Works**
 
 Switches tag traffic using VLAN identifiers (VLAN IDs) to separate communication domains.
 
@@ -69,7 +69,7 @@ For example:
 
 ---
 
-## Why VLAN Traffic Analysis Matters
+## **Why VLAN Traffic Analysis Matters**
 
 Modern enterprise and data center networks rely heavily on segmentation for:
 
@@ -109,7 +109,7 @@ Humans divided networks into neat virtual compartments for order and security, t
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Segmentation Monitoring
 
@@ -133,7 +133,7 @@ Detect excessive broadcast or multicast activity.
 
 ---
 
-## VLAN Traffic Analysis vs General Traffic Monitoring
+## **VLAN Traffic Analysis vs General Traffic Monitoring**
 
 | Feature | VLAN Traffic Analysis | General Traffic Monitoring |
 |---|---|---|
@@ -147,7 +147,7 @@ VLAN traffic analysis focuses specifically on segmented network behavior and VLA
 
 ---
 
-## How Trisul Handles VLAN Traffic Analysis
+## **How Trisul Handles VLAN Traffic Analysis**
 
 Trisul provides scalable VLAN-aware traffic analytics for enterprise and ISP environments.
 
@@ -179,7 +179,7 @@ workflows for deeper segmented visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - East-West Traffic
 - Bandwidth Monitoring
@@ -190,7 +190,7 @@ workflows for deeper segmented visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is VLAN traffic analysis?
 

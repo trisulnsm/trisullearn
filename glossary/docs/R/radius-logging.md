@@ -37,7 +37,7 @@ RADIUS logging helps organizations define access and subscriber roles by recordi
 - session duration
 - authentication failures
 
-## How RADIUS Logging Works
+## **How RADIUS Logging Works**
 
 When a user or device attempts to access the network:
 
@@ -70,7 +70,7 @@ For example:
 
 ---
 
-## Why RADIUS Logging Matters
+## **Why RADIUS Logging Matters**
 
 Modern networks require strong visibility into user access and subscriber activity.
 
@@ -105,7 +105,7 @@ Humanity connected billions of people to networks and then immediately built gia
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Subscriber Traceability
 
@@ -129,7 +129,7 @@ Monitor user connectivity and session behavior.
 
 ---
 
-## RADIUS Logging vs NAT Logging
+## **RADIUS Logging vs NAT Logging**
 
 | Feature | RADIUS Logging | NAT Logging |
 |---|---|---|
@@ -143,7 +143,7 @@ RADIUS logging focuses on user access and session activity, while NAT logging fo
 
 ---
 
-## How Trisul Handles RADIUS Visibility
+## **How Trisul Handles RADIUS Visibility**
 
 Trisul provides scalable subscriber and authentication analytics for enterprise and ISP environments.
 
@@ -175,7 +175,7 @@ workflows for deeper subscriber analytics.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - IPDR
 - NAT Logging
@@ -186,7 +186,7 @@ workflows for deeper subscriber analytics.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is RADIUS logging?
 

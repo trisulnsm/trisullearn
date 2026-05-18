@@ -21,7 +21,7 @@ It helps network teams understand how internet traffic flows between providers, 
 
 BGP peering analytics is widely used in ISP operations, internet exchange environments, and large-scale network infrastructures.
 
-## How BGP Peering Analytics Works
+## **How BGP Peering Analytics Works**
 
 BGP-enabled networks exchange routing information using [Border Gateway Protocol](/glossary/bgp) sessions between [Autonomous Systems](/glossary/asn).
 
@@ -66,7 +66,7 @@ flowchart LR
 
 *Figure: BGP peering analytics workflow showing ASN relationships, route exchanges, and traffic visibility across peering networks.*
 
-## Why BGP Peering Analytics Matters
+## **Why BGP Peering Analytics Matters**
 
 Internet traffic often passes through multiple providers and peering networks before reaching its destination.
 
@@ -92,7 +92,7 @@ It is especially important in:
 - CDN networks
 - enterprise WANs
 
-## Types of BGP Peering Visibility
+## **Types of BGP Peering Visibility**
 
 ### ASN Traffic Analysis
 
@@ -114,7 +114,7 @@ Monitor traffic flowing through upstream providers.
 
 Identify route instability, path changes, or peering issues.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### ISP Peering Optimization
 
@@ -136,7 +136,7 @@ Trace attack traffic sources across ASN paths.
 
 Investigate route leaks, path instability, or upstream failures.
 
-## BGP Peering Analytics vs General Traffic Monitoring
+## **BGP Peering Analytics vs General Traffic Monitoring**
 
 | Feature | BGP Peering Analytics | General Traffic Monitoring |
 |---|---|---|
@@ -148,7 +148,7 @@ Investigate route leaks, path instability, or upstream failures.
 
 BGP peering analytics adds routing and ASN context to standard traffic monitoring workflows.
 
-## How Trisul Handles BGP Peering Analytics
+## **How Trisul Handles BGP Peering Analytics**
 
 Trisul provides ASN-aware traffic visibility and BGP analytics for monitoring peering behavior and internet traffic flows.
 
@@ -170,7 +170,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows with BGP routing intelligence for deeper analysis.
 
-## Related Terms
+## **Related Terms**
 
 - [BGP](/glossary/bgp)
 - [ASN](/glossary/asn)
@@ -181,7 +181,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is BGP peering analytics?
 

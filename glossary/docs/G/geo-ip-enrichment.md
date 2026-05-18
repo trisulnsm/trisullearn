@@ -27,7 +27,7 @@ GeoIP enrichment improves visibility into:
 - attack sources
 - application usage patterns
 
-## How GeoIP Enrichment Works
+## **How GeoIP Enrichment Works**
 
 GeoIP systems use IP intelligence databases that map IP addresses to geographic information such as:
 - country
@@ -52,7 +52,7 @@ For example:
 3. Analysts detect unexpected communication from unusual regions
 4. The traffic is investigated for possible threats
 
-## Why GeoIP Enrichment Matters
+## **Why GeoIP Enrichment Matters**
 
 Raw IP addresses alone provide limited operational context.
 
@@ -79,7 +79,7 @@ GeoIP visibility is especially useful in:
 - cloud environments
 - global application platforms
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Monitoring
 
@@ -101,7 +101,7 @@ Apply geographic traffic policies or restrictions.
 
 Analyze subscriber traffic distribution across regions.
 
-## GeoIP Enrichment vs Basic IP Visibility
+## **GeoIP Enrichment vs Basic IP Visibility**
 
 | Feature | GeoIP Enrichment | Basic IP Visibility |
 |---|---|---|
@@ -113,7 +113,7 @@ Analyze subscriber traffic distribution across regions.
 
 GeoIP enrichment transforms raw IP visibility into location-aware traffic intelligence.
 
-## How Trisul Uses GeoIP Enrichment
+## **How Trisul Uses GeoIP Enrichment**
 
 Trisul provides GeoIP-aware traffic analytics and visualization workflows for operational and security visibility.
 
@@ -135,7 +135,7 @@ Trisul helps teams:
 
 Trisul can also integrate [NetFlow](/glossary/netflow), [DDoS Detection](/glossary/ddos-detection), and [Anomaly Detection](/glossary/anomaly-detection) workflows for deeper geographic visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [ASN](/glossary/asn)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -146,7 +146,7 @@ Trisul can also integrate [NetFlow](/glossary/netflow), [DDoS Detection](/glossa
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is GeoIP enrichment?
 

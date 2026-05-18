@@ -36,7 +36,7 @@ Sankey visualizations are commonly used for:
 - network mapping
 - traffic engineering
 
-## How Sankey Traffic Visualization Works
+## **How Sankey Traffic Visualization Works**
 
 Monitoring platforms collect traffic visibility data from:
 
@@ -68,7 +68,7 @@ The Sankey diagram may visually show:
 
 ---
 
-## Why Sankey Traffic Visualization Matters
+## **Why Sankey Traffic Visualization Matters**
 
 Traditional charts and tables can make large-scale traffic relationships difficult to understand.
 
@@ -102,7 +102,7 @@ Humans saw spreadsheets full of traffic data and decided, “what if bandwidth l
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Flow Analysis
 
@@ -126,7 +126,7 @@ Identify unusual communication flows and suspicious traffic paths.
 
 ---
 
-## Sankey Visualization vs Traditional Charts
+## **Sankey Visualization vs Traditional Charts**
 
 | Feature | Sankey Visualization | Traditional Charts |
 |---|---|---|
@@ -140,7 +140,7 @@ Sankey diagrams focus on showing traffic movement and relationships visually rat
 
 ---
 
-## How Trisul Uses Sankey Traffic Visualization
+## **How Trisul Uses Sankey Traffic Visualization**
 
 Trisul provides advanced traffic visualization workflows for enterprise and ISP environments.
 
@@ -172,7 +172,7 @@ workflows for deeper traffic visualization.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Flow Analysis
 - Application Visibility
@@ -183,7 +183,7 @@ workflows for deeper traffic visualization.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a Sankey diagram in networking?
 

@@ -36,7 +36,7 @@ IPDR is widely used in:
 - compliance systems
 - traffic analytics platforms
 
-## How IPDR Works
+## **How IPDR Works**
 
 ISPs and telecom providers generate network activity data from:
 - broadband gateways
@@ -65,7 +65,7 @@ For example:
 
 ![](images/ipdr.png)
 
-## Why IPDR Matters
+## **Why IPDR Matters**
 
 Large ISP and telecom environments must manage millions of subscriber sessions daily.
 
@@ -92,7 +92,7 @@ It is especially important in:
 - CGNAT environments
 - large subscriber infrastructures
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Subscriber Traceability
 
@@ -114,7 +114,7 @@ Analyze subscriber bandwidth and usage behavior.
 
 Correlate private and public IP address assignments.
 
-## IPDR vs NetFlow
+## **IPDR vs NetFlow**
 
 | Feature | IPDR | NetFlow |
 |---|---|---|
@@ -126,7 +126,7 @@ Correlate private and public IP address assignments.
 
 IPDR focuses more on subscriber traceability and session activity, while NetFlow focuses on traffic flow analytics.
 
-## How Trisul Supports IPDR Visibility
+## **How Trisul Supports IPDR Visibility**
 
 Trisul provides scalable traffic analytics and subscriber visibility workflows for ISP and telecom environments.
 
@@ -148,7 +148,7 @@ Trisul helps teams:
 
 Trisul can also integrate [DoT Compliance](/glossary/dot-compliance), [CGNAT Logging](/glossary/cgnat-logging), and [Flow Analysis](/glossary/flow-analysis) workflows for deeper ISP analytics visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [DoT Compliance](/glossary/dot-compliance)
 - [CGNAT Logging](/glossary/cgnat-logging)
@@ -159,7 +159,7 @@ Trisul can also integrate [DoT Compliance](/glossary/dot-compliance), [CGNAT Log
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is IPDR?
 

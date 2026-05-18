@@ -36,7 +36,7 @@ It is widely used for:
 - anomaly detection
 - ISP visibility
 
-## How Streaming Analytics Works
+## **How Streaming Analytics Works**
 
 Monitoring platforms continuously ingest live data from:
 
@@ -79,7 +79,7 @@ Streaming analytics may identify:
 
 ---
 
-## Why Streaming Analytics Matters
+## **Why Streaming Analytics Matters**
 
 Modern networks generate massive amounts of continuous operational data.
 
@@ -114,7 +114,7 @@ Humans decided waiting for reports was too slow, so now machines analyze chaos t
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Real-Time Threat Detection
 
@@ -138,7 +138,7 @@ Monitor distributed workloads and cloud application behavior.
 
 ---
 
-## Streaming Analytics vs Batch Analytics
+## **Streaming Analytics vs Batch Analytics**
 
 | Feature | Streaming Analytics | Batch Analytics |
 |---|---|---|
@@ -152,7 +152,7 @@ Streaming analytics focuses on immediate data processing, while batch analytics 
 
 ---
 
-## How Trisul Handles Streaming Analytics
+## **How Trisul Handles Streaming Analytics**
 
 Trisul provides scalable streaming traffic analytics for enterprise and ISP environments.
 
@@ -184,7 +184,7 @@ workflows for deeper operational visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Real-Time Traffic Monitoring
 - Security Analytics
@@ -195,7 +195,7 @@ workflows for deeper operational visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is streaming analytics?
 

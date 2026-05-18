@@ -36,7 +36,7 @@ It is widely used for:
 - capacity planning
 - performance monitoring
 
-## How sFlow Works
+## **How sFlow Works**
 
 sFlow-enabled devices such as:
 
@@ -74,7 +74,7 @@ sFlow is designed for scalable monitoring in high-volume environments where moni
 
 ---
 
-## Why sFlow Matters
+## **Why sFlow Matters**
 
 Modern networks generate enormous traffic volumes that can overwhelm monitoring systems.
 
@@ -108,7 +108,7 @@ Humans looked at impossible traffic volumes and decided, “what if we just samp
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### High-Speed Traffic Monitoring
 
@@ -132,7 +132,7 @@ Detect large-scale traffic spikes and volumetric attacks.
 
 ---
 
-## sFlow vs NetFlow
+## **sFlow vs NetFlow**
 
 | Feature | sFlow | NetFlow |
 |---|---|---|
@@ -146,7 +146,7 @@ sFlow prioritizes scalability and lightweight monitoring, while NetFlow provides
 
 ---
 
-## How Trisul Handles sFlow Analytics
+## **How Trisul Handles sFlow Analytics**
 
 Trisul provides scalable traffic analytics for sFlow-enabled environments.
 
@@ -178,7 +178,7 @@ workflows for broader traffic visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Flow Sampling
 - NetFlow
@@ -189,7 +189,7 @@ workflows for broader traffic visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is sFlow?
 

@@ -27,7 +27,7 @@ Monitoring GRE tunnels helps network teams understand:
 - application performance
 - tunnel stability
 
-## How GRE Tunnels Work
+## **How GRE Tunnels Work**
 
 GRE (Generic Routing Encapsulation) is a tunneling protocol that wraps one packet inside another packet for transport across a network.
 
@@ -47,7 +47,7 @@ GRE tunnels are commonly used for:
 - traffic segmentation
 - VPN-style communication
 
-## Why GRE Tunnel Monitoring Matters
+## **Why GRE Tunnel Monitoring Matters**
 
 Tunneled traffic can hide visibility into:
 - application behavior
@@ -79,7 +79,7 @@ It is especially important in:
 - hybrid environments
 - branch connectivity deployments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### WAN Connectivity Monitoring
 
@@ -101,7 +101,7 @@ Investigate GRE routing and path issues.
 
 Detect suspicious or unauthorized tunnel activity.
 
-## GRE Tunnel Monitoring vs Standard Traffic Monitoring
+## **GRE Tunnel Monitoring vs Standard Traffic Monitoring**
 
 | Feature | GRE Tunnel Monitoring | Standard Traffic Monitoring |
 |---|---|---|
@@ -113,7 +113,7 @@ Detect suspicious or unauthorized tunnel activity.
 
 GRE tunnel monitoring provides visibility into encapsulated overlay traffic and tunnel behavior.
 
-## How Trisul Handles GRE Tunnel Visibility
+## **How Trisul Handles GRE Tunnel Visibility**
 
 Trisul provides flow analytics and packet visibility workflows for monitoring encapsulated and tunneled traffic environments.
 
@@ -135,7 +135,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Flow Monitoring](/glossary/flow-monitoring), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper tunnel visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Packet Capture](/glossary/packet-capture)
 - [Flow Monitoring](/glossary/flow-monitoring)
@@ -146,7 +146,7 @@ Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Flow Moni
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a GRE tunnel?
 

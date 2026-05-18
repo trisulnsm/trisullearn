@@ -19,7 +19,7 @@ An Access Control List (ACL) is a set of rules used by routers, switches, firewa
 
 ACLs are commonly used to restrict unauthorized access, segment traffic, filter unwanted communication, and enforce security policies across enterprise, data center, and ISP networks.
 
-## How ACLs Work
+## **How ACLs Work**
 
 ACLs inspect packets and compare them against a list of rules configured on a network device.
 
@@ -48,7 +48,7 @@ flowchart TD
 
 *Figure: ACL workflow showing how incoming packets are evaluated against ordered rules before being permitted or denied.*
 
-## Types of ACLs
+## **Types of ACLs**
 
 ### Standard ACL
 
@@ -74,7 +74,7 @@ Network ACLs are commonly used in cloud and virtualized environments to control 
 
 Stateless ACLs evaluate packets individually without tracking connection state.
 
-## Why ACLs Matter
+## **Why ACLs Matter**
 
 ACLs help network and security teams:
 
@@ -87,7 +87,7 @@ ACLs help network and security teams:
 
 Proper ACL design can also reduce attack surface and improve traffic visibility across large environments.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Blocking Unauthorized Subnets
 
@@ -109,7 +109,7 @@ Filter suspicious or invalid traffic at the network edge.
 
 Prevent compromised systems from reaching sensitive assets.
 
-## ACL vs Firewall
+## **ACL vs Firewall**
 
 | Feature | ACL | Firewall |
 |---|---|---|
@@ -121,7 +121,7 @@ Prevent compromised systems from reaching sensitive assets.
 
 ACLs are typically lightweight and fast, while firewalls provide deeper inspection and more advanced security controls.
 
-## How Trisul Helps Monitor ACL Activity
+## **How Trisul Helps Monitor ACL Activity**
 
 Trisul helps network and security teams analyze traffic patterns affected by ACL policies by monitoring allowed, blocked, and redirected traffic flows across the network.
 
@@ -133,7 +133,7 @@ Trisul can also help investigate:
 - Sudden traffic drops after ACL changes
 - Unauthorized communication between segments
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -143,7 +143,7 @@ Trisul can also help investigate:
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What does an ACL do?
 

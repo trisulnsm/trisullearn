@@ -36,7 +36,7 @@ Prefix analytics may reveal:
 
 ---
 
-## Why Prefix Analytics Matters
+## **Why Prefix Analytics Matters**
 
 Large-scale networks manage traffic across thousands or millions of IP addresses.
 
@@ -69,7 +69,7 @@ It is especially important in:
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### BGP Routing Visibility
 
@@ -93,7 +93,7 @@ Analyze subnet utilization and growth trends.
 
 ---
 
-## Prefix Analytics vs Host-Level Analytics
+## **Prefix Analytics vs Host-Level Analytics**
 
 | Feature | Prefix Analytics | Host-Level Analytics |
 |---|---|---|
@@ -107,7 +107,7 @@ Prefix analytics focuses on network-wide routing and traffic behavior rather tha
 
 ---
 
-## How Trisul Handles Prefix Analytics
+## **How Trisul Handles Prefix Analytics**
 
 Trisul provides scalable prefix-aware traffic analytics for enterprise and ISP environments.
 
@@ -139,7 +139,7 @@ workflows for deeper routing visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - ASN
 - BGP
@@ -150,7 +150,7 @@ workflows for deeper routing visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is an IP prefix?
 

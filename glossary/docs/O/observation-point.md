@@ -37,7 +37,7 @@ The placement of observation points directly affects:
 - forensic analysis
 - operational context
 
-## How Observation Points Work
+## **How Observation Points Work**
 
 Traffic flowing through a network passes through different infrastructure components.
 
@@ -73,7 +73,7 @@ Observation points may monitor:
 
 ---
 
-## Why Observation Points Matter
+## **Why Observation Points Matter**
 
 Traffic visibility depends heavily on where monitoring occurs. Humans really built entire professions around deciding where to stand and watch packets move. Digital birdwatching, but with more caffeine and compliance requirements.
 
@@ -106,7 +106,7 @@ They are especially important in:
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Perimeter Monitoring
 
@@ -130,7 +130,7 @@ Observe traffic across branch and backbone connections.
 
 ---
 
-## Observation Point vs Monitoring Tool
+## **Observation Point vs Monitoring Tool**
 
 | Feature | Observation Point | Monitoring Tool |
 |---|---|---|
@@ -144,7 +144,7 @@ An observation point defines where visibility is collected, while the monitoring
 
 ---
 
-## How Trisul Uses Observation Points
+## **How Trisul Uses Observation Points**
 
 Trisul supports distributed traffic visibility across multiple observation points in enterprise and ISP environments.
 
@@ -176,7 +176,7 @@ workflows for broader visibility coverage.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Packet Capture
 - Flow Monitoring
@@ -187,7 +187,7 @@ workflows for broader visibility coverage.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is an observation point in networking?
 

@@ -43,7 +43,7 @@ XDR network visibility is widely used for:
 - network forensics
 - behavioral monitoring
 
-## How XDR Network Visibility Works
+## **How XDR Network Visibility Works**
 
 XDR platforms ingest visibility data from:
 - flow records
@@ -84,7 +84,7 @@ XDR network visibility may reveal:
 
 ---
 
-## Why XDR Network Visibility Matters
+## **Why XDR Network Visibility Matters**
 
 Modern attacks often move across multiple environments and security layers.
 
@@ -119,7 +119,7 @@ Humans built separate security tools for everything, then realized attackers sim
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Threat Detection
 
@@ -143,7 +143,7 @@ Reconstruct attack timelines using integrated visibility.
 
 ---
 
-## XDR Network Visibility vs Traditional Security Monitoring
+## **XDR Network Visibility vs Traditional Security Monitoring**
 
 | Feature | XDR Network Visibility | Traditional Security Monitoring |
 |---|---|---|
@@ -157,7 +157,7 @@ XDR visibility combines multiple security layers into a unified investigation wo
 
 ---
 
-## How Trisul Supports XDR Visibility
+## **How Trisul Supports XDR Visibility**
 
 Trisul provides deep traffic analytics and contextual network visibility for XDR and SOC workflows.
 
@@ -189,7 +189,7 @@ workflows for broader security visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - SOC Visibility
 - Security Analytics
@@ -200,7 +200,7 @@ workflows for broader security visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is XDR?
 

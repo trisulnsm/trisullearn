@@ -21,7 +21,7 @@ Flow analyzers help network and security teams understand how devices, applicati
 
 They transform raw flow records into dashboards, reports, alerts, and operational insights.
 
-## How a Flow Analyzer Works
+## **How a Flow Analyzer Works**
 
 Network devices such as routers, switches, and firewalls generate flow records describing network traffic activity.
 
@@ -50,7 +50,7 @@ Flow analyzers commonly process:
 - traffic statistics
 - protocol information
 
-## Why Flow Analyzers Matter
+## **Why Flow Analyzers Matter**
 
 Modern networks generate massive amounts of traffic data that are difficult to analyze manually.
 
@@ -72,7 +72,7 @@ Flow analyzers are especially important in:
 - cloud infrastructures
 - data centers
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -94,7 +94,7 @@ Detect traffic floods and anomalous traffic spikes.
 
 Analyze long-term traffic growth and infrastructure utilization.
 
-## Flow Analyzer vs Flow Collector
+## **Flow Analyzer vs Flow Collector**
 
 | Feature | Flow Analyzer | Flow Collector |
 |---|---|---|
@@ -106,7 +106,7 @@ Analyze long-term traffic growth and infrastructure utilization.
 
 Collectors handle traffic ingestion, while analyzers provide operational visibility and analytics.
 
-## How Trisul Works as a Flow Analyzer
+## **How Trisul Works as a Flow Analyzer**
 
 Trisul combines scalable flow collection and advanced analytics into a unified traffic visibility platform.
 
@@ -128,7 +128,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Collector](/glossary/flow-collector)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -139,7 +139,7 @@ Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversat
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a flow analyzer?
 

@@ -21,7 +21,7 @@ Instead of treating inbound and outbound traffic as separate records, bi-directi
 
 Bi-directional flows are commonly used in [Flow Analysis](/glossary/flow-analysis), [Traffic Investigation](/glossary/traffic-investigation), and [Conversation View](/glossary/conversation-view) workflows.
 
-## How Bi-directional Flows Work
+## **How Bi-directional Flows Work**
 
 Traditional flow exporters often generate separate flow records for:
 - client-to-server traffic
@@ -60,7 +60,7 @@ flowchart TB
 
 *Figure: Comparison between uni-directional flows, which store each traffic direction separately, and bi-directional flows, which combine both directions into a single session view.*
 
-## Why Bi-directional Flows Matter
+## **Why Bi-directional Flows Matter**
 
 Analyzing traffic in both directions improves visibility into how devices and applications communicate across a network.
 
@@ -86,7 +86,7 @@ Bi-directional visibility is especially important in:
 - application troubleshooting
 - network forensics
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Traffic Investigation
 
@@ -108,7 +108,7 @@ Monitor internal communication between systems and network segments.
 
 Improve understanding of long-running or complex network conversations.
 
-## Bi-directional Flow vs Uni-directional Flow
+## **Bi-directional Flow vs Uni-directional Flow**
 
 | Feature | Bi-directional Flow | Uni-directional Flow |
 |---|---|---|
@@ -120,7 +120,7 @@ Improve understanding of long-running or complex network conversations.
 
 Bi-directional flows provide more context and visibility than isolated uni-directional flow records.
 
-## How Trisul Handles Bi-directional Flows
+## **How Trisul Handles Bi-directional Flows**
 
 Trisul provides advanced conversation-level traffic visibility using correlated flow analytics and session-aware traffic analysis.
 
@@ -141,7 +141,7 @@ Trisul helps teams:
 
 Trisul can also combine [Packet Capture](/glossary/packet-capture) and [Flow Analysis](/glossary/flow-analysis) workflows for deeper conversation-level visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Analysis](/glossary/flow-analysis)
 - [Conversation View](/glossary/conversation-view)
@@ -152,7 +152,7 @@ Trisul can also combine [Packet Capture](/glossary/packet-capture) and [Flow Ana
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is a bi-directional flow?
 

@@ -36,7 +36,7 @@ It is widely used for:
 - telecom operations
 - application reliability monitoring
 
-## How SLA Monitoring Works
+## **How SLA Monitoring Works**
 
 Monitoring systems continuously collect visibility data from:
 
@@ -77,7 +77,7 @@ SLA monitoring may track:
 
 ---
 
-## Why SLA Monitoring Matters
+## **Why SLA Monitoring Matters**
 
 Organizations depend on stable and predictable service performance.
 
@@ -111,7 +111,7 @@ Humans made legally binding promises about uptime to other humans. Bold move for
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### WAN Performance Monitoring
 
@@ -135,7 +135,7 @@ Provide SLA compliance visibility to customers and stakeholders.
 
 ---
 
-## SLA Monitoring vs Basic Performance Monitoring
+## **SLA Monitoring vs Basic Performance Monitoring**
 
 | Feature | SLA Monitoring | Basic Performance Monitoring |
 |---|---|---|
@@ -149,7 +149,7 @@ SLA monitoring focuses specifically on validating service commitments and perfor
 
 ---
 
-## How Trisul Handles SLA Monitoring
+## **How Trisul Handles SLA Monitoring**
 
 Trisul provides scalable traffic and performance analytics for SLA visibility across enterprise and ISP environments.
 
@@ -181,7 +181,7 @@ workflows for deeper SLA visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - QoS Monitoring
 - Latency Monitoring
@@ -192,7 +192,7 @@ workflows for deeper SLA visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is SLA monitoring?
 

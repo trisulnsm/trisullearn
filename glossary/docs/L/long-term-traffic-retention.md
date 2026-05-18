@@ -35,7 +35,7 @@ Long-term retention is especially important for:
 - traffic forensics
 - operational analytics
 
-## How Long-Term Traffic Retention Works
+## **How Long-Term Traffic Retention Works**
 
 Monitoring systems continuously collect traffic visibility data from:
 - routers
@@ -67,7 +67,7 @@ Retention strategies may vary depending on:
 
 ![](images/longtermretention.png)
 
-## Why Long-Term Traffic Retention Matters
+## **Why Long-Term Traffic Retention Matters**
 
 Many operational and security issues are discovered long after they occur.
 
@@ -95,7 +95,7 @@ It is especially important in:
 - cloud environments
 - regulated industries
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Investigations
 
@@ -117,7 +117,7 @@ Investigate historical subscriber and NAT activity.
 
 Review historical communication patterns and anomalies.
 
-## Long-Term Traffic Retention vs Live Monitoring
+## **Long-Term Traffic Retention vs Live Monitoring**
 
 | Feature | Long-Term Traffic Retention | Live Monitoring |
 |---|---|---|
@@ -129,7 +129,7 @@ Review historical communication patterns and anomalies.
 
 Long-term retention focuses on historical visibility, while live monitoring focuses on current network activity.
 
-## How Trisul Handles Long-Term Traffic Retention
+## **How Trisul Handles Long-Term Traffic Retention**
 
 Trisul is designed for scalable long-term traffic analytics across enterprise and ISP environments.
 
@@ -151,7 +151,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Historical Traffic Analysis](/glossary/historical-traffic-analysis), [Flow Forensics](/glossary/flow-forensics), and [IPDR](/glossary/ipdr) workflows for deeper historical visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Historical Traffic Analysis](/glossary/historical-traffic-analysis)
 - [Flow Forensics](/glossary/flow-forensics)
@@ -162,7 +162,7 @@ Trisul can also integrate [Historical Traffic Analysis](/glossary/historical-tra
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is long-term traffic retention?
 

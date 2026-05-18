@@ -36,7 +36,7 @@ NAT logs commonly contain:
 - subscriber identifiers
 - session activity
 
-## How NAT Logging Works
+## **How NAT Logging Works**
 
 Network Address Translation allows multiple internal devices to share limited public IP addresses.
 
@@ -80,7 +80,7 @@ flowchart LR
 
 *Figure: NAT translation workflow showing private-to-public IP mapping and NAT log generation for traceability and investigations.*
 
-## Why NAT Logging Matters
+## **Why NAT Logging Matters**
 
 Without NAT logging, organizations may struggle to:
 
@@ -108,7 +108,7 @@ It is especially important in:
 - enterprise internet gateways
 - CGNAT environments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Subscriber Traceability
 
@@ -130,7 +130,7 @@ Correlate suspicious internet activity with internal systems.
 
 Track large-scale address sharing environments.
 
-## NAT Logging vs Standard Traffic Logging
+## **NAT Logging vs Standard Traffic Logging**
 
  | Feature  | NAT Logging  | Standard Traffic Logging | 
  |------------|---------------|-----------------------|
@@ -142,7 +142,7 @@ Track large-scale address sharing environments.
 
 NAT logging focuses specifically on translation visibility and subscriber mapping.
 
-## How Trisul Handles NAT Logging
+## **How Trisul Handles NAT Logging**
 
 Trisul provides scalable NAT analytics and subscriber visibility workflows for ISP and enterprise environments.
 
@@ -169,7 +169,7 @@ Trisul can also integrate CGNAT Logging
 , and Traffic Investigation
  workflows for deeper subscriber visibility.
 
-## Related Terms
+## **Related Terms**
 
 - CGNAT Logging
 - IPDR
@@ -178,7 +178,7 @@ Trisul can also integrate CGNAT Logging
 - Flow Analysis
 - DoT Compliance
 
-## FAQ
+## **FAQ**
 
 ### What is NAT logging?
 

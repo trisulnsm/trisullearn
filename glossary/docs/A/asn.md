@@ -21,7 +21,7 @@ ASNs are primarily used in Border Gateway Protocol (BGP) routing to identify net
 
 Each autonomous system exchanges routing information with other networks using its ASN.
 
-## How ASNs Work
+## **How ASNs Work**
 
 The internet is made up of thousands of independently managed networks called Autonomous Systems (AS).
 
@@ -60,7 +60,7 @@ flowchart LR
 
 *Figure: BGP ASN routing workflow showing how traffic moves between autonomous systems using peering and route advertisements.*
 
-## Why ASNs Matter
+## **Why ASNs Matter**
 
 ASNs help internet networks:
 - exchange routing information
@@ -79,7 +79,7 @@ ASN visibility is important for:
 
 ASNs also provide operational context by showing which organizations or providers traffic is communicating with.
 
-## Public vs Private ASN
+## **Public vs Private ASN**
 
 | Type | Description |
 |---|---|
@@ -93,7 +93,7 @@ Public ASNs are assigned by Regional Internet Registries (RIRs) such as:
 - AFRINIC
 - LACNIC
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### BGP Peering
 
@@ -115,7 +115,7 @@ Track attack traffic sources and upstream providers.
 
 Optimize routing decisions and bandwidth usage between networks.
 
-## ASN vs IP Address
+## **ASN vs IP Address**
 
 | Feature | ASN | IP Address |
 |---|---|---|
@@ -127,7 +127,7 @@ Optimize routing decisions and bandwidth usage between networks.
 
 ASNs identify networks participating in internet routing, while IP addresses identify devices communicating across those networks.
 
-## How Trisul Handles ASN Visibility
+## **How Trisul Handles ASN Visibility**
 
 Trisul provides ASN-aware traffic analytics using BGP visibility, flow monitoring, and traffic enrichment workflows.
 
@@ -148,7 +148,7 @@ Trisul helps teams:
 
 Trisul can also correlate ASN information with [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows for deeper routing visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [BGP](/glossary/bgp)
 - [ASN Peering](/glossary/asn-peering)
@@ -159,7 +159,7 @@ Trisul can also correlate ASN information with [NetFlow](/glossary/netflow), [IP
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What does ASN stand for?
 

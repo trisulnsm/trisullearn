@@ -32,7 +32,7 @@ Common network KPIs include:
 
 KPI monitoring helps organizations quickly identify performance issues, operational trends, and abnormal network behavior.
 
-## How KPI Monitoring Works
+## **How KPI Monitoring Works**
 
 Monitoring systems continuously collect operational and traffic data from:
 - routers
@@ -62,7 +62,7 @@ KPIs may be monitored in:
 - historical trend reports
 - SLA dashboards
 
-## Why KPI Monitoring Matters
+## **Why KPI Monitoring Matters**
 
 Modern networks generate massive operational data continuously.
 
@@ -90,7 +90,7 @@ It is especially important in:
 - SOC environments
 - managed service providers
 
-## Common Network KPIs
+## **Common Network KPIs**
 
 ### Bandwidth Utilization
 
@@ -116,7 +116,7 @@ Measure application and service responsiveness.
 
 Track infrastructure reliability and service continuity.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### SLA Monitoring
 
@@ -138,7 +138,7 @@ Analyze branch connectivity and network stability.
 
 Track anomalies and operational deviations.
 
-## KPI Monitoring vs Basic Monitoring
+## **KPI Monitoring vs Basic Monitoring**
 
 | Feature | KPI Monitoring | Basic Monitoring |
 |---|---|---|
@@ -150,7 +150,7 @@ Track anomalies and operational deviations.
 
 KPI monitoring focuses on measurable operational goals rather than simple visibility alone.
 
-## How Trisul Handles KPI Monitoring
+## **How Trisul Handles KPI Monitoring**
 
 Trisul provides scalable operational analytics and traffic visibility for KPI-driven monitoring environments.
 
@@ -172,7 +172,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Bandwidth Monitoring](/glossary/bandwidth-monitoring), [Jitter Monitoring](/glossary/jitter-monitoring), and [Historical Traffic Analysis](/glossary/historical-traffic-analysis) workflows for deeper operational visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Key Dashboardᵀ](/glossary/key-dashboard)
 - [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
@@ -183,7 +183,7 @@ Trisul can also integrate [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is KPI monitoring?
 

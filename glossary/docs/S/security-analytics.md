@@ -36,7 +36,7 @@ It is widely used for:
 - behavioral analysis
 - security operations
 
-## How Security Analytics Works
+## **How Security Analytics Works**
 
 Security analytics platforms collect visibility data from:
 
@@ -79,7 +79,7 @@ Security analytics may reveal:
 
 ---
 
-## Why Security Analytics Matters
+## **Why Security Analytics Matters**
 
 Modern attacks are:
 
@@ -119,7 +119,7 @@ Humans built systems to watch other humans misuse computers, then needed analyti
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Threat Detection
 
@@ -143,7 +143,7 @@ Reconstruct attack timelines and communication paths.
 
 ---
 
-## Security Analytics vs Traditional Security Monitoring
+## **Security Analytics vs Traditional Security Monitoring**
 
 | Feature | Security Analytics | Traditional Security Monitoring |
 |---|---|---|
@@ -157,7 +157,7 @@ Security analytics focuses on deep correlation and behavioral investigation rath
 
 ---
 
-## How Trisul Handles Security Analytics
+## **How Trisul Handles Security Analytics**
 
 Trisul provides contextual traffic analytics and forensic visibility for enterprise and ISP security operations.
 
@@ -189,7 +189,7 @@ workflows for deeper threat visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Network Security Monitoring (NSM)
 - Anomaly Detection
@@ -200,7 +200,7 @@ workflows for deeper threat visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is security analytics?
 

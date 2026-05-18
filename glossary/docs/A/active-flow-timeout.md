@@ -21,7 +21,7 @@ Instead of waiting for a connection to fully end, the exporter periodically send
 
 Active Flow Timeout is commonly configured on routers, switches, firewalls, and flow exporters.
 
-## How Active Flow Timeout Works
+## **How Active Flow Timeout Works**
 
 Flow exporters continuously track network conversations based on attributes such as:
 
@@ -59,7 +59,7 @@ flowchart LR
 
 *Figure: Active Flow Timeout workflow showing how long-running flows are periodically exported while traffic monitoring continues.*
 
-## Why Active Flow Timeout Matters
+## **Why Active Flow Timeout Matters**
 
 Without Active Flow Timeout, long-lived traffic sessions may remain invisible until the connection fully closes.
 
@@ -84,7 +84,7 @@ Active Flow Timeout is especially important in:
 - long-lived application sessions
 - streaming traffic analysis
 
-## Active Flow Timeout vs Inactive Flow Timeout
+## **Active Flow Timeout vs Inactive Flow Timeout**
 
 | Feature | Active Flow Timeout | Inactive Flow Timeout |
 |---|---|---|
@@ -95,7 +95,7 @@ Active Flow Timeout is especially important in:
 
 Active and Inactive Flow Timeout settings are usually configured together for balanced flow visibility.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Real-Time Traffic Monitoring
 
@@ -117,7 +117,7 @@ Monitor streaming applications, VPN tunnels, and large file transfers.
 
 Provide continuous updates for [Traffic Investigation](/glossary/traffic-investigation) and [Flow Analysis](/glossary/flow-analysis) workflows.
 
-## How Trisul Handles Active Flow Timeout
+## **How Trisul Handles Active Flow Timeout**
 
 Trisul continuously analyzes exported flow records generated through Active Flow Timeout settings to improve traffic visibility and operational awareness.
 
@@ -136,7 +136,7 @@ Trisul helps network teams:
 
 Trisul can also correlate periodic flow exports with [Packet Capture](/glossary/packet-capture) workflows for deeper investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Flow Timeout](/glossary/flow-timeout)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -147,7 +147,7 @@ Trisul can also correlate periodic flow exports with [Packet Capture](/glossary/
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What does Active Flow Timeout do?
 

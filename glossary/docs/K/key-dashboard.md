@@ -29,7 +29,7 @@ It improves visibility into:
 - network anomalies
 - operational status
 
-## How Key Dashboardᵀ Works
+## **How Key Dashboardᵀ Works**
 
 Trisul continuously collects traffic visibility using:
 - flow records
@@ -63,7 +63,7 @@ The dashboard may display:
 - interface utilization
 - suspicious traffic behavior
 
-## Why Key Dashboardᵀ Matters
+## **Why Key Dashboardᵀ Matters**
 
 Large networks generate massive amounts of operational data continuously.
 
@@ -91,7 +91,7 @@ It is especially useful in:
 - cloud environments
 - multi-site deployments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Traffic Visibility
 
@@ -113,7 +113,7 @@ Analyze application traffic and communication patterns.
 
 Provide summarized operational visibility for teams and management.
 
-## Key Dashboardᵀ vs Traditional Monitoring Views
+## **Key Dashboardᵀ vs Traditional Monitoring Views**
 
 | Feature | Key Dashboardᵀ | Traditional Monitoring |
 |---|---|---|
@@ -125,7 +125,7 @@ Provide summarized operational visibility for teams and management.
 
 Key Dashboardᵀ improves visibility by consolidating operational analytics into a unified interface.
 
-## How Trisul Uses Key Dashboardᵀ
+## **How Trisul Uses Key Dashboardᵀ**
 
 Key Dashboardᵀ works alongside Trisul’s advanced traffic analytics and investigation workflows.
 
@@ -147,7 +147,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Bandwidth Monitoring](/glossary/bandwidth-monitoring), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Top-K Analyticsᵀ](/glossary/top-k-analytics)
 - [Traffic Investigation](/glossary/traffic-investigation)
@@ -158,7 +158,7 @@ Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Bandwidth M
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Key Dashboardᵀ in Trisul?
 

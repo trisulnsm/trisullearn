@@ -44,7 +44,7 @@ It is especially important in:
 - cloud-heavy deployments
 - remote work environments
 
-## How OTT Traffic Analytics Works
+## **How OTT Traffic Analytics Works**
 
 OTT applications typically use:
 - HTTPS encryption
@@ -74,7 +74,7 @@ OTT visibility may include:
 - geographic distribution
 - subscriber behavior
 
-## Why OTT Traffic Analytics Matters
+## **Why OTT Traffic Analytics Matters**
 
 OTT applications generate significant portions of modern internet traffic.
 
@@ -102,7 +102,7 @@ It is especially important in:
 - hospitality networks
 - remote workforce environments
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Streaming Traffic Analysis
 
@@ -124,7 +124,7 @@ Prioritize business-critical applications over entertainment traffic.
 
 Analyze OTT usage patterns across ISP environments.
 
-## OTT Traffic Analytics vs Traditional Traffic Monitoring
+## **OTT Traffic Analytics vs Traditional Traffic Monitoring**
 
 | Feature | OTT Traffic Analytics | Traditional Traffic Monitoring |
 |---|---|---|
@@ -136,7 +136,7 @@ Analyze OTT usage patterns across ISP environments.
 
 OTT analytics focuses on internet-based application behavior and streaming visibility.
 
-## How Trisul Handles OTT Traffic Analytics
+## **How Trisul Handles OTT Traffic Analytics**
 
 Trisul provides application-aware traffic analytics for enterprise and ISP environments with heavy OTT usage.
 
@@ -158,7 +158,7 @@ Trisul helps teams:
 
 Trisul can also integrate [Application Visibility](/glossary/application-visibility), [Bandwidth Monitoring](/glossary/bandwidth-monitoring), and [Layer 7 Visibility](/glossary/layer-7-visibility) workflows for deeper OTT visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Application Visibility](/glossary/application-visibility)
 - [Layer 7 Visibility](/glossary/layer-7-visibility)
@@ -169,7 +169,7 @@ Trisul can also integrate [Application Visibility](/glossary/application-visibil
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is OTT traffic?
 

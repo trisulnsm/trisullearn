@@ -36,7 +36,7 @@ It is essential for:
 - compliance monitoring
 - security investigations
 
-## How SOC Visibility Works
+## **How SOC Visibility Works**
 
 SOC platforms collect visibility data from multiple sources such as:
 
@@ -79,7 +79,7 @@ SOC visibility may reveal:
 
 ---
 
-## Why SOC Visibility Matters
+## **Why SOC Visibility Matters**
 
 Modern threats are:
 
@@ -119,7 +119,7 @@ Humans built rooms full of analysts staring at screens 24/7 because the internet
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Threat Detection
 
@@ -143,7 +143,7 @@ Reconstruct communication activity after incidents.
 
 ---
 
-## SOC Visibility vs Basic Security Monitoring
+## **SOC Visibility vs Basic Security Monitoring**
 
 | Feature | SOC Visibility | Basic Security Monitoring |
 |---|---|---|
@@ -157,7 +157,7 @@ SOC visibility focuses on broad contextual investigation rather than isolated al
 
 ---
 
-## How Trisul Supports SOC Visibility
+## **How Trisul Supports SOC Visibility**
 
 Trisul provides deep traffic analytics and contextual security visibility for SOC operations.
 
@@ -189,7 +189,7 @@ workflows for deeper threat visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Security Analytics
 - Network Security Monitoring (NSM)
@@ -200,7 +200,7 @@ workflows for deeper threat visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is SOC visibility?
 

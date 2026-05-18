@@ -39,7 +39,7 @@ It is especially important for:
 - telecom visibility
 - performance troubleshooting
 
-## How Wire-Speed Packet Capture Works
+## **How Wire-Speed Packet Capture Works**
 
 Packet capture systems connect to traffic visibility sources such as:
 - network TAPs
@@ -74,7 +74,7 @@ For example:
 
 ---
 
-## Why Wire-Speed Packet Capture Matters
+## **Why Wire-Speed Packet Capture Matters**
 
 High-speed networks generate enormous traffic volumes continuously.
 
@@ -109,7 +109,7 @@ Humans built networks so fast that ordinary packet capture started dropping evid
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Network Forensics
 
@@ -133,7 +133,7 @@ Analyze application and protocol behavior deeply.
 
 ---
 
-## Wire-Speed Packet Capture vs Standard Packet Capture
+## **Wire-Speed Packet Capture vs Standard Packet Capture**
 
 | Feature | Wire-Speed Packet Capture | Standard Packet Capture |
 |---|---|---|
@@ -147,7 +147,7 @@ Wire-speed packet capture is specifically engineered for reliable high-speed vis
 
 ---
 
-## How Trisul Handles Wire-Speed Packet Capture
+## **How Trisul Handles Wire-Speed Packet Capture**
 
 Trisul provides scalable packet visibility and forensic analytics for high-speed enterprise and ISP environments.
 
@@ -179,7 +179,7 @@ workflows for deeper packet visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Full Packet Capture
 - Packet Analysis
@@ -190,7 +190,7 @@ workflows for deeper packet visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is wire-speed packet capture?
 

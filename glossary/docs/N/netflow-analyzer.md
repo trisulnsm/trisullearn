@@ -33,7 +33,7 @@ NetFlow analyzers are widely used for:
 - ISP analytics
 - capacity planning
 
-## How a NetFlow Analyzer Works
+## **How a NetFlow Analyzer Works**
 
 Network devices such as routers, switches, and firewalls export flow records using technologies such as:
 - NetFlow
@@ -65,7 +65,7 @@ The analyzer may display:
 
 ![](images/netflowanalyzer.png)
 
-## Why NetFlow Analyzers Matter
+## **Why NetFlow Analyzers Matter**
 
 Modern networks generate massive amounts of traffic continuously.
 
@@ -96,7 +96,7 @@ They are especially important in:
 - data centers
 - multi-site networks
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Bandwidth Monitoring
 
@@ -118,7 +118,7 @@ Analyze long-term traffic growth and infrastructure usage.
 
 Monitor subscriber and backbone traffic behavior.
 
-## NetFlow Analyzer vs Flow Collector
+## **NetFlow Analyzer vs Flow Collector**
 
 | Feature | NetFlow Analyzer  | Flow Collector| 
 |---------|-------------------|----------------|
@@ -130,7 +130,7 @@ Monitor subscriber and backbone traffic behavior.
 
 A flow collector mainly ingests flow data, while a NetFlow analyzer transforms the data into operational visibility and analytics.
 
-## How Trisul Works as a NetFlow Analyzer
+## **How Trisul Works as a NetFlow Analyzer**
 
 Trisul is a scalable NetFlow analytics platform designed for enterprise and ISP environments.
 
@@ -154,7 +154,7 @@ Trisul helps teams:
 
 Trisul can also integrate IPFIX, Application Visibility, and Traffic Investigation workflows for deeper traffic analytics.
 
-## Related Terms
+## **Related Terms**
 
 - NetFlow
 - Flow Analyzer
@@ -163,7 +163,7 @@ Trisul can also integrate IPFIX, Application Visibility, and Traffic Investigati
 - Application Visibility
 - Traffic Investigation
 
-## FAQ
+## **FAQ**
 
 ### What is a NetFlow Analyzer?
 

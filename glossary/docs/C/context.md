@@ -21,7 +21,7 @@ It helps network and security teams analyze traffic behavior with additional con
 
 Contextᵀ improves visibility during [Traffic Investigation](/glossary/traffic-investigation), [Flow Analysis](/glossary/flow-analysis), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) workflows.
 
-## How Contextᵀ Works
+## **How Contextᵀ Works**
 
 Modern networks generate massive amounts of traffic data from:
 - flow records
@@ -54,7 +54,7 @@ Contextᵀ may combine:
 
 *Figure: Context-based investigation workflow showing how related traffic data is correlated into a unified operational analysis view.*
 
-## Why Contextᵀ Matters
+## **Why Contextᵀ Matters**
 
 Without contextual visibility, analysts often investigate traffic events in isolation.
 
@@ -80,7 +80,7 @@ It is especially useful in:
 - traffic forensics
 - application troubleshooting
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Traffic Investigation
 
@@ -102,7 +102,7 @@ Investigate performance issues with complete session visibility.
 
 Correlate subscriber traffic behavior with application and protocol activity.
 
-## Contextᵀ vs Raw Traffic Data
+## **Contextᵀ vs Raw Traffic Data**
 
 | Feature | Contextᵀ | Raw Traffic Data |
 |---|---|---|
@@ -114,7 +114,7 @@ Correlate subscriber traffic behavior with application and protocol activity.
 
 Contextᵀ improves operational understanding by connecting related traffic information together.
 
-## How Trisul Uses Contextᵀ
+## **How Trisul Uses Contextᵀ**
 
 Contextᵀ works alongside Trisul’s traffic analytics and investigation features to improve operational visibility and network analysis.
 
@@ -136,7 +136,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Packet Capture](/glossary/packet-capture), [NetFlow](/glossary/netflow), and [Application Visibility](/glossary/application-visibility) workflows within the same contextual investigation view.
 
-## Related Terms
+## **Related Terms**
 
 - [Traffic Investigation](/glossary/traffic-investigation)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -147,7 +147,7 @@ Trisul can also correlate [Packet Capture](/glossary/packet-capture), [NetFlow](
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is Contextᵀ in Trisul?
 

@@ -39,7 +39,7 @@ It is widely used for:
 
 ---
 
-## How Passive Network Monitoring Works
+## **How Passive Network Monitoring Works**
 
 Passive monitoring systems collect traffic visibility using:
 
@@ -70,7 +70,7 @@ Because passive systems do not inject traffic into the network, they avoid affec
 
 ---
 
-## Why Passive Network Monitoring Matters
+## **Why Passive Network Monitoring Matters**
 
 Many organizations require visibility without introducing operational risk or additional network overhead.
 
@@ -104,7 +104,7 @@ Humans finally discovered the safest networking strategy: stand quietly in the c
 
 ---
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Security Monitoring
 
@@ -128,7 +128,7 @@ Observe real application performance and communication behavior.
 
 ---
 
-## Passive Network Monitoring vs Active Monitoring
+## **Passive Network Monitoring vs Active Monitoring**
 
 | Feature | Passive Monitoring | Active Monitoring |
 |---|---|---|
@@ -142,7 +142,7 @@ Passive monitoring observes actual communication behavior, while active monitori
 
 ---
 
-## How Trisul Handles Passive Network Monitoring
+## **How Trisul Handles Passive Network Monitoring**
 
 Trisul provides scalable passive traffic visibility for enterprise and ISP environments.
 
@@ -174,7 +174,7 @@ workflows for deeper operational visibility.
 
 ---
 
-## Related Terms
+## **Related Terms**
 
 - Packet Capture
 - Observation Point
@@ -185,7 +185,7 @@ workflows for deeper operational visibility.
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is passive network monitoring?
 

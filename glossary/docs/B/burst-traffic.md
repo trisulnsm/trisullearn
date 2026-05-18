@@ -21,7 +21,7 @@ Traffic bursts can occur due to legitimate application activity, large file tran
 
 Burst traffic monitoring is commonly used in [Bandwidth Monitoring](/glossary/bandwidth-monitoring), [Anomaly Detection](/glossary/anomaly-detection), and [Traffic Investigation](/glossary/traffic-investigation) workflows.
 
-## How Burst Traffic Works
+## **How Burst Traffic Works**
 
 Network traffic is rarely perfectly consistent. Traffic levels often fluctuate based on user activity, applications, and system behavior.
 
@@ -56,7 +56,7 @@ xychart-beta
 
 *Figure: Burst traffic visualization showing a sudden short-duration spike in bandwidth utilization compared to normal traffic levels.*
 
-## Why Burst Traffic Matters
+## **Why Burst Traffic Matters**
 
 Short traffic spikes can create performance problems even if average bandwidth utilization appears normal.
 
@@ -82,7 +82,7 @@ Burst traffic visibility is especially important in:
 - VoIP networks
 - high-speed enterprise networks
 
-## Types of Burst Traffic
+## **Types of Burst Traffic**
 
 ### Application Traffic Bursts
 
@@ -100,7 +100,7 @@ Traffic floods caused by scanning activity, malware, or DDoS attacks.
 
 Traffic spikes generated during peak user activity periods.
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Congestion Troubleshooting
 
@@ -122,7 +122,7 @@ Protect critical applications during burst traffic conditions.
 
 Monitor backbone utilization and subscriber traffic spikes.
 
-## Burst Traffic vs Sustained Traffic
+## **Burst Traffic vs Sustained Traffic**
 
 | Feature | Burst Traffic | Sustained Traffic |
 |---|---|---|
@@ -134,7 +134,7 @@ Monitor backbone utilization and subscriber traffic spikes.
 
 Burst traffic is temporary and unpredictable, while sustained traffic remains elevated over longer periods.
 
-## How Trisul Handles Burst Traffic Analysis
+## **How Trisul Handles Burst Traffic Analysis**
 
 Trisul provides real-time traffic visibility and flow analytics for detecting sudden traffic spikes and abnormal bandwidth behavior.
 
@@ -155,7 +155,7 @@ Trisul helps teams:
 
 Trisul can also correlate [Flow Analysis](/glossary/flow-analysis) and [Packet Capture](/glossary/packet-capture) workflows for deeper burst traffic investigation.
 
-## Related Terms
+## **Related Terms**
 
 - [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
 - [Anomaly Detection](/glossary/anomaly-detection)
@@ -166,7 +166,7 @@ Trisul can also correlate [Flow Analysis](/glossary/flow-analysis) and [Packet C
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is burst traffic?
 

@@ -28,7 +28,7 @@ Flow timeout settings help balance:
 
 Flow timeout behavior is commonly used in [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Flow Monitoring](/glossary/flow-monitoring) environments.
 
-## How Flow Timeout Works
+## **How Flow Timeout Works**
 
 Network devices group packets into flows based on shared communication characteristics.
 
@@ -73,7 +73,7 @@ If no packets are observed for 15 seconds:
 - the flow is considered complete
 - the flow record is exported and closed
 
-## Why Flow Timeout Matters
+## **Why Flow Timeout Matters**
 
 Incorrect timeout settings can affect:
 
@@ -99,7 +99,7 @@ Timeout settings are especially important in:
 - data centers
 - long-duration application sessions
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Long-Lived Application Monitoring
 
@@ -119,9 +119,9 @@ Improve visibility into short-lived or burst traffic behavior.
 
 ### Security Monitoring
 
-## Analyze suspicious sessions and long-running communication patterns.
+## **Analyze suspicious sessions and long-running communication patterns.**
 
-## Active vs Inactive Flow Timeout
+## **Active vs Inactive Flow Timeout**
 
 | Feature | Active Flow Timeout|  Inactive Flow Timeout| 
 |----------|-------------------|-----------------------|
@@ -133,7 +133,7 @@ Improve visibility into short-lived or burst traffic behavior.
 
 Both timeout types work together to maintain accurate and scalable flow monitoring.
 
-## How Trisul Uses Flow Timeout Visibility
+## **How Trisul Uses Flow Timeout Visibility**
 
 Trisul analyzes flow behavior and session activity across large-scale traffic monitoring environments.
 
@@ -157,7 +157,7 @@ Trisul helps teams:
 
 Trisul can also integrate NetFlow, IPFIX, and Traffic Investigation workflows for deeper operational visibility.
 
-## Related Terms
+## **Related Terms**
 - Active Flow Timeout
 - Flow Monitoring
 - Flow Exporter
@@ -166,7 +166,7 @@ Trisul can also integrate NetFlow, IPFIX, and Traffic Investigation workflows fo
 - IPFIX
 
 
-## FAQ
+## **FAQ**
 
 ### What is flow timeout?
 

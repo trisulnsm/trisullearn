@@ -21,7 +21,7 @@ It helps network and security teams quickly identify the root cause of abnormal 
 
 Drilldown analysis is widely used in [Traffic Investigation](/glossary/traffic-investigation), [Flow Analysis](/glossary/flow-analysis), and [Anomaly Detection](/glossary/anomaly-detection) workflows.
 
-## How Drilldown Analysis Works
+## **How Drilldown Analysis Works**
 
 Network monitoring platforms collect large volumes of traffic data from:
 - flow records
@@ -51,7 +51,7 @@ Drilldown analysis may move between:
 - individual traffic sessions
 - packet captures
 
-## Why Drilldown Analysis Matters
+## **Why Drilldown Analysis Matters**
 
 Large networks generate too much traffic data to investigate manually from raw records alone.
 
@@ -78,7 +78,7 @@ Drilldown visibility is especially important in:
 - NOC environments
 - incident response workflows
 
-## Common Operational Use Cases
+## **Common Operational Use Cases**
 
 ### Traffic Spike Investigation
 
@@ -100,7 +100,7 @@ Drill into traffic activity for specific users or customer segments.
 
 Investigate abnormal traffic paths or ASN behavior.
 
-## Drilldown Analysis vs Summary Monitoring
+## **Drilldown Analysis vs Summary Monitoring**
 
 | Feature | Drilldown Analysis | Summary Monitoring |
 |---|---|---|
@@ -112,7 +112,7 @@ Investigate abnormal traffic paths or ASN behavior.
 
 Summary monitoring identifies issues, while drilldown analysis helps investigate and explain them.
 
-## How Trisul Handles Drilldown Analysis
+## **How Trisul Handles Drilldown Analysis**
 
 Trisul provides layered traffic visibility and investigation workflows that allow teams to move from high-level traffic summaries into detailed packet and flow analysis.
 
@@ -134,7 +134,7 @@ Trisul helps teams:
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [Packet Capture](/glossary/packet-capture), and [Conversation View](/glossary/conversation-view) workflows for deeper investigation visibility.
 
-## Related Terms
+## **Related Terms**
 
 - [Traffic Investigation](/glossary/traffic-investigation)
 - [Flow Analysis](/glossary/flow-analysis)
@@ -145,7 +145,7 @@ Trisul can also correlate [NetFlow](/glossary/netflow), [Packet Capture](/glossa
 
 ---
 
-## FAQ
+## **FAQ**
 
 ### What is drilldown analysis in network monitoring?
 
