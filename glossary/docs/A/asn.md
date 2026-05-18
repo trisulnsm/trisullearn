@@ -15,43 +15,40 @@ keywords:
 
 # What is an ASN?
 
-An Autonomous System Number (ASN) is a unique identifier assigned to a network or group of IP prefixes that operate under a single routing policy on the internet.
+An Autonomous System Number (ASN) is a unique numeric identifier used to identify an autonomous system, which is a network or collection of IP prefixes managed under a common routing policy on the internet.
 
-ASNs are primarily used in Border Gateway Protocol (BGP) routing to identify networks such as internet service providers (ISPs), cloud providers, enterprises, and content delivery networks.
+ASNs are used in Border Gateway Protocol (BGP) routing to identify networks such as internet service providers (ISPs), cloud providers, enterprises, and content delivery networks.
 
-Each autonomous system exchanges routing information with other networks using its ASN.
+Each autonomous system uses its ASN when exchanging routing information with other networks.
 
 ## **How ASNs Work**
 
 The internet is made up of thousands of independently managed networks called Autonomous Systems (AS).
 
 Each AS:
-- controls its own routing policies
+- controls its own routing policy
 - advertises IP prefixes
 - exchanges routes with other networks
-- is identified globally using an ASN
+- is identified globally by an ASN
 
-When traffic moves across the internet:
+When traffic crosses between autonomous systems:
 
 1. A router receives BGP route advertisements
-2. The advertisement includes ASN path information
-3. Routers evaluate routing paths between autonomous systems
-4. Traffic is forwarded through the selected AS path
+2. The advertisement includes AS path information
+3. Routers evaluate available paths between autonomous systems
+4. Traffic is forwarded based on the selected AS path and local policy
 
 For example:
 
-- AS15169 → Google
-- AS13335 → Cloudflare
-- AS32934 → Meta
+- AS15169 - Google
+- AS13335 - Cloudflare
+- AS32934 - Meta
 
 ```mermaid
 flowchart LR
     A[User Traffic] --> B[ISP ASN 64501]
-
     B --> C[Transit ASN 64510]
-
     C --> D[Cloud Provider ASN 64520]
-
     D --> E[Destination Service]
 
     B <-->|BGP Peering| C
@@ -66,7 +63,7 @@ ASNs help internet networks:
 - exchange routing information
 - establish peering relationships
 - manage internet traffic paths
-- control routing policies
+- control routing policy
 - improve redundancy and connectivity
 
 ASN visibility is important for:
@@ -74,17 +71,17 @@ ASN visibility is important for:
 - BGP monitoring
 - peering analysis
 - route troubleshooting
-- DDoS mitigation
+- DDoS analysis
 - traffic engineering
 
-ASNs also provide operational context by showing which organizations or providers traffic is communicating with.
+ASNs provide operational context by showing which upstream networks, peers, or providers traffic is using.
 
 ## **Public vs Private ASN**
 
 | Type | Description |
 |---|---|
-| Public ASN | Globally unique ASN used for internet routing |
-| Private ASN | Internal ASN used within private networks |
+| Public ASN | Globally unique ASN used in Internet routing |
+| Private ASN | ASN used internally for routing policy and not intended for public Internet advertisement |
 
 Public ASNs are assigned by Regional Internet Registries (RIRs) such as:
 - ARIN
@@ -97,56 +94,56 @@ Public ASNs are assigned by Regional Internet Registries (RIRs) such as:
 
 ### BGP Peering
 
-Establish routing relationships between ISPs, cloud providers, and enterprises.
+Use ASNs to establish routing relationships between ISPs, cloud providers, and enterprises.
 
 ### ASN Traffic Visibility
 
-Analyze traffic flows between autonomous systems.
+Analyze traffic flows between autonomous systems to understand where traffic enters, transits, and exits the network.
 
 ### Route Troubleshooting
 
-Identify routing path changes and peering issues.
+Identify routing path changes, AS path anomalies, and peering issues.
 
 ### DDoS Analysis
 
-Track attack traffic sources and upstream providers.
+Track attack traffic by upstream ASN to understand source networks and transit paths.
 
 ### Traffic Engineering
 
-Optimize routing decisions and bandwidth usage between networks.
+Use ASN-level visibility to compare path selection, peering utilization, and bandwidth distribution.
 
 ## **ASN vs IP Address**
 
 | Feature | ASN | IP Address |
 |---|---|---|
-| Purpose | Identifies a routing domain | Identifies a device or interface |
-| Scope | Network-level | Device-level |
+| Purpose | Identifies a routing domain | Identifies a host, interface, or endpoint |
+| Scope | Network-level | Device or interface-level |
 | Used In | BGP routing | IP communication |
-| Ownership | Organizations / networks | Individual systems or interfaces |
-| Routing Role | Path advertisement | Packet delivery |
+| Ownership | Organization or network operator | Host, interface, or assigned block |
+| Routing Role | Path advertisement and policy | Packet delivery and forwarding |
 
-ASNs identify networks participating in internet routing, while IP addresses identify devices communicating across those networks.
+ASNs identify networks participating in internet routing, while IP addresses identify endpoints or interfaces carrying traffic across those networks.
 
 ## **How Trisul Handles ASN Visibility**
 
-Trisul provides ASN-aware traffic analytics using BGP visibility, flow monitoring, and traffic enrichment workflows.
+Trisul can provide ASN-aware traffic analysis when traffic is enriched with BGP and flow context, supporting investigation of traffic distribution and routing relationships.
 
-Combined with:
-- BGP Peering Analytics
-- GeoIP Enrichment
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
-- Traffic Investigation
+Relevant Trisul capabilities include:
+- BGP-related visibility
+- flow monitoring
+- traffic investigation
+- Top-K analytics
+- multigraph analytics
 
-Trisul helps teams:
-- analyze ASN traffic distribution
+Trisul can help teams:
+- analyze traffic distribution by ASN
 - monitor peering relationships
 - identify top ASNs by traffic volume
 - investigate routing anomalies
-- detect suspicious traffic sources
-- visualize internet traffic paths
+- detect unusual traffic sources
+- visualize traffic patterns across networks
 
-Trisul can also correlate ASN information with [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows for deeper routing visibility.
+Trisul can also work with flow data such as [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) to support deeper routing analysis.
 
 ## **Related Terms**
 
@@ -175,7 +172,7 @@ Public ASNs are assigned by Regional Internet Registries (RIRs) such as ARIN, RI
 
 ### What's the difference between an ASN and an IP address?
 
-An ASN identifies a network or routing domain, while an IP address identifies a device or interface.
+An ASN identifies a network or routing domain, while an IP address identifies a device, interface, or endpoint.
 
 ### Why is ASN visibility important?
 

@@ -15,18 +15,25 @@ keywords:
 
 # What is an Access Control List (ACL)?
 
-An Access Control List (ACL) is a set of rules used by routers, switches, firewalls, and operating systems to permit or deny network traffic based on conditions such as IP addresses, protocols, and ports.
+An Access Control List (ACL) is a set of permission rules that defines which users, systems, or roles are allowed to access a resource and what actions they can perform.
 
-ACLs are commonly used to restrict unauthorized access, segment traffic, filter unwanted communication, and enforce security policies across enterprise, data center, and ISP networks.
+ACLs are used to assign access rights, restrict unauthorized activity, and enforce security policies across operating systems, applications, routers, switches, and firewalls.
 
-## **How ACLs Work**
+Depending on the environment, ACLs can:
+
+- grant or deny user permissions
+- define role-based access control
+- control access to files and applications
+- filter network traffic based on IP addresses, protocols, or ports
+
+## **How ACLs Work in Networking**
 
 ACLs inspect packets and compare them against a list of rules configured on a network device.
 
 A typical ACL evaluation process works like this:
 
 1. A packet arrives at a router, firewall, or switch
-2. The device compares the packet against ACL rules in sequence
+2. The device compares the packet headers against ACL rules in sequence
 3. Each rule checks parameters such as:
    - Source IP address
    - Destination IP address
@@ -52,9 +59,9 @@ flowchart TD
 
 ### Standard ACL
 
-Standard ACLs filter traffic primarily based on source IP addresses.
+Standard ACLs filter traffic primarily using source IP addresses.
 
-These are simpler but offer limited filtering granularity.
+These ACLs are commonly used in Cisco networking environments for basic traffic filtering and access control.
 
 ### Extended ACL
 
@@ -64,28 +71,27 @@ Extended ACLs can filter traffic using:
 - Port numbers
 - Traffic direction
 
-Extended ACLs provide more precise traffic control.
+Extended ACLs provide more precise traffic control. Extended ACLs are widely used in Cisco-based networks to enforce detailed traffic and security policies.
 
 ### Network ACL
 
 Network ACLs are commonly used in cloud and virtualized environments to control subnet-level traffic.
+For example, cloud providers such as AWS use Network ACLs to filter inbound and outbound traffic at the subnet level.
 
 ### Stateless ACL
 
-Stateless ACLs evaluate packets individually without tracking connection state.
+Stateless ACLs evaluate packets individually without tracking connection state. This behavior is commonly seen in many traditional and cloud-based ACL implementations.
 
 ## **Why ACLs Matter**
 
 ACLs help network and security teams:
 
-- Restrict unauthorized access
-- Reduce unnecessary traffic
-- Segment sensitive systems
-- Control east-west traffic movement
-- Limit management access
-- Enforce organizational security policies
-
-Proper ACL design can also reduce attack surface and improve traffic visibility across large environments.
+- Restrict unauthorized network access
+- Control traffic between systems and network segments
+- Protect sensitive systems and services
+- Limit administrative or management access
+- Reduce unwanted or unauthorized traffic
+- Enforce network security policies
 
 ## **Common Operational Use Cases**
 
@@ -113,13 +119,12 @@ Prevent compromised systems from reaching sensitive assets.
 
 | Feature | ACL | Firewall |
 |---|---|---|
-| Traffic Filtering | Basic packet filtering | Advanced traffic inspection |
-| Stateful Inspection | Usually stateless | Stateful |
-| Application Awareness | Limited | Advanced |
-| Deployment Scope | Routers, switches, firewalls | Dedicated security platforms |
-| Traffic Visibility | Basic | Deep inspection and logging |
+| Primary Function | Rule-based traffic filtering | Network security enforcement |
+| Filtering Criteria| IP addresses, protocols, ports| Traffic, sessions, applications, threats|
+| Stateful Inspection | Usually stateless| Often stateful|
+| Application Awareness | Limited | More advanced |
+| Common Deployment | Routers, switches, cloud networks | Dedicated security devices and platforms |
 
-ACLs are typically lightweight and fast, while firewalls provide deeper inspection and more advanced security controls.
 
 ## **How Trisul Helps Monitor ACL Activity**
 
@@ -147,7 +152,7 @@ Trisul can also help investigate:
 
 ### What does an ACL do?
 
-An ACL controls network traffic by permitting or denying packets based on predefined rules such as IP addresses, protocols, and ports.
+An ACL controls network traffic by permitting or denying packets using rules based on IP addresses, protocols, and port numbers.
 
 ### What's the difference between an ACL and a firewall?
 
