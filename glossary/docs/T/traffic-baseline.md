@@ -58,138 +58,163 @@ Historical Traffic → Pattern Analysis → Traffic Baseline → Anomaly Detecti
 
 For example:
 
-A branch office normally uses 200 Mbps during business hours
-Traffic suddenly spikes to 2 Gbps overnight
-Baseline comparison identifies abnormal behavior
-Analysts investigate possible causes
+- A branch office normally uses 200 Mbps during business hours
+- Traffic suddenly spikes to 2 Gbps overnight
+- Baseline comparison identifies abnormal behavior
+- Analysts investigate possible causes
 
 Traffic baselines may track:
 
-bandwidth usage
-protocol distribution
-application trends
-user activity
-latency patterns
-traffic direction
-seasonal traffic changes
-/*IMAGE: Normal traffic baseline vs anomalous traffic spike /*
-Why Traffic Baselines Matter
+- bandwidth usage
+- protocol distribution
+- application trends
+- user activity
+- latency patterns
+- traffic direction
+- seasonal traffic changes
+
+<!-- IMAGE: Normal traffic baseline vs anomalous traffic spike -->
+
+---
+
+## Why Traffic Baselines Matter
 
 Modern networks generate constantly changing traffic patterns.
 
 Without baseline visibility, organizations may struggle to:
 
-identify anomalies accurately
-distinguish normal from suspicious behavior
-troubleshoot performance issues
-optimize infrastructure planning
-detect operational degradation
-investigate unusual activity
+- identify anomalies accurately
+- distinguish normal from suspicious behavior
+- troubleshoot performance issues
+- optimize infrastructure planning
+- detect operational degradation
+- investigate unusual activity
 
 Traffic baselines help teams:
 
-improve anomaly detection
-strengthen operational awareness
-identify unusual traffic quickly
-support capacity planning
-improve troubleshooting accuracy
-reduce false alerts
+- improve anomaly detection
+- strengthen operational awareness
+- identify unusual traffic quickly
+- support capacity planning
+- improve troubleshooting accuracy
+- reduce false alerts
 
 It is especially important in:
 
-SOC environments
-enterprise networks
-ISP infrastructures
-cloud deployments
-telecom operations
-data centers
-Common Operational Use Cases
-Anomaly Detection
+- SOC environments
+- enterprise networks
+- ISP infrastructures
+- cloud deployments
+- telecom operations
+- data centers
+
+Humans spent decades making networks more complicated, then needed “baselines” just to remember what normal looked like. Digital ecosystems now require behavioral memory like anxious wildlife researchers.
+
+---
+
+## Common Operational Use Cases
+
+### Anomaly Detection
 
 Identify abnormal traffic spikes or suspicious communication.
 
-Security Monitoring
+### Security Monitoring
 
 Detect unusual application or user behavior.
 
-Capacity Planning
+### Capacity Planning
 
 Analyze long-term traffic growth trends.
 
-Performance Monitoring
+### Performance Monitoring
 
 Compare current performance against expected operational patterns.
 
-WAN Optimization
+### WAN Optimization
 
 Identify unusual utilization affecting branch connectivity.
 
-Traffic Baseline vs Real-Time Monitoring
-Feature Traffic Baseline  Real-Time Monitoring
-Visibility Scope  Historical normal behavior  Current live activity
-Operational Focus Expected patterns Immediate awareness
-Anomaly Detection Strong  Moderate alone
-Trend Analysis  Advanced  Limited
-Investigation Context Rich  Real-time only
+---
+
+## Traffic Baseline vs Real-Time Monitoring
+
+| Feature | Traffic Baseline | Real-Time Monitoring |
+|---|---|---|
+| Visibility Scope | Historical normal behavior | Current live activity |
+| Operational Focus | Expected patterns | Immediate awareness |
+| Anomaly Detection | Strong | Moderate alone |
+| Trend Analysis | Advanced | Limited |
+| Investigation Context | Rich | Real-time only |
 
 Traffic baselines establish expected behavior, while real-time monitoring shows what is happening currently.
 
-How Trisul Handles Traffic Baselines
+---
+
+## How Trisul Handles Traffic Baselines
 
 Trisul provides contextual traffic analytics and long-term visibility for baseline-driven operational analysis.
 
 Combined with:
 
-Top-K Analyticsᵀ
-Real-Time Traffic Monitoring
-Retro Analysisᵀ
-Flow Analysis
-Contextᵀ
-Streaming Analytics
+- Top-K Analyticsᵀ
+- Real-Time Traffic Monitoring
+- Retro Analysisᵀ
+- Flow Analysis
+- Contextᵀ
+- Streaming Analytics
 
 Trisul helps teams:
 
-establish operational traffic baselines
-detect abnormal traffic behavior
-investigate anomalies
-analyze bandwidth trends
-improve troubleshooting visibility
-strengthen security analytics workflows
+- establish operational traffic baselines
+- detect abnormal traffic behavior
+- investigate anomalies
+- analyze bandwidth trends
+- improve troubleshooting visibility
+- strengthen security analytics workflows
 
-Trisul can also integrate Anomaly Detection
-, Security Analytics
-, and Performance Bottleneck Analysis
- workflows for deeper behavioral visibility.
+Trisul can also integrate:
 
-Related Terms
-Anomaly Detection
-Real-Time Traffic Monitoring
-Streaming Analytics
-Bandwidth Monitoring
-Flow Analysis
-Security Analytics
-FAQ
-What is a traffic baseline?
+- Anomaly Detection
+- Security Analytics
+- Performance Bottleneck Analysis
+
+workflows for deeper behavioral visibility.
+
+---
+
+## Related Terms
+
+- Anomaly Detection
+- Real-Time Traffic Monitoring
+- Streaming Analytics
+- Bandwidth Monitoring
+- Flow Analysis
+- Security Analytics
+
+---
+
+## FAQ
+
+### What is a traffic baseline?
 
 A traffic baseline is a model representing normal network traffic behavior over time.
 
-Why are traffic baselines important?
+### Why are traffic baselines important?
 
 They help organizations detect anomalies, troubleshoot issues, and understand expected network behavior.
 
-What metrics are commonly included in traffic baselines?
+### What metrics are commonly included in traffic baselines?
 
 Common metrics include bandwidth usage, application activity, protocol distribution, latency, and user behavior.
 
-How does a traffic baseline help anomaly detection?
+### How does a traffic baseline help anomaly detection?
 
 It identifies deviations from expected traffic patterns and operational behavior.
 
-What's the difference between traffic baselines and real-time monitoring?
+### What's the difference between traffic baselines and real-time monitoring?
 
 Traffic baselines define normal historical behavior, while real-time monitoring shows current traffic activity.
 
-Can traffic baselines improve security monitoring?
+### Can traffic baselines improve security monitoring?
 
 Yes. Unusual deviations from baseline behavior may indicate attacks, malware activity, or operational anomalies.
-Humans spent decades making networks more complicated, then needed “baselines” just to remember what normal looked like. Digital ecosystems now require behavioral memory like anxious wildlife researchers.

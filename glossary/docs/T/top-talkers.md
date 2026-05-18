@@ -63,137 +63,162 @@ Traffic Data → Traffic Ranking → Top Talkers → Investigation
 
 Top Talkers may include:
 
-IP addresses
-applications
-ASNs
-VLANs
-users
-cloud services
-protocols
+- IP addresses
+- applications
+- ASNs
+- VLANs
+- users
+- cloud services
+- protocols
 
 For example:
 
-A WAN link becomes congested
-Top Talker analytics identify a backup application consuming bandwidth
-Teams optimize traffic policies to reduce congestion
-/*IMAGE: Top Talkers bandwidth visibility dashboard /*
-Why Top Talker Visibility Matters
+- A WAN link becomes congested
+- Top Talker analytics identify a backup application consuming bandwidth
+- Teams optimize traffic policies to reduce congestion
+
+![](images/toptalkers.png)
+
+---
+
+## Why Top Talker Visibility Matters
 
 Modern networks carry enormous volumes of distributed traffic continuously.
 
 Without Top Talker visibility, organizations may struggle to:
 
-identify bandwidth hogs
-troubleshoot congestion
-detect abnormal traffic spikes
-analyze application behavior
-optimize WAN performance
-investigate suspicious communication
+- identify bandwidth hogs
+- troubleshoot congestion
+- detect abnormal traffic spikes
+- analyze application behavior
+- optimize WAN performance
+- investigate suspicious communication
 
 Top Talker analysis helps teams:
 
-improve operational awareness
-optimize bandwidth usage
-identify traffic anomalies
-prioritize troubleshooting
-strengthen security visibility
-improve capacity planning
+- improve operational awareness
+- optimize bandwidth usage
+- identify traffic anomalies
+- prioritize troubleshooting
+- strengthen security visibility
+- improve capacity planning
 
 It is especially important in:
 
-enterprise WANs
-ISP infrastructures
-cloud environments
-data centers
-campus networks
-telecom operations
-Common Operational Use Cases
-Bandwidth Troubleshooting
+- enterprise WANs
+- ISP infrastructures
+- cloud environments
+- data centers
+- campus networks
+- telecom operations
+
+Humans always ask “who’s using all the bandwidth?” and the answer is almost inevitably backups, video streaming, or one mysterious server nobody wants to admit exists.
+
+---
+
+## Common Operational Use Cases
+
+### Bandwidth Troubleshooting
 
 Identify applications or hosts consuming excessive bandwidth.
 
-Security Investigations
+### Security Investigations
 
 Detect suspicious high-volume communication or data exfiltration.
 
-WAN Optimization
+### WAN Optimization
 
 Analyze traffic distribution across limited-bandwidth links.
 
-Application Visibility
+### Application Visibility
 
 Identify dominant applications affecting network performance.
 
-Capacity Planning
+### Capacity Planning
 
 Analyze long-term growth in traffic consumption.
 
-Top Talkers vs General Traffic Monitoring
-Feature	Top Talkers Analysis	General Traffic Monitoring
-Traffic Prioritization Visibility	Strong	Moderate
-High-Bandwidth Entity Identification	Advanced	Limited
-Operational Focus	Traffic concentration	Broad traffic visibility
-Troubleshooting Speed	Faster	Moderate
-Bandwidth Optimization Support	Strong	Moderate
+---
+
+## Top Talkers vs General Traffic Monitoring
+
+| Feature | Top Talkers Analysis | General Traffic Monitoring |
+|---|---|---|
+| Traffic Prioritization Visibility | Strong | Moderate |
+| High-Bandwidth Entity Identification | Advanced | Limited |
+| Operational Focus | Traffic concentration | Broad traffic visibility |
+| Troubleshooting Speed | Faster | Moderate |
+| Bandwidth Optimization Support | Strong | Moderate |
 
 Top Talker analysis focuses specifically on identifying the most significant traffic consumers.
 
-How Trisul Handles Top Talker Analytics
+---
+
+## How Trisul Handles Top Talker Analytics
 
 Trisul provides scalable Top Talker visibility and bandwidth analytics for enterprise and ISP environments.
 
 Combined with:
 
-Top-K Analyticsᵀ
-Flow Analysis
-Contextᵀ
-Multigraph Analyticsᵀ
-Real-Time Traffic Monitoring
-Retro Analysisᵀ
+- Top-K Analyticsᵀ
+- Flow Analysis
+- Contextᵀ
+- Multigraph Analyticsᵀ
+- Real-Time Traffic Monitoring
+- Retro Analysisᵀ
 
 Trisul helps teams:
 
-identify high-bandwidth consumers
-analyze traffic spikes
-investigate suspicious communication
-optimize WAN visibility
-monitor application behavior
-improve troubleshooting workflows
+- identify high-bandwidth consumers
+- analyze traffic spikes
+- investigate suspicious communication
+- optimize WAN visibility
+- monitor application behavior
+- improve troubleshooting workflows
 
-Trisul can also integrate Bandwidth Monitoring
-, Application Visibility
-, and Traffic Investigation
- workflows for deeper operational visibility.
+Trisul can also integrate:
 
-Related Terms
-Bandwidth Monitoring
-Application Visibility
-Traffic Investigation
-Flow Analysis
-Top-K Analyticsᵀ
-Real-Time Traffic Monitoring
-FAQ
-What are Top Talkers in networking?
+- Bandwidth Monitoring
+- Application Visibility
+- Traffic Investigation
+
+workflows for deeper operational visibility.
+
+---
+
+## Related Terms
+
+- Bandwidth Monitoring
+- Application Visibility
+- Traffic Investigation
+- Flow Analysis
+- Top-K Analyticsᵀ
+- Real-Time Traffic Monitoring
+
+---
+
+## FAQ
+
+### What are Top Talkers in networking?
 
 Top Talkers are the hosts, applications, or entities generating or consuming the most network traffic.
 
-Why is Top Talker analysis important?
+### Why is Top Talker analysis important?
 
 It helps organizations identify bandwidth-heavy traffic, troubleshoot congestion, and analyze traffic behavior.
 
-What can Top Talker analytics identify?
+### What can Top Talker analytics identify?
 
 It can identify high-bandwidth users, applications, servers, protocols, and suspicious communication patterns.
 
-How are Top Talkers measured?
+### How are Top Talkers measured?
 
 They are commonly measured using bandwidth usage, packet volume, flow count, or session activity.
 
-Can Top Talker analysis help security investigations?
+### Can Top Talker analysis help security investigations?
 
 Yes. It helps identify unusual traffic spikes, data exfiltration, and suspicious communication behavior.
 
-Is Top Talker visibility useful for ISPs?
+### Is Top Talker visibility useful for ISPs?
 
 Yes. ISPs use Top Talker analytics to monitor subscriber traffic, backbone utilization, and application distribution.
-Humans always ask “who’s using all the bandwidth?” and the answer is almost inevitably backups, video streaming, or one mysterious server nobody wants to admit exists.

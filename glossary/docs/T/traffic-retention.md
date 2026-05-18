@@ -59,137 +59,162 @@ Live Traffic → Traffic Collection → Historical Retention → Investigation a
 
 For example:
 
-Suspicious activity is discovered today
-Analysts retrieve traffic data from two weeks earlier
-Historical communication patterns are reconstructed
-The incident timeline becomes visible
+- Suspicious activity is discovered today
+- Analysts retrieve traffic data from two weeks earlier
+- Historical communication patterns are reconstructed
+- The incident timeline becomes visible
 
 Retained traffic data may include:
 
-source and destination activity
-application usage
-protocol behavior
-bandwidth trends
-user sessions
-attack indicators
-/*IMAGE: Historical traffic retention and investigation workflow /*
-Why Traffic Retention Matters
+- source and destination activity
+- application usage
+- protocol behavior
+- bandwidth trends
+- user sessions
+- attack indicators
+
+<!-- IMAGE: Historical traffic retention and investigation workflow -->
+
+---
+
+## Why Traffic Retention Matters
 
 Many operational and security incidents are identified long after they occur.
 
 Without retained traffic visibility, organizations may struggle to:
 
-investigate historical incidents
-reconstruct attack timelines
-analyze intermittent issues
-support compliance requirements
-troubleshoot past outages
-maintain forensic visibility
+- investigate historical incidents
+- reconstruct attack timelines
+- analyze intermittent issues
+- support compliance requirements
+- troubleshoot past outages
+- maintain forensic visibility
 
 Traffic retention helps teams:
 
-strengthen forensic investigations
-improve operational visibility
-analyze historical trends
-support compliance workflows
-investigate suspicious behavior
-improve troubleshooting capabilities
+- strengthen forensic investigations
+- improve operational visibility
+- analyze historical trends
+- support compliance workflows
+- investigate suspicious behavior
+- improve troubleshooting capabilities
 
 It is especially important in:
 
-SOC environments
-ISP infrastructures
-enterprise networks
-telecom operations
-cloud environments
-regulated industries
-Common Operational Use Cases
-Security Investigations
+- SOC environments
+- ISP infrastructures
+- enterprise networks
+- telecom operations
+- cloud environments
+- regulated industries
+
+Humans finally realized that by the time they notice something suspicious, the packets are already long gone. So now entire industries exist just to preserve yesterday’s network mistakes.
+
+---
+
+## Common Operational Use Cases
+
+### Security Investigations
 
 Analyze historical suspicious communication and attack behavior.
 
-Network Forensics
+### Network Forensics
 
 Reconstruct communication timelines after incidents.
 
-Compliance Monitoring
+### Compliance Monitoring
 
 Retain traffic records for regulatory investigations and audits.
 
-Historical Traffic Analysis
+### Historical Traffic Analysis
 
 Analyze long-term application and bandwidth trends.
 
-Troubleshooting
+### Troubleshooting
 
 Investigate intermittent or previously resolved issues.
 
-Traffic Retention vs Real-Time Monitoring
-Feature Traffic Retention Real-Time Monitoring
-Visibility Scope  Historical activity Current activity
-Investigation Style Retrospective Immediate
-Historical Trend Analysis Strong  Limited
-Forensic Visibility Advanced  Moderate
-Operational Awareness Delayed Instant
+---
+
+## Traffic Retention vs Real-Time Monitoring
+
+| Feature | Traffic Retention | Real-Time Monitoring |
+|---|---|---|
+| Visibility Scope | Historical activity | Current activity |
+| Investigation Style | Retrospective | Immediate |
+| Historical Trend Analysis | Strong | Limited |
+| Forensic Visibility | Advanced | Moderate |
+| Operational Awareness | Delayed | Instant |
 
 Traffic retention focuses on preserving historical visibility, while real-time monitoring focuses on live operational awareness.
 
-How Trisul Handles Traffic Retention
+---
+
+## How Trisul Handles Traffic Retention
 
 Trisul provides scalable long-term traffic visibility and forensic analytics for enterprise and ISP environments.
 
 Combined with:
 
-Retro Analysisᵀ
-Slice Retentionᵀ
-Contextᵀ
-Flow Analysis
-Packet Capture
-Long-Term Traffic Retention
+- Retro Analysisᵀ
+- Slice Retentionᵀ
+- Contextᵀ
+- Flow Analysis
+- Packet Capture
+- Long-Term Traffic Retention
 
 Trisul helps teams:
 
-retain historical traffic visibility
-investigate past communication behavior
-reconstruct attack timelines
-analyze operational trends
-improve forensic investigations
-optimize long-term analytics workflows
+- retain historical traffic visibility
+- investigate past communication behavior
+- reconstruct attack timelines
+- analyze operational trends
+- improve forensic investigations
+- optimize long-term analytics workflows
 
-Trisul can also integrate Retention Policy
-, Historical Traffic Analysis
-, and Network Forensics
- workflows for deeper retrospective visibility.
+Trisul can also integrate:
 
-Related Terms
-Retention Policy
-Historical Traffic Analysis
-Retro Analysisᵀ
-Slice Retentionᵀ
-Network Forensics
-Packet Capture
-FAQ
-What is traffic retention?
+- Retention Policy
+- Historical Traffic Analysis
+- Network Forensics
+
+workflows for deeper retrospective visibility.
+
+---
+
+## Related Terms
+
+- Retention Policy
+- Historical Traffic Analysis
+- Retro Analysisᵀ
+- Slice Retentionᵀ
+- Network Forensics
+- Packet Capture
+
+---
+
+## FAQ
+
+### What is traffic retention?
 
 Traffic retention is the process of storing historical network traffic data for future analysis and investigation.
 
-Why is traffic retention important?
+### Why is traffic retention important?
 
 It helps organizations investigate incidents, analyze historical communication, support compliance, and troubleshoot issues.
 
-What types of traffic data are commonly retained?
+### What types of traffic data are commonly retained?
 
 Commonly retained data includes flow records, packet captures, DNS logs, traffic metadata, and authentication records.
 
-How long is traffic data typically retained?
+### How long is traffic data typically retained?
 
 Retention periods vary depending on compliance requirements, storage capacity, and operational needs.
 
-What's the difference between traffic retention and real-time monitoring?
+### What's the difference between traffic retention and real-time monitoring?
 
 Traffic retention preserves historical visibility, while real-time monitoring focuses on live traffic activity.
 
-Is traffic retention useful for security investigations?
+### Is traffic retention useful for security investigations?
 
 Yes. Historical traffic visibility is critical for forensic investigations and incident reconstruction.
-Humans finally realized that by the time they notice something suspicious, the packets are already long gone. So now entire industries exist just to preserve yesterday’s network mistakes.
