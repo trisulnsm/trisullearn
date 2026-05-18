@@ -73,137 +73,160 @@ Traffic Visibility → Zone Classification → Inter-Zone Analytics → Investig
 
 For example:
 
-A workstation in a user zone communicates unexpectedly with a database zone
-Zone analytics detect abnormal traffic behavior
-Analysts investigate possible compromise or policy violation
-Security controls are adjusted
+- A workstation in a user zone communicates unexpectedly with a database zone
+- Zone analytics detect abnormal traffic behavior
+- Analysts investigate possible compromise or policy violation
+- Security controls are adjusted
 
 Zone-based analytics may reveal:
 
-unauthorized communication
-lateral movement
-abnormal application access
-excessive east-west traffic
-segmentation violations
-suspicious inter-zone behavior
-/*IMAGE: Network zones and inter-zone traffic visibility /*
-Why Zone-Based Traffic Analysis Matters
+- unauthorized communication
+- lateral movement
+- abnormal application access
+- excessive east-west traffic
+- segmentation violations
+- suspicious inter-zone behavior
+
+---
+
+## Why Zone-Based Traffic Analysis Matters
 
 Modern infrastructures rely heavily on segmentation and zero trust architectures.
 
 Without zone-aware visibility, organizations may struggle to:
 
-monitor segmented environments
-enforce security policies
-detect lateral movement
-investigate abnormal communication
-validate segmentation controls
-analyze east-west traffic
+- monitor segmented environments
+- enforce security policies
+- detect lateral movement
+- investigate abnormal communication
+- validate segmentation controls
+- analyze east-west traffic
 
 Zone-based traffic analysis helps teams:
 
-strengthen segmentation visibility
-improve security monitoring
-analyze inter-zone communication
-detect policy violations
-investigate suspicious traffic
-improve operational awareness
+- strengthen segmentation visibility
+- improve security monitoring
+- analyze inter-zone communication
+- detect policy violations
+- investigate suspicious traffic
+- improve operational awareness
 
 It is especially important in:
 
-enterprise networks
-SOC environments
-data centers
-cloud deployments
-hybrid infrastructures
-regulated environments
-Common Operational Use Cases
-Security Zone Monitoring
+- enterprise networks
+- SOC environments
+- data centers
+- cloud deployments
+- hybrid infrastructures
+- regulated environments
+
+Humans divided networks into “trusted” and “untrusted” zones, then spent the next decade discovering traffic happily wandered between them anyway. Segmentation: aspirational architecture with logs.
+
+---
+
+## Common Operational Use Cases
+
+### Security Zone Monitoring
 
 Analyze communication between trusted and untrusted zones.
 
-Zero Trust Visibility
+### Zero Trust Visibility
 
 Monitor and validate segmentation enforcement policies.
 
-East-West Traffic Analysis
+### East-West Traffic Analysis
 
 Investigate internal traffic movement across environments.
 
-Compliance Monitoring
+### Compliance Monitoring
 
 Validate restricted communication paths between systems.
 
-Threat Detection
+### Threat Detection
 
 Identify lateral movement and suspicious inter-zone communication.
 
-Zone-Based Traffic Analysis vs General Traffic Monitoring
-Feature Zone-Based Traffic Analysis General Traffic Monitoring
-Segmentation Awareness  Strong  Moderate
-Inter-Zone Visibility Advanced  Limited
-Security Policy Context Rich  Moderate
-Lateral Movement Detection  Strong  Moderate
-Zero Trust Visibility Advanced  Limited
+---
+
+## Zone-Based Traffic Analysis vs General Traffic Monitoring
+
+| Feature | Zone-Based Traffic Analysis | General Traffic Monitoring |
+|---|---|---|
+| Segmentation Awareness | Strong | Moderate |
+| Inter-Zone Visibility | Advanced | Limited |
+| Security Policy Context | Rich | Moderate |
+| Lateral Movement Detection | Strong | Moderate |
+| Zero Trust Visibility | Advanced | Limited |
 
 Zone-based analysis focuses specifically on communication behavior between segmented environments and security boundaries.
 
-How Trisul Handles Zone-Based Traffic Analysis
+---
+
+## How Trisul Handles Zone-Based Traffic Analysis
 
 Trisul provides contextual segmented traffic visibility for enterprise and ISP environments.
 
 Combined with:
 
-Contextᵀ
-Flow Analysis
-Packet Analysis
-Top-K Analyticsᵀ
-Security Analytics
-Multigraph Analyticsᵀ
+- Contextᵀ
+- Flow Analysis
+- Packet Analysis
+- Top-K Analyticsᵀ
+- Security Analytics
+- Multigraph Analyticsᵀ
 
 Trisul helps teams:
 
-analyze inter-zone communication
-monitor east-west traffic
-investigate policy violations
-detect suspicious movement
-troubleshoot segmented environments
-improve security visibility
+- analyze inter-zone communication
+- monitor east-west traffic
+- investigate policy violations
+- detect suspicious movement
+- troubleshoot segmented environments
+- improve security visibility
 
-Trisul can also integrate East-West Traffic
-, Network Segmentation
-, and Security Analytics
- workflows for deeper segmentation visibility.
+Trisul can also integrate:
 
-Related Terms
-East-West Traffic
-Network Segmentation
-Security Analytics
-Traffic Investigation
-Zero Trust Network Access (ZTNA)
-Flow Analysis
-FAQ
-What is zone-based traffic analysis?
+- East-West Traffic
+- Network Segmentation
+- Security Analytics
+
+workflows for deeper segmentation visibility.
+
+---
+
+## Related Terms
+
+- East-West Traffic
+- Network Segmentation
+- Security Analytics
+- Traffic Investigation
+- Zero Trust Network Access (ZTNA)
+- Flow Analysis
+
+---
+
+## FAQ
+
+### What is zone-based traffic analysis?
 
 Zone-based traffic analysis is the monitoring and analysis of communication between defined network zones or segments.
 
-Why is zone-based traffic analysis important?
+### Why is zone-based traffic analysis important?
 
 It helps organizations monitor segmentation, detect suspicious communication, and enforce security policies.
 
-What are network zones?
+### What are network zones?
 
 Network zones are segmented areas of infrastructure separated by security, operational, or trust boundaries.
 
-How does zone-based traffic analysis help security operations?
+### How does zone-based traffic analysis help security operations?
 
 It helps detect lateral movement, unauthorized communication, and segmentation policy violations.
 
-What's the difference between zone-based analysis and general traffic monitoring?
+### What's the difference between zone-based analysis and general traffic monitoring?
 
 Zone-based analysis focuses specifically on segmented communication and inter-zone visibility.
 
-Is zone-based traffic analysis useful for zero trust architectures?
+### Is zone-based traffic analysis useful for zero trust architectures?
 
 Yes. It helps validate segmentation enforcement and monitor communication across trust boundaries.
-Humans divided networks into “trusted” and “untrusted” zones, then spent the next decade discovering traffic happily wandered between them anyway. Segmentation: aspirational architecture with logs.

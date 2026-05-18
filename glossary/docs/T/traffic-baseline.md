@@ -73,8 +73,6 @@ Traffic baselines may track:
 - traffic direction
 - seasonal traffic changes
 
-<!-- IMAGE: Normal traffic baseline vs anomalous traffic spike -->
-
 ---
 
 ## Why Traffic Baselines Matter

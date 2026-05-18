@@ -1,12 +1,8 @@
 // @ts-check
 // `@type` JSDoc annotations allow editor autocompletion and type checking
 // (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -21,18 +17,13 @@ const config = {
 
   themes: ['@docusaurus/theme-mermaid'],
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
-
-  // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
 
-  // GitHub pages deployment config.
   organizationName: 'facebook',
   projectName: 'docusaurus',
 
@@ -97,10 +88,8 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Glossary',
           },
-
-          {to: '/blog', label: 'Blog', position: 'left'},
 
           {
             href: 'https://github.com/facebook/docusaurus',
@@ -119,7 +108,7 @@ const config = {
 
             items: [
               {
-                label: 'Tutorial',
+                label: 'Glossary Category',
                 to: '/docs/intro',
               },
             ],

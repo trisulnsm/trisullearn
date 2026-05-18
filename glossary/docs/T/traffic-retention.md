@@ -73,8 +73,6 @@ Retained traffic data may include:
 - user sessions
 - attack indicators
 
-<!-- IMAGE: Historical traffic retention and investigation workflow -->
-
 ---
 
 ## Why Traffic Retention Matters

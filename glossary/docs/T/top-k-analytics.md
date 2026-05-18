@@ -72,8 +72,6 @@ For example:
 - Top-K Analyticsᵀ identifies the top bandwidth-consuming applications
 - Analysts investigate and optimize traffic policies
 
-<!-- IMAGE: Top-K Analyticsᵀ ranking dashboard -->
-
 ---
 
 ## Why Top-K Analyticsᵀ Matters
