@@ -52,138 +52,162 @@ User Device → Access Device → RADIUS Server → Authentication Logs
 
 RADIUS logs may include:
 
-usernames
-subscriber IDs
-IP assignments
-MAC addresses
-timestamps
-login attempts
-disconnect events
-session statistics
+- usernames
+- subscriber IDs
+- IP assignments
+- MAC addresses
+- timestamps
+- login attempts
+- disconnect events
+- session statistics
 
 For example:
 
-A broadband subscriber connects to the ISP network
-The RADIUS server authenticates the session
-Session accounting logs are created
-The logs are retained for monitoring and compliance
-/*IMAGE: RADIUS authentication and logging workflow /*
-Why RADIUS Logging Matters
+- A broadband subscriber connects to the ISP network
+- The RADIUS server authenticates the session
+- Session accounting logs are created
+- The logs are retained for monitoring and compliance
+
+---
+
+## Why RADIUS Logging Matters
 
 Modern networks require strong visibility into user access and subscriber activity.
 
 Without RADIUS logging, organizations may struggle to:
 
-track user authentication activity
-investigate access issues
-correlate subscriber sessions
-support compliance requirements
-analyze network usage
-troubleshoot authentication failures
+- track user authentication activity
+- investigate access issues
+- correlate subscriber sessions
+- support compliance requirements
+- analyze network usage
+- troubleshoot authentication failures
 
 RADIUS logging helps teams:
 
-maintain authentication visibility
-improve subscriber traceability
-support security investigations
-monitor access behavior
-analyze session activity
-support telecom compliance workflows
+- maintain authentication visibility
+- improve subscriber traceability
+- support security investigations
+- monitor access behavior
+- analyze session activity
+- support telecom compliance workflows
 
 It is especially important in:
 
-ISP infrastructures
-enterprise Wi-Fi environments
-VPN deployments
-telecom networks
-campus networks
-managed access environments
-Common Operational Use Cases
-Subscriber Traceability
+- ISP infrastructures
+- enterprise Wi-Fi environments
+- VPN deployments
+- telecom networks
+- campus networks
+- managed access environments
+
+Humanity connected billions of people to networks and then immediately built giant logging systems to remember who connected where at 2:14 PM on a Tuesday. Bureaucracy, but with packets.
+
+---
+
+## Common Operational Use Cases
+
+### Subscriber Traceability
 
 Identify which users accessed the network at specific times.
 
-Authentication Troubleshooting
+### Authentication Troubleshooting
 
 Analyze failed login attempts and access issues.
 
-Telecom Compliance
+### Telecom Compliance
 
 Retain subscriber session logs for regulatory requirements.
 
-VPN Access Monitoring
+### VPN Access Monitoring
 
 Track remote user authentication and session activity.
 
-Wi-Fi User Analytics
+### Wi-Fi User Analytics
 
 Monitor user connectivity and session behavior.
 
-RADIUS Logging vs NAT Logging
-Feature RADIUS Logging  NAT Logging
-Primary Focus User authentication and sessions  IP address translation mapping
-Subscriber Visibility Strong  Strong
-Authentication Data Included  Not included
-IP Mapping  Session-based Translation-based
-Compliance Use  High  High
+---
+
+## RADIUS Logging vs NAT Logging
+
+| Feature | RADIUS Logging | NAT Logging |
+|---|---|---|
+| Primary Focus | User authentication and sessions | IP address translation mapping |
+| Subscriber Visibility | Strong | Strong |
+| Authentication Data Included | Included | Not included |
+| IP Mapping | Session-based | Translation-based |
+| Compliance Use | High | High |
 
 RADIUS logging focuses on user access and session activity, while NAT logging focuses on address translation visibility.
 
-How Trisul Handles RADIUS Visibility
+---
+
+## How Trisul Handles RADIUS Visibility
 
 Trisul provides scalable subscriber and authentication analytics for enterprise and ISP environments.
 
 Combined with:
 
-IPDR Visibility
-NAT Logging
-Flow Analysis
-Contextᵀ
-Long-Term Traffic Retention
-Retro Analysisᵀ
+- IPDR Visibility
+- NAT Logging
+- Flow Analysis
+- Contextᵀ
+- Long-Term Traffic Retention
+- Retro Analysisᵀ
 
 Trisul helps teams:
 
-correlate subscriber sessions
-analyze authentication activity
-investigate user behavior
-monitor session trends
-support compliance workflows
-improve subscriber visibility
+- correlate subscriber sessions
+- analyze authentication activity
+- investigate user behavior
+- monitor session trends
+- support compliance workflows
+- improve subscriber visibility
 
-Trisul can also integrate IPDR
-, NAT Logging
-, and DoT Compliance
- workflows for deeper subscriber analytics.
+Trisul can also integrate:
 
-Related Terms
-IPDR
-NAT Logging
-DoT Compliance
-Subscriber Mapping
-Traffic Investigation
-Long-Term Traffic Retention
-FAQ
-What is RADIUS logging?
+- IPDR
+- NAT Logging
+- DoT Compliance
+
+workflows for deeper subscriber analytics.
+
+---
+
+## Related Terms
+
+- IPDR
+- NAT Logging
+- DoT Compliance
+- Subscriber Mapping
+- Traffic Investigation
+- Long-Term Traffic Retention
+
+---
+
+## FAQ
+
+### What is RADIUS logging?
 
 RADIUS logging is the process of recording authentication, authorization, and accounting events generated by RADIUS servers.
 
-Why is RADIUS logging important?
+### Why is RADIUS logging important?
 
 It helps organizations monitor user access, troubleshoot authentication issues, and maintain subscriber visibility.
 
-What information is stored in RADIUS logs?
+### What information is stored in RADIUS logs?
 
 RADIUS logs may contain usernames, IP assignments, timestamps, session duration, login attempts, and accounting data.
 
-Where is RADIUS logging commonly used?
+### Where is RADIUS logging commonly used?
 
 It is commonly used in ISPs, enterprise Wi-Fi networks, VPN environments, and telecom infrastructures.
 
-How does RADIUS logging help compliance?
+### How does RADIUS logging help compliance?
 
 It provides historical records of user access and session activity for investigations and audits.
 
-What's the difference between RADIUS logging and NAT logging?
+### What's the difference between RADIUS logging and NAT logging?
 
 RADIUS logging tracks user authentication and sessions, while NAT logging tracks IP address translation mappings.
