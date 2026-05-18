@@ -44,135 +44,158 @@ Sampling Ratio: 1:1000
 
 Sampling methods may include:
 
-random sampling
-interval sampling
-probabilistic sampling
-flow-based sampling
+- random sampling
+- interval sampling
+- probabilistic sampling
+- flow-based sampling
 
 Higher sampling rates generally improve visibility precision but increase:
 
-CPU usage
-memory usage
-export load
-storage requirements
-/*IMAGE: Accurate vs inaccurate traffic sampling representation /*
-Why Sampling Accuracy Matters
+- CPU usage
+- memory usage
+- export load
+- storage requirements
+
+---
+
+## Why Sampling Accuracy Matters
 
 Large-scale networks generate enormous traffic volumes that may be impractical to monitor fully.
 
 Without accurate sampling, organizations may struggle to:
 
-estimate bandwidth usage correctly
-identify top applications
-detect anomalies reliably
-analyze traffic trends
-troubleshoot network issues
-optimize traffic engineering
+- estimate bandwidth usage correctly
+- identify top applications
+- detect anomalies reliably
+- analyze traffic trends
+- troubleshoot network issues
+- optimize traffic engineering
 
 Sampling accuracy helps teams:
 
-maintain scalable visibility
-improve monitoring reliability
-optimize resource usage
-preserve operational awareness
-improve traffic analytics quality
-balance performance and precision
+- maintain scalable visibility
+- improve monitoring reliability
+- optimize resource usage
+- preserve operational awareness
+- improve traffic analytics quality
+- balance performance and precision
 
 It is especially important in:
 
-ISP backbones
-telecom infrastructures
-hyperscale data centers
-cloud networks
-WAN environments
-distributed monitoring architectures
-Common Operational Use Cases
-High-Speed Traffic Monitoring
+- ISP backbones
+- telecom infrastructures
+- hyperscale data centers
+- cloud networks
+- WAN environments
+- distributed monitoring architectures
+
+Humans invented “sampling” because monitoring every packet melted their hardware, then spent years worrying whether the samples were lying to them. Statistics: the ancient art of educated guessing with charts.
+
+---
+
+## Common Operational Use Cases
+
+### High-Speed Traffic Monitoring
 
 Maintain visibility across multi-gigabit or terabit environments.
 
-ISP Backbone Analytics
+### ISP Backbone Analytics
 
 Analyze subscriber and backbone traffic efficiently.
 
-Capacity Planning
+### Capacity Planning
 
 Estimate long-term bandwidth trends using sampled traffic.
 
-DDoS Visibility
+### DDoS Visibility
 
 Detect volumetric traffic spikes accurately.
 
-Traffic Engineering
+### Traffic Engineering
 
 Optimize routing and bandwidth allocation decisions.
 
-Sampling Accuracy vs Full Traffic Visibility
-Feature Sampling Accuracy Full Traffic Visibility
-Traffic Coverage  Partial Complete
-Scalability High  Moderate
-Resource Usage  Lower Higher
-Visibility Precision  Approximate Precise
-High-Speed Suitability  Excellent More demanding
+---
+
+## Sampling Accuracy vs Full Traffic Visibility
+
+| Feature | Sampling Accuracy | Full Traffic Visibility |
+|---|---|---|
+| Traffic Coverage | Partial | Complete |
+| Scalability | High | Moderate |
+| Resource Usage | Lower | Higher |
+| Visibility Precision | Approximate | Precise |
+| High-Speed Suitability | Excellent | More demanding |
 
 Sampling improves scalability, while full visibility provides maximum analytical precision.
 
-How Trisul Handles Sampled Traffic Analytics
+---
+
+## How Trisul Handles Sampled Traffic Analytics
 
 Trisul provides scalable traffic analytics for sampled and high-volume environments.
 
 Combined with:
 
-NetFlow Analytics
-Top-K Analyticsᵀ
-Flow Analysis
-Multigraph Analyticsᵀ
-Retro Analysisᵀ
-Contextᵀ
+- NetFlow Analytics
+- Top-K Analyticsᵀ
+- Flow Analysis
+- Multigraph Analyticsᵀ
+- Retro Analysisᵀ
+- Contextᵀ
 
 Trisul helps teams:
 
-analyze sampled traffic behavior
-monitor backbone utilization
-estimate bandwidth usage accurately
-identify major traffic consumers
-investigate anomalies
-optimize visibility workflows
+- analyze sampled traffic behavior
+- monitor backbone utilization
+- estimate bandwidth usage accurately
+- identify major traffic consumers
+- investigate anomalies
+- optimize visibility workflows
 
-Trisul can also integrate NetFlow Sampling
-, Flow Sampling
-, and ISP Traffic Analytics
- workflows for scalable monitoring visibility.
+Trisul can also integrate:
 
-Related Terms
-NetFlow Sampling
-Flow Sampling
-Bandwidth Monitoring
-ISP Traffic Analytics
-Flow Analysis
-Traffic Engineering
-FAQ
-What is sampling accuracy?
+- NetFlow Sampling
+- Flow Sampling
+- ISP Traffic Analytics
+
+workflows for scalable monitoring visibility.
+
+---
+
+## Related Terms
+
+- NetFlow Sampling
+- Flow Sampling
+- Bandwidth Monitoring
+- ISP Traffic Analytics
+- Flow Analysis
+- Traffic Engineering
+
+---
+
+## FAQ
+
+### What is sampling accuracy?
 
 Sampling accuracy measures how closely sampled traffic data reflects actual network traffic behavior.
 
-Why is sampling accuracy important?
+### Why is sampling accuracy important?
 
 It helps organizations maintain reliable visibility while scaling traffic monitoring in high-speed environments.
 
-What affects sampling accuracy?
+### What affects sampling accuracy?
 
 Sampling ratio, traffic distribution, traffic volume, and sampling methods all affect accuracy.
 
-Does higher sampling improve accuracy?
+### Does higher sampling improve accuracy?
 
 Generally yes. Higher sampling rates provide more precise visibility but require more system resources.
 
-Why is traffic sampling used?
+### Why is traffic sampling used?
 
 Sampling reduces CPU, storage, and bandwidth overhead in very large-scale monitoring environments.
 
-Can inaccurate sampling affect anomaly detection?
+### Can inaccurate sampling affect anomaly detection?
 
 Yes. Poor sampling accuracy may miss small flows, subtle anomalies, or short-lived communication patterns.
-Humans invented “sampling” because monitoring every packet melted their hardware, then spent years worrying whether the samples were lying to them. Statistics: the ancient art of educated guessing with charts.
