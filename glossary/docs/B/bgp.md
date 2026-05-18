@@ -26,38 +26,33 @@ It is often referred to as the routing protocol that powers the internet.
 BGP allows routers in different [Autonomous Systems](/glossary/asn) to exchange routing information using BGP sessions called peering relationships.
 
 Each BGP router advertises:
-- reachable IP prefixes
-- routing paths
-- ASN path information
-- routing policies
+- reachable IP prefixes.
+- routing paths.
+- ASN path information.
+- routing policies.
 
 When traffic needs to travel across multiple networks:
 
-1. A BGP router receives route advertisements
-2. The router evaluates available paths
-3. Routing policies and path attributes are compared
-4. The best route is selected
-5. Traffic is forwarded through the chosen path
+1. A BGP router receives route advertisements.
+2. The router evaluates available paths.
+3. Routing policies and path attributes are compared.
+4. The best route is selected.
+5. Traffic is forwarded through the chosen path.
 
 BGP decisions can consider:
-- AS path length
-- routing policies
-- local preference
-- MED values
-- peering relationships
+- AS path length.
+- routing policies.
+- local preference.
+- MED values.
+- peering relationships.
 
 ```mermaid
 flowchart LR
     A[ASN 64501] -->|Advertise Routes| B[BGP Router]
-
     C[ASN 64510] -->|Advertise Routes| B
-
     D[ASN 64520] -->|Advertise Routes| B
-
     B --> E{Best Path Selection}
-
     E -->|Shortest AS Path| F[Selected Route]
-
     F --> G[Traffic Forwarding]
 ```
 
@@ -68,20 +63,20 @@ flowchart LR
 The internet consists of thousands of independently managed networks.
 
 BGP allows these networks to:
-- exchange routing information
-- establish peering relationships
-- control traffic paths
-- improve redundancy
-- manage internet connectivity
+- exchange routing information.
+- establish peering relationships.
+- control traffic paths.
+- improve redundancy.
+- manage internet connectivity.
 
 Without BGP, global internet routing between providers and networks would not scale effectively.
 
 BGP visibility is especially important in:
-- ISP operations
-- internet exchange points
-- cloud networking
-- data centers
-- enterprise WAN environments
+- ISP operations.
+- internet exchange points.
+- cloud networking.
+- data centers.
+- enterprise WAN environments.
 
 ## **Types of BGP**
 
@@ -136,19 +131,19 @@ BGP is designed for large-scale internet routing, while OSPF is mainly used for 
 Trisul provides BGP-aware traffic visibility and ASN analytics for monitoring internet routing behavior and peering relationships.
 
 Combined with:
-- BGP Peering Analytics
-- ASN Visibility
-- GeoIP Enrichment
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
+- BGP Peering Analytics.
+- ASN Visibility.
+- GeoIP Enrichment.
+- Top-K Analyticsᵀ.
+- Multigraph Analyticsᵀ.
 
 Trisul helps teams:
-- analyze traffic by ASN
-- monitor peering behavior
-- investigate routing anomalies
-- detect upstream traffic changes
-- visualize internet traffic paths
-- troubleshoot routing-related performance issues
+- analyze traffic by ASN.
+- monitor peering behavior.
+- investigate routing anomalies.
+- detect upstream traffic changes.
+- visualize internet traffic paths.
+- troubleshoot routing-related performance issues.
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows with BGP routing information.
 

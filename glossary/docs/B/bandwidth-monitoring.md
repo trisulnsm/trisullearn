@@ -15,52 +15,48 @@ keywords:
 
 # What is Bandwidth Monitoring?
 
-Bandwidth Monitoring is the process of measuring, analyzing, and tracking network bandwidth usage across devices, interfaces, applications, users, and traffic flows.
+Bandwidth monitoring is the process of measuring, analyzing, and tracking network bandwidth usage across interfaces, devices, services, and traffic flows.
 
-It helps network teams understand how network capacity is being used, identify congestion, detect abnormal traffic behavior, and troubleshoot performance issues.
+It helps network teams understand how capacity is being used, identify congestion, detect abnormal traffic behavior, and troubleshoot performance issues.
 
-Bandwidth monitoring is widely used in [Flow Analysis](/glossary/flow-analysis), [Traffic Investigation](/glossary/traffic-investigation), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) environments.
+Bandwidth monitoring is commonly used in [Flow Analysis](/glossary/flow-analysis), [Traffic Investigation](/glossary/traffic-investigation), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) environments.
 
 ## **How Bandwidth Monitoring Works**
 
-Bandwidth monitoring platforms collect traffic statistics from routers, switches, firewalls, and network devices using technologies such as:
+Bandwidth monitoring platforms collect traffic statistics from routers, switches, firewalls, and other network devices using technologies such as:
 
-- NetFlow
-- IPFIX
-- sFlow
-- SNMP
-- Packet Capture
-- Interface counters
+- NetFlow.
+- IPFIX.
+- sFlow.
+- SNMP interface counters.
+- Packet Capture.
+- Telemetry and device counters, where available.
 
 These systems measure:
-- bandwidth utilization
-- traffic volume
-- packet rates
-- protocol distribution
-- application traffic
-- top talkers
-- inbound and outbound traffic
+- bandwidth utilization.
+- traffic volume.
+- packet rates.
+- protocol distribution.
+- application traffic.
+- top talkers.
+- inbound and outbound traffic.
 
 For example:
 
-1. A router exports NetFlow records
-2. The monitoring platform analyzes traffic flows
-3. Bandwidth usage is grouped by application, interface, or user
-4. Network teams identify high-usage patterns or congestion
+1. A router exports NetFlow records.
+2. The monitoring platform analyzes traffic flows.
+3. Bandwidth usage is grouped by application, interface, host, or conversation.
+4. Network teams identify high-usage patterns or congestion.
 
 ```mermaid
 flowchart LR
     A[Routers / Switches / Firewalls] --> B[Traffic Collection]
-
     B --> C[NetFlow / SNMP / IPFIX Analysis]
-
     C --> D[Bandwidth Monitoring Engine]
-
     D --> E[Interface Utilization]
     D --> F[Top Applications]
     D --> G[Top Talkers]
     D --> H[Traffic Trends]
-
     E --> I[Bandwidth Dashboard]
     F --> I
     G --> I
@@ -71,23 +67,23 @@ flowchart LR
 
 ## **Why Bandwidth Monitoring Matters**
 
-Without bandwidth visibility, network congestion and abnormal traffic patterns can remain unnoticed until users experience performance problems.
+Without bandwidth visibility, congestion and abnormal traffic patterns can remain hidden until users notice performance issues.
 
 Bandwidth monitoring helps organizations:
-- identify network bottlenecks
-- detect traffic spikes
-- prevent link saturation
-- optimize capacity planning
-- troubleshoot performance issues
-- monitor ISP traffic usage
-- detect suspicious traffic behavior
+- identify network bottlenecks.
+- detect traffic spikes.
+- prevent link saturation.
+- support capacity planning.
+- troubleshoot performance issues.
+- monitor ISP traffic usage.
+- detect suspicious traffic behavior.
 
 It is especially important in:
-- enterprise networks
-- ISP infrastructures
-- cloud environments
-- data centers
-- WAN and SD-WAN deployments
+- enterprise networks.
+- ISP infrastructures.
+- cloud environments.
+- data centers.
+- WAN and SD-WAN deployments.
 
 ## **Types of Bandwidth Monitoring**
 
@@ -123,7 +119,7 @@ Identify overloaded interfaces or saturated links.
 
 ### ISP Traffic Analytics
 
-Monitor subscriber usage and backbone traffic distribution.
+Monitor subscriber usage, backbone traffic distribution, and peering-related traffic patterns.
 
 ### Application Performance Monitoring
 
@@ -131,7 +127,7 @@ Identify applications consuming excessive bandwidth.
 
 ### Security Monitoring
 
-Detect unusual traffic spikes, scanning activity, or DDoS traffic floods.
+Detect unusual traffic spikes, scanning activity, or DDoS-related traffic floods.
 
 ## **Bandwidth Monitoring vs Traffic Monitoring**
 
@@ -140,7 +136,7 @@ Detect unusual traffic spikes, scanning activity, or DDoS traffic floods.
 | Primary Focus | Bandwidth usage and utilization | Overall network traffic behavior |
 | Key Metrics | Throughput, utilization, rates | Flows, packets, protocols, sessions |
 | Common Goal | Prevent congestion | Improve visibility and analysis |
-| Typical Data Sources | SNMP, Flow data | NetFlow, IPFIX, PCAP, telemetry |
+| Typical Data Sources | SNMP, flow data, interface counters | NetFlow, IPFIX, PCAP, telemetry |
 | Operational Scope | Capacity and performance | Performance and security visibility |
 
 Bandwidth monitoring focuses specifically on traffic volume and utilization, while traffic monitoring provides broader network visibility.
@@ -157,12 +153,12 @@ Combined with:
 - Long-Term Traffic Retention
 
 Trisul helps teams:
-- monitor interface utilization
-- analyze top bandwidth consumers
-- investigate traffic spikes
-- detect congestion patterns
-- visualize application traffic behavior
-- monitor ISP and backbone traffic flows
+- monitor interface utilization.
+- analyze top bandwidth consumers.
+- investigate traffic spikes.
+- detect congestion patterns.
+- visualize application traffic behavior.
+- monitor ISP and backbone traffic flows.
 
 Trisul can also correlate [Packet Capture](/glossary/packet-capture) and [Flow Analysis](/glossary/flow-analysis) data for deeper bandwidth investigation.
 
@@ -185,7 +181,7 @@ Bandwidth monitoring is the process of measuring and analyzing network bandwidth
 
 ### Why is bandwidth monitoring important?
 
-It helps identify congestion, troubleshoot performance issues, optimize capacity planning, and improve traffic visibility.
+It helps identify congestion, troubleshoot performance issues, support capacity planning, and improve traffic visibility.
 
 ### What tools are used for bandwidth monitoring?
 

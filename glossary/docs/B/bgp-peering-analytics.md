@@ -26,38 +26,34 @@ BGP peering analytics is widely used in ISP operations, internet exchange enviro
 BGP-enabled networks exchange routing information using [Border Gateway Protocol](/glossary/bgp) sessions between [Autonomous Systems](/glossary/asn).
 
 BGP peering analytics platforms combine:
-- BGP routing information
-- ASN metadata
-- NetFlow or IPFIX traffic records
-- peering statistics
-- routing path visibility
+- BGP routing information.
+- ASN metadata.
+- NetFlow or IPFIX traffic records.
+- Peering statistics.
+- Routing path visibility.
 
 This allows teams to analyze:
-- traffic exchanged between ASNs
-- upstream and downstream traffic flows
-- routing path behavior
-- peering utilization
-- traffic distribution patterns
+- traffic exchanged between ASNs.
+- upstream and downstream traffic flows.
+- routing path behavior.
+- peering utilization.
+- traffic distribution patterns.
 
 For example:
 
-1. A router exports NetFlow records
-2. The monitoring platform maps traffic to ASN paths
-3. Traffic is grouped by peering ASN
-4. Teams analyze traffic volume, routing changes, and peering behavior
+1. A router exports NetFlow records.
+2. The monitoring platform maps traffic to ASN paths.
+3. Traffic is grouped by peering ASN.
+4. Teams analyze traffic volume, routing changes, and peering behavior.
 
 ```mermaid
 flowchart LR
     A[ISP ASN 64501] <-->|BGP Peering| B[Transit ASN 64510]
-
     B <-->|BGP Peering| C[Cloud ASN 64520]
-
     A --> D[NetFlow / IPFIX Export]
     B --> D
     C --> D
-
     D --> E[BGP Peering Analytics Engine]
-
     E --> F[ASN Relationship Mapping]
     E --> G[Traffic Volume Analysis]
     E --> H[Route Path Visibility]
@@ -71,26 +67,26 @@ flowchart LR
 Internet traffic often passes through multiple providers and peering networks before reaching its destination.
 
 Without BGP visibility, it becomes difficult to:
-- understand traffic paths
-- troubleshoot routing problems
-- analyze peering utilization
-- identify upstream issues
-- optimize traffic engineering
+- understand traffic paths.
+- troubleshoot routing problems.
+- analyze peering utilization.
+- identify upstream issues.
+- optimize traffic engineering.
 
 BGP peering analytics improves visibility into:
-- ASN relationships
-- routing efficiency
-- internet traffic flows
-- peering congestion
-- upstream dependency
-- route instability
+- ASN relationships.
+- routing efficiency.
+- internet traffic flows.
+- peering congestion.
+- upstream dependency.
+- route instability.
 
 It is especially important in:
-- ISP infrastructures
-- cloud connectivity environments
-- IXPs
-- CDN networks
-- enterprise WANs
+- ISP infrastructures.
+- cloud connectivity environments.
+- IXPs.
+- CDN networks.
+- enterprise WANs.
 
 ## **Types of BGP Peering Visibility**
 
@@ -144,29 +140,29 @@ Investigate route leaks, path instability, or upstream failures.
 | Routing Awareness | High | Limited |
 | ASN Visibility | Included | Often absent |
 | Primary Goal | Internet routing analysis | Traffic monitoring |
-| Common Data Sources | BGP + Flow records | Flow or packet data |
+| Common Data Sources | BGP + flow records | Flow or packet data |
 
 BGP peering analytics adds routing and ASN context to standard traffic monitoring workflows.
 
 ## **How Trisul Handles BGP Peering Analytics**
 
-Trisul provides ASN-aware traffic visibility and BGP analytics for monitoring peering behavior and internet traffic flows.
+Trisul can provide ASN-aware traffic visibility and BGP-oriented traffic analysis to help teams monitor peering behavior and internet traffic flows.
 
 Combined with:
-- ASN Visibility
-- GeoIP Enrichment
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
-- Traffic Investigation
-- Long-Term Traffic Retention
+- ASN visibility.
+- GeoIP enrichment.
+- Top-K Analyticsᵀ.
+- Multigraph Analyticsᵀ.
+- Traffic investigation.
+- Long-term traffic retention.
 
 Trisul helps teams:
-- analyze top peering ASNs
-- visualize traffic exchanged between providers
-- identify routing anomalies
-- monitor peering utilization
-- investigate upstream traffic behavior
-- troubleshoot internet routing issues
+- analyze top peering ASNs.
+- visualize traffic exchanged between providers.
+- identify routing anomalies.
+- monitor peering utilization.
+- investigate upstream traffic behavior.
+- troubleshoot internet routing issues.
 
 Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows with BGP routing intelligence for deeper analysis.
 

@@ -17,7 +17,7 @@ keywords:
 
 Baseline Traffic Analysis is the process of establishing normal network traffic behavior over time and comparing current activity against that baseline to identify unusual patterns or anomalies.
 
-It helps network and security teams understand what “normal” traffic looks like across users, devices, applications, protocols, and network segments.
+It helps network and security teams understand what normal traffic looks like across users, devices, applications, protocols, and network segments.
 
 Baseline traffic analysis is commonly used in [Anomaly Detection](/glossary/anomaly-detection), [Network Security Monitoring](/glossary/network-security-monitoring-nsm), and [Bandwidth Monitoring](/glossary/bandwidth-monitoring) workflows.
 
@@ -37,20 +37,20 @@ These baselines may include:
 
 For example:
 
-1. A monitoring system records traffic behavior over several weeks
-2. Average daily bandwidth usage is calculated
-3. Current traffic is continuously compared against historical patterns
-4. Significant deviations are flagged for investigation
+1. A monitoring system records traffic behavior over several weeks.
+2. Average daily bandwidth usage is calculated.
+3. Current traffic is continuously compared against historical patterns.
+4. Significant deviations are flagged for investigation.
 
 ```mermaid
 xychart-beta
     title "Network Traffic Baseline vs Anomaly"
     x-axis ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     y-axis "Traffic Volume (GB)" 0 --> 100
-
-    line "Normal Baseline" [35, 38, 40, 42, 41, 39, 36]
-    line "Observed Traffic" [35, 38, 40, 88, 41, 39, 36]
+    bar [35, 38, 40, 42, 41, 39, 36]
+    bar [35, 38, 40, 88, 41, 39, 36]
 ```
+
 
 *Figure: Baseline traffic analysis comparing expected network behavior against an abnormal traffic spike detected during monitoring.*
 
