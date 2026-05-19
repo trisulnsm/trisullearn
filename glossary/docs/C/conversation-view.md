@@ -37,10 +37,10 @@ A conversation may include:
 
 For example:
 
-1. A client connects to a web server
-2. Traffic flows in both directions
-3. The monitoring platform correlates related flow records
-4. The full communication session is displayed as a single conversation
+1. A client connects to a web server.
+2. Traffic flows in both directions.
+3. The monitoring platform correlates related flow records.
+4. The full communication session is displayed as a single conversation.
 
 This provides better visibility into:
 - who communicated
@@ -48,7 +48,7 @@ This provides better visibility into:
 - how long the session lasted
 - how the application behaved
 
-![](images/conversationview.png)
+![images/conversationview.png](images/conversationview.png)
 
 ## **Why Conversation View Matters**
 

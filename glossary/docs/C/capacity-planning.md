@@ -15,15 +15,15 @@ keywords:
 
 # What is Capacity Planning?
 
-Capacity Planning is the process of analyzing network usage trends and forecasting future resource requirements to ensure network infrastructure can handle expected traffic growth and operational demand.
+Capacity planning is the process of analyzing network usage trends and forecasting future resource requirements so network infrastructure can handle expected traffic growth and operational demand.
 
-It helps network teams determine when to upgrade bandwidth, expand infrastructure, optimize traffic paths, or improve resource allocation before performance problems occur.
+It helps network teams determine when to upgrade bandwidth, expand infrastructure, optimize traffic paths, or rebalance resources before performance problems occur.
 
 Capacity planning is commonly used in [Bandwidth Monitoring](/glossary/bandwidth-monitoring), [Baseline Traffic Analysis](/glossary/baseline-traffic-analysis), and [Traffic Investigation](/glossary/traffic-investigation) workflows.
 
 ## **How Capacity Planning Works**
 
-Capacity planning platforms analyze historical and real-time traffic data to identify long-term usage patterns and growth trends.
+Capacity planning platforms analyze historical and real-time traffic data to identify usage patterns, growth trends, and peak-demand behavior.
 
 These systems monitor:
 - bandwidth utilization
@@ -37,19 +37,18 @@ These systems monitor:
 
 For example:
 
-1. A monitoring platform tracks backbone utilization over several months
-2. Traffic growth steadily increases during peak hours
-3. Utilization approaches link capacity limits
-4. Network teams plan upgrades before congestion affects users
+1. A monitoring platform tracks backbone utilization over several months.
+2. Traffic growth steadily increases during peak hours.
+3. Utilization approaches link capacity limits.
+4. Network teams plan upgrades before congestion affects users.
 
 ```mermaid
 xychart-beta
     title "Network Traffic Growth and Capacity Forecasting"
-    x-axis ["Q1","Q2","Q3","Q4","Q5","Q6"]
+    x-axis ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"]
     y-axis "Bandwidth Utilization (%)" 0 --> 100
-
-    line "Current Traffic Growth" [25,35,48,60,72,85]
-    line "Link Capacity Threshold" [80,80,80,80,80,80]
+    line [25, 35, 48, 60, 72, 85]
+    line [80, 80, 80, 80, 80, 80]
 ```
 
 *Figure: Capacity planning graph showing long-term traffic growth approaching network capacity limits over time.*
@@ -133,7 +132,7 @@ Capacity planning focuses on future scalability, while real-time monitoring focu
 
 ## **How Trisul Handles Capacity Planning**
 
-Trisul provides long-term traffic visibility and historical flow analytics for analyzing growth trends and forecasting infrastructure requirements.
+Trisul provides long-term traffic visibility and historical flow analytics that can help analyze growth trends and forecast infrastructure requirements.
 
 Combined with:
 - Long-Term Traffic Retention
@@ -150,7 +149,7 @@ Trisul helps teams:
 - analyze subscriber traffic behavior
 - optimize peering and backbone utilization
 
-Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows for deeper infrastructure analysis.
+Trisul can also support [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows for deeper infrastructure analysis.
 
 ## **Related Terms**
 
@@ -188,3 +187,13 @@ Capacity planning focuses on future infrastructure needs, while real-time monito
 ### Can capacity planning help reduce outages?
 
 Yes. Proper capacity planning helps prevent saturation, congestion, and infrastructure overload before they impact users.
+
+## Technical Changes Made
+
+- Corrected the opening definition to be more concise and operational.
+- Replaced “resource allocation” with “rebalance resources” for more natural network-operations phrasing.
+- Fixed the Mermaid diagram by removing unsupported labeled line-series syntax.
+- Tightened the explanation of how historical and real-time traffic data support forecasting.
+- Softened Trisul wording to conservative, documented-style alignment language.
+- Preserved SEO keywords, section order, and FAQ structure.
+- Kept the glossary vendor-neutral while maintaining network-operations relevance.

@@ -15,7 +15,7 @@ keywords:
 
 # What is CIDR?
 
-CIDR (Classless Inter-Domain Routing) is a method of IP address allocation and routing that uses variable-length subnet masks to improve address efficiency and routing scalability.
+CIDR (Classless Inter-Domain Routing) is a method of IP address allocation and routing that uses variable-length prefixes to improve address efficiency and routing scalability.
 
 CIDR replaces the older class-based IP addressing model by allowing networks to be divided into flexible subnet sizes instead of fixed address classes.
 
@@ -23,41 +23,37 @@ CIDR is widely used in IP routing, subnetting, cloud networking, and [BGP](/glos
 
 ## **How CIDR Works**
 
-CIDR represents IP networks using a prefix length format called CIDR notation.
+CIDR represents IP networks using a prefix-length format called CIDR notation.
 
 Example:
 
-192.168.1.0/24
+`192.168.1.0/24`
+
 In this example:
 
-192.168.1.0 is the network address
-/24 represents the subnet mask prefix length
+- `192.168.1.0` is the network address.
+- `/24` represents the prefix length.
 
 The prefix length defines how many bits belong to the network portion of the address.
 
 Common examples:
 
-|CIDR Block  | Subnet Mask | Approximate Hosts|
-|-----------|---------------|------------------|
-|/8 |  255.0.0.0 | 16 million+|
-|/16 | 255.255.0.0 | 65,534|
-|/24 | 255.255.255.0 | 254|
-|/30 | 255.255.255.252|  2|| 
+| CIDR Block | Subnet Mask | Approximate Usable Hosts |
+|---|---|---|
+| `/8` | `255.0.0.0` | 16,777,214 |
+| `/16` | `255.255.0.0` | 65,534 |
+| `/24` | `255.255.255.0` | 254 |
+| `/30` | `255.255.255.252` | 2 |
 
 CIDR allows network administrators to allocate address ranges more efficiently than traditional class-based addressing.
 
 ```mermaid
 flowchart TD
     A[192.168.1.0/24 Network] --> B[Network Prefix<br/>192.168.1]
-
     A --> C[Host Portion<br/>0 - 255]
-
     B --> D[Subnet Mask<br/>255.255.255.0]
-
     D --> E[254 Usable Hosts]
-
     A --> F[Smaller Subnets Possible]
-
     F --> G[192.168.1.0/26]
     F --> H[192.168.1.64/26]
     F --> I[192.168.1.128/26]
@@ -69,29 +65,27 @@ flowchart TD
 
 Before CIDR, IP addressing relied on fixed classes such as:
 
-Class A
-Class B
-Class C
+- Class A
+- Class B
+- Class C
 
 This caused inefficient IP allocation and routing table growth.
 
 CIDR improves:
-
-IP address utilization
-subnet flexibility
-routing scalability
-route aggregation
-internet routing efficiency
+- IP address utilization
+- subnet flexibility
+- routing scalability
+- route aggregation
+- internet routing efficiency
 
 CIDR is especially important in:
+- enterprise networking
+- ISP routing
+- cloud infrastructure
+- BGP route advertisement
+- subnet design
 
-enterprise networking
-ISP routing
-cloud infrastructure
-BGP route advertisement
-subnet design
-
-## **Common Operational Use Cases  **
+## **Common Operational Use Cases**
 
 ### IP Subnetting
 
@@ -115,50 +109,45 @@ Define IP ranges in firewall and ACL rules.
 
 ## **CIDR vs Classful Addressing**
 
-|Feature |CIDR  |Classful Addressing|
-|-------------|--------------|------|
-|Subnet Flexibility | Variable-length |Fixed classes|
-|IP Efficiency |High | Lower|
-|Route Aggregation |Supported Limited|
-|Scalability| Better | Limited|
-|Modern Usage  |Standard | Mostly obsolete|
+| Feature | CIDR | Classful Addressing |
+|---|---|---|
+| Subnet Flexibility | Variable-length | Fixed classes |
+| IP Efficiency | High | Lower |
+| Route Aggregation | Supported | Limited |
+| Scalability | Better | Limited |
+| Modern Usage | Standard | Mostly obsolete |
 
 CIDR provides more flexible and efficient IP address allocation than the older class-based model.
 
 ## **How Trisul Uses CIDR Visibility**
 
-Trisul uses CIDR-aware traffic analysis and subnet visibility to help teams analyze traffic distribution across IP ranges and network segments.
+Trisul can help teams analyze traffic distribution across IP ranges and network segments using subnet-aware traffic visibility.
 
 Combined with:
+- Flow Analysis
+- Traffic Investigation
+- GeoIP Enrichment
+- Top-K Analyticsᵀ
+- Multigraph Analyticsᵀ
 
-Flow Analysis
-Traffic Investigation
-GeoIP Enrichment
-Top-K Analyticsᵀ
-Multigraph Analyticsᵀ
+Trisul can help teams:
+- analyze subnet-level traffic behavior
+- monitor traffic by IP range
+- investigate suspicious subnet activity
+- visualize traffic distribution
+- analyze routing behavior
+- monitor internal segmentation traffic
 
-Trisul helps teams:
-
-analyze subnet-level traffic behavior
-monitor traffic by IP range
-investigate suspicious subnet activity
-visualize traffic distribution
-analyze routing behavior
-monitor internal segmentation traffic
-
-Trisul can also correlate NetFlow
-, IPFIX
-, and Packet Capture
- workflows with CIDR-based network analysis.
+Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows with CIDR-based network analysis.
 
 ## **Related Terms**
 
-BGP
-ASN
-NetFlow
-Access Control List (ACL)
-Traffic Investigation
-Network Security Monitoring
+- [BGP](/glossary/bgp)
+- [ASN](/glossary/asn)
+- [NetFlow](/glossary/netflow)
+- [Access Control List (ACL)](/glossary/access-control-list)
+- [Traffic Investigation](/glossary/traffic-investigation)
+- [Network Security Monitoring](/glossary/network-security-monitoring)
 
 ## **FAQ**
 
@@ -168,7 +157,7 @@ CIDR stands for Classless Inter-Domain Routing.
 
 ### What is CIDR notation?
 
-CIDR notation represents an IP address range using a prefix length, such as 192.168.1.0/24.
+CIDR notation represents an IP address range using a prefix length, such as `192.168.1.0/24`.
 
 ### Why is CIDR important?
 

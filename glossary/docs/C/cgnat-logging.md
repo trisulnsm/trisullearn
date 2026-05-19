@@ -15,11 +15,11 @@ keywords:
 
 # What is CGNAT Logging?
 
-CGNAT Logging is the process of recording network address translation (NAT) mappings created by Carrier-Grade NAT (CGNAT) systems used by internet service providers (ISPs).
+CGNAT logging is the process of recording network address translation mappings created by Carrier-Grade NAT systems used by internet service providers.
 
-These logs help map private subscriber IP addresses and ports to shared public IP addresses, making it possible to identify subscriber activity for troubleshooting, security investigations, and regulatory compliance.
+These logs map private subscriber IP addresses and ports to shared public IP addresses, which helps identify subscriber activity for troubleshooting, security investigations, and regulatory compliance.
 
-CGNAT logging is widely used in ISP environments, subscriber tracking systems, and [Traffic Investigation](/glossary/traffic-investigation) workflows.
+CGNAT logging is widely used in ISP environments, subscriber attribution workflows, and [Traffic Investigation](/glossary/traffic-investigation) workflows.
 
 ## **How CGNAT Logging Works**
 
@@ -27,10 +27,10 @@ Carrier-Grade NAT allows multiple subscribers to share a smaller pool of public 
 
 When subscriber traffic passes through a CGNAT device:
 
-1. A private IP address is translated to a public IP address
-2. Source ports are also translated
-3. The CGNAT system creates a NAT mapping entry
-4. The mapping is logged for future reference
+1. A private IP address is translated to a public IP address.
+2. Source ports are also translated.
+3. The CGNAT system creates a NAT mapping entry.
+4. The mapping is logged for future reference.
 
 A CGNAT log entry may include:
 - subscriber private IP address
@@ -51,23 +51,18 @@ The log allows operators to identify which subscriber used a specific public IP 
 ```mermaid
 flowchart LR
     A[Subscriber Device<br/>10.1.5.25] --> B[CGNAT Gateway]
-
     B --> C[Translate Private IP<br/>to Shared Public IP]
-
     C --> D[Public IP<br/>203.0.113.10:45122]
-
     C --> E[Create NAT Mapping Log]
-
     E --> F[CGNAT Logging Database]
-
     F --> G[Subscriber Investigation<br/>and Compliance Tracking]
 ```
- 
+
 *Figure: CGNAT workflow showing private-to-public IP translation and NAT mapping logs used for subscriber traceability and compliance.*
 
 ## **Why CGNAT Logging Matters**
 
-Without CGNAT logs, it becomes difficult to identify which subscriber generated specific internet traffic because multiple users share the same public IP address.
+Without CGNAT logs, it is difficult to identify which subscriber generated specific internet traffic because multiple users may share the same public IP address.
 
 CGNAT logging helps ISPs:
 - maintain subscriber traceability
@@ -127,7 +122,7 @@ CGNAT logging operates at much larger scale and requires high-performance loggin
 
 ## **How Trisul Handles CGNAT Logging**
 
-Trisul provides scalable traffic analytics and subscriber visibility workflows for CGNAT environments and ISP infrastructures.
+Trisul provides traffic analytics and subscriber visibility workflows that can help support CGNAT environments and ISP infrastructures.
 
 Combined with:
 - Subscriber Mapping
@@ -144,7 +139,7 @@ Trisul helps teams:
 - troubleshoot subscriber issues
 - investigate abuse reports
 
-Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [NAT Logging](/glossary/nat-logging) workflows for deeper subscriber visibility.
+Trisul can also support [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [NAT Logging](/glossary/nat-logging) workflows for deeper subscriber visibility.
 
 ## **Related Terms**
 
@@ -182,3 +177,12 @@ In many regions, ISPs must retain CGNAT logs for lawful interception, abuse hand
 ### Can CGNAT logging generate large amounts of data?
 
 Yes. Large ISP environments can generate extremely high-volume CGNAT logs that require scalable retention and analytics systems.
+
+## Technical Changes Made
+
+- Corrected wording for network-operations tone and tightened the definition of CGNAT logging.
+- Replaced “subscriber tracking systems” with “subscriber attribution workflows” for clearer operational meaning.
+- Improved phrasing around public IP sharing and subscriber identity mapping.
+- Kept the Mermaid diagram structure intact and removed nothing from the workflow.
+- Softened Trisul alignment language to avoid unsupported feature claims.
+- Preserved SEO keywords, section order, and FAQ structure.

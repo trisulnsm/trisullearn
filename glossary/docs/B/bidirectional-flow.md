@@ -15,46 +15,45 @@ keywords:
 
 # What is a Bi-directional Flow?
 
-A Bi-directional Flow is a network traffic flow that combines both directions of communication between two endpoints into a single logical conversation.
+A bi-directional flow is a network traffic conversation that includes both directions of communication between two endpoints in a single logical view.
 
-Instead of treating inbound and outbound traffic as separate records, bi-directional flow analysis correlates both traffic directions to provide a complete view of a network session.
+Instead of treating inbound and outbound traffic as separate records, bi-directional flow analysis correlates both directions to provide a complete view of a session.
 
 Bi-directional flows are commonly used in [Flow Analysis](/glossary/flow-analysis), [Traffic Investigation](/glossary/traffic-investigation), and [Conversation View](/glossary/conversation-view) workflows.
 
 ## **How Bi-directional Flows Work**
 
-Traditional flow exporters often generate separate flow records for:
-- client-to-server traffic
-- server-to-client traffic
+Flow exporters may generate separate records for:
+- client-to-server traffic.
+- server-to-client traffic.
 
-Bi-directional flow analysis combines these records into a unified session view.
+Bi-directional flow analysis correlates these records into one session view.
 
 For example:
 
-1. A client connects to a web server
-2. Traffic flows in both directions
-3. Flow records are collected from the exporter
-4. The monitoring platform correlates both directions
-5. A single conversation view is created
+1. A client connects to a web server.
+2. Traffic flows in both directions.
+3. Flow records are collected from the exporter.
+4. The monitoring platform correlates both directions.
+5. A single conversation view is created.
 
 A bi-directional flow may include:
-- source and destination IP addresses
-- ports and protocols
-- bytes sent and received
-- packet counts
-- session duration
-- response behavior
+- source and destination IP addresses.
+- ports and protocols.
+- bytes sent and received.
+- packet counts.
+- session duration.
+- response behavior.
 
 ```mermaid
 flowchart TB
-
     subgraph U["Uni-directional Flow"]
         A1[Client → Server]
         A2[Server → Client]
     end
 
     subgraph B["Bi-directional Flow"]
-        C1[Client ↔ Server<br/>Single Combined Conversation]
+        C1[Client ↔ Server\nSingle Combined Conversation]
     end
 ```
 
@@ -65,26 +64,26 @@ flowchart TB
 Analyzing traffic in both directions improves visibility into how devices and applications communicate across a network.
 
 Bi-directional flow analysis helps teams:
-- understand complete conversations
-- improve troubleshooting
-- detect abnormal traffic behavior
-- analyze application performance
-- identify failed or asymmetric communication
+- understand complete conversations.
+- improve troubleshooting.
+- detect abnormal traffic behavior.
+- analyze application performance.
+- identify failed or asymmetric communication.
 
 It improves visibility into:
-- client-server interactions
-- east-west traffic
-- session behavior
-- response patterns
-- traffic asymmetry
-- suspicious communication flows
+- client-server interactions.
+- east-west traffic.
+- session behavior.
+- response patterns.
+- traffic asymmetry.
+- suspicious communication flows.
 
 Bi-directional visibility is especially important in:
-- enterprise networks
-- SOC environments
-- ISP traffic analytics
-- application troubleshooting
-- network forensics
+- enterprise networks.
+- SOC environments.
+- ISP traffic analytics.
+- application troubleshooting.
+- network forensics.
 
 ## **Common Operational Use Cases**
 
@@ -122,7 +121,7 @@ Bi-directional flows provide more context and visibility than isolated uni-direc
 
 ## **How Trisul Handles Bi-directional Flows**
 
-Trisul provides advanced conversation-level traffic visibility using correlated flow analytics and session-aware traffic analysis.
+Trisul provides conversation-level traffic visibility using correlated flow analytics and session-aware traffic analysis.
 
 Combined with:
 - Flow Stitchingᵀ
@@ -132,12 +131,12 @@ Combined with:
 - Retro Analysisᵀ
 
 Trisul helps teams:
-- analyze complete traffic conversations
-- investigate suspicious communication patterns
-- visualize east-west traffic behavior
-- identify asymmetric routing
-- troubleshoot application sessions
-- correlate long-running traffic flows
+- analyze complete traffic conversations.
+- investigate suspicious communication patterns.
+- visualize east-west traffic behavior.
+- identify asymmetric routing.
+- troubleshoot application sessions.
+- correlate long-running traffic flows.
 
 Trisul can also combine [Packet Capture](/glossary/packet-capture) and [Flow Analysis](/glossary/flow-analysis) workflows for deeper conversation-level visibility.
 

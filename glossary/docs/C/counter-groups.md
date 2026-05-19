@@ -15,7 +15,7 @@ keywords:
 
 # What are Counter Groupsᵀ?
 
-Counter Groupsᵀ are a Trisul Network Analytics feature used to organize and aggregate related traffic metrics, statistics, and network activity counters into logical monitoring categories.
+Counter Groupsᵀ are a Trisul Network Analytics concept used to organize and aggregate related traffic metrics, statistics, and network activity counters into logical monitoring categories.
 
 They help network and security teams analyze traffic behavior by grouping similar measurements such as bandwidth usage, protocols, applications, interfaces, hosts, or traffic flows into structured operational views.
 
@@ -23,7 +23,7 @@ Counter Groupsᵀ improve visibility across large-scale traffic monitoring and a
 
 ## **How Counter Groupsᵀ Work**
 
-Modern networks generate massive volumes of telemetry and traffic statistics from:
+Modern networks generate large volumes of telemetry and traffic statistics from:
 - flow records
 - packet analysis
 - interfaces
@@ -36,10 +36,10 @@ Counter Groupsᵀ organize these measurements into related metric collections.
 
 For example:
 
-1. Traffic data is collected from routers and exporters
-2. Metrics are categorized into logical groups
-3. Related counters are aggregated together
-4. Teams analyze trends and traffic behavior through grouped analytics
+1. Traffic data is collected from routers and exporters.
+2. Metrics are categorized into logical groups.
+3. Related counters are aggregated together.
+4. Teams analyze trends and traffic behavior through grouped analytics.
 
 Counter Groupsᵀ may organize metrics by:
 - bandwidth usage
@@ -51,7 +51,7 @@ Counter Groupsᵀ may organize metrics by:
 - traffic direction
 - security events
 
-![](images/countergroup.png)
+![images/countergroup.png](images/countergroup.png)
 
 ## **Why Counter Groupsᵀ Matter**
 

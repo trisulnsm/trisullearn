@@ -15,15 +15,15 @@ keywords:
 
 # What is Contextᵀ?
 
-Contextᵀ is a Trisul Network Analytics feature that groups related traffic activity, metadata, and investigation details into a unified operational view.
+Contextᵀ is a Trisul Network Analytics concept used to organize related traffic activity, metadata, and investigation details into a unified operational view.
 
-It helps network and security teams analyze traffic behavior with additional context instead of viewing isolated flow records or packet events independently.
+It helps network and security teams analyze traffic behavior with surrounding investigation context instead of reviewing isolated flow records or packet events on their own.
 
 Contextᵀ improves visibility during [Traffic Investigation](/glossary/traffic-investigation), [Flow Analysis](/glossary/flow-analysis), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) workflows.
 
 ## **How Contextᵀ Works**
 
-Modern networks generate massive amounts of traffic data from:
+Modern networks generate large volumes of traffic data from:
 - flow records
 - packet captures
 - protocols
@@ -36,10 +36,10 @@ Contextᵀ correlates related information into a single operational view.
 
 For example:
 
-1. A suspicious traffic spike is detected
-2. Related flow records are identified
-3. Associated applications, IPs, protocols, and conversations are linked
-4. Analysts investigate the activity with full traffic context
+1. A suspicious traffic spike is detected.
+2. Related flow records are identified.
+3. Associated applications, IPs, protocols, and conversations are linked.
+4. Analysts investigate the activity with surrounding traffic context.
 
 Contextᵀ may combine:
 - traffic flows
@@ -50,13 +50,13 @@ Contextᵀ may combine:
 - protocol behavior
 - historical traffic records
 
-![](images/context.png)
+![images/context.png](images/context.png)
 
 *Figure: Context-based investigation workflow showing how related traffic data is correlated into a unified operational analysis view.*
 
 ## **Why Contextᵀ Matters**
 
-Without contextual visibility, analysts often investigate traffic events in isolation.
+Without contextual visibility, analysts often investigate traffic events as isolated records.
 
 This makes it harder to:
 - understand communication behavior
@@ -151,7 +151,7 @@ Trisul can also correlate [Packet Capture](/glossary/packet-capture), [NetFlow](
 
 ### What is Contextᵀ in Trisul?
 
-Contextᵀ is a Trisul feature that correlates related traffic data and investigation details into a unified operational view.
+Contextᵀ is a Trisul concept that correlates related traffic data and investigation details into a unified operational view.
 
 ### Why is contextual traffic visibility important?
 
@@ -171,4 +171,4 @@ Yes. It improves visibility into suspicious communication patterns, anomalies, a
 
 ### Can Contextᵀ work with flow analytics?
 
-Yes. Contextᵀ integrates with NetFlow, IPFIX, packet capture, and traffic investigation workflows in Trisul.
+Yes. Contextᵀ can be used alongside NetFlow, IPFIX, packet capture, and traffic investigation workflows in Trisul.
