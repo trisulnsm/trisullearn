@@ -1,193 +1,132 @@
 ---
-title: What is a Flow Exporter?
-sidebar_label: Flow Exporter
-sidebar_position: 38
+title: What is a flow exporter?
+description: A flow exporter is a network device or software component that observes packets, groups them into flows, and sends summarized flow records to a collector using a standard export protocol such as NetFlow, IPFIX, or sFlow.
+sidebar_label: Flow exporter
+sidebar_position: 10
 slug: /glossary/flow-exporter
-description: Learn what a flow exporter is, how it works in NetFlow and IPFIX monitoring, and why flow exporters are important for traffic visibility and network analytics.
 keywords:
   - flow exporter
-  - NetFlow exporter
-  - IPFIX exporter
-  - traffic flow export
-  - network flow monitoring
-  - flow monitoring infrastructure
+  - netflow exporter
+  - ipfix exporter
+  - sflow exporter
+  - flow export
+  - netflow data export
+  - flow collector
 ---
 
-# What is a Flow Exporter?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between a flow exporter and a flow collector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A flow exporter generates flow records from observed traffic and sends them over the network. A flow collector receives those records, parses them, and stores them for analysis. On a Cisco router, the device itself is the exporter. Trisul is the collector. A single collector typically receives records from many exporters across the network simultaneously."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a single flow exporter send to multiple collectors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Most exporter implementations support multiple export destinations. On Cisco Flexible NetFlow, each destination requires a separately defined flow exporter object assigned to the same flow monitor. This is commonly used to send records to both a primary collector and a secondary one for redundancy, or to split traffic between a network operations collector and a security analytics platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What export protocol should a flow exporter use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IPFIX is the IETF standard and the recommended choice for new deployments. It supports flexible, template-based field definitions that allow exporters to include extended metadata such as application IDs, VLAN tags, MPLS labels, and TLS handshake fields. NetFlow v9 is widely supported and functionally similar. NetFlow v5 is fixed-format and limited to IPv4; it is still common on older hardware but cannot carry the extended fields that modern monitoring and security use cases require."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when a flow exporter drops records?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow export competes with forwarding resources on the device, particularly the flow cache and CPU cycles used to maintain and flush cache entries. Under heavy traffic, exporters can drop records silently without notifying the collector. The collector has no way to distinguish a gap caused by export drops from a period of low traffic. Monitoring exporter drop counters on the device itself is necessary to validate that the collector is receiving a complete record stream."
+      }
+    }
+  ]
+};
 
-A Flow Exporter is a network device or software component that generates and sends flow records to a monitoring or analytics platform.
+# What is a flow exporter?
 
-Flow exporters observe network traffic and summarize communication sessions into flow data containing information such as:
-- source and destination IP addresses
-- ports and protocols
-- bandwidth usage
-- packet counts
-- timestamps
-- traffic direction
+A flow exporter is a network device or software component that observes packets as they are forwarded, groups them into flows by 5-tuple, and sends summarized flow records to a collector using a standard protocol such as NetFlow, IPFIX, or sFlow. Routers and switches are the most common exporters; dedicated software probes serve as exporters where hardware-based export is unavailable or where unsampled collection is required. The exporter is the origin of all flow telemetry in a monitoring deployment.
 
-Flow exporters are a core part of technologies such as [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [sFlow](/glossary/sflow).
+---
 
-## **How a Flow Exporter Works**
+## How a flow exporter works
 
-Flow exporters continuously observe traffic passing through a device such as:
-- routers
-- switches
-- firewalls
-- probes
-- virtual appliances
+As packets arrive on an interface, the exporter inspects their headers and looks up the corresponding flow entry in a local cache. If no entry exists, a new one is created. Packet and byte counts are accumulated against the matching entry until a timeout fires or a TCP FIN or RST is observed, at which point the entry is flushed and the record is sent to the configured collector destination over UDP.
 
-Packets with shared characteristics are grouped into flows.
+The export format is defined by a template. In NetFlow v9 and IPFIX, the exporter first sends a template record describing the fields in each data record. The collector uses this template to parse incoming data. This template mechanism allows exporters to carry extended fields beyond the basic 5-tuple, including interface identifiers, BGP AS numbers, VLAN tags, and application metadata, without requiring a fixed record format on the collector.
 
-The exporter then:
-1. creates a flow record
-2. tracks flow statistics
-3. applies timeout rules
-4. exports the flow data to a [Flow Collector](/glossary/flow-collector)
+Each exporter destination is configured independently. A single flow monitor can be assigned multiple exporters, sending the same records to different collector addresses simultaneously.
 
-A flow exporter may include:
-- active flow timeout settings
-- inactive flow timeout settings
-- sampling configurations
-- export destination settings
-- protocol templates
+---
 
-The workflow usually looks like this:
+## Flow exporters in network operations
 
-```
-Network Device → Flow Exporter → Flow Collector → Flow Analyzer
-```
+In practice, every router and switch in a network capable of NetFlow or sFlow is a potential exporter. Enabling export on all devices provides topology-wide flow visibility without dedicated capture hardware. The tradeoff is that flows traversing multiple exporting devices generate duplicate legs at the collector, requiring deduplication before reporting.
 
-## **Why Flow Exporters Matter**
+Hardware exporters on routers and switches typically apply sampling above a certain traffic rate to protect forwarding performance. Purpose-built software probes used as exporters can generate IPFIX records directly from raw packet capture, providing complete unsampled flow data on monitored links regardless of the capabilities of the upstream network devices.
 
-Without exporters, monitoring platforms would not receive traffic visibility data.
+Export reliability is a practical concern. UDP transport means the collector has no acknowledgment mechanism. Records lost between the exporter and collector are gone; the collector cannot request retransmission. Deployments that require high fidelity for compliance or forensic purposes should keep the exporter-to-collector path short and low-latency, and should monitor exporter drop counters directly on the device.
 
-Flow exporters help organizations:
+---
 
-- monitor bandwidth usage
-- analyze traffic behavior
-- investigate communication patterns
-- detect anomalies
-- monitor applications
-- troubleshoot network issues
-- support ISP traffic analytics
+## Flow exporter vs flow probe
 
-They provide scalable traffic visibility without requiring full packet capture for every communication session.
+| Dimension | Hardware flow exporter | Dedicated flow probe |
+|---|---|---|
+| Where it runs | Router or switch forwarding hardware | Standalone server or appliance on a TAP or SPAN |
+| Sampling | Often required above moderate traffic rates | Unsampled at line rate using kernel-bypass capture |
+| Extended fields | Platform-dependent; varies by hardware and software version | Full IPFIX field set available including packet-derived metadata |
+| Deployment cost | No additional hardware; uses existing infrastructure | Additional hardware or server required per observation point |
+| Best fit | Topology-wide coverage, capacity planning, trending | Security monitoring, forensics, compliance |
 
-Flow exporters are especially important in:
+Hardware exporters and probes are complementary. Routers and switches provide broad coverage; probes provide depth at specific high-value observation points where unsampled, full-field export is required.
 
-- enterprise networks
-- ISPs
-- data centers
-- cloud environments
-- SOC operations
+---
 
-## **Common Types of Flow Exporters**
+## How Trisul handles flow exporters
 
-### NetFlow Exporters
+Trisul acts as the collector in a flow monitoring deployment. It auto-discovers exporters when the first flow records arrive, creating device and interface entries without manual configuration. NetFlow v1, v5, v9, Flexible NetFlow, IPFIX, and all sFlow versions are supported. Multiple exporters across the topology can send to a single Trisul instance simultaneously.
 
-Generate Cisco-style NetFlow records for traffic analysis.
+For observation points where hardware exporters are insufficient, Trisul can act as a software probe, generating IPFIX records directly from raw packets captured via PF_RING or AF_PACKET. This provides unsampled, complete flow export on monitored links and removes the dependency on the network device's flow export capability. Full NetFlow and exporter setup documentation is at https://docs.trisul.org/docs/ug/netflow/.
 
-### IPFIX Exporters
+---
 
-Export flexible standardized flow records using IPFIX.
+## Related terms
 
-### sFlow Exporters
+- [What is a flow?](/glossary/flow)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is NetFlow?](/glossary/netflow)
+- [What is IPFIX?](/glossary/ipfix)
+- [What is sFlow?](/glossary/sflow)
+- [What is flow sampling?](/glossary/flow-sampling)
+- [What is flow legs?](/glossary/flow-legs)
 
-Export sampled traffic statistics and packet information.
+---
 
-### Virtual Flow Exporters
+## Frequently asked questions
 
-Generate flow visibility from virtualized or cloud environments.
+### What is the difference between a flow exporter and a flow collector?
 
-## **Common Operational Use Cases**
+A flow exporter generates flow records from observed traffic and sends them over the network. A flow collector receives those records, parses them, and stores them for analysis. On a Cisco router, the device itself is the exporter. Trisul is the collector. A single collector typically receives records from many exporters across the network simultaneously.
 
-### Bandwidth Monitoring
+### Can a single flow exporter send to multiple collectors?
 
-Export traffic data for utilization and congestion analysis.
+Yes. Most exporter implementations support multiple export destinations. On Cisco Flexible NetFlow, each destination requires a separately defined flow exporter object assigned to the same flow monitor. This is commonly used to send records to both a primary collector and a secondary one for redundancy, or to split traffic between a network operations collector and a security analytics platform.
 
-### Security Monitoring
+### What export protocol should a flow exporter use?
 
-Provide visibility into suspicious communication and anomalies.
+IPFIX is the IETF standard and the recommended choice for new deployments. It supports flexible, template-based field definitions that allow exporters to include extended metadata such as application IDs, VLAN tags, MPLS labels, and TLS handshake fields. NetFlow v9 is widely supported and functionally similar. NetFlow v5 is fixed-format and limited to IPv4; it is still common on older hardware but cannot carry the extended fields that modern monitoring and security use cases require.
 
-### Application Visibility
+### What happens when a flow exporter drops records?
 
-Identify applications generating network traffic.
-
-### Traffic Investigation
-
-Support troubleshooting and forensic workflows.
-
-### ISP Traffic Analytics
-
-Export subscriber and backbone traffic visibility data.
-
-## **Flow Exporter vs Flow Collector**
-
-| Feature | Flow Exporter | Flow Collector| 
-|---------|---------------|----------------|
-| Primary Role |  Generate and send flow records  | Receive and store flow records| 
-| Location |  Network device |  Monitoring infrastructure| 
-| Main Function | Traffic observation | Data ingestion and retention| 
-| Traffic Visibility Source | Direct |  Indirect| 
-| Operational Layer | Traffic generation |  Backend collection| 
-
-Exporters create flow records, while collectors receive and store them.
-
-## **How Trisul Works with Flow Exporters**
-
-Trisul integrates with a wide range of flow exporters to provide scalable traffic analytics and operational visibility.
-
-Combined with:
-
-- Flow Analysis
-- Flow Stitchingᵀ
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-- Long-Term Traffic Retention
-
-Trisul helps teams:
-
-- ingest flow exports from multiple vendors
-- analyze traffic behavior
-- monitor bandwidth utilization
-- investigate suspicious communication
-- visualize traffic patterns
-- correlate historical traffic activity
-
-Trisul can also combine Packet Capture, Flow Analysis, and Conversation View workflows for deeper network visibility.
-
-## **Related Terms**
-
-- Flow Collector
-- Flow Analyzer
-- NetFlow
-- IPFIX
-- Flow Data
-- Flow Analysis
-
-## **FAQ**
-
-### What is a flow exporter?
-
-A flow exporter is a device or software component that generates and sends flow records to monitoring systems.
-
-### What information does a flow exporter send?
-
-Flow exporters send metadata such as IP addresses, ports, protocols, packet counts, bandwidth usage, and timestamps.
-
-### Which devices can act as flow exporters?
-
-Routers, switches, firewalls, probes, and virtual appliances can all function as flow exporters.
-
-### What's the difference between a flow exporter and a flow collector?
-
-An exporter generates flow records, while a collector receives and stores those records.
-
-### Why are flow exporters important?
-
-They provide scalable traffic visibility for monitoring, analytics, troubleshooting, and security investigations.
-
-### Can flow exporters support security monitoring?
-
-Yes. Exported flow data helps detect anomalies, suspicious communication, and abnormal traffic behavior.
+Flow export competes with forwarding resources on the device, particularly the flow cache and CPU cycles used to maintain and flush cache entries. Under heavy traffic, exporters can drop records silently without notifying the collector. The collector has no way to distinguish a gap caused by export drops from a period of low traffic. Monitoring exporter drop counters on the device itself is necessary to validate that the collector is receiving a complete record stream.

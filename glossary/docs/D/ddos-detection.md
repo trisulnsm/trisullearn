@@ -1,185 +1,130 @@
 ---
-title: What is DDoS Detection?
-sidebar_label: DDoS Detection
-sidebar_position: 23
+title: What is DDoS detection?
+description: DDoS detection is the process of identifying distributed denial-of-service attacks by monitoring traffic patterns, volume anomalies, and behavioral indicators that signal malicious flood traffic targeting a network, service, or application.
+sidebar_label: DDoS detection
+sidebar_position: 24
 slug: /glossary/ddos-detection
-description: Learn what DDoS detection is, how it works, and why detecting distributed denial-of-service attacks is important for network security and traffic visibility.
 keywords:
-  - DDoS detection
+  - ddos detection
   - distributed denial of service detection
-  - DDoS monitoring
-  - traffic flood detection
-  - network attack detection
-  - anomaly traffic analysis
+  - dos attack detection
+  - traffic anomaly detection
+  - volumetric attack detection
+  - network security monitoring
+  - flood detection
 ---
 
-# What is DDoS Detection?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the indicators of a DDoS attack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indicators include a single IP or range making excessive consecutive requests, heavy traffic from a single geographical location, unusual traffic patterns persisting for minutes or hours, service returning 500 Internal Server Error or 503 Server Unavailable messages, alerts about bandwidth/memory/CPU issues, packet TTLs expiring due to bandwidth consumption, and massive spikes in SYN packets without corresponding ACK packets indicating SYN flooding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does flow-based DDoS detection work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow-based detection passively analyzes flow data from NetFlow, J-Flow, sFlow, and IPFIX-enabled routers. It monitors traffic volume, top talkers, source/destination distribution, and protocol breakdown. When thresholds are exceeded or anomalies are detected, alerts are triggered. Flow-based detection scales to hypervolumetric attacks that overwhelm inline tools but cannot automatically adjust protection configurations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between inline and out-of-band DDoS detection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inline packet inspection tools sit in front of infrastructure and monitor all traffic, can automatically adjust protection configurations, but are easily overwhelmed by hypervolumetric attacks and cause increased latency. Out-of-band tools passively analyze flow data, scale to massive attacks, and avoid false positives but cannot automatically adjust protection and must trigger mitigation via routing to a centralized cleansing station."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of DDoS attacks can be detected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Detections include volumetric attacks like UDP floods and ICMP floods, protocol attacks like SYN floods and fragmented packet attacks, and application-layer attacks like HTTP floods and DNS amplification. SYN flooding is detected by a large number of SYN packets with no corresponding ACK packets. DNS amplification is detected by high volumes of DNS queries from spoofed sources."
+      }
+    }
+  ]
+};
 
-**DDoS detection** is the process of identifying Distributed Denial‑of‑Service (DDoS) attacks by monitoring abnormal traffic patterns, traffic floods, and unusual network behavior.  
+# What is DDoS detection?
 
-DDoS attacks attempt to overwhelm servers, applications, or network infrastructure with large volumes of traffic, causing performance degradation, latency, or service unavailability.  
+DDoS detection identifies distributed denial-of-service attacks by monitoring traffic patterns, volume anomalies, and behavioral indicators. DDoS attacks flood targets with malicious traffic from many sources, overwhelming bandwidth or resources. Detection is critical for rapid mitigation. Two primary methods are inline packet inspection and out-of-band flow analysis. Flow-based detection scales to hypervolumetric attacks that overwhelm inline tools.
 
-DDoS detection helps network and security teams identify such attacks quickly and trigger response or mitigation workflows before services become severely impacted.
+---
 
-## **How DDoS Detection Works**
+## What DDoS detection examines
 
-DDoS detection systems continuously monitor network traffic and compare current behavior against expected traffic patterns, baselines, or thresholds.  
+Detection examines traffic volume anomalies, top talkers, source/destination distribution, and protocol breakdown. It monitors for excessive consecutive requests from single IPs or ranges, heavy traffic from single geographical locations, unusual traffic patterns persisting over minutes or hours, and service errors like 500 Internal Server Error or 503 Server Unavailable.
 
-These systems analyze:
-- bandwidth usage and capacity utilization  
-- packet and connection‑rate metrics  
-- protocol behavior (floods of specific protocols or states)  
-- traffic distribution (by destination, interface, or application)  
-- source IP and subnet activity  
-- geographic and ASN‑level traffic patterns  
-- flow‑level anomalies (for example, unusually long sessions or unexpected protocol mixes)  
+SYN flooding is detected by a large number of SYN packets with no corresponding ACK packets. DNS amplification is detected by high DNS query volumes from spoofed sources. Application-layer attacks are detected by HTTP request patterns and response codes.
 
-When traffic deviates significantly from normal patterns or exceeds configured thresholds, the system generates alerts or triggers further investigation.  
+---
 
-For example:
+## DDoS detection in network operations
 
-1. A sudden traffic spike targets a public‑facing service.  
-2. Packet rates increase far beyond normal levels.  
-3. Thousands of source IPs begin sending requests simultaneously.  
-4. The monitoring system flags the activity as a potential DDoS attack.  
+SOC teams use DDoS detection for threat monitoring and incident response. When an attack is detected, automated alerts trigger mitigation workflows. Flow-based detection identifies attacks at the network edge before they overwhelm internal infrastructure.
 
-![images/ddosdetection.png](images/ddosdetection.png)
+NOC teams use DDoS detection for bandwidth monitoring and capacity alerts. Unusual traffic spikes that could indicate attacks are distinguished from legitimate traffic surges. DDoS detection helps operators determine whether an outage is due to heavier-than-normal legitimate traffic or malicious flood traffic.
 
-*Figure: DDoS detection workflow showing how abnormal traffic patterns are identified and flagged for further investigation.*
+ISPs use DDoS detection for upstream protection and customer notification. Attack traffic is identified at the network edge, and mitigation is triggered via routing to centralized cleansing stations.
 
-## **Why DDoS Detection Matters**
+---
 
-DDoS attacks can:
-- disrupt or degrade business services  
-- overload network infrastructure and upstream links  
-- increase latency and jitter  
-- saturate bandwidth  
-- reduce application availability  
-- negatively impact user or customer experience  
+## Inline vs out-of-band DDoS detection
 
-Early detection helps organizations:
-- reduce downtime and blast‑radius  
-- improve incident‑response speed  
-- trigger mitigation systems faster  
-- protect critical services and applications  
-- maintain network stability during traffic surges  
-- investigate attack characteristics for future tuning  
-
-DDoS detection is especially important in:
-- ISPs and backbone networks  
-- cloud environments and hosted services  
-- enterprise networks with public‑facing infrastructure  
-- hosting and colocation providers  
-- financial and government services  
-- public‑facing e‑commerce and media platforms  
-
-## **Types of DDoS Attacks**
-
-### Volumetric Attacks
-
-Overwhelm capacity using massive traffic floods (for example, UDP or ICMP floods) that saturate bandwidth or upstream links.
-
-### Protocol Attacks
-
-Exploit weaknesses in network or transport‑layer protocols or infrastructure devices (for example, SYN floods, fragmented‑packet floods).
-
-### Application‑Layer Attacks
-
-Target specific applications or services using Layer 7 requests (for example, HTTP‑level request floods or slow‑loris‑style attacks).
-
-### Reflection and Amplification Attacks
-
-Use third‑party systems (DNS, NTP, etc.) to amplify attack traffic volume and obscure the real source.
-
-## **Common Operational Use Cases**
-
-### Traffic Flood Detection
-
-Identify sudden spikes in bandwidth, packet rates, or connection‑rate metrics on key interfaces or services.
-
-### Attack Investigation
-
-Analyze attack sources, protocols, and traffic behavior to understand attack vectors and support upstream‑provider coordination.
-
-### ISP Backbone Monitoring
-
-Detect large‑scale attacks affecting subscriber or upstream traffic, including peering‑link overloads and major traffic anomalies.
-
-### Security Operations
-
-Monitor suspicious inbound and outbound traffic behavior for early indicators of amplification targets or botnet‑driven floods.
-
-### Mitigation Triggering
-
-Activate local rate‑limiting, filtering, or upstream DDoS‑mitigation services based on detection signals.
-
-## **DDoS Detection vs DDoS Mitigation**
-
-| Feature | DDoS Detection | DDoS Mitigation |
+| Dimension | Inline detection | Out-of-band detection |
 |---|---|---|
-| Primary Goal | Identify and alert on attacks | Block, drop, or scrub attack traffic |
-| Focus | Monitoring and visibility | Traffic filtering and protection |
-| Traffic Analysis | Extensive, diagnostic | Operational, often automated |
-| Alerting | Core component | Optional or embedded |
-| Attack Response | Investigative and reactive | Preventive and corrective |
+| Deployment | In front of infrastructure | Passive flow analysis |
+| Automatic mitigation | Yes, adjusts protection configs | No, triggers via routing |
+| Scalability | Easily overwhelmed by hypervolumetric | Scales to massive attacks |
+| Latency impact | Increased latency from inspection | No latency impact |
+| False positives | Higher risk | Lower risk |
+| Best fit | Small to medium attacks | Large-scale, hypervolumetric |
 
-DDoS detection identifies attacks and provides visibility; DDoS mitigation actively reduces or blocks malicious traffic using filtering, scrubbing, or rate‑limiting mechanisms.
-
-## **How Trisul Handles DDoS Detection**
-
-Trisul provides real‑time traffic visibility and behavioral analytics that can help identify abnormal traffic floods and DDoS‑style attack patterns.  
-
-Using features such as:
-- Top‑K Analyticsᵀ  
-- Multigraph Analyticsᵀ  
-- Retro Analysisᵀ  
-- Flow Taggerᵀ  
-- Long‑Term Traffic Retention  
-- Badfellasᵀ  
-
-Trisul helps teams:
-- detect traffic floods and bandwidth‑spike patterns  
-- identify top‑speaking attack sources and target destinations  
-- analyze attack patterns over time and across interfaces  
-- monitor protocol‑ and application‑level anomalies  
-- investigate protocol‑abuse scenarios (for example, unusual TCP/UDP behavior)  
-- visualize attack‑traffic distribution and volume trends over time  
-
-Trisul can also correlate **[NetFlow](/glossary/netflow)**, **[Packet Capture](/glossary/packet-capture)**, and **[Anomaly Detection](/glossary/anomaly-detection)** workflows for deeper DDoS investigation and long‑term analysis.
-
-## **Related Terms**
-
-- [Anomaly Detection](/glossary/anomaly-detection)  
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)  
-- [Traffic Investigation](/glossary/traffic-investigation)  
-- [Flow Analysis](/glossary/flow-analysis)  
-- [Packet Capture](/glossary/packet-capture)  
-- [Badfellasᵀ](/glossary/badfellas)
+Inline and out-of-band detection are complementary. Inline provides automatic mitigation for smaller attacks; out-of-band provides scalable detection for large attacks that would overwhelm inline systems.
 
 ---
 
-## **FAQ**
+## How Trisul handles DDoS detection
 
-### What is DDoS detection?
+Trisul provides DDoS detection through flow monitoring and anomaly detection. It monitors traffic volume, top talkers, and protocol distribution across interfaces and hosts. Trisul's flow analytics identify unusual traffic patterns that could indicate attacks, such as sudden spikes in traffic volume, high volumes of traffic from single sources, and SYN flood patterns.
 
-DDoS detection is the process of identifying distributed denial‑of‑service attacks by analyzing traffic volumes, packet rates, and behavioral anomalies that deviate from normal patterns.
+Trisul's Trigger-based alerting allows operators to set fixed limits for specific metrics like bandwidth utilization or connection counts. Flow Tracker monitors per-flow conditions as traffic flows. When an attack is detected, Trisul can identify the top talkers, source distribution, and affected interfaces. For full DDoS mitigation, Trisul should be paired with dedicated DDoS mitigation appliances or scrubbing services. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-### Why is DDoS detection important?
+---
 
-It helps organizations detect attacks early, minimize service disruption, reduce downtime, and initiate mitigation or upstream‑provider coordination faster.
+## Related terms
 
-### How are DDoS attacks detected?
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is flow analysis?](/glossary/flow-analysis)
+- [What is anomaly detection?](/glossary/anomaly-detection)
+- [What is SYN flood?](/glossary/syn-flood)
+- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is Top-K analytics?](/glossary/top-k-analytics)
 
-Detection systems analyze bandwidth usage, packet and connection rates, traffic distribution, protocol behavior, and anomalies to identify suspicious patterns that may indicate DDoS activity.
+---
 
-### What's the difference between DDoS detection and mitigation?
+## Frequently asked questions
 
-DDoS detection identifies attacks and generates visibility and alerts, while DDoS mitigation actively blocks, filters, or scrubs malicious traffic to protect services.
+### What are the indicators of a DDoS attack?
 
-### Can NetFlow help detect DDoS attacks?
+Indicators include a single IP or range making excessive consecutive requests, heavy traffic from a single geographical location, unusual traffic patterns persisting for minutes or hours, service returning 500 Internal Server Error or 503 Server Unavailable messages, alerts about bandwidth/memory/CPU issues, packet TTLs expiring due to bandwidth consumption, and massive spikes in SYN packets without corresponding ACK packets indicating SYN flooding.
 
-Yes. NetFlow and IPFIX are commonly used to detect abnormal traffic spikes, high‑rate flows, and unusual source‑to‑destination patterns that may indicate DDoS behavior.
+### How does flow-based DDoS detection work?
 
-### Is DDoS detection useful for ISPs?
+Flow-based detection passively analyzes flow data from NetFlow, J-Flow, sFlow, and IPFIX-enabled routers. It monitors traffic volume, top talkers, source/destination distribution, and protocol breakdown. When thresholds are exceeded or anomalies are detected, alerts are triggered. Flow-based detection scales to hypervolumetric attacks that overwhelm inline tools but cannot automatically adjust protection configurations.
 
-Yes. ISPs use DDoS detection to monitor backbone and peering traffic, protect infrastructure, and investigate large‑scale attacks affecting subscriber or upstream traffic.
+### What is the difference between inline and out-of-band DDoS detection?
+
+Inline packet inspection tools sit in front of infrastructure and monitor all traffic, can automatically adjust protection configurations, but are easily overwhelmed by hypervolumetric attacks and cause increased latency. Out-of-band tools passively analyze flow data, scale to massive attacks, and avoid false positives but cannot automatically adjust protection and must trigger mitigation via routing to a centralized clearing station.
+
+### What types of DDoS attacks can be detected?
+
+Detections include volumetric attacks like UDP floods and ICMP floods, protocol attacks like SYN floods and fragmented packet attacks, and application-layer attacks like HTTP floods and DNS amplification. SYN flooding is detected by a large number of SYN packets with no corresponding ACK packets. DNS amplification is detected by high volumes of DNS queries from spoofed sources.

@@ -1,177 +1,114 @@
 ---
-title: What are Flow Legsᵀ?
-sidebar_label: Flow Legsᵀ
-sidebar_position: 40
+title: What is a flow leg?
+description: A flow leg is a single copy of a flow record as seen and exported by one network device. When a flow traverses multiple NetFlow-enabled devices, each device generates its own leg, resulting in multiple records for the same conversation at the collector.
+sidebar_label: Flow legs
+sidebar_position: 8
 slug: /glossary/flow-legs
-description: Learn what Flow Legsᵀ are in Trisul Network Analytics and how they help analyze traffic paths, conversations, and multi-hop communication visibility.
 keywords:
-  - Flow Legs
-  - Trisul Flow Legs
-  - traffic path analysis
-  - flow path visibility
-  - network conversation analysis
-  - multi-hop traffic analysis
+  - flow legs
+  - flow duplication
+  - netflow legs
+  - flow deduplication
+  - multi-device flow export
+  - flow leg correlation
 ---
 
-# What are Flow Legsᵀ?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do flow legs cause over-counting in traffic reports?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If a flow crosses two NetFlow-enabled routers and both export a record to the same collector, the collector sees two legs for the same conversation. Without deduplication, bandwidth reports count those bytes twice. At ISP scale, where flows may traverse multiple aggregation and edge devices all exporting to the same collector, over-counting compounds and produces utilization figures significantly higher than actual link throughput."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Trisul keep flow legs separate by default?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keeping legs separate preserves the per-device and per-interface context that is lost when records are merged. An operator investigating saturation on a specific edge router interface needs to see flows as they appeared on that device, not as a merged record that strips out the source detail. Trisul keeps legs as-is by default so that interface-level drilldown remains accurate, and provides explicit merge options for operators who prefer a deduplicated view."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is NAT leg correlation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a flow crosses a NAT boundary, the source IP or port visible on the inside of the NAT device differs from what is visible on the outside. This means the two legs of the same conversation have different 5-tuples and cannot be matched by exact tuple comparison. NAT leg correlation applies source port heuristics to detect the translation and join the pre-NAT and post-NAT legs into a single correlated record."
+      }
+    }
+  ]
+};
 
-Flow Legsᵀ are a Trisul Network Analytics feature that breaks a network conversation into individual traffic segments or communication stages across different devices, interfaces, or network paths.
+# What is a flow leg?
 
-Instead of viewing a traffic flow as a single isolated session, Flow Legsᵀ helps teams understand how traffic moves through multiple hops, links, or monitoring points across a network.
+A flow leg is a single copy of a flow record as observed and exported by one network device. When a flow traverses multiple NetFlow-enabled routers or switches, each device generates its own leg independently. The collector receives all of them. The result is multiple records representing the same conversation, each carrying the perspective of a different device: different ingress and egress interfaces, potentially different timestamps, and the same or similar byte counts. Flow legs are the root cause of flow duplication at the collector.
 
-This improves visibility into:
-- traffic paths
-- multi-hop communication
-- routing behavior
-- asymmetric traffic
-- internal application communication
-- traffic troubleshooting
+---
 
-## **How Flow Legsᵀ Work**
+## How flow legs arise
 
-In modern networks, traffic often traverses multiple systems before reaching its destination.
+A client-to-server flow that enters an ISP network at an edge router, crosses a core aggregation router, and exits at a peering router may generate three separate flow legs if all three devices export to the same collector. Each leg is a legitimate, accurate record from its device's perspective. The duplication is not an error in the exporter; it is the natural result of deploying flow export at multiple points on the same path.
 
-A single communication session may involve:
-- routers
-- firewalls
-- load balancers
-- switches
-- WAN links
-- cloud gateways
-- internal application tiers
+The problem becomes visible in reporting. Byte counts for a single conversation are multiplied by the number of exporting hops it crossed. A 1 GB transfer appearing across three legs looks like 3 GB in an unprocessed report.
 
-Flow Legsᵀ separates these communication stages into connected traffic segments called "legs."
+---
 
-For example:
+## Flow legs in network operations
 
-1. A user accesses a cloud application
-2. Traffic crosses an edge firewall
-3. The session traverses a WAN link
-4. Internal services communicate with backend databases
-5. Each communication segment becomes a separate flow leg
+Flow legs are most common in ISP and large enterprise networks where core and edge routers all run NetFlow. In smaller networks with a single export point per path, legs are rarely an issue. The more NetFlow exporters deployed on overlapping traffic paths, the more legs the collector receives for the same conversations.
 
-This helps analysts visualize:
-- where traffic traveled
-- how communication changed
-- which systems participated
-- where latency or anomalies occurred
+Interface-level troubleshooting depends on leg-level data. When investigating congestion on a specific router interface, the per-leg record carries the exact ingress and egress interface identifiers for that device. Merging legs into a single deduplicated record removes that detail. Keeping legs separate allows operators to trace a flow through its full path across the topology, device by device.
 
-## **Why Flow Legsᵀ Matter**
+---
 
-Traditional flow analysis may only show endpoint-to-endpoint communication.
+## Flow legs vs flow stitching
 
-This can make it difficult to:
-- analyze multi-hop traffic paths
-- troubleshoot asymmetric routing
-- investigate application dependencies
-- understand internal communication stages
-- correlate distributed traffic activity
-
-Flow Legsᵀ improves:
-- traffic path visibility
-- troubleshooting accuracy
-- operational context
-- forensic investigation workflows
-- east-west traffic analysis
-- cloud communication visibility
-
-It is especially useful in:
-- enterprise WANs
-- cloud environments
-- microservices architectures
-- ISP infrastructures
-- data centers
-- hybrid networks
-
-## **Common Operational Use Cases**
-
-### Application Troubleshooting
-
-Identify where latency or packet loss occurs across communication paths.
-
-### Multi-Hop Traffic Analysis
-
-Visualize traffic movement through complex infrastructures.
-
-### East-West Traffic Visibility
-
-Analyze internal communication between services and systems.
-
-### WAN Path Investigation
-
-Track communication across branch and backbone networks.
-
-### Security Investigation
-
-Investigate suspicious traffic movement between network segments.
-
-## **Flow Legsᵀ vs Traditional Flow Analysis**
-
-| Feature | Flow Legsᵀ | Traditional Flow Analysis |
+| Dimension | Flow legs | Flow stitching |
 |---|---|---|
-| Visibility Depth | Multi-hop communication | Endpoint-to-endpoint |
-| Traffic Path Awareness | High | Limited |
-| Operational Context | Rich | Moderate |
-| Internal Traffic Visibility | Strong | Basic |
-| Troubleshooting Capability | Advanced | Standard |
+| Problem | Multiple records for the same flow from different devices | Two unidirectional records for opposite directions of one conversation |
+| Cause | Flow traverses multiple NetFlow-enabled hops | NetFlow exports one record per direction by design |
+| Solution | Deduplication or leg merging at the collector | Bidirectional stitching using reversed 5-tuple matching |
+| Data lost on resolution | Per-device and per-interface source detail | Nothing; directional counts are preserved in the biflow |
+| When to resolve | When accurate volume reporting matters more than hop-level detail | Almost always; unidirectional records are operationally awkward |
 
-Flow Legsᵀ provides deeper visibility into how traffic traverses the network across multiple stages.
-
-## **How Trisul Uses Flow Legsᵀ**
-
-Trisul uses Flow Legsᵀ alongside its advanced traffic analytics and contextual monitoring workflows to improve traffic path visibility.
-
-Combined with:
-- Flow Stitchingᵀ
-- Contextᵀ
-- Conversation View
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-- visualize traffic movement across infrastructures
-- analyze multi-hop communication
-- troubleshoot distributed applications
-- investigate asymmetric routing behavior
-- monitor east-west traffic
-- correlate related communication stages
-
-Trisul can also integrate [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper operational visibility.
-
-## **Related Terms**
-
-- [Flow Stitching](/glossary/flow-stitching)
-- [Conversation View](/glossary/conversation-view)
-- [East-West Traffic](/glossary/east-west-traffic)
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Flow Analysis](/glossary/flow-analysis)
-- [Contextᵀ](/glossary/context)
+Both problems often appear together. A flow crossing multiple devices may arrive at the collector as several legs, each of which also needs to be stitched with its return direction leg.
 
 ---
 
-## **FAQ**
+## How Trisul handles flow legs
 
-### What are Flow Legsᵀ in Trisul?
+Trisul stores all legs as separate records by default, preserving the router and interface detail needed for per-device drilldown. Operators who want a deduplicated view have two options. MergeMultipleSources in the NetFlow configuration file merges legs from multiple devices into a single record, removing the per-device source information. Flow Legs Correlation in Web Trisul options groups legs visually in the interface without discarding the source detail, giving a consolidated view while keeping the underlying records intact.
 
-Flow Legsᵀ are traffic path segments that represent different stages of communication across a network.
+For NAT environments, Trisul's NAT leg correlation applies port heuristics to detect and correlate legs that cross address translation boundaries, where exact 5-tuple matching is not possible. Full documentation is at https://docs.trisul.org/docs/ug/flow/deduplication/.
 
-### Why are Flow Legsᵀ important?
+---
 
-They improve visibility into multi-hop traffic paths, routing behavior, and distributed application communication.
+## Related terms
 
-### How do Flow Legsᵀ help troubleshooting?
+- [What is a flow?](/glossary/flow)
+- [What is flow stitching?](/glossary/flow-stitching)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is NetFlow?](/glossary/netflow)
+- [What is flow sampling?](/glossary/flow-sampling)
+- [What is flow timeout?](/glossary/flow-timeout)
 
-They help identify where delays, anomalies, or communication issues occur across traffic paths.
+---
 
-### What's the difference between Flow Legsᵀ and traditional flow analysis?
+## Frequently asked questions
 
-Traditional flow analysis focuses mainly on endpoints, while Flow Legsᵀ analyzes intermediate communication stages and paths.
+### How do flow legs cause over-counting in traffic reports?
 
-### Are Flow Legsᵀ useful in cloud environments?
+If a flow crosses two NetFlow-enabled routers and both export a record to the same collector, the collector sees two legs for the same conversation. Without deduplication, bandwidth reports count those bytes twice. At ISP scale, where flows may traverse multiple aggregation and edge devices all exporting to the same collector, over-counting compounds and produces utilization figures significantly higher than actual link throughput.
 
-Yes. They help analyze traffic movement across distributed cloud and hybrid infrastructures.
+### Why does Trisul keep flow legs separate by default?
 
-### Can Flow Legsᵀ help with security investigations?
+Keeping legs separate preserves the per-device and per-interface context that is lost when records are merged. An operator investigating saturation on a specific edge router interface needs to see flows as they appeared on that device, not as a merged record that strips out the source detail. Trisul keeps legs as-is by default so that interface-level drilldown remains accurate, and provides explicit merge options for operators who prefer a deduplicated view.
 
-Yes. They improve visibility into suspicious traffic movement, lateral communication, and multi-stage network activity.
+### What is NAT leg correlation?
+
+When a flow crosses a NAT boundary, the source IP or port visible on the inside of the NAT device differs from what is visible on the outside. This means the two legs of the same conversation have different 5-tuples and cannot be matched by exact tuple comparison. NAT leg correlation applies source port heuristics to detect the translation and join the pre-NAT and post-NAT legs into a single correlated record.

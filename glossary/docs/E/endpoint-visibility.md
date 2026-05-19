@@ -1,197 +1,129 @@
 ---
-title: What is Endpoint Visibility?
-sidebar_label: Endpoint Visibility
-sidebar_position: 30
+title: What is endpoint visibility?
+description: Endpoint visibility is the ability to continuously discover, monitor, and understand the status, behavior, and security posture of every device connected to a network.
+sidebar_label: Endpoint visibility
+sidebar_position: 16
 slug: /glossary/endpoint-visibility
-description: Learn what endpoint visibility is, how it works, and why monitoring endpoint activity is important for security, traffic analysis, and operational troubleshooting.
 keywords:
   - endpoint visibility
   - endpoint monitoring
-  - endpoint traffic visibility
   - device visibility
-  - endpoint security monitoring
-  - network endpoint analysis
+  - endpoint security
+  - endpoint detection
+  - asset inventory
+  - endpoint management
 ---
 
-# What is Endpoint Visibility?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What devices count as endpoints?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Endpoints include desktops, laptops, mobile devices, tablets, servers, printers, and IoT devices that communicate across a network. Any device with an IP address and network interface is an endpoint from a visibility perspective. Some organizations also count networked appliances and virtual machines as endpoints, depending on their security model."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between endpoint visibility and endpoint protection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Endpoint visibility is the ability to see what endpoints are doing and what state they are in. Endpoint protection is the ability to stop threats on those endpoints. Visibility comes first: you cannot protect what you cannot see. Protection solutions like antivirus and EDR require visibility to identify what they are protecting; visibility solutions require protection to secure what they are monitoring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can network flow monitoring provide endpoint visibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network flow monitoring provides network-level visibility of endpoint activity: which endpoints are communicating, when, and how much data was exchanged. It does not provide endpoint-level details such as what processes are running, what files were accessed, or what registry changes were made. For endpoint-level visibility, endpoint detection and response or endpoint management tools are required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the three pillars of endpoint visibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Discovery and classification: identifying all devices connected to the network and categorizing them by type and role. Monitoring: continuously observing device activities and behaviors. Management: enforcing security policies and configurations across devices. Without all three, visibility is incomplete: you may see devices but not know what they are, or know what they are but not how they are behaving."
+      }
+    }
+  ]
+};
 
-**Endpoint visibility** is the ability to monitor, identify, and analyze the activity of devices connected to a network, including their traffic behavior, communication patterns, applications, and security‑relevant signals.  
+# What is endpoint visibility?
 
-Endpoints can include:
-- laptops and desktops  
-- servers and database hosts  
-- mobile devices and tablets  
-- virtual machines and containers  
-- IoT devices  
-- cloud workloads and VPC‑based instances  
+Endpoint visibility is the ability to continuously discover, monitor, and understand the status, behavior, and security posture of every device connected to a network. It covers laptops, desktops, mobile devices, servers, printers, and IoT devices. Endpoint visibility is the foundation for effective security, because you cannot protect what you cannot see. It is also essential for IT operations, because troubleshooting and patching require knowing what devices exist and what state they are in.
 
-Endpoint visibility helps network and security teams understand how devices interact with applications, users, and network services.
+---
 
-## **How Endpoint Visibility Works**
+## What endpoint visibility includes
 
-Monitoring platforms collect traffic and operational data from a variety of sources:
-- flow records (NetFlow, IPFIX, sFlow)  
-- packet captures  
-- endpoint agents or telemetry (when available)  
-- authentication and RADIUS/AAA systems  
-- DNS queries and responses  
-- application‑level traffic and protocol behavior  
+Endpoint visibility covers discovery, monitoring, and management. Discovery identifies all devices on the network and classifies them by type and role. Monitoring observes device activities and behaviors continuously. Management enforces security policies and configurations across devices.
 
-This data helps teams:
-- identify which devices are active and when  
-- see what applications and services they use  
-- understand where they communicate (internal vs external, ASNs, domains)  
-- gauge how much bandwidth each endpoint consumes  
-- detect behavior that deviates from normal patterns  
+Components include endpoint detection and response tools that monitor endpoint activities and detect suspicious behaviors, endpoint management platforms that handle device configurations and updates, and integration with SIEM systems for centralized analysis.
 
-For example:
+---
 
-1. A workstation begins communicating with unusual external domains or IPs.  
-2. Traffic analysis identifies abnormal outbound activity and top‑talker patterns.  
-3. The endpoint is correlated with user identity, session data, and DNS‑lookup behavior.  
-4. Analysts investigate the device for potential compromise or policy violation.  
+## Endpoint visibility in network operations
 
-Endpoint visibility often relies on tying IP addresses, MAC addresses, user IDs, and session information to specific devices over time.
+SOC teams use endpoint visibility to detect breaches as they happen, investigate incidents, and rapidly respond. When an endpoint is compromised, visibility tools show what processes were executed, what files were accessed, and what network connections were opened.
 
-## **Why Endpoint Visibility Matters**
+NOC and IT operations teams use endpoint visibility to monitor device health, ensure timely patching, and troubleshoot performance issues. Without endpoint visibility, unknown or unmanaged devices can remain on the network indefinitely, creating security gaps and compliance issues.
 
-Modern networks contain thousands or even millions of connected devices generating large volumes of traffic.  
+ISPs and large enterprises use endpoint visibility to maintain asset inventory and enforce security policies across thousands of devices. This visibility is critical for detecting unauthorized devices, preventing breaches, and meeting compliance requirements.
 
-Without endpoint visibility, organizations may struggle to:
-- identify compromised or misbehaving devices  
-- quickly troubleshoot user‑specific connectivity or performance issues  
-- monitor internal communication and lateral‑movement patterns  
-- detect shadow‑IT applications or unmanaged devices  
-- investigate suspicious traffic from a device‑level perspective  
-- track application‑usage and SaaS‑related traffic per device  
+---
 
-Endpoint visibility improves:
-- security monitoring and incident detection  
-- operational troubleshooting and support workflows  
-- user‑activity and device‑usage analysis  
-- device‑management and policy‑enforcement decisions  
-- traffic‑investigation and root‑cause analysis  
-- incident‑response and post‑mortem workflows  
+## Endpoint visibility vs network visibility
 
-It is especially important in:
-- enterprise environments with mixed‑device fleets  
-- SOC operations focused on endpoint‑centric threats  
-- remote‑work and hybrid‑work infrastructures  
-- cloud and multi‑tenant environments  
-- IoT and operational‑technology deployments  
-- zero‑trust and strict‑access‑policy architectures  
-
-## **Types of Endpoint Visibility**
-
-### Traffic Visibility
-
-Monitor the network communication generated by endpoints, including volume, destinations, protocols, and timing patterns.
-
-### Application Visibility
-
-Identify the applications and services used by endpoints, such as SaaS, internal tools, or unsanctioned software.
-
-### Behavioral Visibility
-
-Analyze communication patterns and temporal behavior (for example, beaconing, bursty exfiltration‑like transfers, or atypical working‑hour usage).
-
-### Security Visibility
-
-Detect suspicious traffic, malware‑related communication, or lateral‑movement‑style activity originating from endpoints.
-
-### User Visibility
-
-Correlate endpoint activity with user identities and roles (for example, mapping IP sessions and DNS lookups to usernames or account IDs).
-
-## **Common Operational Use Cases**
-
-### Threat Detection
-
-Identify compromised devices or endpoints exhibiting suspicious outbound traffic, unusual DNS‑requests, or protocol‑abuse patterns.
-
-### Device Monitoring
-
-Track active devices, their locations, and communication patterns across the network for capacity, performance, and policy‑compliance purposes.
-
-### Incident Response
-
-Investigate endpoints involved in suspicious traffic events, including potential malware infections, data‑exfiltration attempts, or policy‑violation incidents.
-
-### Application Troubleshooting
-
-Analyze connectivity, latency, and session‑quality issues affecting specific endpoints or user groups.
-
-### Shadow IT Detection
-
-Identify unauthorized applications, unmanaged devices, or unsanctioned SaaS usage that may bypass policy or security controls.
-
-## **Endpoint Visibility vs Network Visibility**
-
-| Feature | Endpoint Visibility | Network Visibility |
+| Dimension | Endpoint visibility | Network visibility |
 |---|---|---|
-| Primary Focus | Individual devices and their behavior | Overall traffic and infrastructure activity |
-| Visibility Scope | Device‑ or user‑centric | Network‑wide and interface‑centric |
-| User Correlation | Strong (binding IP, MAC, session to user) | Moderate or optional |
-| Traffic Context | Endpoint‑centric (apps, users, devices) | Infrastructure‑centric (links, peering, traffic‑overall) |
-| Common Goal | Monitor and secure devices and users | Ensure performance and stability of the network |
+| What it sees | Processes, files, registry, user activity on devices | Traffic between devices: flows, packets, protocols |
+| Scope | Per-device depth | Network-wide breadth |
+| Agents required | Yes, software on each endpoint | No, typically passive monitoring |
+| Payload visibility | Full application context | Full, subject to encryption |
+| Best fit | Intrusion investigation, compliance, endpoint protection | Detection of lateral movement, traffic anomalies, capacity planning |
 
-Endpoint visibility focuses on **what devices and users do**; network visibility focuses on **how the infrastructure behaves** under traffic load.
-
-## **How Trisul Handles Endpoint Visibility**
-
-Trisul provides endpoint‑aware traffic visibility by combining flow analytics, packet‑level insights, and contextual monitoring workflows.  
-
-Using features such as:
-- Flow Analysis  
-- Packet Capture  
-- Contextᵀ  
-- Top‑K Analyticsᵀ  
-- Badfellasᵀ  
-- Retro Analysisᵀ  
-
-Trisul helps teams:
-- monitor endpoint‑level communication patterns and traffic activity  
-- investigate suspicious devices or top‑talker endpoints  
-- analyze application‑usage and service‑connectivity behavior per endpoint  
-- visualize east‑west traffic behavior and host‑to‑host interactions  
-- detect abnormal outbound communication that may indicate compromise or policy violations  
-- correlate traffic activity with endpoint and session‑level behavior over time  
-
-Trisul can also correlate **[DNS Traffic Analysis](/glossary/dns-traffic-analysis)**, **[Packet Capture](/glossary/packet-capture)**, and **[Conversation View](/glossary/conversation-view)** workflows for deeper endpoint‑centric investigation and long‑term analysis.
-
-## **Related Terms**
-
-- [Network Security Monitoring](/glossary/network-security-monitoring-nsm)  
-- [Traffic Investigation](/glossary/traffic-investigation)  
-- [DNS Traffic Analysis](/glossary/dns-traffic-analysis)  
-- [Conversation View](/glossary/conversation-view)  
-- [East-West Traffic](/glossary/east-west-traffic)  
-- [Packet Capture](/glossary/packet-capture)  
+Endpoint visibility and network visibility are complementary. Endpoint tools provide depth on individual devices; network tools provide breadth across the entire topology.
 
 ---
 
-## **FAQ**
+## How Trisul handles endpoint visibility
 
-### What is endpoint visibility?
+Trisul provides network-level visibility of endpoint activity through flow monitoring and packet capture. It reveals which endpoints are communicating, when, and how much data was exchanged, but does not provide endpoint-level details such as processes, files, or registry changes. For endpoint-level visibility, Trisul should be paired with an endpoint detection and response or endpoint management solution.
 
-Endpoint visibility is the ability to monitor and analyze the activity, traffic patterns, and communication behavior of devices connected to a network.
+Trisul helps bridge the gap by correlating network activity with endpoint IPs and hostnames, allowing SOC analysts to pivot from a network alert to the affected endpoint and then to endpoint telemetry from dedicated solutions. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-### Why is endpoint visibility important?
+---
 
-It helps organizations detect suspicious behavior, troubleshoot device‑ and user‑level issues, monitor application usage, and improve security visibility across mixed‑device environments.
+## Related terms
 
-### What types of devices are considered endpoints?
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is flow analysis?](/glossary/flow-analysis)
+- [What is endpoint detection and response?](/glossary/endpoint-detection-and-response)
+- [What is a flow?](/glossary/flow)
+- [What is full packet capture?](/glossary/full-packet-capture)
 
-Endpoints include laptops, desktops, servers, mobile devices, IoT systems, virtual machines, containers, and cloud workloads that connect to the network.
+---
 
-### How is endpoint visibility achieved?
+## Frequently asked questions
 
-Monitoring platforms typically use flow analysis, packet capture, DNS monitoring, endpoint‑telemetry (if available), and behavioral analytics to tie traffic to specific devices and users.
+### What devices count as endpoints?
 
-### Can endpoint visibility help detect cyberattacks?
+Endpoints include desktops, laptops, mobile devices, tablets, servers, printers, and IoT devices that communicate across a network. Any device with an IP address and network interface is an endpoint from a visibility perspective. Some organizations also count networked appliances and virtual machines as endpoints, depending on their security model.
 
-Yes. It can help identify compromised devices, suspicious outbound traffic, lateral‑movement‑style communication, and malware‑related patterns originating from endpoints.
+### What is the difference between endpoint visibility and endpoint protection?
 
-### What's the difference between endpoint visibility and network visibility?
+Endpoint visibility is the ability to see what endpoints are doing and what state they are in. Endpoint protection is the ability to stop threats on those endpoints. Visibility comes first: you cannot protect what you cannot see. Protection solutions like antivirus and EDR require visibility to identify what they are protecting; visibility solutions require protection to secure what they are monitoring.
 
-Endpoint visibility focuses on individual device and user behavior, while network visibility focuses on overall traffic, link utilization, and infrastructure‑level performance and stability.
+### Can network flow monitoring provide endpoint visibility?
+
+Network flow monitoring provides network-level visibility of endpoint activity: which endpoints are communicating, when, and how much data was exchanged. It does not provide endpoint-level details such as what processes are running, what files were accessed, or what registry changes were made. For endpoint-level visibility, endpoint detection and response or endpoint management tools are required.
+
+### What are the three pillars of endpoint visibility?
+
+Discovery and classification: identifying all devices connected to the network and categorizing them by type and role. Monitoring: continuously observing device activities and behaviors. Management: enforcing security policies and configurations across devices. Without all three, visibility is incomplete: you may see devices but not know what they are, or know what they are but not how they are behaving.

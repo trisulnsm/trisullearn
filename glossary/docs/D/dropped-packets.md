@@ -1,199 +1,131 @@
 ---
-title: What are Dropped Packets?
-sidebar_label: Dropped Packets
-sidebar_position: 27
+title: What are dropped packets?
+description: Dropped packets are network packets that fail to reach their destination, typically due to buffer overflows, congestion, hardware errors, or interface overruns. Packet loss is a key indicator of network performance problems.
+sidebar_label: Dropped packets
+sidebar_position: 19
 slug: /glossary/dropped-packets
-description: Learn what dropped packets are, what causes packet drops, and why packet loss monitoring is important for network performance, troubleshooting, and traffic analysis.
 keywords:
   - dropped packets
-  - packet drops
   - packet loss
-  - network packet loss
-  - traffic congestion
-  - network troubleshooting
+  - network packet drops
+  - interface drops
+  - rx drops
+  - tx drops
+  - buffer overflow
 ---
 
-# What are Dropped Packets?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the common causes of dropped packets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common causes include buffer overflows at routers when traffic arrives faster than the device can forward, network congestion, hardware errors in NICs or cables, interface overruns, misconfigured QoS policies that drop low-priority traffic, and wireless interference. On Linux systems, rx_dropped can also indicate Softnet backlog full, bad VLAN tags, or unknown protocols."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do dropped packets affect TCP versus UDP traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TCP detects dropped packets through missing acknowledgments and retransmits them, so dropped packets cause reduced throughput and increased latency but not data loss. UDP does not retransmit, so dropped UDP packets result in lost data that is never recovered. In VoIP and video, this manifests as audio glitches, video artifacts, or call drops."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you diagnose dropped packets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diagnose by checking interface counters for rx_dropped and tx_dropped on routers and switches, reviewing switch port error counters, using network monitoring tools to track packet loss over time, checking for congestion on high-utilization links, and examining TCP retransmission rates. On Linux, /proc/net/softnet_stat shows Softnet backlog drops. On Junos, use show commands for packet drop statistics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are dropped packets always a problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. TCP uses packet loss as a congestion signal and intentionally reduces throughput when drops occur, which is normal behavior. In high-performance networks, even small drop rates can indicate problems. In wireless networks, some packet loss is expected due to interference and signal degradation. The key is whether the drop rate exceeds acceptable thresholds for the application."
+      }
+    }
+  ]
+};
 
-**Dropped packets** are network packets that fail to reach their intended destination because they are discarded by network devices such as routers, switches, firewalls, or servers.  
+# What are dropped packets?
 
-Packet drops can occur due to congestion, overloaded interfaces, hardware limitations, misconfigurations, or security filtering.  
+Dropped packets are network packets that fail to reach their destination. They are typically caused by buffer overflows, congestion, hardware errors, or interface overruns. When a router, switch, or network interface card receives more packets than it can process or forward, it discards the excess. TCP retransmits lost packets, so dropped packets cause latency and reduced throughput. UDP does not retransmit, so dropped packets result in permanent data loss.
 
-Monitoring dropped packets helps network teams identify performance problems, congestion, and abnormal network behavior.
+---
 
-## **How Packet Drops Happen**
+## What causes dropped packets
 
-Network devices continuously process large volumes of traffic and must queue, forward, or filter each packet.
+Packets are dropped when buffers fill up and cannot accept new data. This happens when traffic arrives faster than the device can forward, a condition called congestion. Routers and switches drop packets to signal that the network is overloaded.
 
-When a device cannot process or forward packets successfully, they may be discarded.  
+Other causes include hardware errors in network interface cards or cables, interface overruns when the NIC cannot keep up with wire speed, misconfigured QoS policies that intentionally drop low-priority traffic, and wireless interference causing packets to be corrupted and discarded.
 
-Common causes include:
-- interface congestion or bandwidth saturation  
-- full or overflowing packet buffers  
-- firewall or ACL filtering (intentional drops)  
-- malformed or invalid packets  
-- routing‑related issues (blackholes, flaps, policy‑driven drops)  
-- hardware limitations (line‑rate mismatch, CPU saturation)  
-- QoS or traffic‑shaping policies that drop low‑priority traffic  
+On Linux systems, rx_dropped can also indicate Softnet backlog full, bad VLAN tags, unknown protocols, or IPv6 frames when the server is not configured for IPv6. These frames are dropped before reaching the protocol stack.
 
-For example:
+---
 
-1. Traffic volume exceeds the outgoing interface capacity.  
-2. Device output queues become full.  
-3. New incoming packets cannot be queued.  
-4. Excess packets are dropped before transmission.  
+## Dropped packets in network operations
 
-Packet drops may occur:
-- temporarily during traffic bursts  
-- continuously during sustained congestion  
-- intentionally as part of filtering or shaping policies  
+NOC teams monitor dropped packets as a key performance metric. Interface counters for rx_dropped and tx_dropped reveal where in the network packets are being lost. High drop rates on a specific interface indicate congestion, hardware problems, or misconfiguration that requires intervention.
 
-![images/droppedpackets.png](images/droppedpackets.png)
+SOC teams monitor dropped packets for security analysis. Unusual drop patterns can indicate a denial-of-service attack targeting a specific interface, or a compromised device flooding the network with traffic. Sudden spikes in drop rates without corresponding traffic increases can indicate hardware failure.
 
-*Figure: Dropped packets workflow showing how interface congestion and buffer overflow cause packets to be discarded.*
+Network engineers use dropped packet analysis to identify bottlenecks and plan capacity. Links that consistently show high drop rates during peak hours need higher bandwidth or load balancing. Wireless networks with high drop rates may need access point repositioning or additional capacity.
 
-## **Why Dropped Packets Matter**
+---
 
-Packet drops can significantly affect network performance and application behavior.  
+## Dropped packets vs corrupted packets
 
-Dropped packets may cause:
-- slow application response and transaction timeouts  
-- poor voice and video quality (audio cuts, pixelation, jitter)  
-- TCP retransmissions and reduced effective throughput  
-- increased latency and round‑trip times  
-- session instability or connection resets  
-- intermittent service interruptions  
-
-Monitoring packet drops helps teams:
-- identify congestion points and choke links  
-- troubleshoot performance and latency issues  
-- optimize bandwidth allocation and QoS policies  
-- detect overloaded or misconfigured devices  
-- investigate abnormal traffic patterns that may indicate DDoS or misbehaving services  
-
-Packet loss visibility is especially important in:
-- VoIP and unified‑communications networks  
-- video‑conferencing and streaming environments  
-- ISP backbone and peering links  
-- cloud and data‑center fabrics  
-- real‑time and low‑latency applications  
-- high‑speed and high‑density traffic networks  
-
-## **Common Causes of Dropped Packets**
-
-### Network Congestion
-
-Traffic exceeds available bandwidth or interface capacity, forcing devices to drop packets at egress or ingress queues.
-
-### Buffer Overflow
-
-Device queues become full during traffic bursts or sustained high‑rate flows, causing new packets to be dropped.
-
-### Firewall Filtering
-
-Security policies (ACLs, firewall rules, or IDS/IPS) intentionally drop certain traffic that matches filtering or blocking rules.
-
-### Hardware Limitations
-
-Routers, switches, or NICs cannot process traffic at line rate due to CPU, memory, or ASIC limitations.
-
-### QoS Enforcement
-
-Queuing and shaping mechanisms drop low‑priority or unmarked traffic during congestion to protect high‑priority services.
-
-### Routing Problems
-
-Incorrect routes, blackholes, or unstable routing can cause traffic to be dropped rather than forwarded.
-
-## **Common Operational Use Cases**
-
-### Performance Troubleshooting
-
-Identify congestion points, overloaded links, and misconfigured devices causing packet loss.
-
-### VoIP Quality Monitoring
-
-Analyze packet‑loss patterns affecting voice and video‑conferencing quality and jitter.
-
-### DDoS Analysis
-
-Detect overload conditions and sustained packet‑drop spikes caused by volumetric traffic floods.
-
-### Capacity Planning
-
-Identify interfaces and segments that regularly approach or exceed capacity, indicating need for upgrade or shaping.
-
-### Security Monitoring
-
-Analyze dropped traffic triggered by filtering policies to understand what traffic is being blocked and why.
-
-## **Dropped Packets vs Retransmissions**
-
-| Feature | Dropped Packets | Retransmissions |
+| Dimension | Dropped packets | Corrupted packets |
 |---|---|---|
-| Meaning | Packets discarded before delivery | Packets resent after loss or timeout |
-| Trigger | Buffer overflow, filtering, or hardware limits | Missing acknowledgments (for example, TCP ACK) |
-| Network Impact | Packet loss and reduced throughput | Increased traffic and overhead |
-| Detection Point | Network devices and interfaces | End systems and transport‑layer protocols |
-| Common Cause | Congestion, filtering, hardware limits | Packet drops and high latency |
+| What happens | Packet discarded before reaching destination | Packet arrives with data errors |
+| Primary cause | Buffer overflow, congestion, policy | Hardware errors, interference, noise |
+| Detection | Interface drop counters | CRC errors, FCS errors |
+| Recovery | TCP retransmits, UDP does not | Retransmitted if TCP, lost if UDP |
+| Best fix | Increase capacity, reduce congestion | Replace hardware, fix cables, reduce interference |
 
-Dropped packets often trigger retransmissions in protocols such as TCP, leading to higher overhead and reduced effective throughput.
-
-## **How Trisul Handles Dropped Packet Analysis**
-
-Trisul provides traffic visibility and performance analytics that can help identify conditions leading to packet loss, congestion, and abnormal traffic behavior.  
-
-Using features such as:
-- Packet Capture  
-- Flow Analysis  
-- Top‑K Analyticsᵀ  
-- Retro Analysisᵀ  
-- Multigraph Analyticsᵀ  
-- Traffic Investigation  
-
-Trisul helps teams:
-- analyze traffic‑burst patterns and interface‑level congestion that may correlate with packet‑drop events  
-- investigate congestion events and traffic‑spike behavior at the flow and time‑series level  
-- identify overloaded or oversubscribed interfaces and segments  
-- troubleshoot application‑performance issues that may be influenced by packet‑loss conditions  
-- monitor traffic‑burst behavior and saturation patterns that commonly precede drops  
-- correlate traffic‑spikes and utilization metrics with flow and session data for deeper performance analysis  
-
-Trisul can also correlate **[Packet Capture](/glossary/packet-capture)**, **[Bandwidth Monitoring](/glossary/bandwidth-monitoring)**, and **[Burst Traffic](/glossary/burst-traffic)** workflows for deeper performance‑ and congestion‑analysis, while remaining aligned with operator‑driven investigation rather than automated packet‑recovery.
-
-## **Related Terms**
-
-- [Packet Loss Monitoring](/glossary/packet-loss-monitoring)  
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)  
-- [Burst Traffic](/glossary/burst-traffic)  
-- [Traffic Investigation](/glossary/traffic-investigation)  
-- [Packet Capture](/glossary/packet-capture)  
-- [Flow Analysis](/glossary/flow-analysis)  
+Dropped packets and corrupted packets are distinct problems requiring different fixes. Drops indicate capacity or congestion issues; corruption indicates hardware or physical layer problems.
 
 ---
 
-## **FAQ**
+## How Trisul handles dropped packets
 
-### What are dropped packets?
+Trisul monitors network traffic through flow records and packet capture. It can detect traffic anomalies that correlate with dropped packets, such as sudden traffic spikes or interface saturation. However, Trisul does not directly measure packet drops on the network infrastructure itself, as drops occur at the router or switch level before the traffic reaches the monitoring point.
 
-Dropped packets are network packets that are discarded by routers, switches, firewalls, or servers before reaching their intended destination.
+For direct dropped packet monitoring, operators should use network device counters (rx_dropped, tx_dropped) and integrate them with Trisul's flow data for a complete picture. Trisul's flow analytics can identify the traffic patterns that precede or coincide with drops, helping to diagnose the root cause. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-### What causes packet drops?
+---
 
-Common causes include congestion, overloaded interfaces, buffer overflow, firewall or ACL filtering, malformed packets, hardware limitations, and QoS policies.
+## Related terms
 
-### Why are dropped packets important?
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is network performance monitoring?](/glossary/network-performance-monitoring)
+- [What is TCP retransmission?](/glossary/tcp-retransmission)
+- [What is congestion?](/glossary/congestion)
+- [What is QoS?](/glossary/qos)
+- [What is interface saturation?](/glossary/interface-saturation)
 
-Packet drops can degrade application performance, increase latency, cause TCP retransmissions, and affect real‑time services such as VoIP and video conferencing.
+---
 
-### How do dropped packets affect VoIP and video calls?
+## Frequently asked questions
 
-Packet loss can cause audio distortion, gaps, jitter, one‑way audio, and poor video quality or freezing.
+### What are the common causes of dropped packets?
 
-### What's the difference between packet drops and retransmissions?
+Common causes include buffer overflows at routers when traffic arrives faster than the device can forward, network congestion, hardware errors in NICs or cables, interface overruns, misconfigured QoS policies that drop low-priority traffic, and wireless interference. On Linux systems, rx_dropped can also indicate Softnet backlog full, bad VLAN tags, or unknown protocols.
 
-Packet drops occur when packets are discarded in the network, while retransmissions refer to the sender resending packets that did not arrive or were not acknowledged.
+### How do dropped packets affect TCP versus UDP traffic?
 
-### How are dropped packets detected?
+TCP detects dropped packets through missing acknowledgments and retransmits them, so dropped packets cause reduced throughput and increased latency but not data loss. UDP does not retransmit, so dropped UDP packets result in lost data that is never recovered. In VoIP and video, this manifests as audio glitches, video artifacts, or call drops.
 
-Dropped packets are typically detected by analyzing interface counters, input/output‑dropped statistics, flow‑level patterns, and packet‑capture traces to identify mismatches between expected and received traffic.
+### How do you diagnose dropped packets?
+
+Diagnose by checking interface counters for rx_dropped and tx_dropped on routers and switches, reviewing switch port error counters, using network monitoring tools to track packet loss over time, checking for congestion on high-utilization links, and examining TCP retransmission rates. On Linux, /proc/net/softnet_stat shows Softnet backlog drops. On Junos, use show commands for packet drop statistics.
+
+### Are dropped packets always a problem?
+
+No. TCP uses packet loss as a congestion signal and intentionally reduces throughput when drops occur, which is normal behavior. In high-performance networks, even small drop rates can indicate problems. In wireless networks, some packet loss is expected due to interference and signal degradation. The key is whether the drop rate exceeds acceptable thresholds for the application.

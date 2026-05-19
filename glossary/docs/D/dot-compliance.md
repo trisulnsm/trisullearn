@@ -1,196 +1,127 @@
 ---
 title: What is DoT Compliance?
+description: DoT Compliance is adherence to India's Department of Telecommunications regulations for Internet Service Providers, including the 2021 mandate to maintain Internet Protocol Detail Record (IPDR) logs for two years for lawful interception and audit.
 sidebar_label: DoT Compliance
-sidebar_position: 25
+sidebar_position: 22
 slug: /glossary/dot-compliance
-description: Learn what DoT Compliance is, how telecom logging and monitoring requirements work, and why ISPs use traffic analytics and IPDR systems for regulatory compliance.
 keywords:
-  - DoT compliance
-  - telecom compliance
-  - ISP compliance
+  - dot compliance
+  - department of telecommunications compliance
+  - ISP compliance India
   - IPDR compliance
-  - subscriber logging
-  - telecom traffic monitoring
+  - lawful interception India
+  - TRAI compliance
+  - data retention India
 ---
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the DoT IPDR mandate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In 2021, the Department of Telecommunications mandated all Indian ISP licensees to maintain Internet Protocol Detail Record (IPDR) logs for two years. The mandate was issued vide DoT letter no 8520-01/98-LR/Vol-IX Pt. I dated 16.11.2021. Failure to produce IPDR logs when requested results in stiff penalties. IPDR logs capture flow parameters including source and destination IP addresses, ports, timestamps, NAT events, and user IDs from AAA servers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data elements are required for IPDR compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Required fields include start timestamp of the flow, end timestamp, source IPv4 or IPv6 address, source port, destination port, translated source address, translated source port, user ID from AAA, router IP reporting the flow, and source MAC address of the device. These fields are sufficient to meet DoT/TRAI compliance requirements and enable Law Enforcement Agencies to track dynamic IP addresses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why was IPDR compliance mandated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IPDR compliance was mandated because ISPs use dynamic IP addresses and Network Address Translation (NAT) to conserve IP address space. Without IPDR logs, Law Enforcement Agencies could not track which subscriber used a dynamic IP at a given time, making it impossible to investigate cases and gather electronic evidence. IPDR logs enable LEAs to prosecute cases under the Indian Evidence Act meeting standards of electronic evidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does flow monitoring support DoT compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow monitoring captures network flow parameters from routers, switches, firewalls, NAT devices, and AAA servers. By correlating flow records, NAT events, and AAA events, a complete log of flow activities is stored meeting IPDR requirements. Advanced flow monitoring platforms provide real-time analysis, deduplication, and compression techniques for efficient storage and fast query response time, enabling cost-efficient compliance solutions."
+      }
+    }
+  ]
+};
 
 # What is DoT Compliance?
 
-**DoT Compliance** refers to the regulatory requirements defined by the Department of Telecommunications (DoT) for telecom operators, ISPs, and network service providers to monitor, log, retain, and provide network usage data when required by authorities.  
-
-These requirements commonly involve:
-- subscriber traceability  
-- IP address tracking  
-- NAT logging  
-- IPDR (Internet Protocol Detail Record) generation  
-- traffic retention  
-- lawful‑interception support  
-- security‑related abuse monitoring  
-
-DoT compliance is especially important for ISPs, broadband providers, and telecom operators operating in regulated environments.
-
-## **How DoT Compliance Works**
-
-Telecom and internet providers generate large volumes of subscriber and traffic metadata from:
-- authentication systems (for example, BRAS, AAA)  
-- CGNAT devices  
-- routers and firewalls  
-- DHCP and IP‑assignment systems  
-- traffic monitoring platforms  
-- flow exporters (NetFlow/IPFIX)  
-
-Compliance systems collect and retain information such as:
-- subscriber identity (for example, username, circuit ID, or account ID)  
-- assigned IP addresses (including shared and private addresses)  
-- session start and end timestamps  
-- NAT mappings and port‑address translations  
-- traffic records and usage logs  
-- event‑level logs required by regulatory procedures  
-
-A typical workflow looks like this:
-
-1. A subscriber connects to the network.  
-2. IP assignments and traffic activity are recorded.  
-3. NAT mappings and session details (including source/destination, ports, and timestamps) are logged.  
-4. Logs are retained according to compliance‑mandated retention periods.  
-5. Authorized queries can retrieve subscriber‑activity records for law‑enforcement or regulatory requests.  
-
-![images/dotcompliance.png](images/dotcompliance.png)
-
-*Figure: DoT compliance workflow showing how subscriber connections and traffic metadata are captured, logged, and retained for regulatory traceability.*
-
-## **Why DoT Compliance Matters**
-
-Regulatory compliance helps telecom providers:
-- maintain subscriber traceability and accountability  
-- support lawful‑interception and investigation workflows  
-- respond to abuse and spam‑related complaints  
-- meet national regulatory obligations  
-- improve operational audit‑readiness and accountability  
-- retain traffic visibility for incident‑response and compliance‑reporting  
-
-Without proper logging and retention:
-- mapping a public IP back to a specific subscriber becomes difficult  
-- investigations of abuse or security incidents are delayed  
-- non‑compliance penalties or regulatory warnings may occur  
-- lawful‑interception and subscriber‑attribution workflows become operationally challenging  
-
-DoT compliance is especially important in:
-- ISPs and broadband operators  
-- telecom providers and mobile operators  
-- CGNAT and shared‑IP environments  
-- large‑scale subscriber networks with thousands or millions of users  
-
-## **Common Compliance Components**
-
-### IPDR Logging
-
-Maintain Internet Protocol Detail Records that capture subscriber‑level internet‑usage events and session details for traceability and regulatory reporting.
-
-### CGNAT Logging
-
-Track private‑to‑public IP and port mappings in shared‑IP and large‑scale‑NAT environments to support individual‑subscriber attribution.
-
-### Subscriber Mapping
-
-Associate network activity (IP addresses, sessions, traffic records) with subscriber identities and account information.
-
-### Traffic Retention
-
-Store traffic‑related metadata for defined retention periods as required by DoT or national telecom regulations.
-
-### Security Monitoring
-
-Monitor suspicious traffic behavior and abuse‑related activity (for example, spam‑source, malware‑outbound‑traffic, or DDoS patterns) as part of compliance‑linked security operations.
-
-## **Common Operational Use Cases**
-
-### Subscriber Traceability
-
-Identify which subscriber was using a specific IP address at a given time, especially in shared‑IP and CGNAT scenarios.
-
-### Abuse Investigation
-
-Investigate spam, malware‑outbound traffic, phishing, or other abuse‑related activities originating from subscriber networks.
-
-### Regulatory Reporting
-
-Generate and archive records required for compliance‑audits, internal reviews, and lawful‑interception‑related reporting.
-
-### Security Operations
-
-Support incident‑response and lawful‑investigations by correlating traffic‑logs, IPDRs, and subscriber‑mapping data.
-
-### ISP Traffic Analytics
-
-Use traffic‑analytics and subscriber‑visibility tools to monitor usage patterns, capacity, and policy‑compliance while maintaining regulatory logging.
-
-## **DoT Compliance vs General Network Monitoring**
-
-| Feature | DoT Compliance | General Network Monitoring |
-|---|---|---|
-| Primary Goal | Regulatory and subscriber traceability | Performance and operational visibility |
-| Data Retention | Mandated by regulation / law | Operationally defined by the operator |
-| Subscriber Mapping | Critical and legally required | Optional or best‑effort |
-| Compliance Requirement | High (legal and contractual) | Low to medium (internal SLAs) |
-| Operational Scope | Legal, audit, and accountability‑focused | Mainly technical performance and troubleshooting‑focused |
-
-DoT compliance focuses on regulatory accountability, auditability, and traceability; general network monitoring focuses mainly on performance, availability, and technical troubleshooting.
-
-## **How Trisul Helps with DoT Compliance**
-
-Trisul provides scalable traffic analytics and subscriber‑visibility workflows that support ISP and telecom compliance‑related logging and retention requirements.  
-
-Using features such as:
-- IPDR‑style traffic‑event generation  
-- Subscriber Mapping  
-- NAT and CGNAT‑aware logging capabilities  
-- Long‑Term Traffic Retention  
-- Traffic Investigation  
-- Flow Analysis  
-
-Trisul helps teams:
-- maintain subscriber traceability across IP and NAT layers  
-- investigate abuse‑related complaints and outbound‑malicious traffic  
-- analyze subscriber‑level traffic patterns and usage behavior  
-- monitor and visualize NAT mappings and shared‑IP usage  
-- generate and retain traffic‑metadata records in line with common ISP‑compliance practices  
-- efficiently retain and search long‑term traffic and event‑level data for investigations  
-
-Trisul can also correlate **[CGNAT Logging](/glossary/cgnat-logging)**, **[NetFlow](/glossary/netflow)**, and **[IPDR](/glossary/ipdr)** workflows for deeper compliance‑visibility and long‑term analysis.
-
-## **Related Terms**
-
-- [IPDR](/glossary/ipdr)  
-- [CGNAT Logging](/glossary/cgnat-logging)  
-- [NAT Logging](/glossary/nat-logging)  
-- [Subscriber Mapping](/glossary/subscriber-mapping)  
-- [Traffic Investigation](/glossary/traffic-investigation)  
-- [ISP Traffic Analytics](/glossary/isp-traffic-analytics)  
+DoT Compliance is adherence to India's Department of Telecommunications regulations for Internet Service Providers. The core requirement is the 2021 mandate that all ISP licensees maintain Internet Protocol Detail Record (IPDR) logs for two years. IPDR logs capture flow parameters including source and destination IP addresses, ports, timestamps, NAT events, and user IDs. Failure to produce IPDR logs when requested results in stiff penalties. Flow monitoring platforms that capture and store these fields enable ISPs to meet DoT/TRAI compliance requirements.
 
 ---
 
-## **FAQ**
+## What DoT Compliance requires
 
-### What is DoT Compliance?
+The DoT IPDR mandate requires ISPs to continuously capture network flow parameters from routers, switches, firewalls, NAT devices, and AAA servers. Required fields include start and end timestamps, source and destination IPv4 or IPv6 addresses, source and destination ports, translated source address and port, user ID from AAA, router IP reporting the flow, and source MAC address of the device.
 
-DoT Compliance refers to telecom and ISP regulatory requirements for subscriber logging, traffic retention, and network traceability to support lawful‑interception and abuse‑investigation workflows.
+IPDR logs correlate flow records, NAT events, and AAA events to create a complete log of flow activities. This enables Law Enforcement Agencies to track dynamic IP addresses and prosecute cases under the Indian Evidence Act meeting standards of electronic evidence.
 
-### Why is DoT compliance important for ISPs?
+---
 
-It helps ISPs meet legal obligations, respond to regulatory and law‑enforcement requests, support abuse investigations, and maintain subscriber‑level accountability.
+## DoT Compliance in network operations
 
-### What data is commonly retained for DoT compliance?
+ISP operations teams use flow monitoring platforms to capture and store IPDR-compliant logs. The system must handle extremely high volumes of flow events efficiently, deduplicate repeated logs, and compress data to minimize storage requirements. Query response time must be fast when LEAs request logs for investigations.
 
-Common retained records include subscriber identities, IP assignments (including NAT), session timestamps, NAT‑mappings, and IPDR‑style traffic‑event logs as required by national regulations.
+Security teams use IPDR logs for audit and compliance reporting. The logs demonstrate that the ISP meets regulatory requirements and can produce electronic evidence when requested by authorized agencies.
 
-### What is the role of CGNAT logging in DoT compliance?
+---
 
-CGNAT logging enables providers to map shared public IP addresses and ports back to individual subscribers, which is essential for traceability in large‑scale‑NAT environments.
+## IPDR vs flow monitoring
 
-### How does IPDR relate to DoT compliance?
+| Dimension | IPDR logging | Flow monitoring |
+|---|---|---|
+| Primary purpose | Regulatory compliance and lawful interception | Network operations and security analytics |
+| Data scope | Limited set required for DoT/TRAI compliance | Full flow metadata for analysis |
+| Retention | 2 years mandated by DoT | Varies by deployment, typically 30-90 days |
+| Query access | LEAs and auditors | NOC and SOC teams |
+| Best fit | Compliance and audit | Detection, trending, scoping |
 
-IPDR systems help record and analyze subscriber‑level internet‑usage and session‑activity data so providers can fulfill regulatory and audit‑related reporting and traceability requirements.
+IPDR logging is a subset of flow monitoring focused on compliance. Full flow monitoring provides broader analytics for network operations and security.
 
-### Can traffic analytics platforms help with DoT compliance?
+---
 
-Yes. Traffic analytics platforms help collect, retain, correlate, and investigate subscriber‑level traffic and network‑activity data, supporting compliant logging and investigative workflows without implying automated policy‑enforcement or legal‑advice functions.
+## How Trisul handles DoT Compliance
+
+Trisul provides an IPDR Solution for ISPs enabling DoT/TRAI compliance. It captures network flow parameters from routers, switches, firewalls, NAT devices, and AAA servers. The system correlates flow records, NAT events, and AAA events to create complete IPDR logs stored in a secured server.
+
+Trisul IPDR Solution offers real-time analysis, deduplication, and compression techniques ensuring efficient storage, fast query response time, and cost-efficient compliance. The required fields—start timestamp, end timestamp, source and destination IP addresses and ports, translated addresses and ports, user ID from AAA, router IP, and source MAC address—are captured and stored for 2 years to meet DoT mandate requirements. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is IPDR?](/glossary/ipdr)
+- [What is lawful interception?](/glossary/lawful-interception)
+- [What is flow data?](/glossary/flow-data)
+- [What is TRAI compliance?](/glossary/trai-compliance)
+- [What is NAT?](/glossary/nat)
+
+---
+
+## Frequently asked questions
+
+### What is the DoT IPDR mandate?
+
+In 2021, the Department of Telecommunications mandated all Indian ISP licensees to maintain Internet Protocol Detail Record (IPDR) logs for two years. The mandate was issued vide DoT letter no 8520-01/98-LR/Vol-IX Pt. I dated 16.11.2021. Failure to produce IPDR logs when requested results in stiff penalties. IPDR logs capture flow parameters including source and destination IP addresses, ports, timestamps, NAT events, and user IDs from AAA servers.
+
+### What data elements are required for IPDR compliance?
+
+Required fields include start timestamp of the flow, end timestamp, source IPv4 or IPv6 address, source port, destination port, translated source address, translated source port, user ID from AAA, router IP reporting the flow, and source MAC address of the device. These fields are sufficient to meet DoT/TRAI compliance requirements and enable Law Enforcement Agencies to track dynamic IP addresses.
+
+### Why was IPDR compliance mandated?
+
+IPDR compliance was mandated because ISPs use dynamic IP addresses and Network Address Translation (NAT) to conserve IP address space. Without IPDR logs, Law Enforcement Agencies could not track which subscriber used a dynamic IP at a given time, making it impossible to investigate cases and gather electronic evidence. IPDR logs enable LEAs to prosecute cases under the Indian Evidence Act meeting standards of electronic evidence.
+
+### How does flow monitoring support DoT compliance?
+
+Flow monitoring captures network flow parameters from routers, switches, firewalls, NAT devices, and AAA servers. By correlating flow records, NAT events, and AAA events, a complete log of flow activities is stored meeting IPDR requirements. Advanced flow monitoring platforms provide real-time analysis, deduplication, and compression techniques for efficient storage and fast query response time, enabling cost-efficient compliance solutions.

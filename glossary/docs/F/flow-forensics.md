@@ -1,176 +1,132 @@
 ---
-title: What is Flow Forensics?
-sidebar_label: Flow Forensics
-sidebar_position: 39
+title: What is flow forensics?
+description: Flow forensics is the use of historical flow records to reconstruct network activity, trace the scope of security incidents, and answer investigative questions after an event has occurred.
+sidebar_label: Flow forensics
+sidebar_position: 9
 slug: /glossary/flow-forensics
-description: Learn what flow forensics is, how it works using NetFlow and IPFIX data, and why it is important for security investigations and historical traffic analysis.
 keywords:
   - flow forensics
   - network forensics
-  - NetFlow forensics
-  - IPFIX investigation
-  - traffic investigation
-  - historical flow analysis
+  - forensic netflow
+  - flow-based investigation
+  - network traffic forensics
+  - flow data investigation
+  - incident response flow data
 ---
 
-# What is Flow Forensics?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What can flow forensics determine that packet capture cannot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow forensics can answer questions across weeks or months of traffic history because flow records are compact enough to retain at long timescales. Packet capture at equivalent retention would require impractical storage. When an indicator of compromise surfaces weeks after an intrusion, flow records let analysts determine which hosts communicated with the flagged destination, when, and how much data was transferred, even if the packets themselves are long gone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the limits of flow forensics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow forensics can tell you that a connection happened and how much data moved, but not what was exchanged. It cannot recover file contents, commands, credentials, or any application-layer detail. For incidents where payload evidence is required, such as confirming data exfiltration or recovering malware artifacts, flow records can identify the conversation but packet capture is needed to confirm what was transferred."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does sampling affect flow forensics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sampled flow data is a significant liability for forensic use. A targeted exfiltration over a low-bandwidth channel, a slow lateral scan, or a beaconing agent checking in on a long interval may generate fewer packets than the sampling interval and simply not appear in the record. Forensic flow analysis requires unsampled collection. If the network infrastructure cannot provide unsampled exports, packet-based flow reconstruction at a probe is the alternative."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far back can flow forensics reach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retention depth depends on storage capacity and flow volume, but most deployments retain flow records for 30 to 90 days. At typical enterprise flow volumes, storing 90 days of unsampled flow records requires far less infrastructure than storing even 24 hours of equivalent full packet capture. The practical limit is not technical but policy-driven: retention periods must be long enough to cover the typical dwell time of a threat actor in the environment, which security teams often estimate at 30 days or more."
+      }
+    }
+  ]
+};
 
-Flow Forensics is the process of investigating historical network activity using flow records such as NetFlow, IPFIX, or sFlow data to analyze communication patterns, security events, and traffic behavior.
+# What is flow forensics?
 
-Instead of relying only on packet capture, flow forensics uses summarized traffic records to reconstruct network activity and investigate what happened across a network over time.
+Flow forensics is the use of stored flow records to reconstruct past network activity, trace the path and scope of a security incident, and answer investigative questions after an event has occurred. Unlike real-time flow monitoring, which focuses on current traffic, flow forensics works backward through history: finding which hosts communicated with a compromised IP, identifying the first time a connection pattern appeared, or mapping how far a threat moved laterally across the network. Because flow records are compact, they can be retained for weeks to months, making them the primary investigative data source for incidents discovered well after the fact.
 
-Flow forensics is widely used in:
-- security investigations
-- incident response
-- threat hunting
-- traffic investigation
-- compliance analysis
-- ISP traffic analytics
+---
 
-## **How Flow Forensics Works**
+## How flow forensics works
 
-Network devices continuously export flow records describing network communication.
+An investigation typically starts with an indicator: a known malicious IP, a suspicious domain, an unusual internal connection. The analyst queries the flow database for all records matching that indicator within a defined time window. The results reveal which internal hosts were involved, when the connections occurred, how long they lasted, and how much data moved in each direction.
 
-These records typically contain:
-- source and destination IP addresses
-- ports and protocols
-- timestamps
-- bandwidth usage
-- packet counts
-- session duration
-- traffic direction
+From those initial results, the investigation expands. A host identified in the first query becomes the subject of a second query: what else did it connect to, and when? This iterative pivoting through flow records lets analysts reconstruct a timeline of activity and map the scope of an incident across the network without needing packet-level data for every step.
 
-Flow forensic platforms store and analyze this historical data to investigate events after they occur.
+Where confirmation of payload content is needed, flow forensics identifies the specific conversations of interest, and packet capture provides the evidence. The two capabilities are most effective when used in sequence: flow records for scope and timeline, packets for confirmation.
 
-A typical workflow looks like this:
+---
 
-1. A suspicious event is detected
-2. Historical flow records are searched
-3. Related communication sessions are identified
-4. Analysts reconstruct traffic behavior and timelines
+## Flow forensics in network operations
 
-For example:
+In SOC environments, flow forensics is the first response layer when an incident is reported late. A threat intelligence feed flagging an IP as malicious today may relate to activity that happened three weeks ago. Flow records answer whether any internal host communicated with that IP, without requiring the packets from that period to still be available.
 
-1. A compromised endpoint communicates with an unknown external server
-2. Historical flow records reveal additional suspicious connections
-3. Analysts identify lateral movement and traffic patterns
-4. The incident scope becomes clearer
+Flow forensics also supports post-incident scoping. After a compromised host is identified, analysts use flow records to determine which other hosts it communicated with, which services it accessed, and whether it initiated any outbound connections that suggest exfiltration. This lateral movement mapping is difficult or impossible to reconstruct from logs alone when the flow database spans weeks of history.
 
-## **Why Flow Forensics Matters**
+For regulatory and compliance contexts, flow records serve as the audit trail for lawful intercept and data retention obligations. Investigators can produce a documented record of network activity for a specific host or time period directly from the flow database.
 
-Many security incidents are discovered after the original activity has already occurred.
+---
 
-Without historical traffic visibility, organizations may struggle to:
-- investigate incidents
-- reconstruct attack timelines
-- identify affected systems
-- analyze lateral movement
-- understand communication patterns
+## Flow forensics vs packet forensics
 
-Flow forensics helps teams:
-- investigate historical traffic behavior
-- identify suspicious communication
-- analyze attack timelines
-- correlate traffic activity
-- improve incident response
-- retain scalable traffic visibility
-
-Flow forensics is especially important in:
-- SOC environments
-- enterprise security operations
-- ISP infrastructures
-- cloud environments
-- compliance workflows
-
-## **Common Operational Use Cases**
-
-### Incident Response
-
-Investigate suspicious traffic activity after detection.
-
-### Threat Hunting
-
-Search historical flow records for indicators of compromise.
-
-### Malware Investigation
-
-Analyze command-and-control communication patterns.
-
-### Lateral Movement Analysis
-
-Track internal east-west traffic behavior during attacks.
-
-### Compliance and Audit Analysis
-
-Review historical network activity for investigations and reporting.
-
-## **Flow Forensics vs Packet Forensics**
-
-| Feature | Flow Forensics | Packet Forensics |
+| Dimension | Flow forensics | Packet forensics |
 |---|---|---|
-| Visibility Type | Summarized traffic metadata | Full packet visibility |
-| Storage Requirement | Lower | Much higher |
-| Scalability | High | Lower |
-| Payload Visibility | Minimal or none | Full payload access |
-| Historical Retention | Easier | More resource intensive |
+| What it examines | Flow metadata: who, when, how much | Full packet content including payload |
+| Retention depth | Weeks to months | Hours to days at full fidelity |
+| Payload visibility | None | Full, subject to encryption |
+| Investigative scope | Broad: topology-wide, long time range | Deep: specific conversations, full content |
+| Best fit | Scoping, timeline reconstruction, lateral movement mapping | Confirming what was transferred, recovering artifacts |
 
-Flow forensics provides scalable historical visibility, while packet forensics provides deeper packet-level analysis.
-
-## **How Trisul Handles Flow Forensics**
-
-Trisul provides long-term traffic retention and historical analytics workflows for investigating network activity over time.
-
-Combined with:
-- Retro Analysisᵀ
-- Flow Stitchingᵀ
-- Contextᵀ
-- Top-K Analyticsᵀ
-- Packet Capture
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-- investigate historical traffic behavior
-- reconstruct communication timelines
-- analyze suspicious flows
-- identify lateral movement
-- correlate traffic events
-- investigate long-term anomalies
-
-Trisul can also combine [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper forensic visibility.
-
-## **Related Terms**
-
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Flow Analysis](/glossary/flow-analysis)
-- [Retro Analysis](/glossary/retro-analysis)
-- [Packet Capture](/glossary/packet-capture)
-- [Conversation View](/glossary/conversation-view)
-- [Network Security Monitoring](/glossary/network-security-monitoring-nsm)
+Flow forensics and packet forensics address different phases of an investigation. Flow records establish scope and timeline; packet records provide evidence of content. Most investigation workflows use flow records to narrow the question before pulling packet data for the specific conversations that matter.
 
 ---
 
-## **FAQ**
+## How Trisul handles flow forensics
 
-### What is flow forensics?
+Trisul stores every flow record without rollup or summarization, preserving full resolution across the retention window. The Explore Flows interface lets analysts query the flow database by any combination of IP, port, protocol, time range, or flow tag, and returns matching records for pivoting and export. Flow Taggers extend this further by attaching searchable labels to flows at ingestion, so flows associated with specific threat categories, geographic origins, or service types can be retrieved by label without reconstructing filter expressions.
 
-Flow forensics is the investigation of historical network activity using flow records such as NetFlow and IPFIX data.
+For incidents where flow scope needs to be confirmed at the packet level, Trisul's per-flow PCAP index allows direct pivot from any flow record to the underlying packets, provided the packets fall within the capture retention window. Retro analysis complements this by allowing detection rules and flow taggers to be applied against historical data, so newly received threat intelligence can be checked against flows that were recorded before the indicator was known. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-### Why is flow forensics important?
+---
 
-It helps organizations investigate incidents, reconstruct attack timelines, and analyze historical communication behavior.
+## Related terms
 
-### What types of data are used in flow forensics?
+- [What is a flow?](/glossary/flow)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is flow tagger?](/glossary/flow-tagger)
+- [What is flow sampling?](/glossary/flow-sampling)
+- [What is full packet capture?](/glossary/full-packet-capture)
+- [What is retro analysis?](/glossary/retro-analysis)
+- [What is network security monitoring?](/glossary/network-security-monitoring)
 
-Common data sources include NetFlow, IPFIX, sFlow, and related traffic metadata.
+---
 
-### What's the difference between flow forensics and packet forensics?
+## Frequently asked questions
 
-Flow forensics uses summarized traffic metadata, while packet forensics analyzes full packet contents.
+### What can flow forensics determine that packet capture cannot?
 
-### Is flow forensics useful for threat hunting?
+Flow forensics can answer questions across weeks or months of traffic history because flow records are compact enough to retain at long timescales. Packet capture at equivalent retention would require impractical storage. When an indicator of compromise surfaces weeks after an intrusion, flow records let analysts determine which hosts communicated with the flagged destination, when, and how much data was transferred, even if the packets themselves are long gone.
 
-Yes. Security teams use historical flow records to search for suspicious communication and indicators of compromise.
+### What are the limits of flow forensics?
 
-### Can flow forensics help detect lateral movement?
+Flow forensics can tell you that a connection happened and how much data moved, but not what was exchanged. It cannot recover file contents, commands, credentials, or any application-layer detail. For incidents where payload evidence is required, such as confirming data exfiltration or recovering malware artifacts, flow records can identify the conversation but packet capture is needed to confirm what was transferred.
 
-Yes. Historical flow analysis helps identify internal east-west communication during security investigations.
+### How does sampling affect flow forensics?
+
+Sampled flow data is a significant liability for forensic use. A targeted exfiltration over a low-bandwidth channel, a slow lateral scan, or a beaconing agent checking in on a long interval may generate fewer packets than the sampling interval and simply not appear in the record. Forensic flow analysis requires unsampled collection. If the network infrastructure cannot provide unsampled exports, packet-based flow reconstruction at a probe is the alternative.
+
+### How far back can flow forensics reach?
+
+Retention depth depends on storage capacity and flow volume, but most deployments retain flow records for 30 to 90 days. At typical enterprise flow volumes, storing 90 days of unsampled flow records requires far less infrastructure than storing even 24 hours of equivalent full packet capture. The practical limit is not technical but policy-driven: retention periods must be long enough to cover the typical dwell time of a threat actor in the environment, which security teams often estimate at 30 days or more.

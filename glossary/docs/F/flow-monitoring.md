@@ -1,192 +1,154 @@
 ---
-title: What is Flow Monitoring?
-sidebar_label: Flow Monitoring
-sidebar_position: 41
+title: What is flow monitoring?
+description: Flow monitoring is the practice of collecting, storing, and analyzing flow records exported by network devices to gain continuous visibility into traffic behavior, bandwidth usage, and network security events.
+sidebar_label: Flow monitoring
+sidebar_position: 7
 slug: /glossary/flow-monitoring
-description: Learn what flow monitoring is, how it works using NetFlow and IPFIX data, and why it is important for traffic visibility, troubleshooting, and network analytics.
 keywords:
   - flow monitoring
   - network flow monitoring
-  - NetFlow monitoring
-  - IPFIX monitoring
-  - traffic monitoring
-  - network traffic visibility
+  - netflow monitoring
+  - ipfix monitoring
+  - sflow monitoring
+  - traffic flow analysis
+  - flow telemetry
 ---
 
-# What is Flow Monitoring?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between flow monitoring and packet capture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow monitoring works from summarized conversation records: who talked to whom, when, and how much data moved. Packet capture records the full content of every packet including the payload. Flow monitoring scales to 100 Gbps with standard router hardware; packet capture at those speeds requires dedicated infrastructure. The two are complementary: flow monitoring for coverage and retention, packet capture for investigation and confirmation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can flow monitoring detect threats in encrypted traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow monitoring cannot see inside encrypted payloads, but it can detect behavioral anomalies that encryption does not hide. Unusual destination IPs, abnormal transfer volumes, long-duration outbound connections, and patterns inconsistent with normal baselines are all visible in flow metadata. Extended IPFIX exports on some platforms also include TLS handshake fields such as SNI and JA3 fingerprints, adding context without requiring decryption."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does flow monitoring scale to large networks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow records are small, typically 50 to 100 bytes each, compared to kilobytes or more per packet. A 10 Gbps link generates a manageable stream of tens of thousands of flow records per second rather than the millions of packets that full capture would require. This is why flow monitoring is the standard visibility mechanism at ISP and large enterprise scale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is multi-hop flow monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multi-hop flow monitoring collects flow telemetry from multiple observation points and correlates flows that traverse more than one device. This lets operators track a conversation across the network topology, compare volumes at different hops, and identify where in the path traffic changes character. It is useful for verifying routing policy, detecting asymmetry, and tracing specific hosts across a large network."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to flow monitoring accuracy when devices use sampling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sampled flow data introduces statistical error proportional to the sampling rate. High-volume flows scale accurately; short-lived or low-volume flows may not be captured at all. Volume totals are estimates derived by multiplying observed counts by the inverse of the sampling rate. For security detection, events that generate only a small number of packets, such as targeted scans or slow beaconing, are likely to be missed in coarsely sampled data."
+      }
+    }
+  ]
+};
 
-Flow Monitoring is the process of collecting, analyzing, and visualizing network flow data to understand traffic behavior, bandwidth usage, communication patterns, and application activity across a network.
+# What is flow monitoring?
 
-Instead of inspecting every packet individually, flow monitoring uses summarized traffic records such as [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [sFlow](/glossary/sflow) to provide scalable traffic visibility.
+Flow monitoring is the practice of collecting, storing, and analyzing flow records exported by routers, switches, and probes to gain continuous visibility into network traffic. Each record summarizes a conversation: the 5-tuple, timestamps, byte and packet counts, and protocol flags. Flow monitoring does not capture packet payloads. That constraint is also its main advantage: flow records are small, scalable, and exportable from existing infrastructure at link speeds where full packet capture is not practical.
 
-Flow monitoring helps network and security teams monitor performance, troubleshoot issues, and investigate abnormal traffic behavior.
+---
 
-## **How Flow Monitoring Works**
+## How flow monitoring works
 
-Network devices such as routers, switches, firewalls, and probes observe traffic flowing through their interfaces.
+Network devices observe packets as they are forwarded, group them into flows by 5-tuple, and send summarized records to a collector. The export format depends on the platform: NetFlow v5 and v9 from Cisco devices, IPFIX as the IETF-standardized successor, and sFlow for packet-sampled telemetry. The collector parses incoming records, handles deduplication and flow stitching, applies sampling multipliers, and stores the data for querying.
 
-These devices generate flow records containing metadata such as:
-- source and destination IP addresses
-- ports and protocols
-- packet counts
-- byte counts
-- timestamps
-- traffic direction
-- application information
+Flow records are retained for weeks to months at most deployments. A 10 Gbps link at moderate utilization generates a few gigabytes of flow data per day, compared to tens of terabytes for equivalent full packet capture.
 
-The workflow usually looks like this:
+---
 
-1. Network devices generate flow records
-2. A [Flow Exporter](/glossary/flow-exporter) sends the data
-3. A [Flow Collector](/glossary/flow-collector) receives and stores the records
-4. A [Flow Analyzer](/glossary/flow-analyzer) processes the data for visibility and analytics
+## Flow monitoring in network operations
 
-Flow monitoring platforms help teams analyze:
-- top talkers
-- bandwidth usage
-- application traffic
-- subscriber behavior
-- protocol activity
-- traffic anomalies
+NOC teams use flow monitoring for bandwidth trending, interface utilization, and identifying top talkers. Because routers and switches export natively, it provides topology-wide coverage without dedicated capture hardware at every point.
 
-## **Why Flow Monitoring Matters**
+SOC teams use it to detect network-based threats that do not require payload inspection: connections to known malicious destinations, internal hosts scanning other subnets, large unexpected transfers, and long-duration outbound sessions. Because flow data is retained for weeks, analysts can also query historical records when a new indicator of compromise surfaces.
 
-Modern networks generate enormous volumes of traffic that are difficult to analyze manually.
+ISPs use flow monitoring for traffic engineering, peering analysis, and regulatory compliance. Per-prefix and per-AS flow data drives route optimization and peering capacity decisions.
 
-Flow monitoring provides scalable visibility into:
-- network traffic behavior
-- bandwidth consumption
-- application usage
-- communication patterns
-- routing activity
-- security anomalies
+---
 
-It helps organizations:
-- troubleshoot network issues
-- optimize bandwidth usage
-- detect suspicious traffic
-- monitor ISP traffic
-- improve operational visibility
-- investigate performance problems
+## Flow monitoring vs packet-based monitoring
 
-Flow monitoring is especially important in:
-- enterprise networks
-- ISP environments
-- cloud infrastructures
-- SOC operations
-- data centers
-
-## **Types of Flow Monitoring**
-
-### Bandwidth Monitoring
-
-Track interface utilization and traffic growth trends.
-
-### Application Monitoring
-
-Identify applications consuming network resources.
-
-### Security Monitoring
-
-Detect anomalies, suspicious communication, and abnormal traffic behavior.
-
-### Subscriber Monitoring
-
-Analyze traffic generated by users or customer groups.
-
-### Routing and Peering Monitoring
-
-Monitor traffic exchanged between networks and ASNs.
-
-## **Common Operational Use Cases**
-
-### Traffic Investigation
-
-Investigate abnormal communication and suspicious traffic patterns.
-
-### Capacity Planning
-
-Analyze traffic growth and infrastructure utilization.
-
-### DDoS Detection
-
-Detect traffic floods and bandwidth spikes.
-
-### Application Visibility
-
-Understand how applications consume network resources.
-
-### ISP Traffic Analytics
-
-Monitor subscriber traffic and backbone usage.
-
-## **Flow Monitoring vs Packet Monitoring**
-
-| Feature | Flow Monitoring | Packet Monitoring |
+| Dimension | Flow monitoring | Packet-based monitoring |
 |---|---|---|
-| Visibility Type | Summarized traffic metadata | Full packet visibility |
-| Scalability | High | Lower |
-| Storage Requirement | Lower | Higher |
-| Payload Visibility | Minimal or none | Full payload access |
-| Common Use | Traffic analytics | Deep troubleshooting |
+| What it captures | Conversation metadata: 5-tuple, counts, timestamps | Full packet including payload |
+| Payload visibility | None | Full, subject to encryption |
+| Storage requirement | Gigabytes per day at 10 Gbps | Tens of terabytes per day at 10 Gbps |
+| Retention period | Weeks to months | Hours to days at full fidelity |
+| Infrastructure needed | Existing routers and switches | Dedicated capture probes or taps |
+| Best fit | Trending, detection, compliance | Forensic investigation, incident confirmation |
 
-Flow monitoring provides scalable traffic visibility, while packet monitoring provides deeper packet-level analysis.
-
-## **How Trisul Handles Flow Monitoring**
-
-Trisul provides advanced flow-based traffic monitoring and analytics for enterprise, ISP, and cloud environments.
-
-Combined with:
-- Flow Stitchingᵀ
-- Flow Legsᵀ
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-- Contextᵀ
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-- monitor traffic behavior
-- analyze bandwidth trends
-- identify top talkers
-- investigate suspicious communication
-- visualize traffic patterns
-- correlate historical traffic activity
-
-Trisul can also combine [Packet Capture](/glossary/packet-capture), [Conversation View](/glossary/conversation-view), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper visibility.
-
-## **Related Terms**
-
-- [Flow Analysis](/glossary/flow-analysis)
-- [Flow Data](/glossary/flow-data)
-- [Flow Exporter](/glossary/flow-exporter)
-- [Flow Collector](/glossary/flow-collector)
-- [Flow Analyzer](/glossary/flow-analyzer)
-- [NetFlow](/glossary/netflow)
+The two are complementary. Most mature deployments combine topology-wide flow monitoring with targeted packet capture at security perimeters.
 
 ---
 
-## **FAQ**
+## What makes flow monitoring work in practice
 
-### What is flow monitoring?
+Collector accuracy underpins everything downstream. A collector that drops records under load, misapplies sampling multipliers, or fails to stitch bidirectional flows produces reports that are subtly wrong and difficult to validate. Testing collector behavior against known baselines during deployment is necessary, not optional.
 
-Flow monitoring is the process of collecting and analyzing flow records to understand network traffic behavior.
+Exporter coverage across the topology matters as much as collector quality. A core switch not configured to export, or a newly provisioned router not yet onboarded, creates blind spots that dashboards will not surface until an investigation reveals missing traffic.
 
-### Why is flow monitoring important?
+Flow data is metadata, and its investigative value stops there. Flow monitoring can tell you a host made 400 outbound connections in 10 minutes; it cannot tell you what those connections contained. Workflows that use flow data alone for incident confirmation are operating outside what the data can support.
 
-It provides scalable traffic visibility for troubleshooting, bandwidth analysis, security monitoring, and operational visibility.
+---
 
-### What technologies are used for flow monitoring?
+## How Trisul handles flow monitoring
 
-Common technologies include NetFlow, IPFIX, and sFlow.
+Trisul accepts NetFlow v1, v5, v9, Flexible NetFlow, IPFIX, and all sFlow versions. Routers and interfaces are auto-discovered when the first records arrive. The Routers and Interfaces tool lets operators drill from a device down to its interfaces and then into hosts, applications, and flows on that interface without constructing manual queries.
 
-### What's the difference between flow monitoring and packet monitoring?
+Every flow record is stored without rollup or summarization, preserving full resolution for historical queries within the retention window. For links where device-level NetFlow coverage has gaps, Trisul can generate IPFIX records directly from raw packet capture, providing complete unsampled flow visibility even where the network device does not export flow telemetry. Full setup documentation is at https://docs.trisul.org/docs/ug/netflow/.
 
-Flow monitoring uses summarized traffic metadata, while packet monitoring analyzes full packet contents.
+---
 
-### Can flow monitoring identify applications?
+## Related terms
 
-Yes. Modern flow monitoring platforms can identify applications using flow metadata and Layer 7 visibility techniques.
+- [What is a flow?](/glossary/flow)
+- [What is NetFlow?](/glossary/netflow)
+- [What is IPFIX?](/glossary/ipfix)
+- [What is sFlow?](/glossary/sflow)
+- [What is flow sampling?](/glossary/flow-sampling)
+- [What is flow stitching?](/glossary/flow-stitching)
+- [What is flow tagger?](/glossary/flow-tagger)
+- [What is full packet capture?](/glossary/full-packet-capture)
 
-### Is flow monitoring useful for security investigations?
+---
 
-Yes. Flow monitoring helps detect anomalies, suspicious communication, DDoS attacks, and abnormal traffic behavior.
+## Frequently asked questions
+
+### What is the difference between flow monitoring and packet capture?
+
+Flow monitoring works from summarized conversation records: who talked to whom, when, and how much data moved. Packet capture records the full content of every packet including the payload. Flow monitoring scales to 100 Gbps with standard router hardware; packet capture at those speeds requires dedicated infrastructure. The two are complementary: flow monitoring for coverage and retention, packet capture for investigation and confirmation.
+
+### Can flow monitoring detect threats in encrypted traffic?
+
+Flow monitoring cannot see inside encrypted payloads, but it can detect behavioral anomalies that encryption does not hide. Unusual destination IPs, abnormal transfer volumes, long-duration outbound connections, and patterns inconsistent with normal baselines are all visible in flow metadata. Extended IPFIX exports on some platforms also include TLS handshake fields such as SNI and JA3 fingerprints, adding context without requiring decryption.
+
+### How does flow monitoring scale to large networks?
+
+Flow records are small, typically 50 to 100 bytes each, compared to kilobytes or more per packet. A 10 Gbps link generates a manageable stream of tens of thousands of flow records per second rather than the millions of packets that full capture would require. This is why flow monitoring is the standard visibility mechanism at ISP and large enterprise scale.
+
+### What is multi-hop flow monitoring?
+
+Multi-hop flow monitoring collects flow telemetry from multiple observation points and correlates flows that traverse more than one device. This lets operators track a conversation across the network topology, compare volumes at different hops, and identify where in the path traffic changes character. It is useful for verifying routing policy, detecting asymmetry, and tracing specific hosts across a large network.
+
+### What happens to flow monitoring accuracy when devices use sampling?
+
+Sampled flow data introduces statistical error proportional to the sampling rate. High-volume flows scale accurately; short-lived or low-volume flows may not be captured at all. Volume totals are estimates derived by multiplying observed counts by the inverse of the sampling rate. For security detection, events that generate only a small number of packets, such as targeted scans or slow beaconing, are likely to be missed in coarsely sampled data.

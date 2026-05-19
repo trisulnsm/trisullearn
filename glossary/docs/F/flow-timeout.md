@@ -1,193 +1,130 @@
 ---
-title: What is Flow Timeout?
-sidebar_label: Flow Timeout
-sidebar_position: 45
+title: What is flow timeout?
+description: Flow timeout is the mechanism by which a network device decides a flow has ended and exports its record to a collector, using either an idle timer for inactive flows or an active timer for long-running ones.
+sidebar_label: Flow timeout
+sidebar_position: 3
 slug: /glossary/flow-timeout
-description: Learn what flow timeout is, how active and inactive timeouts work, and why timeout settings are important for accurate flow monitoring and traffic visibility.
 keywords:
   - flow timeout
-  - active flow timeout
-  - inactive flow timeout
-  - NetFlow timeout
-  - IPFIX timeout
-  - flow monitoring configuration
+  - active timeout
+  - inactive timeout
+  - netflow timeout
+  - flow cache timeout
+  - flow expiration
 ---
 
-# What is Flow Timeout?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the recommended active and inactive timeout for NetFlow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most collectors, an active timeout of 60 seconds and an inactive timeout of 15 seconds are standard starting points. The active timeout at 60 seconds allows the collector to display per-minute traffic resolution without large mid-flow spikes. The inactive timeout at 15 seconds ensures short-lived flows are exported promptly without holding cache entries unnecessarily."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does flow timeout affect traffic reports?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A long active timeout causes traffic to be reported as a spike when the record finally arrives at the collector rather than spread across the actual duration of the flow. A 10-minute file transfer with a 30-minute active timeout will appear as a single burst in reporting rather than a steady transfer. Shortening the active timeout to 60 seconds aligns exported flow data with minute-by-minute granularity and produces more accurate trending."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does flow timeout affect security investigations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A high inactive timeout delays export of completed short-lived flows, which means connections that have already closed may not yet appear in the collector when an analyst is investigating. For long-duration flows like persistent beaconing sessions, a short active timeout ensures the collector receives periodic updates rather than waiting for the flow to terminate before any record is visible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Trisul have its own flow timeout setting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When Trisul reconstructs flows from raw packets rather than receiving exported NetFlow records, it applies its own inactivity timeout to determine when a flow has ended. The default is 120 seconds: if no packets are seen for a flow within that window, the flow is considered terminated and its record is written. This value is configurable in the flow handling settings."
+      }
+    }
+  ]
+};
 
-Flow Timeout is a configuration setting that determines when a network device exports or closes a flow record during flow monitoring.
+# What is flow timeout?
 
-Because traffic sessions can remain active for long periods, devices use timeout rules to decide when flow information should be exported to monitoring systems.
+Flow timeout is the mechanism a network device uses to decide when a flow is complete and ready to export to a collector. Because the device cannot always observe an explicit TCP FIN or RST, it relies on two timers: an inactive timeout that fires when no new packets arrive for a flow within a set period, and an active timeout that breaks up long-running flows into periodic records regardless of whether the flow has ended. Together these two settings control the granularity, latency, and accuracy of exported flow data.
 
-Flow timeout settings help balance:
-- traffic visibility
-- reporting accuracy
-- exporter performance
-- storage efficiency
-- monitoring scalability
+---
 
-Flow timeout behavior is commonly used in [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Flow Monitoring](/glossary/flow-monitoring) environments.
+## How flow timeout works
 
-## **How Flow Timeout Works**
+When a router or switch observes packets, it stores per-flow metadata in a local flow cache. That cache entry stays open as long as new packets keep arriving. The inactive timeout closes and exports the entry if no new packet is seen for the configured interval, typically 15 seconds. This handles short-lived flows and flows that terminate without a TCP FIN.
 
-Network devices group packets into flows based on shared communication characteristics.
+The active timeout handles flows that never go idle: a large file transfer, a streaming session, or a persistent tunnel. Without an active timeout, the cache entry stays open indefinitely and the collector receives no data until the flow finally closes. Setting the active timeout to 60 seconds causes the device to export a partial record every minute, giving the collector continuous visibility into the ongoing conversation.
 
-A flow remains active while traffic continues between endpoints.
+For TCP flows, a FIN or RST triggers immediate export regardless of where either timer stands.
 
-Devices use timeout rules to determine when to:
-- export the flow record
-- update monitoring systems
-- close inactive sessions
+---
 
-The two most common timeout types are:
-- Active Flow Timeout
-- Inactive Flow Timeout
+## Flow timeout in network operations
 
-### Active Flow Timeout
+Timeout values directly affect the time resolution of traffic reports. With an active timeout of 30 minutes, a single large transfer appears in reporting as one event at the moment of export rather than as traffic distributed across its actual duration. At 60 seconds, the same transfer appears as a steady trend across the minutes it actually occupied. For capacity planning and interface utilization trending, 60 seconds is the practical standard.
 
-The Active Flow Timeout defines how long a flow can remain active before the device exports an update, even if traffic is still flowing.
+For security operations, the inactive timeout affects how quickly short-lived connections appear in the collector. A host performing rapid port scanning generates many short flows. An inactive timeout of 15 seconds means those records arrive at the collector within seconds of the scan completing. A higher value delays visibility and slows down triage.
 
-For example:
+Mismatched timeout values across devices in the same network create inconsistency in flow data. One device exporting at 60 seconds active and another at 30 minutes will produce traffic profiles that are difficult to correlate during an investigation.
 
-Active Timeout = 60 seconds
+---
 
-If a connection remains active longer than 60 seconds:
+## Active timeout vs inactive timeout
 
-- the device exports the current flow statistics
-- the flow continues monitoring afterward
+| Dimension | Active timeout | Inactive timeout |
+|---|---|---|
+| What triggers it | Flow still active after N seconds | No new packets seen for N seconds |
+| Primary purpose | Break long-running flows into periodic records | Detect and export completed or idle flows |
+| Typical default | 30 minutes (recommended: 60 seconds) | 15 seconds |
+| Effect if too high | Traffic spikes in reporting, delayed visibility | Delayed export of short-lived flows |
+| Effect if too low | Increased exporter and collector load | Cache churn; minimal practical downside |
 
-This improves visibility into long-lived sessions.
+Both timers work independently. A flow will be exported as soon as either timer fires or a TCP FIN or RST is observed.
 
-### Inactive Flow Timeout
+---
 
-The Inactive Flow Timeout defines how long a flow can remain idle before the device closes and exports it.
+## How Trisul handles flow timeout
 
-For example:
+When Trisul processes traffic from raw packets rather than receiving pre-exported NetFlow records, it applies its own inactivity timeout to determine when a flow has ended. The default is 120 seconds: a flow that has seen no packets for two minutes is considered terminated and its record is written to the flow database. This value is tunable in the flow handling settings at https://docs.trisul.org/docs/ug/flow/tuning/.
 
-```
-Inactive Timeout = 15 seconds
-```
+For NetFlow and IPFIX inputs, Trisul receives flow records as exported by the upstream device and does not apply its own expiry logic. In that mode, the timeout behavior is entirely controlled by the exporter configuration.
 
-If no packets are observed for 15 seconds:
+---
 
-- the flow is considered complete
-- the flow record is exported and closed
+## Related terms
 
-## **Why Flow Timeout Matters**
+- [What is a flow?](/glossary/flow)
+- [What is NetFlow?](/glossary/netflow)
+- [What is IPFIX?](/glossary/ipfix)
+- [What is flow sampling?](/glossary/flow-sampling)
+- [What is flow tagger?](/glossary/flow-tagger)
+- [What is flow tracker?](/glossary/flow-tracker)
 
-Incorrect timeout settings can affect:
+---
 
-- traffic visibility
-- reporting accuracy
-- flow volume
-- monitoring performance
-- storage usage
+## Frequently asked questions
 
-Flow timeout tuning helps organizations:
+### What is the recommended active and inactive timeout for NetFlow?
 
-- improve flow accuracy
-- reduce exporter load
-- optimize analytics performance
-- improve troubleshooting visibility
-- manage long-lived connections efficiently
+For most collectors, an active timeout of 60 seconds and an inactive timeout of 15 seconds are standard starting points. The active timeout at 60 seconds allows the collector to display per-minute traffic resolution without large mid-flow spikes. The inactive timeout at 15 seconds ensures short-lived flows are exported promptly without holding cache entries unnecessarily.
 
-Timeout settings are especially important in:
+### How does flow timeout affect traffic reports?
 
-- ISP environments
-- high-speed networks
-- cloud infrastructures
-- data centers
-- long-duration application sessions
+A long active timeout causes traffic to be reported as a spike when the record finally arrives at the collector rather than spread across the actual duration of the flow. A 10-minute file transfer with a 30-minute active timeout will appear as a single burst in reporting rather than a steady transfer. Shortening the active timeout to 60 seconds aligns exported flow data with minute-by-minute granularity and produces more accurate trending.
 
-## **Common Operational Use Cases**
+### Does flow timeout affect security investigations?
 
-### Long-Lived Application Monitoring
+Yes. A high inactive timeout delays export of completed short-lived flows, which means connections that have already closed may not yet appear in the collector when an analyst is investigating. For long-duration flows like persistent beaconing sessions, a short active timeout ensures the collector receives periodic updates rather than waiting for the flow to terminate before any record is visible.
 
-Track VPNs, streaming sessions, or persistent cloud connections.
+### Does Trisul have its own flow timeout setting?
 
-### Bandwidth Analysis
-
-Improve visibility into traffic usage over time.
-
-### Exporter Performance Optimization
-
-Reduce excessive flow exports during high traffic loads.
-
-### Traffic Investigation
-
-Improve visibility into short-lived or burst traffic behavior.
-
-### Security Monitoring
-
-## **Analyze suspicious sessions and long-running communication patterns.**
-
-## **Active vs Inactive Flow Timeout**
-
-| Feature | Active Flow Timeout|  Inactive Flow Timeout| 
-|----------|-------------------|-----------------------|
-| Purpose | Export ongoing flows periodically | Close idle flows| 
-| Trigger | Time duration reached|  No traffic activity| 
-| Flow Status|  Still active  | Considered complete| 
-| Visibility | Role Long-session updates |  Session completion| 
-| Common Use |  Persistent traffic visibility | Cleanup and export| 
-
-Both timeout types work together to maintain accurate and scalable flow monitoring.
-
-## **How Trisul Uses Flow Timeout Visibility**
-
-Trisul analyzes flow behavior and session activity across large-scale traffic monitoring environments.
-
-Combined with:
-
-- Flow Analysis
-- Flow Stitchingᵀ
-- Conversation View
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-- Contextᵀ
-
-Trisul helps teams:
-
-- analyze session behavior
-- monitor long-lived traffic
-- investigate short-lived communication
-- optimize traffic visibility
-- correlate historical flow activity
-- troubleshoot exporter behavior
-
-Trisul can also integrate NetFlow, IPFIX, and Traffic Investigation workflows for deeper operational visibility.
-
-## **Related Terms**
-- Active Flow Timeout
-- Flow Monitoring
-- Flow Exporter
-- Flow Analysis
-- NetFlow
-- IPFIX
-
-
-## **FAQ**
-
-### What is flow timeout?
-
-Flow timeout is a setting that determines when a network device exports or closes a flow record.
-
-### What is active flow timeout?
-
-Active flow timeout exports ongoing flows periodically even if traffic is still active.
-
-### What is inactive flow timeout?
-
-Inactive flow timeout closes and exports flows after a period of inactivity.
-
-### Why are flow timeout settings important?
-
-They affect traffic visibility, reporting accuracy, exporter performance, and monitoring scalability.
-
-### Can incorrect timeout settings affect analytics?
-
-Yes. Poor timeout configuration can create inaccurate traffic reporting or excessive flow exports.
-
-### Are flow timeouts important in ISP environments?
-
-Yes. ISPs use timeout tuning to optimize large-scale traffic visibility and exporter performance.
+When Trisul reconstructs flows from raw packets rather than receiving exported NetFlow records, it applies its own inactivity timeout to determine when a flow has ended. The default is 120 seconds: if no packets are seen for a flow within that window, the flow is considered terminated and its record is written. This value is configurable in the flow handling settings.

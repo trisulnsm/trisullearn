@@ -1,192 +1,129 @@
 ---
-title: What is DNS Traffic Analysis?
-sidebar_label: DNS Traffic Analysis
-sidebar_position: 24
+title: What is DNS traffic analysis?
+description: DNS traffic analysis examines DNS queries and responses to detect threats, identify malicious domain lookups, detect DNS tunneling or exfiltration, and understand network traffic patterns at the domain level.
+sidebar_label: DNS traffic analysis
+sidebar_position: 23
 slug: /glossary/dns-traffic-analysis
-description: Learn what DNS traffic analysis is, how it works, and why DNS visibility is important for troubleshooting, security monitoring, and network traffic investigation.
 keywords:
-  - DNS traffic analysis
-  - DNS monitoring
-  - DNS visibility
-  - DNS traffic monitoring
-  - DNS security analysis
-  - network traffic investigation
+  - dns traffic analysis
+  - dns analysis
+  - dns monitoring
+  - dns security
+  - dns tunneling detection
+  - passive dns
+  - dns threat detection
 ---
 
-# What is DNS Traffic Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What threats can DNS traffic analysis detect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DNS traffic analysis can detect DNS tunneling and exfiltration (long query names over 40 unique characters), fast flux domains (many IPs per domain with low TTL), DNS amplification attacks for DDoS, DNS rebinding attacks, communication with malicious domains, insider threats, APT campaigns, and DNSSEC validation failures. It identifies suspicious domain lookups by analyzing query names and responses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does DNS traffic analysis differ from flow monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow monitoring sees DNS as traffic to port 53 but cannot see the domain names being queried. DNS traffic analysis extracts domain names, query types, responses, and record details from DNS packets. It adds application-layer context to flow data. Passive DNS systems capture all DNS responses passively without generating additional queries, seeing more than active scanning would show."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is passive DNS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Passive DNS is a system that captures DNS responses as they pass through the network without generating queries. It stores domain-to-IP mappings observed from real traffic. Passive DNS sees more than active scanning because it captures all responses, detects things that would otherwise be missed, and shows what machines actually used rather than what they could look up. It is essential for detecting fast flux, malicious domains, and DNS exfiltration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does DNS traffic run?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DNS traffic runs on UDP port 53 for standard queries and TCP port 53 for larger responses, zone transfers, and DNSSEC. DNS traffic can be extracted by filtering on port 53. DNS information is neither authenticated nor validated except where DNSSEC is employed, making careful monitoring critical for security and performance."
+      }
+    }
+  ]
+};
 
-**DNS traffic analysis** is the process of monitoring and analyzing Domain Name System (DNS) traffic to understand domain‑name activity, troubleshoot network issues, and detect suspicious communication patterns.  
+# What is DNS traffic analysis?
 
-Since most internet communication begins with a DNS lookup, DNS traffic provides early visibility into user behavior, application‑level connectivity, and potential security threats.  
+DNS traffic analysis examines DNS queries and responses to detect threats, identify malicious domain lookups, detect DNS tunneling or exfiltration, and understand network traffic patterns at the domain level. DNS traffic runs on UDP or TCP port 53 and can be extracted by filtering on port 53. DNS information is neither authenticated nor validated except where DNSSEC is employed, making monitoring critical for security.
 
-DNS traffic analysis is widely used in **[Traffic Investigation](/glossary/traffic-investigation)**, **[Anomaly Detection](/glossary/anomaly-detection)**, and **[Network Security Monitoring](/glossary/network-security-monitoring-nsm)** workflows.
+---
 
-## **How DNS Traffic Analysis Works**
+## What DNS traffic analysis detects
 
-When a user or application attempts to access a website or service:
+DNS traffic analysis detects DNS tunneling and exfiltration by identifying query names with over 40 unique characters, fast flux domains with many IPs per domain and TTL under 2000 seconds, DNS amplification attacks for DDoS participation, DNS rebinding where attacker domains resolve to internal IPs, communication with known malicious domains, and DNSSEC validation failures.
 
-1. A DNS query is sent to resolve a domain name.  
-2. A DNS server responds with an IP address (or error).  
-3. The client initiates subsequent traffic (HTTP, HTTPS, etc.) to the resolved IP.  
+It also identifies suspicious domain lookups by analyzing query names for patterns like large amounts of unique characters over 20, TLDs in the middle of names, and outbound connections with no previous resolution. Passive DNS captures all DNS responses without generating queries, seeing what machines actually used rather than what they could look up.
 
-DNS analysis platforms monitor:
-- DNS queries (questions) and response records  
-- queried domains and subdomains  
-- DNS response codes (NOERROR, NXDOMAIN, SERVFAIL, etc.)  
-- query frequency and burst patterns  
-- client IP and subnet behavior  
-- geographic and ASN‑level patterns  
-- protocol‑level characteristics (UDP vs TCP, port usage)  
+---
 
-For example:
+## DNS traffic analysis in network operations
 
-1. A device begins generating thousands of DNS queries per minute.  
-2. Requests target suspicious, newly registered, or known‑bad domains.  
-3. The monitoring platform flags abnormal query behavior.  
-4. Analysts investigate the traffic for possible malware or command‑and‑control activity.  
+SOC teams use DNS traffic analysis for threat hunting and tracking cyber threats. Malware and command-and-control communications often use DNS for domain resolution. DNS queries to malicious domains, fast flux patterns, and tunneling attempts are all visible in DNS traffic. DNS data is essential for identifying insider threats, malware, cyber weapons, and APT campaigns.
 
-![images/dns.png](images/dns.png)
+NOC teams use DNS traffic analysis for performance monitoring and capacity planning. DNS query volumes, response times, and failure rates are all metrics that indicate DNS infrastructure health. Understanding DNS traffic patterns helps optimize DNS server configuration and identify misconfigured clients.
 
-*Figure: DNS traffic analysis workflow showing how queries and responses are monitored to detect suspicious domain behavior and application‑connectivity issues.*
+ISPs use DNS traffic analysis for abuse detection and compliance. DNS queries to known malicious domains, DNS amplification attacks, and DNS exfiltration attempts are all visible in DNS traffic and can be used for abuse investigation and regulatory compliance.
 
-## **Why DNS Traffic Analysis Matters**
+---
 
-DNS traffic often reveals activity before other monitoring layers see suspicious traffic, because most sessions start with a DNS lookup.  
+## DNS traffic analysis vs flow monitoring
 
-DNS visibility helps teams:
-- identify malicious or suspicious domains  
-- detect malware‑driven DNS lookups and command‑and‑control communication  
-- troubleshoot DNS resolution failures and latency  
-- analyze application‑level connectivity and service‑discovery behavior  
-- investigate suspicious outbound DNS traffic  
-- understand user‑and‑device‑driven domain‑usage patterns  
-
-It improves visibility into:
-- command‑and‑control (C2) communication  
-- DNS tunneling and data‑exfiltration attempts  
-- phishing and typo‑squatted domains  
-- malware‑callback patterns  
-- domain‑reputation‑related issues  
-- application‑connectivity and service‑resolution problems  
-
-DNS analysis is especially important in:
-- SOC operations  
-- enterprise networks  
-- ISP environments  
-- cloud infrastructures  
-- threat‑hunting and proactive‑security workflows  
-
-## **Types of DNS Analysis**
-
-### Query Analysis
-
-Monitor requested domains, query rates, and query patterns (for example, high‑frequency or bulk‑domain requests).
-
-### Response Analysis
-
-Analyze DNS response behavior, including response codes, record types, and returned IP addresses or address‑classes.
-
-### DNS Security Analysis
-
-Detect suspicious domains, known‑bad or newly‑registered domains, and DNS‑abuse patterns using threat‑context or behavioral criteria.
-
-### Behavioral DNS Analysis
-
-Identify unusual DNS‑communication patterns such as sudden spikes, rare or new domains, or atypical DNS‑record usage.
-
-### DNS Performance Monitoring
-
-Monitor DNS‑resolution latency, failure rates, and recursion‑behavior for performance‑ and reliability‑troubleshooting workflows.
-
-## **Common Operational Use Cases**
-
-### Malware Detection
-
-Identify suspicious domains and periodic DNS lookups that may indicate malware‑driven command‑and‑control traffic.
-
-### DNS Tunneling Detection
-
-Detect covert data transfer via DNS queries or responses, often signaled by abnormally large payloads or unusual query patterns.
-
-### Troubleshooting DNS Failures
-
-Analyze failed lookups, high‑latency responses, or recurring errors to resolve DNS‑resolution and forwarding‑issues.
-
-### Application Visibility
-
-Understand which services, domains, and third‑party APIs applications communicate with, including external SaaS and CDNs.
-
-### Threat Hunting
-
-Investigate suspicious outbound DNS traffic patterns across user segments or time windows to uncover potential C2 or C2‑preparatory activity.
-
-## **DNS Traffic Analysis vs General Traffic Monitoring**
-
-| Feature | DNS Traffic Analysis | General Traffic Monitoring |
+| Dimension | DNS traffic analysis | Flow monitoring |
 |---|---|---|
-| Primary Focus | DNS conversations and domain behavior | Overall traffic flows and bandwidth usage |
-| Visibility Type | Domain‑ and query‑level visibility | Network‑wide flow and packet‑level visibility |
-| Security Relevance | Very high (early indicator set) | Broad but later in the communication chain |
-| Operational Context | Domain‑level and name‑resolution context | General traffic and performance metrics |
-| Common Data Sources | DNS packets and logs, PCAP | Flow records, NetFlow/IPFIX, packet data |
+| What it examines | DNS queries, responses, domain names, record types | Traffic to port 53, byte counts, timestamps |
+| Domain visibility | Full domain names and records | None |
+| Application context | Full DNS application layer | Port-based only |
+| Detection capability | Tunneling, fast flux, malicious domains | Volume anomalies only |
+| Best fit | Security threat detection | Traffic volume analysis |
 
-DNS traffic analysis adds domain‑centric visibility that complements broader, flow‑ and packet‑based network monitoring workflows.
-
-## **How Trisul Handles DNS Traffic Analysis**
-
-Trisul provides DNS‑aware traffic visibility by analyzing DNS traffic within packet capture, flow metadata, and behavioral‑analytics workflows.  
-
-Using features such as:
-- Packet Capture  
-- Flow Analysis  
-- Top‑K Analyticsᵀ  
-- Retro Analysisᵀ  
-- Badfellasᵀ  
-- Multigraph Analyticsᵀ  
-
-Trisul helps teams:
-- analyze DNS query behavior (by client, domain, and time)  
-- identify suspicious or anomalous domains and lookup patterns  
-- investigate DNS‑behavior anomalies correlated with alerts or flows  
-- monitor outbound DNS activity across segments or subscribers  
-- troubleshoot DNS resolution failures and latency patterns  
-- detect abnormal DNS traffic patterns that may indicate tunneling or abuse  
-
-Trisul can also correlate **[Packet Capture](/glossary/packet-capture)**, **[Flow Analysis](/glossary/flow-analysis)**, and **[Anomaly Detection](/glossary/anomaly-detection)** workflows for deeper DNS‑investigation and long‑term analysis.
-
-## **Related Terms**
-
-- [Packet Capture](/glossary/packet-capture)  
-- [Flow Analysis](/glossary/flow-analysis)  
-- [Anomaly Detection](/glossary/anomaly-detection)  
-- [Traffic Investigation](/glossary/traffic-investigation)  
-- [Application Visibility](/glossary/application-visibility)  
-- [Network Security Monitoring](/glossary/network-security-monitoring-nsm)  
+DNS traffic analysis and flow monitoring are complementary. Flow monitoring provides volume and timing data; DNS analysis provides domain-level context and threat detection.
 
 ---
 
-## **FAQ**
+## How Trisul handles DNS traffic analysis
 
-### What is DNS traffic analysis?
+Trisul provides DNS visibility through flow monitoring and packet capture. It captures DNS traffic to port 53 and can extract domain names and query types from DNS packets. Trisul's Explore Flows interface allows querying DNS traffic by domain name, IP address, time range, and query type.
 
-DNS traffic analysis is the process of monitoring and analyzing DNS queries and responses to understand domain‑level activity, troubleshoot connectivity, and detect suspicious behavior.
+For full DNS traffic analysis including passive DNS, DNS tunneling detection, and fast flux detection, Trisul can be paired with dedicated DNS security tools or extended via LUA plugins. Trisul's flow analytics can identify DNS traffic patterns that warrant deeper inspection by DNS-specific tools. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-### Why is DNS traffic analysis important?
+---
 
-It helps teams identify malware‑related DNS lookups, DNS abuse, domain‑quality issues, and connectivity problems often before other traffic monitors see clear indicators.
+## Related terms
 
-### What can DNS analysis detect?
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is passive DNS?](/glossary/passive-dns)
+- [What is DNS tunneling?](/glossary/dns-tunneling)
+- [What is full packet capture?](/glossary/full-packet-capture)
+- [What is flow analysis?](/glossary/flow-analysis)
+- [What is DNSSEC?](/glossary/dnssec)
 
-DNS analysis can detect suspicious domains, DNS‑tunneling attempts, malware‑callback patterns, phishing or typo‑squatted domains, and abnormal query‑rate or response‑code behavior.
+---
 
-### How is DNS traffic monitored?
+## Frequently asked questions
 
-DNS traffic is commonly analyzed using packet capture of DNS traffic, DNS‑specific logs, flow‑based DNS telemetry (when supported), and behavioral‑monitoring systems that inspect query and response patterns.
+### What threats can DNS traffic analysis detect?
 
-### Is DNS traffic analysis useful for security monitoring?
+DNS traffic analysis can detect DNS tunneling and exfiltration (long query names over 40 unique characters), fast flux domains (many IPs per domain with low TTL), DNS amplification attacks for DDoS, DNS rebinding attacks, communication with malicious domains, insider threats, APT campaigns, and DNSSEC validation failures. It identifies suspicious domain lookups by analyzing query names and responses.
 
-Yes. DNS traffic often reveals malicious or suspicious domain‑level communication before additional traffic manifests, making it a high‑value early‑warning layer in security workflows.
+### How does DNS traffic analysis differ from flow monitoring?
 
-### Can DNS traffic analysis help troubleshoot applications?
+Flow monitoring sees DNS as traffic to port 53 but cannot see the domain names being queried. DNS traffic analysis extracts domain names, query types, responses, and record details from DNS packets. It adds application-layer context to flow data. Passive DNS systems capture all DNS responses passively without generating additional queries, seeing more than active scanning would show.
 
-Yes. It helps identify failed lookups, latency in DNS resolution, and incorrect or missing DNS‑records, which are common causes of application‑connectivity and service‑discovery issues.
+### What is passive DNS?
+
+Passive DNS is a system that captures DNS responses as they pass through the network without generating queries. It stores domain-to-IP mappings observed from real traffic. Passive DNS sees more than active scanning because it captures all responses, detects things that would otherwise be missed, and shows what machines actually used rather than what they could look up. It is essential for detecting fast flux, malicious domains, and DNS exfiltration.
+
+### Where does DNS traffic run?
+
+DNS traffic runs on UDP port 53 for standard queries and TCP port 53 for larger responses, zone transfers, and DNSSEC. DNS traffic can be extracted by filtering on port 53. DNS information is neither authenticated nor validated except where DNSSEC is employed, making careful monitoring critical for security and performance.
