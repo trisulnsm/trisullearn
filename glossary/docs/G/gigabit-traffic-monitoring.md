@@ -1,188 +1,118 @@
 ---
-title: What is Gigabit Traffic Monitoring?
-sidebar_label: Gigabit Traffic Monitoring
-sidebar_position: 48
+title: What is gigabit traffic monitoring?
+description: Gigabit traffic monitoring observes and analyzes network traffic at 1 Gbps or higher speeds, requiring specialized hardware and software to capture flows without packet loss at wire speed.
+sidebar_label: Gigabit traffic monitoring
+sidebar_position: 46
 slug: /glossary/gigabit-traffic-monitoring
-description: Learn what gigabit traffic monitoring is, how high-speed network monitoring works, and why monitoring gigabit-scale traffic is important for performance and visibility.
 keywords:
   - gigabit traffic monitoring
-  - high-speed network monitoring
-  - gigabit bandwidth monitoring
-  - network traffic analytics
-  - high throughput monitoring
-  - traffic visibility
+  - 1gbps monitoring
+  - high-speed traffic monitoring
+  - multi-gigabit monitoring
+  - wire speed monitoring
+  - network performance monitoring
+  - bandwidth monitoring
 ---
 
-# What is Gigabit Traffic Monitoring?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is gigabit traffic monitoring challenging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 1 Gbps, approximately 1.488 million packets per second must be processed. At 10 Gbps, this increases to 14.88 million packets per second. Standard NICs and CPUs cannot handle this load without packet loss. Specialized hardware like network processors and FPGA-based capture cards are required to maintain wire-speed capture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What hardware is required for gigabit traffic monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Required hardware includes 10Gbps or higher network interface cards, TAPs or port mirroring for traffic capture, network processors or FPGA-based capture cards for high-speed packet processing, and high-performance storage for flow data. SNMP polling alone cannot capture gigabit traffic at wire speed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What methods work for gigabit traffic monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow-based monitoring (NetFlow, sFlow, J-Flow, IPFIX) is the most scalable method for gigabit networks because it samples traffic and exports metadata rather than full packets. Full packet capture requires specialized hardware and is resource-intensive. SNMP polling works for interface utilization but not for detailed traffic analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul handle gigabit traffic monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul uses flow-based monitoring that scales to gigabit speeds by collecting NetFlow, J-Flow, sFlow, and IPFIX data from routers and switches. Trisul does not require packet capture at wire speed, making it suitable for high-speed networks. Flow processing occurs in real time with minimal latency for fast anomaly detection."
+      }
+    }
+  ]
+};
 
-Gigabit Traffic Monitoring is the process of monitoring, analyzing, and visualizing network traffic operating at gigabit-scale speeds such as 1 Gbps, 10 Gbps, 40 Gbps, 100 Gbps, or higher.
+# What is gigabit traffic monitoring?
 
-It helps network and security teams maintain visibility into high-speed traffic flows, bandwidth usage, application behavior, and network performance without overwhelming monitoring infrastructure.
-
-Gigabit traffic monitoring is critical in:
-- enterprise backbones
-- ISP networks
-- cloud environments
-- data centers
-- internet exchange points
-- carrier-grade infrastructures
-
-## **How Gigabit Traffic Monitoring Works**
-
-High-speed networks generate massive volumes of traffic continuously.
-
-Monitoring platforms collect traffic visibility using:
-- flow monitoring
-- packet capture
-- sampled traffic analysis
-- telemetry systems
-- traffic probes
-- DPI engines
-
-Traffic data may include:
-- bandwidth utilization
-- flow records
-- application traffic
-- protocol activity
-- packet rates
-- latency measurements
-- traffic anomalies
-
-The workflow usually looks like this:
-
-1. High-speed traffic traverses monitored links
-2. Monitoring devices export traffic visibility data
-3. Analytics systems process traffic at scale
-4. Dashboards visualize network behavior and performance
-
-Monitoring high-speed environments requires optimized:
-- storage
-- ingestion
-- packet processing
-- traffic indexing
-- analytics pipelines
-
-## **Why Gigabit Traffic Monitoring Matters**
-
-As networks scale, visibility becomes more difficult due to:
-- massive traffic volumes
-- burst traffic behavior
-- distributed applications
-- cloud workloads
-- encrypted communication
-
-Gigabit traffic monitoring helps organizations:
-- detect congestion
-- troubleshoot performance issues
-- analyze bandwidth usage
-- identify traffic anomalies
-- monitor applications
-- investigate security events
-
-It improves visibility into:
-- backbone utilization
-- east-west traffic
-- subscriber traffic
-- application performance
-- DDoS attacks
-- routing behavior
-
-Gigabit visibility is especially important in:
-- ISP backbones
-- data center fabrics
-- enterprise WANs
-- cloud-native environments
-- multi-site infrastructures
-
-## **Common Operational Use Cases**
-
-### Backbone Monitoring
-
-Analyze utilization across high-capacity network links.
-
-### DDoS Detection
-
-Detect traffic floods and abnormal bandwidth spikes.
-
-### Capacity Planning
-
-Monitor long-term traffic growth and saturation trends.
-
-### Application Visibility
-
-Analyze traffic generated by cloud and business applications.
-
-### ISP Traffic Analytics
-
-Monitor subscriber and peering traffic at scale.
-
-## **Gigabit Traffic Monitoring vs Standard Monitoring**
-
-| Feature | Gigabit Traffic Monitoring | Standard Traffic Monitoring |
-|---|---|---|
-| Traffic Scale | Very high throughput | Moderate throughput |
-| Infrastructure Requirements | High-performance systems | Standard monitoring systems |
-| Scalability Focus | Critical | Moderate |
-| Storage Demand | Very high | Lower |
-| Operational Complexity | Higher | Lower |
-
-Gigabit monitoring focuses on maintaining visibility at extremely high traffic volumes.
-
-## **How Trisul Handles Gigabit Traffic Monitoring**
-
-Trisul is designed for scalable traffic analytics across high-speed enterprise and ISP environments.
-
-Combined with:
-- Flow Analysis
-- Packet Capture
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
-- Retro Analysisᵀ
-- Long-Term Traffic Retention
-
-Trisul helps teams:
-- monitor high-speed traffic flows
-- analyze bandwidth utilization
-- investigate traffic spikes
-- visualize large-scale communication patterns
-- detect anomalous traffic behavior
-- troubleshoot backbone performance issues
-
-Trisul can also integrate [NetFlow](/glossary/netflow), [Flow Sampling](/glossary/flow-sampling), and [DDoS Detection](/glossary/ddos-detection) workflows for scalable high-speed visibility.
-
-## **Related Terms**
-
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Flow Monitoring](/glossary/flow-monitoring)
-- [Flow Sampling](/glossary/flow-sampling)
-- [DDoS Detection](/glossary/ddos-detection)
-- [Capacity Planning](/glossary/capacity-planning)
-- [Packet Capture](/glossary/packet-capture)
+Gigabit traffic monitoring observes and analyzes network traffic at 1 Gbps or higher speeds, requiring specialized hardware and software to capture flows without packet loss at wire speed. At 1 Gbps, approximately 1.488 million packets per second must be processed. Flow-based monitoring is the most scalable approach for gigabit networks.
 
 ---
 
-## **FAQ**
+## How it works
 
-### What is gigabit traffic monitoring?
+Flow exporters on routers and switches sample traffic and export metadata (IP addresses, ports, byte counts, timestamps) to the collector. The collector analyzes flow data without requiring full packet capture. SNMP polling provides interface utilization but not detailed traffic analysis.
 
-Gigabit traffic monitoring is the process of analyzing and monitoring high-speed network traffic operating at gigabit-scale throughput.
+---
 
-### Why is gigabit traffic monitoring important?
+## In network operations
 
-It helps organizations maintain visibility into high-speed traffic, bandwidth usage, performance issues, and security events.
+- **NOC:** Monitor interface utilization on gigabit links using SNMP and flow data to detect saturation and congestion.
+- **Security:** Detect DDoS attacks and anomalies on high-speed links using flow-based anomaly detection without packet capture.
+- **Capacity Planning:** Track traffic trends on gigabit interfaces to plan upgrades before links reach saturation.
 
-### What environments require gigabit traffic monitoring?
+---
 
-ISPs, data centers, cloud environments, enterprise backbones, and carrier-grade infrastructures commonly require it.
+## Monitoring methods at gigabit speeds
 
-### How is high-speed traffic monitored?
+| Method | Scalability | Detail level | Best for |
+|---|---|---|---|
+| Flow-based (NetFlow, sFlow) | High | Metadata only | Gigabit and 10Gbps networks |
+| SNMP polling | High | Interface counters only | Interface utilization |
+| Full packet capture | Low | Full packet content | Targeted troubleshooting |
 
-Monitoring platforms use flow analytics, packet capture, telemetry, sampling, and DPI technologies.
+---
 
-### Can gigabit traffic monitoring detect DDoS attacks?
+## How Trisul handles it
 
-Yes. It helps identify traffic floods, bandwidth spikes, and abnormal communication behavior.
+Trisul uses flow-based monitoring that scales to gigabit speeds by collecting NetFlow, J-Flow, sFlow, and IPFIX data from routers and switches. Trisul does not require packet capture at wire speed, making it suitable for high-speed networks. Flow processing occurs in real time with minimal latency for fast anomaly detection. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-### Is packet capture difficult at gigabit speeds?
+---
 
-Yes. Full packet capture at very high speeds requires significant storage, processing power, and optimized monitoring infrastructure.
+## Related terms
+
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is SNMP?](/glossary/snmp)
+- [What is NetFlow?](/glossary/netflow)
+- [What is interface saturation?](/glossary/interface-saturation)
+
+---
+
+## Frequently asked questions
+
+### Why is gigabit traffic monitoring challenging?
+
+At 1 Gbps, approximately 1.488 million packets per second must be processed. At 10 Gbps, this increases to 14.88 million packets per second. Standard NICs and CPUs cannot handle this load without packet loss. Specialized hardware like network processors and FPGA-based capture cards are required to maintain wire-speed capture.
+
+### What hardware is required for gigabit traffic monitoring?
+
+Required hardware includes 10Gbps or higher network interface cards, TAPs or port mirroring for traffic capture, network processors or FPGA-based capture cards for high-speed packet processing, and high-performance storage for flow data. SNMP polling alone cannot capture gigabit traffic at wire speed.
+
+### What methods work for gigabit traffic monitoring?
+
+Flow-based monitoring (NetFlow, sFlow, J-Flow, IPFIX) is the most scalable method for gigabit networks because it samples traffic and exports metadata rather than full packets. Full packet capture requires specialized hardware and is resource-intensive. SNMP polling works for interface utilization but not for detailed traffic analysis.
+
+### How does Trisul handle gigabit traffic monitoring?
+
+Trisul uses flow-based monitoring that scales to gigabit speeds by collecting NetFlow, J-Flow, sFlow, and IPFIX data from routers and switches. Trisul does not require packet capture at wire speed, making it suitable for high-speed networks. Flow processing occurs in real time with minimal latency for fast anomaly detection.

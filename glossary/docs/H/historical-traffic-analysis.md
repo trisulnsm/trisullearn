@@ -1,182 +1,132 @@
 ---
-title: What is Historical Traffic Analysis?
-sidebar_label: Historical Traffic Analysis
+title: What is historical traffic analysis?
+description: Historical traffic analysis examines stored network traffic data collected over time to identify trends, patterns, capacity requirements, recurring issues, and long-term bandwidth usage for capacity planning and performance optimization.
+sidebar_label: Historical traffic analysis
 sidebar_position: 50
 slug: /glossary/historical-traffic-analysis
-description: Learn what historical traffic analysis is, how it works using retained network data, and why analyzing past traffic behavior is important for troubleshooting, security, and capacity planning.
 keywords:
   - historical traffic analysis
-  - network traffic history
-  - historical flow analysis
-  - traffic trend analysis
-  - network forensics
-  - traffic analytics
+  - network traffic trends
+  - bandwidth trends
+  - historical network analysis
+  - traffic pattern analysis
+  - capacity planning
+  - long-term traffic trends
 ---
 
-# What is Historical Traffic Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is historical traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Historical traffic analysis examines stored traffic data collected over time to identify trends, seasonal fluctuations, and long-term patterns that impact network performance. It enables capacity planning, root cause analysis of recurring issues, and informed decisions about infrastructure upgrades based on actual usage patterns rather than assumptions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data is used for historical traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Historical traffic analysis uses flow data (NetFlow, sFlow, J-Flow, IPFIX), SNMP interface counters, and bandwidth utilization metrics collected over extended periods. Flow records are aggregated and stored in backend databases for reporting and analytics, enabling analysis by time range, application, protocol, source/destination IP, and interface."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the use cases for historical traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Key use cases include capacity planning by identifying bandwidth growth trends, identifying recurring issues and their root causes, detecting seasonal fluctuations in traffic patterns, comparing pre- and post-change traffic to validate network modifications, forecasting future bandwidth requirements using machine learning, and generating reports on peak load times and top talkers over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does historical analysis differ from real-time monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Real-time monitoring focuses on current traffic behavior and immediate issue detection, enabling rapid response to outages and anomalies. Historical analysis examines stored data over days, weeks, months, or years to identify patterns and trends. Real-time data helps answer 'what is happening now,' while historical data answers 'what typically happens' and 'what will happen next.'"
+      }
+    }
+  ]
+};
 
-Historical Traffic Analysis is the process of analyzing previously recorded network traffic data to understand past communication behavior, investigate incidents, identify trends, and troubleshoot performance or security issues.
+# What is historical traffic analysis?
 
-Instead of only viewing live traffic, historical analysis allows teams to review how traffic behaved hours, days, weeks, or even months earlier.
-
-Historical visibility is important for:
-- troubleshooting
-- security investigations
-- capacity planning
-- traffic forensics
-- compliance analysis
-- operational reporting
-
-## **How Historical Traffic Analysis Works**
-
-Monitoring platforms continuously collect and retain traffic data such as:
-- flow records
-- packet captures
-- bandwidth statistics
-- application visibility
-- protocol activity
-- DNS traffic
-- subscriber activity
-
-This data is indexed and stored for later investigation.
-
-A typical workflow looks like this:
-
-1. Traffic activity is collected continuously
-2. Historical records are retained
-3. Analysts search previous traffic activity
-4. Trends, anomalies, or incidents are investigated
-
-For example:
-
-1. A performance issue occurred overnight
-2. Historical traffic data is reviewed
-3. Analysts identify a bandwidth spike during the incident
-4. Root cause analysis begins
-
-![](images/historicalanalysis.png)
-
-## **Why Historical Traffic Analysis Matters**
-
-Real-time monitoring alone may miss:
-- intermittent issues
-- delayed incident detection
-- long-term traffic trends
-- stealthy security activity
-- gradual performance degradation
-
-Historical traffic analysis helps organizations:
-- investigate past incidents
-- reconstruct traffic timelines
-- identify recurring patterns
-- analyze long-term trends
-- troubleshoot intermittent problems
-- improve operational planning
-
-It improves visibility into:
-- application behavior
-- bandwidth growth
-- attack timelines
-- routing changes
-- subscriber activity
-- network anomalies
-
-Historical analysis is especially important in:
-- SOC environments
-- ISP infrastructures
-- enterprise networks
-- cloud environments
-- compliance workflows
-
-## **Common Operational Use Cases**
-
-### Security Investigations
-
-Analyze suspicious traffic activity after detection.
-
-### Capacity Planning
-
-Study long-term traffic growth and utilization trends.
-
-### Performance Troubleshooting
-
-Investigate intermittent latency or congestion events.
-
-### Traffic Forensics
-
-Reconstruct historical communication behavior.
-
-### Application Trend Analysis
-
-Monitor how application usage changes over time.
-
-## **Historical Traffic Analysis vs Real-Time Monitoring**
-
-| Feature | Historical Traffic Analysis | Real-Time Monitoring |
-|---|---|---|
-| Time Scope | Past network activity | Current network activity |
-| Primary Goal | Investigation and trend analysis | Immediate visibility |
-| Incident Reconstruction | Strong | Limited |
-| Long-Term Trends | Supported | Limited |
-| Operational Focus | Retrospective analysis | Live monitoring |
-
-Historical analysis explains what happened previously, while real-time monitoring focuses on what is happening now.
-
-## **How Trisul Handles Historical Traffic Analysis**
-
-Trisul provides long-term traffic retention and scalable analytics workflows for historical network visibility.
-
-Combined with:
-- Retro Analysisᵀ
-- Flow Stitchingᵀ
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Packet Capture
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-- investigate historical traffic behavior
-- analyze long-term bandwidth trends
-- reconstruct communication timelines
-- identify recurring anomalies
-- troubleshoot intermittent issues
-- correlate traffic events over time
-
-Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Packet Capture](/glossary/packet-capture), and [Flow Forensics](/glossary/flow-forensics) workflows for deeper historical visibility.
-
-## **Related Terms**
-
-- [Retro Analysisᵀ](/glossary/retro-analysis)
-- [Flow Forensics](/glossary/flow-forensics)
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Capacity Planning](/glossary/capacity-planning)
-- [Flow Analysis](/glossary/flow-analysis)
-- [Packet Capture](/glossary/packet-capture)
+Historical traffic analysis examines stored network traffic data collected over time to identify trends, patterns, capacity requirements, recurring issues, and long-term bandwidth usage for capacity planning and performance optimization. It enables data-driven decisions about infrastructure upgrades and helps identify seasonal fluctuations that impact network performance.
 
 ---
 
-## **FAQ**
+## How it works
+
+Flow data (NetFlow, sFlow, J-Flow, IPFIX) and SNMP interface counters are collected continuously and stored in backend databases. Data is aggregated by time intervals (hourly, daily, weekly, monthly) and analyzed using traffic charts, bandwidth trend reports, and heatmaps. Machine learning algorithms forecast future bandwidth requirements based on historical patterns.
+
+---
+
+## In network operations
+
+- **NOC:** Analyze historical data to identify recurring issues, seasonal fluctuations, and long-term trends impacting network performance.
+- **Capacity Planning:** Use historical bandwidth usage stats to plan upgrades and allocate resources based on actual growth patterns rather than estimates.
+- **Performance Optimization:** Track application growth over time to plan bandwidth needs, identify bandwidth hogs, and optimize traffic distribution.
+
+---
+
+## Key analysis capabilities
+
+| Capability | Description |
+|---|---|
+| Bandwidth trend reports | Visualize bandwidth usage over time by interface, application, or protocol |
+| Top talkers analysis | Identify which endpoints consume the most bandwidth over extended periods |
+| Seasonal pattern detection | Identify recurring traffic patterns (daily, weekly, monthly cycles) |
+| Before/after comparison | Compare traffic before and after network changes to validate impact |
+| Capacity forecasting | Use machine learning to predict future bandwidth requirements |
+| Peak load analysis | Identify peak load times and plan resources accordingly |
+
+---
+
+## Common metrics analyzed
+
+- **Interface utilization:** Average and peak bandwidth usage per interface over time
+- **Application growth:** How specific application traffic has changed over months/years
+- **Protocol distribution:** Changes in protocol usage patterns (HTTP, HTTPS, DNS, etc.)
+- **Top N conversations:** Most frequent source/destination pairs over time
+- **Time-of-day patterns:** Traffic variations by hour of day and day of week
+- **Anomaly baselines:** Normal traffic patterns to detect deviations and anomalies
+
+---
+
+## How Trisul handles it
+
+Trisul stores flow data in backend databases for historical analysis and reporting. Explore Flows enables querying flow data by time range, application, protocol, source/destination IP, and interface to analyze traffic trends over days, weeks, or months. Historical NetFlow data is aggregated and presented as traffic charts and bandwidth trend reports, enabling capacity planning and identification of recurring issues. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is capacity planning?](/glossary/capacity-planning)
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is trend analysis?](/glossary/trend-analysis)
+- [What is real-time monitoring?](/glossary/real-time-monitoring)
+
+---
+
+## Frequently asked questions
 
 ### What is historical traffic analysis?
 
-Historical traffic analysis is the process of reviewing previously recorded network traffic data to investigate behavior and trends.
+Historical traffic analysis examines stored traffic data collected over time to identify trends, seasonal fluctuations, and long-term patterns that impact network performance. It enables capacity planning, root cause analysis of recurring issues, and informed decisions about infrastructure upgrades based on actual usage patterns rather than assumptions.
 
-### Why is historical traffic analysis important?
+### What data is used for historical traffic analysis?
 
-It helps organizations troubleshoot incidents, analyze long-term trends, and investigate past security events.
+Historical traffic analysis uses flow data (NetFlow, sFlow, J-Flow, IPFIX), SNMP interface counters, and bandwidth utilization metrics collected over extended periods. Flow records are aggregated and stored in backend databases for reporting and analytics, enabling analysis by time range, application, protocol, source/destination IP, and interface.
 
-### What types of data are used in historical analysis?
+### What are the use cases for historical traffic analysis?
 
-Common data sources include NetFlow, IPFIX, packet captures, bandwidth metrics, DNS activity, and application traffic.
+Key use cases include capacity planning by identifying bandwidth growth trends, identifying recurring issues and their root causes, detecting seasonal fluctuations in traffic patterns, comparing pre- and post-change traffic to validate network modifications, forecasting future bandwidth requirements using machine learning, and generating reports on peak load times and top talkers over time.
 
-### What's the difference between historical analysis and real-time monitoring?
+### How does historical analysis differ from real-time monitoring?
 
-Historical analysis focuses on past traffic behavior, while real-time monitoring focuses on current network activity.
-
-### Can historical traffic analysis help security investigations?
-
-Yes. It helps reconstruct attack timelines, analyze suspicious communication, and investigate incidents after detection.
-
-### Is historical traffic analysis useful for capacity planning?
-
-Yes. Long-term traffic trends help organizations forecast growth and optimize infrastructure planning.
+Real-time monitoring focuses on current traffic behavior and immediate issue detection, enabling rapid response to outages and anomalies. Historical analysis examines stored data over days, weeks, months, or years to identify patterns and trends. Real-time data helps answer 'what is happening now,' while historical data answers 'what typically happens' and 'what will happen next.'
