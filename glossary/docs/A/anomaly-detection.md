@@ -1,138 +1,119 @@
 ---
-title: What is Anomaly Detection?
-sidebar_label: Anomaly Detection
-sidebar_position: 3
+title: What is anomaly detection?
+description: Anomaly detection identifies data points, events, or observations that deviate significantly from normal behavior, used in network security to detect threats like DDoS attacks, port scans, and data exfiltration by comparing current traffic against established baselines.
+sidebar_label: Anomaly detection
+sidebar_position: 42
 slug: /glossary/anomaly-detection
-description: Learn what anomaly detection is, how it works in network monitoring, and how it helps identify unusual traffic behavior, security threats, and operational issues.
 keywords:
   - anomaly detection
-  - network anomaly detection
   - traffic anomaly detection
+  - network anomaly detection
+  - outlier detection
+  - baseline deviation
+  - threshold alerting
   - behavioral analytics
-  - network security monitoring
-  - traffic anomaly analysis
 ---
 
-# What is Anomaly Detection?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What types of anomalies exist in network traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Point anomalies are individual data points that deviate from the norm, such as a single traffic spike. Contextual anomalies deviate in a specific context, such as high traffic during off-peak hours. Collective anomalies are groups of data points that together indicate abnormality, such as sustained high traffic from a single source indicating a DDoS attack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the three main approaches to anomaly detection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Supervised learning uses labeled normal and abnormal data to train a classifier. Unsupervised learning identifies anomalies without labeled data by finding outliers in the dataset. Semi-supervised learning trains only on normal data and flags deviations as anomalies, which is most common in security due to the scarcity of labeled attack data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does anomaly detection support network security?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anomaly detection supports network security by identifying DDoS attacks through traffic volume spikes, detecting port scans through unusual connection patterns, identifying data exfiltration through asymmetric traffic flows, and spotting reconnaissance activity through scans of non-standard ports. It enables early detection of threats before they cause damage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between threshold-based and baseline-based anomaly detection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Threshold-based detection uses fixed limits, such as alerting when interface utilization exceeds 80%. Baseline-based detection establishes normal patterns over time and alerts on deviations from that baseline. Baseline-based is more effective because it adapts to time-of-day and day-of-week patterns, reducing false positives."
+      }
+    }
+  ]
+};
 
-**Anomaly detection** in networking refers to the process of identifying traffic or behavior patterns that deviate significantly from an established baseline of “normal” network activity.
+# What is anomaly detection?
 
-## **How Anomaly Detection Works**
-
-- Anomaly detection typically compares current traffic metrics (such as volume, rate, protocol composition, or session duration) against historical baselines or rule‑driven thresholds.
-
-- It can be implemented using statistical methods, rule‑based thresholds, or, in some platforms, machine‑learning‑based models that learn “normal” behavior over time.
-
-- In practice, network teams apply anomaly detection to flows, packet traces, or performance metrics to surface issues such as DDoS, exfiltration, scanning, or configuration errors.
-
-For example:
-
-1. A server normally transfers 2 GB of traffic per hour.  
-2. Traffic suddenly increases to 40 GB.  
-3. The monitoring platform identifies the deviation from the normal baseline.  
-4. The traffic activity is flagged as anomalous.
-
-```mermaid
-xychart-beta
-    title "Network Traffic Baseline vs Anomaly Detection"
-    x-axis "Time" ["00:00", "04:00", "08:00", "12:00", "16:00", "20:00", "24:00"]
-    y-axis "Traffic Volume (GB)" 0 --> 50
-    line "Normal Baseline" [5, 7, 10, 12, 11, 9, 6]
-    line "Observed Traffic" [5, 7, 10, 42, 11, 9, 6]
-```
-
-*Figure: Traffic anomaly detection comparing normal baseline behavior against a sudden abnormal traffic spike.*
-
-## Why Anomaly Detection Matters
-
-- In **NOC environments**, anomaly detection helps operators spot unplanned traffic surges, misrouted traffic, or capacity‑stealing workloads before they cause performance degradation.
-
-- In **SOC workflows**, it supports identification of suspicious behavior that may not match known signatures, such as unusual data‑exfiltration patterns, lateral movement, or encrypted‑channel abuse.
-
-- Because it is often *non‑signature‑based*, anomaly detection can help find previously unseen or evolving threats, complementing signature‑based IDS/IPS and SIEM rules.
-
----
-
-## Common Operational Use Cases
-
-- Setting thresholds too low can generate excessive noise and false positives; setting them too high can miss subtle but impactful anomalies. Tuning is usually iterative and traffic‑pattern‑dependent.
-
-- Large or bursty environments (for example, ISPs, video‑centric networks, or cloud‑edge links) often require separate baselines and thresholds per segment or application.
+Anomaly detection identifies data points, events, or observations that deviate significantly from normal behavior. In network security, it detects threats like DDoS attacks, port scans, and data exfiltration by comparing current traffic against established baselines. Static baselines are fixed; dynamic baselines adapt to time-of-day and day-of-week patterns for fewer false positives.
 
 ---
 
-## Anomaly Detection vs Signature-Based Detection
+## How it works
 
-| Feature | Anomaly Detection | Signature-Based Detection |
+Anomaly detection uses supervised learning with labeled data, unsupervised learning to find outliers, or semi-supervised learning trained only on normal data. It establishes baselines for normal traffic patterns, then flags deviations such as traffic spikes, unusual connection patterns, or asymmetric flows.
+
+---
+
+## In network operations
+
+- **NOC:** Detect performance issues by identifying traffic spikes that deviate from baseline utilization patterns.
+- **SOC:** Detect security incidents by identifying DDoS attacks, port scans, or data exfiltration through traffic anomalies.
+- **Capacity Planning:** Identify links approaching saturation by detecting sustained deviations from normal traffic patterns.
+
+---
+
+## Threshold-based vs baseline-based detection
+
+| Dimension | Threshold-based | Baseline-based |
 |---|---|---|
-| Detection Method | Behavioral deviation | Known traffic or attack signatures |
-| Unknown Threat Detection | More effective | Limited to known patterns |
-| False Positives | More likely | Usually lower |
-| Adaptability | Dynamic | Static |
-| Analysis Method | Baseline-driven | Rule-driven |
-
-Anomaly detection can help identify traffic behavior that signature-based systems may not recognize.
+| Limits | Fixed values (80% utilization) | Derived from historical patterns |
+| Adaptation | None | Accounts for time-of-day, day-of-week |
+| False positives | Higher | Lower |
+| Best for | Simple, stable networks | Dynamic modern networks |
 
 ---
 
-## How Trisul Supports Anomaly Analysis
+## How Trisul handles it
 
-Trisul uses flow analytics, traffic baselining, and long-term traffic retention to help network teams investigate anomalous network behavior across enterprise and ISP environments.
-
-Combined with features such as:
-
-- Top-K Analyticsᵀ  
-- Multigraph Analyticsᵀ  
-- Retro Analysisᵀ  
-- Flow Taggerᵀ  
-- Flow Stitch/Packet Stitchingᵀ  
-
-Trisul supports analysis of:
-
-- unusual bandwidth spikes  
-- traffic floods  
-- abnormal east-west traffic behavior  
-- subscriber traffic anomalies  
-- protocol distribution changes  
-- unexpected traffic patterns  
-
-Trisul can also correlate anomalous flow behavior with Packet Capture and PCAP Analysis workflows for deeper traffic investigation.
+Trisul provides anomaly detection through flow monitoring with baseline trending, Interface Tracking for per-interface baselines, and Top-K analytics for identifying top talkers against baseline expectations. Trigger-based alerting sends notifications when traffic deviates from configured thresholds or baseline patterns. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
 ---
 
-## Related Terms
+## Related terms
 
-- Flow Analysis  
-- Traffic Investigation  
-- Network Security Monitoring  
-- DDoS Detection  
-- Packet Capture  
-- Behavioral Analytics  
+- [What is baseline traffic analytics?](/glossary/baseline-traffic-analytics)
+- [What is DDoS detection?](/glossary/ddos-detection)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is burst traffic?](/glossary/burst-traffic)
+- [What is capacity planning?](/glossary/capacity-planning)
 
 ---
 
-## FAQ
+## Frequently asked questions
 
-### What is anomaly detection in networking?
+### What types of anomalies exist in network traffic?
 
-Anomaly detection identifies network behavior that deviates from expected or normal traffic activity.
+Point anomalies are individual data points that deviate from the norm, such as a single traffic spike. Contextual anomalies deviate in a specific context, such as high traffic during off-peak hours. Collective anomalies are groups of data points that together indicate abnormality, such as sustained high traffic from a single source indicating a DDoS attack.
 
-### Why is anomaly detection important?
+### What are the three main approaches to anomaly detection?
 
-It helps network teams identify unusual traffic behavior, operational issues, and abnormal communication patterns that may require investigation.
+Supervised learning uses labeled normal and abnormal data to train a classifier. Unsupervised learning identifies anomalies without labeled data by finding outliers in the dataset. Semi-supervised learning trains only on normal data and flags deviations as anomalies, which is most common in security due to the scarcity of labeled attack data.
 
-### Can anomaly detection identify cyberattacks?
+### How does anomaly detection support network security?
 
-Anomaly detection can help identify unusual traffic behavior associated with DDoS activity, scanning behavior, malware communication, or suspicious outbound traffic.
+Anomaly detection supports network security by identifying DDoS attacks through traffic volume spikes, detecting port scans through unusual connection patterns, identifying data exfiltration through asymmetric traffic flows, and spotting reconnaissance activity through scans of non-standard ports. It enables early detection of threats before they cause damage.
 
-### What's the difference between anomaly detection and signature detection?
+### What is the difference between threshold-based and baseline-based anomaly detection?
 
-Anomaly detection identifies deviations from expected behavior, while signature-based detection matches known traffic or attack patterns.
-
-### Does anomaly detection generate false positives?
-
-Yes. Legitimate but unusual traffic activity can sometimes be identified as anomalous behavior.
-
-### Is anomaly detection used in NetFlow analysis?
-
-Yes. NetFlow and IPFIX data are commonly used for anomaly detection and traffic behavior analysis.
+Threshold-based detection uses fixed limits, such as alerting when interface utilization exceeds 80%. Baseline-based detection establishes normal patterns over time and alerts on deviations from that baseline. Baseline-based is more effective because it adapts to time-of-day and day-of-week patterns, reducing false positives.

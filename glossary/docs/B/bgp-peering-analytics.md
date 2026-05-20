@@ -1,204 +1,119 @@
 ---
-title: What is BGP Peering Analytics?
-sidebar_label: BGP Peering Analytics
-sidebar_position: 10
+title: What is BGP peering analytics?
+description: BGP peering analytics monitors traffic flows across BGP peerings by combining flow data with BGP routing information to analyze traffic per autonomous system, prefix, and peering interface in real time.
+sidebar_label: BGP peering analytics
+sidebar_position: 35
 slug: /glossary/bgp-peering-analytics
-description: Learn what BGP Peering Analytics is, how it works, and why it is important for monitoring ASN relationships, internet routing, and peering traffic visibility.
 keywords:
-  - BGP peering analytics
-  - BGP analytics
-  - ASN peering analysis
-  - peering traffic monitoring
-  - BGP traffic visibility
-  - internet routing analytics
+  - bgp peering analytics
+  - peering analytics
+  - isp peering analytics
+  - bgp traffic analysis
+  - as traffic mapping
+  - prefix traffic analysis
+  - route analytics
 ---
 
-# What is BGP Peering Analytics?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does BGP peering analytics measure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BGP peering analytics measures traffic volume flows per Autonomous System number, cleanly split into upstream, downstream, peer, and origin AS. It also tracks traffic per prefix, per gateway device, and per peering interface. Popular content providers like Google, Amazon, and Facebook are tracked separately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does BGP peering analytics help ISPs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BGP peering analytics helps ISPs negotiate with content providers and upstream peers, optimize costs, and select new peering policies. It provides visibility into which ASes and prefixes are driving traffic, which peering links are congested, and where traffic engineering changes would improve performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data sources does BGP peering analytics use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BGP peering analytics combines flow data from NetFlow, J-Flow, sFlow, and IPFIX with BGP routing information from route collectors or internal BGP viewpoints. The BGP data is automatically in sync with traffic tables, enabling drilldown from AS to prefix to peering interface."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What visualizations are available in BGP peering analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visualizations include nested tables showing hierarchical traffic by AS, prefix, and gateway, as well as Sankey views showing traffic flows between ASes. Full M:N degree drilldowns let operators pivot from any angle to any other angle without writing queries."
+      }
+    }
+  ]
+};
 
-BGP Peering Analytics is the process of monitoring, analyzing, and visualizing traffic exchanged between Autonomous Systems (ASNs) through BGP peering relationships.
+# What is BGP peering analytics?
 
-It helps network teams understand how internet traffic flows between providers, peers, cloud networks, and upstream carriers.
-
-BGP peering analytics is widely used in ISP operations, internet exchange environments, and large-scale network infrastructures.
-
-## **How BGP Peering Analytics Works**
-
-BGP-enabled networks exchange routing information using [Border Gateway Protocol](/glossary/bgp) sessions between [Autonomous Systems](/glossary/asn).
-
-BGP peering analytics platforms combine:
-- BGP routing information.
-- ASN metadata.
-- NetFlow or IPFIX traffic records.
-- Peering statistics.
-- Routing path visibility.
-
-This allows teams to analyze:
-- traffic exchanged between ASNs.
-- upstream and downstream traffic flows.
-- routing path behavior.
-- peering utilization.
-- traffic distribution patterns.
-
-For example:
-
-1. A router exports NetFlow records.
-2. The monitoring platform maps traffic to ASN paths.
-3. Traffic is grouped by peering ASN.
-4. Teams analyze traffic volume, routing changes, and peering behavior.
-
-```mermaid
-flowchart LR
-    A[ISP ASN 64501] <-->|BGP Peering| B[Transit ASN 64510]
-    B <-->|BGP Peering| C[Cloud ASN 64520]
-    A --> D[NetFlow / IPFIX Export]
-    B --> D
-    C --> D
-    D --> E[BGP Peering Analytics Engine]
-    E --> F[ASN Relationship Mapping]
-    E --> G[Traffic Volume Analysis]
-    E --> H[Route Path Visibility]
-    E --> I[Peering Utilization Monitoring]
-```
-
-*Figure: BGP peering analytics workflow showing ASN relationships, route exchanges, and traffic visibility across peering networks.*
-
-## **Why BGP Peering Analytics Matters**
-
-Internet traffic often passes through multiple providers and peering networks before reaching its destination.
-
-Without BGP visibility, it becomes difficult to:
-- understand traffic paths.
-- troubleshoot routing problems.
-- analyze peering utilization.
-- identify upstream issues.
-- optimize traffic engineering.
-
-BGP peering analytics improves visibility into:
-- ASN relationships.
-- routing efficiency.
-- internet traffic flows.
-- peering congestion.
-- upstream dependency.
-- route instability.
-
-It is especially important in:
-- ISP infrastructures.
-- cloud connectivity environments.
-- IXPs.
-- CDN networks.
-- enterprise WANs.
-
-## **Types of BGP Peering Visibility**
-
-### ASN Traffic Analysis
-
-Analyze traffic exchanged between specific autonomous systems.
-
-### Peering Utilization Monitoring
-
-Measure traffic volume across peering links and exchanges.
-
-### Route Path Analysis
-
-Track routing paths and ASN hop relationships.
-
-### Upstream Traffic Visibility
-
-Monitor traffic flowing through upstream providers.
-
-### Route Change Monitoring
-
-Identify route instability, path changes, or peering issues.
-
-## **Common Operational Use Cases**
-
-### ISP Peering Optimization
-
-Analyze traffic exchange efficiency between providers.
-
-### Congestion Detection
-
-Identify overloaded peering links or high-utilization paths.
-
-### Traffic Engineering
-
-Optimize routing decisions and traffic distribution.
-
-### DDoS Investigation
-
-Trace attack traffic sources across ASN paths.
-
-### Routing Troubleshooting
-
-Investigate route leaks, path instability, or upstream failures.
-
-## **BGP Peering Analytics vs General Traffic Monitoring**
-
-| Feature | BGP Peering Analytics | General Traffic Monitoring |
-|---|---|---|
-| Focus | ASN relationships and routing paths | Overall traffic visibility |
-| Routing Awareness | High | Limited |
-| ASN Visibility | Included | Often absent |
-| Primary Goal | Internet routing analysis | Traffic monitoring |
-| Common Data Sources | BGP + flow records | Flow or packet data |
-
-BGP peering analytics adds routing and ASN context to standard traffic monitoring workflows.
-
-## **How Trisul Handles BGP Peering Analytics**
-
-Trisul can provide ASN-aware traffic visibility and BGP-oriented traffic analysis to help teams monitor peering behavior and internet traffic flows.
-
-Combined with:
-- ASN visibility.
-- GeoIP enrichment.
-- Top-K Analyticsᵀ.
-- Multigraph Analyticsᵀ.
-- Traffic investigation.
-- Long-term traffic retention.
-
-Trisul helps teams:
-- analyze top peering ASNs.
-- visualize traffic exchanged between providers.
-- identify routing anomalies.
-- monitor peering utilization.
-- investigate upstream traffic behavior.
-- troubleshoot internet routing issues.
-
-Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows with BGP routing intelligence for deeper analysis.
-
-## **Related Terms**
-
-- [BGP](/glossary/bgp)
-- [ASN](/glossary/asn)
-- [ASN Peering](/glossary/asn-peering)
-- [Peering Traffic Analysis](/glossary/peering-traffic-analysis)
-- [NetFlow](/glossary/netflow)
-- [Traffic Investigation](/glossary/traffic-investigation)
+BGP peering analytics monitors traffic flows across BGP peerings by combining flow data with BGP routing information. It analyzes traffic per autonomous system, prefix, and peering interface in real time. ISPs use it to negotiate with peers, optimize costs, and select new peering policies.
 
 ---
 
-## **FAQ**
+## How it works
 
-### What is BGP peering analytics?
+BGP peering analytics combines flow data from NetFlow, J-Flow, sFlow, and IPFIX with BGP routing information from route collectors. The BGP data is automatically in sync with traffic tables. Traffic is mapped to AS number, prefix, gateway, next hop, and peering interface with real-time and historical trending.
 
-BGP peering analytics is the analysis of traffic exchanged between autonomous systems through BGP routing relationships.
+---
 
-### Why is BGP peering visibility important?
+## In network operations
 
-It helps network teams monitor routing behavior, optimize peering efficiency, troubleshoot connectivity issues, and analyze internet traffic paths.
+- **NOC:** Monitor which peering links are congested and which ASes are driving traffic volume.
+- **ISP:** Use AS and prefix traffic analysis to negotiate settlement-free peering or paid peering.
+- **Traffic Engineering:** Optimize exit selection by analyzing geo traffic flows and route topology.
 
-### What data is used for BGP peering analytics?
+---
 
-Common data sources include BGP route information, ASN metadata, NetFlow records, IPFIX data, and traffic statistics.
+## AS traffic mapping
 
-### Who uses BGP peering analytics?
+| Category | Description |
+|---|---|
+| Upstream AS | Traffic sent to upstream providers via transit |
+| Downstream AS | Traffic received from downstream customers |
+| Peer AS | Traffic exchanged with settlement-free peers |
+| Origin AS | Traffic to/from the network's own AS |
 
-ISPs, cloud providers, IXPs, CDNs, and large enterprises commonly use BGP peering analytics.
+---
 
-### Can BGP peering analytics help detect routing problems?
+## How Trisul handles it
 
-Yes. It can identify route instability, peering congestion, upstream failures, and abnormal traffic behavior.
+Trisul provides ISP Peering Analytics with real-time monitoring of active route topology, nested table and Sankey views, and an inbuilt BGP route receiver automatically in sync with traffic tables. A dozen dashboards show AS peerings, prefix analysis, route analytics, and content-to-subscriber maps. Full solution page is at https://www.trisul.org/solutions/peering-analytics/.
 
-### What's the difference between BGP analytics and regular traffic monitoring?
+---
 
-BGP analytics includes ASN and routing-path awareness, while regular traffic monitoring focuses mainly on traffic volume and behavior.
+## Related terms
+
+- [What is BGP?](/glossary/bgp)
+- [What is peering?](/glossary/peering)
+- [What is ASN?](/glossary/asn)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is ISP?](/glossary/isp)
+
+---
+
+## Frequently asked questions
+
+### What does BGP peering analytics measure?
+
+BGP peering analytics measures traffic volume flows per Autonomous System number, cleanly split into upstream, downstream, peer, and origin AS. It also tracks traffic per prefix, per gateway device, and per peering interface. Popular content providers like Google, Amazon, and Facebook are tracked separately.
+
+### How does BGP peering analytics help ISPs?
+
+BGP peering analytics helps ISPs negotiate with content providers and upstream peers, optimize costs, and select new peering policies. It provides visibility into which ASes and prefixes are driving traffic, which peering links are congested, and where traffic engineering changes would improve performance.
+
+### What data sources does BGP peering analytics use?
+
+BGP peering analytics combines flow data from NetFlow, J-Flow, sFlow, and IPFIX with BGP routing information from route collectors or internal BGP viewpoints. The BGP data is automatically in sync with traffic tables, enabling drilldown from AS to prefix to peering interface.
+
+### What visualizations are available in BGP peering analytics?
+
+Visualizations include nested tables showing hierarchical traffic by AS, prefix, and gateway, as well as Sankey views showing traffic flows between ASes. Full M:N degree drilldowns let operators pivot from any angle to any other angle without writing queries.

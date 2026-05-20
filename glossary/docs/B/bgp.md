@@ -1,185 +1,119 @@
 ---
 title: What is BGP?
+description: BGP (Border Gateway Protocol) is the routing protocol for the Internet that exchanges network reachability information between autonomous systems and selects the best path based on policies and path attributes.
 sidebar_label: BGP
-sidebar_position: 9
+sidebar_position: 34
 slug: /glossary/bgp
-description: Learn what Border Gateway Protocol (BGP) is, how BGP routing works, and why it is important for internet routing, peering, and traffic engineering.
 keywords:
-  - BGP
-  - Border Gateway Protocol
-  - BGP routing
-  - internet routing
-  - BGP peering
-  - autonomous system routing
+  - bgp
+  - border gateway protocol
+  - bgp routing
+  - autonomous system
+  - ebgp
+  - ibgp
+  - bgp peering
 ---
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the two types of BGP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "eBGP (External BGP) exchanges routing information between routers in different autonomous systems. iBGP (Internal BGP) exchanges routing information between routers within the same autonomous system. eBGP is used for Internet peering; iBGP is used for internal route consistency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does BGP select the best path?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BGP evaluates path attributes including Weight (Cisco-specific, higher is preferred), Local Preference (higher is preferred), Autonomous System Path (shorter is preferred), and Next Hop. The router selects the path with the best attributes according to its local policy configuration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What port does BGP use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BGP runs over TCP port 179. BGP peers establish a TCP connection before exchanging routing information. This makes BGP more reliable than routing protocols that run directly over IP without a transport layer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is BGP used in flow monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow monitoring enriches flow records with BGP attributes including source and destination ASN, BGP next hop, and communities. This enables traffic analysis by autonomous system, peering analysis, and identification of traffic patterns by routing path."
+      }
+    }
+  ]
+};
 
 # What is BGP?
 
-Border Gateway Protocol (BGP) is the routing protocol used to exchange routing information between Autonomous Systems (AS) across the internet.
-
-BGP helps internet service providers (ISPs), cloud providers, enterprises, and large networks determine the best path for routing traffic between networks.
-
-It is often referred to as the routing protocol that powers the internet.
-
-## **How BGP Works**
-
-BGP allows routers in different [Autonomous Systems](/glossary/asn) to exchange routing information using BGP sessions called peering relationships.
-
-Each BGP router advertises:
-- reachable IP prefixes.
-- routing paths.
-- ASN path information.
-- routing policies.
-
-When traffic needs to travel across multiple networks:
-
-1. A BGP router receives route advertisements.
-2. The router evaluates available paths.
-3. Routing policies and path attributes are compared.
-4. The best route is selected.
-5. Traffic is forwarded through the chosen path.
-
-BGP decisions can consider:
-- AS path length.
-- routing policies.
-- local preference.
-- MED values.
-- peering relationships.
-
-```mermaid
-flowchart LR
-    A[ASN 64501] -->|Advertise Routes| B[BGP Router]
-    C[ASN 64510] -->|Advertise Routes| B
-    D[ASN 64520] -->|Advertise Routes| B
-    B --> E{Best Path Selection}
-    E -->|Shortest AS Path| F[Selected Route]
-    F --> G[Traffic Forwarding]
-```
-
-*Figure: BGP routing workflow showing route advertisements from multiple ASNs and best path selection based on routing attributes.*
-
-## **Why BGP Matters**
-
-The internet consists of thousands of independently managed networks.
-
-BGP allows these networks to:
-- exchange routing information.
-- establish peering relationships.
-- control traffic paths.
-- improve redundancy.
-- manage internet connectivity.
-
-Without BGP, global internet routing between providers and networks would not scale effectively.
-
-BGP visibility is especially important in:
-- ISP operations.
-- internet exchange points.
-- cloud networking.
-- data centers.
-- enterprise WAN environments.
-
-## **Types of BGP**
-
-### eBGP (External BGP)
-
-eBGP exchanges routing information between different Autonomous Systems.
-
-This is the most common form of internet routing.
-
-### iBGP (Internal BGP)
-
-iBGP distributes BGP routing information within the same Autonomous System.
-
-It helps large networks maintain consistent routing policies internally.
-
-## **Common Operational Use Cases**
-
-### ISP Routing
-
-Exchange routes between internet providers and upstream carriers.
-
-### ASN Peering
-
-Establish direct routing relationships between networks.
-
-### Traffic Engineering
-
-Optimize routing paths for performance and bandwidth efficiency.
-
-### Redundancy and Failover
-
-Maintain internet connectivity during link failures or outages.
-
-### DDoS Mitigation
-
-Analyze and reroute attack traffic during large-scale attacks.
-
-## **BGP vs OSPF**
-
-| Feature | BGP | OSPF |
-|---|---|---|
-| Routing Scope | Inter-network / internet routing | Internal network routing |
-| Primary Use | Between Autonomous Systems | Within a single network |
-| Scalability | Extremely high | Moderate |
-| Path Selection | Policy-based | Shortest-path based |
-| Typical Environment | ISPs, internet backbone | Enterprise LAN/WAN |
-
-BGP is designed for large-scale internet routing, while OSPF is mainly used for internal enterprise routing.
-
-## **How Trisul Handles BGP Visibility**
-
-Trisul provides BGP-aware traffic visibility and ASN analytics for monitoring internet routing behavior and peering relationships.
-
-Combined with:
-- BGP Peering Analytics.
-- ASN Visibility.
-- GeoIP Enrichment.
-- Top-K Analyticsᵀ.
-- Multigraph Analyticsᵀ.
-
-Trisul helps teams:
-- analyze traffic by ASN.
-- monitor peering behavior.
-- investigate routing anomalies.
-- detect upstream traffic changes.
-- visualize internet traffic paths.
-- troubleshoot routing-related performance issues.
-
-Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows with BGP routing information.
-
-## **Related Terms**
-
-- [ASN](/glossary/asn)
-- [ASN Peering](/glossary/asn-peering)
-- [BGP Peering Analytics](/glossary/bgp-peering-analytics)
-- [NetFlow](/glossary/netflow)
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Peering Traffic Analysis](/glossary/peering-traffic-analysis)
+BGP (Border Gateway Protocol) is the routing protocol for the Internet that exchanges network reachability information between autonomous systems. It selects the best path based on policies and path attributes like Weight, Local Preference, and AS Path. BGP runs over TCP port 179 and supports CIDR.
 
 ---
 
-## **FAQ**
+## How it works
 
-### What does BGP stand for?
+BGP peers establish a TCP connection and exchange reachability information including the destination network and AS path. BGP constructs an AS connectivity graph to prevent routing loops and enforce policy decisions. When routes change, BGP advertises only the delta rather than the full routing table.
 
-BGP stands for Border Gateway Protocol.
+---
 
-### What is BGP used for?
+## In network operations
 
-BGP is used to exchange routing information between Autonomous Systems across the internet.
+- **NOC:** Monitor BGP peer status and route changes to detect coupling or routing anomalies.
+- **ISP:** Use BGP for peering and traffic engineering, selecting upstream paths based on cost and performance.
+- **Security:** Detect BGP hijacking by monitoring for unexpected route origin changes or AS path anomalies.
 
-### Why is BGP important?
+---
 
-BGP enables large-scale internet routing, peering, redundancy, and traffic engineering between networks.
+## eBGP vs iBGP
 
-### What's the difference between eBGP and iBGP?
+| Dimension | eBGP | iBGP |
+|---|---|---|
+| Scope | Between different ASes | Within the same AS |
+| Use case | Internet peering | Internal route consistency |
+| TTL | 1 | 255 |
+| Next hop | Changes at AS boundary | Preserved across AS |
 
-eBGP exchanges routes between different Autonomous Systems, while iBGP distributes routes within the same Autonomous System.
+---
 
-### How does BGP choose the best path?
+## How Trisul handles it
 
-BGP evaluates routing attributes such as AS path length, local preference, and routing policies to select the best route.
+Trisul enriches flow records with BGP attributes including source and destination ASN, BGP next hop, and communities. This enables querying and reporting by autonomous system in Explore Flows and dashboards. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-### Is BGP only used by ISPs?
+---
 
-No. BGP is also used by enterprises, cloud providers, data centers, and large organizations with multiple internet connections.
+## Related terms
+
+- [What is ASN?](/glossary/asn)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is peering?](/glossary/peering)
+- [What is CIDR?](/glossary/cidr)
+- [What is autonomous system?](/glossary/autonomous-system)
+
+---
+
+## Frequently asked questions
+
+### What are the two types of BGP?
+
+eBGP (External BGP) exchanges routing information between routers in different autonomous systems. iBGP (Internal BGP) exchanges routing information between routers within the same autonomous system. eBGP is used for Internet peering; iBGP is used for internal route consistency.
+
+### How does BGP select the best path?
+
+BGP evaluates path attributes including Weight (Cisco-specific, higher is preferred), Local Preference (higher is preferred), Autonomous System Path (shorter is preferred), and Next Hop. The router selects the path with the best attributes according to its local policy configuration.
+
+### What port does BGP use?
+
+BGP runs over TCP port 179. BGP peers establish a TCP connection before exchanging routing information. This makes BGP more reliable than routing protocols that run directly over IP without a transport layer.
+
+### How is BGP used in flow monitoring?
+
+Flow monitoring enriches flow records with BGP attributes including source and destination ASN, BGP next hop, and communities. This enables traffic analysis by autonomous system, peering analysis, and identification of traffic patterns by routing path.

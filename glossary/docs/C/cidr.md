@@ -1,176 +1,119 @@
 ---
 title: What is CIDR?
+description: CIDR (Classless Inter-Domain Routing) is a method for IP address allocation and routing that uses variable-length subnet masks instead of fixed classes, expressed in CIDR notation as an IP address followed by a slash and prefix length.
 sidebar_label: CIDR
-sidebar_position: 16
+sidebar_position: 29
 slug: /glossary/cidr
-description: Learn what CIDR is, how Classless Inter-Domain Routing works, and why CIDR is important for IP addressing, subnetting, and network routing.
 keywords:
-  - CIDR
+  - cidr
   - classless inter-domain routing
-  - CIDR notation
-  - IP subnetting
-  - network prefix
-  - IP addressing
+  - cidr notation
+  - slash notation
+  - subnet mask
+  - ip addressing
+  - ip subnetting
 ---
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is CIDR notation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CIDR notation is written as an IP address followed by a slash and the number of bits in the network prefix, like 192.168.1.0/24. The number after the slash indicates how many bits are fixed for the network, with the remaining bits for hosts. 192.168.1.0/24 means the first 24 bits are network and the last 8 bits identify hosts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does CIDR differ from classful addressing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Classful addressing uses fixed classes: Class A uses /8, Class B uses /16, Class C uses /24. CIDR allows any prefix length, so addresses can be allocated in blocks that match actual needs instead of wasted fixed classes. This flexibility reduces IP address waste and improves routing efficiency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are CIDR blocks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A CIDR block is a range of IP addresses with a fixed prefix. The block size must be a power of 2, and the first address must be evenly divisible by the block size. For example, 192.168.1.0/24 is a block of 256 addresses, and 192.168.0.0/16 is a block of 65,536 addresses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is CIDR used in flow monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow monitoring uses CIDR notation to group flows by customer subnets, ASN ranges, or geographic regions. Queries can filter by CIDR block to retrieve all flows from a subnet, and reports can aggregate traffic by CIDR-defined customer or service boundaries."
+      }
+    }
+  ]
+};
 
 # What is CIDR?
 
-CIDR (Classless Inter-Domain Routing) is a method of IP address allocation and routing that uses variable-length prefixes to improve address efficiency and routing scalability.
+CIDR (Classless Inter-Domain Routing) is a method for IP address allocation and routing that uses variable-length subnet masks instead of fixed classes. Expressed in CIDR notation as an IP address followed by a slash and prefix length, CIDR allows more efficient IP address use and improved routing aggregation.
 
-CIDR replaces the older class-based IP addressing model by allowing networks to be divided into flexible subnet sizes instead of fixed address classes.
+---
 
-CIDR is widely used in IP routing, subnetting, cloud networking, and [BGP](/glossary/bgp) route advertisement workflows.
+## How it works
 
-## **How CIDR Works**
+CIDR notation like 192.168.1.0/24 specifies the network prefix length: the first 24 bits are fixed for the network, and the remaining 8 bits identify hosts. CIDR blocks must be powers of 2 in size, and the first address must be evenly divisible by the block size.
 
-CIDR represents IP networks using a prefix-length format called CIDR notation.
+---
 
-Example:
+## In network operations
 
-`192.168.1.0/24`
+- **NOC:** Use CIDR blocks to group customer subnets for per-customer traffic aggregation.
+- **SOC:** Filter flows by CIDR to identify activity from a specific subnet or threat range.
+- **ISP:** Aggregate routes by CIDR block to reduce routing table size and improve efficiency.
 
-In this example:
+---
 
-- `192.168.1.0` is the network address.
-- `/24` represents the prefix length.
+## CIDR vs classful addressing
 
-The prefix length defines how many bits belong to the network portion of the address.
-
-Common examples:
-
-| CIDR Block | Subnet Mask | Approximate Usable Hosts |
+| Dimension | Classful | CIDR |
 |---|---|---|
-| `/8` | `255.0.0.0` | 16,777,214 |
-| `/16` | `255.255.0.0` | 65,534 |
-| `/24` | `255.255.255.0` | 254 |
-| `/30` | `255.255.255.252` | 2 |
+| Prefix length | Fixed per class (/8, /16, /24) | Any value from 0 to 32 |
+| Wastage | High due to fixed blocks | Low, matches actual needs |
+| Routing efficiency | Limited aggregation | Better aggregation |
+| Flexibility | None | High |
 
-CIDR allows network administrators to allocate address ranges more efficiently than traditional class-based addressing.
+---
 
-```mermaid
-flowchart TD
-    A[192.168.1.0/24 Network] --> B[Network Prefix<br/>192.168.1]
-    A --> C[Host Portion<br/>0 - 255]
-    B --> D[Subnet Mask<br/>255.255.255.0]
-    D --> E[254 Usable Hosts]
-    A --> F[Smaller Subnets Possible]
-    F --> G[192.168.1.0/26]
-    F --> H[192.168.1.64/26]
-    F --> I[192.168.1.128/26]
-```
+## How Trisul handles it
 
-*Figure: CIDR subnetting diagram showing network prefixes, subnet masks, and how IP ranges can be divided into smaller subnets using CIDR notation.*
+Trisul uses CIDR notation to group flows by subnet, ASN, or region in queries and reports. CIDR-based filters let operators retrieve all flows from a customer block or threat range in a single query. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-## **Why CIDR Matters**
+---
 
-Before CIDR, IP addressing relied on fixed classes such as:
+## Related terms
 
-- Class A
-- Class B
-- Class C
+- [What is subnet mask?](/glossary/subnet-mask)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is ASN?](/glossary/asn)
+- [What is IP address?](/glossary/ip-address)
+- [What is flow tagger?](/glossary/flow-tagger)
 
-This caused inefficient IP allocation and routing table growth.
+---
 
-CIDR improves:
-- IP address utilization
-- subnet flexibility
-- routing scalability
-- route aggregation
-- internet routing efficiency
-
-CIDR is especially important in:
-- enterprise networking
-- ISP routing
-- cloud infrastructure
-- BGP route advertisement
-- subnet design
-
-## **Common Operational Use Cases**
-
-### IP Subnetting
-
-Divide networks into smaller logical segments.
-
-### Route Aggregation
-
-Reduce routing table size using summarized IP prefixes.
-
-### Cloud Networking
-
-Allocate scalable subnets for cloud workloads and virtual networks.
-
-### ISP Routing
-
-Advertise aggregated network prefixes through BGP.
-
-### Access Control Policies
-
-Define IP ranges in firewall and ACL rules.
-
-## **CIDR vs Classful Addressing**
-
-| Feature | CIDR | Classful Addressing |
-|---|---|---|
-| Subnet Flexibility | Variable-length | Fixed classes |
-| IP Efficiency | High | Lower |
-| Route Aggregation | Supported | Limited |
-| Scalability | Better | Limited |
-| Modern Usage | Standard | Mostly obsolete |
-
-CIDR provides more flexible and efficient IP address allocation than the older class-based model.
-
-## **How Trisul Uses CIDR Visibility**
-
-Trisul can help teams analyze traffic distribution across IP ranges and network segments using subnet-aware traffic visibility.
-
-Combined with:
-- Flow Analysis
-- Traffic Investigation
-- GeoIP Enrichment
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
-
-Trisul can help teams:
-- analyze subnet-level traffic behavior
-- monitor traffic by IP range
-- investigate suspicious subnet activity
-- visualize traffic distribution
-- analyze routing behavior
-- monitor internal segmentation traffic
-
-Trisul can also correlate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) workflows with CIDR-based network analysis.
-
-## **Related Terms**
-
-- [BGP](/glossary/bgp)
-- [ASN](/glossary/asn)
-- [NetFlow](/glossary/netflow)
-- [Access Control List (ACL)](/glossary/access-control-list)
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Network Security Monitoring](/glossary/network-security-monitoring)
-
-## **FAQ**
-
-### What does CIDR stand for?
-
-CIDR stands for Classless Inter-Domain Routing.
+## Frequently asked questions
 
 ### What is CIDR notation?
 
-CIDR notation represents an IP address range using a prefix length, such as `192.168.1.0/24`.
+CIDR notation is written as an IP address followed by a slash and the number of bits in the network prefix, like 192.168.1.0/24. The number after the slash indicates how many bits are fixed for the network, with the remaining bits for hosts. 192.168.1.0/24 means the first 24 bits are network and the last 8 bits identify hosts.
 
-### Why is CIDR important?
+### How does CIDR differ from classful addressing?
 
-CIDR improves IP address allocation efficiency and reduces internet routing table size through route aggregation.
+Classful addressing uses fixed classes: Class A uses /8, Class B uses /16, Class C uses /24. CIDR allows any prefix length, so addresses can be allocated in blocks that match actual needs instead of wasted fixed classes. This flexibility reduces IP address waste and improves routing efficiency.
 
-### What's the difference between CIDR and subnetting?
+### What are CIDR blocks?
 
-CIDR is the addressing method that enables flexible subnetting using variable-length prefixes.
+A CIDR block is a range of IP addresses with a fixed prefix. The block size must be a power of 2, and the first address must be evenly divisible by the block size. For example, 192.168.1.0/24 is a block of 256 addresses, and 192.168.0.0/16 is a block of 65,536 addresses.
 
-### Is CIDR used in modern networking?
+### How is CIDR used in flow monitoring?
 
-Yes. CIDR is the standard approach for IP addressing and routing in modern networks.
-
-### How does CIDR help ISPs?
-
-ISPs use CIDR for efficient route advertisement, IP allocation, and scalable internet routing.
+Flow monitoring uses CIDR notation to group flows by customer subnets, ASN ranges, or geographic regions. Queries can filter by CIDR block to retrieve all flows from a subnet, and reports can aggregate traffic by CIDR-defined customer or service boundaries.

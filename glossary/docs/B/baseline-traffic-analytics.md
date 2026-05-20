@@ -1,193 +1,119 @@
 ---
-title: What is Baseline Traffic Analysis?
-sidebar_label: Baseline Traffic Analysis
-sidebar_position: 8
-slug: /glossary/baseline-traffic-analysis
-description: Learn what baseline traffic analysis is, how network baselines work, and why baseline monitoring is important for anomaly detection, performance analysis, and traffic visibility.
+title: What is baseline traffic analytics?
+description: Baseline traffic analytics establishes a reference point for normal network traffic patterns over time, enabling detection of anomalies, capacity planning, and security monitoring by comparing current activity against historical norms.
+sidebar_label: Baseline traffic analytics
+sidebar_position: 36
+slug: /glossary/baseline-traffic-analytics
 keywords:
-  - baseline traffic analysis
-  - network traffic baseline
-  - traffic baseline monitoring
-  - network anomaly detection
-  - traffic behavior analysis
-  - bandwidth baseline
+  - baseline traffic analytics
+  - traffic baseline
+  - network baseline
+  - anomaly detection
+  - behavioral analytics
+  - dynamic baseline
+  - network traffic analysis
 ---
 
-# What is Baseline Traffic Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a network traffic baseline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A network traffic baseline is a detailed profile of normal network operations representing typical data flow patterns across devices, applications, and users over a specified period. It includes traffic volumes, types of traffic, and common communication paths. Once established, the baseline becomes a benchmark for detecting deviations that indicate security incidents or performance issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a traffic baseline established?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Establishing a baseline involves collecting traffic data over a representative period using NetFlow or deep packet inspection, analyzing patterns during peak and off-peak hours, documenting normal traffic volumes and types, and implementing continuous monitoring with alerts for deviations. The baseline should be updated quarterly to reflect infrastructure changes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between static and dynamic baselines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Static baselines are fixed reference points that do not change over time. Dynamic baselines adapt to changing network conditions such as time-of-day fluctuations, day-of-week patterns, and business growth. Dynamic baselines are more effective in modern networks because they account for normal variations rather than flagging them as anomalies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does baseline traffic analytics support anomaly detection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Once a baseline is established, the analysis process shifts to identifying deviations from the norm, including sudden traffic spikes, unusual data flows, or unfamiliar protocols. Automated monitoring tools use algorithms and machine learning to continuously analyze traffic, identify anomalies, and alert teams for investigation."
+      }
+    }
+  ]
+};
 
-Baseline Traffic Analysis is the process of establishing normal network traffic behavior over time and comparing current activity against that baseline to identify unusual patterns or anomalies.
+# What is baseline traffic analytics?
 
-It helps network and security teams understand what normal traffic looks like across users, devices, applications, protocols, and network segments.
+Baseline traffic analytics establishes a reference point for normal network traffic patterns over time, enabling anomaly detection, capacity planning, and security monitoring. It defines what "normal" looks like on a network, making every deviation immediately visible for investigation. Static baselines are fixed; dynamic baselines adapt to time-of-day and day-of-week patterns.
 
-Baseline traffic analysis is commonly used in [Anomaly Detection](/glossary/anomaly-detection), [Network Security Monitoring](/glossary/network-security-monitoring-nsm), and [Bandwidth Monitoring](/glossary/bandwidth-monitoring) workflows.
+---
 
-## **How Baseline Traffic Analysis Works**
+## How it works
 
-Network monitoring platforms collect and analyze traffic patterns over time to build historical baselines.
+Baseline analytics collects traffic data over a representative period using NetFlow, sFlow, or packet capture. It analyzes patterns during peak and off-peak hours, identifies normal traffic volumes and types, and documents common communication paths. The baseline is updated regularly to reflect infrastructure or business changes.
 
-These baselines may include:
-- average bandwidth usage
-- normal packet rates
-- protocol distribution
-- application traffic patterns
-- peak traffic hours
-- user activity trends
-- interface utilization
-- inbound and outbound traffic behavior
+---
 
-For example:
+## In network operations
 
-1. A monitoring system records traffic behavior over several weeks.
-2. Average daily bandwidth usage is calculated.
-3. Current traffic is continuously compared against historical patterns.
-4. Significant deviations are flagged for investigation.
+- **NOC:** Detect performance issues by identifying traffic spikes that deviate from baseline utilization patterns.
+- **SOC:** Detect security incidents by identifying unusual data flows, unfamiliar protocols, or communication with unexpected destinations.
+- **Capacity Planning:** Use baseline trends to forecast growth and plan upgrades before links reach saturation.
 
-```mermaid
-xychart-beta
-    title "Network Traffic Baseline vs Anomaly"
-    x-axis ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    y-axis "Traffic Volume (GB)" 0 --> 100
-    bar [35, 38, 40, 42, 41, 39, 36]
-    bar [35, 38, 40, 88, 41, 39, 36]
-```
+---
 
+## Static vs dynamic baseline
 
-*Figure: Baseline traffic analysis comparing expected network behavior against an abnormal traffic spike detected during monitoring.*
-
-## **Why Baseline Traffic Analysis Matters**
-
-Without a traffic baseline, it is difficult to determine whether network activity is normal or suspicious.
-
-Baseline analysis helps organizations:
-- detect traffic anomalies
-- identify abnormal bandwidth spikes
-- troubleshoot performance issues
-- detect insider threats
-- improve capacity planning
-- identify unusual application behavior
-- monitor operational stability
-
-It improves visibility into:
-- traffic growth trends
-- network congestion
-- protocol misuse
-- lateral movement
-- DDoS activity
-- unusual outbound traffic
-
-Baseline analysis is especially important in:
-- enterprise networks
-- ISP environments
-- SOC operations
-- cloud infrastructures
-- high-volume traffic environments
-
-## **Types of Traffic Baselines**
-
-### Bandwidth Baselines
-
-Track expected bandwidth usage across interfaces, users, or applications.
-
-### Behavioral Baselines
-
-Monitor normal communication patterns between systems or users.
-
-### Protocol Baselines
-
-Track expected protocol and application usage patterns.
-
-### Time-Based Baselines
-
-Analyze traffic behavior during specific periods such as business hours or peak usage windows.
-
-## **Common Operational Use Cases**
-
-### Anomaly Detection
-
-Identify traffic behavior that deviates from normal patterns.
-
-### DDoS Detection
-
-Detect sudden traffic floods and abnormal bandwidth spikes.
-
-### Capacity Planning
-
-Analyze long-term growth trends and network utilization patterns.
-
-### Security Monitoring
-
-Detect suspicious outbound communication or unusual internal traffic.
-
-### Performance Troubleshooting
-
-Identify latency, congestion, or unexpected traffic behavior.
-
-## **Baseline Traffic Analysis vs Real-Time Monitoring**
-
-| Feature | Baseline Traffic Analysis | Real-Time Monitoring |
+| Dimension | Static baseline | Dynamic baseline |
 |---|---|---|
-| Focus | Historical normal behavior | Current live traffic |
-| Primary Goal | Detect deviations | Observe active conditions |
-| Time Scope | Long-term analysis | Immediate visibility |
-| Operational Use | Trend and anomaly analysis | Live troubleshooting |
-| Traffic Context | Behavioral comparison | Current traffic state |
-
-Baseline analysis provides historical context, while real-time monitoring focuses on current network activity.
-
-## **How Trisul Handles Baseline Traffic Analysis**
-
-Trisul uses long-term flow analytics and traffic retention to help teams establish historical traffic baselines and identify abnormal network behavior.
-
-Combined with:
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
-- Retro Analysisᵀ
-- Long-Term Traffic Retention
-- Flow Stitchingᵀ
-
-Trisul helps teams:
-- compare current and historical traffic behavior
-- identify bandwidth anomalies
-- monitor traffic growth trends
-- investigate protocol changes
-- detect abnormal communication patterns
-- analyze long-term network behavior
-
-Trisul can also correlate [Flow Analysis](/glossary/flow-analysis) and [Packet Capture](/glossary/packet-capture) workflows for deeper anomaly investigation.
-
-## **Related Terms**
-
-- [Anomaly Detection](/glossary/anomaly-detection)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Traffic Baseline](/glossary/traffic-baseline)
-- [Flow Analysis](/glossary/flow-analysis)
-- [Real-Time Traffic Monitoring](/glossary/real-time-traffic-monitoring)
-- [Network Security Monitoring](/glossary/network-security-monitoring-nsm)
+| Adaptation | None | Accounts for time-of-day, day-of-week |
+| False positives | Higher | Lower |
+| Maintenance | Manual updates | Automatic adjustments |
+| Best for | Stable networks | Modern dynamic networks |
 
 ---
 
-## **FAQ**
+## How Trisul handles it
 
-### What is baseline traffic analysis?
+Trisul provides baseline traffic analytics through flow monitoring with historical trending, Interface Tracking for per-interface baselines, and Top-K analytics for identifying top talkers against baseline expectations. Trigger-based alerting sends notifications when traffic deviates from configured thresholds. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-Baseline traffic analysis is the process of establishing normal network behavior and comparing current traffic against that baseline.
+---
 
-### Why is traffic baselining important?
+## Related terms
 
-It helps identify anomalies, performance issues, security threats, and unusual traffic behavior.
+- [What is anomaly detection?](/glossary/anomaly-detection)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is DDoS detection?](/glossary/ddos-detection)
+- [What is burst traffic?](/glossary/burst-traffic)
+- [What is capacity planning?](/glossary/capacity-planning)
 
-### How are traffic baselines created?
+---
 
-Monitoring systems analyze historical traffic patterns over time to establish expected behavior ranges.
+## Frequently asked questions
 
-### Can baseline analysis help detect cyberattacks?
+### What is a network traffic baseline?
 
-Yes. Sudden deviations from normal traffic patterns can indicate DDoS attacks, malware activity, or insider threats.
+A network traffic baseline is a detailed profile of normal network operations representing typical data flow patterns across devices, applications, and users over a specified period. It includes traffic volumes, types of traffic, and common communication paths. Once established, the baseline becomes a benchmark for detecting deviations that indicate security incidents or performance issues.
 
-### What's the difference between baseline analysis and real-time monitoring?
+### How is a traffic baseline established?
 
-Baseline analysis compares current traffic against historical behavior, while real-time monitoring focuses on live network activity.
+Establishing a baseline involves collecting traffic data over a representative period using NetFlow or deep packet inspection, analyzing patterns during peak and off-peak hours, documenting normal traffic volumes and types, and implementing continuous monitoring with alerts for deviations. The baseline should be updated quarterly to reflect infrastructure changes.
 
-### Is baseline traffic analysis useful for ISPs?
+### What is the difference between static and dynamic baselines?
 
-Yes. ISPs use baseline analysis to monitor subscriber behavior, backbone utilization, and traffic growth trends.
+Static baselines are fixed reference points that do not change over time. Dynamic baselines adapt to changing network conditions such as time-of-day fluctuations, day-of-week patterns, and business growth. Dynamic baselines are more effective in modern networks because they account for normal variations rather than flagging them as anomalies.
+
+### How does baseline traffic analytics support anomaly detection?
+
+Once a baseline is established, the analysis process shifts to identifying deviations from the norm, including sudden traffic spikes, unusual data flows, or unfamiliar protocols. Automated monitoring tools use algorithms and machine learning to continuously analyze traffic, identify anomalies, and alert teams for investigation.

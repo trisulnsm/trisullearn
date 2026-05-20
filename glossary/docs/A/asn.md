@@ -1,183 +1,119 @@
 ---
-title: What is an ASN?
+title: What is ASN?
+description: An ASN (Autonomous System Number) is a unique identifier assigned to an Autonomous System—a group of IP prefixes managed by a single organization with a common routing policy, used for BGP routing on the Internet.
 sidebar_label: ASN
-sidebar_position: 5
+sidebar_position: 39
 slug: /glossary/asn
-description: Learn what an Autonomous System Number (ASN) is, how ASNs work in BGP routing, and why they are important for internet routing, peering, and network visibility.
 keywords:
-  - ASN
+  - asn
   - autonomous system number
-  - BGP ASN
-  - ASN peering
-  - internet routing
   - autonomous system
+  - bgp routing
+  - asn number
+  - internet routing
+  - as number
 ---
 
-# What is an ASN?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an Autonomous System?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An Autonomous System (AS) is a group of one or more IP prefixes run by one or more network operators that maintain a single, clearly-defined routing policy. Each AS is assigned a globally unique Autonomous System Number (ASN) by IANA for routing purposes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the two ASN formats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 2-byte ASN is a 16-bit number providing 65,536 ASNs (0 to 65535), but this space is now exhausted. A 4-byte ASN is a 32-bit number providing 4.3 billion ASNs (0 to 4294967295). There is no longer a distinction between 2-byte and 4-byte ASNs—all are considered 4-byte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between public and private ASNs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Public ASNs are globally routable and visible in the global routing table. Private ASNs (64512 to 65535 for 2-byte, 4200000000 to 4294967294 for 4-byte) are reserved for internal use and cannot be visible in the global routing table. Public ASNs are required for Internet peering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is ASN used in flow monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow monitoring enriches flow records with source ASN and destination ASN from BGP data. This enables traffic analysis by autonomous system, peering analysis, and identification of traffic patterns by routing path. ASN is used in Top-K analytics for per-AS traffic ranking."
+      }
+    }
+  ]
+};
 
-An Autonomous System Number (ASN) is a unique numeric identifier used to identify an autonomous system, which is a network or collection of IP prefixes managed under a common routing policy on the internet.
+# What is ASN?
 
-ASNs are used in Border Gateway Protocol (BGP) routing to identify networks such as internet service providers (ISPs), cloud providers, enterprises, and content delivery networks.
+An ASN (Autonomous System Number) is a unique identifier assigned to an Autonomous System—a group of IP prefixes managed by a single organization with a common routing policy. ASNs are used by BGP for routing on the Internet. ASNs can be 2-byte (16-bit) or 4-byte (32-bit), with the 4-byte format now standard.
 
-Each autonomous system uses its ASN when exchanging routing information with other networks.
+---
 
-## **How ASNs Work**
+## How it works
 
-The internet is made up of thousands of independently managed networks called Autonomous Systems (AS).
+Each AS is assigned a globally unique ASN by IANA. ASNs 1 to 64511 are available for global use. ASNs 64512 to 65535 are reserved for private use. BGP uses ASNs to identify routing domains and build AS paths for route selection.
 
-Each AS:
-- controls its own routing policy
-- advertises IP prefixes
-- exchanges routes with other networks
-- is identified globally by an ASN
+---
 
-When traffic crosses between autonomous systems:
+## In network operations
 
-1. A router receives BGP route advertisements
-2. The advertisement includes AS path information
-3. Routers evaluate available paths between autonomous systems
-4. Traffic is forwarded based on the selected AS path and local policy
+- **NOC:** Monitor traffic by source and destination ASN to identify top ASes driving traffic.
+- **ISP:** Use ASNs for BGP peering, transit selection, and traffic engineering.
+- **Security:** Detect anomalies by monitoring traffic from unexpected ASNs or AS path changes.
 
-For example:
+---
 
-- AS15169 - Google
-- AS13335 - Cloudflare
-- AS32934 - Meta
+## Public vs private ASN
 
-```mermaid
-flowchart LR
-    A[User Traffic] --> B[ISP ASN 64501]
-    B --> C[Transit ASN 64510]
-    C --> D[Cloud Provider ASN 64520]
-    D --> E[Destination Service]
-
-    B <-->|BGP Peering| C
-    C <-->|BGP Route Exchange| D
-```
-
-*Figure: BGP ASN routing workflow showing how traffic moves between autonomous systems using peering and route advertisements.*
-
-## **Why ASNs Matter**
-
-ASNs help internet networks:
-- exchange routing information
-- establish peering relationships
-- manage internet traffic paths
-- control routing policy
-- improve redundancy and connectivity
-
-ASN visibility is important for:
-- ISP traffic analytics
-- BGP monitoring
-- peering analysis
-- route troubleshooting
-- DDoS analysis
-- traffic engineering
-
-ASNs provide operational context by showing which upstream networks, peers, or providers traffic is using.
-
-## **Public vs Private ASN**
-
-| Type | Description |
-|---|---|
-| Public ASN | Globally unique ASN used in Internet routing |
-| Private ASN | ASN used internally for routing policy and not intended for public Internet advertisement |
-
-Public ASNs are assigned by Regional Internet Registries (RIRs) such as:
-- ARIN
-- RIPE NCC
-- APNIC
-- AFRINIC
-- LACNIC
-
-## **Common Operational Use Cases**
-
-### BGP Peering
-
-Use ASNs to establish routing relationships between ISPs, cloud providers, and enterprises.
-
-### ASN Traffic Visibility
-
-Analyze traffic flows between autonomous systems to understand where traffic enters, transits, and exits the network.
-
-### Route Troubleshooting
-
-Identify routing path changes, AS path anomalies, and peering issues.
-
-### DDoS Analysis
-
-Track attack traffic by upstream ASN to understand source networks and transit paths.
-
-### Traffic Engineering
-
-Use ASN-level visibility to compare path selection, peering utilization, and bandwidth distribution.
-
-## **ASN vs IP Address**
-
-| Feature | ASN | IP Address |
+| Dimension | Public ASN | Private ASN |
 |---|---|---|
-| Purpose | Identifies a routing domain | Identifies a host, interface, or endpoint |
-| Scope | Network-level | Device or interface-level |
-| Used In | BGP routing | IP communication |
-| Ownership | Organization or network operator | Host, interface, or assigned block |
-| Routing Role | Path advertisement and policy | Packet delivery and forwarding |
-
-ASNs identify networks participating in internet routing, while IP addresses identify endpoints or interfaces carrying traffic across those networks.
-
-## **How Trisul Handles ASN Visibility**
-
-Trisul can provide ASN-aware traffic analysis when traffic is enriched with BGP and flow context, supporting investigation of traffic distribution and routing relationships.
-
-Relevant Trisul capabilities include:
-- BGP-related visibility
-- flow monitoring
-- traffic investigation
-- Top-K analytics
-- multigraph analytics
-
-Trisul can help teams:
-- analyze traffic distribution by ASN
-- monitor peering relationships
-- identify top ASNs by traffic volume
-- investigate routing anomalies
-- detect unusual traffic sources
-- visualize traffic patterns across networks
-
-Trisul can also work with flow data such as [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [Packet Capture](/glossary/packet-capture) to support deeper routing analysis.
-
-## **Related Terms**
-
-- [BGP](/glossary/bgp)
-- [ASN Peering](/glossary/asn-peering)
-- [BGP Peering Analytics](/glossary/bgp-peering-analytics)
-- [NetFlow](/glossary/netflow)
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [GeoIP Enrichment](/glossary/geoip-enrichment)
+| Routing | Globally routable | Internal only |
+| Range | 1 to 64511 | 64512 to 65535 |
+| Visibility | Global routing table | Not visible globally |
+| Use case | Internet peering | Internal networks |
 
 ---
 
-## **FAQ**
+## How Trisul handles it
 
-### What does ASN stand for?
+Trisul enriches flow records with source and destination ASN from BGP data. This enables querying and reporting by autonomous system in Explore Flows and dashboards. Top-K analytics provides per-AS traffic ranking. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-ASN stands for Autonomous System Number.
+---
 
-### What is an ASN used for?
+## Related terms
 
-ASNs are used in BGP routing to identify networks and exchange routing information across the internet.
+- [What is BGP?](/glossary/bgp)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is peering?](/glossary/peering)
+- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
+- [What is Top-K analytics?](/glossary/top-k-analytics)
 
-### Who assigns ASNs?
+---
 
-Public ASNs are assigned by Regional Internet Registries (RIRs) such as ARIN, RIPE NCC, and APNIC.
+## Frequently asked questions
 
-### What's the difference between an ASN and an IP address?
+### What is an Autonomous System?
 
-An ASN identifies a network or routing domain, while an IP address identifies a device, interface, or endpoint.
+An Autonomous System (AS) is a group of one or more IP prefixes run by one or more network operators that maintain a single, clearly-defined routing policy. Each AS is assigned a globally unique Autonomous System Number (ASN) by IANA for routing purposes.
 
-### Why is ASN visibility important?
+### What are the two ASN formats?
 
-ASN visibility helps network teams analyze internet traffic paths, monitor peering relationships, and troubleshoot routing issues.
+A 2-byte ASN is a 16-bit number providing 65,536 ASNs (0 to 65535), but this space is now exhausted. A 4-byte ASN is a 32-bit number providing 4.3 billion ASNs (0 to 4294967295). There is no longer a distinction between 2-byte and 4-byte ASNs—all are considered 4-byte.
 
-### Can multiple IP prefixes belong to one ASN?
+### What is the difference between public and private ASNs?
 
-Yes. An autonomous system can advertise multiple IP prefixes under a single ASN.
+Public ASNs are globally routable and visible in the global routing table. Private ASNs (64512 to 65535 for 2-byte, 4200000000 to 4294967294 for 4-byte) are reserved for internal use and cannot be visible in the global routing table. Public ASNs are required for Internet peering.
+
+### How is ASN used in flow monitoring?
+
+Flow monitoring enriches flow records with source ASN and destination ASN from BGP data. This enables traffic analysis by autonomous system, peering analysis, and identification of traffic patterns by routing path. ASN is used in Top-K analytics for per-AS traffic ranking.

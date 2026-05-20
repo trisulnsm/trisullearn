@@ -1,174 +1,119 @@
 ---
-title: What is Contextᵀ?
-sidebar_label: Contextᵀ
-sidebar_position: 18
+title: What is a Trisul context?
+description: A Trisul context is an isolated instance of Trisul with its own database, configuration, and processes, sharing only the common webserver, user, and admin framework.
+sidebar_label: Context
+sidebar_position: 28
 slug: /glossary/context
-description: Learn what Contextᵀ is in Trisul Network Analytics and how it helps organize, analyze, and investigate related network traffic activity with operational context.
 keywords:
-  - Context
-  - Trisul Context
-  - traffic context analysis
-  - network investigation context
-  - contextual traffic analytics
-  - operational traffic visibility
+  - context
+  - trisul context
+  - isolated instance
+  - distributed domain
+  - separate database
+  - multitenant analytics
+  - webadmin context
 ---
 
-# What is Contextᵀ?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does a Trisul context isolate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Trisul context has its own database, configuration, and processes. It behaves like a separate Trisul instance for analytics and storage, while still sharing the common webserver, user, and admin framework with other contexts on the same deployment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use multiple contexts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiple contexts let you separate analytics by tenant, environment, business unit, or region without mixing data. Each context keeps its own operational state and data window, which makes delegation and isolation easier in multi-team deployments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you create a context in Trisul?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contexts are created from the hub node using the trisulctl_hub CLI. The create context command provisions a new context name, after which the info context command can be used to verify its state, version, and initialization status."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a context and a node?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A node is a physical or virtual machine running Trisul services. A context is an isolated analytics domain running on that platform. One node can host multiple contexts, but each context keeps separate data and configuration."
+      }
+    }
+  ]
+};
 
-Contextᵀ is a Trisul Network Analytics concept used to organize related traffic activity, metadata, and investigation details into a unified operational view.
+# What is a Trisul context?
 
-It helps network and security teams analyze traffic behavior with surrounding investigation context instead of reviewing isolated flow records or packet events on their own.
+A Trisul context is an isolated instance of Trisul with its own database, configuration, and processes. It shares the common webserver, user, and admin framework, but its analytics data and operational state remain separate from other contexts.
 
-Contextᵀ improves visibility during [Traffic Investigation](/glossary/traffic-investigation), [Flow Analysis](/glossary/flow-analysis), and [Network Security Monitoring](/glossary/network-security-monitoring-nsm) workflows.
+---
 
-## **How Contextᵀ Works**
+## How it works
 
-Modern networks generate large volumes of traffic data from:
-- flow records
-- packet captures
-- protocols
-- applications
-- alerts
-- subscriber information
-- routing metadata
+Contexts are created on the hub node and managed with the trisulctl_hub CLI. After creation, each context can be verified with its own state, version, and data window. This lets one Trisul deployment host multiple isolated analytics domains.
 
-Contextᵀ correlates related information into a single operational view.
+---
 
-For example:
+## In network operations
 
-1. A suspicious traffic spike is detected.
-2. Related flow records are identified.
-3. Associated applications, IPs, protocols, and conversations are linked.
-4. Analysts investigate the activity with surrounding traffic context.
+- **NOC:** Separate contexts keep customer or environment data isolated without requiring separate hardware.
+- **SOC:** Different contexts can isolate security data by tenant, region, or business unit.
+- **ISP:** Multi-context setups help partition analytics by service, customer group, or operational domain.
 
-Contextᵀ may combine:
-- traffic flows
-- packet metadata
-- application visibility
-- ASN information
-- subscriber activity
-- protocol behavior
-- historical traffic records
+---
 
-![images/context.png](images/context.png)
+## Context vs node
 
-*Figure: Context-based investigation workflow showing how related traffic data is correlated into a unified operational analysis view.*
-
-## **Why Contextᵀ Matters**
-
-Without contextual visibility, analysts often investigate traffic events as isolated records.
-
-This makes it harder to:
-- understand communication behavior
-- correlate related activity
-- identify root causes
-- prioritize investigations
-- detect abnormal traffic patterns
-
-Contextᵀ improves:
-- investigation speed
-- operational visibility
-- traffic correlation
-- anomaly analysis
-- troubleshooting efficiency
-- security monitoring workflows
-
-It is especially useful in:
-- SOC operations
-- ISP analytics
-- incident response
-- traffic forensics
-- application troubleshooting
-
-## **Common Operational Use Cases**
-
-### Traffic Investigation
-
-Correlate related flows, conversations, and traffic events during investigations.
-
-### Security Analysis
-
-Analyze suspicious traffic with protocol, application, and communication context.
-
-### Incident Response
-
-Understand how traffic events relate across systems and time periods.
-
-### Application Troubleshooting
-
-Investigate performance issues with complete session visibility.
-
-### Subscriber Analysis
-
-Correlate subscriber traffic behavior with application and protocol activity.
-
-## **Contextᵀ vs Raw Traffic Data**
-
-| Feature | Contextᵀ | Raw Traffic Data |
+| Dimension | Context | Node |
 |---|---|---|
-| Visibility | Correlated operational view | Individual records |
-| Investigation Speed | Faster | Slower |
-| Traffic Correlation | Built-in | Manual |
-| Operational Context | Rich | Limited |
-| Analysis Workflow | Unified | Fragmented |
-
-Contextᵀ improves operational understanding by connecting related traffic information together.
-
-## **How Trisul Uses Contextᵀ**
-
-Contextᵀ works alongside Trisul’s traffic analytics and investigation features to improve operational visibility and network analysis.
-
-Combined with:
-- Flow Stitchingᵀ
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-- Multigraph Analyticsᵀ
-- Packet Capture
-- Traffic Investigation
-
-Trisul helps teams:
-- correlate related traffic activity
-- investigate anomalous communication
-- analyze historical traffic behavior
-- improve troubleshooting workflows
-- visualize application relationships
-- investigate security incidents more efficiently
-
-Trisul can also correlate [Packet Capture](/glossary/packet-capture), [NetFlow](/glossary/netflow), and [Application Visibility](/glossary/application-visibility) workflows within the same contextual investigation view.
-
-## **Related Terms**
-
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Flow Analysis](/glossary/flow-analysis)
-- [Packet Capture](/glossary/packet-capture)
-- [Application Visibility](/glossary/application-visibility)
-- [Anomaly Detection](/glossary/anomaly-detection)
-- [Conversation View](/glossary/conversation-view)
+| Purpose | Isolated analytics domain | Machine running Trisul services |
+| Database | Separate | Shared at the host level |
+| Configuration | Separate | Host-level service setup |
+| Deployment | Multiple per platform | One physical or virtual server |
 
 ---
 
-## **FAQ**
+## How Trisul handles it
 
-### What is Contextᵀ in Trisul?
+Trisul supports multiple contexts per production license, each with its own isolated database and processes. The shared webserver and admin framework make multi-context management practical from a single deployment. Full documentation is at https://docs.trisul.org/docs/ag/domain/contexts/.
 
-Contextᵀ is a Trisul concept that correlates related traffic data and investigation details into a unified operational view.
+---
 
-### Why is contextual traffic visibility important?
+## Related terms
 
-It helps analysts understand traffic behavior more quickly and improves investigation accuracy.
+- [What is a node?](/glossary/node)
+- [What is a distributed domain?](/glossary/distributed-domain)
+- [What is multitenancy?](/glossary/multitenancy)
+- [What is webadmin?](/glossary/webadmin)
+- [What is a context menu?](/glossary/context-menu)
 
-### What types of data can Contextᵀ correlate?
+---
 
-Contextᵀ can correlate flow records, packet metadata, applications, protocols, ASN information, and traffic behavior.
+## Frequently asked questions
 
-### How does Contextᵀ improve investigations?
+### What does a Trisul context isolate?
 
-It reduces fragmented analysis by connecting related traffic activity into a single workflow.
+A Trisul context has its own database, configuration, and processes. It behaves like a separate Trisul instance for analytics and storage, while still sharing the common webserver, user, and admin framework with other contexts on the same deployment.
 
-### Is Contextᵀ useful for security monitoring?
+### Why use multiple contexts?
 
-Yes. It improves visibility into suspicious communication patterns, anomalies, and incident response investigations.
+Multiple contexts let you separate analytics by tenant, environment, business unit, or region without mixing data. Each context keeps its own operational state and data window, which makes delegation and isolation easier in multi-team deployments.
 
-### Can Contextᵀ work with flow analytics?
+### How do you create a context in Trisul?
 
-Yes. Contextᵀ can be used alongside NetFlow, IPFIX, packet capture, and traffic investigation workflows in Trisul.
+Contexts are created from the hub node using the trisulctl_hub CLI. The create context command provisions a new context name, after which the info context command can be used to verify its state, version, and initialization status.
+
+### What is the difference between a context and a node?
+
+A node is a physical or virtual machine running Trisul services. A context is an isolated analytics domain running on that platform. One node can host multiple contexts, but each context keeps separate data and configuration.
