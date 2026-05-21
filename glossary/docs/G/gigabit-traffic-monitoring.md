@@ -1,17 +1,17 @@
 ---
-title: What is gigabit traffic monitoring?
-description: Gigabit traffic monitoring observes and analyzes network traffic at 1 Gbps or higher speeds, requiring specialized hardware and software to capture flows without packet loss at wire speed.
-sidebar_label: Gigabit traffic monitoring
-sidebar_position: 46
-slug: /glossary/gigabit-traffic-monitoring
+title: What is GRE tunnel monitoring?
+description: GRE tunnel monitoring tracks the health and performance of Generic Routing Encapsulation tunnels by checking interface state, traffic counters, packet loss, and tunnel endpoint reachability to detect failures before they impact applications.
+sidebar_label: GRE tunnel monitoring
+sidebar_position: 45
+slug: /glossary/gre-tunnel-monitoring
 keywords:
-  - gigabit traffic monitoring
-  - 1gbps monitoring
-  - high-speed traffic monitoring
-  - multi-gigabit monitoring
-  - wire speed monitoring
-  - network performance monitoring
-  - bandwidth monitoring
+  - gre tunnel monitoring
+  - gre tunnel
+  - tunnel monitoring
+  - gre health check
+  - gre keepalive
+  - point-to-point tunnel
+  - encapsulation monitoring
 ---
 
 export const jsonLd = {
@@ -20,99 +20,106 @@ export const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Why is gigabit traffic monitoring challenging?",
+      "name": "Why is GRE tunnel monitoring challenging?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "At 1 Gbps, approximately 1.488 million packets per second must be processed. At 10 Gbps, this increases to 14.88 million packets per second. Standard NICs and CPUs cannot handle this load without packet loss. Specialized hardware like network processors and FPGA-based capture cards are required to maintain wire-speed capture."
+        "text": "GRE tunnel interfaces are virtual and always show up status even when the remote end is unreachable. The interface state does not reflect actual connectivity. Monitoring must combine interface state checks with keepalive tests, ping through the tunnel, and traffic counter analysis to detect failures."
       }
     },
     {
       "@type": "Question",
-      "name": "What hardware is required for gigabit traffic monitoring?",
+      "name": "What metrics are monitored for GRE tunnels?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Required hardware includes 10Gbps or higher network interface cards, TAPs or port mirroring for traffic capture, network processors or FPGA-based capture cards for high-speed packet processing, and high-performance storage for flow data. SNMP polling alone cannot capture gigabit traffic at wire speed."
+        "text": "Key metrics include interface operational state with the LOWER_UP flag, TX and RX bytes and packet counts, packet drops and errors, tunnel endpoint reachability via ping, and GRE keepalive success or failure. Traffic counters should be watched in real time to detect sudden drops or unusual patterns."
       }
     },
     {
       "@type": "Question",
-      "name": "What methods work for gigabit traffic monitoring?",
+      "name": "How does GRE keepalive work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow-based monitoring (NetFlow, sFlow, J-Flow, IPFIX) is the most scalable method for gigabit networks because it samples traffic and exports metadata rather than full packets. Full packet capture requires specialized hardware and is resource-intensive. SNMP polling works for interface utilization but not for detailed traffic analysis."
+        "text": "GRE keepalive sends periodic hello packets through the tunnel to verify connectivity. If keepalive fails according to configured interval and fail-timer values, the routing protocol removes routes via the tunnel from the routing table. Default keepalive interval is 0 and disabled, so it must be explicitly configured."
       }
     },
     {
       "@type": "Question",
-      "name": "How does Trisul handle gigabit traffic monitoring?",
+      "name": "How does flow monitoring handle GRE traffic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul uses flow-based monitoring that scales to gigabit speeds by collecting NetFlow, J-Flow, sFlow, and IPFIX data from routers and switches. Trisul does not require packet capture at wire speed, making it suitable for high-speed networks. Flow processing occurs in real time with minimal latency for fast anomaly detection."
+        "text": "Flow monitoring can capture GRE traffic as flows on the tunnel interface. NetFlow exporters can monitor GRE tunnel interfaces specifically, showing traffic flowing through the encapsulation. Flow monitoring supports collecting flow data from tunnel interfaces and enables queries by tunnel name."
       }
     }
   ]
 };
 
-# What is gigabit traffic monitoring?
+# What is GRE tunnel monitoring?
 
-Gigabit traffic monitoring observes and analyzes network traffic at 1 Gbps or higher speeds, requiring specialized hardware and software to capture flows without packet loss at wire speed. At 1 Gbps, approximately 1.488 million packets per second must be processed. Flow-based monitoring is the most scalable approach for gigabit networks.
-
----
-
-## How it works
-
-Flow exporters on routers and switches sample traffic and export metadata (IP addresses, ports, byte counts, timestamps) to the collector. The collector analyzes flow data without requiring full packet capture. SNMP polling provides interface utilization but not detailed traffic analysis.
+GRE tunnel monitoring tracks the health and performance of Generic Routing Encapsulation tunnels by checking interface state, traffic counters, packet loss, and tunnel endpoint reachability. GRE tunnels are virtual interfaces that always show up status even when the remote end is unreachable, so monitoring must combine status checks with keepalive tests and ping through the tunnel.
 
 ---
 
-## In network operations
+## How GRE tunnel monitoring works
 
-- **NOC:** Monitor interface utilization on gigabit links using SNMP and flow data to detect saturation and congestion.
-- **Security:** Detect DDoS attacks and anomalies on high-speed links using flow-based anomaly detection without packet capture.
-- **Capacity Planning:** Track traffic trends on gigabit interfaces to plan upgrades before links reach saturation.
+Monitoring checks the interface operational state for the LOWER_UP flag, TX and RX bytes and packet counts, and packet drops. Keepalive sends periodic hello packets through the tunnel. If keepalive fails, routes via the tunnel are removed from the routing table. Ping tests through the tunnel verify inner IP reachability.
 
 ---
 
-## Monitoring methods at gigabit speeds
+## GRE tunnel monitoring in network operations
 
-| Method | Scalability | Detail level | Best for |
-|---|---|---|---|
-| Flow-based (NetFlow, sFlow) | High | Metadata only | Gigabit and 10Gbps networks |
-| SNMP polling | High | Interface counters only | Interface utilization |
-| Full packet capture | Low | Full packet content | Targeted troubleshooting |
+In the NOC, monitor GRE tunnel interface state, traffic counters, and keepalive status to detect failures before they impact applications. Security teams inspect GRE traffic for malicious payloads passing through the encapsulation using tunnel content inspection. Capacity planning tracks GRE tunnel traffic volume to plan bandwidth upgrades for the tunnel and underlying infrastructure.
 
 ---
 
-## How Trisul handles it
+## GRE monitoring methods
 
-Trisul uses flow-based monitoring that scales to gigabit speeds by collecting NetFlow, J-Flow, sFlow, and IPFIX data from routers and switches. Trisul does not require packet capture at wire speed, making it suitable for high-speed networks. Flow processing occurs in real time with minimal latency for fast anomaly detection. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+| Method | What it checks | Limitation |
+|---|---|---|
+| Interface state | LOWER_UP flag | Always shows UP for virtual interfaces |
+| Keepalive | Tunnel endpoint reachability | Must be explicitly configured and default is 0 |
+| Ping | Inner IP reachability | Requires IP connectivity through tunnel |
+| Traffic counters | RX and TX bytes and drops | Cumulative and watch rate of change |
+
+---
+
+## What makes GRE tunnel monitoring work in practice
+
+The central challenge is that GRE tunnel interfaces are virtual and report up even when the remote end is down. Relying only on interface state gives false confidence. Keepalive must be explicitly enabled because the default is disabled. Without keepalive, the tunnel appears healthy even when the peer is unreachable.
+
+Ping through the tunnel tests real connectivity but adds overhead. Traffic counters provide continuous visibility without extra packets. Watch the rate of change rather than absolute values to detect sudden drops. A flat counter line means the tunnel is not passing traffic even if the interface shows up.
+
+---
+
+## How Trisul handles GRE tunnel monitoring
+
+Trisul provides GRE tunnel monitoring through flow data collection from tunnel interfaces. NetFlow exporters can monitor GRE tunnel interfaces specifically, showing traffic flowing through the encapsulation. Explore Flows enables queries by tunnel name to analyze traffic patterns per tunnel. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
 ---
 
 ## Related terms
 
 - [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is SNMP?](/glossary/snmp)
-- [What is NetFlow?](/glossary/netflow)
-- [What is interface saturation?](/glossary/interface-saturation)
+- [What is tunnel content inspection?](/glossary/tunnel-content-inspection)
+- [What is encapsulation?](/glossary/encapsulation)
+- [What is point-to-point link?](/glossary/point-to-point-link)
+- [What is interface monitoring?](/glossary/interface-monitoring)
 
 ---
 
 ## Frequently asked questions
 
-### Why is gigabit traffic monitoring challenging?
+### Why is GRE tunnel monitoring challenging?
 
-At 1 Gbps, approximately 1.488 million packets per second must be processed. At 10 Gbps, this increases to 14.88 million packets per second. Standard NICs and CPUs cannot handle this load without packet loss. Specialized hardware like network processors and FPGA-based capture cards are required to maintain wire-speed capture.
+GRE tunnel interfaces are virtual and always show up status even when the remote end is unreachable. The interface state does not reflect actual connectivity. Monitoring must combine interface state checks with keepalive tests, ping through the tunnel, and traffic counter analysis to detect failures.
 
-### What hardware is required for gigabit traffic monitoring?
+### What metrics are monitored for GRE tunnels?
 
-Required hardware includes 10Gbps or higher network interface cards, TAPs or port mirroring for traffic capture, network processors or FPGA-based capture cards for high-speed packet processing, and high-performance storage for flow data. SNMP polling alone cannot capture gigabit traffic at wire speed.
+Key metrics include interface operational state with the LOWER_UP flag, TX and RX bytes and packet counts, packet drops and errors, tunnel endpoint reachability via ping, and GRE keepalive success or failure. Traffic counters should be watched in real time to detect sudden drops or unusual patterns.
 
-### What methods work for gigabit traffic monitoring?
+### How does GRE keepalive work?
 
-Flow-based monitoring (NetFlow, sFlow, J-Flow, IPFIX) is the most scalable method for gigabit networks because it samples traffic and exports metadata rather than full packets. Full packet capture requires specialized hardware and is resource-intensive. SNMP polling works for interface utilization but not for detailed traffic analysis.
+GRE keepalive sends periodic hello packets through the tunnel to verify connectivity. If keepalive fails according to configured interval and fail-timer values, the routing protocol removes routes via the tunnel from the routing table. Default keepalive interval is 0 and disabled, so it must be explicitly configured.
 
-### How does Trisul handle gigabit traffic monitoring?
+### How does flow monitoring handle GRE traffic?
 
-Trisul uses flow-based monitoring that scales to gigabit speeds by collecting NetFlow, J-Flow, sFlow, and IPFIX data from routers and switches. Trisul does not require packet capture at wire speed, making it suitable for high-speed networks. Flow processing occurs in real time with minimal latency for fast anomaly detection.
+Flow monitoring can capture GRE traffic as flows on the tunnel interface. NetFlow exporters can monitor GRE tunnel interfaces specifically, showing traffic flowing through the encapsulation. Flow monitoring supports collecting flow data from tunnel interfaces and enables queries by tunnel name.

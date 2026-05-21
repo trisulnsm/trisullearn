@@ -1,174 +1,104 @@
 ---
-title: What is Inbound vs Outbound Traffic?
-sidebar_label: Inbound vs Outbound Traffic
+title: What is inbound vs outbound traffic?
+description: Inbound traffic is data packets entering a network from an external source, while outbound traffic is data packets leaving a network to reach an external destination. Trisul classifies traffic direction using DIR_INTOHOME and DIR_OUTOFHOME metrics.
+sidebar_label: Inbound vs outbound traffic
 sidebar_position: 55
 slug: /glossary/inbound-vs-outbound-traffic
-description: Learn the difference between inbound and outbound traffic, how traffic direction works, and why monitoring traffic flow direction is important for security and network visibility.
 keywords:
   - inbound traffic
   - outbound traffic
-  - traffic direction
-  - network traffic flow
-  - inbound vs outbound
-  - traffic visibility
+  - ingress traffic
+  - egress traffic
+  - network traffic direction
+  - incoming traffic
+  - outgoing traffic
 ---
 
-# What is Inbound vs Outbound Traffic?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is inbound traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inbound traffic refers to data packets entering a network from an external source. This includes requests from the internet to access web services hosted within a private network, emails being received, or remote login attempts. Traffic is inbound when someone external initiates a connection to your network, such as a visitor accessing your website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is outbound traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Outbound traffic refers to data packets leaving a network to reach an external destination. This includes sending emails, accessing websites, or using cloud-based resources from within the private network. Traffic is outbound when a client inside your network initiates the connection to the internet, such as a user browsing the web."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the key difference between inbound and outbound traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The key difference is who initiates the connection. Inbound traffic originates from outside the network (external source initiates), while outbound traffic originates inside the network (internal source initiates). Traffic may flow both ways, but what matters is who opened the connection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul classify inbound vs outbound traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul classifies traffic direction based on home network configuration. DIR_INTOHOME represents incoming/inbound traffic (external source to home destination), and DIR_OUTOFHOME represents outgoing/outbound traffic (home source to external destination). These directional metrics appear in Aggregates counter group and can be queried in Explore Flows."
+      }
+    }
+  ]
+};
 
-Inbound Traffic refers to network traffic entering a network, system, or device from an external source, while Outbound Traffic refers to traffic leaving the network toward external destinations.
+# What is inbound vs outbound traffic?
 
-Understanding traffic direction helps network and security teams analyze communication behavior, monitor bandwidth usage, investigate threats, and troubleshoot connectivity issues.
+Inbound traffic is data packets entering a network from an external source, while outbound traffic is data packets leaving a network to reach an external destination. The key distinction is **who initiates the connection** — inbound means someone external initiated the connection to your network, while outbound means someone inside your network initiated the connection to the outside.
 
-Traffic direction visibility is important for:
-- security monitoring
-- bandwidth analysis
-- application visibility
-- traffic investigation
-- access control
-- operational analytics
+---
 
-## **How Inbound and Outbound Traffic Work**
+## Key differences
 
-Every network communication involves traffic moving between systems.
-
-Depending on the monitoring perspective:
-- traffic entering the monitored network is inbound
-- traffic leaving the monitored network is outbound
-
-For example:
-
-### Inbound Traffic Example
-
-1. A user accesses a company website
-2. Traffic enters the organization’s network
-3. The incoming requests are considered inbound traffic
-
-### Outbound Traffic Example
-
-1. An employee accesses a cloud application
-2. Traffic leaves the organization’s network
-3. The communication is considered outbound traffic
-
-Traffic direction is often analyzed using:
-- IP ranges
-- trusted network definitions
-- routing information
-- firewall zones
-- Home Networkᵀ configurations
-
-## **Why Inbound and Outbound Traffic Matter**
-
-Traffic direction provides operational context that helps organizations:
-- detect suspicious communication
-- identify data exfiltration
-- analyze internet usage
-- monitor external access
-- troubleshoot connectivity
-- optimize bandwidth usage
-
-Without direction awareness, it becomes difficult to:
-- distinguish internal vs external traffic
-- analyze attack behavior
-- monitor outbound connections
-- investigate lateral movement
-- apply security policies correctly
-
-Traffic direction visibility is especially important in:
-- enterprise networks
-- SOC environments
-- ISP infrastructures
-- cloud environments
-- perimeter security deployments
-
-## **Common Operational Use Cases**
-
-### Security Monitoring
-
-Identify suspicious inbound attacks or unusual outbound communication.
-
-### Data Exfiltration Detection
-
-Monitor unauthorized outbound data transfers.
-
-### Internet Usage Analysis
-
-Analyze outbound application and cloud traffic usage.
-
-### DDoS Monitoring
-
-Track inbound traffic floods targeting services.
-
-### Access Control Validation
-
-Monitor traffic crossing security boundaries and firewall zones.
-
-## **Inbound vs Outbound Traffic**
-
-| Feature | Inbound Traffic | Outbound Traffic |
+| Aspect | Inbound Traffic | Outbound Traffic |
 |---|---|---|
-| Traffic Direction | Entering the network | Leaving the network |
-| Common Source | External systems | Internal systems |
-| Security Concern | External attacks | Data exfiltration |
-| Operational Focus | Incoming access visibility | External communication visibility |
-| Example | Website requests | Cloud application access |
-
-Both traffic directions are important for complete network visibility.
-
-## **How Trisul Handles Traffic Direction Visibility**
-
-Trisul provides contextual traffic analytics for analyzing inbound, outbound, and internal communication behavior.
-
-Combined with:
-- Home Networkᵀ
-- Contextᵀ
-- Flow Stitchingᵀ
-- Conversation View
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-- identify inbound and outbound traffic patterns
-- investigate suspicious communication
-- monitor external connectivity
-- analyze internet usage behavior
-- detect anomalous outbound activity
-- visualize traffic direction roles
-
-Trisul can also integrate [East-West Traffic](/glossary/east-west-traffic), [Traffic Investigation](/glossary/traffic-investigation), and [Application Visibility](/glossary/application-visibility) workflows for deeper traffic analysis.
-
-## **Related Terms**
-
-- [East-West Traffic](/glossary/east-west-traffic)
-- [Home Networkᵀ](/glossary/home-network)
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Application Visibility](/glossary/application-visibility)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Network Security Monitoring](/glossary/network-security-monitoring-nsm)
+| Direction | Entering the network from outside | Leaving the network to outside |
+| Initiator | External source initiates | Internal source initiates |
+| Examples | Visitor accessing your website, receiving email, remote login | User browsing web, sending email, accessing cloud services |
+| Security focus | Protect against unauthorized access | Prevent data exfiltration and malware communication |
 
 ---
 
-## **FAQ**
+## How Trisul handles it
+
+Trisul classifies traffic direction based on home network configuration. **DIR_INTOHOME** represents incoming/inbound traffic (external source to home destination), and **DIR_OUTOFHOME** represents outgoing/outbound traffic (home source to external destination). These directional metrics appear in the Aggregates counter group. Login as `user` and go to **Tools → Long Term Traffic**, set Counter group = Aggregates, Meter = Total, and Keys to the Item = DIR_INTOHOME, DIR_OUTOFHOME to view directional traffic. Full documentation is at https://docs.trisul.org/docs/ag/context/home_networks/.
+
+---
+
+## Related terms
+
+- [What is home network?](/glossary/home-network)
+- [What is traffic direction?](/glossary/traffic-direction)
+- [What is Aggregates counter group?](/glossary/aggregates-counter-group)
+- [What is Explore Flows?](/glossary/explore-flows)
+
+---
+
+## Frequently asked questions
 
 ### What is inbound traffic?
 
-Inbound traffic is network communication entering a monitored network or system from external sources.
+Inbound traffic refers to data packets entering a network from an external source. This includes requests from the internet to access web services hosted within a private network, emails being received, or remote login attempts. Traffic is inbound when someone external initiates a connection to your network, such as a visitor accessing your website.
 
 ### What is outbound traffic?
 
-Outbound traffic is network communication leaving the monitored network toward external destinations.
+Outbound traffic refers to data packets leaving a network to reach an external destination. This includes sending emails, accessing websites, or using cloud-based resources from within the private network. Traffic is outbound when a client inside your network initiates the connection to the internet, such as a user browsing the web.
 
-### Why is traffic direction important?
+### What's the key difference between inbound and outbound traffic?
 
-It helps organizations analyze communication behavior, monitor security events, and troubleshoot network issues.
+The key difference is who initiates the connection. Inbound traffic originates from outside the network (external source initiates), while outbound traffic originates inside the network (internal source initiates). Traffic may flow both ways, but what matters is who opened the connection.
 
-### Can outbound traffic indicate security threats?
+### How does Trisul classify inbound vs outbound traffic?
 
-Yes. Suspicious outbound traffic may indicate malware communication or unauthorized data transfers.
-
-### Is inbound traffic always dangerous?
-
-No. Many legitimate services such as websites and applications rely on inbound traffic, but it still requires monitoring.
-
-### How do monitoring platforms identify traffic direction?
-
-They use trusted network definitions, IP ranges, routing information, and security zones to classify traffic direction.
+Trisul classifies traffic direction based on home network configuration. DIR_INTOHOME represents incoming/inbound traffic (external source to home destination), and DIR_OUTOFHOME represents outgoing/outbound traffic (home source to external destination). These directional metrics appear in Aggregates counter group and can be queried in Explore Flows.

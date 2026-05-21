@@ -1,239 +1,130 @@
 ---
-title: What is Performance Bottleneck Analysis?
-sidebar_label: Performance Bottleneck Analysis
-sidebar_position: 89
+title: What is performance bottleneck analysis?
+description: Performance bottleneck analysis identifies network components limiting performance including congested links, overloaded devices, and capacity constraints. It uses traffic monitoring data to pinpoint bottlenecks and guide capacity upgrades.
+sidebar_label: Performance bottleneck analysis
+sidebar_position: 85
 slug: /glossary/performance-bottleneck-analysis
-description: Learn what performance bottleneck analysis is, how network bottlenecks are identified, and why bottleneck visibility is important for troubleshooting and optimization.
 keywords:
   - performance bottleneck analysis
-  - network bottleneck detection
-  - traffic congestion analysis
-  - network performance troubleshooting
-  - bandwidth bottleneck
-  - application performance analysis
+  - bottleneck detection
+  - network bottleneck
+  - capacity bottleneck
+  - performance analysis
+  - network congestion
+  - capacity constraint
 ---
 
-# What is Performance Bottleneck Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is performance bottleneck analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Performance bottleneck analysis identifies network components limiting performance including congested links, overloaded devices, and capacity constraints. It uses traffic monitoring data to pinpoint bottlenecks and guide capacity upgrades. Bottleneck analysis enables targeted upgrades instead of blanket capacity increases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What indicates a bottleneck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bottlenecks are indicated by high link utilization consistently above 70-80%, packet loss at congested interfaces, increased latency through congested paths, queueing delays at routers, interface errors, and frequent congestion alerts. These symptoms point to capacity constraints."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is bottleneck analysis performed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bottleneck analysis involves monitoring link utilization across the network, identifying consistently high-utilization links, analyzing traffic patterns to understand what causes congestion, checking for packet loss and latency at bottlenecks, and correlating bottlenecks with business impact. Flow data enables bottleneck identification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the benefits of bottleneck analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bottleneck analysis enables targeted capacity upgrades instead of expensive blanket increases. It identifies root causes of performance problems. Bottleneck analysis optimizes network investment by upgrading only constrained components. It prevents over-provisioning and reduces costs."
+      }
+    }
+  ]
+};
 
-Performance Bottleneck Analysis is the process of identifying network, application, or infrastructure components that limit performance and slow down communication across a system or network.
+# What is performance bottleneck analysis?
 
-A bottleneck occurs when one part of the infrastructure cannot handle traffic or processing demands efficiently, causing delays, congestion, or degraded user experience.
-
-Bottleneck analysis helps organizations define operational roles by identifying:
-
-- overloaded links
-- congested interfaces
-- high-latency paths
-- packet loss
-- slow applications
-- routing inefficiencies
-- resource saturation
-
-It is widely used for:
-
-- troubleshooting
-- network optimization
-- application performance monitoring
-- WAN analysis
-- capacity planning
-- user experience improvement
-
----
-
-## **How Performance Bottleneck Analysis Works**
-
-Monitoring platforms collect visibility data from:
-
-- flow records
-- packet captures
-- latency metrics
-- interface statistics
-- application analytics
-- cloud telemetry
-- routing information
-
-The platform then:
-
-1. analyzes traffic behavior and performance metrics
-2. identifies abnormal delays or congestion
-3. correlates infrastructure and application activity
-4. highlights performance constraints
-
-A typical workflow looks like this:
-
-Traffic Visibility → Performance Metrics → Bottleneck Detection → Optimization
-
-For example:
-
-- Users report slow application performance
-- Monitoring systems detect high WAN latency
-- Analysis reveals an overloaded uplink
-- Traffic optimization or capacity upgrades are implemented
+Performance bottleneck analysis identifies network components limiting performance including congested links, overloaded devices, and capacity constraints. It uses traffic monitoring data to pinpoint bottlenecks and guide capacity upgrades. Bottleneck analysis enables targeted upgrades instead of blanket capacity increases.
 
 ---
 
-## **Why Performance Bottleneck Analysis Matters**
+## How bottleneck analysis works
 
-Modern applications depend on stable and responsive network communication.
+Link utilization is monitored across the network through flow data and SNMP. Consistently high-utilization links are identified as bottlenecks. Traffic patterns are analyzed to understand what causes congestion. Packet loss and latency at bottlenecks are measured. Business impact is correlated with bottlenecks.
 
-Without bottleneck visibility, organizations may struggle to:
-
-- troubleshoot slow applications
-- identify overloaded infrastructure
-- analyze congestion events
-- optimize cloud connectivity
-- maintain user experience
-- plan capacity upgrades
-
-Performance bottleneck analysis helps teams:
-
-- improve troubleshooting accuracy
-- optimize traffic flow
-- reduce latency
-- identify resource constraints
-- improve application responsiveness
-- strengthen operational visibility
-
-It is especially important in:
-
-- enterprise WANs
-- cloud environments
-- ISP infrastructures
-- data centers
-- remote work deployments
-- real-time application networks
-
-Every “the network feels slow” complaint eventually turns into three engineers staring at graphs like medieval astronomers interpreting omens.
+Flow data shows which applications and hosts consume bandwidth at bottlenecks. Top talkers analysis identifies high-traffic sources. Traffic type analysis shows what causes congestion.
 
 ---
 
-## **Common Causes of Performance Bottlenecks**
+## Bottleneck analysis in network operations
 
-### Bandwidth Saturation
+In the NOC, use bottleneck analysis to identify performance constraints before users report problems. High utilization links are flagged for upgrade. Traffic patterns guide capacity planning. Security teams detect bottlenecks caused by attacks or anomalies.
 
-Links become overloaded during high traffic periods.
-
-### High Latency
-
-Communication delays affect application responsiveness.
-
-### Packet Loss
-
-Dropped packets reduce communication efficiency.
-
-### Routing Inefficiencies
-
-Suboptimal paths increase delay and congestion.
-
-### Resource Exhaustion
-
-Devices or servers cannot process traffic fast enough.
+Capacity planning uses bottleneck analysis to prioritize upgrades. Links with highest utilization and business impact are upgraded first. Bottleneck analysis optimizes network investment by targeting constrained components.
 
 ---
 
-## **Common Operational Use Cases**
+## Bottleneck indicators
 
-### WAN Troubleshooting
-
-Identify congestion and unstable branch connectivity.
-
-### Application Performance Monitoring
-
-Analyze slow business or cloud applications.
-
-### Capacity Planning
-
-Detect infrastructure nearing operational limits.
-
-### VoIP and Video Optimization
-
-Identify latency and jitter affecting real-time communication.
-
-### Cloud Connectivity Analysis
-
-Monitor bottlenecks affecting SaaS and cloud workloads.
-
----
-
-## **Performance Bottleneck Analysis vs Basic Monitoring**
-
-| Feature | Performance Bottleneck Analysis | Basic Monitoring |
+| Indicator | Threshold | Description |
 |---|---|---|
-| Operational Context | Strong | Moderate |
-| Root Cause Visibility | Advanced | Limited |
-| Congestion Detection | Precise | General |
-| Troubleshooting Capability | Deep | Basic |
-| Optimization Support | High | Moderate |
-
-Bottleneck analysis focuses on identifying the root causes of degraded performance rather than only displaying metrics.
+| Link utilization | Above 70-80% | Consistently high utilization |
+| Packet loss | Above 1% | Loss at congested interfaces |
+| Latency | Above baseline | Increased delay through congested paths |
+| Queueing delay | Above 10ms | Router queue delays |
+| Interface errors | Any | Errors indicating problems |
 
 ---
 
-## **How Trisul Handles Performance Bottleneck Analysis**
+## What makes bottleneck analysis work in practice
 
-Trisul provides contextual traffic analytics and performance visibility for identifying operational bottlenecks.
+Historical data enables trend analysis. Bottlenecks develop gradually as traffic grows. Historical utilization trends identify links approaching capacity. Without historical data, bottlenecks are detected only after they impact users.
 
-Combined with:
-
-- Flow Analysis
-- Packet Analysis
-- Latency Monitoring
-- Jitter Monitoring
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- analyze traffic congestion
-- identify overloaded interfaces
-- troubleshoot application slowness
-- investigate latency spikes
-- correlate traffic behavior with performance issues
-- optimize network visibility workflows
-
-Trisul can also integrate:
-
-- Bandwidth Monitoring
-- Latency Monitoring
-- Packet Loss Monitoring
-
-workflows for deeper performance analysis.
+Baseline comparison identifies anomalies. Normal utilization varies by time of day and day of week. Bottleneck analysis compares current utilization against baseline. Sudden utilization spikes indicate anomalies worth investigating.
 
 ---
 
-## **Related Terms**
+## How Trisul handles bottleneck analysis
 
-- Bandwidth Monitoring
-- Latency Monitoring
-- Packet Loss Monitoring
-- Jitter Monitoring
-- Flow Analysis
-- Application Visibility
+Trisul provides bottleneck analysis through flow monitoring tracking link utilization across the network. High-utilization links are identified through traffic graphs and reports. Top talkers analysis shows what causes congestion. Long-term traffic charts show utilization trends enabling proactive bottleneck identification. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
 
 ---
 
-## **FAQ**
+## Related terms
 
-### What is a performance bottleneck?
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is capacity planning?](/glossary/capacity-planning)
+- [What is network congestion?](/glossary/network-congestion)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is top talkers?](/glossary/top-talkers)
 
-A performance bottleneck is a component or resource that limits overall system or network performance.
+---
 
-### What is Performance Bottleneck Analysis?
+## Frequently asked questions
 
-It is the process of identifying congestion, delays, and resource constraints affecting network or application performance.
+### What is performance bottleneck analysis?
 
-### Why is bottleneck analysis important?
+Performance bottleneck analysis identifies network components limiting performance including congested links, overloaded devices, and capacity constraints. It uses traffic monitoring data to pinpoint bottlenecks and guide capacity upgrades. Bottleneck analysis enables targeted upgrades instead of blanket capacity increases.
 
-It helps organizations troubleshoot slow performance, optimize infrastructure, and improve user experience.
+### What indicates a bottleneck?
 
-### What causes network bottlenecks?
+Bottlenecks are indicated by high link utilization consistently above 70-80%, packet loss at congested interfaces, increased latency through congested paths, queueing delays at routers, interface errors, and frequent congestion alerts. These symptoms point to capacity constraints.
 
-Common causes include bandwidth saturation, latency, packet loss, routing inefficiencies, and overloaded devices.
+### How is bottleneck analysis performed?
 
-### Can bottleneck analysis improve cloud application performance?
+Bottleneck analysis involves monitoring link utilization across the network, identifying consistently high-utilization links, analyzing traffic patterns to understand what causes congestion, checking for packet loss and latency at bottlenecks, and correlating bottlenecks with business impact. Flow data enables bottleneck identification.
 
-Yes. It helps identify delays and congestion affecting SaaS and cloud connectivity.
+### What are the benefits of bottleneck analysis?
 
-### How does bottleneck analysis help troubleshooting?
-
-It identifies the root causes of degraded performance rather than only showing symptoms.
+Bottleneck analysis enables targeted capacity upgrades instead of expensive blanket increases. It identifies root causes of performance problems. Bottleneck analysis optimizes network investment by upgrading only constrained components. It prevents over-provisioning and reduces costs.

@@ -1,213 +1,129 @@
 ---
-title: What is Transit Traffic?
-sidebar_label: Transit Traffic
-sidebar_position: 118
+title: What is transit traffic?
+description: Transit traffic is traffic passing through an ISP's network between other networks without originating or terminating at the ISP's customers. It flows from one peer or upstream provider to another through the ISP's infrastructure.
+sidebar_label: Transit traffic
+sidebar_position: 117
 slug: /glossary/transit-traffic
-description: Learn what transit traffic is, how internet transit works, and why monitoring transit traffic is important for ISPs, peering visibility, and network performance.
 keywords:
   - transit traffic
-  - internet transit
-  - ISP transit traffic
-  - backbone traffic
-  - inter-network traffic
-  - traffic routing
+  - ISP transit
+  - network transit
+  - traffic forwarding
+  - ISP traffic
+  - traffic passing through
+  - BGP transit
 ---
 
-# What is Transit Traffic?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is transit traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transit traffic is traffic passing through an ISP's network between other networks without originating or terminating at the ISP's customers. It flows from one peer or upstream provider to another through the ISP's infrastructure. Transit traffic is forwarded but not originated by the ISP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does transit traffic differ from customer traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transit traffic passes through without involving ISP customers. Customer traffic originates from or terminates at ISP subscribers. Transit traffic is forwarded between other networks. Customer traffic involves subscriber endpoints. ISPs charge differently for transit vs customer traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why analyze transit traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transit traffic analysis is important for capacity planning upstream links, understanding peering relationships, optimizing routing for transit traffic, and billing for transit services. Transit traffic consumes bandwidth without generating revenue from end users."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is transit traffic identified?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transit traffic is identified through BGP information showing source and destination ASNs. Traffic where both source and destination are outside the ISP's customer base is transit. Flow data enriched with BGP attributes identifies transit traffic."
+      }
+    }
+  ]
+};
 
-Transit Traffic refers to network traffic that passes through a provider’s network to reach another destination network rather than originating from or terminating within the provider’s own infrastructure.
+# What is transit traffic?
 
-In internet and ISP environments, transit traffic commonly involves:
-- ISPs carrying customer traffic
-- backbone providers forwarding internet traffic
-- upstream providers routing global communication
-- carriers transporting inter-network traffic
-
-Transit traffic helps organizations define routing and interconnect roles by enabling communication between different networks and autonomous systems (ASNs).
-
-It is especially important in:
-- ISP infrastructures
-- telecom backbones
-- cloud providers
-- internet exchanges
-- enterprise WANs
-- carrier-grade networks
-
-## **How Transit Traffic Works**
-
-When a network cannot directly reach a destination, traffic is forwarded through transit providers.
-
-A simplified workflow looks like this:
-
-Customer Network → Transit Provider → Destination Network
-
-Transit providers use:
-
-- BGP routing
-- peering relationships
-- backbone infrastructure
-- interconnect links
-
-to carry traffic between networks.
-
-For example:
-
-- A user accesses a website hosted in another country
-- Multiple transit providers carry the traffic across backbone networks
-- The traffic reaches the destination network
-- Responses return through routing paths
-
-Transit traffic visibility may include:
-
-- bandwidth utilization
-- ASN communication
-- routing behavior
-- peering relationships
-- application traffic
-- congestion patterns
-
-![](images/transit-traffic.png)
+Transit traffic is traffic passing through an ISP's network between other networks without originating or terminating at the ISP's customers. It flows from one peer or upstream provider to another through the ISP's infrastructure. Transit traffic is forwarded but not originated by the ISP.
 
 ---
 
-## **Why Transit Traffic Matters**
+## How transit traffic works
 
-Transit connectivity is essential for global internet communication.
+Transit traffic enters the ISP's network from one upstream provider or peer and exits to another. The ISP forwards traffic without it involving ISP subscribers. BGP routing determines transit paths. Transit traffic consumes upstream bandwidth.
 
-Without transit visibility, organizations may struggle to:
-
-- analyze backbone utilization
-- troubleshoot routing issues
-- optimize peering relationships
-- monitor bandwidth costs
-- investigate congestion
-- analyze inter-network communication
-
-Transit traffic analysis helps teams:
-
-- improve routing visibility
-- optimize traffic engineering
-- monitor backbone usage
-- analyze network performance
-- troubleshoot connectivity issues
-- strengthen operational awareness
-
-It is especially important in:
-
-- ISPs
-- telecom operators
-- cloud providers
-- internet exchanges
-- enterprise backbones
-- CDN environments
-
-The internet is basically millions of networks borrowing roads from each other and charging rent for the privilege. Humanity reinvented highways, but for packets and billing disputes.
+Flow data enriched with BGP attributes identifies transit traffic. Source ASN and destination ASN both outside the ISP's customer base indicates transit. Transit traffic is aggregated by upstream provider and peer.
 
 ---
 
-## **Common Operational Use Cases**
+## Transit traffic in network operations
 
-### ISP Backbone Monitoring
+In the NOC, monitor transit traffic to ensure upstream links have sufficient capacity. Transit traffic consumes bandwidth without generating direct revenue from end users. Capacity planning tracks transit traffic trends to plan upstream upgrades.
 
-Analyze traffic moving across provider backbone networks.
-
-### Peering Optimization
-
-Compare transit usage against peering traffic.
-
-### Traffic Engineering
-
-Optimize routing paths and interconnect utilization.
-
-### Capacity Planning
-
-Analyze long-term transit bandwidth growth.
-
-### Congestion Troubleshooting
-
-Identify overloaded transit links and bottlenecks.
+Peering teams analyze transit traffic to optimize peering relationships. When transit traffic to a specific destination is high, establishing direct peering reduces costs. Transit analysis guides peering decisions.
 
 ---
 
-## **Transit Traffic vs Peering Traffic**
+## Transit vs customer traffic
 
-| Feature | Transit Traffic | Peering Traffic |
+| Aspect | Transit Traffic | Customer Traffic |
 |---|---|---|
-| Traffic Purpose | Routed through providers | Direct network exchange |
-| Cost Model | Usually paid | Often settlement-free |
-| Routing Path | Indirect | Direct |
-| Operational Dependency | Transit provider | Peer relationship |
-| Internet Reachability | Broad | Limited to peers |
-
-Transit traffic uses upstream providers for internet reachability, while peering traffic is exchanged directly between networks.
+| Origin/Destination | Outside ISP | Involves ISP subscribers |
+| Revenue | Transit service fees | Subscriber fees |
+| Capacity planning | Upstream links | Customer access links |
+| Optimization | Peering decisions | QoS for subscribers |
 
 ---
 
-## **How Trisul Handles Transit Traffic Analytics**
+## What makes transit traffic analysis work in practice
 
-Trisul provides scalable inter-network traffic visibility and routing analytics for enterprise and ISP environments.
+BGP information accuracy determines transit classification. Flow records must be enriched with source and destination ASN from BGP tables. Without accurate BGP information, transit traffic appears unclassified. BGP route receivers keep route tables synchronized automatically.
 
-Combined with:
-
-- Peering Traffic Analysis
-- ASN Analytics
-- BGP Peering Analytics
-- Top-K Analyticsᵀ
-- Flow Analysis
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- analyze transit bandwidth usage
-- monitor inter-network traffic
-- investigate routing anomalies
-- optimize traffic engineering
-- visualize ASN relationships
-- improve backbone visibility
-
-Trisul can also integrate:
-
-- Peering Traffic Analysis
-- BGP
-- ISP Traffic Analytics
-
-workflows for deeper routing visibility.
+Upstream link monitoring is essential. Transit traffic must be measured at upstream interfaces. Flow exporters must be enabled on upstream links. Without per-link monitoring, transit traffic appears aggregated and provider-specific analysis is impossible.
 
 ---
 
-## **Related Terms**
+## How Trisul handles transit traffic
 
-- Peering Traffic Analysis
-- BGP
-- ASN
-- ISP Traffic Analytics
-- Traffic Engineering
-- Bandwidth Monitoring
+Trisul provides transit traffic analysis through ISP Analytics applications. Flow data is enriched with BGP attributes including source and destination ASN. Transit traffic is identified and aggregated by upstream provider. Upstream analytics tracks transit traffic volumes. Full documentation is at https://docs.trisul.org/.
 
 ---
 
-## **FAQ**
+## Related terms
+
+- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
+- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
+- [What is ASN?](/glossary/asn)
+- [What is upstream traffic?](/glossary/upstream-traffic)
+- [What is peering traffic analysis?](/glossary/peering-traffic-analysis)
+
+---
+
+## Frequently asked questions
 
 ### What is transit traffic?
 
-Transit traffic is traffic carried through a provider’s network to reach another destination network.
+Transit traffic is traffic passing through an ISP's network between other networks without originating or terminating at the ISP's customers. It flows from one peer or upstream provider to another through the ISP's infrastructure. Transit traffic is forwarded but not originated by the ISP.
 
-### Why is transit traffic important?
+### How does transit traffic differ from customer traffic?
 
-It enables internet connectivity between networks and supports global communication.
+Transit traffic passes through without involving ISP customers. Customer traffic originates from or terminates at ISP subscribers. Transit traffic is forwarded between other networks. Customer traffic involves subscriber endpoints. ISPs charge differently for transit vs customer traffic.
 
-### Who commonly handles transit traffic?
+### Why analyze transit traffic?
 
-ISPs, telecom providers, backbone operators, and cloud providers commonly handle transit traffic.
+Transit traffic analysis is important for capacity planning upstream links, understanding peering relationships, optimizing routing for transit traffic, and billing for transit services. Transit traffic consumes bandwidth without generating revenue from end users.
 
-### What's the difference between transit traffic and peering traffic?
+### How is transit traffic identified?
 
-Transit traffic uses upstream providers for connectivity, while peering traffic is exchanged directly between networks.
-
-### How does transit traffic affect ISP operations?
-
-It impacts bandwidth costs, routing performance, backbone utilization, and inter-network connectivity.
-
-### Can transit traffic analytics improve routing optimization?
-
-Yes. It helps organizations analyze traffic paths, optimize interconnect usage, and troubleshoot congestion.
+Transit traffic is identified through BGP information showing source and destination ASNs. Traffic where both source and destination are outside the ISP's customer base is transit. Flow data enriched with BGP attributes identifies transit traffic.

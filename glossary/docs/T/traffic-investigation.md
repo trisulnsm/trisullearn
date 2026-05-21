@@ -1,226 +1,131 @@
 ---
-title: What is Traffic Investigation?
-sidebar_label: Traffic Investigation
-sidebar_position: 116
+title: What is traffic investigation?
+description: Traffic investigation analyzes network traffic data to understand what happened during security incidents, performance problems, or anomalies. It combines flow data, packet capture, and logs for forensic analysis.
+sidebar_label: Traffic investigation
+sidebar_position: 115
 slug: /glossary/traffic-investigation
-description: Learn what traffic investigation is, how network traffic is analyzed during troubleshooting and security analysis, and why deep traffic visibility is important for operational and forensic investigations.
 keywords:
   - traffic investigation
-  - network traffic analysis
-  - forensic traffic investigation
-  - traffic troubleshooting
-  - network forensics
-  - security traffic analytics
+  - network investigation
+  - forensic investigation
+  - incident investigation
+  - traffic analysis
+  - security investigation
+  - packet investigation
 ---
 
-# What is Traffic Investigation?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is traffic investigation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traffic investigation analyzes network traffic data to understand what happened during security incidents, performance problems, or anomalies. It combines flow data, packet capture, and logs for forensic analysis. Traffic investigation answers who, what, when, where, and how much."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does traffic investigation work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traffic investigation starts with an alert or symptom. Investigators use query-based search to find related flows. Flow data shows conversation details. Packet capture provides packet-level evidence. Logs provide context. Investigation traces the full timeline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does traffic investigation reveal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traffic investigation reveals affected systems, attack timeline, data exfiltration volume, communication patterns, malware behavior, application performance issues, congestion causes, and policy violations. Investigation provides evidence for incident response."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is traffic investigation important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traffic investigation is critical for incident response determining scope and impact. Without investigation, analysts cannot understand what happened. Investigation enables rapid containment limiting damage. Investigation provides evidence for post-incident reporting."
+      }
+    }
+  ]
+};
 
-Traffic Investigation is the process of analyzing network communication and traffic behavior to identify operational issues, suspicious activity, security threats, or abnormal network behavior.
+# What is traffic investigation?
 
-It involves examining traffic visibility data such as:
-- flow records
-- packet captures
-- application activity
-- protocol behavior
-- traffic patterns
-- bandwidth usage
-- communication relationships
-
-Traffic investigation helps organizations define investigative and operational roles by enabling teams to understand:
-- who communicated
-- what applications were used
-- when activity occurred
-- how traffic behaved
-- why anomalies appeared
-
-It is widely used for:
-- troubleshooting
-- security investigations
-- incident response
-- network forensics
-- anomaly analysis
-- performance monitoring
-
-## **How Traffic Investigation Works**
-
-Monitoring platforms collect visibility data from:
-- NetFlow
-- IPFIX
-- packet captures
-- DNS logs
-- SNMP telemetry
-- application analytics
-- security monitoring systems
-
-Analysts then:
-1. search and filter traffic data
-2. correlate communication behavior
-3. isolate suspicious or abnormal activity
-4. reconstruct traffic timelines and relationships
-
-A typical workflow looks like this:
-
-Traffic Visibility → Investigation Workflow → Correlation → Analysis
-
-For example:
-
-- A sudden bandwidth spike occurs
-- Analysts identify the top communicating hosts
-- Traffic patterns are correlated with applications and destinations
-- The root cause is isolated and investigated
-
-Traffic investigation may reveal:
-
-- malware communication
-- DDoS activity
-- application failures
-- bandwidth abuse
-- suspicious connections
-- lateral movement
-- operational bottlenecks
-
-![](images/traffic-investigation.png)
+Traffic investigation analyzes network traffic data to understand what happened during security incidents, performance problems, or anomalies. It combines flow data, packet capture, and logs for forensic analysis. Traffic investigation answers who, what, when, where, and how much.
 
 ---
 
-## **Why Traffic Investigation Matters**
+## How traffic investigation works
 
-Modern networks generate massive amounts of distributed communication continuously.
+Traffic investigation starts with an alert or symptom. Investigators use query-based search to find related flows by IP, port, application, or pattern. Flow data shows conversation details including source, destination, bytes, and time.
 
-Without investigative visibility, organizations may struggle to:
-
-- troubleshoot outages
-- analyze suspicious traffic
-- identify attack origins
-- investigate anomalies
-- correlate operational events
-- reconstruct incidents
-
-Traffic investigation helps teams:
-
-- improve troubleshooting accuracy
-- strengthen security operations
-- accelerate incident response
-- analyze communication behavior
-- improve forensic visibility
-- reduce operational blind spots
-
-It is especially important in:
-
-- SOC environments
-- NOC operations
-- enterprise networks
-- ISP infrastructures
-- cloud deployments
-- telecom operations
-
-Humans built networks so complicated that solving one outage now resembles detective work. Every packet is a witness, every log a suspicious alibi, and every engineer has caffeine poisoning.
+Packet capture provides packet-level evidence showing payload content. Logs provide context including authentication events and configuration changes. Investigation traces the full timeline from initial compromise to containment.
 
 ---
 
-## **Common Operational Use Cases**
+## Traffic investigation in network operations
 
-### Security Investigations
+In the SOC, traffic investigation is the forensic layer. Flow data or IDS alerts tell you something suspicious happened. Packet capture tells you what was exchanged: commands issued, files transferred, credentials passed. For incident confirmation, packet capture is the definitive record.
 
-Analyze suspicious communication and attack-related activity.
-
-### Performance Troubleshooting
-
-Identify congestion, latency, and application degradation.
-
-### DDoS Analysis
-
-Investigate abnormal traffic spikes and attack patterns.
-
-### Network Forensics
-
-Reconstruct historical communication behavior.
-
-### Application Visibility
-
-Analyze application usage and communication flows.
+Security analysts investigate alerts using flow data to identify affected systems and PCAP to examine content. Investigation determines incident scope, affected data, and attack timeline. Investigation guides containment and remediation.
 
 ---
 
-## **Traffic Investigation vs Basic Monitoring**
+## Investigation workflow
 
-| Feature | Traffic Investigation | Basic Monitoring |
-|---|---|---|
-| Investigation Depth | Advanced | Moderate |
-| Correlation Capability | Strong | Limited |
-| Historical Visibility | Extensive | Moderate |
-| Root Cause Analysis | Strong | Basic |
-| Forensic Visibility | Advanced | Limited |
-
-Traffic investigation focuses on deep analysis and correlation rather than only displaying operational metrics.
-
----
-
-## **How Trisul Handles Traffic Investigation**
-
-Trisul provides contextual traffic analytics and forensic visibility for enterprise and ISP environments.
-
-Combined with:
-
-- Contextᵀ
-- Retro Analysisᵀ
-- Packet Capture
-- Flow Analysis
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- investigate suspicious communication
-- analyze traffic relationships
-- reconstruct historical activity
-- isolate operational anomalies
-- troubleshoot application behavior
-- improve security investigations
-
-Trisul can also integrate:
-
-- Network Forensics
-- Packet Analysis
-- Security Analytics
-
-workflows for deeper investigative visibility.
+| Step | Action |
+|---|---|
+| 1. Alert | Receive alert or detect symptom |
+| 2. Search | Query flows by IP, port, or pattern |
+| 3. Analyze flows | Identify affected systems and conversation details |
+| 4. Retrieve PCAP | Get packet capture for evidence |
+| 5. Correlate logs | Add context from authentication and system logs |
+| 6. Document | Record findings for incident report |
 
 ---
 
-## **Related Terms**
+## What makes traffic investigation work in practice
 
-- Network Forensics
-- Packet Analysis
-- Flow Analysis
-- Security Analytics
-- Anomaly Detection
-- Contextᵀ
+Per-flow indexing enables fast investigation. Without indexing, investigators load large capture files into Wireshark and filter by hand. That manual process works at small scale but breaks down when the archive spans terabytes. With indexing, investigators click from an alert directly to matching packets.
+
+Data correlation accelerates investigation. Flow data, PCAP, and logs must be correlated. From any flow, analysts must pivot to PCAP. From any alert, analysts must find related flows. Without correlation, investigation requires manual file searching.
 
 ---
 
-## **FAQ**
+## How Trisul handles traffic investigation
+
+Trisul provides traffic investigation through integrated flow data and packet capture enabling rapid forensic analysis. From any alert, topper, or flow in the dashboard, analysts pivot directly to matching PCAP without manual file correlation. Trisul builds per-flow index enabling fast PCAP retrieval. Query-based investigation finds related traffic instantly. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+
+---
+
+## Related terms
+
+- [What is network forensics?](/glossary/network-forensics)
+- [What is packet capture?](/glossary/packet-capture)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is query based traffic investigation?](/glossary/query-based-traffic-investigation)
+- [What is incident response?](/glossary/incident-response)
+
+---
+
+## Frequently asked questions
 
 ### What is traffic investigation?
 
-Traffic investigation is the process of analyzing network communication and traffic behavior to troubleshoot issues or investigate suspicious activity.
+Traffic investigation analyzes network traffic data to understand what happened during security incidents, performance problems, or anomalies. It combines flow data, packet capture, and logs for forensic analysis. Traffic investigation answers who, what, when, where, and how much.
+
+### How does traffic investigation work?
+
+Traffic investigation starts with an alert or symptom. Investigators use query-based search to find related flows. Flow data shows conversation details. Packet capture provides packet-level evidence. Logs provide context. Investigation traces the full timeline.
+
+### What does traffic investigation reveal?
+
+Traffic investigation reveals affected systems, attack timeline, data exfiltration volume, communication patterns, malware behavior, application performance issues, congestion causes, and policy violations. Investigation provides evidence for incident response.
 
 ### Why is traffic investigation important?
 
-It helps organizations identify anomalies, troubleshoot problems, investigate attacks, and improve operational visibility.
-
-### What data sources are used in traffic investigations?
-
-Common sources include flow records, packet captures, DNS logs, telemetry, and application analytics.
-
-### How does traffic investigation help security operations?
-
-It helps identify suspicious communication, investigate attacks, and reconstruct incident timelines.
-
-### What's the difference between traffic investigation and basic monitoring?
-
-Traffic investigation focuses on deep analysis and correlation, while basic monitoring mainly displays metrics and alerts.
-
-### Can traffic investigation analyze historical activity?
-
-Yes. Historical traffic visibility is essential for forensic investigations and retrospective analysis.
+Traffic investigation is critical for incident response determining scope and impact. Without investigation, analysts cannot understand what happened. Investigation enables rapid containment limiting damage. Investigation provides evidence for post-incident reporting.

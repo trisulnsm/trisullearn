@@ -1,232 +1,131 @@
 ---
-title: What is TAP vs SPAN Port?
-sidebar_label: TAP vs SPAN Port
-sidebar_position: 111
+title: What is TAP vs SPAN port?
+description: TAP vs SPAN port compares two methods for network traffic observation. Network TAPs provide passive, lossless packet copy while SPAN ports use switch port mirroring which may drop packets under load.
+sidebar_label: TAP vs SPAN port
+sidebar_position: 110
 slug: /glossary/tap-vs-span-port
-description: Learn the difference between network TAPs and SPAN ports, how traffic visibility works with each method, and when to use TAP or SPAN for monitoring and security analysis.
 keywords:
-  - TAP vs SPAN port
+  - TAP vs SPAN
   - network TAP
   - SPAN port
-  - packet visibility
-  - traffic mirroring
-  - network monitoring
+  - port mirroring
+  - traffic observation
+  - packet capture
+  - monitoring point
 ---
 
-# What is TAP vs SPAN Port?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between TAP and SPAN port?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network TAPs (Test Access Points) passively split optical or electrical signals providing lossless packet copy. SPAN ports (Switched Port Analyzer) use switch port mirroring which may drop packets under load. TAPs are passive and guaranteed lossless. SPAN ports are active and may lose packets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should you use a TAP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a TAP when you need guaranteed lossless packet capture for forensic investigation, security monitoring requiring complete traffic, high-speed links where no packets can be dropped, or critical links where monitoring reliability is essential. TAPs are ideal for packet capture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should you use a SPAN port?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a SPAN port when you need quick deployment without extra hardware, flow monitoring where some packet loss is acceptable, budget constraints preventing TAP purchase, or temporary monitoring. SPAN ports are acceptable for flow monitoring and bandwidth estimation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the pros and cons of TAP vs SPAN?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TAP pros: lossless capture, passive (no network impact), works at line rate. TAP cons: requires per-link hardware, cost, physical installation. SPAN pros: no extra hardware, easy configuration, no additional cost. SPAN cons: may drop packets under load, consumes switch CPU, may impact switch performance."
+      }
+    }
+  ]
+};
 
-TAPs and SPAN ports are two common methods used to provide network traffic visibility for monitoring, troubleshooting, packet analysis, and security investigation tools.
+# What is TAP vs SPAN port?
 
-Both methods allow monitoring systems to observe network traffic without directly interfering with production communication.
-
-However, they differ significantly in:
-- reliability
-- visibility quality
-- packet accuracy
-- deployment complexity
-- scalability
-- operational behavior
-
-## **What is a Network TAP?**
-
-A Network TAP (Test Access Point) is a dedicated hardware device placed inline between network devices to copy traffic passively for monitoring tools.
-
-A TAP creates an exact copy of network traffic and forwards it to monitoring systems.
-
-A TAP workflow looks like this:
-
-Network Device ↔ TAP ↔ Network Device
-                     ↓
-             Monitoring Platform
-
-TAPs provide:
-
-- full packet visibility
-- accurate timestamps
-- reliable packet capture
-- passive monitoring
-- minimal packet loss risk
-
-TAPs are commonly used in:
-
-- security monitoring
-- packet capture
-- network forensics
-- high-speed traffic analysis
-- compliance environments
-
-![](images/tap-deploy.png)
-
-## **What is a SPAN Port?**
-
-A SPAN (Switched Port Analyzer) port is a switch feature that mirrors traffic from one or more interfaces to a monitoring interface.
-
-Instead of using dedicated hardware, the switch duplicates traffic internally.
-
-A SPAN workflow looks like this:
-
-Switch Traffic → SPAN Port Mirroring → Monitoring Platform
-
-SPAN ports provide:
-
-- flexible deployment
-- lower cost visibility
-- switch-based traffic mirroring
-- operational convenience
-
-However, SPAN traffic may experience:
-
-- dropped packets during congestion
-- timing inaccuracies
-- incomplete visibility under heavy load
-- mirrored traffic limitations
-
-SPAN ports are commonly used for:
-
-- troubleshooting
-- temporary monitoring
-- operational visibility
-- basic packet analysis
-
-![](images/span-port.png)
+TAP vs SPAN port compares two methods for network traffic observation. Network TAPs provide passive, lossless packet copy while SPAN ports use switch port mirroring which may drop packets under load. Both provide observation points for monitoring.
 
 ---
 
-## **TAP vs SPAN Port Comparison**
+## How TAP and SPAN work
 
-| Feature | TAP | SPAN Port |
+Network TAPs passively split optical or electrical signals copying all traffic to monitoring ports. TAPs are passive devices requiring no power for passive optical TAPs. All packets are copied without loss. TAPs provide complete visibility into wire traffic.
+
+SPAN ports use switch port mirroring to copy traffic from source ports to destination monitoring ports. The switch CPU processes mirrored traffic. Under heavy load, SPAN ports may drop packets without indicating loss. SPAN ports consume switch resources.
+
+---
+
+## TAP vs SPAN in network operations
+
+In the NOC, choose TAP for packet capture requiring complete traffic and SPAN for flow monitoring where some loss is acceptable. Security teams prefer TAPs for forensic investigation ensuring complete evidence. NOC teams use SPAN ports for bandwidth monitoring where trends matter more than exact packets.
+
+Capacity planning uses TAP data for accurate traffic measurement. SPAN ports are acceptable for capacity planning when loss is minimal. Critical links should use TAPs for reliable monitoring.
+
+---
+
+## TAP vs SPAN comparison
+
+| Aspect | Network TAP | SPAN Port |
 |---|---|---|
-| Traffic Visibility Accuracy | Very high | Moderate |
-| Packet Loss Risk | Very low | Higher during congestion |
-| Deployment Complexity | Higher | Lower |
-| Hardware Requirement | Dedicated TAP device | Existing switch feature |
-| Timestamp Accuracy | High | Moderate |
-| Monitoring Reliability | Excellent | Variable |
-| High-Speed Suitability | Excellent | Moderate |
-| Cost | Higher | Lower |
+| Packet loss | None (lossless) | May drop under load |
+| Power requirement | Passive (no power) or active | Requires switch power |
+| Hardware cost | Per-link hardware cost | No extra hardware |
+| Switch impact | None (passive) | Consumes switch CPU |
+| Installation | Physical installation required | Configuration only |
+| Best for | Packet capture, forensics | Flow monitoring, bandwidth |
 
 ---
 
-## **Why TAP vs SPAN Choice Matters**
+## What makes TAP vs SPAN work in practice
 
-Monitoring quality directly affects:
+Observation point placement determines coverage. TAPs must be installed at critical links during network design. SPAN ports can be configured on-demand but require available switch ports. Plan observation points strategically.
 
-- troubleshooting accuracy
-- forensic investigations
-- security visibility
-- packet analysis reliability
-- traffic analytics precision
-
-Without proper visibility architecture, organizations may struggle to:
-
-- capture all packets reliably
-- investigate security incidents accurately
-- analyze latency and timing issues
-- maintain forensic-quality traffic visibility
-
-Choosing between TAP and SPAN depends on:
-
-- monitoring goals
-- budget
-- traffic volume
-- visibility requirements
-- operational constraints
-
-Humans built two ways to spy on network traffic: one expensive and reliable, the other cheap and occasionally forgetful. Predictably, many organizations choose the second one and act surprised later.
+Speed matching is critical. TAPs must match link speed (1G, 10G, 40G, 100G). SPAN ports must have sufficient egress bandwidth. Oversubscribing SPAN ports causes packet drops. Ensure monitoring link speed matches or exceeds source speed.
 
 ---
 
-## **Common Operational Use Cases**
+## How Trisul handles TAP vs SPAN
 
-### TAP-Based Monitoring
-
-Used for:
-
-- SOC visibility
-- packet capture
-- network forensics
-- compliance monitoring
-- IDS integration
-
-### SPAN-Based Monitoring
-
-Used for:
-
-- troubleshooting
-- temporary investigations
-- operational traffic analysis
-- lower-cost monitoring deployments
+Trisul accepts traffic from both TAPs and SPAN ports for packet capture and flow monitoring. Passive TAPs provide lossless observation for packet capture. SPAN ports provide observation for flow monitoring where some loss is acceptable. Trisul packet capture uses passive TAPs or SPAN ports for observation. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
 
 ---
 
-## **How Trisul Works with TAP and SPAN Visibility**
+## Related terms
 
-Trisul supports traffic visibility from both:
-
-- network TAPs
-- SPAN/mirror ports
-
-Combined with:
-
-- Packet Capture
-- Packet Analysis
-- Flow Analysis
-- Security Analytics
-- Contextᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- analyze mirrored traffic
-- investigate communication behavior
-- perform forensic analysis
-- monitor application activity
-- troubleshoot operational issues
-- improve security visibility
-
-Trisul can also integrate:
-
-- Packet Capture
-- Packet Analysis
-- Passive Network Monitoring
-
-workflows for deeper traffic visibility.
+- [What is network TAP?](/glossary/network-tap)
+- [What is SPAN port?](/glossary/span-port)
+- [What is packet capture?](/glossary/packet-capture)
+- [What is observation point?](/glossary/observation-point)
+- [What is passive network monitoring?](/glossary/passive-network-monitoring)
 
 ---
 
-## **Related Terms**
+## Frequently asked questions
 
-- Packet Capture
-- Packet Analysis
-- Passive Network Monitoring
-- Network Forensics
-- Traffic Investigation
-- Security Analytics
+### What is the difference between TAP and SPAN port?
 
----
+Network TAPs (Test Access Points) passively split optical or electrical signals providing lossless packet copy. SPAN ports (Switched Port Analyzer) use switch port mirroring which may drop packets under load. TAPs are passive and guaranteed lossless. SPAN ports are active and may lose packets.
 
-## **FAQ**
+### When should you use a TAP?
 
-### What is a network TAP?
+Use a TAP when you need guaranteed lossless packet capture for forensic investigation, security monitoring requiring complete traffic, high-speed links where no packets can be dropped, or critical links where monitoring reliability is essential. TAPs are ideal for packet capture.
 
-A network TAP is a hardware device that passively copies network traffic for monitoring and analysis.
+### When should you use a SPAN port?
 
-### What is a SPAN port?
+Use a SPAN port when you need quick deployment without extra hardware, flow monitoring where some packet loss is acceptable, budget constraints preventing TAP purchase, or temporary monitoring. SPAN ports are acceptable for flow monitoring and bandwidth estimation.
 
-A SPAN port is a switch feature that mirrors traffic from selected interfaces to a monitoring port.
+### What are the pros and cons of TAP vs SPAN?
 
-### What's the difference between TAP and SPAN?
-
-TAPs provide more reliable and accurate traffic visibility, while SPAN ports offer flexible and lower-cost traffic mirroring.
-
-### Which is better for packet capture and forensics?
-
-TAPs are generally preferred because they provide more complete and reliable packet visibility.
-
-### Can SPAN ports drop packets?
-
-Yes. During heavy traffic or switch congestion, SPAN ports may drop mirrored packets.
-
-### Why are TAPs commonly used in SOC environments?
-
-They provide accurate and passive traffic visibility needed for security monitoring and forensic investigations.
+TAP pros: lossless capture, passive (no network impact), works at line rate. TAP cons: requires per-link hardware, cost, physical installation. SPAN pros: no extra hardware, easy configuration, no additional cost. SPAN cons: may drop packets under load, consumes switch CPU, may impact switch performance.

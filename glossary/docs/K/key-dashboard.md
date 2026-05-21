@@ -1,185 +1,128 @@
 ---
-title: What is Key Dashboardᵀ?
-sidebar_label: Key Dashboardᵀ
-sidebar_position: 60
+title: What is Key Dashboard in Trisul?
+description: In Trisul, the Key Dashboard is a detailed view for a specific network entity (IP address, port, application, or host) showing real-time stats, historical traffic, and investigative tools for that key.
+sidebar_label: Key Dashboard
+sidebar_position: 57
 slug: /glossary/key-dashboard
-description: Learn what Key Dashboardᵀ is in Trisul Network Analytics and how it provides centralized visibility into network traffic, performance, and operational analytics.
 keywords:
-  - Key Dashboard
-  - Trisul dashboard
-  - network analytics dashboard
-  - traffic visibility dashboard
-  - network monitoring dashboard
-  - operational visibility
+  - key dashboard
+  - trisul key dashboard
+  - host dashboard
+  - IP dashboard
+  - traffic dashboard
+  - network analytics
+  - key details
 ---
 
-# What is Key Dashboardᵀ?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Key Dashboard in Trisul?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Trisul, the Key Dashboard is a detailed view for a specific network entity such as an IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What modules are available on the Key Dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Key Dashboard includes Key Details module with Real Time Stabbers, Toppers, flow activity, and historical traffic charts. It provides access to traffic patterns, top conversations, application usage, and flow tracking for the selected entity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you access the Key Dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Login as user, select Dashboards, then Real Time Traffic. Click on the tag on the right side next to any host to open the Key Dashboard. You can also use search to find an IP and click the key to go to the key dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can you do on the Key Dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the Key Dashboard you can view real-time traffic stats, see top hosts by usage within 3 seconds, analyze traffic patterns, investigate past activity using retro analysis, view flow activity in real time, and chart specific metrics for that entity."
+      }
+    }
+  ]
+};
 
-Key Dashboardᵀ is a Trisul Network Analytics feature that provides a centralized view of important network traffic, bandwidth usage, application behavior, alerts, and operational metrics in a single visual interface.
+# What is Key Dashboard in Trisul?
 
-Instead of navigating multiple monitoring screens separately, Key Dashboardᵀ helps teams quickly understand the overall health and activity of the network through summarized visibility and actionable insights.
-
-It improves visibility into:
-- bandwidth usage
-- top talkers
-- traffic trends
-- applications
-- security events
-- protocol activity
-- network anomalies
-- operational status
-
-## **How Key Dashboardᵀ Works**
-
-Trisul continuously collects traffic visibility using:
-- flow records
-- packet analysis
-- application visibility
-- traffic analytics
-- protocol monitoring
-- historical traffic data
-
-Key Dashboardᵀ organizes this information into visual summaries such as:
-- charts
-- traffic graphs
-- top-N views
-- trend analytics
-- alerts
-- activity widgets
-
-For example:
-
-1. Traffic analytics data is collected from the network
-2. Key metrics are processed and summarized
-3. Dashboards visualize operational activity
-4. Teams identify issues or trends quickly
-
-The dashboard may display:
-- top applications
-- top IPs
-- ASN activity
-- bandwidth consumption
-- protocol distribution
-- interface utilization
-- suspicious traffic behavior
-
-## **Why Key Dashboardᵀ Matters**
-
-Large networks generate massive amounts of operational data continuously.
-
-Without centralized visibility, teams may struggle to:
-- identify performance issues quickly
-- prioritize investigations
-- monitor traffic trends
-- detect anomalies
-- understand network health
-- troubleshoot efficiently
-
-Key Dashboardᵀ helps organizations:
-- simplify network visibility
-- improve operational awareness
-- reduce troubleshooting time
-- monitor traffic behavior centrally
-- identify abnormal activity quickly
-- improve analytics accessibility
-
-It is especially useful in:
-- NOC environments
-- SOC operations
-- ISP infrastructures
-- enterprise networks
-- cloud environments
-- multi-site deployments
-
-## **Common Operational Use Cases**
-
-### Traffic Visibility
-
-Monitor overall network traffic and utilization trends.
-
-### Security Monitoring
-
-Identify suspicious activity and anomalous traffic behavior.
-
-### Bandwidth Monitoring
-
-Track top consumers and interface utilization.
-
-### Application Visibility
-
-Analyze application traffic and communication patterns.
-
-### Executive Reporting
-
-Provide summarized operational visibility for teams and management.
-
-## **Key Dashboardᵀ vs Traditional Monitoring Views**
-
-| Feature | Key Dashboardᵀ | Traditional Monitoring |
-|---|---|---|
-| Visibility Style | Centralized summary | Distributed views |
-| Operational Awareness | High | Moderate |
-| Troubleshooting Speed | Faster | Slower |
-| Analytics Accessibility | Easier | More fragmented |
-| Visual Context | Rich | Basic |
-
-Key Dashboardᵀ improves visibility by consolidating operational analytics into a unified interface.
-
-## **How Trisul Uses Key Dashboardᵀ**
-
-Key Dashboardᵀ works alongside Trisul’s advanced traffic analytics and investigation workflows.
-
-Combined with:
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-- Multigraph Analyticsᵀ
-- Conversation View
-- Flow Stitchingᵀ
-
-Trisul helps teams:
-- visualize traffic behavior
-- monitor bandwidth trends
-- investigate suspicious activity
-- analyze application usage
-- identify operational anomalies
-- improve network awareness
-
-Trisul can also integrate [Flow Analysis](/glossary/flow-analysis), [Bandwidth Monitoring](/glossary/bandwidth-monitoring), and [Traffic Investigation](/glossary/traffic-investigation) workflows for deeper visibility.
-
-## **Related Terms**
-
-- [Top-K Analyticsᵀ](/glossary/top-k-analytics)
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Application Visibility](/glossary/application-visibility)
-- [Flow Analysis](/glossary/flow-analysis)
-- [Multigraph Analyticsᵀ](/glossary/multigraph-analytics)
+In Trisul, the Key Dashboard is a detailed view for a specific network entity including IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
 
 ---
 
-## **FAQ**
+## How the Key Dashboard works
 
-### What is Key Dashboardᵀ in Trisul?
+The Key Dashboard aggregates all traffic data for a single entity. It displays metrics from multiple counter groups including Hosts, Applications, Ports, and Flows. Real-time stabbers show current traffic within 3 seconds. Historical charts show traffic patterns over days, weeks, or months.
 
-Key Dashboardᵀ is a centralized dashboard that provides summarized visibility into traffic, applications, bandwidth usage, and operational analytics.
+---
 
-### Why is Key Dashboardᵀ important?
+## Key Dashboard in network operations
 
-It helps teams quickly understand network activity, identify issues, and monitor operational health.
+In the NOC, use the Key Dashboard to investigate suspicious hosts or high-traffic applications. Security teams analyze flow activity for specific IPs to detect compromise. Engineering uses the dashboard to understand traffic patterns for capacity planning.
 
-### What information does Key Dashboardᵀ display?
+Click on real-time stabbers to drill down into flow activity, top conversations, and application usage. The dashboard provides instant access to all investigative tools for the selected entity.
 
-It may display bandwidth usage, top talkers, applications, ASN activity, protocol distribution, alerts, and traffic trends.
+---
 
-### How does Key Dashboardᵀ improve troubleshooting?
+## Key Dashboard modules
 
-It provides centralized operational visibility that helps teams identify issues more quickly.
+| Module | Description |
+|---|---|
+| Key Details | Real-time stabbers, toppers, flow activity |
+| Real Time Traffic | Traffic within 3 seconds for the entity |
+| Historical Charts | Long-term traffic patterns and trends |
+| Flow Activity | Current flows involving the entity |
+| Retro Analysis | Tools to investigate past activity |
 
-### Is Key Dashboardᵀ useful for security monitoring?
+---
 
-Yes. It helps identify suspicious traffic behavior and operational anomalies.
+## What makes the Key Dashboard work in practice
 
-### Can Key Dashboardᵀ help with ISP traffic analytics?
+The dashboard uses Trisul's per-flow indexing to retrieve data quickly. Without indexing, searching for a specific IP would require scanning all flow records. With indexing, the dashboard loads in seconds even for large archives.
 
-Yes. ISPs can use it to monitor subscriber traffic, backbone utilization, and peering activity.
+Real-time stabbers provide near-instant visibility. Traffic statistics update every 1 to 3 seconds showing current activity. This enables rapid response to emerging issues without waiting for data aggregation.
+
+---
+
+## How Trisul handles the Key Dashboard
+
+Trisul provides the Key Dashboard as part of its core UI. Login as user, navigate to Dashboards, select Real Time Traffic, and click the tag next to any host. The Key Dashboard displays Key Details module with Real Time Stabbers, Toppers, and flow activity. Use the search box to find an IP and click the key to go to the dashboard. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
+
+---
+
+## Related terms
+
+- [What is Explore Flows?](/glossary/explore-flows)
+- [What is real-time traffic?](/glossary/real-time-traffic)
+- [What is counter group?](/glossary/counter-group)
+- [What is flow tracker?](/glossary/flow-tracker)
+- [What is retro analysis?](/glossary/retro-analysis)
+
+---
+
+## Frequently asked questions
+
+### What is the Key Dashboard in Trisul?
+
+In Trisul, the Key Dashboard is a detailed view for a specific network entity such as an IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
+
+### What modules are available on the Key Dashboard?
+
+The Key Dashboard includes Key Details module with Real Time Stabbers, Toppers, flow activity, and historical traffic charts. It provides access to traffic patterns, top conversations, application usage, and flow tracking for the selected entity.
+
+### How do you access the Key Dashboard?
+
+Login as user, select Dashboards, then Real Time Traffic. Click on the tag on the right side next to any host to open the Key Dashboard. You can also use search to find an IP and click the key to go to the key dashboard.
+
+### What can you do on the Key Dashboard?
+
+On the Key Dashboard you can view real-time traffic stats, see top hosts by usage within 3 seconds, analyze traffic patterns, investigate past activity using retro analysis, view flow activity in real time, and chart specific metrics for that entity.

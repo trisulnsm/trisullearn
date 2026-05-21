@@ -1,210 +1,128 @@
 ---
-title: What is KPI Monitoring?
-sidebar_label: KPI Monitoring
-sidebar_position: 61
-slug: /glossary/kpi-monitoring
-description: Learn what KPI monitoring is, how Key Performance Indicators are tracked in network environments, and why KPI visibility is important for performance and operational analytics.
+title: What is Key Dashboard in Trisul?
+description: In Trisul, the Key Dashboard is a detailed view for a specific network entity (IP address, port, application, or host) showing real-time stats, historical traffic, and investigative tools for that key.
+sidebar_label: Key Dashboard
+sidebar_position: 57
+slug: /glossary/key-dashboard
 keywords:
-  - KPI monitoring
-  - key performance indicators
-  - network KPI monitoring
-  - performance monitoring
-  - operational analytics
-  - network visibility
+  - key dashboard
+  - trisul key dashboard
+  - host dashboard
+  - IP dashboard
+  - traffic dashboard
+  - network analytics
+  - key details
 ---
 
-# What is KPI Monitoring?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Key Dashboard in Trisul?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Trisul, the Key Dashboard is a detailed view for a specific network entity such as an IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What modules are available on the Key Dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Key Dashboard includes Key Details module with Real Time Stabbers, Toppers, flow activity, and historical traffic charts. It provides access to traffic patterns, top conversations, application usage, and flow tracking for the selected entity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you access the Key Dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Login as user, select Dashboards, then Real Time Traffic. Click on the tag on the right side next to any host to open the Key Dashboard. You can also use search to find an IP and click the key to go to the key dashboard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can you do on the Key Dashboard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the Key Dashboard you can view real-time traffic stats, see top hosts by usage within 3 seconds, analyze traffic patterns, investigate past activity using retro analysis, view flow activity in real time, and chart specific metrics for that entity."
+      }
+    }
+  ]
+};
 
-KPI Monitoring is the process of tracking Key Performance Indicators (KPIs) to measure the health, performance, efficiency, and reliability of a network or IT environment.
+# What is Key Dashboard in Trisul?
 
-KPIs help teams define operational roles by identifying which metrics matter most for network performance, security, application experience, and infrastructure stability.
-
-Common network KPIs include:
-- bandwidth utilization
-- latency
-- jitter
-- packet loss
-- uptime
-- application response time
-- traffic growth
-- error rates
-- interface utilization
-
-KPI monitoring helps organizations quickly identify performance issues, operational trends, and abnormal network behavior.
-
-## **How KPI Monitoring Works**
-
-Monitoring systems continuously collect operational and traffic data from:
-- routers
-- switches
-- firewalls
-- applications
-- cloud platforms
-- servers
-- traffic analytics systems
-
-The platform then:
-1. calculates performance metrics
-2. compares values against thresholds
-3. visualizes trends and dashboards
-4. generates alerts for abnormal conditions
-
-For example:
-
-1. A WAN link experiences increasing latency
-2. KPI monitoring detects threshold violations
-3. Dashboards show degraded performance trends
-4. Teams investigate the issue before users are heavily impacted
-
-KPIs may be monitored in:
-- real time
-- hourly intervals
-- historical trend reports
-- SLA dashboards
-
-## **Why KPI Monitoring Matters**
-
-Modern networks generate massive operational data continuously.
-
-Without KPI visibility, organizations may struggle to:
-- measure performance consistently
-- detect degradation early
-- troubleshoot efficiently
-- maintain SLAs
-- identify capacity issues
-- track operational health
-
-KPI monitoring helps teams:
-- improve operational awareness
-- detect anomalies quickly
-- measure service quality
-- optimize infrastructure usage
-- improve troubleshooting workflows
-- support business reporting
-
-It is especially important in:
-- enterprise networks
-- ISP infrastructures
-- cloud environments
-- NOC operations
-- SOC environments
-- managed service providers
-
-## **Common Network KPIs**
-
-### Bandwidth Utilization
-
-Measure network traffic consumption and link usage.
-
-### Latency
-
-Track communication delays across the network.
-
-### Packet Loss
-
-Measure dropped or failed packet delivery.
-
-### Jitter
-
-Monitor packet timing variation affecting real-time applications.
-
-### Application Response Time
-
-Measure application and service responsiveness.
-
-### Uptime and Availability
-
-Track infrastructure reliability and service continuity.
-
-## **Common Operational Use Cases**
-
-### SLA Monitoring
-
-Track service performance against operational targets.
-
-### Capacity Planning
-
-Monitor traffic growth and infrastructure utilization trends.
-
-### Application Performance Monitoring
-
-Measure user experience and application responsiveness.
-
-### WAN Monitoring
-
-Analyze branch connectivity and network stability.
-
-### Security Visibility
-
-Track anomalies and operational deviations.
-
-## **KPI Monitoring vs Basic Monitoring**
-
-| Feature | KPI Monitoring | Basic Monitoring |
-|---|---|---|
-| Operational Context | Strong | Limited |
-| Performance Measurement | Structured | General visibility |
-| SLA Visibility | Supported | Limited |
-| Trend Analysis | Advanced | Basic |
-| Decision Support | High | Moderate |
-
-KPI monitoring focuses on measurable operational goals rather than simple visibility alone.
-
-## **How Trisul Handles KPI Monitoring**
-
-Trisul provides scalable operational analytics and traffic visibility for KPI-driven monitoring environments.
-
-Combined with:
-- Key Dashboardᵀ
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-- Multigraph Analyticsᵀ
-- Contextᵀ
-- Flow Analysis
-
-Trisul helps teams:
-- monitor bandwidth utilization
-- analyze performance trends
-- identify operational anomalies
-- track traffic growth
-- visualize infrastructure health
-- improve troubleshooting efficiency
-
-Trisul can also integrate [Bandwidth Monitoring](/glossary/bandwidth-monitoring), [Jitter Monitoring](/glossary/jitter-monitoring), and [Historical Traffic Analysis](/glossary/historical-traffic-analysis) workflows for deeper operational visibility.
-
-## **Related Terms**
-
-- [Key Dashboardᵀ](/glossary/key-dashboard)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Latency Monitoring](/glossary/latency-monitoring)
-- [Jitter Monitoring](/glossary/jitter-monitoring)
-- [Historical Traffic Analysis](/glossary/historical-traffic-analysis)
-- [Flow Analysis](/glossary/flow-analysis)
+In Trisul, the Key Dashboard is a detailed view for a specific network entity including IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
 
 ---
 
-## **FAQ**
+## How the Key Dashboard works
 
-### What is KPI monitoring?
+The Key Dashboard aggregates all traffic data for a single entity. It displays metrics from multiple counter groups including Hosts, Applications, Ports, and Flows. Real-time stabbers show current traffic within 3 seconds. Historical charts show traffic patterns over days, weeks, or months.
 
-KPI monitoring is the process of tracking key performance indicators to measure network and infrastructure performance.
+---
 
-### Why is KPI monitoring important?
+## Key Dashboard in network operations
 
-It helps organizations identify performance issues, monitor service quality, and improve operational visibility.
+In the NOC, use the Key Dashboard to investigate suspicious hosts or high-traffic applications. Security teams analyze flow activity for specific IPs to detect compromise. Engineering uses the dashboard to understand traffic patterns for capacity planning.
 
-### What are common network KPIs?
+Click on real-time stabbers to drill down into flow activity, top conversations, and application usage. The dashboard provides instant access to all investigative tools for the selected entity.
 
-Common KPIs include bandwidth usage, latency, jitter, packet loss, uptime, and application response time.
+---
 
-### How does KPI monitoring help troubleshooting?
+## Key Dashboard modules
 
-It helps teams identify abnormal trends and threshold violations before issues become severe.
+| Module | Description |
+|---|---|
+| Key Details | Real-time stabbers, toppers, flow activity |
+| Real Time Traffic | Traffic within 3 seconds for the entity |
+| Historical Charts | Long-term traffic patterns and trends |
+| Flow Activity | Current flows involving the entity |
+| Retro Analysis | Tools to investigate past activity |
 
-### Is KPI monitoring useful for ISPs?
+---
 
-Yes. ISPs use KPI monitoring to track backbone performance, subscriber experience, and SLA compliance.
+## What makes the Key Dashboard work in practice
 
-### Can KPI monitoring improve capacity planning?
+The dashboard uses Trisul's per-flow indexing to retrieve data quickly. Without indexing, searching for a specific IP would require scanning all flow records. With indexing, the dashboard loads in seconds even for large archives.
 
-Yes. Historical KPI trends help organizations forecast traffic growth and infrastructure requirements.
+Real-time stabbers provide near-instant visibility. Traffic statistics update every 1 to 3 seconds showing current activity. This enables rapid response to emerging issues without waiting for data aggregation.
+
+---
+
+## How Trisul handles the Key Dashboard
+
+Trisul provides the Key Dashboard as part of its core UI. Login as user, navigate to Dashboards, select Real Time Traffic, and click the tag next to any host. The Key Dashboard displays Key Details module with Real Time Stabbers, Toppers, and flow activity. Use the search box to find an IP and click the key to go to the dashboard. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
+
+---
+
+## Related terms
+
+- [What is Explore Flows?](/glossary/explore-flows)
+- [What is real-time traffic?](/glossary/real-time-traffic)
+- [What is counter group?](/glossary/counter-group)
+- [What is flow tracker?](/glossary/flow-tracker)
+- [What is retro analysis?](/glossary/retro-analysis)
+
+---
+
+## Frequently asked questions
+
+### What is the Key Dashboard in Trisul?
+
+In Trisul, the Key Dashboard is a detailed view for a specific network entity such as an IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
+
+### What modules are available on the Key Dashboard?
+
+The Key Dashboard includes Key Details module with Real Time Stabbers, Toppers, flow activity, and historical traffic charts. It provides access to traffic patterns, top conversations, application usage, and flow tracking for the selected entity.
+
+### How do you access the Key Dashboard?
+
+Login as user, select Dashboards, then Real Time Traffic. Click on the tag on the right side next to any host to open the Key Dashboard. You can also use search to find an IP and click the key to go to the key dashboard.
+
+### What can you do on the Key Dashboard?
+
+On the Key Dashboard you can view real-time traffic stats, see top hosts by usage within 3 seconds, analyze traffic patterns, investigate past activity using retro analysis, view flow activity in real time, and chart specific metrics for that entity.

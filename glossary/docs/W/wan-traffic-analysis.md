@@ -1,225 +1,131 @@
 ---
-title: What is WAN Traffic Analysis?
-sidebar_label: WAN Traffic Analysis
-sidebar_position: 126
+title: What is WAN traffic analysis?
+description: WAN traffic analysis monitors and analyzes traffic across Wide Area Network links connecting distributed sites. It provides visibility into inter-site traffic, WAN utilization, and link performance for capacity planning and optimization.
+sidebar_label: WAN traffic analysis
+sidebar_position: 122
 slug: /glossary/wan-traffic-analysis
-description: Learn what WAN traffic analysis is, how wide area network traffic is monitored, and why WAN visibility is important for performance, troubleshooting, and bandwidth optimization.
 keywords:
   - WAN traffic analysis
   - WAN monitoring
-  - wide area network analytics
-  - WAN bandwidth monitoring
-  - branch traffic visibility
-  - network traffic analysis
+  - wide area network
+  - inter-site traffic
+  - WAN utilization
+  - branch traffic
+  - WAN optimization
 ---
 
-# What is WAN Traffic Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is WAN traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WAN traffic analysis monitors and analyzes traffic across Wide Area Network links connecting distributed sites. It provides visibility into inter-site traffic, WAN utilization, and link performance for capacity planning and optimization. WAN analysis tracks traffic between sites."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does WAN traffic analysis work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WAN traffic analysis captures traffic at WAN edge routers through flow data and packet capture. Flow records are enriched with site information. Traffic is aggregated by site pair showing inter-site volumes. WAN link utilization is tracked through interface statistics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why analyze WAN traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WAN traffic analysis is important for capacity planning WAN links, optimizing traffic routing, detecting WAN performance issues, planning WAN upgrades, and cost optimization identifying traffic suitable for SD-WAN or direct internet breakout. WAN analysis reveals inter-site patterns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does WAN analysis reveal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WAN analysis reveals bandwidth utilization per WAN link, top site pairs by traffic volume, application traffic distribution across WAN, WAN performance metrics (latency, loss), traffic trends showing growth, and optimization opportunities through traffic patterns."
+      }
+    }
+  ]
+};
 
-WAN Traffic Analysis is the process of monitoring and analyzing traffic flowing across a Wide Area Network (WAN) to understand communication behavior, bandwidth usage, application performance, and operational health.
+# What is WAN traffic analysis?
 
-A WAN connects geographically distributed locations such as:
-- branch offices
-- data centers
-- cloud environments
-- remote users
-- regional networks
-
-WAN traffic analysis helps organizations define distributed communication roles by analyzing:
-- bandwidth utilization
-- application traffic
-- branch communication
-- latency
-- packet loss
-- routing behavior
-- traffic anomalies
-
-It is widely used for:
-- WAN optimization
-- performance monitoring
-- troubleshooting
-- security visibility
-- SD-WAN analytics
-- capacity planning
-
-## **How WAN Traffic Analysis Works**
-
-Monitoring platforms collect visibility data from:
-- routers
-- NetFlow exporters
-- IPFIX systems
-- packet analysis tools
-- SD-WAN controllers
-- SNMP telemetry
-- cloud gateways
-
-The platform then:
-1. analyzes traffic across WAN links
-2. measures performance metrics
-3. identifies congestion and anomalies
-4. provides operational and application visibility
-
-A typical workflow looks like this:
-
-WAN Traffic → Traffic Collection → WAN Analytics → Investigation and Optimization
-
-WAN analytics may analyze:
-
-- branch traffic behavior
-- application usage
-- latency
-- packet loss
-- jitter
-- top talkers
-- traffic direction
-- link utilization
-
-For example:
-
-- A branch office experiences slow application performance
-- WAN analytics identify backup traffic saturating the link
-- QoS policies are adjusted
-- Application responsiveness improves
+WAN traffic analysis monitors and analyzes traffic across Wide Area Network links connecting distributed sites. It provides visibility into inter-site traffic, WAN utilization, and link performance for capacity planning and optimization. WAN analysis tracks traffic between sites.
 
 ---
 
-## **Why WAN Traffic Analysis Matters**
+## How WAN traffic analysis works
 
-WAN links often carry critical business communication and cloud traffic.
+WAN traffic analysis captures traffic at WAN edge routers through flow data and packet capture. Flow records are enriched with site information (branch, data center, headquarters). Traffic is aggregated by site pair showing inter-site volumes.
 
-Without WAN visibility, organizations may struggle to:
-
-- troubleshoot branch connectivity
-- identify bandwidth bottlenecks
-- optimize cloud application performance
-- monitor SD-WAN behavior
-- detect traffic anomalies
-- manage distributed infrastructure efficiently
-
-WAN traffic analysis helps teams:
-
-- improve application performance
-- optimize bandwidth usage
-- troubleshoot WAN issues faster
-- strengthen operational visibility
-- improve user experience
-- support capacity planning
-
-It is especially important in:
-
-- enterprise branch networks
-- SD-WAN deployments
-- cloud-connected environments
-- telecom infrastructures
-- remote work architectures
-- hybrid cloud networks
-
-Humans connected offices across continents, routed critical apps through unpredictable internet paths, then acted shocked when the WAN became a daily source of emotional damage.
+WAN link utilization is tracked through interface statistics. Performance metrics (latency, jitter, packet loss) are measured across WAN. Traffic trends show growth over time.
 
 ---
 
-## **Common Operational Use Cases**
+## WAN traffic analysis in network operations
 
-### Branch Office Monitoring
+In the NOC, use WAN traffic analysis to monitor link utilization and detect congestion. Capacity planning tracks WAN bandwidth trends to plan link upgrades. Security teams detect anomalies through unusual inter-site traffic patterns.
 
-Analyze traffic behavior across remote office connections.
-
-### WAN Optimization
-
-Identify congestion and optimize application prioritization.
-
-### Cloud Performance Monitoring
-
-Monitor SaaS and cloud application traffic behavior.
-
-### SD-WAN Visibility
-
-Analyze overlay routing and WAN path performance.
-
-### Security Monitoring
-
-Investigate suspicious communication across WAN links.
+WAN optimization uses WAN analysis to identify traffic suitable for compression, deduplication, or direct internet breakout. Applications consuming high WAN bandwidth are candidates for optimization.
 
 ---
 
-## **WAN Traffic Analysis vs LAN Traffic Analysis**
+## WAN analysis metrics
 
-| Feature | WAN Traffic Analysis | LAN Traffic Analysis |
-|---|---|---|
-| Visibility Scope | Distributed inter-site traffic | Local internal traffic |
-| Latency Sensitivity | High | Moderate |
-| Cloud Connectivity Focus | Strong | Limited |
-| Routing Visibility | Advanced | Moderate |
-| WAN Optimization Support | Strong | Limited |
-
-WAN analysis focuses on geographically distributed communication and inter-site connectivity behavior.
-
----
-
-## **How Trisul Handles WAN Traffic Analysis**
-
-Trisul provides scalable WAN visibility and distributed traffic analytics for enterprise and ISP environments.
-
-Combined with:
-
-- Flow Analysis
-- QoS Monitoring
-- Latency Monitoring
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- analyze WAN traffic behavior
-- monitor branch connectivity
-- troubleshoot application performance
-- identify bandwidth bottlenecks
-- investigate anomalies
-- optimize distributed visibility workflows
-
-Trisul can also integrate:
-
-- SD-WAN Monitoring
-- Bandwidth Monitoring
-- Application Visibility
-
-workflows for deeper WAN visibility.
+| Metric | Description |
+|---|---|
+| WAN link utilization | Bandwidth per WAN link |
+| Inter-site traffic | Traffic between site pairs |
+| Top site pairs | Highest traffic site combinations |
+| Application distribution | Apps per WAN link |
+| WAN latency | Delay across WAN links |
+| WAN packet loss | Loss across WAN links |
 
 ---
 
-## **Related Terms**
+## What makes WAN traffic analysis work in practice
 
-- Bandwidth Monitoring
-- Latency Monitoring
-- QoS Monitoring
-- SD-WAN Monitoring
-- Application Visibility
-- Traffic Investigation
+Site identification is essential. Flow data must be enriched with site information. IP address to site mapping identifies which site each IP belongs to. Without site mapping, WAN traffic appears unclassified.
+
+WAN link monitoring is critical. Flow exporters must be enabled on WAN interfaces. Packet capture at WAN edges provides performance evidence. Without WAN monitoring, inter-site traffic is invisible.
 
 ---
 
-## **FAQ**
+## How Trisul handles WAN traffic analysis
+
+Trisul provides WAN traffic analysis through flow data collection at WAN edge routers. Flow records are enriched with site information through IP address to site mapping. Traffic is aggregated by site pair showing inter-site volumes. WAN link utilization is tracked through interface statistics. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is WAN?](/glossary/wan)
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is capacity planning?](/glossary/capacity-planning)
+- [What is QoS monitoring?](/glossary/qos-monitoring)
+- [What is SD-WAN?](/glossary/sd-wan)
+
+---
+
+## Frequently asked questions
 
 ### What is WAN traffic analysis?
 
-WAN traffic analysis is the monitoring and analysis of traffic flowing across wide area network connections.
+WAN traffic analysis monitors and analyzes traffic across Wide Area Network links connecting distributed sites. It provides visibility into inter-site traffic, WAN utilization, and link performance for capacity planning and optimization. WAN analysis tracks traffic between sites.
 
-### Why is WAN traffic analysis important?
+### How does WAN traffic analysis work?
 
-It helps organizations optimize bandwidth, troubleshoot distributed networks, and improve application performance.
+WAN traffic analysis captures traffic at WAN edge routers through flow data and packet capture. Flow records are enriched with site information. Traffic is aggregated by site pair showing inter-site volumes. WAN link utilization is tracked through interface statistics.
 
-### What metrics are commonly analyzed in WAN monitoring?
+### Why analyze WAN traffic?
 
-Common metrics include bandwidth usage, latency, packet loss, jitter, application traffic, and link utilization.
+WAN traffic analysis is important for capacity planning WAN links, optimizing traffic routing, detecting WAN performance issues, planning WAN upgrades, and cost optimization identifying traffic suitable for SD-WAN or direct internet breakout. WAN analysis reveals inter-site patterns.
 
-### How does WAN traffic analysis help SD-WAN environments?
+### What does WAN analysis reveal?
 
-It provides visibility into overlay routing, application performance, and WAN path behavior.
-
-### What's the difference between WAN and LAN traffic analysis?
-
-WAN analysis focuses on distributed inter-site communication, while LAN analysis focuses on local internal traffic.
-
-### Can WAN traffic analysis improve cloud application performance?
-
-Yes. It helps identify bandwidth bottlenecks and optimize traffic prioritization for cloud applications.
+WAN analysis reveals bandwidth utilization per WAN link, top site pairs by traffic volume, application traffic distribution across WAN, WAN performance metrics (latency, loss), traffic trends showing growth, and optimization opportunities through traffic patterns.

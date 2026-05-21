@@ -1,219 +1,130 @@
 ---
-title: What is a Uni-directional Flow?
-sidebar_label: Uni-directional Flow
-sidebar_position: 120
-slug: /glossary/uni-directional-flow
-description: Learn what a uni-directional flow is, how one-way traffic flows are tracked, and why uni-directional flow visibility matters in network monitoring and traffic analysis.
+title: What is unidirectional flow?
+description: Unidirectional flow records traffic in one direction only from source to destination. NetFlow exports unidirectional flows where each direction is tracked separately. This differs from bidirectional flow which combines both directions.
+sidebar_label: Unidirectional flow
+sidebar_position: 94
+slug: /glossary/unidirectional-flow
 keywords:
-  - uni-directional flow
+  - unidirectional flow
   - one-way flow
-  - network flow monitoring
-  - flow records
-  - traffic analysis
-  - NetFlow visibility
+  - flow direction
+  - NetFlow direction
+  - traffic direction
+  - flow record
+  - asymmetric flow
 ---
 
-# What is a Uni-directional Flow?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is unidirectional flow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unidirectional flow records traffic in one direction only from source to destination. NetFlow exports unidirectional flows where each direction is tracked separately. This differs from bidirectional flow which combines both directions into a single record."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does unidirectional flow work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unidirectional flow exporters observe packets traveling from source to destination and create flow records for that direction only. Return traffic from destination to source creates a separate flow record with swapped source and destination. Two flow records exist for one conversation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between unidirectional and bidirectional flow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unidirectional flow creates separate records for each direction. Two records exist per conversation. Bidirectional flow combines both directions into one record with separate byte counts for each direction. One record exists per conversation. Bidirectional flow reduces flow record volume by half."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is unidirectional flow used?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unidirectional flow is used in NetFlow v5 and NetFlow v9 default mode. It is used when direction matters for analysis such as distinguishing inbound from outbound traffic. Unidirectional flow is simpler to implement but generates more flow records."
+      }
+    }
+  ]
+};
 
-A Uni-directional Flow is a network traffic flow that represents communication in only one direction between a source and a destination.
+# What is unidirectional flow?
 
-It tracks packets traveling:
-- from source to destination
-
-but not automatically the return traffic flowing back.
-
-In flow monitoring systems, uni-directional flows typically describe:
-- outbound communication separately
-- inbound communication separately
-
-This means two separate flow records may exist for a normal two-way conversation:
-1. client → server
-2. server → client
-
-Uni-directional flow visibility helps organizations define communication analysis roles by tracking:
-- traffic direction
-- bandwidth usage
-- flow behavior
-- routing activity
-- application communication
-- asymmetric traffic patterns
-
-It is widely used for:
-- flow monitoring
-- traffic analytics
-- ISP visibility
-- security investigations
-- routing analysis
-- network troubleshooting
-
-## **How Uni-directional Flows Work**
-
-Flow exporters such as:
-- NetFlow
-- IPFIX
-- sFlow-based systems
-
-observe packets moving through interfaces.
-
-A flow is identified using attributes such as:
-- source IP
-- destination IP
-- source port
-- destination port
-- protocol
-- interface
-- QoS information
-
-A simplified workflow looks like this:
-
-Client → Server = Uni-directional Flow Record  
-Server → Client = Separate Uni-directional Flow Record
-
-For example:
-
-10.1.1.5 → 172.16.10.20
-
-may be stored as two independent flow records.
+Unidirectional flow records traffic in one direction only from source to destination. NetFlow exports unidirectional flows where each direction is tracked separately. This differs from bidirectional flow which combines both directions into a single record.
 
 ---
 
-## **Why Uni-directional Flows Matter**
+## How unidirectional flow works
 
-Uni-directional flows provide detailed visibility into traffic direction and asymmetric communication behavior.
+Unidirectional flow exporters observe packets traveling from source to destination and create flow records for that direction only. Return traffic from destination to source creates a separate flow record with swapped source and destination addresses and ports.
 
-Without directional visibility, organizations may struggle to:
-
-- analyze routing asymmetry
-- troubleshoot one-way traffic issues
-- investigate abnormal communication patterns
-- understand bandwidth distribution
-- analyze inbound vs outbound activity
-
-Uni-directional flow analysis helps teams:
-
-- improve directional visibility
-- analyze communication behavior precisely
-- investigate anomalies
-- troubleshoot asymmetric routing
-- optimize traffic engineering
-- strengthen forensic investigations
-
-It is especially important in:
-
-- ISP infrastructures
-- enterprise WANs
-- carrier networks
-- cloud environments
-- telecom operations
-- security monitoring systems
-
-Humans discovered that even conversations between computers can become complicated enough to require separate records for “who said what first.” Digital relationship analysis, basically.
+Two flow records exist for one TCP conversation. One record shows source to destination traffic. Another record shows destination to source traffic. This doubles flow record volume compared to bidirectional flow.
 
 ---
 
-## **Common Operational Use Cases**
+## Unidirectional flow in network operations
 
-### Routing Analysis
+In the NOC, unidirectional flow enables distinguishing inbound from outbound traffic. Traffic analysis treats each direction separately. Security teams analyze source to destination and destination to source traffic independently.
 
-Analyze asymmetric routing behavior across networks.
-
-### Security Investigations
-
-Investigate unusual outbound or inbound communication.
-
-### Bandwidth Monitoring
-
-Compare inbound and outbound utilization patterns.
-
-### DDoS Visibility
-
-Analyze directional attack traffic behavior.
-
-### Traffic Engineering
-
-Optimize routing paths and directional traffic handling.
+Capacity planning uses unidirectional flow to track ingress and egress traffic separately. Interface utilization is measured per direction. This enables accurate bandwidth planning for asymmetrical traffic.
 
 ---
 
-## **Uni-directional Flow vs Bi-directional Flow**
+## Unidirectional vs bidirectional comparison
 
-| Feature | Uni-directional Flow | Bi-directional Flow |
+| Aspect | Unidirectional Flow | Bidirectional Flow |
 |---|---|---|
-| Communication Tracking | One direction only | Both directions combined |
-| Visibility Precision | High directional detail | Combined session view |
-| Routing Analysis | Strong | Moderate |
-| Flow Correlation Requirement | Higher | Lower |
-| Storage Complexity | Higher | Lower |
-
-Uni-directional flows provide more granular directional visibility, while bi-directional flows combine both communication directions into a single session representation.
+| Records per conversation | 2 (one per direction) | 1 (combined) |
+| Flow volume | Higher | Lower by half |
+| Direction analysis | Separate per direction | Both directions in one record |
+| Implementation | Simpler | More complex |
+| NetFlow default | Yes (v5, v9) | Optional (v9 flexible) |
 
 ---
 
-## **How Trisul Handles Uni-directional Flow Analysis**
+## What makes unidirectional flow work in practice
 
-Trisul provides scalable directional traffic analytics for enterprise and ISP environments.
+Flow record correlation enables conversation analysis. With unidirectional flow, analysts must correlate two records to see complete conversation. flowId or conversationId fields enable correlation. Without correlation, analysis treats each direction independently.
 
-Combined with:
-
-- Flow Analysis
-- Conversation View
-- Contextᵀ
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- analyze directional traffic behavior
-- investigate asymmetric communication
-- troubleshoot routing issues
-- identify abnormal outbound activity
-- monitor traffic distribution
-- improve forensic visibility
-
-Trisul can also integrate:
-
-- Flow Monitoring
-- NetFlow
-- Traffic Investigation
-
-workflows for deeper communication visibility.
+Storage requirements double with unidirectional flow. Two records per conversation means twice the flow data. For high-speed networks generating millions of flows per hour, this significantly impacts storage.
 
 ---
 
-## **Related Terms**
+## How Trisul handles unidirectional flow
 
-- Flow Monitoring
-- NetFlow
-- Flow Analysis
-- Traffic Investigation
-- Conversation View
-- Bandwidth Monitoring
+Trisul receives unidirectional flow data from NetFlow v5 and NetFlow v9 exporters. Trisul can correlate unidirectional flows to reconstruct bidirectional conversations. Flow records include direction information enabling separate analysis of inbound and outbound traffic. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
 ---
 
-## **FAQ**
+## Related terms
 
-### What is a uni-directional flow?
+- [What is bidirectional flow?](/glossary/bidirectional-flow)
+- [What is NetFlow?](/glossary/netflow)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is traffic direction?](/glossary/traffic-direction)
+- [What is flow record?](/glossary/flow-record)
 
-A uni-directional flow represents traffic moving in only one direction between a source and destination.
+---
 
-### Why are uni-directional flows important?
+## Frequently asked questions
 
-They provide detailed visibility into directional traffic behavior and asymmetric communication patterns.
+### What is unidirectional flow?
 
-### How are uni-directional flows created?
+Unidirectional flow records traffic in one direction only from source to destination. NetFlow exports unidirectional flows where each direction is tracked separately. This differs from bidirectional flow which combines both directions into a single record.
 
-Flow exporters observe packets traveling through interfaces and generate separate flow records for each traffic direction.
+### How does unidirectional flow work?
 
-### What's the difference between uni-directional and bi-directional flows?
+Unidirectional flow exporters observe packets traveling from source to destination and create flow records for that direction only. Return traffic from destination to source creates a separate flow record with swapped source and destination. Two flow records exist for one conversation.
 
-Uni-directional flows track one communication direction only, while bi-directional flows combine both directions into a single session.
+### What is the difference between unidirectional and bidirectional flow?
 
-### Can uni-directional flows help troubleshoot routing issues?
+Unidirectional flow creates separate records for each direction. Two records exist per conversation. Bidirectional flow combines both directions into one record with separate byte counts for each direction. One record exists per conversation. Bidirectional flow reduces flow record volume by half.
 
-Yes. They are useful for analyzing asymmetric routing and one-way communication problems.
+### When is unidirectional flow used?
 
-### Are uni-directional flows useful for security monitoring?
-
-Yes. They help identify suspicious outbound or inbound communication behavior.
+Unidirectional flow is used in NetFlow v5 and NetFlow v9 default mode. It is used when direction matters for analysis such as distinguishing inbound from outbound traffic. Unidirectional flow is simpler to implement but generates more flow records.

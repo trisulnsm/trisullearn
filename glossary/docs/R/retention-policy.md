@@ -1,215 +1,130 @@
 ---
-title: What is a Retention Policy?
-sidebar_label: Retention Policy
-sidebar_position: 95
-slug: /glossary/retention-policy
-description: Learn what a retention policy is, how data retention works in network monitoring, and why retention planning is important for compliance, analytics, and forensic investigations.
+title: What is realtime traffic monitoring?
+description: Realtime traffic monitoring observes network traffic as it flows with near-zero delay. It provides immediate visibility into current traffic patterns enabling rapid detection of anomalies and fast response to network issues.
+sidebar_label: Realtime traffic monitoring
+sidebar_position: 90
+slug: /glossary/realtime-traffic-monitoring
 keywords:
-  - retention policy
-  - data retention
-  - traffic retention policy
-  - network data retention
-  - compliance retention
-  - historical traffic storage
+  - realtime traffic monitoring
+  - real-time traffic
+  - live traffic
+  - instant monitoring
+  - traffic graphs
+  - network visibility
+  - live monitoring
 ---
 
-# What is a Retention Policy?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is realtime traffic monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Realtime traffic monitoring observes network traffic as it flows with near-zero delay. It provides immediate visibility into current traffic patterns enabling rapid detection of anomalies and fast response to network issues. NetFlow Analyzer generates traffic graphs as soon as NetFlow data is received."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does realtime monitoring work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Realtime monitoring collects flow data from routers and switches continuously. Flow exporters send NetFlow, sFlow, or IPFIX data to the collector. The collector processes data as it arrives and updates traffic graphs within 1 to 3 seconds. Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the latency of realtime monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Realtime traffic monitoring provides visibility within 1 to 5 seconds of traffic occurring. Real-time stabbers show traffic within 3 seconds. Flow Tracker Alerts trigger in near real-time with latency of 1 to 5 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is realtime monitoring important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Realtime monitoring is essential for NOC operations enabling rapid detection of congestion, outages, and anomalies. Security teams use realtime monitoring for threat detection. Operations teams respond to emerging issues before users report problems."
+      }
+    }
+  ]
+};
 
-A Retention Policy is a defined set of rules that determines how long network traffic data, logs, analytics records, and monitoring information are stored before they are archived or deleted.
+# What is realtime traffic monitoring?
 
-Retention policies help organizations define storage and compliance roles by controlling:
-- how long data is retained
-- what types of data are stored
-- where data is stored
-- when data is deleted
-- how historical visibility is maintained
-
-Retention policies commonly apply to:
-- flow records
-- packet captures
-- DNS logs
-- authentication logs
-- NAT logs
-- IPDR records
-- security events
-- application analytics
-
-They are especially important for:
-- compliance
-- network forensics
-- historical analysis
-- incident response
-- operational reporting
-- capacity planning
-
-## **How Retention Policies Work**
-
-Monitoring and analytics systems continuously collect traffic visibility data.
-
-The retention policy defines:
-1. which data is stored
-2. how long the data remains accessible
-3. when data is archived or deleted
-4. storage optimization rules
-
-A typical workflow looks like this:
-
-Traffic Data → Storage → Retention Policy → Archive or Deletion
-
-For example:
-
-- flow records retained for 12 months
-- packet captures retained for 7 days
-- compliance logs retained for 5 years
-
-Retention periods may vary depending on:
-
-- compliance requirements
-- storage capacity
-- operational needs
-- investigation requirements
-- business policies
+Realtime traffic monitoring observes network traffic as it flows with near-zero delay. It provides immediate visibility into current traffic patterns enabling rapid detection of anomalies and fast response to network issues. NetFlow Analyzer generates traffic graphs as soon as NetFlow data is received.
 
 ---
 
-## **Why Retention Policies Matter**
+## How realtime monitoring works
 
-Modern networks generate enormous volumes of traffic and security data continuously.
+Flow exporters on routers and switches send NetFlow, sFlow, or IPFIX data continuously to the collector. The collector processes data as it arrives and updates traffic graphs within 1 to 3 seconds. Real-time stabbers show current traffic statistics.
 
-Without retention policies, organizations may struggle to:
-
-- manage storage efficiently
-- support compliance requirements
-- investigate historical incidents
-- maintain forensic visibility
-- optimize long-term analytics
-- control storage costs
-
-Retention policies help teams:
-
-- preserve important historical visibility
-- support investigations
-- maintain regulatory compliance
-- optimize storage usage
-- improve operational governance
-- manage data lifecycles efficiently
-
-They are especially important in:
-
-- SOC environments
-- ISP infrastructures
-- telecom compliance systems
-- enterprise networks
-- cloud environments
-- regulated industries
-
-Humans generate oceans of logs, then invent policies to decide which digital fossils deserve to survive. Civilization, apparently, is mostly organized hoarding.
+Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior and identifies unusual traffic patterns as anomalies. Real-time 2-second views of gateway port utilization, AS traffic, and prefix flows enable rapid response.
 
 ---
 
-## **Common Operational Use Cases**
+## Realtime monitoring in network operations
 
-### Security Investigations
+In the NOC, use realtime monitoring to detect congestion, outages, and anomalies instantly. Top conversations show current top talkers by bandwidth. Interface utilization displays real-time bandwidth usage per interface. Security teams monitor realtime traffic for indicators of compromise.
 
-Retain historical traffic data for forensic analysis.
-
-### Compliance Monitoring
-
-Maintain logs according to regulatory requirements.
-
-### Capacity Planning
-
-Store long-term traffic trends for infrastructure planning.
-
-### Subscriber Traceability
-
-Retain authentication and NAT records for investigations.
-
-### Historical Traffic Analytics
-
-Analyze traffic behavior over extended periods.
+Traffic pattern alerts are promptly generated in realtime for anomalies deviating from expected patterns. This enables automated response before problems impact users.
 
 ---
 
-## **Retention Policy vs Backup Policy**
+## Realtime monitoring features
 
-| Feature | Retention Policy | Backup Policy |
-|---|---|---|
-| Primary Focus | Data lifecycle management | Data recovery |
-| Purpose | Control storage duration | Restore lost data |
-| Operational Goal | Compliance and visibility | Disaster recovery |
-| Historical Analytics Support | Strong | Limited |
-| Storage Optimization | Included | Secondary |
-
-Retention policies control how long data remains available, while backup policies focus on recovery after failures.
+| Feature | Description |
+|---|---|
+| Traffic graphs | Real-time graphs for incoming and outgoing traffic |
+| Real-time stabbers | Traffic stats within 3 seconds |
+| Top conversations | Current top talkers by bandwidth |
+| Interface utilization | Real-time bandwidth usage per interface |
+| Pattern alerts | Real-time alerts for traffic anomalies |
 
 ---
 
-## **How Trisul Handles Retention Policies**
+## What makes realtime monitoring work in practice
 
-Trisul provides scalable long-term traffic visibility and retention management for enterprise and ISP environments.
+Collection frequency determines realtime accuracy. High-frequency collection provides more accurate realtime views but generates more load on network devices. Balance collection frequency against device CPU and network overhead.
 
-Combined with:
-
-- Long-Term Traffic Retention
-- Retro Analysisᵀ
-- Flow Analysis
-- Packet Capture
-- IPDR Visibility
-- Contextᵀ
-
-Trisul helps teams:
-
-- retain historical traffic visibility
-- manage large-scale traffic storage
-- support forensic investigations
-- optimize analytics retention
-- maintain compliance workflows
-- investigate historical communication patterns
-
-Trisul can also integrate:
-
-- Long-Term Traffic Retention
-- Network Forensics
-- IPDR
-
-workflows for deeper historical visibility.
+Buffer management ensures data is not lost during processing spikes. The collector buffers incoming flow data when processing is slow. Without adequate buffering, data is dropped during traffic spikes and realtime monitoring shows gaps.
 
 ---
 
-## **Related Terms**
+## How Trisul handles realtime traffic monitoring
 
-- Long-Term Traffic Retention
-- Network Forensics
-- Packet Capture
-- IPDR
-- Traffic Investigation
-- Historical Traffic Analysis
+Trisul provides realtime traffic monitoring through flow data collection processing data as it arrives from NetFlow, J-Flow, sFlow, and IPFIX exporters. Real-time stabbers show traffic within 3 seconds. Flow Tracker Alerts trigger in near real-time with latency of 1 to 5 seconds. Login as user, select Dashboards, then Real Time Traffic to view realtime traffic graphs. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
 
 ---
 
-## **FAQ**
+## Related terms
 
-### What is a retention policy?
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is live traffic monitoring?](/glossary/live-traffic-monitoring)
+- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
+- [What is Key Dashboard?](/glossary/key-dashboard)
+- [What is NetFlow?](/glossary/netflow)
 
-A retention policy defines how long monitoring data, logs, and traffic records are stored before deletion or archival.
+---
 
-### Why are retention policies important?
+## Frequently asked questions
 
-They help organizations manage storage, support compliance, and maintain historical visibility for investigations and analytics.
+### What is realtime traffic monitoring?
 
-### What types of data are commonly governed by retention policies?
+Realtime traffic monitoring observes network traffic as it flows with near-zero delay. It provides immediate visibility into current traffic patterns enabling rapid detection of anomalies and fast response to network issues. NetFlow Analyzer generates traffic graphs as soon as NetFlow data is received.
 
-Flow records, packet captures, NAT logs, DNS logs, IPDR data, and authentication logs are commonly retained.
+### How does realtime monitoring work?
 
-### How long should traffic data be retained?
+Realtime monitoring collects flow data from routers and switches continuously. Flow exporters send NetFlow, sFlow, or IPFIX data to the collector. The collector processes data as it arrives and updates traffic graphs within 1 to 3 seconds. Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior.
 
-Retention periods vary depending on compliance requirements, operational needs, and storage capacity.
+### What is the latency of realtime monitoring?
 
-### What's the difference between a retention policy and a backup policy?
+Realtime traffic monitoring provides visibility within 1 to 5 seconds of traffic occurring. Real-time stabbers show traffic within 3 seconds. Flow Tracker Alerts trigger in near real-time with latency of 1 to 5 seconds.
 
-Retention policies manage how long data is stored, while backup policies focus on restoring data after failures.
+### Why is realtime monitoring important?
 
-### Why are retention policies important for security investigations?
-
-They preserve historical evidence needed for forensic analysis and incident reconstruction.
+Realtime monitoring is essential for NOC operations enabling rapid detection of congestion, outages, and anomalies. Security teams use realtime monitoring for threat detection. Operations teams respond to emerging issues before users report problems.

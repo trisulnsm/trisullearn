@@ -1,190 +1,128 @@
 ---
-title: What is Network Security Monitoring (NSM)?
-sidebar_label: Network Security Monitoring (NSM)
-sidebar_position: 78
-slug: /glossary/network-security-monitoring-nsm
-description: Learn what Network Security Monitoring (NSM) is, how NSM works, and why continuous traffic visibility is important for threat detection and incident response.
+title: What is network security monitoring?
+description: Network Security Monitoring (NSM) is the collection and analysis of network data to detect and respond to security threats. It combines flow monitoring, packet capture, and IDS to provide comprehensive security visibility.
+sidebar_label: Network security monitoring
+sidebar_position: 74
+slug: /glossary/network-security-monitoring
 keywords:
-  - Network Security Monitoring
+  - network security monitoring
   - NSM
-  - network threat monitoring
-  - security traffic analysis
-  - network visibility
+  - security monitoring
   - threat detection
+  - network defense
+  - intrusion detection
+  - security visibility
 ---
 
-# What is Network Security Monitoring (NSM)?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Network Security Monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network Security Monitoring (NSM) is the collection and analysis of network data to detect and respond to security threats. It combines flow monitoring, packet capture, and intrusion detection systems to provide comprehensive security visibility. NSM is the practice of detecting and responding to security incidents through network data analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What components does NSM include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NSM includes flow monitoring using NetFlow or IPFIX for traffic visibility, full packet capture (PCAP) for forensic investigation, intrusion detection systems (IDS) for threat detection, security information and event management (SIEM) for correlation, and network behavior analysis for anomaly detection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the purpose of NSM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NSM detects security incidents through network data analysis, responds to threats by containing and eradicating them, investigates incidents using packet capture and flow data, and prevents future incidents through lessons learned. NSM reduces time to detect and respond to threats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does NSM differ from network monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network monitoring focuses on network performance and availability for operations. NSM focuses on security threats and incidents. Network monitoring detects bandwidth issues, NSM detects threats. Both use similar data sources but for different purposes and audiences."
+      }
+    }
+  ]
+};
 
-Network Security Monitoring (NSM) is the continuous process of collecting, analyzing, and investigating network traffic and security-related data to detect threats, identify suspicious behavior, and respond to security incidents.
+# What is Network Security Monitoring?
 
-NSM helps organizations define security roles by continuously monitoring:
-- traffic behavior
-- suspicious communication
-- anomalies
-- malware activity
-- lateral movement
-- attack patterns
-- security events
+Network Security Monitoring (NSM) is the collection and analysis of network data to detect and respond to security threats. It combines flow monitoring, packet capture, and intrusion detection systems to provide comprehensive security visibility. NSM detects and responds to security incidents through network data analysis.
 
-Unlike traditional perimeter-only security approaches, NSM focuses on maintaining ongoing visibility into how systems and users behave across the network.
+---
 
-## **How Network Security Monitoring Works**
+## How Network Security Monitoring works
 
-NSM platforms collect visibility data from multiple sources such as:
-- flow records
-- packet captures
-- IDS alerts
-- DNS traffic
-- endpoint telemetry
-- firewall logs
-- application visibility systems
+NSM collects flow data from NetFlow, sFlow, and IPFIX exporters. Full packet capture records every packet headers and payload. Intrusion detection systems analyze traffic for known attack patterns. Network behavior analysis identifies anomalies indicating threats. SIEM correlates alerts from all sources.
 
-Security analysts then:
-1. monitor live traffic activity
-2. investigate suspicious behavior
-3. correlate alerts and communication patterns
-4. reconstruct incidents using historical visibility
+---
 
-A typical NSM workflow looks like this:
+## NSM in network operations
 
-```
-Traffic Visibility → Detection → Investigation → Incident Response
-```
+In the SOC, NSM is the security detection layer. Flow data or IDS alerts tell you something suspicious happened. Packet capture tells you what was exchanged: commands issued, files transferred, credentials passed. For incident confirmation, packet capture is the definitive record.
 
-For example:
+NOC teams use NSM data for application performance root cause analysis. TCP retransmissions, window behavior, TLS handshake failures, and application-level error codes indicate security issues or performance problems. Flow telemetry shows a conversation; packet capture shows whether it was broken.
 
-- A system begins communicating with suspicious external hosts
-- NSM platforms identify abnormal behavior
-- Analysts correlate traffic and security events
-- The communication is investigated and contained
+---
 
-![](images/nsm.png)
+## NSM components
 
-## **Why Network Security Monitoring Matters**
+| Component | Function |
+|---|---|
+| Flow monitoring | Traffic visibility through NetFlow and IPFIX |
+| Packet capture | Forensic investigation through PCAP |
+| IDS | Threat detection through signature and anomaly analysis |
+| SIEM | Alert correlation and centralized logging |
+| Network behavior analysis | Anomaly detection through machine learning |
 
-Modern cyberattacks are often:
+---
 
-- stealthy
-- distributed
-- encrypted
-- long-lived
-- behavior-driven
+## What makes NSM work in practice
 
-Without continuous network visibility, organizations may struggle to:
+Flow data enables early detection. Flow monitoring scales to gigabit speeds providing continuous visibility. When flow data indicates anomalies, packet capture is triggered for deep investigation. This reduces storage by 60 to 80 percent compared to continuous capture while retaining the ability to investigate any alert.
 
-- detect attacks early
-- investigate suspicious traffic
-- identify compromised systems
-- monitor lateral movement
-- reconstruct attack timelines
+Index quality determines investigation speed. Without per-flow indexing, analysts scan raw files manually. With it, any alert can pivot directly to the relevant packets in seconds. For a terabyte-scale archive, this is the difference between a usable tool and an unusable one.
 
-NSM helps organizations:
+---
 
-- improve threat visibility
-- detect anomalies
-- investigate attacks
-- strengthen incident response
-- analyze communication behavior
-- improve security operations
+## How Trisul handles Network Security Monitoring
 
-It is especially important in:
+Trisul supports NSM by providing flow-based visibility and packet capture for forensic investigation. Flow data enables identification of indicators of compromise, detection of unusual traffic patterns, and tracing of attack paths. From any alert, topper, or flow in the dashboard, analysts can pivot directly to the matching PCAP. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
 
-- SOC environments
-- enterprise security operations
-- ISP infrastructures
-- cloud environments
-- hybrid networks
-- regulated industries
+---
 
-## **Common Operational Use Cases**
+## Related terms
 
-### Threat Detection
+- [What is threat detection?](/glossary/threat-detection)
+- [What is intrusion detection system?](/glossary/intrusion-detection-system)
+- [What is packet capture?](/glossary/packet-capture)
+- [What is SIEM?](/glossary/siem)
+- [What is incident response?](/glossary/incident-response)
 
-Identify suspicious communication and attack behavior.
+---
 
-### Incident Response
-
-Investigate security incidents using historical traffic visibility.
-
-### Malware Investigation
-
-Analyze command-and-control traffic and abnormal sessions.
-
-### Lateral Movement Detection
-
-Monitor east-west communication inside the network.
-
-### Insider Threat Monitoring
-
-Detect abnormal user or device behavior.
-
-## **Network Security Monitoring vs Traditional Security Monitoring**
-
-| Feature | Network Security Monitoring | Traditional Security Monitoring| 
-|---------|-----------------------------|---------------------------------|
-| Visibility Scope |  Continuous traffic analysis|  Event or perimeter-focused| 
-| Behavioral Analysis | Strong |  Moderate| 
-| Historical Investigation|   Supported | Often limited| 
-| Threat Detection Depth |  High|   Moderate| 
-| Operational Focus|  Ongoing visibility and investigation |  Alert handling| 
-
-NSM focuses on continuous network visibility and behavioral investigation rather than only isolated alerts.
-
-## **How Trisul Supports Network Security Monitoring**
-
-Trisul provides deep traffic analytics and forensic visibility for NSM-driven security operations.
-
-Combined with:
-
-- Packet Capture
-- Flow Analysis
-- Retro Analysisᵀ
-- Badfellasᵀ
-- Contextᵀ
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- investigate suspicious communication
-- analyze network behavior
-- reconstruct attack timelines
-- detect anomalous traffic
-- monitor east-west movement
-- improve forensic visibility
-
-Trisul can also integrate Incident Response, Network Forensics, and Anomaly Detection workflows for deeper threat visibility.
-
-## **Related Terms**
-
-- Incident Response
-- Network Forensics
-- Anomaly Detection
-- IDS Integration
-- Packet Capture
-- Traffic Investigation
-
-## **FAQ**
+## Frequently asked questions
 
 ### What is Network Security Monitoring?
 
-Network Security Monitoring is the continuous process of monitoring and analyzing network traffic for security threats and suspicious behavior.
+Network Security Monitoring (NSM) is the collection and analysis of network data to detect and respond to security threats. It combines flow monitoring, packet capture, and intrusion detection systems to provide comprehensive security visibility. NSM is the practice of detecting and responding to security incidents through network data analysis.
 
-### Why is NSM important?
+### What components does NSM include?
 
-It helps organizations detect attacks, investigate suspicious activity, and improve incident response.
+NSM includes flow monitoring using NetFlow or IPFIX for traffic visibility, full packet capture (PCAP) for forensic investigation, intrusion detection systems (IDS) for threat detection, security information and event management (SIEM) for correlation, and network behavior analysis for anomaly detection.
 
-### What data sources are used in NSM?
+### What is the purpose of NSM?
 
-NSM commonly uses flow records, packet captures, IDS alerts, DNS logs, firewall logs, and endpoint telemetry.
+NSM detects security incidents through network data analysis, responds to threats by containing and eradicating them, investigates incidents using packet capture and flow data, and prevents future incidents through lessons learned. NSM reduces time to detect and respond to threats.
 
-### How does NSM differ from traditional security monitoring?
+### How does NSM differ from network monitoring?
 
-NSM focuses on continuous traffic visibility and behavioral analysis instead of only isolated alerts.
-
-### Can NSM detect insider threats?
-
-Yes. NSM can identify abnormal communication behavior and suspicious internal activity.
-
-### Is NSM useful in cloud environments?
-
-Yes. NSM helps maintain visibility across hybrid and cloud infrastructures where threats may move laterally.
+Network monitoring focuses on network performance and availability for operations. NSM focuses on security threats and incidents. Network monitoring detects bandwidth issues, NSM detects threats. Both use similar data sources but for different purposes and audiences.

@@ -1,218 +1,128 @@
 ---
-title: What is Traffic Retention?
-sidebar_label: Traffic Retention
-sidebar_position: 117
+title: What is traffic retention?
+description: Traffic retention defines how long flow data and packet capture are stored before deletion. It balances storage costs against operational needs for historical analysis, compliance, and forensic investigation.
+sidebar_label: Traffic retention
+sidebar_position: 116
 slug: /glossary/traffic-retention
-description: Learn what traffic retention is, how historical network data is stored, and why retaining traffic visibility is important for security, compliance, troubleshooting, and analytics.
 keywords:
   - traffic retention
-  - network traffic retention
-  - historical traffic storage
-  - long-term traffic visibility
-  - network forensics
-  - traffic analytics retention
+  - data retention
+  - flow retention
+  - pcap retention
+  - storage policy
+  - archive retention
+  - retention period
 ---
 
-# What is Traffic Retention?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is traffic retention?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traffic retention defines how long flow data and packet capture are stored before deletion. It balances storage costs against operational needs for historical analysis, compliance, and forensic investigation. Retention policies determine what data is kept and for how long."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What factors determine retention period?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retention period depends on use case, compliance requirements, and storage capacity. Flow data can be retained for weeks to months on the same hardware storing PCAP for hours to days. Full fidelity retention of more than 7 to 14 days requires heavy filtering or purpose-built storage infrastructure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does retention affect operations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retention affects forensic investigation capability, compliance, and historical analysis. Short retention limits investigation to recent events. Long retention enables analysis of past incidents but increases storage costs. Balance retention against operational needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are typical retention periods?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typical retention periods include PCAP for hours to days (full fidelity), flow data for weeks to months, and aggregate statistics for years. Compliance requirements may mandate minimum retention periods. ISP analytics may retain data longer for billing."
+      }
+    }
+  ]
+};
 
-Traffic Retention is the process of storing historical network traffic visibility data for future analysis, troubleshooting, security investigations, compliance, and operational analytics.
+# What is traffic retention?
 
-Instead of analyzing only live traffic, organizations retain traffic records so analysts can investigate events after they occur.
-
-Traffic retention helps organizations define historical visibility roles by preserving:
-- flow records
-- packet captures
-- traffic metadata
-- DNS activity
-- application behavior
-- authentication logs
-- communication history
-
-Traffic retention is widely used for:
-- network forensics
-- compliance monitoring
-- incident response
-- historical traffic analysis
-- troubleshooting
-- capacity planning
-
-## **How Traffic Retention Works**
-
-Monitoring platforms continuously collect network visibility data from:
-- NetFlow
-- IPFIX
-- packet capture systems
-- DNS logs
-- telemetry platforms
-- application analytics
-- security monitoring systems
-
-The data is then:
-1. stored for defined retention periods
-2. indexed for fast retrieval
-3. archived or optimized over time
-4. used for retrospective investigation and analytics
-
-A typical workflow looks like this:
-
-Live Traffic → Traffic Collection → Historical Retention → Investigation and Analytics
-
-For example:
-
-- Suspicious activity is discovered today
-- Analysts retrieve traffic data from two weeks earlier
-- Historical communication patterns are reconstructed
-- The incident timeline becomes visible
-
-Retained traffic data may include:
-
-- source and destination activity
-- application usage
-- protocol behavior
-- bandwidth trends
-- user sessions
-- attack indicators
+Traffic retention defines how long flow data and packet capture are stored before deletion. It balances storage costs against operational needs for historical analysis, compliance, and forensic investigation. Retention policies determine what data is kept and for how long.
 
 ---
 
-## **Why Traffic Retention Matters**
+## How traffic retention works
 
-Many operational and security incidents are identified long after they occur.
+Retention policies specify storage duration for different data types. When data exceeds retention period, it is automatically deleted or archived to cheaper storage. Tiered storage moves old data to slower disks while keeping recent data on fast storage.
 
-Without retained traffic visibility, organizations may struggle to:
-
-- investigate historical incidents
-- reconstruct attack timelines
-- analyze intermittent issues
-- support compliance requirements
-- troubleshoot past outages
-- maintain forensic visibility
-
-Traffic retention helps teams:
-
-- strengthen forensic investigations
-- improve operational visibility
-- analyze historical trends
-- support compliance workflows
-- investigate suspicious behavior
-- improve troubleshooting capabilities
-
-It is especially important in:
-
-- SOC environments
-- ISP infrastructures
-- enterprise networks
-- telecom operations
-- cloud environments
-- regulated industries
-
-Humans finally realized that by the time they notice something suspicious, the packets are already long gone. So now entire industries exist just to preserve yesterday’s network mistakes.
+Flow data retention is longer than PCAP retention because flow data is approximately 1 to 2 percent of PCAP volume. Aggregate statistics can be retained for years with minimal storage.
 
 ---
 
-## **Common Operational Use Cases**
+## Traffic retention in network operations
 
-### Security Investigations
+In the NOC, retention determines how far back investigators can look. Short retention limits forensic investigation to recent events. Long retention enables analysis of past incidents but requires more storage.
 
-Analyze historical suspicious communication and attack behavior.
-
-### Network Forensics
-
-Reconstruct communication timelines after incidents.
-
-### Compliance Monitoring
-
-Retain traffic records for regulatory investigations and audits.
-
-### Historical Traffic Analysis
-
-Analyze long-term application and bandwidth trends.
-
-### Troubleshooting
-
-Investigate intermittent or previously resolved issues.
+Compliance teams define minimum retention periods for audit requirements. Some regulations mandate 90 days or longer for network logs. Storage capacity must support compliance retention periods. Security teams use long retention for threat hunting.
 
 ---
 
-## **Traffic Retention vs Real-Time Monitoring**
+## Retention comparison
 
-| Feature | Traffic Retention | Real-Time Monitoring |
+| Data Type | Typical Retention | Storage Footprint |
 |---|---|---|
-| Visibility Scope | Historical activity | Current activity |
-| Investigation Style | Retrospective | Immediate |
-| Historical Trend Analysis | Strong | Limited |
-| Forensic Visibility | Advanced | Moderate |
-| Operational Awareness | Delayed | Instant |
-
-Traffic retention focuses on preserving historical visibility, while real-time monitoring focuses on live operational awareness.
+| Full PCAP | Hours to days | Tens of TB per day |
+| Flow data | Weeks to months | 1 to 2% of PCAP |
+| Aggregate stats | Years | Minimal storage |
 
 ---
 
-## **How Trisul Handles Traffic Retention**
+## What makes traffic retention work in practice
 
-Trisul provides scalable long-term traffic visibility and forensic analytics for enterprise and ISP environments.
+Storage capacity determines achievable retention. Flow data volume depends on network size and flow rate. High-speed networks generate millions of flows per hour. Storage must hold data for the required retention period.
 
-Combined with:
-
-- Retro Analysisᵀ
-- Slice Retentionᵀ
-- Contextᵀ
-- Flow Analysis
-- Packet Capture
-- Long-Term Traffic Retention
-
-Trisul helps teams:
-
-- retain historical traffic visibility
-- investigate past communication behavior
-- reconstruct attack timelines
-- analyze operational trends
-- improve forensic investigations
-- optimize long-term analytics workflows
-
-Trisul can also integrate:
-
-- Retention Policy
-- Historical Traffic Analysis
-- Network Forensics
-
-workflows for deeper retrospective visibility.
+Data lifecycle management automates retention. Automated deletion prevents storage from filling up. Archive policies move old data to cheaper storage extending retention without increasing costs. Automation ensures consistent policy enforcement.
 
 ---
 
-## **Related Terms**
+## How Trisul handles traffic retention
 
-- Retention Policy
-- Historical Traffic Analysis
-- Retro Analysisᵀ
-- Slice Retentionᵀ
-- Network Forensics
-- Packet Capture
+Trisul supports configurable retention policies for flow data and packet capture. Storage policies let operators define exactly what gets written by protocol, direction, or custom LUA rules. The capture store distributes across multiple disks to extend retention. Flow data is retained without summarization or rollup enabling long-term historical analysis. Traffic retention supports weeks to months of flow data. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
 
 ---
 
-## **FAQ**
+## Related terms
+
+- [What is packet capture?](/glossary/packet-capture)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is retention policy?](/glossary/retention-policy)
+- [What is long term traffic retention?](/glossary/long-term-traffic-retention)
+- [What is archive?](/glossary/archive)
+
+---
+
+## Frequently asked questions
 
 ### What is traffic retention?
 
-Traffic retention is the process of storing historical network traffic data for future analysis and investigation.
+Traffic retention defines how long flow data and packet capture are stored before deletion. It balances storage costs against operational needs for historical analysis, compliance, and forensic investigation. Retention policies determine what data is kept and for how long.
 
-### Why is traffic retention important?
+### What factors determine retention period?
 
-It helps organizations investigate incidents, analyze historical communication, support compliance, and troubleshoot issues.
+Retention period depends on use case, compliance requirements, and storage capacity. Flow data can be retained for weeks to months on the same hardware storing PCAP for hours to days. Full fidelity retention of more than 7 to 14 days requires heavy filtering or purpose-built storage infrastructure.
 
-### What types of traffic data are commonly retained?
+### How does retention affect operations?
 
-Commonly retained data includes flow records, packet captures, DNS logs, traffic metadata, and authentication records.
+Retention affects forensic investigation capability, compliance, and historical analysis. Short retention limits investigation to recent events. Long retention enables analysis of past incidents but increases storage costs. Balance retention against operational needs.
 
-### How long is traffic data typically retained?
+### What are typical retention periods?
 
-Retention periods vary depending on compliance requirements, storage capacity, and operational needs.
-
-### What's the difference between traffic retention and real-time monitoring?
-
-Traffic retention preserves historical visibility, while real-time monitoring focuses on live traffic activity.
-
-### Is traffic retention useful for security investigations?
-
-Yes. Historical traffic visibility is critical for forensic investigations and incident reconstruction.
+Typical retention periods include PCAP for hours to days (full fidelity), flow data for weeks to months, and aggregate statistics for years. Compliance requirements may mandate minimum retention periods. ISP analytics may retain data longer for billing.

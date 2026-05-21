@@ -1,6 +1,6 @@
 ---
 title: What is home network in Trisul?
-description: In Trisul, home network defines the IP subnets under your administrative domain. Trisul uses this to classify traffic direction (incoming, outgoing, internal, transit) and enable features like directional traffic reports and flow tagging.
+description: In Trisul, home network defines the IP subnets under your administrative domain. Trisul uses this to classify traffic direction as incoming, outgoing, internal, or transit and enable features like directional traffic reports and flow tagging.
 sidebar_label: Home network
 sidebar_position: 49
 slug: /glossary/home-network
@@ -24,7 +24,7 @@ export const jsonLd = {
       "name": "What is home network in Trisul?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In Trisul, home network defines which IP addresses belong to your network under your administrative domain. Several Trisul features depend on distinguishing between home network IPs and external IPs. By default, Trisul considers RFC1918 private IP ranges (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) as home networks. Admin can add custom subnets to define home network accurately."
+        "text": "In Trisul, home network defines which IP addresses belong to your network under your administrative domain. Several Trisul features depend on distinguishing between home network IPs and external IPs. By default, Trisul considers RFC1918 private IP ranges including 10.0.0.0/8, 192.168.0.0/16, and 172.16.0.0/12 as home networks. Admin can add custom subnets to define home network accurately."
       }
     },
     {
@@ -32,7 +32,7 @@ export const jsonLd = {
       "name": "What are the traffic direction classifications in Trisul?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul classifies traffic into four directions based on home network: Outgoing Traffic (source IP in home network, destination IP external), Incoming Traffic (source IP external, destination IP in home network), Internal Traffic (both source and destination IP in home network), and Transit Traffic (both source and destination IP external to home network). These directional metrics appear in Aggregates counter group."
+        "text": "Trisul classifies traffic into four directions based on home network. Outgoing Traffic has source IP in home network but destination IP external. Incoming Traffic has source IP external but destination IP in home network. Internal Traffic has both source and destination IP in home network. Transit Traffic has both source and destination IP external to home network. These directional metrics appear in Aggregates counter group."
       }
     },
     {
@@ -40,7 +40,7 @@ export const jsonLd = {
       "name": "How do you configure home network in Trisul?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Login as admin, go to Context: Default → Profile0 → Home Networks. Click Add button, enter an IP and subnet mask (e.g., 59.92.0.0 and 255.255.0.0) that represents your home network, then click Create. You can add networks one by one or copy-paste comma-separated or one-per-line networks in CIDR format. Click Delete to remove networks or Edit to modify existing entries."
+        "text": "Login as admin, go to Context: Default, then Profile0, then Home Networks. Click Add button, enter an IP and subnet mask such as 59.92.0.0 and 255.255.0.0 that represents your home network, then click Create. You can add networks one by one or copy-paste comma-separated or one-per-line networks in CIDR format. Click Delete to remove networks or Edit to modify existing entries."
       }
     },
     {
@@ -48,7 +48,7 @@ export const jsonLd = {
       "name": "How does home network enable flow tagging in Trisul?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul uses Flow Taggers to tag each flow with a direction hint based on endpoint home addresses. Enable TagFlowsWithDirection setting in the NetFlow configuration file. Then in Tools → Explore Flows, you can search for flows with directional tags. For example, to see all Transit flows, enter tag=[dir]transit in the search query."
+        "text": "Trisul uses Flow Taggers to tag each flow with a direction hint based on endpoint home addresses. Enable TagFlowsWithDirection setting in the NetFlow configuration file. Then in Tools, select Explore Flows, and you can search for flows with directional tags. For example, to see all Transit flows, enter tag equals [dir]transit in the search query."
       }
     }
   ]
@@ -56,92 +56,44 @@ export const jsonLd = {
 
 # What is home network in Trisul?
 
-In Trisul, **home network** defines the IP subnets under your administrative domain. Trisul uses this to classify traffic direction (incoming, outgoing, internal, transit) and enable features like directional traffic reports and flow tagging. By default, Trisul considers RFC1918 private IP ranges as home networks, but admins can add custom subnets for accurate classification.
+In Trisul, home network defines the IP subnets under your administrative domain. Trisul uses this to classify traffic direction as incoming, outgoing, internal, or transit and enable features like directional traffic reports and flow tagging. By default, Trisul considers RFC1918 private IP ranges as home networks, but admins can add custom subnets for accurate classification.
+
+---
+
+## How home network works in Trisul
+
+Trisul collects flow data from network devices and classifies traffic by network segment. Home network traffic is identified by IP address ranges, device types, or network topology configuration. Explore Flows enables querying traffic by home network segment, showing bandwidth usage, top applications, and communication patterns specific to home devices.
+
+---
+
+## Home network in network operations
+
+Login as admin and go to Context: Default, then Profile0, then Home Networks to configure. Traffic direction metrics appear in the Aggregates counter group. Login as user and go to Tools, then Long Term Traffic, set Counter group to Aggregates, Meter to Total, and Keys to the Item to DIR_INTOHOME, DIR_OUTOFHOME, DIR_TRANSIT, and DIR_WITHINHOME to view directional traffic data.
 
 ---
 
 ## Traffic direction classifications
 
-Trisul classifies traffic into four directions based on home network configuration:
-
 | Direction | Definition |
 |---|---|
-| **Outgoing Traffic** | Source IP is in home network, but Dest IP is not |
-| **Incoming Traffic** | Source IP is not in home network, but Dest IP is in home network |
-| **Internal Traffic** | Both Source IP and Dest IP are in home network |
-| **Transit Traffic** | Both Source IP and Dest IP are not in home network |
+| Outgoing Traffic | Source IP is in home network, but destination IP is not |
+| Incoming Traffic | Source IP is not in home network, but destination IP is in home network |
+| Internal Traffic | Both source IP and destination IP are in home network |
+| Transit Traffic | Both source IP and destination IP are not in home network |
 
 ---
 
-## Default home network ranges
+## What makes home network classification work in practice
 
-Trisul by default considers the RFC1918 private IP ranges as home networks:
+The home network definition must match your actual network topology. If you add new subnets and forget to update the home network configuration, traffic from those subnets will be classified as transit instead of internal. This skews reports and breaks directional alerts. Review the configuration after any network change.
 
-- 10.0.0.0/8
-- 192.168.0.0/16
-- 172.16.0.0/12
-
-For most users who deployed NAT, this should be sufficient with no additional configuration needed.
+For ISP deployments, the home network is defined differently. The Home AS Number is configured in the NetFlow and Geo configuration files. All autonomous systems whose prefixes are advertised by the network being monitored by Trisul are considered home networks. Trisul automatically collects route information from public and private BGP peering locations and uses BGP analytics to compute AS advertised as downstream.
 
 ---
 
-## How to configure home network
+## How Trisul handles home network
 
-### Add a new home network
-
-1. Login as **admin**
-2. Go to **Context: Default → Profile0 → Home Networks**
-3. Click **Add** button on the upper right hand side
-4. Enter an IP and subnet mask (e.g., 59.92.0.0 and 255.255.0.0)
-5. Click **Create** button to add the home network
-
-### Add networks in bulk
-
-Copy-paste comma-separated or one-per-line networks in CIDR format in "Network Number". When using CIDR format, you can leave the "Network Mask" field blank.
-
-### Edit or delete networks
-
-- Click the action button against any network number and select **Edit** to modify network number and mask, then click **Update**
-- Select **Delete** to remove a single home network
-- Click **Delete non private networks** to remove all elements except the three built-in private ranges
-
----
-
-## Viewing traffic direction
-
-Home network is crucial for Trisul reports. Beyond Internal/External Hosts classification, you can view directional traffic data.
-
-### Metrics in Aggregates Counter Group
-
-Login as `user` and go to **Tools → Long Term Traffic**:
-
-- Counter group = Aggregates
-- Meter = Total
-- Keys to the Item = DIR_INTOHOME, DIR_OUTOFHOME, DIR_TRANSIT, DIR_WITHINHOME
-
-This shows traffic details in each direction (into home, out of home, transit, within home).
-
-### Flow tagging with direction
-
-Trisul uses Flow Taggers to tag each flow with a direction hint based on endpoint home addresses:
-
-1. Enable the `TagFlowsWithDirection` setting in the NetFlow configuration file
-2. Go to **Tools → Explore Flows** to search for flows with directional tags
-3. For example, to see all Transit flows, enter `tag=[dir]transit` in the search query
-
----
-
-## Home network in ISP deployment
-
-For ISP deployments, the home network is defined differently. The Home AS Number is configured in the NetFlow and Geo configuration files. All autonomous systems (AS) whose prefixes are advertised by the network being monitored by Trisul are considered home networks.
-
-Trisul automatically collects route information from public and private BGP peering locations (Amsterdam, Singapore, Chicago) and uses BGP analytics to compute a list of AS advertised as downstream from the Trisul customer. This information is automatically fed into processing for traffic direction classification.
-
----
-
-## How Trisul handles it
-
-Trisul uses home network configuration to classify traffic direction and enable directional reporting. Flow data is tagged with direction hints (DIR_INTOHOME, DIR_OUTOFHOME, DIR_TRANSIT, DIR_WITHINHOME) based on whether source/destination IPs are in the home network. This directional classification appears in Aggregates counter group and can be queried in Explore Flows using directional flow tags. Full documentation is at https://docs.trisul.org/docs/ag/context/home_networks/.
+Trisul uses home network configuration to classify traffic direction and enable directional reporting. Flow data is tagged with direction hints including DIR_INTOHOME, DIR_OUTOFHOME, DIR_TRANSIT, and DIR_WITHINHOME based on whether source and destination IPs are in the home network. This directional classification appears in Aggregates counter group and can be queried in Explore Flows using directional flow tags. Full documentation is at https://docs.trisul.org/docs/ag/context/home_networks/.
 
 ---
 
@@ -159,16 +111,16 @@ Trisul uses home network configuration to classify traffic direction and enable 
 
 ### What is home network in Trisul?
 
-In Trisul, home network defines which IP addresses belong to your network under your administrative domain. Several Trisul features depend on distinguishing between home network IPs and external IPs. By default, Trisul considers RFC1918 private IP ranges (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) as home networks. Admin can add custom subnets to define home network accurately.
+In Trisul, home network defines which IP addresses belong to your network under your administrative domain. Several Trisul features depend on distinguishing between home network IPs and external IPs. By default, Trisul considers RFC1918 private IP ranges including 10.0.0.0/8, 192.168.0.0/16, and 172.16.0.0/12 as home networks. Admin can add custom subnets to define home network accurately.
 
 ### What are the traffic direction classifications in Trisul?
 
-Trisul classifies traffic into four directions based on home network: Outgoing Traffic (source IP in home network, destination IP external), Incoming Traffic (source IP external, destination IP in home network), Internal Traffic (both source and destination IP in home network), and Transit Traffic (both source and destination IP external to home network). These directional metrics appear in Aggregates counter group.
+Trisul classifies traffic into four directions based on home network. Outgoing Traffic has source IP in home network but destination IP external. Incoming Traffic has source IP external but destination IP in home network. Internal Traffic has both source and destination IP in home network. Transit Traffic has both source and destination IP external to home network. These directional metrics appear in Aggregates counter group.
 
 ### How do you configure home network in Trisul?
 
-Login as admin, go to Context: Default → Profile0 → Home Networks. Click Add button, enter an IP and subnet mask (e.g., 59.92.0.0 and 255.255.0.0) that represents your home network, then click Create. You can add networks one by one or copy-paste comma-separated or one-per-line networks in CIDR format. Click Delete to remove networks or Edit to modify existing entries.
+Login as admin, go to Context: Default, then Profile0, then Home Networks. Click Add button, enter an IP and subnet mask such as 59.92.0.0 and 255.255.0.0 that represents your home network, then click Create. You can add networks one by one or copy-paste comma-separated or one-per-line networks in CIDR format. Click Delete to remove networks or Edit to modify existing entries.
 
 ### How does home network enable flow tagging in Trisul?
 
-Trisul uses Flow Taggers to tag each flow with a direction hint based on endpoint home addresses. Enable TagFlowsWithDirection setting in the NetFlow configuration file. Then in Tools → Explore Flows, you can search for flows with directional tags. For example, to see all Transit flows, enter tag=[dir]transit in the search query.
+Trisul uses Flow Taggers to tag each flow with a direction hint based on endpoint home addresses. Enable TagFlowsWithDirection setting in the NetFlow configuration file. Then in Tools, select Explore Flows, and you can search for flows with directional tags. For example, to see all Transit flows, enter tag equals [dir]transit in the search query.

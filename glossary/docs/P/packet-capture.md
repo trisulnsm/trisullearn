@@ -1,224 +1,130 @@
 ---
-title: What is Packet Capture?
-sidebar_label: Packet Capture
-sidebar_position: 84
+title: What is packet capture?
+description: Packet capture (PCAP) records every packet on a network link, both headers and payload, to persistent storage. It provides complete wire-level data for forensic investigation, troubleshooting, and security analysis.
+sidebar_label: Packet capture
+sidebar_position: 80
 slug: /glossary/packet-capture
-description: Learn what packet capture is, how packet capture works, and why capturing network packets is important for troubleshooting, security, and forensic analysis.
 keywords:
   - packet capture
   - PCAP
   - network packet capture
-  - packet monitoring
-  - traffic capture
+  - packet forensics
+  - raw packet capture
   - network forensics
+  - deep packet inspection
 ---
 
-# What is Packet Capture?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is packet capture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Packet capture (PCAP) records every packet on a network link, both headers and payload, to persistent storage. Unlike flow monitoring which summarizes traffic into conversation records, PCAP preserves the complete wire-level data. It is the definitive record of what actually crossed the network."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does packet capture work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Packets are intercepted at a tap or SPAN port and written to disk in PCAP or PCAPNG format as a continuous ring buffer. Each frame is timestamped and the raw bytes from the Ethernet frame onwards are stored verbatim. At speeds above 1 Gbps, kernel-bypass frameworks such as PF_RING or AF_PACKET are required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between packet capture and flow monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow monitoring records who talked to whom, when, and how much. Packet capture records what was actually exchanged. Flow data tells you a host sent 2 GB over port 443 at 2AM; PCAP shows you what was in that transfer. The two are complementary: flow for detection, PCAP for investigation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does packet capture work on encrypted traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PCAP captures the encrypted bytes as they appear on the wire. Headers are readable; TLS payloads are ciphertext. You still get flow metadata, TLS certificate details, and JA3 fingerprints from the handshake. To inspect payload content you need either a TLS inspection proxy inline or access to session keys."
+      }
+    }
+  ]
+};
 
-Packet Capture is the process of collecting and storing network packets as they travel across a network for analysis, troubleshooting, security monitoring, and forensic investigation.
+# What is packet capture?
 
-Packet capture helps organizations define communication roles by recording the actual traffic exchanged between systems instead of only summarized metadata.
-
-Captured packets may contain:
-
-- source and destination addresses
-- protocol information
-- application data
-- session details
-- payload content
-- timing information
-
-Packet capture is commonly referred to as:
-
-- PCAP
-- network capture
-- traffic capture
-- packet recording
-
-It is widely used for:
-
-- troubleshooting
-- protocol analysis
-- security investigations
-- malware analysis
-- application diagnostics
-- network forensics
-
----
-
-## **How Packet Capture Works**
-
-Monitoring systems collect packets from observation points such as:
-
-- network taps
-- SPAN ports
-- switches
-- routers
-- firewalls
-- cloud traffic mirrors
-
-A typical workflow looks like this:
-
-Network Traffic → Packet Capture System → Packet Analysis
-
-The capture system:
-
-- observes network traffic
-- records packets
-- timestamps communication activity
-- stores packets for analysis
-
-Captured traffic can later be analyzed to investigate:
-
-- failed connections
-- protocol errors
-- suspicious activity
-- application latency
-- malware communication
-- traffic anomalies
-
-![](images/pcap.png)
+Packet capture (PCAP) records every packet on a network link, both headers and payload, to persistent storage. It provides complete wire-level data for forensic investigation, troubleshooting, and security analysis. PCAP is the definitive record of what actually crossed the network.
 
 ---
 
-## **Why Packet Capture Matters**
+## How packet capture works
 
-Flow monitoring provides summarized traffic visibility, but many issues require deeper inspection of the actual packets.
+Packets are intercepted at a tap or SPAN port and written to disk in PCAP or PCAPNG format as a continuous ring buffer. Each frame is timestamped and the raw bytes from the Ethernet frame onwards are stored verbatim. At speeds above 1 Gbps, kernel-bypass frameworks such as PF_RING or AF_PACKET are required.
 
-Without packet capture, organizations may struggle to:
-
-- troubleshoot complex protocol issues
-- investigate security incidents
-- analyze payload behavior
-- reconstruct attack activity
-- diagnose intermittent failures
-- inspect encrypted session metadata
-
-Packet capture helps teams:
-
-- perform deep traffic analysis
-- investigate communication details
-- troubleshoot application behavior
-- reconstruct incidents
-- improve forensic visibility
-- analyze network performance accurately
-
-It is especially important in:
-
-- SOC environments
-- enterprise networks
-- ISP infrastructures
-- data centers
-- cloud environments
-- troubleshooting operations
+Most platforms build a per-flow index at write time mapping each 5-tuple to its byte offsets in the capture store. This lets analysts retrieve packets for a specific conversation in seconds rather than scanning terabytes of raw files.
 
 ---
 
-## **Common Operational Use Cases**
+## Packet capture in network operations
 
-### Protocol Troubleshooting
+In the SOC, PCAP is the evidence layer. Flow data or IDS alerts tell you something suspicious happened. PCAP tells you what was exchanged: commands issued, files transferred, credentials passed. For incident confirmation, there is no substitute.
 
-Inspect failed sessions and protocol behavior.
-
-### Security Investigations
-
-Analyze suspicious traffic and attack communication.
-
-### Malware Analysis
-
-Inspect command-and-control traffic and exploit behavior.
-
-### Application Diagnostics
-
-Analyze application latency and transaction failures.
-
-### Network Forensics
-
-Reconstruct historical communication and attack timelines.
+NOC teams use PCAP for application performance root cause analysis. TCP retransmissions, window behavior, TLS handshake failures, and application-level error codes are only visible at the packet level. Flow telemetry shows a conversation; it does not show that the conversation was broken.
 
 ---
 
-## **Packet Capture vs Flow Monitoring**
+## Packet capture vs flow monitoring
 
-| Feature | Packet Capture | Flow Monitoring |
+| Dimension | Packet Capture | Flow Monitoring |
 |---|---|---|
-| Visibility Depth | Full packet contents | Traffic metadata |
-| Storage Requirement | High | Lower |
-| Scalability | Moderate | High |
-| Payload Visibility | Full | Minimal or none |
-| Common Use | Deep analysis and forensics | Traffic analytics |
-
-Packet capture provides detailed visibility into communication contents, while flow monitoring provides scalable traffic summaries.
+| What it stores | Complete packet headers and payload | Flow metadata 5-tuple byte counts timestamps |
+| Investigative depth | Payload content application behavior file transfers | Who talked to whom volume duration |
+| Storage footprint | Very high scales with wire speed | Low approximately 1 to 2% of equivalent PCAP |
+| Retention period | Hours to days at full fidelity | Weeks to months |
+| Best fit | Forensic investigation incident confirmation | Traffic trending anomaly detection compliance |
 
 ---
 
-## **How Trisul Handles Packet Capture**
+## What makes packet capture work in practice
 
-Trisul provides scalable packet capture and forensic traffic visibility for enterprise and ISP environments.
+The capture point determines loss. SPAN ports drop mirrored packets under load often without any visible counter increment. Passive optical taps are lossless but require per-link hardware. For forensic investigation passive TAPs ensure complete packet capture.
 
-Combined with:
-
-- Packet Analysis
-- Flow Analysis
-- Retro Analysisᵀ
-- Contextᵀ
-- Conversation View
-- Network Forensics
-
-Trisul helps teams:
-
-- inspect packet-level communication
-- troubleshoot protocol issues
-- investigate suspicious traffic
-- reconstruct attack timelines
-- analyze application behavior
-- improve forensic visibility
-
-Trisul can also integrate:
-
-- Packet Analysis
-- Network Forensics
-- Traffic Investigation
-
-workflows for deeper packet-level investigation.
+Index quality determines investigation speed. Without per-flow indexing analysts scan raw files manually. With it any alert can pivot directly to the relevant packets in seconds. For a terabyte-scale archive this is the difference between a usable tool and an unusable one.
 
 ---
 
-## **Related Terms**
+## How Trisul handles packet capture
 
-- Packet Analysis
-- Flow Analysis
-- Network Forensics
-- Traffic Investigation
-- Deep Packet Inspection (DPI)
-- Observation Point
+Trisul captures raw packets continuously using PF_RING or AF_PACKET and builds a per-flow index at write time. From any alert topper or flow in the dashboard analysts can pivot directly to the matching PCAP without manual file correlation. The capture store distributes across multiple disks to extend retention. Storage policies let operators define exactly what gets written by protocol direction or custom LUA rules. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
 
 ---
 
-## **FAQ**
+## Related terms
+
+- [What is full packet capture?](/glossary/full-packet-capture)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is network TAP?](/glossary/network-tap)
+- [What is SPAN port?](/glossary/span-port)
+- [What is network forensics?](/glossary/network-forensics)
+
+---
+
+## Frequently asked questions
 
 ### What is packet capture?
 
-Packet capture is the process of collecting and storing network packets for analysis and investigation.
+Packet capture (PCAP) records every packet on a network link, both headers and payload, to persistent storage. Unlike flow monitoring which summarizes traffic into conversation records, PCAP preserves the complete wire-level data. It is the definitive record of what actually crossed the network.
 
-### Why is packet capture important?
+### How does packet capture work?
 
-It helps organizations troubleshoot issues, investigate security incidents, and analyze communication behavior deeply.
+Packets are intercepted at a tap or SPAN port and written to disk in PCAP or PCAPNG format as a continuous ring buffer. Each frame is timestamped and the raw bytes from the Ethernet frame onwards are stored verbatim. At speeds above 1 Gbps, kernel-bypass frameworks such as PF_RING or AF_PACKET are required.
 
-### What information does packet capture contain?
+### What is the difference between packet capture and flow monitoring?
 
-Captured packets may include addresses, protocols, payloads, session details, timestamps, and application data.
+Flow monitoring records who talked to whom, when, and how much. Packet capture records what was actually exchanged. Flow data tells you a host sent 2 GB over port 443 at 2AM; PCAP shows you what was in that transfer. The two are complementary: flow for detection, PCAP for investigation.
 
-### What's the difference between packet capture and flow monitoring?
+### Does packet capture work on encrypted traffic?
 
-Packet capture records full packet contents, while flow monitoring summarizes communication into metadata.
-
-### Is packet capture useful for security investigations?
-
-Yes. It helps analyze malware communication, suspicious traffic, exploits, and attack timelines.
-
-### Can packet capture troubleshoot application problems?
-
-Yes. It helps identify latency, retransmissions, failed sessions, and protocol-level issues.
-
-Humanity storing billions of packets just to discover one server was misconfigured three Tuesdays ago. Digital archaeology with extra storage invoices.
+PCAP captures the encrypted bytes as they appear on the wire. Headers are readable; TLS payloads are ciphertext. You still get flow metadata, TLS certificate details, and JA3 fingerprints from the handshake. To inspect payload content you need either a TLS inspection proxy inline or access to session keys.

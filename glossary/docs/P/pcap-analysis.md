@@ -1,219 +1,131 @@
 ---
-title: What is PCAP Analysis?
-sidebar_label: PCAP Analysis
-sidebar_position: 87
+title: What is PCAP analysis?
+description: PCAP analysis examines packet capture files to investigate security incidents, troubleshoot network problems, and analyze application behavior. It uses tools like Wireshark to filter, decode, and interpret packet data for forensic investigation.
+sidebar_label: PCAP analysis
+sidebar_position: 83
 slug: /glossary/pcap-analysis
-description: Learn what PCAP analysis is, how packet capture files are analyzed, and why PCAP visibility is important for troubleshooting, security investigations, and network forensics.
 keywords:
   - PCAP analysis
   - packet capture analysis
-  - network packet analysis
-  - packet forensics
-  - traffic investigation
-  - network troubleshooting
+  - pcap file analysis
+  - network forensics
+  - packet inspection
+  - traffic analysis
+  - pcap inspection
 ---
 
-# What is PCAP Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is PCAP analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PCAP analysis examines packet capture files to investigate security incidents, troubleshoot network problems, and analyze application behavior. PCAP files contain captured network packets with headers and payloads. Analysis uses tools like Wireshark to filter, decode, and interpret packet data for forensics and troubleshooting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does PCAP analysis reveal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PCAP analysis reveals security threats including malware communication and intrusion attempts, application behavior including requests and responses, performance issues including latency and retransmissions, protocol problems including malformed packets and violations, and network configuration issues including routing problems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is PCAP analysis performed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PCAP analysis involves loading PCAP files into analysis tools, applying filters to focus on specific traffic, following TCP streams to see conversation flow, examining packet details including headers and payloads, identifying anomalies and threats through pattern analysis, and documenting findings for reporting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tools are used for PCAP analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PCAP analysis tools include Wireshark for interactive analysis, tcpdump for command-line capture and analysis, Trisul for integrated PCAP retrieval from alerts, Zeek for network security monitoring, and custom scripts for automated analysis. Modern tools provide real-time analysis and threat detection."
+      }
+    }
+  ]
+};
 
-PCAP Analysis is the process of examining packet capture (PCAP) files to investigate network communication, troubleshoot problems, analyze application behavior, and detect suspicious activity.
+# What is PCAP analysis?
 
-A PCAP file contains recorded network packets collected from live traffic.
-
-PCAP analysis helps organizations define investigative roles by revealing:
-
-- protocol behavior
-- application communication
-- failed sessions
-- latency issues
-- suspicious payloads
-- malware activity
-- attack timelines
-
-It is widely used for:
-
-- troubleshooting
-- network forensics
-- incident response
-- protocol analysis
-- malware investigation
-- performance monitoring
-
----
-
-## **How PCAP Analysis Works**
-
-Packet capture systems record traffic flowing through observation points such as:
-
-- network taps
-- SPAN ports
-- switches
-- firewalls
-- cloud mirrors
-
-The captured packets are stored in PCAP files.
-
-Analysts then:
-
-1. load the PCAP into analysis tools
-2. decode protocols and sessions
-3. inspect communication behavior
-4. investigate anomalies or failures
-
-A typical workflow looks like this:
-
-Network Traffic → Packet Capture → PCAP File → PCAP Analysis
-
-PCAP analysis may reveal:
-
-- TCP retransmissions
-- DNS queries
-- SSL/TLS handshakes
-- HTTP transactions
-- packet loss
-- suspicious payloads
-- malware communication
-- application delays
+PCAP analysis examines packet capture files to investigate security incidents, troubleshoot network problems, and analyze application behavior. It uses tools like Wireshark to filter, decode, and interpret packet data for forensic investigation. PCAP files contain captured network packets with headers and payloads.
 
 ---
 
-## **Why PCAP Analysis Matters**
+## How PCAP analysis works
 
-Many network and security issues cannot be fully understood using summarized metadata alone.
+PCAP files are loaded into analysis tools. Filters focus on specific traffic by IP, port, protocol, or pattern. TCP streams are followed to see complete conversation flow. Packet details are examined including headers and payloads. Anomalies and threats are identified through pattern analysis.
 
-Without PCAP analysis, organizations may struggle to:
-
-- troubleshoot protocol errors
-- investigate security incidents
-- analyze malware communication
-- diagnose intermittent failures
-- reconstruct attacks
-- inspect detailed application behavior
-
-PCAP analysis helps teams:
-
-- perform deep traffic investigation
-- analyze protocol interactions
-- troubleshoot communication failures
-- reconstruct attack timelines
-- improve forensic visibility
-- validate network performance issues
-
-It is especially important in:
-
-- SOC environments
-- enterprise networks
-- ISP infrastructures
-- cloud environments
-- data centers
-- troubleshooting operations
-
-Because apparently one corrupted packet at 2:13 AM six weeks ago deserves its own detective investigation. And honestly, sometimes it does.
+Protocol decoding interprets application-layer data. Statistics show traffic patterns and metrics. Deep packet inspection reveals payload content. Timeline analysis shows when events occurred.
 
 ---
 
-## **Common Operational Use Cases**
+## PCAP analysis in network operations
 
-### Protocol Troubleshooting
+In the SOC, PCAP analysis is the forensic investigation layer. Security analysts use PCAP analysis to investigate alerts and determine what happened. NOC teams use PCAP analysis to troubleshoot application performance problems. Packet-level visibility reveals issues invisible at flow level.
 
-Analyze failed sessions and protocol-level communication issues.
-
-### Security Investigations
-
-Inspect suspicious traffic and malicious communication.
-
-### Malware Analysis
-
-Identify exploit traffic and command-and-control behavior.
-
-### Application Diagnostics
-
-Investigate latency, retransmissions, and failed transactions.
-
-### Network Forensics
-
-Reconstruct historical communication activity and attack timelines.
+PCAP analysis supports incident response with evidence collection. Analysts document findings from PCAP analysis for incident reports. PCAP files provide evidence for legal proceedings.
 
 ---
 
-## **PCAP Analysis vs Flow Analysis**
+## PCAP analysis techniques
 
-| Feature | PCAP Analysis | Flow Analysis |
-|---|---|---|
-| Visibility Depth | Full packet contents | Traffic metadata |
-| Storage Requirement | High | Lower |
-| Scalability | Moderate | High |
-| Payload Visibility | Full | Minimal or none |
-| Common Use | Deep investigation | Traffic analytics |
-
-PCAP analysis provides detailed packet-level visibility, while flow analysis provides scalable communication summaries.
-
----
-
-## **How Trisul Handles PCAP Analysis**
-
-Trisul provides scalable PCAP analytics and forensic visibility for enterprise and ISP environments.
-
-Combined with:
-
-- Packet Capture
-- Packet Analysis
-- Retro Analysisᵀ
-- Contextᵀ
-- Conversation View
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- inspect packet-level communication
-- troubleshoot protocol behavior
-- investigate suspicious traffic
-- analyze application performance
-- reconstruct communication timelines
-- improve forensic visibility
-
-Trisul can also integrate:
-
-- Packet Capture
-- Network Forensics
-- Traffic Investigation
-
-workflows for deeper packet investigation.
+| Technique | Description |
+|---|---|
+| Filtering | Focus on specific IP, port, protocol, or pattern |
+| Stream following | Follow TCP streams to see complete conversations |
+| Protocol decoding | Interpret application-layer protocols |
+| Timeline analysis | See when events occurred |
+| Statistics | Analyze traffic patterns and metrics |
+| Deep inspection | Examine headers and payloads |
 
 ---
 
-## **Related Terms**
+## What makes PCAP analysis work in practice
 
-- Packet Capture
-- Packet Analysis
-- Network Forensics
-- Traffic Investigation
-- Deep Packet Inspection (DPI)
-- Observation Point
+PCAP retrieval speed determines investigation efficiency. Without per-flow indexing analysts load large capture files into Wireshark and filter by hand. That manual process works at small scale but breaks down when the archive spans terabytes. With indexing analysts click from an alert directly to the matching packets.
+
+Analysis tool capability determines insight depth. Modern tools provide filtering, protocol decoding, stream following, and statistics. Without capable tools analysis becomes manual and time-consuming. Automated detection identifies threats faster.
 
 ---
 
-## **FAQ**
+## How Trisul handles PCAP analysis
+
+Trisul provides PCAP analysis through integrated packet capture and flow data. From any alert, topper, or flow in the dashboard, analysts can pivot directly to the matching PCAP without manual file correlation. Trisul builds per-flow index enabling fast PCAP retrieval. Packet capture records every packet headers and payload. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+
+---
+
+## Related terms
+
+- [What is packet capture?](/glossary/packet-capture)
+- [What is packet analysis?](/glossary/packet-analysis)
+- [What is Wireshark?](/glossary/wireshark)
+- [What is network forensics?](/glossary/network-forensics)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+
+---
+
+## Frequently asked questions
 
 ### What is PCAP analysis?
 
-PCAP analysis is the process of examining packet capture files to investigate network communication and troubleshoot issues.
+PCAP analysis examines packet capture files to investigate security incidents, troubleshoot network problems, and analyze application behavior. PCAP files contain captured network packets with headers and payloads. Analysis uses tools like Wireshark to filter, decode, and interpret packet data for forensics and troubleshooting.
 
-### Why is PCAP analysis important?
+### What does PCAP analysis reveal?
 
-It helps organizations analyze protocol behavior, investigate attacks, troubleshoot applications, and perform forensic investigations.
+PCAP analysis reveals security threats including malware communication and intrusion attempts, application behavior including requests and responses, performance issues including latency and retransmissions, protocol problems including malformed packets and violations, and network configuration issues including routing problems.
 
-### What does a PCAP file contain?
+### How is PCAP analysis performed?
 
-A PCAP file contains captured network packets, including headers, protocols, payloads, and timing information.
+PCAP analysis involves loading PCAP files into analysis tools, applying filters to focus on specific traffic, following TCP streams to see conversation flow, examining packet details including headers and payloads, identifying anomalies and threats through pattern analysis, and documenting findings for reporting.
 
-### What's the difference between PCAP analysis and flow analysis?
+### What tools are used for PCAP analysis?
 
-PCAP analysis examines full packet contents, while flow analysis summarizes communication into metadata.
-
-### Is PCAP analysis useful for malware investigations?
-
-Yes. It helps identify malicious communication, exploit traffic, and command-and-control activity.
-
-### Can PCAP analysis troubleshoot application issues?
-
-Yes. It helps analyze retransmissions, failed sessions, latency, and protocol-level application behavior.
+PCAP analysis tools include Wireshark for interactive analysis, tcpdump for command-line capture and analysis, Trisul for integrated PCAP retrieval from alerts, Zeek for network security monitoring, and custom scripts for automated analysis. Modern tools provide real-time analysis and threat detection.

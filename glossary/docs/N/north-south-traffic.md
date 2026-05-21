@@ -1,213 +1,128 @@
 ---
-title: What is North-South Traffic?
-sidebar_label: North-South Traffic
-sidebar_position: 79
+title: What is north south traffic?
+description: North south traffic is data flowing between a data center and external networks such as the internet or branch offices. It contrasts with east west traffic which flows within the data center between servers.
+sidebar_label: North south traffic
+sidebar_position: 75
 slug: /glossary/north-south-traffic
-description: Learn what North-South Traffic is, how external network communication works, and why monitoring inbound and outbound traffic is important for security and performance visibility.
 keywords:
+  - north south traffic
   - north-south traffic
-  - inbound outbound traffic
-  - external network traffic
-  - perimeter traffic monitoring
-  - internet traffic analysis
-  - network traffic visibility
+  - inbound traffic
+  - outbound traffic
+  - data center traffic
+  - external traffic
+  - traffic direction
 ---
 
-# What is North-South Traffic?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is north south traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "North south traffic is data flowing between a data center and external networks such as the internet or branch offices. It is also called client server traffic or inbound outbound traffic. North south traffic contrasts with east west traffic which flows within the data center between servers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why distinguish north south from east west traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Distinguishing north south from east west traffic helps with capacity planning, security policies, and network architecture. North south traffic typically goes through firewalls and load balancers at the data center edge. East west traffic flows within the data center through switches. Different security and performance requirements apply."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are examples of north south traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Examples of north south traffic include web requests from internet users to data center servers, emails from data center mail servers to external recipients, API calls from external clients to cloud services, file downloads from data center to users, and backups from data center to cloud storage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is north south traffic monitored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "North south traffic is monitored at the data center edge where traffic enters or exits. Flow monitoring captures traffic at gateway interfaces. Packet capture at edge links records north south traffic for forensic investigation. Load balancers and firewalls track north south traffic for capacity and security."
+      }
+    }
+  ]
+};
 
-North-South Traffic refers to network communication flowing between internal networks and external environments such as the internet, cloud platforms, partner networks, or remote users.
+# What is north south traffic?
 
-It represents traffic entering or leaving the network perimeter.
+North south traffic is data flowing between a data center and external networks such as the internet or branch offices. It contrasts with east west traffic which flows within the data center between servers. North south traffic is also called client server traffic or inbound outbound traffic.
 
-North-South traffic helps organizations define communication roles by identifying:
-- inbound traffic from external sources
-- outbound internet communication
-- cloud connectivity
-- remote access activity
-- public-facing application traffic
-- external data transfers
+---
 
-It is widely monitored for:
-- security visibility
-- internet usage analysis
-- firewall monitoring
-- application access
-- bandwidth management
-- compliance monitoring
+## How north south traffic works
 
-## **How North-South Traffic Works**
+North south traffic enters or exits the data center through edge routers, firewalls, and load balancers. External clients initiate connections to servers in the data center. Server responses flow back to clients. All north south traffic passes through the data center perimeter.
 
-Most organizations maintain internal systems such as:
-- servers
-- applications
-- databases
-- user devices
-- cloud workloads
+---
 
-When communication crosses the network boundary:
-- incoming traffic is considered inbound
-- outgoing traffic is considered outbound
+## North south traffic in network operations
 
-A typical North-South workflow looks like this:
+In the NOC, monitor north south traffic at the data center edge to detect congestion and anomalies. Security teams analyze north south traffic for threats entering or leaving the data center. Capacity planning tracks north south traffic volumes to plan bandwidth upgrades for edge links.
 
-```
-Internet / Cloud
-        ↓
-Firewall / Gateway
-        ↓
-Internal Network
-```
+Load balancers distribute north south traffic across backend servers. Firewalls filter north south traffic for security. Track utilization on these devices to ensure capacity is adequate.
 
-Examples include:
+---
 
-- users accessing websites
-- cloud application communication
-- remote VPN access
-- customers accessing public services
-- external API communication
+## North south vs east west comparison
 
-Monitoring platforms analyze:
-
-- traffic direction
-- application behavior
-- bandwidth usage
-- communication destinations
-- external connectivity
-
-## **Why North-South Traffic Matters**
-
-North-South communication is a major source of:
-
-- internet access
-- cloud connectivity
-- remote user traffic
-- external attacks
-- data transfers
-
-Without visibility into North-South traffic, organizations may struggle to:
-
-- monitor internet usage
-- detect suspicious outbound activity
-- analyze inbound attacks
-- troubleshoot connectivity issues
-- enforce perimeter security policies
-
-North-South traffic monitoring helps teams:
-
-- improve security visibility
-- monitor cloud application access
-- analyze internet traffic
-- detect data exfiltration
-- troubleshoot WAN issues
-- optimize bandwidth usage
-
-It is especially important in:
-
-- enterprise networks
-- ISP infrastructures
-- cloud environments
-- hybrid deployments
-- SOC operations
-- remote work environments
-
-## **Common Operational Use Cases**
-
-### Internet Traffic Monitoring
-
-Analyze outbound web and cloud traffic usage.
-
-### Security Monitoring
-
-Detect suspicious inbound attacks or malicious outbound communication.
-
-### Remote Access Visibility
-
-Monitor VPN and remote user connectivity.
-
-### Cloud Connectivity Analysis
-
-Track communication between internal systems and cloud services.
-
-### Perimeter Security Monitoring
-
-Analyze traffic crossing firewalls and internet gateways.
-
-## **North-South Traffic vs East-West Traffic**
-
-| Feature | North-South Traffic | East-West Traffic |
+| Aspect | North South Traffic | East West Traffic |
 |---|---|---|
-| Communication Scope | Internal ↔ External | Internal ↔ Internal |
-| Traffic Direction | Across network perimeter | Within the internal network |
-| Common Focus | Internet and cloud traffic | Lateral movement |
-| Security Concern | External threats and exfiltration | Internal spread and segmentation |
-| Typical Example | User accessing SaaS | Server-to-server communication |
+| Direction | Data center to external | Server to server within data center |
+| Also called | Client server, inbound outbound | Server server, internal |
+| Path | Through edge firewalls and load balancers | Through data center switches |
+| Security focus | Perimeter defense, external threats | Lateral movement, internal threats |
+| Capacity planning | Edge link bandwidth | Switch capacity and fabric bandwidth |
 
-North-South traffic focuses on external communication, while East-West traffic focuses on internal communication. Humanity really looked at packet directions and decided cardinal geography was the naming convention. Somehow it stuck.
+---
 
+## What makes north south traffic monitoring work in practice
 
-## **How Trisul Handles North-South Traffic Visibility**
+Edge monitoring captures all north south traffic. Flow exporters must be enabled on edge interfaces. Packet capture at edge links records north south traffic for forensic investigation. Without edge monitoring, north south traffic is invisible.
 
-Trisul provides contextual traffic analytics for monitoring inbound and outbound communication across distributed environments.
+Bottleneck identification requires monitoring at the data center perimeter. When north south traffic exceeds edge capacity, users experience slow performance. Monitoring edge utilization identifies when upgrades are needed before users report problems.
 
-Combined with:
+---
 
-- Home Networkᵀ
-- Contextᵀ
-- Flow Analysis
-- Conversation View
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
+## How Trisul handles north south traffic
 
-Trisul helps teams:
+Trisul monitors north south traffic at data center edge interfaces through flow data collection. NetFlow, J-Flow, sFlow, and IPFIX data from edge routers and firewalls capture north south traffic volumes. Trisul classifies traffic direction based on home network configuration distinguishing north south from east west. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-- analyze internet traffic behavior
-- monitor outbound communication
-- investigate suspicious external connections
-- visualize cloud application usage
-- detect anomalous traffic patterns
-- troubleshoot connectivity issues
+---
 
-Trisul can also integrate:
+## Related terms
 
-- Inbound vs Outbound Traffic
-- East-West Traffic
-- Application Visibility
+- [What is east west traffic?](/glossary/east-west-traffic)
+- [What is inbound traffic?](/glossary/inbound-traffic)
+- [What is outbound traffic?](/glossary/outbound-traffic)
+- [What is data center monitoring?](/glossary/data-center-monitoring)
+- [What is traffic direction?](/glossary/traffic-direction)
 
-workflows for deeper traffic visibility.
+---
 
+## Frequently asked questions
 
-## **Related Terms**
+### What is north south traffic?
 
-- Inbound vs Outbound Traffic
-- East-West Traffic
-- Application Visibility
-- Bandwidth Monitoring
-- Traffic Investigation
-- Home Networkᵀ
+North south traffic is data flowing between a data center and external networks such as the internet or branch offices. It is also called client server traffic or inbound outbound traffic. North south traffic contrasts with east west traffic which flows within the data center between servers.
 
+### Why distinguish north south from east west traffic?
 
-## **FAQ**
+Distinguishing north south from east west traffic helps with capacity planning, security policies, and network architecture. North south traffic typically goes through firewalls and load balancers at the data center edge. East west traffic flows within the data center through switches. Different security and performance requirements apply.
 
-### What is North-South Traffic?
+### What are examples of north south traffic?
 
-North-South Traffic refers to communication between internal networks and external environments such as the internet or cloud services.
+Examples of north south traffic include web requests from internet users to data center servers, emails from data center mail servers to external recipients, API calls from external clients to cloud services, file downloads from data center to users, and backups from data center to cloud storage.
 
-### Why is North-South Traffic important?
+### How is north south traffic monitored?
 
-It helps organizations monitor internet access, cloud connectivity, remote access, and perimeter security activity.
-
-### What types of communication are considered North-South Traffic?
-
-Examples include web browsing, SaaS access, VPN communication, public application access, and cloud connectivity.
-
-### What's the difference between North-South and East-West traffic?
-
-North-South traffic crosses the network perimeter, while East-West traffic occurs within internal networks.
-
-### Why is North-South Traffic important for security monitoring?
-
-It helps detect inbound attacks, suspicious outbound communication, and potential data exfiltration.
-
-### Can North-South Traffic analysis help cloud monitoring?
-
-Yes. It helps analyze communication between internal systems and cloud applications or services.
+North south traffic is monitored at the data center edge where traffic enters or exits. Flow monitoring captures traffic at gateway interfaces. Packet capture at edge links records north south traffic for forensic investigation. Load balancers and firewalls track north south traffic for capacity and security.

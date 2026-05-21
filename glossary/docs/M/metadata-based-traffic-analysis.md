@@ -1,187 +1,132 @@
 ---
-title: What is Metadata-Based Traffic Analysis?
-sidebar_label: Metadata-Based Traffic Analysis
-sidebar_position: 66
+title: What is metadata based traffic analysis?
+description: Metadata based traffic analysis examines flow metadata including IP addresses, ports, protocols, byte counts, and timestamps instead of full packet payloads. It provides application-level visibility with significantly reduced storage requirements.
+sidebar_label: Metadata based traffic analysis
+sidebar_position: 63
 slug: /glossary/metadata-based-traffic-analysis
-description: Learn what metadata-based traffic analysis is, how traffic metadata is used for monitoring and security, and why metadata visibility is important for scalable network analytics.
 keywords:
-  - metadata-based traffic analysis
-  - network metadata analysis
+  - metadata based traffic analysis
+  - flow metadata
+  - NetFlow analysis
   - traffic metadata
-  - flow analytics
-  - network traffic visibility
-  - metadata monitoring
+  - flow analysis
+  - application metadata
+  - flow inspection
 ---
 
-# What is Metadata-Based Traffic Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is metadata based traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metadata based traffic analysis examines flow metadata including source and destination IP addresses, ports, protocols, byte counts, packet counts, and timestamps instead of full packet payloads. It provides application-level visibility with significantly reduced storage requirements compared to packet capture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What metadata is analyzed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Analyzed metadata includes source and destination IP addresses, source and destination ports, protocol type, byte count, packet count, flow start time, flow end time, TCP flags, Type of Service, and next-hop IP. This metadata is extracted from NetFlow, sFlow, J-Flow, and IPFIX records."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the benefits of metadata analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Benefits include reduced storage requirements at 1 to 2 percent of packet capture volume, longer retention periods, faster query performance, scalability to gigabit speeds, and privacy compliance since payload content is not stored. Metadata analysis enables threat detection and forensics without packet capture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does metadata analysis compare to packet capture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Packet capture stores full packet content including payload. Metadata analysis stores only flow headers and statistics. Metadata provides 5 to 10x data reduction compared to raw flows while maintaining security fidelity. Packet capture is for deep forensics, metadata is for scalable monitoring."
+      }
+    }
+  ]
+};
 
-Metadata-Based Traffic Analysis is the process of analyzing network communication using traffic metadata instead of inspecting full packet contents.
+# What is metadata based traffic analysis?
 
-Traffic metadata describes the characteristics and behavior of communication sessions without necessarily capturing the actual payload data.
+Metadata based traffic analysis examines flow metadata including IP addresses, ports, protocols, byte counts, and timestamps instead of full packet payloads. It provides application-level visibility with significantly reduced storage requirements. Metadata is extracted from NetFlow, sFlow, J-Flow, and IPFIX records.
 
-This approach helps organizations analyze:
-- traffic patterns
-- application behavior
-- bandwidth usage
-- communication relationships
-- anomalies
-- security events
-- network performance
+---
 
-Metadata-based analysis provides scalable visibility while reducing storage and processing requirements compared to full packet capture.
+## How metadata analysis works
 
-## **How Metadata-Based Traffic Analysis Works**
+Flow exporters extract metadata from packet headers and send it to the collector. The collector analyzes metadata to identify applications, detect anomalies, and track traffic patterns. Traffic metadata includes 5-tuple, byte counts, packet counts, timestamps, and TCP flags.
 
-Network devices and monitoring systems generate metadata from traffic flowing across the network.
+Enriched flow monitoring adds application-layer metadata including DNS queries, HTTP requests, and SSL handshakes without storing full packets. This provides application-level visibility with significant data reduction.
 
-Common metadata fields include:
-- source and destination IP addresses
-- ports and protocols
-- timestamps
-- packet counts
-- byte counts
-- session duration
-- traffic direction
-- application identifiers
-- ASN information
+---
 
-Monitoring platforms:
-1. collect traffic metadata
-2. store and index the records
-3. analyze traffic behavior and trends
-4. visualize communication patterns
+## Metadata analysis in network operations
 
-For example:
+In the NOC, use metadata analysis to identify top talkers, track bandwidth usage, and detect anomalies. Security teams use metadata to detect indicators of compromise and trace attack paths. Capacity planning tracks metadata trends to plan bandwidth upgrades.
 
-1. A device exports flow metadata
-2. Analysts identify unusual outbound communication
-3. Metadata reveals abnormal traffic frequency and destinations
-4. The activity is investigated further
+Metadata analysis enables threat detection and forensics without packet capture. Flow records show who talked to whom, when, and how much. This identifies affected systems and quantifies data exfiltration.
 
-Metadata may come from:
-- NetFlow
-- IPFIX
-- sFlow
-- DNS logs
-- cloud telemetry
-- application analytics
-- traffic sensors
+---
 
-## **Why Metadata-Based Traffic Analysis Matters**
+## Metadata vs packet capture comparison
 
-Modern networks generate enormous traffic volumes that are difficult to store as full packets continuously.
-
-Metadata analysis helps organizations:
-- scale traffic visibility
-- reduce storage requirements
-- analyze communication behavior
-- monitor encrypted traffic patterns
-- investigate anomalies
-- improve operational awareness
-
-Without metadata visibility, teams may struggle to:
-- monitor large-scale environments efficiently
-- investigate communication trends
-- analyze traffic relationships
-- detect suspicious behavior
-- maintain long-term analytics visibility
-
-Metadata-based analysis is especially important in:
-- enterprise networks
-- ISP infrastructures
-- SOC environments
-- cloud deployments
-- high-speed networks
-
-## **Common Operational Use Cases**
-
-### Traffic Monitoring
-
-Analyze bandwidth usage and communication behavior.
-
-### Security Monitoring
-
-Detect anomalous traffic patterns and suspicious connections.
-
-### Encrypted Traffic Analysis
-
-Monitor traffic behavior without decrypting payloads.
-
-### Capacity Planning
-
-Analyze long-term traffic growth and utilization trends.
-
-### Subscriber Analytics
-
-Monitor communication patterns across large user environments.
-
-## **Metadata Analysis vs Full Packet Analysis**
-
-| Feature | Metadata-Based Analysis | Full Packet Analysis |
+| Aspect | Metadata Analysis | Packet Capture |
 |---|---|---|
-| Visibility Type | Traffic characteristics | Complete packet contents |
-| Storage Requirement | Lower | Much higher |
-| Scalability | High | Moderate |
-| Payload Visibility | Minimal or none | Full |
-| Common Use | Traffic analytics | Deep forensics |
-
-Metadata analysis focuses on traffic behavior, while full packet analysis focuses on packet content visibility.
-
-## **How Trisul Handles Metadata-Based Traffic Analysis**
-
-Trisul provides scalable metadata-driven traffic analytics for enterprise and ISP environments.
-
-Combined with:
-- Flow Analysis
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-- Multigraph Analyticsᵀ
-- Flow Stitchingᵀ
-
-Trisul helps teams:
-- analyze communication behavior
-- monitor bandwidth utilization
-- investigate anomalies
-- visualize traffic relationships
-- analyze encrypted traffic patterns
-- retain scalable historical visibility
-
-Trisul can also integrate [IPFIX](/glossary/ipfix), [Encrypted Traffic Analysis](/glossary/encrypted-traffic-analysis), and [Historical Traffic Analysis](/glossary/historical-traffic-analysis) workflows for deeper analytics visibility.
-
-## **Related Terms**
-
-- [Flow Analysis](/glossary/flow-analysis)
-- [IPFIX](/glossary/ipfix)
-- [NetFlow](/glossary/netflow)
-- [Encrypted Traffic Analysis](/glossary/encrypted-traffic-analysis)
-- [Historical Traffic Analysis](/glossary/historical-traffic-analysis)
-- [Flow Monitoring](/glossary/flow-monitoring)
+| What it stores | Flow headers and statistics | Full packet content and payload |
+| Storage footprint | 1 to 2% of PCAP volume | Very high |
+| Retention | Weeks to months | Hours to days |
+| Privacy | Compliant, no payload stored | Privacy concerns with payload |
+| Best for | Scalable monitoring, detection | Deep forensics, investigation |
 
 ---
 
-## **FAQ**
+## What makes metadata analysis work in practice
 
-### What is metadata-based traffic analysis?
+Metadata extraction must happen at the network edge. Flow exporters on routers and switches extract metadata from packet headers. This offloads processing from the collector and enables scalable monitoring across large networks.
 
-Metadata-based traffic analysis is the process of analyzing network communication using traffic metadata instead of full packet contents.
+Metadata enrichment adds application-level context. Extract DNS queries, HTTP requests, and SSL certificates from flow metadata. This provides application visibility without payload inspection. Enriched metadata provides 5 to 10x data reduction compared to raw flows.
 
-### What is network traffic metadata?
+---
 
-Traffic metadata includes information such as IP addresses, ports, protocols, timestamps, bandwidth usage, and session duration.
+## How Trisul handles metadata analysis
 
-### Why is metadata analysis important?
+Trisul uses metadata based traffic analysis by collecting NetFlow, J-Flow, sFlow, and IPFIX data. Flow records include metadata that enables application identification, anomaly detection, and traffic pattern analysis. Trisul does not require packet capture at wire speed, making it suitable for high-speed networks. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-It provides scalable visibility into communication behavior while reducing storage and processing overhead.
+---
 
-### Can metadata analysis detect security threats?
+## Related terms
 
-Yes. Suspicious traffic patterns, abnormal communication, and anomalies can often be identified through metadata analysis.
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is packet capture?](/glossary/packet-capture)
+- [What is NetFlow?](/glossary/netflow)
+- [What is application monitoring?](/glossary/application-monitoring)
+- [What is threat detection?](/glossary/threat-detection)
 
-### What's the difference between metadata analysis and packet analysis?
+---
 
-Metadata analysis focuses on communication behavior, while packet analysis examines full packet payloads.
+## Frequently asked questions
 
-### Is metadata-based analysis useful for encrypted traffic?
+### What is metadata based traffic analysis?
 
-Yes. It can analyze traffic behavior and communication patterns even when payloads are encrypted.
+Metadata based traffic analysis examines flow metadata including source and destination IP addresses, ports, protocols, byte counts, packet counts, and timestamps instead of full packet payloads. It provides application-level visibility with significantly reduced storage requirements compared to packet capture.
+
+### What metadata is analyzed?
+
+Analyzed metadata includes source and destination IP addresses, source and destination ports, protocol type, byte count, packet count, flow start time, flow end time, TCP flags, Type of Service, and next-hop IP. This metadata is extracted from NetFlow, sFlow, J-Flow, and IPFIX records.
+
+### What are the benefits of metadata analysis?
+
+Benefits include reduced storage requirements at 1 to 2 percent of packet capture volume, longer retention periods, faster query performance, scalability to gigabit speeds, and privacy compliance since payload content is not stored. Metadata analysis enables threat detection and forensics without packet capture.
+
+### How does metadata analysis compare to packet capture?
+
+Packet capture stores full packet content including payload. Metadata analysis stores only flow headers and statistics. Metadata provides 5 to 10x data reduction compared to raw flows while maintaining security
+
+ fidelity. Packet capture is for deep forensics, metadata is for scalable monitoring.

@@ -1,222 +1,130 @@
 ---
-title: What is Streaming Analytics?
-sidebar_label: Streaming Analytics
-sidebar_position: 106
+title: What is streaming analytics?
+description: Streaming analytics processes data in real-time as it flows rather than analyzing stored historical data. It enables immediate detection of anomalies, rapid response to threats, and real-time traffic visualization.
+sidebar_label: Streaming analytics
+sidebar_position: 105
 slug: /glossary/streaming-analytics
-description: Learn what streaming analytics is, how real-time data processing works, and why continuous analytics are important for network visibility, security, and operational monitoring.
 keywords:
   - streaming analytics
   - real-time analytics
-  - live data processing
-  - network streaming analytics
-  - traffic analytics
-  - operational visibility
+  - stream processing
+  - live analytics
+  - real-time processing
+  - live monitoring
+  - real-time detection
 ---
 
-# What is Streaming Analytics?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is streaming analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Streaming analytics processes data in real-time as it flows rather than analyzing stored historical data. It enables immediate detection of anomalies, rapid response to threats, and real-time traffic visualization. Streaming analytics analyzes data at ingestion time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does streaming analytics work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Streaming analytics processes data events as they arrive. Flow data is analyzed at write time. Aggregates are maintained incrementally. Alerts trigger when thresholds are exceeded. Real-time dashboards update continuously as new data arrives."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the benefits of streaming analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Streaming analytics provides immediate detection enabling rapid response. It reduces latency between event and detection from hours to seconds. Real-time visualization shows current traffic patterns. Streaming analytics enables automated response to threats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is streaming analytics used?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Streaming analytics is used for real-time threat detection, live traffic monitoring, DDoS detection, traffic pattern alerts, real-time dashboards, and automated response. It is essential for NOC operations requiring immediate visibility."
+      }
+    }
+  ]
+};
 
-Streaming Analytics is the process of continuously analyzing data in real time as it is generated, transmitted, or received.
+# What is streaming analytics?
 
-Instead of waiting for stored historical data to be processed later, streaming analytics evaluates live data streams immediately to detect patterns, anomalies, and operational events.
-
-In networking and security environments, streaming analytics helps organizations define operational roles by continuously analyzing:
-- traffic flows
-- bandwidth usage
-- application activity
-- security events
-- telemetry data
-- performance metrics
-- behavioral anomalies
-
-It is widely used for:
-- real-time traffic monitoring
-- threat detection
-- operational analytics
-- performance monitoring
-- anomaly detection
-- ISP visibility
-
-## **How Streaming Analytics Works**
-
-Monitoring platforms continuously ingest live data from:
-
-- flow records
-- packet streams
-- SNMP telemetry
-- cloud telemetry
-- application logs
-- DNS activity
-- security events
-
-The analytics platform then:
-
-1. processes data continuously
-2. analyzes patterns in real time
-3. generates alerts or insights instantly
-4. updates dashboards dynamically
-
-A typical workflow looks like this:
-
-Live Data Stream → Streaming Analytics Engine → Real-Time Insights
-
-For example:
-
-- Traffic volume spikes suddenly
-- Streaming analytics detects abnormal behavior immediately
-- Alerts are generated in real time
-- Analysts investigate and respond quickly
-
-Streaming analytics may identify:
-
-- DDoS attacks
-- bandwidth spikes
-- suspicious communication
-- application degradation
-- latency anomalies
-- operational failures
-
-![](images/streaming-analytics.png)
+Streaming analytics processes data in real-time as it flows rather than analyzing stored historical data. It enables immediate detection of anomalies, rapid response to threats, and real-time traffic visualization. Streaming analytics analyzes data at ingestion time.
 
 ---
 
-## **Why Streaming Analytics Matters**
+## How streaming analytics works
 
-Modern networks generate massive amounts of continuous operational data.
+Streaming analytics processes flow data events as they arrive. Aggregates are maintained incrementally at write time. Top talkers, bandwidth utilization, and traffic patterns are updated continuously. Alerts trigger when thresholds are exceeded.
 
-Without real-time analytics, organizations may struggle to:
-
-- detect incidents quickly
-- respond to attacks immediately
-- monitor cloud environments effectively
-- identify operational anomalies
-- troubleshoot live issues
-- maintain service quality
-
-Streaming analytics helps teams:
-
-- improve operational awareness
-- reduce response time
-- detect anomalies faster
-- analyze live traffic behavior
-- strengthen security monitoring
-- optimize infrastructure visibility
-
-It is especially important in:
-
-- SOC environments
-- NOC operations
-- ISP infrastructures
-- cloud environments
-- telecom networks
-- high-speed enterprise networks
-
-Humans decided waiting for reports was too slow, so now machines analyze chaos the instant it happens. Naturally this only increased the number of dashboards everyone ignores during lunch.
+Real-time dashboards update as new data arrives. Traffic graphs show current utilization within seconds. Flow Tracker Alerts trigger in near real-time with latency of 1 to 5 seconds.
 
 ---
 
-## **Common Operational Use Cases**
+## Streaming analytics in network operations
 
-### Real-Time Threat Detection
+In the NOC, streaming analytics provides live visibility into current traffic. Real-time traffic graphs show utilization within 3 seconds. Traffic pattern alerts promptly detect anomalies deviating from expected patterns.
 
-Identify suspicious communication and attacks immediately.
-
-### Live Traffic Monitoring
-
-Analyze bandwidth and application activity continuously.
-
-### Performance Monitoring
-
-Detect latency spikes and congestion in real time.
-
-### DDoS Detection
-
-Identify volumetric traffic anomalies instantly.
-
-### Cloud Visibility
-
-Monitor distributed workloads and cloud application behavior.
+Security teams use streaming analytics for real-time threat detection. When traffic matches threat indicators, alerts trigger immediately. Automated response can block threats before damage occurs.
 
 ---
 
-## **Streaming Analytics vs Batch Analytics**
+## Streaming vs batch analytics
 
-| Feature | Streaming Analytics | Batch Analytics |
+| Aspect | Streaming Analytics | Batch Analytics |
 |---|---|---|
-| Processing Style | Continuous | Periodic |
-| Operational Awareness | Real time | Delayed |
-| Incident Detection Speed | Fast | Slower |
-| Historical Trend Analysis | Moderate | Strong |
-| Infrastructure Responsiveness | High | Moderate |
-
-Streaming analytics focuses on immediate data processing, while batch analytics processes stored data later in groups.
+| When processed | At ingestion time | After data is stored |
+| Latency | Seconds | Minutes to hours |
+| Use case | Real-time detection | Historical analysis |
+| Resource usage | Continuous | Periodic |
+| Best for | Live monitoring | Retro analysis |
 
 ---
 
-## **How Trisul Handles Streaming Analytics**
+## What makes streaming analytics work in practice
 
-Trisul provides scalable streaming traffic analytics for enterprise and ISP environments.
+Incremental aggregation enables real-time performance. Aggregates are maintained at write time instead of computed on demand. Pre-computed summaries enable fast dashboards even with millions of flows.
 
-Combined with:
-
-- Real-Time Traffic Monitoring
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Flow Analysis
-- Multigraph Analyticsᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- analyze live traffic behavior
-- monitor bandwidth continuously
-- detect anomalies quickly
-- investigate suspicious activity
-- visualize operational trends
-- improve incident response workflows
-
-Trisul can also integrate:
-
-- Real-Time Traffic Monitoring
-- Security Analytics
-- Anomaly Detection
-
-workflows for deeper operational visibility.
+Stream processing must handle backpressure. When data arrives faster than it can be processed, buffering prevents data loss. Without adequate buffering, data is dropped during traffic spikes.
 
 ---
 
-## **Related Terms**
+## How Trisul handles streaming analytics
 
-- Real-Time Traffic Monitoring
-- Security Analytics
-- Anomaly Detection
-- Flow Analysis
-- Bandwidth Monitoring
-- Top-K Analyticsᵀ
+Trisul provides streaming analytics through flow data processing data as it arrives from NetFlow, J-Flow, sFlow, and IPFIX exporters. Aggregates are maintained at write time enabling fast dashboards. Real-time traffic graphs show current utilization within 3 seconds. Flow Tracker Alerts trigger in near real-time with latency of 1 to 5 seconds. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
 
 ---
 
-## **FAQ**
+## Related terms
+
+- [What is real-time traffic monitoring?](/glossary/realtime-traffic-monitoring)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
+- [What is alerting?](/glossary/alerting)
+- [What is batch processing?](/glossary/batch-processing)
+
+---
+
+## Frequently asked questions
 
 ### What is streaming analytics?
 
-Streaming analytics is the continuous analysis of live data as it is generated and transmitted.
+Streaming analytics processes data in real-time as it flows rather than analyzing stored historical data. It enables immediate detection of anomalies, rapid response to threats, and real-time traffic visualization. Streaming analytics analyzes data at ingestion time.
 
-### Why is streaming analytics important?
+### How does streaming analytics work?
 
-It helps organizations detect incidents, monitor traffic, and analyze operational behavior in real time.
+Streaming analytics processes data events as they arrive. Flow data is analyzed at write time. Aggregates are maintained incrementally. Alerts trigger when thresholds are exceeded. Real-time dashboards update continuously as new data arrives.
 
-### What types of data are used in streaming analytics?
+### What are the benefits of streaming analytics?
 
-Common sources include flow records, packet streams, telemetry, logs, DNS activity, and security events.
+Streaming analytics provides immediate detection enabling rapid response. It reduces latency between event and detection from hours to seconds. Real-time visualization shows current traffic patterns. Streaming analytics enables automated response to threats.
 
-### What's the difference between streaming analytics and batch analytics?
+### When is streaming analytics used?
 
-Streaming analytics processes data continuously in real time, while batch analytics processes stored data periodically.
-
-### How does streaming analytics help security operations?
-
-It helps detect attacks, suspicious communication, and anomalies immediately.
-
-### Is streaming analytics useful for ISPs?
-
-Yes. ISPs use streaming analytics to monitor backbone traffic, subscriber behavior, and operational health continuously.
+Streaming analytics is used for real-time threat detection, live traffic monitoring, DDoS detection, traffic pattern alerts, real-time dashboards, and automated response. It is essential for NOC operations requiring immediate visibility.

@@ -1,223 +1,131 @@
 ---
-title: What is User Traffic Analytics?
-sidebar_label: User Traffic Analytics
-sidebar_position: 122
+title: What is user traffic analytics?
+description: User traffic analytics analyzes traffic per user identifying individual usage patterns, top applications, and bandwidth consumption. It provides visibility into per-user traffic for capacity planning, billing, and security monitoring.
+sidebar_label: User traffic analytics
+sidebar_position: 96
 slug: /glossary/user-traffic-analytics
-description: Learn what user traffic analytics is, how user network activity is analyzed, and why user-level visibility is important for security, troubleshooting, and operational monitoring.
 keywords:
   - user traffic analytics
-  - user activity monitoring
-  - network user analytics
-  - subscriber traffic analysis
-  - behavioral analytics
-  - user visibility
+  - user analytics
+  - per-user traffic
+  - user bandwidth
+  - subscriber analytics
+  - user behavior
+  - traffic per user
 ---
 
-# What is User Traffic Analytics?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is user traffic analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "User traffic analytics analyzes traffic per user identifying individual usage patterns, top applications, and bandwidth consumption. It provides visibility into per-user traffic for capacity planning, billing, and security monitoring. User analytics maps traffic to individual users."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does user analytics work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "User analytics maps IP addresses to users using RADIUS logs, DHCP logs, or authentication logs. Flow records are classified by user. Traffic volumes are aggregated per user. Top users by bandwidth are identified. Applications per user are analyzed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the use cases for user analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "User analytics use cases include capacity planning by tracking per-user bandwidth usage, billing and chargeback showing per-user consumption, security monitoring detecting anomalous user behavior, policy enforcement tracking compliance with usage policies, and user behavior analysis understanding usage patterns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is user analytics important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "User analytics is important because it shifts focus from aggregate traffic to individual users. Security teams identify compromised accounts through anomalous user behavior. Billing systems charge per user. Capacity planning understands per-user bandwidth to plan for user growth."
+      }
+    }
+  ]
+};
 
-User Traffic Analytics is the process of analyzing network traffic and communication behavior at the user or subscriber level.
+# What is user traffic analytics?
 
-Instead of viewing traffic only as IP addresses or devices, user traffic analytics correlates activity with:
-- individual users
-- subscribers
-- employees
-- customers
-- authenticated sessions
-- user groups
-
-This helps organizations define user-centric visibility roles by understanding:
-- application usage
-- bandwidth consumption
-- communication behavior
-- session activity
-- security anomalies
-- operational patterns
-
-User traffic analytics is widely used for:
-- security monitoring
-- ISP analytics
-- subscriber visibility
-- troubleshooting
-- behavioral analytics
-- compliance monitoring
-
-## **How User Traffic Analytics Works**
-
-Monitoring platforms collect visibility data from:
-- flow records
-- authentication systems
-- RADIUS logs
-- DHCP logs
-- IPDR records
-- application telemetry
-- traffic analytics systems
-
-The platform then:
-1. correlates traffic activity with user identities
-2. analyzes communication behavior
-3. identifies trends and anomalies
-4. generates operational insights
-
-A typical workflow looks like this:
-
-User Identity → Traffic Activity → Correlation → User Traffic Analytics
-
-For example:
-
-- A user authenticates to the network
-- Traffic activity is associated with the user session
-- Analytics reveal unusually high outbound traffic
-- Analysts investigate possible data exfiltration or misuse
-
-User traffic analytics may identify:
-
-- top bandwidth users
-- unusual application behavior
-- abnormal login activity
-- suspicious communication
-- policy violations
-- subscriber usage trends
+User traffic analytics analyzes traffic per user identifying individual usage patterns, top applications, and bandwidth consumption. It provides visibility into per-user traffic for capacity planning, billing, and security monitoring. User analytics maps traffic to individual users.
 
 ---
 
-## **Why User Traffic Analytics Matters**
+## How user analytics works
 
-Modern networks are highly dynamic and user-driven.
+User analytics maps IP addresses to users using RADIUS logs, DHCP logs, or authentication logs. Flow records are classified by user. Traffic volumes are aggregated per user. Top users by bandwidth are identified. Applications per user are analyzed.
 
-Without user-level visibility, organizations may struggle to:
-
-- identify who generated traffic
-- investigate suspicious activity
-- analyze user behavior
-- troubleshoot subscriber issues
-- enforce usage policies
-- monitor insider threats
-
-User traffic analytics helps teams:
-
-- improve behavioral visibility
-- strengthen security investigations
-- analyze application usage
-- optimize subscriber experience
-- troubleshoot connectivity problems
-- improve operational awareness
-
-It is especially important in:
-
-- enterprise networks
-- ISP infrastructures
-- telecom environments
-- cloud deployments
-- campus networks
-- regulated industries
-
-Humans wanted networks to stop treating everyone as anonymous IP addresses, so now the system keeps score on individual behavior too. Congratulations, your packets have a personality profile.
+Per-user upstream and downstream traffic is tracked separately. Real-time user traffic shows current usage. Historical user traffic shows trends over time.
 
 ---
 
-## **Common Operational Use Cases**
+## User analytics in network operations
 
-### Security Monitoring
+In the NOC, use user analytics to track per-user bandwidth usage and identify top users consuming bandwidth. Security teams detect anomalous user behavior indicating compromised accounts. Billing systems use user analytics for chargeback based on per-user consumption.
 
-Identify suspicious user behavior and abnormal communication patterns.
-
-### Subscriber Analytics
-
-Analyze bandwidth usage and application trends across subscribers.
-
-### Insider Threat Detection
-
-Monitor unusual access or outbound traffic behavior.
-
-### Usage Policy Enforcement
-
-Identify policy violations and excessive bandwidth consumption.
-
-### Troubleshooting
-
-Investigate user-specific connectivity and performance issues.
+Capacity planning uses per-user bandwidth averages to plan for user growth. Understanding typical per-user usage enables accurate capacity forecasts.
 
 ---
 
-## **User Traffic Analytics vs Device Traffic Analytics**
+## User analytics capabilities
 
-| Feature | User Traffic Analytics | Device Traffic Analytics |
-|---|---|---|
-| Visibility Focus | User identity and behavior | Device-level activity |
-| Authentication Awareness | Strong | Limited |
-| Subscriber Correlation | Advanced | Moderate |
-| Behavioral Analysis | Strong | Moderate |
-| Insider Threat Visibility | High | Lower |
-
-User traffic analytics focuses on people and subscriber behavior rather than only device communication.
-
----
-
-## **How Trisul Handles User Traffic Analytics**
-
-Trisul provides contextual user-centric traffic visibility for enterprise and ISP environments.
-
-Combined with:
-
-- Subscriber Mapping
-- IPDR Visibility
-- RADIUS Logging
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- analyze user traffic behavior
-- investigate suspicious activity
-- monitor bandwidth consumption
-- correlate traffic with user identities
-- improve subscriber visibility
-- strengthen forensic investigations
-
-Trisul can also integrate:
-
-- Subscriber Mapping
-- Security Analytics
-- Traffic Investigation
-
-workflows for deeper behavioral visibility.
+| Capability | Description |
+|---|---|
+| Per-user bandwidth | Total bandwidth per user |
+| Top users | Highest bandwidth users |
+| User applications | Applications used per user |
+| Upstream downstream | Per-user upload and download |
+| Real-time user traffic | Current usage per user |
+| Historical trends | Per-user traffic over time |
 
 ---
 
-## **Related Terms**
+## What makes user analytics work in practice
 
-- Subscriber Mapping
-- IPDR
-- RADIUS Logging
-- Security Analytics
-- Traffic Investigation
-- Behavioral Analytics
+User identity mapping accuracy determines analytics quality. IP addresses must be mapped to users correctly. RADIUS logs provide accurate user identity through authentication. Without accurate mapping, traffic appears unclassified.
+
+Privacy considerations limit user analytics. User traffic data is sensitive. Access controls and audit logging protect user privacy. Compliance with privacy regulations is essential.
 
 ---
 
-## **FAQ**
+## How Trisul handles user traffic analytics
+
+Trisul provides user traffic analytics through RADIUS logging correlation mapping IP addresses to usernames. Flow records are classified by user enabling per-user traffic analysis. Real-time and historical user traffic is tracked. Subscriber analytics shows per-subscriber upstream and downstream usage. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is RADIUS logging?](/glossary/radius-logging)
+- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
+- [What is subscriber analytics?](/glossary/subscriber-analytics)
+- [What is billing?](/glossary/billing)
+- [What is user behavior analysis?](/glossary/user-behavior-analysis)
+
+---
+
+## Frequently asked questions
 
 ### What is user traffic analytics?
 
-User traffic analytics is the analysis of network communication and traffic behavior at the user or subscriber level.
+User traffic analytics analyzes traffic per user identifying individual usage patterns, top applications, and bandwidth consumption. It provides visibility into per-user traffic for capacity planning, billing, and security monitoring. User analytics maps traffic to individual users.
 
-### Why is user traffic analytics important?
+### How does user analytics work?
 
-It helps organizations identify user behavior, investigate suspicious activity, and analyze bandwidth usage.
+User analytics maps IP addresses to users using RADIUS logs, DHCP logs, or authentication logs. Flow records are classified by user. Traffic volumes are aggregated per user. Top users by bandwidth are identified. Applications per user are analyzed.
 
-### What data sources are used in user traffic analytics?
+### What are the use cases for user analytics?
 
-Common sources include flow records, authentication logs, RADIUS logs, DHCP logs, IPDR records, and application telemetry.
+User analytics use cases include capacity planning by tracking per-user bandwidth usage, billing and chargeback showing per-user consumption, security monitoring detecting anomalous user behavior, policy enforcement tracking compliance with usage policies, and user behavior analysis understanding usage patterns.
 
-### How does user traffic analytics help security operations?
+### Why is user analytics important?
 
-It helps identify abnormal user behavior, insider threats, and suspicious communication activity.
-
-### What's the difference between user traffic analytics and device analytics?
-
-User traffic analytics focuses on user identity and behavior, while device analytics focuses on device-level communication.
-
-### Can user traffic analytics help ISPs?
-
-Yes. ISPs use it to analyze subscriber usage, troubleshoot connectivity issues, and monitor service behavior.
+User analytics is important because it shifts focus from aggregate traffic to individual users. Security teams identify compromised accounts through anomalous user behavior. Billing systems charge per user. Capacity planning understands per-user bandwidth to plan for user growth.

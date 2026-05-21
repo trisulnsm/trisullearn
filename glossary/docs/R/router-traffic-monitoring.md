@@ -1,215 +1,131 @@
 ---
-title: What is Router Traffic Monitoring?
-sidebar_label: Router Traffic Monitoring
-sidebar_position: 97
+title: What is router traffic monitoring?
+description: Router traffic monitoring observes traffic flowing through routers using NetFlow, SNMP, and packet capture. It provides visibility into interface utilization, top talkers, and traffic patterns for capacity planning and troubleshooting.
+sidebar_label: Router traffic monitoring
+sidebar_position: 93
 slug: /glossary/router-traffic-monitoring
-description: Learn what router traffic monitoring is, how router visibility works, and why monitoring router traffic is important for performance, security, and bandwidth analytics.
 keywords:
   - router traffic monitoring
   - router monitoring
-  - network traffic visibility
-  - bandwidth monitoring
+  - interface monitoring
+  - NetFlow monitoring
+  - SNMP monitoring
   - router analytics
-  - traffic flow monitoring
+  - traffic monitoring
 ---
 
-# What is Router Traffic Monitoring?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is router traffic monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Router traffic monitoring observes traffic flowing through routers using NetFlow, SNMP, and packet capture. It provides visibility into interface utilization, top talkers, and traffic patterns for capacity planning and troubleshooting. Flow exporters on routers send NetFlow data to collectors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does router monitoring work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Router monitoring uses flow exporters enabling NetFlow, J-Flow, sFlow, or IPFIX on router interfaces. Flow records are sent to collectors. SNMP collects interface statistics including byte counts and packet counts. Packet capture at router TAPs records wire-level data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does router monitoring track?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Router monitoring tracks interface utilization, top talkers by bandwidth, traffic patterns by protocol and application, packet loss and errors, CPU and memory utilization, routing table changes, and BGP peer status. These metrics enable capacity planning and troubleshooting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is router monitoring important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Router monitoring is essential because routers are core network devices forwarding all traffic. Monitoring router interfaces identifies congestion and bottlenecks. Router monitoring enables capacity planning for network upgrades. Security teams detect anomalies through router traffic analysis."
+      }
+    }
+  ]
+};
 
-Router Traffic Monitoring is the process of observing and analyzing traffic flowing through routers to understand network behavior, bandwidth usage, routing activity, and communication performance.
+# What is router traffic monitoring?
 
-Routers act as critical traffic forwarding devices between networks, branches, cloud environments, and internet connections.
-
-Monitoring router traffic helps organizations define operational roles by identifying:
-- bandwidth consumption
-- traffic flows
-- routing behavior
-- application activity
-- congestion events
-- interface utilization
-- suspicious communication
-
-It is widely used for:
-- bandwidth monitoring
-- WAN visibility
-- troubleshooting
-- security monitoring
-- traffic engineering
-- capacity planning
-
-## **How Router Traffic Monitoring Works**
-
-Routers continuously forward traffic between networks and interfaces.
-
-Monitoring systems collect visibility data using:
-- NetFlow
-- IPFIX
-- SNMP
-- packet capture
-- interface statistics
-- routing telemetry
-
-A typical workflow looks like this:
-
-Network Traffic → Router → Monitoring Platform → Traffic Analytics
-
-The monitoring platform may analyze:
-
-- interface utilization
-- traffic direction
-- protocol activity
-- routing paths
-- top talkers
-- application traffic
-- ASN visibility
-- packet loss and latency
-
-For example:
-
-- WAN traffic increases unexpectedly
-- Router monitoring detects interface congestion
-- Analytics identify the applications consuming bandwidth
-- Teams optimize routing or traffic policies
+Router traffic monitoring observes traffic flowing through routers using NetFlow, SNMP, and packet capture. It provides visibility into interface utilization, top talkers, and traffic patterns for capacity planning and troubleshooting. Flow exporters on routers send NetFlow data to collectors.
 
 ---
 
-## **Why Router Traffic Monitoring Matters**
+## How router monitoring works
 
-Routers are central visibility points in most network infrastructures.
+Flow exporters on routers observe passing packets and group them into flows based on 5-tuple. Flow records are exported via NetFlow, J-Flow, sFlow, or IPFIX to collectors. SNMP collects interface statistics including input and output byte counts.
 
-Without router visibility, organizations may struggle to:
-
-- analyze WAN performance
-- identify bandwidth bottlenecks
-- troubleshoot routing issues
-- monitor cloud connectivity
-- detect suspicious communication
-- optimize traffic engineering
-
-Router traffic monitoring helps teams:
-
-- improve operational awareness
-- analyze traffic distribution
-- monitor network performance
-- investigate anomalies
-- optimize bandwidth usage
-- strengthen troubleshooting workflows
-
-It is especially important in:
-
-- enterprise WANs
-- ISP infrastructures
-- cloud environments
-- branch networks
-- telecom operations
-- multi-site deployments
-
-Routers spend their entire existence directing traffic like exhausted city traffic police, and humans still blame them whenever Netflix buffers for three seconds.
+Packet capture at router TAPs records wire-level data. Router monitoring combines flow data, SNMP, and packet capture for comprehensive visibility.
 
 ---
 
-## **Common Operational Use Cases**
+## Router monitoring in network operations
 
-### WAN Monitoring
+In the NOC, monitor router interfaces to detect congestion and bottlenecks. Top talkers show which hosts consume most bandwidth on router links. Traffic patterns by protocol identify what applications use bandwidth.
 
-Analyze branch and backbone traffic behavior.
-
-### Bandwidth Monitoring
-
-Track interface utilization and top consumers.
-
-### Routing Visibility
-
-Monitor traffic paths and routing changes.
-
-### Security Monitoring
-
-Identify suspicious communication and traffic anomalies.
-
-### Capacity Planning
-
-Analyze traffic growth and infrastructure utilization trends.
+Capacity planning uses router monitoring to identify links approaching saturation. When interface utilization consistently exceeds 70%, upgrade the link. Security teams detect anomalies through unusual router traffic patterns.
 
 ---
 
-## **Router Traffic Monitoring vs Switch Monitoring**
+## Router monitoring metrics
 
-| Feature | Router Traffic Monitoring | Switch Monitoring |
-|---|---|---|
-| Primary Focus | Inter-network traffic | Local network traffic |
-| Routing Visibility | Strong | Limited |
-| WAN and Internet Visibility | Advanced | Moderate |
-| Traffic Engineering Insight | High | Lower |
-| Perimeter Visibility | Strong | Moderate |
-
-Router monitoring focuses more heavily on routing, WAN communication, and inter-network traffic visibility.
-
----
-
-## **How Trisul Handles Router Traffic Monitoring**
-
-Trisul provides scalable router traffic analytics for enterprise and ISP environments.
-
-Combined with:
-
-- Flow Analysis
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Multigraph Analyticsᵀ
-- Retro Analysisᵀ
-- Conversation View
-
-Trisul helps teams:
-
-- analyze router traffic behavior
-- monitor interface utilization
-- investigate bandwidth spikes
-- visualize routing-related communication
-- identify anomalies
-- optimize WAN visibility workflows
-
-Trisul can also integrate:
-
-- Bandwidth Monitoring
-- BGP Peering Analytics
-- Flow Monitoring
-
-workflows for deeper router visibility.
+| Metric | Description |
+|---|---|
+| Interface utilization | Percentage of link capacity in use |
+| Top talkers | Hosts consuming most bandwidth |
+| Traffic patterns | Traffic by protocol and application |
+| Packet loss | Percentage of packets dropped |
+| Router CPU | Router processor utilization |
+| BGP status | BGP peer connectivity |
 
 ---
 
-## **Related Terms**
+## What makes router monitoring work in practice
 
-- Bandwidth Monitoring
-- Flow Monitoring
-- BGP
-- BGP Peering Analytics
-- Traffic Investigation
-- Flow Analysis
+Flow exporter configuration must be enabled on all critical interfaces. Without export, no flow data is collected from routers. Sampling rate must be configured correctly for accurate traffic estimation at high speeds. Router CPU and network bandwidth must handle export volume.
+
+SNMP polling frequency determines monitoring accuracy. High-frequency polling provides more accurate interface statistics but generates more SNMP traffic. Balance polling frequency against network overhead.
 
 ---
 
-## **FAQ**
+## How Trisul handles router traffic monitoring
+
+Trisul provides router traffic monitoring through flow data collection from routers. NetFlow, J-Flow, sFlow, and IPFIX exporters on routers send flow records to Trisul. Real-time traffic graphs show router interface utilization within 3 seconds. SNMP integration provides router interface statistics. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is NetFlow?](/glossary/netflow)
+- [What is SNMP?](/glossary/snmp)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is interface monitoring?](/glossary/interface-monitoring)
+- [What is top talkers?](/glossary/top-talkers)
+
+---
+
+## Frequently asked questions
 
 ### What is router traffic monitoring?
 
-Router traffic monitoring is the process of analyzing traffic flowing through routers to monitor performance, routing behavior, and bandwidth usage.
+Router traffic monitoring observes traffic flowing through routers using NetFlow, SNMP, and packet capture. It provides visibility into interface utilization, top talkers, and traffic patterns for capacity planning and troubleshooting. Flow exporters on routers send NetFlow data to collectors.
 
-### Why is router traffic monitoring important?
+### How does router monitoring work?
 
-It helps organizations troubleshoot congestion, optimize WAN performance, and analyze network communication behavior.
+Router monitoring uses flow exporters enabling NetFlow, J-Flow, sFlow, or IPFIX on router interfaces. Flow records are sent to collectors. SNMP collects interface statistics including byte counts and packet counts. Packet capture at router TAPs records wire-level data.
 
-### What metrics are commonly monitored on routers?
+### What does router monitoring track?
 
-Common metrics include interface utilization, bandwidth usage, routing paths, packet loss, latency, and protocol activity.
+Router monitoring tracks interface utilization, top talkers by bandwidth, traffic patterns by protocol and application, packet loss and errors, CPU and memory utilization, routing table changes, and BGP peer status. These metrics enable capacity planning and troubleshooting.
 
-### What technologies are used for router traffic monitoring?
+### Why is router monitoring important?
 
-Technologies such as NetFlow, IPFIX, SNMP, packet capture, and routing telemetry are commonly used.
-
-### How does router monitoring help security operations?
-
-It helps identify suspicious communication, anomalous traffic behavior, and unusual routing activity.
-
-### Can router traffic monitoring improve capacity planning?
-
-Yes. Historical traffic trends help organizations forecast bandwidth and infrastructure requirements.
+Router monitoring is essential because routers are core network devices forwarding all traffic. Monitoring router interfaces identifies congestion and bottlenecks. Router monitoring enables capacity planning for network upgrades. Security teams detect anomalies through router traffic analysis.

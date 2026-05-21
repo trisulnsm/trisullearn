@@ -1,217 +1,131 @@
 ---
-title: What is Zero Packet Loss Capture?
-sidebar_label: Zero Packet Loss Capture
-sidebar_position: 129
+title: What is zero packet loss capture?
+description: Zero packet loss capture records every packet without dropping any even at high speeds. It provides complete forensic visibility essential for security investigation requiring complete evidence.
+sidebar_label: Zero packet loss capture
+sidebar_position: 125
 slug: /glossary/zero-packet-loss-capture
-description: Learn what zero packet loss capture is, how lossless packet recording works, and why complete packet visibility is important for network forensics and high-speed monitoring.
 keywords:
-  - zero packet loss capture
-  - lossless packet capture
-  - wire-speed packet capture
-  - packet recording
-  - network forensics
-  - high-speed packet analysis
+  - zero packet loss
+  - lossless capture
+  - complete packet capture
+  - forensic capture
+  - wire-speed capture
+  - full fidelity capture
+  - no packet drop
 ---
 
-# What is Zero Packet Loss Capture?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is zero packet loss capture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zero packet loss capture records every packet without dropping any even at high speeds. It provides complete forensic visibility essential for security investigation requiring complete evidence. Zero packet loss ensures no evidence is missed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is zero packet loss achieved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zero packet loss is achieved through wire-speed capture using specialized hardware (10G+ NICs), kernel-bypass (PF_RING ZC, DPDK), fast storage (RAID/SSD), optimized capture software, and adequate buffering. All components must handle line rate without dropping."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is zero packet loss important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zero packet loss is critical for forensic investigation requiring complete evidence. Packet loss means missing evidence that could be crucial for incident analysis. For security investigation, zero packet loss ensures complete visibility into what happened."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is zero packet loss required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zero packet loss is required for forensic investigation, security incident analysis, legal evidence collection, compliance requiring complete records, and high-value traffic monitoring. For flow monitoring and bandwidth estimation, some loss is acceptable."
+      }
+    }
+  ]
+};
 
-Zero Packet Loss Capture is a packet capture approach designed to record all network packets without dropping any traffic during collection, even under very high network loads.
+# What is zero packet loss capture?
 
-In high-speed environments, packet drops during capture can create:
-- incomplete forensic evidence
-- missing attack traffic
-- inaccurate troubleshooting data
-- unreliable analytics
-
-Zero packet loss capture helps organizations define forensic-grade visibility roles by ensuring:
-- complete traffic recording
-- accurate packet timelines
-- reliable communication reconstruction
-- precise protocol analysis
-- uninterrupted monitoring visibility
-
-It is especially important for:
-- network forensics
-- security investigations
-- telecom monitoring
-- high-speed traffic analysis
-- compliance monitoring
-- incident reconstruction
-
-## **How Zero Packet Loss Capture Works**
-
-Zero packet loss capture systems are engineered to process traffic at full network speed using:
-- high-performance NICs
-- hardware acceleration
-- optimized packet pipelines
-- fast storage systems
-- memory buffering
-- kernel bypass technologies
-
-A typical workflow looks like this:
-
-Network Traffic → High-Speed Capture Engine → Lossless Storage → Investigation
-
-Traffic visibility is commonly collected from:
-
-- TAPs
-- SPAN ports
-- packet brokers
-- visibility fabrics
-
-The capture platform continuously:
-
-- receives packets at line rate
-- processes packets rapidly
-- stores traffic without dropping packets
-- indexes metadata for retrieval and analytics
-
-For example:
-
-- A 100 Gbps backbone experiences a DDoS attack
-- The capture platform records all traffic successfully
-- Analysts reconstruct the complete attack timeline
+Zero packet loss capture records every packet without dropping any even at high speeds. It provides complete forensic visibility essential for security investigation requiring complete evidence. Zero packet loss ensures no evidence is missed.
 
 ---
 
-## **Why Zero Packet Loss Capture Matters**
+## How zero packet loss capture works
 
-Modern networks generate enormous traffic volumes continuously.
+Zero packet loss is achieved through wire-speed capture using specialized hardware (10G+ NICs with hardware timestamping), kernel-bypass (PF_RING ZC, DPDK), fast storage (RAID/SSD with sustained write throughput), optimized capture software, and adequate buffering.
 
-Without reliable capture visibility, organizations may struggle to:
-
-- investigate attacks accurately
-- reconstruct communication sessions
-- troubleshoot intermittent issues
-- preserve forensic evidence
-- analyze protocol behavior completely
-- validate compliance investigations
-
-Zero packet loss capture helps teams:
-
-- maintain complete visibility
-- improve forensic reliability
-- strengthen incident response
-- preserve packet-level evidence
-- improve troubleshooting accuracy
-- analyze high-speed traffic confidently
-
-It is especially important in:
-
-- ISP backbones
-- telecom infrastructures
-- SOC environments
-- enterprise data centers
-- cloud interconnects
-- carrier-grade monitoring systems
-
-Humans finally realized that “mostly captured the attack traffic” is not a comforting sentence during an investigation. So now entire systems exist just to guarantee no packet escapes the evidence locker.
+All components must handle line rate without dropping. NICs must not overflow buffers. Storage must sustain write throughput. CPU must process packets fast enough. Any bottleneck causes packet loss.
 
 ---
 
-## **Common Operational Use Cases**
+## Zero packet loss in network operations
 
-### Security Investigations
+In the SOC, zero packet loss capture provides complete forensic evidence. Security investigators require complete packet capture for incident analysis. Packet loss means missing evidence that could be crucial. Zero packet loss ensures complete visibility.
 
-Preserve complete packet evidence for attack analysis.
-
-### DDoS Analysis
-
-Capture full volumetric attack traffic without visibility gaps.
-
-### Network Forensics
-
-Reconstruct historical communication accurately.
-
-### Protocol Troubleshooting
-
-Analyze packet-level application and transport behavior.
-
-### Compliance Monitoring
-
-Retain reliable packet evidence for audits and investigations.
+Capacity planning monitors capture system resources to prevent packet loss. CPU, storage throughput, and buffer utilization must be tracked. Upgrade before resources become bottlenecks. Proactive monitoring prevents loss.
 
 ---
 
-## **Zero Packet Loss Capture vs Standard Packet Capture**
+## Zero packet loss requirements
 
-| Feature | Zero Packet Loss Capture | Standard Packet Capture |
-|---|---|---|
-| Packet Drop Risk | Extremely low | Higher under load |
-| High-Speed Scalability | Excellent | Moderate |
-| Forensic Reliability | Strong | Variable |
-| Traffic Completeness | Full visibility | Partial under stress |
-| Investigation Accuracy | High | Moderate |
-
-Zero packet loss capture is specifically designed for forensic-grade visibility and reliable high-speed recording.
-
----
-
-## **How Trisul Handles Zero Packet Loss Visibility**
-
-Trisul provides scalable high-speed packet analytics and forensic visibility for enterprise and ISP environments.
-
-Combined with:
-
-- Wire-Speed Packet Capture
-- Full Packet Capture
-- Packet Analysis
-- Retro Analysisᵀ
-- Contextᵀ
-- Security Analytics
-
-Trisul helps teams:
-
-- analyze complete packet visibility
-- reconstruct attack timelines
-- investigate packet-level anomalies
-- preserve forensic evidence
-- troubleshoot high-speed traffic issues
-- strengthen operational investigations
-
-Trisul can also integrate:
-
-- Wire-Speed Packet Capture
-- Network Forensics
-- Packet Analysis
-
-workflows for deeper forensic visibility.
+| Component | Requirement |
+|---|---|
+| NIC | 10G+ with hardware buffering |
+| Kernel-bypass | PF_RING ZC or DPDK |
+| Storage | Sustained write > line rate |
+| CPU | Multi-core high clock speed |
+| Memory | Sufficient for buffers |
+| TAP | Lossless passive TAP |
 
 ---
 
-## **Related Terms**
+## What makes zero packet loss work in practice
 
-- Wire-Speed Packet Capture
-- Full Packet Capture
-- Packet Analysis
-- Network Forensics
-- Visibility Fabric
-- Traffic Investigation
+Buffer sizing affects burst handling. Buffers absorb traffic spikes. Too small buffers drop during spikes. Too large buffers increase latency. Size buffers for expected traffic patterns.
+
+Write throughput must exceed line rate. Sustained storage write must exceed maximum traffic rate. 10G line rate requires ~1.25 GB/s sustained write. RAID arrays or SSDs must handle this. Monitoring write throughput ensures capacity.
 
 ---
 
-## **FAQ**
+## How Trisul handles zero packet loss capture
+
+Trisul provides zero packet loss capture through PF_RING ZC kernel-bypass technology capturing at line rate without dropping. Trisul captures raw packets continuously with full fidelity. Packet capture records every packet headers and payload. Wire-speed capture at 10G and above achieves zero packet loss. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+
+---
+
+## Related terms
+
+- [What is wire-speed packet capture?](/glossary/wire-speed-packet-capture)
+- [What is packet capture?](/glossary/packet-capture)
+- [What is network forensics?](/glossary/network-forensics)
+- [What is PF_RING?](/glossary/pf-ring)
+- [What is network TAP?](/glossary/network-tap)
+
+---
+
+## Frequently asked questions
 
 ### What is zero packet loss capture?
 
-Zero packet loss capture is a packet recording approach designed to capture all traffic without dropping packets.
+Zero packet loss capture records every packet without dropping any even at high speeds. It provides complete forensic visibility essential for security investigation requiring complete evidence. Zero packet loss ensures no evidence is missed.
 
-### Why is zero packet loss capture important?
+### How is zero packet loss achieved?
 
-It preserves complete packet visibility for forensic investigations, troubleshooting, and security analysis.
+Zero packet loss is achieved through wire-speed capture using specialized hardware (10G+ NICs), kernel-bypass (PF_RING ZC, DPDK), fast storage (RAID/SSD), optimized capture software, and adequate buffering. All components must handle line rate without dropping.
 
-### What environments commonly require zero packet loss capture?
+### Why is zero packet loss important?
 
-High-speed ISP backbones, telecom networks, SOC environments, and enterprise data centers commonly require it.
+Zero packet loss is critical for forensic investigation requiring complete evidence. Packet loss means missing evidence that could be crucial for incident analysis. For security investigation, zero packet loss ensures complete visibility into what happened.
 
-### How does zero packet loss capture prevent dropped packets?
+### When is zero packet loss required?
 
-It uses optimized hardware, high-speed storage, buffering, and accelerated capture technologies designed for line-rate traffic.
-
-### What's the difference between standard packet capture and zero packet loss capture?
-
-Standard capture tools may drop packets under heavy load, while zero packet loss systems are engineered for complete visibility.
-
-### Is zero packet loss capture useful for DDoS investigations?
-
-Yes. It allows analysts to capture and analyze full attack traffic without missing packets.
+Zero packet loss is required for forensic investigation, security incident analysis, legal evidence collection, compliance requiring complete records, and high-value traffic monitoring. For flow monitoring and bandwidth estimation, some loss is acceptable.

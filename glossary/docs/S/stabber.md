@@ -1,219 +1,132 @@
 ---
 title: What is Stabberᵀ?
+description: Stabberᵀ is Trisul's proprietary real-time traffic statistics module showing current network activity within 1 to 3 seconds. It provides instant visibility into top talks, bandwidth usage, and traffic patterns for rapid detection and response.
 sidebar_label: Stabberᵀ
-sidebar_position: 110
+sidebar_position: 109
 slug: /glossary/stabber
-description: Learn what Stabberᵀ is in Trisul Network Analytics and how it helps isolate, investigate, and analyze suspicious or abnormal network activity.
 keywords:
-  - Stabber
-  - Trisul Stabber
-  - traffic investigation
-  - network forensics
-  - anomaly investigation
-  - security analytics
+  - stabber
+  - Trisul stabber
+  - real-time statistics
+  - real-time traffic
+  - live traffic stats
+  - top talks
+  - instant visibility
 ---
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Stabberᵀ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stabberᵀ is Trisul's proprietary real-time traffic statistics module showing current network activity within 1 to 3 seconds. It provides instant visibility into top talks, bandwidth usage, and traffic patterns for rapid detection and response. Real-time stabbers show traffic within 3 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Stabberᵀ work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stabberᵀ processes flow data as it arrives from NetFlow, J-Flow, sFlow, and IPFIX exporters. Statistics are maintained incrementally at write time. Top talks, bandwidth utilization, and traffic patterns are updated continuously. Data is displayed in real-time dashboards within 1 to 3 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Stabberᵀ show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stabberᵀ shows top talks by bandwidth, interface utilization, top applications, top conversations, gateway port utilization, AS traffic, prefix flows, and traffic patterns. It provides real-time views of current network activity enabling rapid anomaly detection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Stabberᵀ important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stabberᵀ is critical for NOC operations enabling rapid detection of congestion, outages, and anomalies. Security teams use Stabberᵀ for real-time threat detection. Operations teams respond to emerging issues before users report problems. Real-time visibility reduces time to detect from minutes to seconds."
+      }
+    }
+  ]
+};
 
 # What is Stabberᵀ?
 
-Stabberᵀ is a Trisul Network Analytics investigative capability designed to isolate, pinpoint, and analyze suspicious, abnormal, or high-interest traffic activity within large-scale network environments.
-
-In high-volume infrastructures, analysts often need to quickly identify:
-- unusual communication
-- anomalous traffic spikes
-- suspicious hosts
-- attack-related traffic
-- abnormal application behavior
-- targeted investigation points
-
-Stabberᵀ helps organizations define investigative roles by narrowing large traffic datasets into focused visibility areas for deeper analysis.
-
-It is especially useful for:
-- security investigations
-- traffic troubleshooting
-- anomaly analysis
-- network forensics
-- incident response
-- behavioral analytics
-
-## **How Stabberᵀ Works**
-
-Trisul continuously collects visibility data from:
-
-- flow records
-- packet analytics
-- application metadata
-- traffic counters
-- behavioral analytics
-- historical traffic visibility
-
-Stabberᵀ helps analysts:
-
-1. isolate abnormal traffic behavior
-2. narrow investigation scope rapidly
-3. focus on suspicious communication patterns
-4. pivot into deeper traffic investigation workflows
-
-A typical workflow looks like this:
-
-Traffic Analytics → Suspicious Activity → Stabberᵀ Isolation → Deep Investigation
-
-For example:
-
-- A sudden outbound traffic spike is detected
-- Stabberᵀ isolates the affected hosts and flows
-- Analysts pivot into packet analysis and historical visibility
-- The suspicious activity is investigated further
-
-Stabberᵀ may help identify:
-
-- malware communication
-- DDoS traffic
-- abnormal applications
-- scanning activity
-- lateral movement
-- traffic anomalies
-- unexpected bandwidth usage
+Stabberᵀ is Trisul's proprietary real-time traffic statistics module showing current network activity within 1 to 3 seconds. It provides instant visibility into top talks, bandwidth usage, and traffic patterns for rapid detection and response. Real-time stabbers show traffic within 3 seconds.
 
 ---
 
-## **Why Stabberᵀ Matters**
+## How Stabberᵀ works
 
-Modern networks generate enormous amounts of operational and security telemetry continuously.
+Stabberᵀ processes flow data as it arrives from NetFlow, J-Flow, sFlow, and IPFIX exporters. Statistics are maintained incrementally at write time. Aggregates for top talks, bandwidth utilization, and traffic patterns are updated continuously as new flow data arrives.
 
-Without focused investigation tools, organizations may struggle to:
-
-- isolate suspicious traffic quickly
-- investigate anomalies efficiently
-- reduce investigation noise
-- prioritize operational events
-- analyze large-scale datasets
-- accelerate incident response
-
-Stabberᵀ helps teams:
-
-- reduce investigation complexity
-- improve anomaly visibility
-- isolate suspicious communication rapidly
-- strengthen forensic workflows
-- improve troubleshooting speed
-- focus on high-priority activity
-
-It is especially important in:
-
-- SOC environments
-- ISP infrastructures
-- enterprise security operations
-- cloud deployments
-- telecom environments
-- hybrid infrastructures
-
-Humans looked at oceans of traffic data and decided they needed a tool literally named after violence to isolate suspicious packets. Cybersecurity branding remains delightfully unhinged.
+Real-time dashboards display Stabberᵀ data within 1 to 3 seconds of traffic occurring. Real-time 2-second views of gateway port utilization, AS traffic, and prefix flows enable rapid response to emerging issues. Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior.
 
 ---
 
-## **Common Operational Use Cases**
+## Stabberᵀ in network operations
 
-### Security Investigations
+In the NOC, Stabberᵀ provides live visibility into current network activity. Top conversations show current top talkers by bandwidth. Interface utilization displays real-time bandwidth usage per interface. Security teams monitor Stabberᵀ for indicators of compromise.
 
-Isolate suspicious communication and attack-related traffic.
-
-### DDoS Investigation
-
-Identify abnormal traffic spikes and targeted systems.
-
-### Behavioral Analytics
-
-Analyze unusual application or host behavior.
-
-### Network Forensics
-
-Focus on high-interest traffic during investigations.
-
-### Traffic Troubleshooting
-
-Isolate communication causing operational degradation.
+Traffic pattern alerts are promptly generated in real-time for anomalies deviating from expected patterns. This enables automated response before problems impact users. Flow Tracker Alerts can be triggered in near real-time with latency of 1 to 5 seconds.
 
 ---
 
-## **Stabberᵀ vs General Traffic Analytics**
+## Stabberᵀ capabilities
 
-| Feature | Stabberᵀ | General Traffic Analytics |
+| Capability | Description | Latency |
 |---|---|---|
-| Investigation Focus | Highly targeted | Broad visibility |
-| Noise Reduction | Strong | Moderate |
-| Anomaly Isolation | Advanced | Basic |
-| Operational Prioritization | High | Moderate |
-| Investigation Speed | Faster | Slower |
-
-Stabberᵀ focuses on isolating important traffic behavior quickly instead of only providing broad traffic summaries.
-
----
-
-## **How Trisul Uses Stabberᵀ**
-
-Stabberᵀ works alongside Trisul’s contextual traffic analytics and forensic investigation architecture.
-
-Combined with:
-
-- Contextᵀ
-- Retro Analysisᵀ
-- Flow Analysis
-- Packet Capture
-- Multigraph Analyticsᵀ
-- Badfellasᵀ
-
-Trisul helps teams:
-
-- isolate suspicious activity rapidly
-- investigate anomalies deeply
-- correlate traffic relationships
-- reconstruct attack timelines
-- troubleshoot operational issues
-- improve security visibility
-
-Trisul can also integrate:
-
-- Security Analytics
-- Traffic Investigation
-- Network Forensics
-
-workflows for deeper investigative visibility.
+| Top talks | Current top talkers by bandwidth | 1-3 seconds |
+| Interface utilization | Real-time bandwidth per interface | 1-3 seconds |
+| Top applications | Current top applications | 1-3 seconds |
+| Top conversations | Current top conversations | 1-3 seconds |
+| Gateway port utilization | Real-time gateway usage | 2 seconds |
+| AS traffic | Current AS-level traffic | 1-3 seconds |
+| Prefix flows | Current prefix-level flows | 1-3 seconds |
 
 ---
 
-## **Related Terms**
+## What makes Stabberᵀ work in practice
 
-- Security Analytics
-- Traffic Investigation
-- Network Forensics
-- Anomaly Detection
-- Contextᵀ
-- Badfellasᵀ
+Incremental aggregation at write time enables real-time performance. Aggregates are maintained as data arrives instead of computed on demand. Pre-computed summaries enable fast dashboards even with millions of flows per hour.
+
+Buffer management ensures data is not lost during processing spikes. The collector buffers incoming flow data when processing is slow. Without adequate buffering, data is dropped during traffic spikes and Stabberᵀ shows gaps.
 
 ---
 
-## **FAQ**
+## How Trisul handles Stabberᵀ
+
+Trisul provides Stabberᵀ as a core real-time statistics module. Flow data is processed as it arrives from NetFlow, J-Flow, sFlow, and IPFIX exporters. Real-time stabbers show traffic within 3 seconds. Flow Tracker Alerts trigger in near real-time with latency of 1 to 5 seconds. Login as user, select Dashboards, then Real Time Traffic to view Stabberᵀ data. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
+
+---
+
+## Related terms
+
+- [What is real-time traffic monitoring?](/glossary/realtime-traffic-monitoring)
+- [What is streaming analytics?](/glossary/streaming-analytics)
+- [What is top talkers?](/glossary/top-talkers)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
+
+---
+
+## Frequently asked questions
 
 ### What is Stabberᵀ?
 
-Stabberᵀ is a Trisul investigative capability used to isolate and analyze suspicious or abnormal network traffic activity.
+Stabberᵀ is Trisul's proprietary real-time traffic statistics module showing current network activity within 1 to 3 seconds. It provides instant visibility into top talks, bandwidth usage, and traffic patterns for rapid detection and response. Real-time stabbers show traffic within 3 seconds.
+
+### How does Stabberᵀ work?
+
+Stabberᵀ processes flow data as it arrives from NetFlow, J-Flow, sFlow, and IPFIX exporters. Statistics are maintained incrementally at write time. Top talks, bandwidth utilization, and traffic patterns are updated continuously. Data is displayed in real-time dashboards within 1 to 3 seconds.
+
+### What does Stabberᵀ show?
+
+Stabberᵀ shows top talks by bandwidth, interface utilization, top applications, top conversations, gateway port utilization, AS traffic, prefix flows, and traffic patterns. It provides real-time views of current network activity enabling rapid anomaly detection.
 
 ### Why is Stabberᵀ important?
 
-It helps analysts quickly narrow large traffic datasets into focused investigation areas for faster troubleshooting and security analysis.
-
-### What types of activity can Stabberᵀ investigate?
-
-It can investigate anomalies, malware communication, DDoS traffic, scanning activity, suspicious applications, and unusual bandwidth behavior.
-
-### How does Stabberᵀ help incident response?
-
-It accelerates investigations by isolating high-interest traffic and reducing analysis noise.
-
-### What's the difference between Stabberᵀ and general traffic analytics?
-
-General analytics provides broad visibility, while Stabberᵀ focuses specifically on targeted anomaly isolation and investigation.
-
-### Is Stabberᵀ useful for network forensics?
-
-Yes. It helps analysts focus on suspicious communication and reconstruct investigation timelines efficiently.
+Stabberᵀ is critical for NOC operations enabling rapid detection of congestion, outages, and anomalies. Security teams use Stabberᵀ for real-time threat detection. Operations teams respond to emerging issues before users report problems. Real-time visibility reduces time to detect from minutes to seconds.

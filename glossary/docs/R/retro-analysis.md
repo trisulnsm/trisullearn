@@ -1,216 +1,130 @@
 ---
-title: What is Retro Analysisᵀ?
-sidebar_label: Retro Analysisᵀ
-sidebar_position: 96
+title: What is retro analysis?
+description: Retro analysis applies new detection rules to historical packet capture and flow data after the fact. It enables investigators to determine whether past traffic matched newly discovered threats without requiring continuous inspection.
+sidebar_label: Retro analysis
+sidebar_position: 92
 slug: /glossary/retro-analysis
-description: Learn what Retro Analysisᵀ is in Trisul Network Analytics and how it enables historical traffic investigation, forensic visibility, and retrospective network analytics.
 keywords:
-  - Retro Analysis
-  - Trisul Retro Analysis
-  - historical traffic analysis
-  - retrospective network analytics
-  - network forensics
-  - traffic investigation
+  - retro analysis
+  - retrospective analysis
+  - historical analysis
+  - backward scanning
+  - threat hunting
+  - pcap retro scan
+  - flow retro analysis
 ---
 
-# What is Retro Analysisᵀ?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is retro analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retro analysis applies new detection rules to historical packet capture and flow data after the fact. It enables investigators to determine whether past traffic matched newly discovered threats without requiring continuous inspection. Retro analysis matters because threat intelligence often arrives days after an intrusion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is retro analysis important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retro analysis is critical for incident investigation. When a new threat is discovered, retro analysis determines whether hosts communicated with newly-discovered malicious domains before the threat was known. Without retro analysis, you cannot detect past infections from new threats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does retro analysis work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retro analysis runs detection logic and flow taggers against stored historical PCAP and flow data after the fact. New threat signatures are applied to archived data. Matching traffic is flagged for investigation. Results show when and how past traffic matched the new threat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data does retro analysis scan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retro analysis scans historical packet capture (PCAP) and flow records. PCAP retro analysis examines packet payloads for threat signatures. Flow retro analysis examines flow metadata for indicators of compromise. Both provide retrospective threat detection."
+      }
+    }
+  ]
+};
 
-Retro Analysisᵀ is a Trisul Network Analytics capability that allows organizations to investigate and analyze historical network traffic after events have already occurred.
+# What is retro analysis?
 
-Instead of relying only on live monitoring, Retro Analysisᵀ enables teams to go back in time and examine past communication behavior, application activity, traffic anomalies, and security events.
-
-It helps organizations define investigative roles by providing retrospective visibility into:
-- historical traffic behavior
-- suspicious communication
-- bandwidth trends
-- application activity
-- attack timelines
-- network anomalies
-- operational incidents
-
-Retro Analysisᵀ is especially important for:
-- incident response
-- network forensics
-- compliance investigations
-- troubleshooting
-- historical analytics
-- capacity planning
-
-## **How Retro Analysisᵀ Works**
-
-Trisul continuously collects and retains visibility data from:
-- flow records
-- packet captures
-- application metadata
-- traffic analytics
-- protocol visibility
-- historical metrics
-
-Retro Analysisᵀ allows analysts to:
-1. search historical traffic records
-2. reconstruct communication timelines
-3. analyze past traffic behavior
-4. investigate incidents retrospectively
-
-A typical workflow looks like this:
-
-Historical Traffic Data → Retro Analysisᵀ → Investigation and Correlation
-For example:
-
-- A suspicious connection is discovered today
-- Analysts use Retro Analysisᵀ to review traffic from two weeks earlier
-- Historical communication patterns are reconstructed
-- The incident timeline becomes visible
-
-Retro Analysisᵀ may reveal:
-
-- abnormal traffic spikes
-- historical application usage
-- suspicious destinations
-- lateral movement
-- traffic anomalies
-- bandwidth behavior
+Retro analysis applies new detection rules to historical packet capture and flow data after the fact. It enables investigators to determine whether past traffic matched newly discovered threats without requiring continuous inspection. Retro analysis matters because threat intelligence often arrives days after an intrusion.
 
 ---
 
-## **Why Retro Analysisᵀ Matters**
+## How retro analysis works
 
-Many operational and security incidents are discovered long after they occur.
+Retro analysis runs detection logic and flow taggers against stored historical PCAP and flow data. New threat signatures are applied to archived data. Matching traffic is flagged for investigation. Results show when and how past traffic matched the new threat.
 
-Without retrospective visibility, organizations may struggle to:
-
-- reconstruct incidents
-- investigate historical communication
-- identify attack origins
-- analyze recurring anomalies
-- troubleshoot intermittent problems
-- validate compliance requirements
-
-Retro Analysisᵀ helps teams:
-
-- improve forensic visibility
-- investigate past activity
-- analyze historical trends
-- correlate operational events
-- strengthen incident response
-- maintain long-term visibility
-
-It is especially important in:
-
-- SOC environments
-- enterprise networks
-- ISP infrastructures
-- cloud environments
-- telecom compliance systems
-- hybrid deployments
-
-Humans really said, “what if the network had memories?” and then built entire systems to interrogate yesterday’s packets like witnesses in a crime drama.
+Flow taggers apply custom rules to historical flows. PCAP retro analysis scans packet payloads for threat signatures. Both enable retrospective threat detection without continuous inspection.
 
 ---
 
-## **Common Operational Use Cases**
+## Retro analysis in network operations
 
-### Security Investigations
+In the SOC, use retro analysis when new threats are discovered. When threat intelligence reveals a new malicious domain, retro analysis determines whether any host communicated with it before you knew to look for it. Incident scope becomes clear.
 
-Analyze historical suspicious communication and attack behavior.
-
-### Incident Reconstruction
-
-Rebuild timelines for security or operational incidents.
-
-### Historical Traffic Analysis
-
-Investigate bandwidth trends and application activity over time.
-
-### Compliance Auditing
-
-Review retained communication records for regulatory investigations.
-
-### Troubleshooting Intermittent Issues
-
-Analyze problems that are no longer actively occurring.
+Security teams run retro analysis after detecting compromises to determine how far back the attacker went. Retro analysis shows the full timeline of the incident.
 
 ---
 
-## **Retro Analysisᵀ vs Real-Time Monitoring**
+## Retro analysis capabilities
 
-| Feature | Retro Analysisᵀ | Real-Time Monitoring |
-|---|---|---|
-| Visibility Scope | Historical traffic | Current traffic |
-| Operational Focus | Retrospective investigation | Live awareness |
-| Incident Reconstruction | Strong | Limited |
-| Historical Trend Analysis | Advanced | Moderate |
-| Troubleshooting Style | Post-event analysis | Active monitoring |
-
-Retro Analysisᵀ focuses on past traffic visibility, while real-time monitoring focuses on current network activity.
+| Capability | Description |
+|---|---|
+| PCAP retro scan | Scan historical PCAP for threat signatures |
+| Flow retro analysis | Scan historical flows for indicators |
+| Threat hunting | Apply new signatures to archived data |
+| Incident timeline | Determine full incident scope |
+| Historical taggers | Apply custom rules to past flows |
 
 ---
 
-## **How Trisul Uses Retro Analysisᵀ**
+## What makes retro analysis work in practice
 
-Retro Analysisᵀ works alongside Trisul’s advanced contextual traffic visibility and forensic workflows.
+Data availability determines retro analysis capability. You cannot retro-analyze data you do not have retained. Flow data and PCAP must be stored for retro analysis. Short retention periods limit retro analysis to recent events.
 
-Combined with:
-
-- Contextᵀ
-- Flow Analysis
-- Packet Capture
-- Conversation View
-- Multigraph Analyticsᵀ
-- Top-K Analyticsᵀ
-
-Trisul helps teams:
-
-- reconstruct historical communication
-- analyze application behavior over time
-- investigate suspicious activity
-- correlate long-term traffic patterns
-- troubleshoot operational anomalies
-- improve forensic investigations
-
-Trisul can also integrate:
-
-- Historical Traffic Analysis
-- Network Forensics
-- Traffic Investigation
-
-workflows for deeper retrospective visibility.
+Index quality determines retro analysis speed. Without per-flow indexing, retro analysis scans raw files manually. With indexing, retro analysis retrieves matching data quickly. For terabyte-scale archives, indexing is the difference between usable and unusable retro analysis.
 
 ---
 
-## **Related Terms**
+## How Trisul handles retro analysis
 
-- Historical Traffic Analysis
-- Network Forensics
-- Traffic Investigation
-- Packet Capture
-- Flow Analysis
-- Contextᵀ
+Trisul provides retro analysis through flow taggers and PCAP scanning that run against historical data after the fact. Detection logic and flow taggers can be run against historical packet data after the fact. From any alert, analysts can pivot to historical flows and PCAP. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
 
 ---
 
-## **FAQ**
+## Related terms
 
-### What is Retro Analysisᵀ in Trisul?
+- [What is packet capture?](/glossary/packet-capture)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is threat hunting?](/glossary/threat-hunting)
+- [What is network forensics?](/glossary/network-forensics)
+- [What is long term traffic retention?](/glossary/long-term-traffic-retention)
 
-Retro Analysisᵀ is a Trisul capability that enables historical traffic investigation and retrospective analytics.
+---
 
-### Why is Retro Analysisᵀ important?
+## Frequently asked questions
 
-It helps organizations investigate incidents, analyze historical communication, and reconstruct past events.
+### What is retro analysis?
 
-### What types of data can Retro Analysisᵀ investigate?
+Retro analysis applies new detection rules to historical packet capture and flow data after the fact. It enables investigators to determine whether past traffic matched newly discovered threats without requiring continuous inspection. Retro analysis matters because threat intelligence often arrives days after an intrusion.
 
-It can analyze flow records, packet captures, application activity, traffic anomalies, and historical traffic behavior.
+### Why is retro analysis important?
 
-### How does Retro Analysisᵀ help incident response?
+Retro analysis is critical for incident investigation. When a new threat is discovered, retro analysis determines whether hosts communicated with newly-discovered malicious domains before the threat was known. Without retro analysis, you cannot detect past infections from new threats.
 
-It provides historical visibility needed to reconstruct attack timelines and investigate suspicious activity.
+### How does retro analysis work?
 
-### What's the difference between Retro Analysisᵀ and real-time monitoring?
+Retro analysis runs detection logic and flow taggers against stored historical PCAP and flow data after the fact. New threat signatures are applied to archived data. Matching traffic is flagged for investigation. Results show when and how past traffic matched the new threat.
 
-Retro Analysisᵀ focuses on historical investigation, while real-time monitoring focuses on current traffic activity.
+### What data does retro analysis scan?
 
-### Can Retro Analysisᵀ help troubleshoot intermittent issues?
-
-Yes. It allows analysts to investigate problems that occurred in the past even if they are no longer active.
+Retro analysis scans historical packet capture (PCAP) and flow records. PCAP retro analysis examines packet payloads for threat signatures. Flow retro analysis examines flow metadata for indicators of compromise. Both provide retrospective threat detection.

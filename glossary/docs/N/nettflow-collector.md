@@ -1,193 +1,129 @@
 ---
-title: What is a NetFlow Collector?
-sidebar_label: NetFlow Collector
-sidebar_position: 73
+title: What is NetFlow Collector?
+description: A NetFlow Collector receives, decodes, and stores flow records exported by NetFlow exporters. It aggregates flow data, provides analysis, and generates reports for bandwidth monitoring, traffic analysis, and security monitoring.
+sidebar_label: NetFlow collector
+sidebar_position: 70
 slug: /glossary/netflow-collector
-description: Learn what a NetFlow Collector is, how it works, and why collecting flow records is important for traffic visibility and network analytics.
 keywords:
-  - NetFlow Collector
+  - NetFlow collector
   - flow collector
-  - NetFlow monitoring
-  - traffic flow collection
-  - network traffic analytics
-  - flow data collection
+  - flow aggregation
+  - NetFlow analysis
+  - traffic monitoring
+  - flow storage
+  - bandwidth analysis
 ---
 
-# What is a NetFlow Collector?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a NetFlow Collector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A NetFlow Collector receives, decodes, and stores flow records exported by NetFlow exporters. It aggregates flow data from multiple routers and switches, provides analysis, and generates reports for bandwidth monitoring, traffic analysis, and security monitoring. The collector listens on UDP port 2055 or 9995 for incoming NetFlow data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a NetFlow Collector work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NetFlow Collector listens on a UDP port for incoming flow records. When records arrive, the collector decodes them based on NetFlow version and template. Data is stored in databases or files for analysis. Aggregation across interfaces, applications, and hosts provides traffic insights and reports."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the requirements for a NetFlow Collector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NetFlow Collector requires network connectivity to receive flows, UDP port configuration for listening, database or file storage for flow records, CPU and memory for processing incoming flows, and disk space for storage. Collector capacity must match flow volume from all exporters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can a NetFlow Collector do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NetFlow Collector provides bandwidth utilization tracking, top talkers identification, traffic pattern analysis, application usage reports, anomaly detection, capacity planning reports, billing and chargeback reports, and security monitoring through flow analysis. It enables comprehensive network visibility without packet capture."
+      }
+    }
+  ]
+};
 
-A NetFlow Collector is a system that receives, stores, and organizes flow records exported from network devices such as routers, switches, firewalls, and probes.
+# What is NetFlow Collector?
 
-It acts as the central collection point for traffic visibility data generated using technologies such as:
-- NetFlow
-- IPFIX
-- sFlow
-
-A NetFlow collector helps organizations define traffic roles by gathering communication metadata from across the network into a single platform for monitoring and analysis.
-
-Collected flow records may contain:
-- source and destination IP addresses
-- ports and protocols
-- packet counts
-- byte counts
-- timestamps
-- traffic direction
-- application metadata
-
-## **How a NetFlow Collector Works**
-
-Network devices continuously observe traffic flowing through their interfaces.
-
-These devices generate flow records and export them to the collector.
-
-A typical workflow looks like this:
-
-```
-Network Device → Flow Exporter → NetFlow Collector → Flow Analyzer
-```
-
-The collector:
-
-- receives incoming flow records
-- processes and indexes the metadata
-- stores traffic information
-- forwards data to analytics or visualization systems
-
-The collector may handle:
-
-- millions of flow records
-- distributed exporters
-- high-speed traffic environments
-- long-term retention workflows
-
-## **Why NetFlow Collectors Matter**
-
-Modern networks generate enormous traffic visibility data continuously.
-
-Without centralized flow collection, organizations may struggle to:
-
-- retain traffic visibility
-- analyze distributed communication
-- troubleshoot traffic issues
-- investigate anomalies
-- monitor long-term trends
-- scale analytics environments
-
-NetFlow collectors help teams:
-
-- centralize traffic visibility
-- organize flow data
-- support traffic analytics
-- improve historical retention
-- simplify monitoring architectures
-- scale network visibility operations
-
-They are especially important in:
-
-- enterprise networks
-- ISP infrastructures
-- cloud environments
-- SOC operations
-- multi-site deployments
-
-## **Common Operational Use Cases**
-
-### Centralized Traffic Visibility
-
-Collect flow records from multiple devices and locations.
-
-### Historical Traffic Retention
-
-Store long-term traffic metadata for investigation and analytics.
-
-### Distributed Monitoring
-
-Aggregate flow visibility across branch or cloud environments.
-
-### Security Monitoring
-
-Support anomaly detection and traffic investigation workflows.
-
-### ISP Traffic Analytics
-
-Collect subscriber and backbone traffic visibility at scale.
-
-## **NetFlow Collector vs NetFlow Analyzer**
-
-| Feature | NetFlow Collector | NetFlow Analyzer| 
-|----------|------------------|-----------------|
-| Primary Role |  Receive and store flow data | Analyze and visualize traffic| 
-| Traffic Processing |  Basic ingestion|  Advanced analytics| 
-| Dashboards and Reports |  Limited|  Extensive| 
-| Operational Visibility|   Moderate |  High| 
-| Data Retention Focus |  Strong  | Shared focus| 
-
-A collector focuses mainly on flow ingestion and storage, while an analyzer focuses on analytics and visualization.
-
-## **How Trisul Handles NetFlow Collection**
-
-Trisul provides scalable NetFlow collection and traffic analytics for enterprise and ISP environments. Because apparently every router on Earth wakes up daily and decides to spray telemetry into the void.
-
-Combined with:
-
-- Flow Analysis
-- Long-Term Traffic Retention
-- Flow Stitchingᵀ
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- collect high-volume flow records
-- analyze distributed traffic behavior
-- retain historical visibility
-- investigate anomalies
-- monitor bandwidth usage
-- scale traffic analytics infrastructure
-
-Trisul can also integrate:
-
-- IPFIX
-- Flow Monitoring
-- Traffic Investigation
-
-workflows for deeper visibility.
+A NetFlow Collector receives, decodes, and stores flow records exported by NetFlow exporters. It aggregates flow data, provides analysis, and generates reports for bandwidth monitoring, traffic analysis, and security monitoring. The collector listens on UDP port 2055 or 9995 for incoming NetFlow data.
 
 ---
 
-## **Related Terms**
+## How NetFlow Collector works
 
-- NetFlow
-- NetFlow Analyzer
-- Flow Collector
-- Flow Exporter
-- Flow Analysis
-- Long-Term Traffic Retention
+NetFlow Collector listens on a UDP port for incoming flow records. When records arrive, the collector decodes them based on NetFlow version and template. NetFlow v9 and IPFIX require template caching to decode variable-format records. Data is stored in databases or files for analysis.
 
 ---
 
-## **FAQ**
+## NetFlow Collector in network operations
+
+In the NOC, use the NetFlow Collector to aggregate flow data from all routers and switches. Bandwidth utilization reports show link usage over time. Top talkers reports identify hosts consuming most bandwidth. Security teams analyze flow data for anomalies and threats.
+
+Collector capacity must match flow volume. If flow rate exceeds collector capacity, data is dropped. Monitor collector CPU, memory, and storage to ensure capacity is adequate. Scale collectors when flow volume increases.
+
+---
+
+## Collector capabilities
+
+| Capability | Description |
+|---|---|
+| Flow aggregation | Aggregate flows by interface, host, application |
+| Bandwidth tracking | Track utilization over time |
+| Top talkers | Identify high-traffic hosts |
+| Anomaly detection | Detect unusual traffic patterns |
+| Reporting | Generate utilization and capacity reports |
+| Storage | Store flow data for historical analysis |
+
+---
+
+## What makes NetFlow Collector work in practice
+
+Template caching is essential for NetFlow v9 and IPFIX. The collector must cache templates to decode data records. If templates are lost or expired, data cannot be decoded until new templates arrive. Template resend intervals must be configured correctly on exporters.
+
+Storage capacity must support retention requirements. Flow data volume depends on network size and flow rate. High-speed networks generate millions of flows per hour. Storage must hold data for the required retention period. Archiving old data to cheaper storage extends retention.
+
+---
+
+## How Trisul handles NetFlow Collector
+
+Trisul acts as a NetFlow Collector receiving NetFlow v5, NetFlow v9, J-Flow, sFlow, and IPFIX data. Trisul decodes flow records using template caching for v9 and IPFIX. Flow data is stored in backend databases enabling historical analysis and reporting. Login as user to view dashboards, charts, and reports. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is NetFlow?](/glossary/netflow)
+- [What is IPFIX?](/glossary/ipfix)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is traffic analysis?](/glossary/traffic-analysis)
+
+---
+
+## Frequently asked questions
 
 ### What is a NetFlow Collector?
 
-A NetFlow Collector is a system that receives and stores flow records exported from network devices.
+A NetFlow Collector receives, decodes, and stores flow records exported by NetFlow exporters. It aggregates flow data from multiple routers and switches, provides analysis, and generates reports for bandwidth monitoring, traffic analysis, and security monitoring. The collector listens on UDP port 2055 or 9995 for incoming NetFlow data.
 
-### Why is a NetFlow Collector important?
+### How does a NetFlow Collector work?
 
-It centralizes traffic visibility and supports analytics, troubleshooting, and historical traffic retention.
+NetFlow Collector listens on a UDP port for incoming flow records. When records arrive, the collector decodes them based on NetFlow version and template. Data is stored in databases or files for analysis. Aggregation across interfaces, applications, and hosts provides traffic insights and reports.
 
-### What types of data does a NetFlow Collector receive?
+### What are the requirements for a NetFlow Collector?
 
-It receives metadata such as IP addresses, ports, bandwidth usage, timestamps, and protocol information.
+NetFlow Collector requires network connectivity to receive flows, UDP port configuration for listening, database or file storage for flow records, CPU and memory for processing incoming flows, and disk space for storage. Collector capacity must match flow volume from all exporters.
 
-### What's the difference between a NetFlow Collector and a NetFlow Analyzer?
+### What can a NetFlow Collector do?
 
-A collector stores flow data, while an analyzer provides dashboards, analytics, and traffic visualization.
-
-### Can a NetFlow Collector handle high-speed traffic environments?
-
-Yes. Modern collectors are designed to ingest large volumes of flow records at scale.
-
-### Is a NetFlow Collector useful for ISPs?
-
-Yes. ISPs use collectors to aggregate subscriber, backbone, and peering traffic visibility across distributed infrastructures.
+NetFlow Collector provides bandwidth utilization tracking, top talkers identification, traffic pattern analysis, application usage reports, anomaly detection, capacity planning reports, billing and chargeback reports, and security monitoring through flow analysis. It enables comprehensive network visibility without packet capture.

@@ -1,221 +1,135 @@
 ---
-title: What is Tunnel Traffic Analysis?
-sidebar_label: Tunnel Traffic Analysis
-sidebar_position: 119
+title: What is tunnel traffic analysis?
+description: Tunnel traffic analysis monitors and analyzes traffic inside network tunnels including VPN, GRE, IPsec, and VXLAN. It provides visibility into encrypted tunnel traffic for capacity planning, security monitoring, and troubleshooting.
+sidebar_label: Tunnel traffic analysis
+sidebar_position: 118
 slug: /glossary/tunnel-traffic-analysis
-description: Learn what tunnel traffic analysis is, how encapsulated network traffic is monitored, and why tunnel visibility is important for security, performance, and troubleshooting.
 keywords:
   - tunnel traffic analysis
-  - GRE tunnel monitoring
   - VPN traffic analysis
-  - encapsulated traffic visibility
+  - encrypted traffic
   - tunnel monitoring
-  - overlay network analytics
+  - IPsec analysis
+  - GRE traffic
+  - VXLAN traffic
 ---
 
-# What is Tunnel Traffic Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is tunnel traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tunnel traffic analysis monitors and analyzes traffic inside network tunnels including VPN, GRE, IPsec, and VXLAN. It provides visibility into encrypted tunnel traffic for capacity planning, security monitoring, and troubleshooting. Tunnel analysis decapsulates or analyzes tunnel metadata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does tunnel traffic analysis work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tunnel traffic analysis captures traffic at tunnel endpoints where decapsulation occurs. Inside traffic is visible after decapsulation. Flow data is generated from decapsulated traffic. Packet capture records inside traffic. Tunnel metadata (tunnel type, endpoints) is tracked."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tunnel types are analyzed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tunnel types include VPN (IPsec, OpenVPN, WireGuard), GRE (Generic Routing Encapsulation), VXLAN (Virtual Extensible LAN), GRE, MPLS tunnels, and tunnels. Each tunnel type has different characteristics and analysis requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why analyze tunnel traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tunnel traffic analysis is important for capacity planning bandwidth consumption of tunnels, security monitoring detecting threats inside encrypted tunnels, troubleshooting tunnel performance issues, and billing charging for tunnel bandwidth. Without analysis, tunnel traffic appears as encrypted opaque data."
+      }
+    }
+  ]
+};
 
-Tunnel Traffic Analysis is the process of monitoring and analyzing traffic that travels through network tunnels such as VPNs, GRE tunnels, VXLAN overlays, or other encapsulated communication paths.
+# What is tunnel traffic analysis?
 
-Tunnels encapsulate network traffic inside another protocol to securely or efficiently transport data across networks.
-
-Tunnel traffic analysis helps organizations define overlay communication roles by identifying:
-- tunnel bandwidth usage
-- encapsulated application traffic
-- communication behavior
-- routing patterns
-- performance issues
-- security anomalies
-- overlay network activity
-
-It is especially important in:
-- VPN environments
-- SD-WAN deployments
-- cloud connectivity
-- ISP infrastructures
-- data centers
-- hybrid networks
-
-## **How Tunnel Traffic Analysis Works**
-
-Network tunnels encapsulate original traffic packets inside additional headers.
-
-Common tunnel technologies include:
-- GRE
-- IPsec VPN
-- VXLAN
-- MPLS tunnels
-- L2TP
-- GTP
-
-A simplified workflow looks like this:
-
-Original Traffic → Tunnel Encapsulation → Tunnel Transport → Tunnel Analysis
-
-Monitoring platforms collect visibility using:
-
-- flow records
-- packet analysis
-- tunnel metadata
-- DPI engines
-- traffic telemetry
-
-Tunnel analysis may reveal:
-
-- tunnel utilization
-- application behavior inside tunnels
-- encrypted communication trends
-- latency and packet loss
-- tunnel instability
-- suspicious encapsulated traffic
-
-For example:
-
-- A VPN tunnel experiences degraded performance
-- Tunnel analytics identify excessive bandwidth usage
-- Application visibility reveals backup traffic saturating the tunnel
-- QoS or routing adjustments are applied
+Tunnel traffic analysis monitors and analyzes traffic inside network tunnels including VPN, GRE, IPsec, and VXLAN. It provides visibility into encrypted tunnel traffic for capacity planning, security monitoring, and troubleshooting. Tunnel analysis decapsulates or analyzes tunnel metadata.
 
 ---
 
-## **Why Tunnel Traffic Analysis Matters**
+## How tunnel traffic analysis works
 
-Modern infrastructures rely heavily on overlay and encrypted communication.
+Tunnel traffic analysis captures traffic at tunnel endpoints where decapsulation occurs. Inside traffic is visible after decapsulation. Flow data is generated from decapsulated traffic showing inside source and destination. Packet capture records inside traffic for forensic investigation.
 
-Without tunnel visibility, organizations may struggle to:
-
-- analyze VPN traffic behavior
-- troubleshoot overlay performance
-- identify tunnel congestion
-- investigate encrypted communication
-- monitor SD-WAN activity
-- analyze cloud interconnect traffic
-
-Tunnel traffic analysis helps teams:
-
-- improve overlay visibility
-- troubleshoot tunnel issues
-- optimize WAN performance
-- monitor encrypted communication
-- strengthen security visibility
-- analyze cloud connectivity behavior
-
-It is especially important in:
-
-- enterprise WANs
-- cloud environments
-- ISP backbones
-- telecom infrastructures
-- SD-WAN deployments
-- hybrid cloud networks
-
-Humans hid packets inside other packets to move traffic around more cleverly, then needed entirely new analytics just to figure out what was happening inside the disguise. Networks now wear trench coats.
+Tunnel metadata is tracked including tunnel type, tunnel endpoints, and tunnel bandwidth. Tunnel-to-inside traffic mapping correlates tunnel traffic with inside flows. Tunnel aggregation shows total tunnel bandwidth per endpoint.
 
 ---
 
-## **Common Operational Use Cases**
+## Tunnel traffic analysis in network operations
 
-### VPN Monitoring
+In the NOC, analyze tunnel traffic to monitor VPN bandwidth and detect performance issues. Tunnel bandwidth appears in aggregate flow data. Decapsulated traffic shows inside application details. Capacity planning tracks tunnel bandwidth for capacity upgrades.
 
-Analyze encrypted communication and tunnel utilization.
-
-### SD-WAN Visibility
-
-Monitor overlay traffic behavior across branch networks.
-
-### Cloud Connectivity Monitoring
-
-Analyze tunnel traffic exchanged with cloud providers.
-
-### Tunnel Performance Troubleshooting
-
-Identify latency, packet loss, and congestion issues.
-
-### Security Investigations
-
-Analyze suspicious or anomalous encapsulated communication.
+Security teams analyze tunnel traffic for threats inside encrypted tunnels. After decapsulation, inside traffic is visible for threat detection. Tunnel analysis prevents encrypted tunnels from becoming security blind spots.
 
 ---
 
-## **Tunnel Traffic Analysis vs Standard Traffic Analysis**
+## Tunnel types
 
-| Feature | Tunnel Traffic Analysis | Standard Traffic Analysis |
+| Tunnel Type | Use Case | Encryption |
 |---|---|---|
-| Encapsulation Awareness | Strong | Limited |
-| Overlay Visibility | Advanced | Moderate |
-| VPN Analysis Capability | Strong | Limited |
-| Tunnel Metadata Visibility | Included | Minimal |
-| SD-WAN Monitoring | Excellent | Moderate |
-
-Tunnel analysis focuses specifically on encapsulated and overlay communication visibility.
-
----
-
-## **How Trisul Handles Tunnel Traffic Analysis**
-
-Trisul provides scalable overlay traffic analytics and tunnel visibility for enterprise and ISP environments.
-
-Combined with:
-
-- GRE Tunnel Monitoring
-- Encrypted Traffic Analysis
-- Flow Analysis
-- Packet Analysis
-- Contextᵀ
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- monitor tunnel bandwidth usage
-- analyze overlay communication
-- troubleshoot VPN performance
-- investigate encrypted traffic behavior
-- optimize SD-WAN visibility
-- improve operational troubleshooting workflows
-
-Trisul can also integrate:
-
-- GRE Tunnel Monitoring
-- Encrypted Traffic Analysis
-- SD-WAN Monitoring
-
-workflows for deeper overlay visibility.
+| IPsec VPN | Site-to-site VPN | Yes |
+| OpenVPN | Remote access VPN | Yes |
+| WireGuard | Modern VPN | Yes |
+| GRE | Generic routing encapsulation | No |
+| VXLAN | Data center overlay | No |
+| MPLS | Provider backbone | No |
 
 ---
 
-## **Related Terms**
+## What makes tunnel traffic analysis work in practice
 
-- GRE Tunnel Monitoring
-- Encrypted Traffic Analysis
-- VPN Monitoring
-- SD-WAN Monitoring
-- Flow Analysis
-- Packet Analysis
+Decapsulation point matters. Tunnel traffic must be captured after decapsulation where inside traffic is visible. Capturing before decapsulation shows only encrypted tunnel traffic. Place observation points at tunnel endpoints.
+
+Tunnel endpoint identification enables tunnel aggregation. Flow data must be correlated with tunnel endpoints. Tunnel metadata identifies which tunnel carries which traffic. Without endpoint identification, tunnel traffic appears unclassified.
 
 ---
 
-## **FAQ**
+## How Trisul handles tunnel traffic analysis
 
-### What is tunnel traffic?
+Trisul provides tunnel traffic analysis through flow data collection at tunnel endpoints. Decapsulated traffic generates flow records showing inside source and destination. Tunnel metadata is tracked including tunnel type and endpoints. Tunnel bandwidth is aggregated per tunnel endpoint. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-Tunnel traffic is network communication encapsulated inside another protocol for transport across networks.
+---
 
-### What is Tunnel Traffic Analysis?
+## Related terms
 
-Tunnel Traffic Analysis is the process of monitoring and analyzing encapsulated traffic flowing through tunnels and overlays.
+- [What is VPN?](/glossary/vpn)
+- [What is encrypted traffic?](/glossary/encrypted-traffic)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is packet capture?](/glossary/packet-capture)
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
 
-### Why is tunnel traffic analysis important?
+---
 
-It helps organizations monitor VPNs, SD-WAN overlays, cloud connectivity, and encrypted communication behavior.
+## Frequently asked questions
 
-### What types of tunnels can be analyzed?
+### What is tunnel traffic analysis?
 
-GRE, IPsec VPN, VXLAN, MPLS, GTP, and SD-WAN tunnels are commonly analyzed.
+Tunnel traffic analysis monitors and analyzes traffic inside network tunnels including VPN, GRE, IPsec, and VXLAN. It provides visibility into encrypted tunnel traffic for capacity planning, security monitoring, and troubleshooting. Tunnel analysis decapsulates or analyzes tunnel metadata.
 
-### How does tunnel traffic analysis help troubleshooting?
+### How does tunnel traffic analysis work?
 
-It helps identify congestion, latency, packet loss, and abnormal behavior inside tunnel communication.
+Tunnel traffic analysis captures traffic at tunnel endpoints where decapsulation occurs. Inside traffic is visible after decapsulation. Flow data is generated from decapsulated traffic. Packet capture records inside traffic. Tunnel metadata (tunnel type, endpoints) is tracked.
 
-### Can tunnel traffic analysis improve security visibility?
+### What tunnel types are analyzed?
 
-Yes. It helps investigate suspicious encrypted or encapsulated communication patterns.
+Tunnel types include VPN (IPsec, OpenVPN, WireGuard), GRE (Generic Routing Encapsulation), VXLAN (Virtual Extensible LAN), GRE, MPLS tunnels, and tunnels. Each tunnel type has different characteristics and analysis requirements.
+
+### Why analyze tunnel traffic?
+
+Tunnel traffic analysis is important for capacity planning bandwidth consumption of tunnels, security monitoring detecting threats inside encrypted tunnels, troubleshooting tunnel performance issues, and billing charging for tunnel bandwidth. Without analysis, tunnel traffic appears as encrypted opaque data.
+
+---
+
+All 9 entries are now complete with the correct structure following your approved format. Each includes front matter, jsonLd schema, main heading, intro paragraph, how it works section, in network operations section, table or comparison section, what makes it work in practice section, how Trisul handles it section, related terms, and frequently asked questions section.

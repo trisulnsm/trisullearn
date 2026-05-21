@@ -1,177 +1,125 @@
 ---
 title: What is IPFIX?
+description: IPFIX (IP Flow Information Export) is an IETF standard protocol for exporting IP flow information from routers, probes, and other network devices to a collector for measurement, accounting, billing, and network management.
 sidebar_label: IPFIX
-sidebar_position: 57
+sidebar_position: 52
 slug: /glossary/ipfix
-description: Learn what IPFIX is, how IPFIX flow monitoring works, and why IPFIX is important for scalable traffic visibility and network analytics.
 keywords:
   - IPFIX
   - IP Flow Information Export
-  - IPFIX monitoring
-  - flow monitoring
-  - network traffic analytics
-  - flow export protocol
+  - IPFIX protocol
+  - IPFIX collector
+  - IPFIX exporter
+  - flow export
+  - IETF flow standard
 ---
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is IPFIX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IPFIX (IP Flow Information Export) is an IETF standard protocol for transmitting IP flow information from network devices to a collector. It was created to provide a common universal standard for exporting flow data from routers, probes, and other devices used by mediation systems, accounting systems, billing systems, and network management systems. IPFIX is defined in RFC 7011 and RFC 7012."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does IPFIX differ from NetFlow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IPFIX is the IETF standardized version of Cisco NetFlow v9. NetFlow v9 introduced the template-based record format that IPFIX adopted and standardized. Unlike vendor-specific NetFlow, IPFIX is an open standard that any vendor can implement. IPFIX extends NetFlow v9 by supporting enterprise-specific Information Elements, variable-length fields, and additional transport options."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an IPFIX Information Element?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An IPFIX Information Element is a description of an attribute that may appear in an IPFIX record. Information Elements are IANA-assigned, defined in the IPFIX information model in RFC 7012, and may also be enterprise-specific and proprietary. They are grouped into categories including IP header fields, transport header fields, flow timestamps, per-flow counters, and miscellaneous flow properties. All IEs must be sent in network byte order as big endian."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What transport protocols does IPFIX use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IPFIX is a push protocol where the exporter periodically sends messages to configured collectors without any interaction from the receiver. IPFIX supports SCTP as preferred for reliability, TCP, and UDP as transport protocols. SCTP is recommended because it is reliable, congestion-aware, and has a simpler state machine than TCP. Templates are resent at regular intervals to ensure the collector can always interpret data records."
+      }
+    }
+  ]
+};
 
 # What is IPFIX?
 
-IPFIX (IP Flow Information Export) is a standardized flow monitoring protocol used to export network traffic metadata from devices such as routers, switches, firewalls, and probes to traffic analytics platforms.
-
-IPFIX helps network and security teams monitor:
-- bandwidth usage
-- application traffic
-- communication patterns
-- traffic anomalies
-- subscriber activity
-- network performance
-
-It is considered the standardized evolution of [NetFlow](/glossary/netflow), offering more flexible and extensible traffic visibility.
-
-## **How IPFIX Works**
-
-Network devices observe traffic flowing through their interfaces and group packets into flows based on shared characteristics such as:
-- source IP address
-- destination IP address
-- ports and protocols
-- traffic direction
-- application metadata
-
-The device then exports flow records using the IPFIX protocol.
-
-A typical IPFIX workflow looks like this:
-
-1. Traffic passes through a monitoring device
-2. The device creates flow records
-3. Flow metadata is exported using IPFIX
-4. A [Flow Collector](/glossary/flow-collector) receives the data
-5. A [Flow Analyzer](/glossary/flow-analyzer) processes the traffic visibility
-
-IPFIX records may include:
-- packet counts
-- byte counts
-- timestamps
-- interface details
-- QoS information
-- application identifiers
-- MPLS labels
-- custom metadata fields
-
-![](images/ipfix.png)
-
-## **Why IPFIX Matters**
-
-Modern networks generate large volumes of traffic across cloud, enterprise, and ISP environments.
-
-IPFIX helps organizations:
-- scale traffic monitoring
-- improve application visibility
-- analyze bandwidth usage
-- investigate suspicious communication
-- monitor subscriber traffic
-- support advanced traffic analytics
-
-Compared to older flow protocols, IPFIX provides:
-- flexible templates
-- vendor-neutral interoperability
-- extensible metadata fields
-- richer traffic visibility
-
-IPFIX is especially important in:
-- enterprise networks
-- ISPs
-- cloud infrastructures
-- data centers
-- SOC environments
-
-## **Common Operational Use Cases**
-
-### Bandwidth Monitoring
-
-Analyze traffic utilization across applications and interfaces.
-
-### Application Visibility
-
-Identify Layer 7 application traffic behavior.
-
-### Security Monitoring
-
-Detect suspicious communication and traffic anomalies.
-
-### ISP Traffic Analytics
-
-Monitor subscriber traffic and backbone utilization.
-
-### Traffic Investigation
-
-Investigate abnormal communication patterns and network incidents.
-
-## **IPFIX vs NetFlow**
-
-| Feature | IPFIX | NetFlow |
-|---|---|---|
-| Standardization | Open standard | Originally Cisco-specific |
-| Extensibility | Highly flexible | More limited |
-| Vendor Support | Broad | Broad |
-| Metadata Flexibility | Advanced | Moderate |
-| Modern Traffic Visibility | Strong | Strong |
-
-IPFIX extends traditional flow monitoring with more flexible and standardized metadata support.
-
-## **How Trisul Handles IPFIX Visibility**
-
-Trisul provides scalable IPFIX analytics and flow visibility for enterprise and ISP environments.
-
-Combined with:
-- Flow Analysis
-- Flow Stitchingᵀ
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-- Long-Term Traffic Retention
-
-Trisul helps teams:
-- analyze traffic behavior
-- monitor bandwidth utilization
-- investigate suspicious communication
-- visualize application traffic
-- correlate historical flow activity
-- monitor distributed infrastructures
-
-Trisul can also integrate [NetFlow](/glossary/netflow), [Flow Monitoring](/glossary/flow-monitoring), and [Application Visibility](/glossary/application-visibility) workflows for deeper traffic analytics.
-
-## **Related Terms**
-
-- [NetFlow](/glossary/netflow)
-- [Flow Monitoring](/glossary/flow-monitoring)
-- [Flow Analysis](/glossary/flow-analysis)
-- [Flow Exporter](/glossary/flow-exporter)
-- [Flow Collector](/glossary/flow-collector)
-- [Application Visibility](/glossary/application-visibility)
+IPFIX (IP Flow Information Export) is an IETF standard protocol for exporting IP flow information from routers, probes, and other network devices to a collector. It was created to provide a common universal standard for flow export, enabling measurement, accounting, billing, and network management. IPFIX is defined in RFC 7011 for protocol specification and RFC 7012 for information model.
 
 ---
 
-## **FAQ**
+## How IPFIX works
+
+An IPFIX exporter on a router or probe observes IP packets at an observation point and groups them into flows. Flow records are encoded using templates and sent periodically to a collector. Templates describe the structure of data records, enabling the collector to always interpret records correctly even when new fields are added. IPFIX is a push protocol where the exporter sends data without any request from the collector.
+
+---
+
+## IPFIX in network operations
+
+IPFIX exporters run on routers, switches, and probes throughout the network. The collector receives flow records from multiple exporters and aggregates them for analysis. SNMP provides interface counters and device metrics to complement flow data. Syslog captures device events and configuration changes. RADIUS provides subscriber authentication and accounting information for ISP deployments.
+
+---
+
+## IPFIX message structure
+
+| Component | Description |
+|---|---|
+| Message Header | Version, length, export time, sequence number, observation domain ID |
+| Template Record | Ordered sequence of type and length pairs defining a data record structure |
+| Data Record | Values of parameters specified in a template record |
+| Options Record | Defines structure and interpretation of a data record including scope |
+
+---
+
+## What makes IPFIX work in practice
+
+Template management is the core mechanism. The exporter sends a template before sending data records that use that template. The collector caches the template and uses it to decode subsequent data records. If the exporter changes the template, it sends a new template with a new template ID. Old templates are kept until the collector stops using them.
+
+Transport reliability affects data integrity. UDP is fast but drops packets under load. SCTP provides可靠 delivery with congestion control. TCP is reliable but adds overhead. For high-volume exporters, SCTP is the best choice. The collector must acknowledge received messages and handle retransmissions when exporters resend lost data.
+
+---
+
+## How Trisul handles IPFIX
+
+Trisul collects IPFIX data natively alongside NetFlow v5, NetFlow v9, sFlow, and J-Flow. IPFIX data received by Trisul is decoded using the template-based mechanism, with templates cached per observation domain. All standard IPFIX Information Elements are supported, and enterprise-specific IEs can be configured for custom decoding. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is NetFlow?](/glossary/netflow)
+- [What is sFlow?](/glossary/sflow)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is flow exporter?](/glossary/flow-exporter)
+- [What is flow collector?](/glossary/flow-collector)
+
+---
+
+## Frequently asked questions
 
 ### What is IPFIX?
 
-IPFIX stands for IP Flow Information Export, a standardized protocol for exporting network flow metadata.
+IPFIX (IP Flow Information Export) is an IETF standard protocol for transmitting IP flow information from network devices to a collector. It was created to provide a common universal standard for exporting flow data from routers, probes, and other devices used by mediation systems, accounting systems, billing systems, and network management systems. IPFIX is defined in RFC 7011 and RFC 7012.
 
-### Why is IPFIX important?
+### How does IPFIX differ from NetFlow?
 
-It provides scalable traffic visibility for bandwidth analysis, application monitoring, security analytics, and troubleshooting.
+IPFIX is the IETF standardized version of Cisco NetFlow v9. NetFlow v9 introduced the template-based record format that IPFIX adopted and standardized. Unlike vendor-specific NetFlow, IPFIX is an open standard that any vendor can implement. IPFIX extends NetFlow v9 by supporting enterprise-specific Information Elements, variable-length fields, and additional transport options.
 
-### What's the difference between IPFIX and NetFlow?
+### What is an IPFIX Information Element?
 
-IPFIX is an open standardized evolution of NetFlow with more flexible and extensible metadata support.
+An IPFIX Information Element is a description of an attribute that may appear in an IPFIX record. Information Elements are IANA-assigned, defined in the IPFIX information model in RFC 7012, and may also be enterprise-specific and proprietary. They are grouped into categories including IP header fields, transport header fields, flow timestamps, per-flow counters, and miscellaneous flow properties. All IEs must be sent in network byte order as big endian.
 
-### What types of devices support IPFIX?
+### What transport protocols does IPFIX use?
 
-Routers, switches, firewalls, probes, and virtual appliances commonly support IPFIX exports.
-
-### Can IPFIX monitor applications?
-
-Yes. IPFIX can export application-aware metadata and Layer 7 visibility information.
-
-### Is IPFIX useful for security monitoring?
-
-Yes. IPFIX helps detect anomalies, suspicious communication, and abnormal traffic behavior.
+IPFIX is a push protocol where the exporter periodically sends messages to configured collectors without any interaction from the receiver. IPFIX supports SCTP as preferred for reliability, TCP, and UDP as transport protocols. SCTP is recommended because it is reliable, congestion-aware, and has a simpler state machine than TCP. Templates are resent at regular intervals to ensure the collector can always interpret data records.

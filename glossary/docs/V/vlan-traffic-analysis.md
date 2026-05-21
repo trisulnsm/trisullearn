@@ -1,217 +1,131 @@
 ---
-title: What is VLAN Traffic Analysis?
-sidebar_label: VLAN Traffic Analysis
-sidebar_position: 124
+title: What is VLAN traffic analysis?
+description: VLAN traffic analysis monitors and analyzes traffic within Virtual LAN segments. It provides visibility into inter-VLAN routing, intra-VLAN traffic patterns, and VLAN utilization for capacity planning and security monitoring.
+sidebar_label: VLAN traffic analysis
+sidebar_position: 120
 slug: /glossary/vlan-traffic-analysis
-description: Learn what VLAN traffic analysis is, how VLAN-based traffic visibility works, and why analyzing VLAN traffic is important for segmentation, troubleshooting, and security monitoring.
 keywords:
   - VLAN traffic analysis
   - VLAN monitoring
-  - virtual LAN analytics
-  - segmented traffic visibility
-  - VLAN bandwidth monitoring
-  - network segmentation analysis
+  - virtual LAN
+  - VLAN analytics
+  - inter-VLAN routing
+  - VLAN utilization
+  - segment traffic
 ---
 
-# What is VLAN Traffic Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is VLAN traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VLAN traffic analysis monitors and analyzes traffic within Virtual LAN segments. It provides visibility into inter-VLAN routing, intra-VLAN traffic patterns, and VLAN utilization for capacity planning and security monitoring. VLAN analysis tracks traffic per VLAN ID."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does VLAN traffic analysis work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VLAN traffic analysis captures traffic with VLAN tags from trunk ports or SPAN ports configured for VLAN encapsulation. Flow data is enriched with VLAN ID. Traffic is aggregated by VLAN showing utilization per segment. Inter-VLAN routing is tracked at router interfaces."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why analyze VLAN traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VLAN traffic analysis is important for capacity planning VLAN segments, security monitoring detecting lateral movement between VLANs, troubleshooting inter-VLAN routing issues, and policy enforcement ensuring VLAN segmentation is respected. VLAN analysis reveals segment-level traffic patterns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does VLAN analysis reveal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VLAN analysis reveals bandwidth utilization per VLAN, top talkers within VLANs, inter-VLAN traffic volumes, inappropriate inter-VLAN communication, VLAN growth trends, and unauthorized VLAN hopping attempts. Analysis identifies segmentation violations."
+      }
+    }
+  ]
+};
 
-VLAN Traffic Analysis is the process of monitoring and analyzing network traffic within and across Virtual LANs (VLANs).
+# What is VLAN traffic analysis?
 
-A VLAN (Virtual Local Area Network) logically separates network traffic into isolated segments even when devices share the same physical infrastructure.
-
-VLAN traffic analysis helps organizations define segmented network visibility roles by analyzing:
-- traffic distribution between VLANs
-- bandwidth usage
-- application behavior
-- east-west communication
-- broadcast activity
-- security anomalies
-- VLAN performance
-
-It is widely used for:
-- network segmentation monitoring
-- security visibility
-- traffic troubleshooting
-- bandwidth monitoring
-- data center analytics
-- enterprise network management
-
-## **How VLAN Traffic Analysis Works**
-
-Switches tag traffic using VLAN identifiers (VLAN IDs) to separate communication domains.
-
-Monitoring platforms collect visibility using:
-- NetFlow
-- IPFIX
-- packet analysis
-- SNMP telemetry
-- switch analytics
-- packet capture systems
-
-A simplified workflow looks like this:
-
-VLAN Traffic → Traffic Collection → VLAN Analytics → Investigation
-Traffic visibility may include:
-
-- VLAN bandwidth utilization
-- inter-VLAN communication
-- application activity
-- top VLAN talkers
-- broadcast traffic
-- anomalous communication patterns
-
-For example:
-
-- A data center VLAN experiences congestion
-- VLAN analytics identify excessive backup traffic
-- Teams optimize segmentation or traffic policies
-- Network performance improves
+VLAN traffic analysis monitors and analyzes traffic within Virtual LAN segments. It provides visibility into inter-VLAN routing, intra-VLAN traffic patterns, and VLAN utilization for capacity planning and security monitoring. VLAN analysis tracks traffic per VLAN ID.
 
 ---
 
-## **Why VLAN Traffic Analysis Matters**
+## How VLAN traffic analysis works
 
-Modern enterprise and data center networks rely heavily on segmentation for:
+VLAN traffic analysis captures traffic with VLAN tags from trunk ports or SPAN ports configured for VLAN encapsulation (802.1Q). Flow data is enriched with VLAN ID. Traffic is aggregated by VLAN showing utilization per segment.
 
-- performance
-- security
-- operational organization
-- traffic isolation
-
-Without VLAN visibility, organizations may struggle to:
-
-- troubleshoot segmented networks
-- identify VLAN congestion
-- monitor east-west communication
-- detect unauthorized traffic
-- analyze broadcast storms
-- optimize segmentation policies
-
-VLAN traffic analysis helps teams:
-
-- improve segmented visibility
-- monitor inter-VLAN communication
-- strengthen security monitoring
-- troubleshoot congestion
-- optimize bandwidth allocation
-- improve operational awareness
-
-It is especially important in:
-
-- enterprise networks
-- data centers
-- cloud-connected environments
-- campus networks
-- telecom infrastructures
-- virtualized environments
-
-Humans divided networks into neat virtual compartments for order and security, then immediately needed analytics to understand the chaos happening between the compartments anyway.
+Inter-VLAN routing is tracked at router interfaces where VLANs are routed. Intra-VLAN traffic is visible at switch SPAN ports. VLAN utilization is calculated from bandwidth per VLAN.
 
 ---
 
-## **Common Operational Use Cases**
+## VLAN traffic analysis in network operations
 
-### Segmentation Monitoring
+In the NOC, use VLAN traffic analysis to monitor segment utilization and detect congestion within VLANs. Capacity planning tracks VLAN bandwidth trends to plan segment upgrades. Security teams detect lateral movement through unusual inter-VLAN traffic patterns.
 
-Analyze traffic behavior across isolated network segments.
-
-### Security Visibility
-
-Monitor unauthorized or suspicious inter-VLAN communication.
-
-### Data Center Analytics
-
-Analyze east-west traffic inside virtualized infrastructures.
-
-### Bandwidth Troubleshooting
-
-Identify VLAN-specific congestion and high utilization.
-
-### Broadcast Traffic Analysis
-
-Detect excessive broadcast or multicast activity.
+Network engineers use VLAN analysis to troubleshoot inter-VLAN routing issues. High inter-VLAN traffic may indicate routing suboptimalities. VLAN analysis reveals traffic patterns affecting routing decisions.
 
 ---
 
-## **VLAN Traffic Analysis vs General Traffic Monitoring**
+## VLAN analysis metrics
 
-| Feature | VLAN Traffic Analysis | General Traffic Monitoring |
-|---|---|---|
-| Segmentation Awareness | Strong | Moderate |
-| VLAN-Level Visibility | Advanced | Limited |
-| Inter-VLAN Monitoring | Strong | Moderate |
-| East-West Traffic Visibility | High | Moderate |
-| Broadcast Analysis | Advanced | Limited |
-
-VLAN traffic analysis focuses specifically on segmented network behavior and VLAN-aware communication visibility.
-
----
-
-## **How Trisul Handles VLAN Traffic Analysis**
-
-Trisul provides scalable VLAN-aware traffic analytics for enterprise and ISP environments.
-
-Combined with:
-
-- Flow Analysis
-- Packet Analysis
-- Contextᵀ
-- Top-K Analyticsᵀ
-- Real-Time Traffic Monitoring
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- analyze VLAN traffic behavior
-- monitor inter-VLAN communication
-- investigate anomalous segmented traffic
-- troubleshoot VLAN congestion
-- optimize segmentation visibility
-- strengthen operational monitoring
-
-Trisul can also integrate:
-
-- East-West Traffic
-- Bandwidth Monitoring
-- Traffic Investigation
-
-workflows for deeper segmented visibility.
+| Metric | Description |
+|---|---|
+| VLAN utilization | Bandwidth per VLAN ID |
+| Top VLANs | Highest bandwidth VLANs |
+| Intra-VLAN traffic | Traffic within same VLAN |
+| Inter-VLAN traffic | Traffic between VLANs |
+| Top talkers per VLAN | Highest bandwidth hosts per VLAN |
+| VLAN growth | VLAN bandwidth trends over time |
 
 ---
 
-## **Related Terms**
+## What makes VLAN traffic analysis work in practice
 
-- East-West Traffic
-- Bandwidth Monitoring
-- Traffic Investigation
-- Packet Analysis
-- Flow Analysis
-- Network Segmentation
+VLAN tag capture is essential. SPAN ports must be configured to preserve VLAN tags. Without VLAN tags, traffic appears unclassified. Configure SPAN ports for 802.1Q encapsulation. Trunk ports naturally carry VLAN tags.
+
+Flow exporter VLAN support determines accuracy. Flow exporters must include VLAN ID in flow records. NetFlow v9 and IPFIX support VLAN fields. Without VLAN in flow records, VLAN analysis is impossible.
 
 ---
 
-## **FAQ**
+## How Trisul handles VLAN traffic analysis
+
+Trisul provides VLAN traffic analysis through flow data enriched with VLAN ID from NetFlow v9 and IPFIX exporters. Traffic is aggregated by VLAN showing utilization per segment. VLAN-aware packet capture preserves VLAN tags. Login as user to view VLAN traffic dashboards. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is VLAN?](/glossary/vlan)
+- [What is inter-VLAN routing?](/glossary/inter-vlan-routing)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is network segmentation?](/glossary/network-segmentation)
+
+---
+
+## Frequently asked questions
 
 ### What is VLAN traffic analysis?
 
-VLAN traffic analysis is the process of monitoring and analyzing traffic within and across VLAN network segments.
+VLAN traffic analysis monitors and analyzes traffic within Virtual LAN segments. It provides visibility into inter-VLAN routing, intra-VLAN traffic patterns, and VLAN utilization for capacity planning and security monitoring. VLAN analysis tracks traffic per VLAN ID.
 
-### Why is VLAN traffic analysis important?
+### How does VLAN traffic analysis work?
 
-It helps organizations troubleshoot segmented networks, monitor security, and analyze bandwidth usage.
+VLAN traffic analysis captures traffic with VLAN tags from trunk ports or SPAN ports configured for VLAN encapsulation. Flow data is enriched with VLAN ID. Traffic is aggregated by VLAN showing utilization per segment. Inter-VLAN routing is tracked at router interfaces.
 
-### What can VLAN traffic analysis detect?
+### Why analyze VLAN traffic?
 
-It can detect congestion, unauthorized communication, broadcast storms, and abnormal traffic behavior.
+VLAN traffic analysis is important for capacity planning VLAN segments, security monitoring detecting lateral movement between VLANs, troubleshooting inter-VLAN routing issues, and policy enforcement ensuring VLAN segmentation is respected. VLAN analysis reveals segment-level traffic patterns.
 
-### How are VLANs identified during analysis?
+### What does VLAN analysis reveal?
 
-Traffic is identified using VLAN tags and VLAN IDs carried within Ethernet frames.
-
-### What's the difference between VLAN analysis and general traffic monitoring?
-
-VLAN analysis focuses specifically on segmented communication and inter-VLAN behavior.
-
-### Can VLAN traffic analysis improve security visibility?
-
-Yes. It helps detect suspicious communication between isolated network segments.
+VLAN analysis reveals bandwidth utilization per VLAN, top talkers within VLANs, inter-VLAN traffic volumes, inappropriate inter-VLAN communication, VLAN growth trends, and unauthorized VLAN hopping attempts. Analysis identifies segmentation violations.

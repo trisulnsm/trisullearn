@@ -1,214 +1,128 @@
 ---
-title: What is an Observation Point?
-sidebar_label: Observation Point
-sidebar_position: 80
+title: What is observation point?
+description: An observation point is the location in a network where packets are observed for flow monitoring or packet capture. It is the interface or device where traffic is monitored and flow records are generated.
+sidebar_label: Observation point
+sidebar_position: 76
 slug: /glossary/observation-point
-description: Learn what an Observation Point is in network monitoring, how traffic observation locations work, and why visibility placement is important for traffic analytics and security monitoring.
 keywords:
   - observation point
-  - network observation point
-  - traffic visibility point
-  - packet observation
-  - flow monitoring location
-  - network monitoring architecture
+  - monitoring point
+  - capture point
+  - traffic monitoring
+  - flow monitoring
+  - network visibility
+  - packet capture point
 ---
 
-# What is an Observation Point?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an observation point?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An observation point is the location in a network where packets are observed for flow monitoring or packet capture. It is the interface or device where traffic is monitored and flow records are generated. In IPFIX, the observation point is defined as the point in the network where traffic is observed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where are observation points placed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Observation points are placed at critical network locations including data center edge, internet gateway, WAN links, server farm entry points, and branch office connections. Strategic placement ensures visibility into all traffic that needs monitoring. Missing observation points create visibility gaps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does observation point affect flow data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flow data is scoped to the observation point where it was collected. Traffic observed at one observation point may not be visible at another. Flow records include observation point identifier so collectors know where traffic was observed. This enables multi-point traffic analysis and correlation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between observation point and observation domain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Observation point is the specific location where traffic is observed such as an interface. Observation domain is a collection of observation points managed together. One observation domain can include multiple observation points on the same router or across multiple routers."
+      }
+    }
+  ]
+};
 
-An Observation Point is a location in a network where traffic is monitored, analyzed, or collected for visibility, analytics, and security purposes.
+# What is observation point?
 
-It defines the monitoring role of where traffic observation occurs within the network infrastructure.
-
-Observation points may exist on:
-- routers
-- switches
-- firewalls
-- packet brokers
-- cloud gateways
-- virtual networks
-- taps and SPAN ports
-- monitoring probes
-
-The placement of observation points directly affects:
-- traffic visibility
-- application awareness
-- security monitoring
-- troubleshooting accuracy
-- forensic analysis
-- operational context
-
-## **How Observation Points Work**
-
-Traffic flowing through a network passes through different infrastructure components.
-
-Monitoring systems collect visibility data from selected observation points using:
-- NetFlow
-- IPFIX
-- packet capture
-- DPI systems
-- cloud telemetry
-- mirrored traffic sessions
-
-A typical workflow looks like this:
-```
-
-Traffic Flow → Observation Point → Monitoring Platform
-```
-
-For example:
-
-- A switch mirrors traffic to a monitoring probe
-- The probe becomes the observation point
-- Traffic metadata and packets are analyzed
-- Analytics platforms visualize the communication behavior
-
-Observation points may monitor:
-
-- ingress traffic
-- egress traffic
-- east-west traffic
-- WAN traffic
-- cloud traffic
-- application sessions
+An observation point is the location in a network where packets are observed for flow monitoring or packet capture. It is the interface or device where traffic is monitored and flow records are generated. In IPFIX, the observation point is defined as the point in the network where traffic is observed.
 
 ---
 
-## **Why Observation Points Matter**
+## How observation point works
 
-Traffic visibility depends heavily on where monitoring occurs. Humans really built entire professions around deciding where to stand and watch packets move. Digital birdwatching, but with more caffeine and compliance requirements.
+Observation points are placed at strategic network locations. Flow exporters on routers and switches observe passing packets at the observation point. Packets are grouped into flows and flow records are generated. Flow records include observation point identifier so collectors know where traffic was observed.
 
-Without properly placed observation points, organizations may struggle to:
-
-- observe critical communication paths
-- analyze distributed applications
-- detect lateral movement
-- troubleshoot performance issues
-- monitor cloud workloads
-- investigate incidents accurately
-
-Observation points help teams:
-
-- improve visibility coverage
-- monitor critical infrastructure
-- analyze traffic behavior
-- support security investigations
-- optimize monitoring architectures
-- improve operational awareness
-
-They are especially important in:
-
-- enterprise networks
-- data centers
-- cloud environments
-- ISP infrastructures
-- SOC operations
-- hybrid deployments
+Packet capture at observation points records all packets passing through. TAPs or SPAN ports provide observation points for packet capture. TAPs provide lossless observation while SPAN ports may drop packets under load.
 
 ---
 
-## **Common Operational Use Cases**
+## Observation point in network operations
 
-### Perimeter Monitoring
+In network design, place observation points at critical locations including data center edge, internet gateway, WAN links, and server farm entry points. Strategic placement ensures visibility into all traffic that needs monitoring. Missing observation points create visibility gaps.
 
-Monitor inbound and outbound internet traffic.
-
-### East-West Traffic Visibility
-
-Observe communication between internal systems.
-
-### Cloud Traffic Analysis
-
-Monitor workloads and distributed applications in cloud environments.
-
-### Security Monitoring
-
-Collect traffic visibility for anomaly detection and incident response.
-
-### WAN Performance Monitoring
-
-Observe traffic across branch and backbone connections.
+Flow exporters must be enabled at each observation point. Without export, no flow data is collected. Monitor flow exporter status to ensure observation points are active. When routers are replaced or interfaces change, reconfigure observation points.
 
 ---
 
-## **Observation Point vs Monitoring Tool**
+## Observation point types
 
-| Feature | Observation Point | Monitoring Tool |
-|---|---|---|
-| Primary Role | Traffic visibility location | Traffic analysis platform |
-| Physical or Logical Presence | Yes | Usually software/platform |
-| Data Collection Function | Direct | Indirect |
-| Visibility Scope | Depends on placement | Depends on collected data |
-| Operational Purpose | Traffic observation | Analytics and investigation |
-
-An observation point defines where visibility is collected, while the monitoring tool analyzes the collected data.
+| Type | Description | Pros | Cons |
+|---|---|---|---|
+| Router interface | Built-in flow exporter | No extra hardware | May not capture all traffic |
+| Network TAP | Passive optical tap | Lossless capture | Requires per-link hardware |
+| SPAN port | Switch port mirroring | No extra hardware | May drop packets under load |
 
 ---
 
-## **How Trisul Uses Observation Points**
+## What makes observation point work in practice
 
-Trisul supports distributed traffic visibility across multiple observation points in enterprise and ISP environments.
+Complete coverage requires observation points at all critical locations. Map traffic flows and place observation points where traffic passes. Missing observation points create blind spots where threats or problems go undetected.
 
-Combined with:
-
-- Flow Analysis
-- Packet Capture
-- Flow Stitchingᵀ
-- Contextᵀ
-- Multigraph Analyticsᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- correlate visibility across observation points
-- analyze distributed communication paths
-- monitor east-west and north-south traffic
-- investigate anomalies
-- improve forensic visibility
-- scale traffic analytics architectures
-
-Trisul can also integrate:
-
-- Packet Capture
-- Flow Monitoring
-- Hybrid Flow Monitoring
-
-workflows for broader visibility coverage.
+Lossless observation requires passive TAPs. SPAN ports drop packets under load without indicating loss. For forensic investigation, passive TAPs ensure complete packet capture. For flow monitoring, SPAN ports are acceptable since flow data is less sensitive to packet loss.
 
 ---
 
-## **Related Terms**
+## How Trisul handles observation point
 
-- Packet Capture
-- Flow Monitoring
-- Hybrid Flow Monitoring
-- East-West Traffic
-- North-South Traffic
-- Traffic Investigation
+Trisul collects flow data from multiple observation points through NetFlow, J-Flow, sFlow, and IPFIX exporters. Flow records include observation domain identifiers enabling multi-point traffic analysis. Trisul correlates data from multiple observation points to provide complete visibility. Passive TAPs or SPAN ports provide observation points for packet capture. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
 ---
 
-## **FAQ**
+## Related terms
 
-### What is an observation point in networking?
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is packet capture?](/glossary/packet-capture)
+- [What is network TAP?](/glossary/network-tap)
+- [What is SPAN port?](/glossary/span-port)
+- [What is IPFIX?](/glossary/ipfix)
 
-An observation point is a location where network traffic is monitored or collected for visibility and analytics.
+---
 
-### Why are observation points important?
+## Frequently asked questions
 
-They determine what traffic can be observed and directly affect monitoring accuracy and visibility coverage.
+### What is an observation point?
 
-### Where can observation points exist?
+An observation point is the location in a network where packets are observed for flow monitoring or packet capture. It is the interface or device where traffic is monitored and flow records are generated. In IPFIX, the observation point is defined as the point in the network where traffic is observed.
 
-They may exist on routers, switches, firewalls, taps, SPAN ports, probes, and cloud gateways.
+### Where are observation points placed?
 
-### Can observation points monitor cloud traffic?
+Observation points are placed at critical network locations including data center edge, internet gateway, WAN links, server farm entry points, and branch office connections. Strategic placement ensures visibility into all traffic that needs monitoring. Missing observation points create visibility gaps.
 
-Yes. Modern monitoring platforms support cloud-based and virtual observation points.
+### How does observation point affect flow data?
 
-### What's the difference between an observation point and a monitoring platform?
+Flow data is scoped to the observation point where it was collected. Traffic observed at one observation point may not be visible at another. Flow records include observation point identifier so collectors know where traffic was observed. This enables multi-point traffic analysis and correlation.
 
-The observation point collects traffic visibility, while the monitoring platform analyzes and visualizes the data.
+### What is the difference between observation point and observation domain?
 
-### How do observation points help security monitoring?
-
-They provide traffic visibility needed for anomaly detection, incident response, and forensic investigations.
+Observation point is the specific location where traffic is observed such as an interface. Observation domain is a collection of observation points managed together. One observation domain can include multiple observation points on the same router or across multiple routers.

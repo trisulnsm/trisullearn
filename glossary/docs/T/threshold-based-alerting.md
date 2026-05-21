@@ -1,204 +1,130 @@
 ---
-title: What is Threshold-Based Alerting?
-sidebar_label: Threshold-Based Alerting
-sidebar_position: 112
+title: What is threshold-based alerting?
+description: Threshold-based alerting triggers notifications when network metrics exceed configured limits. It enables rapid detection of congestion, bandwidth spikes, security anomalies, and performance degradation.
+sidebar_label: Threshold-based alerting
+sidebar_position: 111
 slug: /glossary/threshold-based-alerting
-description: Learn what threshold-based alerting is, how threshold monitoring works, and why automated alerts are important for network operations, security, and performance monitoring.
 keywords:
-  - threshold-based alerting
+  - threshold alerting
+  - alerting threshold
+  - bandwidth alerting
+  - anomaly alerting
   - network alerting
   - threshold monitoring
-  - performance alerts
-  - anomaly alerts
-  - operational monitoring
+  - alert triggers
 ---
 
-# What is Threshold-Based Alerting?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is threshold-based alerting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Threshold-based alerting triggers notifications when network metrics exceed configured limits. It enables rapid detection of congestion, bandwidth spikes, security anomalies, and performance degradation. Alerts trigger when metrics cross thresholds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does threshold alerting work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Threshold alerting monitors metrics continuously comparing against configured limits. When a metric exceeds its threshold, an alert is generated. Alerts are sent via email, SMS, or dashboard notifications. Thresholds can be static or dynamic based on baselines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What metrics can be alerted on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metrics include bandwidth utilization, packet loss, latency, jitter, top talkers, new connections, DNS queries, application usage, flow count, and custom patterns. Any measurable traffic metric can have threshold-based alerts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are good threshold values?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Good thresholds balance sensitivity against false positives. Bandwidth utilization alerts at 70-80%. Packet loss alerts above 1%. Latency alerts above 50ms. Dynamic thresholds based on historical baselines reduce false positives from normal variation."
+      }
+    }
+  ]
+};
 
-Threshold-Based Alerting is a monitoring method that generates alerts when network, application, or infrastructure metrics exceed predefined limits or conditions.
+# What is threshold-based alerting?
 
-Thresholds help organizations define operational awareness roles by automatically identifying abnormal or undesirable behavior such as:
-- bandwidth spikes
-- high latency
-- packet loss
-- CPU overload
-- interface congestion
-- suspicious traffic activity
-- application degradation
-
-Threshold-based alerting is widely used for:
-- network monitoring
-- security operations
-- performance monitoring
-- infrastructure management
-- SLA monitoring
-- incident response
-
-## **How Threshold-Based Alerting Works**
-
-Monitoring systems continuously collect visibility data from:
-
-- routers
-- switches
-- flow records
-- packet analysis systems
-- applications
-- cloud telemetry
-- security platforms
-
-Administrators define thresholds such as:
-
-Interface Utilization > 90%
-
-Alerts may be triggered by:
-
-- traffic spikes
-- DDoS activity
-- SLA violations
-- interface failures
-- unusual application behavior
-- excessive packet drops
+Threshold-based alerting triggers notifications when network metrics exceed configured limits. It enables rapid detection of congestion, bandwidth spikes, security anomalies, and performance degradation. Alerts trigger when metrics cross thresholds.
 
 ---
 
-## **Why Threshold-Based Alerting Matters**
+## How threshold alerting works
 
-Modern infrastructures generate enormous volumes of operational data continuously.
+Threshold alerting monitors metrics continuously comparing against configured limits. Static thresholds use fixed values. Dynamic thresholds use historical baselines and alert on deviations. When a metric exceeds its threshold, an alert is generated.
 
-Without automated alerting, organizations may struggle to:
-
-- identify outages quickly
-- detect performance degradation
-- respond to attacks promptly
-- monitor infrastructure health
-- maintain SLA compliance
-- troubleshoot operational issues efficiently
-
-Threshold-based alerting helps teams:
-
-- improve operational awareness
-- reduce response time
-- detect anomalies early
-- automate monitoring workflows
-- improve troubleshooting efficiency
-- strengthen infrastructure reliability
-
-It is especially important in:
-
-- NOC operations
-- SOC environments
-- enterprise networks
-- ISP infrastructures
-- cloud deployments
-- telecom operations
-
-Humans taught machines to panic automatically whenever a number gets too big. Entire operations teams now live at the mercy of percentages and blinking red dashboards.
+Alerts are sent via email, SMS, Slack, or dashboard notifications. Alert severity levels (info, warning, critical) indicate urgency. Alert suppression prevents alert flooding. Alert escalation routes critical alerts to on-call staff.
 
 ---
 
-## **Common Operational Use Cases**
+## Threshold alerting in network operations
 
-### Bandwidth Monitoring
+In the NOC, threshold alerting enables rapid response to issues. Bandwidth utilization alerts warn of approaching congestion. Packet loss alerts indicate network problems. Security teams use threshold alerts for anomaly detection.
 
-Alert when interfaces exceed utilization thresholds.
-
-### Security Monitoring
-
-Detect suspicious traffic spikes and attack activity.
-
-### SLA Monitoring
-
-Identify latency, jitter, or packet loss violations.
-
-### Infrastructure Health Monitoring
-
-Alert on CPU, memory, or device failures.
-
-### Application Performance Monitoring
-
-Detect degraded application responsiveness.
+Capacity planning uses utilization thresholds to identify links needing upgrades. When utilization consistently exceeds 70%, upgrade the link. Threshold alerts automate capacity monitoring.
 
 ---
 
-## **Threshold-Based Alerting vs Behavioral Analytics**
+## Common thresholds
 
-| Feature | Threshold-Based Alerting | Behavioral Analytics |
+| Metric | Warning Threshold | Critical Threshold |
 |---|---|---|
-| Detection Method | Fixed rules | Pattern and anomaly analysis |
-| Configuration Style | Manual thresholds | Dynamic behavior learning |
-| Simplicity | High | Moderate |
-| Unknown Threat Detection | Limited | Strong |
-| Operational Predictability | Strong | Variable |
-
-Threshold-based alerting uses predefined operational limits, while behavioral analytics focuses on identifying deviations from normal patterns.
+| Bandwidth utilization | 70% | 85% |
+| Packet loss | 0.5% | 1% |
+| Latency | 50ms | 100ms |
+| Jitter | 30ms | 50ms |
+| New connections/min | Baseline + 50% | Baseline + 100% |
 
 ---
 
-## **How Trisul Handles Threshold-Based Alerting**
+## What makes threshold alerting work in practice
 
-Trisul provides scalable operational analytics and real-time visibility for intelligent monitoring workflows.
+Threshold tuning reduces false positives. Too sensitive thresholds trigger alerts for normal variation. Too loose thresholds miss real problems. Start with conservative thresholds and tune based on alert volume and accuracy.
 
-Combined with:
-
-- Real-Time Traffic Monitoring
-- Security Analytics
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Streaming Analytics
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- monitor live traffic conditions
-- detect operational anomalies
-- identify suspicious activity
-- alert on bandwidth spikes
-- analyze threshold violations
-- improve incident response workflows
-
-Trisul can also integrate:
-
-- Anomaly Detection
-- SLA Monitoring
-- Bandwidth Monitoring
-
-workflows for broader operational visibility.
+Baseline-based thresholds adapt to normal patterns. Dynamic thresholds learn typical traffic patterns and alert on deviations. This reduces false positives from normal daily variation. Static thresholds require manual adjustment for different times.
 
 ---
 
-## **Related Terms**
+## How Trisul handles threshold-based alerting
 
-- Anomaly Detection
-- SLA Monitoring
-- Bandwidth Monitoring
-- Real-Time Traffic Monitoring
-- Streaming Analytics
-- Security Analytics
+Trisul provides threshold-based alerting through Flow Tracker Alerts that trigger when metrics exceed configured thresholds. Bandwidth utilization, packet loss, top talkers, and custom patterns can trigger alerts. Alerts are sent via email and displayed in the dashboard. Traffic Pattern Alerts are promptly generated for anomalies deviating from expected patterns. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
 ---
 
-## **FAQ**
+## Related terms
+
+- [What is alerting?](/glossary/alerting)
+- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
+- [What is anomaly detection?](/glossary/anomaly-detection)
+- [What is QoS monitoring?](/glossary/qos-monitoring)
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+
+---
+
+## Frequently asked questions
 
 ### What is threshold-based alerting?
 
-Threshold-based alerting generates alerts when monitored metrics exceed predefined limits or conditions.
+Threshold-based alerting triggers notifications when network metrics exceed configured limits. It enables rapid detection of congestion, bandwidth spikes, security anomalies, and performance degradation. Alerts trigger when metrics cross thresholds.
 
-### Why is threshold-based alerting important?
+### How does threshold alerting work?
 
-It helps organizations detect operational problems, performance degradation, and suspicious activity automatically.
+Threshold alerting monitors metrics continuously comparing against configured limits. When a metric exceeds its threshold, an alert is generated. Alerts are sent via email, SMS, or dashboard notifications. Thresholds can be static or dynamic based on baselines.
 
-### What metrics are commonly monitored with thresholds?
+### What metrics can be alerted on?
 
-Common metrics include bandwidth utilization, latency, packet loss, CPU usage, memory usage, and application response time.
+Metrics include bandwidth utilization, packet loss, latency, jitter, top talkers, new connections, DNS queries, application usage, flow count, and custom patterns. Any measurable traffic metric can have threshold-based alerts.
 
-### How does threshold-based alerting help security operations?
+### What are good threshold values?
 
-It helps identify traffic spikes, suspicious communication, and operational anomalies quickly.
-
-### What's the difference between threshold alerting and behavioral analytics?
-
-Threshold alerting uses fixed rules, while behavioral analytics identifies deviations from learned normal behavior.
-
-### Can threshold-based alerting support SLA monitoring?
-
-Yes. It can generate alerts when SLA metrics exceed acceptable limits.
+Good thresholds balance sensitivity against false positives. Bandwidth utilization alerts at 70-80%. Packet loss alerts above 1%. Latency alerts above 50ms. Dynamic thresholds based on historical baselines reduce false positives from normal variation.

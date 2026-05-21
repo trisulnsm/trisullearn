@@ -1,233 +1,131 @@
 ---
-title: What is Peering Traffic Analysis?
-sidebar_label: Peering Traffic Analysis
-sidebar_position: 88
+title: What is peering traffic analysis?
+description: Peering traffic analysis monitors and analyzes traffic exchanged with other networks at peering points. It provides visibility into peer AS traffic volumes, helps optimize peering relationships, and supports peering decisions for cost savings and performance improvement.
+sidebar_label: Peering traffic analysis
+sidebar_position: 84
 slug: /glossary/peering-traffic-analysis
-description: Learn what peering traffic analysis is, how peering visibility works, and why analyzing inter-network traffic exchange is important for ISPs and large-scale networks.
 keywords:
   - peering traffic analysis
-  - ISP peering analytics
-  - ASN traffic analysis
-  - internet exchange monitoring
-  - BGP traffic visibility
-  - interconnect traffic monitoring
+  - peering analytics
+  - BGP peering
+  - peer AS traffic
+  - interconnection
+  - traffic exchange
+  - peering optimization
 ---
 
-# What is Peering Traffic Analysis?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is peering traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Peering traffic analysis monitors and analyzes traffic exchanged with other networks at peering points. It provides visibility into peer AS traffic volumes, destinations, and patterns. Peering traffic analysis helps optimize peering relationships, supports peering decisions for cost savings, and identifies popular content providers for direct peering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why analyze peering traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Peering traffic analysis is important for ISPs to understand traffic exchange with peers. It identifies high-volume peers for relationship optimization. Traffic analysis shows which content providers consume most bandwidth. Peering economics depends on accurate traffic measurement for settlement-free or paid peering negotiations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What metrics does peering analysis track?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Peering analysis tracks traffic volume per peer AS, ingress and egress traffic per peering link, top destinations through each peer, traffic trends over time, utilization of peering links, cost per gigabyte for transit vs peering, and popular content providers. These metrics enable peering optimization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does peering analysis support peering decisions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Peering analysis shows peer AS traffic volumes enabling informed peering decisions. When traffic to a content provider exceeds transit cost thresholds, establishing direct peering reduces costs. Analysis identifies underutilized peering links for optimization. Traffic patterns guide new peering partner selection."
+      }
+    }
+  ]
+};
 
-Peering Traffic Analysis is the process of monitoring and analyzing traffic exchanged between different networks, service providers, cloud platforms, or Autonomous Systems (ASNs) across peering connections.
+# What is peering traffic analysis?
 
-Peering allows networks to exchange traffic directly instead of routing through third-party transit providers.
-
-Peering traffic analysis helps organizations define inter-network communication roles by identifying:
-
-- traffic exchanged between ASNs
-- bandwidth utilization
-- routing behavior
-- cloud traffic patterns
-- application distribution
-- congestion trends
-- interconnect performance
-
-It is especially important in:
-
-- ISP infrastructures
-- telecom networks
-- internet exchanges (IXPs)
-- cloud providers
-- large enterprises
-- CDN environments
-
----
-
-## **How Peering Traffic Analysis Works**
-
-Networks exchange traffic through:
-
-- private peering links
-- internet exchange points (IXPs)
-- cloud interconnects
-- BGP routing relationships
-
-Monitoring systems collect visibility using:
-
-- NetFlow
-- IPFIX
-- BGP analytics
-- ASN enrichment
-- traffic metadata
-- packet analysis
-
-A typical workflow looks like this:
-
-ASN A ↔ Peering Link ↔ ASN B  
-                ↓  
-Traffic Analytics Platform
-
-Analytics platforms then:
-
-- identify traffic exchanged between networks
-- analyze bandwidth usage and trends
-- correlate routing behavior
-- visualize interconnect performance
-
-Peering visibility may include:
-
-- top ASNs
-- traffic ratios
-- ingress vs egress traffic
-- protocol distribution
-- application traffic
-- congestion behavior
-
-![](images/peeringtrafficanalytics.png)
+Peering traffic analysis monitors and analyzes traffic exchanged with other networks at peering points. It provides visibility into peer AS traffic volumes, helps optimize peering relationships, and supports peering decisions for cost savings and performance improvement. Peering analysis is critical for ISP network operations.
 
 ---
 
-## **Why Peering Traffic Analysis Matters**
+## How peering traffic analysis works
 
-Large-scale networks depend heavily on peering relationships for:
+Flow data from peering interfaces is classified by peer AS using BGP information. Traffic volumes are aggregated per peer and per peering link. Ingress and egress traffic is tracked separately. Top destinations through each peer are identified. Trends are analyzed over time.
 
-- internet connectivity
-- cloud access
-- CDN delivery
-- traffic optimization
-- performance efficiency
-
-Without peering visibility, organizations may struggle to:
-
-- analyze interconnect utilization
-- troubleshoot routing issues
-- detect congestion
-- optimize traffic engineering
-- monitor cloud exchange traffic
-- manage peering costs
-
-Peering traffic analysis helps teams:
-
-- optimize interconnect performance
-- improve routing efficiency
-- analyze traffic trends
-- identify bandwidth imbalances
-- troubleshoot peering issues
-- improve network planning
-
-It is especially important in:
-
-- ISPs
-- telecom operators
-- IXPs
-- cloud providers
-- CDN infrastructures
-- hyperscale environments
-
-Humanity built a global interconnected internet and immediately started negotiating who pays for whose packets. Civilization distilled into bandwidth invoices and BGP policies.
+BGP peering analytics provides AS-level visibility. Flow records are enriched with peer AS information. Traffic is mapped to peering relationships. Utilization per peering link is calculated.
 
 ---
 
-## **Common Operational Use Cases**
+## Peering traffic analysis in network operations
 
-### ASN Traffic Visibility
+In the NOC, use peering analysis to monitor peer AS traffic volumes and detect congestion on peering links. The peering team analyzes traffic patterns to optimize peering relationships and negotiate better terms. Capacity planning tracks peering link utilization to plan upgrades.
 
-Analyze traffic exchanged between autonomous systems.
-
-### IXP Monitoring
-
-Monitor traffic across internet exchange points.
-
-### Traffic Engineering
-
-Optimize routing and bandwidth distribution across peers.
-
-### Cloud Connectivity Analysis
-
-Monitor traffic exchanged with cloud providers.
-
-### Peering Capacity Planning
-
-Track interconnect growth and utilization trends.
+Engineering uses peering analysis to identify high-volume content providers for direct peering. When traffic to a provider exceeds thresholds, establishing direct peering reduces transit costs.
 
 ---
 
-## **Peering Traffic Analysis vs General Traffic Monitoring**
+## Peering analysis metrics
 
-| Feature | Peering Traffic Analysis | General Traffic Monitoring |
-|---|---|---|
-| Focus Area | Inter-network traffic exchange | Overall network traffic |
-| ASN Visibility | Strong | Moderate |
-| Routing Context | Advanced | Limited |
-| Peering Optimization | Supported | Minimal |
-| ISP Relevance | Critical | Important |
-
-Peering analytics focuses specifically on traffic exchanged between interconnected networks.
-
----
-
-## **How Trisul Handles Peering Traffic Analysis**
-
-Trisul provides scalable ASN-aware traffic analytics for enterprise and ISP environments.
-
-Combined with:
-
-- ASN Peering
-- BGP Peering Analytics
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Flow Analysis
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- analyze ASN communication patterns
-- monitor peering bandwidth usage
-- investigate routing anomalies
-- visualize interconnect relationships
-- optimize traffic engineering
-- monitor cloud exchange traffic
-
-Trisul can also integrate:
-
-- ASN
-- BGP Peering Analytics
-- ISP Traffic Analytics
-
-workflows for deeper peering visibility.
+| Metric | Description |
+|---|---|
+| Traffic per peer AS | Volume exchanged with each peer |
+| Ingress per link | Traffic received on each peering link |
+| Egress per link | Traffic sent on each peering link |
+| Top destinations | Most visited destinations through each peer |
+| Link utilization | Percentage of peering link capacity used |
+| Cost per GB | Transit cost vs peering cost comparison |
 
 ---
 
-## **Related Terms**
+## What makes peering analysis work in practice
 
-- ASN
-- ASN Peering
-- BGP Peering Analytics
-- ISP Traffic Analytics
-- Bandwidth Monitoring
-- Flow Analysis
+BGP information accuracy determines peer classification. Flow records must be enriched with peer AS data from BGP tables. Without accurate BGP information, traffic appears unclassified. BGP route receivers keep route tables synchronized automatically.
+
+Peering link monitoring is essential. Traffic volumes must be measured at each peering interface. Flow exporters must be enabled on peering links. Without per-link monitoring, peering traffic appears aggregated and peer-specific analysis is impossible.
 
 ---
 
-## **FAQ**
+## How Trisul handles peering traffic analysis
 
-### What is peering traffic?
+Trisul provides peering traffic analysis through ISP Analytics applications. Flow data is enriched with BGP attributes including peer AS. Traffic is mapped to peering relationships and aggregated per peer. Trisul shows peer AS, origin AS, downstream and upstream analytics with special tracking of popular content providers. Full documentation is at https://docs.trisul.org/.
 
-Peering traffic is network traffic exchanged directly between different networks or autonomous systems.
+---
 
-### What is Peering Traffic Analysis?
+## Related terms
 
-Peering Traffic Analysis is the process of monitoring and analyzing traffic exchanged across peering connections.
+- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
+- [What is ASN?](/glossary/asn)
+- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is transit traffic?](/glossary/transit-traffic)
 
-### Why is peering analysis important?
+---
 
-It helps organizations optimize routing, monitor interconnect utilization, and troubleshoot peering issues.
+## Frequently asked questions
 
-### What technologies are used for peering analytics?
+### What is peering traffic analysis?
 
-Common technologies include NetFlow, IPFIX, BGP analytics, ASN enrichment, and traffic metadata analysis.
+Peering traffic analysis monitors and analyzes traffic exchanged with other networks at peering points. It provides visibility into peer AS traffic volumes, destinations, and patterns. Peering traffic analysis helps optimize peering relationships, supports peering decisions for cost savings, and identifies popular content providers for direct peering.
 
-### Why is peering visibility important for ISPs?
+### Why analyze peering traffic?
 
-ISPs rely on peering visibility to optimize internet connectivity, reduce transit costs, and improve performance.
+Peering traffic analysis is important for ISPs to understand traffic exchange with peers. It identifies high-volume peers for relationship optimization. Traffic analysis shows which content providers consume most bandwidth. Peering economics depends on accurate traffic measurement for settlement-free or paid peering negotiations.
 
-### Can peering traffic analysis help cloud connectivity monitoring?
+### What metrics does peering analysis track?
 
-Yes. It helps analyze traffic exchanged with cloud providers and internet exchange infrastructures.
+Peering analysis tracks traffic volume per peer AS, ingress and egress traffic per peering link, top destinations through each peer, traffic trends over time, utilization of peering links, cost per gigabyte for transit vs peering, and popular content providers. These metrics enable peering optimization.
+
+### How does peering analysis support peering decisions?
+
+Peering analysis shows peer AS traffic volumes enabling informed peering decisions. When traffic to a content provider exceeds transit cost thresholds, establishing direct peering reduces costs. Analysis identifies underutilized peering links for optimization. Traffic patterns guide new peering partner selection.

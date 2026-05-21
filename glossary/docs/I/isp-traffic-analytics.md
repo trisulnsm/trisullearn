@@ -1,183 +1,127 @@
 ---
-title: What is ISP Traffic Analytics?
-sidebar_label: ISP Traffic Analytics
-sidebar_position: 58
+title: What is ISP traffic analytics?
+description: ISP traffic analytics provides real-time and historical visibility into traffic flows across Autonomous Systems, prefixes, peering interfaces, and gateway devices in an Internet Service Provider network, enabling route optimization, peering decisions, and cost savings.
+sidebar_label: ISP traffic analytics
+sidebar_position: 51
 slug: /glossary/isp-traffic-analytics
-description: Learn what ISP Traffic Analytics is, how ISPs analyze subscriber and backbone traffic, and why traffic visibility is important for performance, security, and compliance.
 keywords:
   - ISP traffic analytics
-  - ISP traffic monitoring
-  - telecom traffic analytics
-  - subscriber traffic analysis
-  - ISP bandwidth monitoring
-  - network traffic visibility
+  - ISP network analytics
+  - AS traffic analytics
+  - BGP traffic analytics
+  - peering analytics
+  - prefix traffic
+  - ISP NetFlow
 ---
 
-# What is ISP Traffic Analytics?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is ISP traffic analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISP traffic analytics provides real-time and historical visibility into traffic flows across Autonomous Systems, prefixes, peering interfaces, and gateway devices in an ISP network. It combines data sources such as NetFlow, BGP, SNMP, Syslog, and RADIUS to deliver a rich view of flow patterns. This helps ISPs optimize routing, peering relationships, cache performance, content flows, and subscriber traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the key use cases for ISP traffic analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Key use cases include AS traffic mapping to know traffic volume per Autonomous System split into upstream, downstream, peer, and origin AS, prefix traffic analysis per gateway and next-hop, route analytics from internal and external BGP viewpoints, geo traffic monitoring to ensure optimal exit routing, content-to-subscriber mapping for popular content providers, and drilldown AS troubleshooting by entering any ASN to view network-wide traffic instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does ISP traffic analytics help with peering decisions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISP traffic analytics shows peer AS, origin AS, downstream and upstream analytics with special tracking of popular content providers. With clear visibility of AS-based traffic, ISPs can save transit costs by establishing direct relationships, negotiate better with content providers, optimize routing policies, and select new peering partners based on real traffic data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What data sources does ISP traffic analytics use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISP traffic analytics combines NetFlow for flow data, BGP for route and AS information, SNMP for interface counters and device metrics, Syslog for device events, and RADIUS for subscriber information. An inbuilt BGP route receiver keeps route tables automatically in sync. Public RRDB route registries provide external BGP ASPATH views for comparison with internal routing."
+      }
+    }
+  ]
+};
 
-ISP Traffic Analytics is the process of monitoring, analyzing, and visualizing network traffic across Internet Service Provider (ISP) infrastructures to understand subscriber behavior, bandwidth usage, application activity, routing patterns, and network performance.
+# What is ISP traffic analytics?
 
-ISPs use traffic analytics to maintain visibility into:
-- subscriber traffic
-- backbone utilization
-- peering traffic
-- application usage
-- bandwidth consumption
-- security events
-- compliance activity
-
-ISP traffic analytics helps providers optimize performance, troubleshoot issues, improve capacity planning, and maintain subscriber traceability.
-
-## **How ISP Traffic Analytics Works**
-
-ISP networks generate massive amounts of traffic across:
-- broadband networks
-- backbone links
-- peering connections
-- CGNAT systems
-- subscriber infrastructures
-- cloud interconnects
-
-Traffic visibility is collected using:
-- NetFlow
-- IPFIX
-- packet capture
-- subscriber logs
-- DPI systems
-- routing telemetry
-
-A typical workflow looks like this:
-
-1. Network devices export traffic visibility data
-2. Monitoring systems collect and process the data
-3. Analytics platforms visualize traffic behavior
-4. Teams investigate trends, anomalies, and performance issues
-
-Traffic analytics may include:
-- top subscribers
-- application usage
-- peering analysis
-- ASN visibility
-- bandwidth trends
-- attack detection
-- traffic engineering metrics
-
-## **Why ISP Traffic Analytics Matters**
-
-ISPs manage extremely large and complex traffic environments.
-
-Without traffic analytics, providers may struggle to:
-- identify congestion
-- monitor subscriber behavior
-- optimize peering
-- troubleshoot outages
-- detect attacks
-- maintain compliance visibility
-
-ISP traffic analytics helps organizations:
-- optimize bandwidth usage
-- improve customer experience
-- monitor backbone health
-- investigate abuse complaints
-- support telecom compliance
-- improve operational visibility
-
-It is especially important in:
-- broadband networks
-- telecom infrastructures
-- carrier-grade environments
-- internet exchange points
-- multi-tenant ISP deployments
-
-## **Common Operational Use Cases**
-
-### Subscriber Traffic Analysis
-
-Monitor bandwidth usage and subscriber behavior.
-
-### Backbone Monitoring
-
-Analyze utilization across high-capacity network links.
-
-### ASN and Peering Analytics
-
-Monitor traffic exchanged with external networks and peers.
-
-### DDoS Detection
-
-Identify traffic floods and abnormal traffic spikes.
-
-### Telecom Compliance
-
-Maintain subscriber traceability and traffic retention visibility.
-
-## **ISP Traffic Analytics vs Enterprise Traffic Monitoring**
-
-| Feature | ISP Traffic Analytics | Enterprise Traffic Monitoring |
-|---|---|---|
-| Traffic Scale | Extremely large | Moderate |
-| Subscriber Visibility | Critical | Limited |
-| Peering Analysis | Important | Less common |
-| Compliance Focus | High | Moderate |
-| Backbone Monitoring | Essential | Limited |
-
-ISP analytics focuses heavily on subscriber visibility, backbone monitoring, and peering traffic behavior.
-
-## **How Trisul Handles ISP Traffic Analytics**
-
-Trisul is designed for scalable ISP and telecom traffic visibility across high-speed distributed environments.
-
-Combined with:
-- ASN Analytics
-- BGP Peering Analytics
-- CGNAT Logging
-- IPDR Visibility
-- Top-K Analyticsᵀ
-- Long-Term Traffic Retention
-
-Trisul helps ISPs:
-- analyze subscriber traffic behavior
-- monitor peering relationships
-- visualize ASN traffic patterns
-- investigate traffic anomalies
-- optimize backbone utilization
-- support telecom compliance workflows
-
-Trisul can also integrate [NetFlow](/glossary/netflow), [IPFIX](/glossary/ipfix), and [DDoS Detection](/glossary/ddos-detection) workflows for deeper ISP traffic visibility.
-
-## **Related Terms**
-
-- [IPDR](/glossary/ipdr)
-- [CGNAT Logging](/glossary/cgnat-logging)
-- [ASN Peering](/glossary/asn-peering)
-- [BGP Peering Analytics](/glossary/bgp-peering-analytics)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [DDoS Detection](/glossary/ddos-detection)
+ISP traffic analytics provides real-time and historical visibility into traffic flows across Autonomous Systems, prefixes, peering interfaces, and gateway devices in an ISP network. It combines data sources such as NetFlow, BGP, SNMP, Syslog, and RADIUS to deliver a rich view of flow patterns, helping ISPs optimize routing, peering relationships, cache performance, content flows, and subscriber traffic.
 
 ---
 
-## **FAQ**
+## How ISP traffic analytics works
+
+Trisul collects NetFlow from all gateway devices, BGP route information from an inbuilt BGP route receiver, and SNMP interface counters. Traffic flows are mapped to Autonomous System numbers, prefixes, and peering interfaces in real time. A dozen dashboards and reports provide visibility at physical port level as well as detailed AS, Prefix, and Route traffic flows.
+
+---
+
+## ISP traffic analytics in network operations
+
+In the NOC, use real-time 2-second views of gateway port utilization, AS traffic, and prefix flows to detect congestion or anomalies instantly. The peering team analyzes peer AS, origin AS, downstream and upstream traffic volumes to evaluate and optimize peering relationships. Engineering uses route analytics with nested table and Sankey views to understand active route topology and plan routing policy changes.
+
+---
+
+## Key capabilities
+
+| Capability | Description |
+|---|---|
+| AS traffic mapping | Traffic volume per AS split into upstream, downstream, peer, and origin AS |
+| Prefix analysis | Real-time and historical traffic per prefix mapped to gateways and next hops |
+| Route analytics | Active routes from internal BGP and external RRDB viewpoints |
+| Geo traffic | Country-level traffic mapped to gateway exits for optimal routing |
+| Content to subscriber maps | Track popular content prefixes such as YouTube and Facebook to optimize delivery |
+| Port AS Prefix drilldowns | Full M:N degree drilldowns to pivot from one analysis angle to another |
+
+---
+
+## What makes ISP traffic analytics work in practice
+
+AS mapping accuracy determines the value of the analytics. Without correct AS assignment, traffic appears as unknown or misclassified. Trisul uses BGP route tables to map IP prefixes to AS numbers in real time. When routes change, the mapping updates automatically. This ensures AS traffic counts reflect current routing, not stale data.
+
+Storage and query performance are the second constraint. ISP traffic volumes are orders of magnitude higher than enterprise networks. Aggregation at write time reduces the data the database must store. Pre-computed summaries for AS, prefix, and geo enable fast dashboards. Drilldowns from summary to detail use indexed flow data, not raw scans.
+
+---
+
+## How Trisul handles ISP traffic analytics
+
+Trisul ISP Analytics is a set of applications installed on top of the base Trisul platform. These apps install analytics modules of specific value to Internet Service Providers. Gateway device monitoring provides complete NetFlow-based real-time and historical monitoring of all gateway interfaces and sub-interfaces. The inbuilt BGP route receiver stays automatically in sync with routing tables, and ASPATH views are available from both inside and outside via public RRDB. Full documentation is at https://docs.trisul.org/.
+
+---
+
+## Related terms
+
+- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
+- [What is ASN?](/glossary/asn)
+- [What is NetFlow?](/glossary/netflow)
+- [What is prefix?](/glossary/prefix)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+
+---
+
+## Frequently asked questions
 
 ### What is ISP traffic analytics?
 
-ISP traffic analytics is the process of monitoring and analyzing subscriber, backbone, and peering traffic across ISP infrastructures.
+ISP traffic analytics provides real-time and historical visibility into traffic flows across Autonomous Systems, prefixes, peering interfaces, and gateway devices in an ISP network. It combines data sources such as NetFlow, BGP, SNMP, Syslog, and RADIUS to deliver a rich view of flow patterns. This helps ISPs optimize routing, peering relationships, cache performance, content flows, and subscriber traffic.
 
-### Why is ISP traffic analytics important?
+### What are the key use cases for ISP traffic analytics?
 
-It helps ISPs optimize performance, troubleshoot issues, detect attacks, and maintain subscriber visibility.
+Key use cases include AS traffic mapping to know traffic volume per Autonomous System split into upstream, downstream, peer, and origin AS, prefix traffic analysis per gateway and next-hop, route analytics from internal and external BGP viewpoints, geo traffic monitoring to ensure optimal exit routing, content-to-subscriber mapping for popular content providers, and drilldown AS troubleshooting by entering any ASN to view network-wide traffic instantly.
 
-### What types of traffic do ISPs analyze?
+### How does ISP traffic analytics help with peering decisions?
 
-ISPs analyze subscriber traffic, backbone utilization, peering traffic, application usage, and routing behavior.
+ISP traffic analytics shows peer AS, origin AS, downstream and upstream analytics with special tracking of popular content providers. With clear visibility of AS-based traffic, ISPs can save transit costs by establishing direct relationships, negotiate better with content providers, optimize routing policies, and select new peering partners based on real traffic data.
 
-### How do ISPs collect traffic visibility?
+### What data sources does ISP traffic analytics use?
 
-Common methods include NetFlow, IPFIX, packet capture, DPI systems, and routing telemetry.
-
-### Can ISP traffic analytics help detect DDoS attacks?
-
-Yes. Traffic analytics helps identify traffic floods, anomalies, and abnormal bandwidth spikes.
-
-### Is ISP traffic analytics important for telecom compliance?
-
-Yes. ISPs use traffic analytics for subscriber traceability, NAT logging, and regulatory compliance workflows.
+ISP traffic analytics combines NetFlow for flow data, BGP for route and AS information, SNMP for interface counters and device metrics, Syslog for device events, and RADIUS for subscriber information. An inbuilt BGP route receiver keeps route tables automatically in sync. Public RRDB route registries provide external BGP ASPATH views for comparison with internal routing.

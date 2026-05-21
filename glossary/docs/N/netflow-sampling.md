@@ -1,181 +1,128 @@
 ---
-title: What is NetFlow Sampling?
-sidebar_label: NetFlow Sampling
-sidebar_position: 74
+title: What is NetFlow sampling?
+description: NetFlow sampling selects a subset of packets for flow export instead of exporting all packets. It reduces CPU and bandwidth overhead while maintaining accuracy for traffic estimation, enabling flow monitoring at high speeds.
+sidebar_label: NetFlow sampling
+sidebar_position: 68
 slug: /glossary/netflow-sampling
-description: Learn what NetFlow sampling is, how sampled NetFlow works, and why sampling is important for scalable traffic visibility in high-speed networks.
 keywords:
   - NetFlow sampling
-  - sampled NetFlow
   - flow sampling
-  - traffic sampling
-  - high-speed traffic monitoring
-  - scalable flow monitoring
+  - packet sampling
+  - sFlow sampling
+  - sampling rate
+  - traffic estimation
+  - document sampling
 ---
 
-# What is NetFlow Sampling?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is NetFlow sampling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NetFlow sampling selects a subset of packets for flow export instead of exporting all packets. Sampling reduces CPU and bandwidth overhead on routers while maintaining accuracy for traffic estimation. A sampling rate of 1 in 1000 means one packet out of every 1000 is selected for flow export."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use NetFlow sampling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NetFlow sampling is used at high speeds where full flow export would overload the router CPU or consume too much network bandwidth. Sampling enables flow monitoring at gigabit speeds by reducing the number of flows exported. Trade-off is reduced accuracy but acceptable for bandwidth estimation and trend analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does sampling affect accuracy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sampling reduces accuracy proportionally to the sampling rate. A 1 in 1000 sampling rate means estimates have approximately 0.1 percent accuracy. For large flows, sampled data provides good estimates. For small flows, some may be missed entirely. Total byte counts are scaled up by the inverse of the sampling rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between sampling and full NetFlow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Full NetFlow exports all flows without sampling, providing complete accuracy but requiring more CPU and bandwidth. Sampling exports a subset of flows, reducing overhead but sacrificing some accuracy. Full NetFlow is best for low-speed links, sampling is best for high-speed links where full export is impractical."
+      }
+    }
+  ]
+};
 
-NetFlow Sampling is a traffic monitoring technique where only a portion of network packets or flows are selected and exported as NetFlow records instead of analyzing every packet passing through the network.
+# What is NetFlow sampling?
 
-Sampling helps organizations scale flow monitoring in high-speed environments while reducing:
-- CPU usage
-- memory consumption
-- storage requirements
-- export overhead
-- analytics load
+NetFlow sampling selects a subset of packets for flow export instead of exporting all packets. It reduces CPU and bandwidth overhead while maintaining accuracy for traffic estimation, enabling flow monitoring at high speeds. A sampling rate of 1 in 1000 means one packet out of every 1000 is selected for flow export.
 
-NetFlow sampling is commonly used in:
-- ISP backbones
-- enterprise WANs
-- data centers
-- cloud infrastructures
-- carrier-grade networks
+---
 
-## **How NetFlow Sampling Works**
+## How NetFlow sampling works
 
-In full NetFlow monitoring, every packet contributes to flow generation.
+NetFlow sampling uses either deterministic or random sampling. Deterministic sampling selects every nth packet. Random sampling selects packets with a probability based on the sampling rate. The flow exporter scales byte and packet counts by the inverse of the sampling rate to estimate total traffic.
 
-With NetFlow sampling:
-1. the device selects only certain packets or flows
-2. sampled traffic is processed into flow records
-3. NetFlow exports represent an approximation of total traffic activity
+For example, with 1 in 1000 sampling, if a sampled flow shows 1000 bytes, the exporter reports 1000000 bytes as the estimated total. This scaling enables accurate bandwidth estimation even though only a fraction of packets are sampled.
 
-Sampling methods may include:
-- every nth packet
-- random packet selection
-- probabilistic sampling
-- interval-based sampling
+---
 
-For example:
+## NetFlow sampling in network operations
 
-```
-Sampling Ratio: 1:1000
-```
+In the NOC, use sampling on high-speed links where full NetFlow export would overload the router. Monitoring shows bandwidth utilization estimates with acceptable accuracy. Security teams use sampled flows for anomaly detection and top talkers identification.
 
-This means:
+Configure sampling rate based on link speed and router capacity. Higher sampling rates (lower ratio) provide better accuracy but more overhead. Lower sampling rates (higher ratio) reduce overhead but miss small flows.
 
-- 1 out of every 1,000 packets is analyzed
-- the resulting flow records estimate broader traffic behavior
+---
 
-Sampling significantly reduces monitoring overhead while still providing meaningful traffic visibility.
+## Sampling methods comparison
 
+| Method | Description | Accuracy | Overhead |
+|---|---|---|---|
+| Deterministic | Every nth packet selected | Consistent but misses patterns | Predictable |
+| Random | Packet selected with probability | Better statistical accuracy | Variable |
+| Full NetFlow | All packets exported | 100% accurate | Very high |
 
-## **Why NetFlow Sampling Matters**
+---
 
-Modern high-speed networks generate enormous traffic volumes.
+## What makes NetFlow sampling work in practice
 
-Without sampling, devices may struggle to:
+Sampling rate must balance accuracy against overhead. Too high a rate misses important small flows. Too low a rate overloads the router. Typical sampling rates range from 1 in 100 to 1 in 10000 depending on link speed.
 
-- process traffic efficiently
-- export large flow volumes
-- maintain monitoring performance
-- scale visibility infrastructure
+Router CPU utilization must be monitored when enabling sampling. If sampling still causes high CPU, increase the sampling ratio. When CPU is acceptable, decrease the ratio to improve accuracy. Find the sweet spot through testing.
 
-NetFlow sampling helps organizations:
+---
 
-- scale traffic monitoring
-- reduce exporter load
-- optimize storage usage
-- monitor backbone traffic efficiently
-- maintain visibility in large environments
+## How Trisul handles NetFlow sampling
 
-It is especially important in:
+Trisul receives sampled NetFlow data and scales byte and packet counts by the inverse of the sampling rate. This provides accurate bandwidth estimates even when only a fraction of packets are sampled. Trisul can be configured with the sampling rate to apply correct scaling. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-- ISP infrastructures
-- high-speed enterprise networks
-- cloud data centers
-- multi-terabit backbones
-- distributed monitoring environments
+---
 
-## **Common Operational Use Cases**
+## Related terms
 
-### ISP Backbone Monitoring
+- [What is NetFlow?](/glossary/netflow)
+- [What is sFlow?](/glossary/sflow)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is bandwidth estimation?](/glossary/bandwidth-estimation)
+- [What is traffic estimation?](/glossary/traffic-estimation)
 
-Monitor large-scale subscriber and backbone traffic efficiently.
+---
 
-### High-Speed Traffic Analytics
-
-Analyze traffic behavior without overwhelming monitoring systems.
-
-### Capacity Planning
-
-Track traffic growth trends using sampled visibility.
-
-### DDoS Visibility
-
-Identify abnormal traffic spikes and volumetric attacks.
-
-### Cloud Traffic Monitoring
-
-Scale visibility across distributed cloud workloads.
-
-## **NetFlow Sampling vs Full NetFlow Monitoring**
-
-| Feature | NetFlow Sampling  | Full NetFlow Monitoring| 
-|----------|----------------------|--------------------|
-| Traffic Coverage  | Partial|  Complete| 
-| Resource Usage |  Lower | Higher| 
-| Scalability|  High |  Moderate| 
-| Visibility Accuracy | Approximate | Precise| 
-| High-Speed Suitability |  Excellent|  More demanding| 
-
-NetFlow sampling improves scalability, while full monitoring provides more precise traffic visibility.
-
-## **How Trisul Handles Sampled NetFlow Visibility**
-
-Trisul provides scalable flow analytics for sampled and high-volume NetFlow environments.
-
-Combined with:
-
-- Flow Analysis
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
-- Long-Term Traffic Retention
-- Retro Analysisᵀ
-- Flow Stitchingᵀ
-
-Trisul helps teams:
-
-- analyze sampled traffic behavior
-- monitor backbone utilization
-- investigate traffic spikes
-- identify major bandwidth consumers
-- analyze large-scale communication patterns
-- correlate sampled traffic trends
-
-Trisul can also integrate NetFlow, Flow Sampling, and ISP Traffic Analytics workflows for scalable traffic visibility.
-
-## **Related Terms**
-
-- NetFlow
-- Flow Sampling
-- Flow Monitoring
-- Bandwidth Monitoring
-- ISP Traffic Analytics
-- Capacity Planning
-
-## **FAQ**
+## Frequently asked questions
 
 ### What is NetFlow sampling?
 
-NetFlow sampling is a method where only a subset of packets or flows is analyzed and exported as NetFlow data.
+NetFlow sampling selects a subset of packets for flow export instead of exporting all packets. Sampling reduces CPU and bandwidth overhead on routers while maintaining accuracy for traffic estimation. A sampling rate of 1 in 1000 means one packet out of every 1000 is selected for flow export.
 
-### Why is NetFlow sampling important?
+### Why use NetFlow sampling?
 
-It reduces monitoring overhead and helps scale visibility in high-speed traffic environments.
+NetFlow sampling is used at high speeds where full flow export would overload the router CPU or consume too much network bandwidth. Sampling enables flow monitoring at gigabit speeds by reducing the number of flows exported. Trade-off is reduced accuracy but acceptable for bandwidth estimation and trend analysis.
 
-### How does NetFlow sampling work?
+### How does sampling affect accuracy?
 
-Devices select packets using predefined sampling ratios or probabilistic methods before generating flow records.
+Sampling reduces accuracy proportionally to the sampling rate. A 1 in 1000 sampling rate means estimates have approximately 0.1 percent accuracy. For large flows, sampled data provides good estimates. For small flows, some may be missed entirely. Total byte counts are scaled up by the inverse of the sampling rate.
 
-### What's the difference between sampled and full NetFlow monitoring?
+### What is the difference between sampling and full NetFlow?
 
-Sampled monitoring provides approximate visibility with lower resource usage, while full monitoring provides complete traffic visibility.
-
-### Is NetFlow sampling useful for ISPs?
-
-Yes. ISPs commonly use sampling to monitor backbone traffic efficiently at large scale.
-
-### Can NetFlow sampling miss smaller traffic flows?
-
-Yes. Depending on the sampling ratio, short-lived or low-volume traffic may not always appear in sampled visibility.
+Full NetFlow exports all flows without sampling, providing complete accuracy but requiring more CPU and bandwidth. Sampling exports a subset of flows, reducing overhead but sacrificing some accuracy. Full NetFlow is best for low-speed links, sampling is best for high-speed links where full export is impractical.

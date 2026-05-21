@@ -1,210 +1,131 @@
 ---
 title: What is Slice Retentionᵀ?
+description: Slice Retentionᵀ is Trisul's proprietary technology for storing packet capture data in fixed-size slices (chunks) enabling efficient storage, fast retrieval, and flexible retention policies for forensic investigation.
 sidebar_label: Slice Retentionᵀ
-sidebar_position: 103
+sidebar_position: 102
 slug: /glossary/slice-retention
-description: Learn what Slice Retentionᵀ is in Trisul Network Analytics and how it enables efficient long-term storage and retrieval of historical traffic visibility data.
 keywords:
-  - Slice Retention
-  - Trisul Slice Retention
-  - historical traffic retention
-  - traffic data retention
-  - network analytics storage
-  - long-term traffic visibility
+  - slice retention
+  - Trisul slice retention
+  - PCAP storage
+  - packet capture storage
+  - capture slice
+  - forensic storage
+  - PCAP retention
 ---
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Slice Retentionᵀ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Slice Retentionᵀ is Trisul's proprietary technology for storing packet capture data in fixed-size slices (chunks) enabling efficient storage, fast retrieval, and flexible retention policies for forensic investigation. PCAP data is written in slices to disk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Slice Retentionᵀ work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Slice Retentionᵀ writes PCAP data to disk in fixed-size slices (typically a few MB each). Each slice is timestamped and indexed. The per-flow index maps conversations to slice offsets. This enables fast PCAP retrieval by flow without scanning raw files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the benefits of Slice Retentionᵀ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Slice Retentionᵀ provides efficient storage through fixed-size chunks, fast retrieval through index-based slice access, flexible retention through slice-level policies, and distributed storage across multiple disks. It enables PCAP retrieval in seconds from terabyte-scale archives."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Slice Retentionᵀ enable retro analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Slice Retentionᵀ enables retro analysis by making historical PCAP accessible for scanning. New detection rules can be run against stored slices after the fact. The index enables fast slice retrieval for retro analysis Scan performance."
+      }
+    }
+  ]
+};
 
 # What is Slice Retentionᵀ?
 
-Slice Retentionᵀ is a Trisul Network Analytics capability designed to efficiently store, manage, and retrieve historical traffic visibility data in structured time-based slices.
-
-Instead of treating all historical traffic data as one continuously growing dataset, Slice Retentionᵀ organizes traffic analytics into manageable time segments for faster access, optimized storage, and scalable long-term visibility.
-
-It helps organizations define historical visibility roles by improving:
-- long-term traffic retention
-- forensic investigation workflows
-- historical analytics performance
-- storage optimization
-- retrospective traffic analysis
-- large-scale traffic management
-
-Slice Retentionᵀ is especially important in:
-- ISP infrastructures
-- enterprise networks
-- telecom environments
-- cloud deployments
-- SOC operations
-- large-scale monitoring architectures
-
-## **How Slice Retentionᵀ Works**
-
-Trisul continuously collects traffic visibility data such as:
-
-- flow records
-- packet metadata
-- traffic counters
-- application analytics
-- historical metrics
-- communication context
-
-Slice Retentionᵀ organizes this information into time-based storage slices.
-
-A typical workflow looks like this:
-
-Traffic Data → Time-Based Slices → Historical Storage → Retro Analysisᵀ
-
-For example:
-
-- hourly slices
-- daily slices
-- weekly slices
-- long-term archive slices
-
-This approach allows analysts to:
-
-- access historical traffic quickly
-- isolate investigation time windows efficiently
-- optimize long-term storage performance
-- reduce overhead during retrospective analysis
+Slice Retentionᵀ is Trisul's proprietary technology for storing packet capture data in fixed-size slices (chunks) enabling efficient storage, fast retrieval, and flexible retention policies for forensic investigation. PCAP data is written in slices to disk.
 
 ---
 
-## **Why Slice Retentionᵀ Matters**
+## How Slice Retentionᵀ works
 
-Modern monitoring environments generate enormous amounts of historical traffic data continuously.
+PCAP data is written to disk in fixed-size slices (typically a few MB each). Each slice is timestamped and added to the index. The per-flow index at write time maps each 5-tuple to its byte offsets in the capture store including which slice contains the packets.
 
-Without efficient retention architectures, organizations may struggle to:
-
-- manage long-term storage
-- retrieve historical traffic quickly
-- scale forensic investigations
-- optimize analytics performance
-- maintain operational efficiency
-
-Slice Retentionᵀ helps teams:
-
-- improve historical visibility access
-- optimize storage workflows
-- speed up retrospective investigations
-- manage large-scale analytics efficiently
-- support compliance retention requirements
-- strengthen forensic analysis capabilities
-
-It is especially important in:
-
-- high-volume ISP environments
-- telecom infrastructures
-- cloud-scale analytics
-- enterprise SOC operations
-- data centers
-- distributed monitoring deployments
-
-Humans created so much traffic data that even storing the past became an engineering problem. So now the network’s memories are neatly sliced like digital archaeology layers.
+This enables fast PCAP retrieval by flow. Analysts click from an alert directly to the matching packets without manual file correlation. For terabyte-scale archives, this is the difference between usable and unusable PCAP access.
 
 ---
 
-## **Common Operational Use Cases**
+## Slice Retentionᵀ in network operations
 
-### Historical Traffic Investigation
+In the SOC, Slice Retentionᵀ enables rapid forensic investigation. When an alert indicates suspicious activity, investigators click to view PCAP within seconds. Without slice-based indexing, investigators must manually locate and load large capture files.
 
-Quickly access traffic data from specific time periods.
-
-### Long-Term Traffic Retention
-
-Maintain scalable historical visibility over months or years.
-
-### Security Forensics
-
-Investigate attack timelines and historical communication behavior.
-
-### Compliance Analytics
-
-Retain historical traffic visibility for regulatory requirements.
-
-### Capacity Planning
-
-Analyze traffic growth trends over extended periods.
+NOC teams use Slice Retentionᵀ for application performance troubleshooting. TCP retransmissions and TLS handshake failures are visible in PCAP. Slice-based retrieval enables fast access to relevant packets.
 
 ---
 
-## **Slice Retentionᵀ vs Traditional Flat Retention**
+## Slice Retentionᵀ capabilities
 
-| Feature | Slice Retentionᵀ | Traditional Flat Retention |
-|---|---|---|
-| Data Organization | Time-sliced | Continuous datasets |
-| Historical Retrieval Speed | Faster | Slower at scale |
-| Scalability | High | Moderate |
-| Investigation Efficiency | Strong | Moderate |
-| Storage Optimization | Advanced | Basic |
-
-Slice Retentionᵀ improves scalability and historical access efficiency by organizing traffic visibility into structured time segments.
-
----
-
-## **How Trisul Uses Slice Retentionᵀ**
-
-Slice Retentionᵀ works alongside Trisul’s historical analytics and forensic visibility architecture.
-
-Combined with:
-
-- Retro Analysisᵀ
-- Long-Term Traffic Retention
-- Contextᵀ
-- Flow Analysis
-- Packet Capture
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- investigate historical traffic efficiently
-- optimize large-scale storage workflows
-- analyze retrospective communication behavior
-- improve forensic investigations
-- maintain long-term operational visibility
-- scale analytics retention architectures
-
-Trisul can also integrate:
-
-- Retro Analysisᵀ
-- Historical Traffic Analysis
-- Retention Policy
-
-workflows for deeper long-term visibility.
+| Capability | Description |
+|---|---|
+| Fixed-size slices | PCAP stored in uniform chunks |
+| Timestamped slices | Each slice has time index |
+| Per-flow index | Maps flows to slice offsets |
+| Distributed storage | Slices spread across disks |
+| Flexible retention | Slice-level retention policies |
+| Fast retrieval | Index-based PCAP access |
 
 ---
 
-## **Related Terms**
+## What makes Slice Retentionᵀ work in practice
 
-- Retro Analysisᵀ
-- Long-Term Traffic Retention
-- Historical Traffic Analysis
-- Retention Policy
-- Network Forensics
-- Contextᵀ
+Slice size balances storage efficiency against retrieval speed. Too small creates many small files. Too large wastes storage for partial slices. Trisul optimizes slice size for typical network speeds.
+
+Distributed storage extends retention. The capture store distributes across multiple disks spreading PCAP data. This extends retention without single-disk capacity limits. Storage policies define exactly what gets written.
 
 ---
 
-## **FAQ**
+## How Trisul handles Slice Retentionᵀ
+
+Trisul captures raw packets continuously using PF_RING or AF_PACKET and builds a per-flow index at write time using Slice Retentionᵀ. PCAP is written in slices to disk. From any alert, topper, or flow in the dashboard, analysts can pivot directly to the matching PCAP without manual file correlation. Storage policies let operators define what gets written. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+
+---
+
+## Related terms
+
+- [What is packet capture?](/glossary/packet-capture)
+- [What is per-flow indexing?](/glossary/per-flow-indexing)
+- [What is retro analysis?](/glossary/retro-analysis)
+- [What is network forensics?](/glossary/network-forensics)
+- [What is retention policy?](/glossary/retention-policy)
+
+---
+
+## Frequently asked questions
 
 ### What is Slice Retentionᵀ?
 
-Slice Retentionᵀ is a Trisul capability that organizes historical traffic data into time-based slices for efficient retention and retrieval.
+Slice Retentionᵀ is Trisul's proprietary technology for storing packet capture data in fixed-size slices (chunks) enabling efficient storage, fast retrieval, and flexible retention policies for forensic investigation. PCAP data is written in slices to disk.
 
-### Why is Slice Retentionᵀ important?
+### How does Slice Retentionᵀ work?
 
-It improves long-term storage scalability, retrospective analysis performance, and historical traffic investigation workflows.
+Slice Retentionᵀ writes PCAP data to disk in fixed-size slices (typically a few MB each). Each slice is timestamped and indexed. The per-flow index maps conversations to slice offsets. This enables fast PCAP retrieval by flow without scanning raw files.
 
-### What types of data can Slice Retentionᵀ manage?
+### What are the benefits of Slice Retentionᵀ?
 
-It can manage flow records, traffic metadata, packet analytics, counters, and historical visibility data.
+Slice Retentionᵀ provides efficient storage through fixed-size chunks, fast retrieval through index-based slice access, flexible retention through slice-level policies, and distributed storage across multiple disks. It enables PCAP retrieval in seconds from terabyte-scale archives.
 
-### How does Slice Retentionᵀ improve investigations?
+### How does Slice Retentionᵀ enable retro analysis?
 
-It allows analysts to quickly isolate and retrieve traffic data from specific time periods.
-
-### What's the difference between Slice Retentionᵀ and traditional retention methods?
-
-Slice Retentionᵀ uses structured time-based storage segmentation, while traditional retention often stores data in large continuous datasets.
-
-### Is Slice Retentionᵀ useful for compliance and forensics?
-
-Yes. It helps retain and retrieve historical visibility data efficiently for audits, investigations, and long-term analytics.
+Slice Retentionᵀ enables retro analysis by making historical PCAP accessible for scanning. New detection rules can be run against stored slices after the fact. The index enables fast slice retrieval for retro analysis scan performance.

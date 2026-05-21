@@ -1,216 +1,131 @@
 ---
 title: What is sFlow?
+description: sFlow is a network monitoring protocol that exports sampled packet data and interface counters to a collector. It provides bandwidth monitoring and traffic analysis through packet sampling instead of flow recording.
 sidebar_label: sFlow
-sidebar_position: 102
+sidebar_position: 101
 slug: /glossary/sflow
-description: Learn what sFlow is, how sampled flow monitoring works, and why sFlow is used for scalable network traffic visibility and analytics.
 keywords:
   - sFlow
-  - sampled flow monitoring
-  - network flow monitoring
-  - traffic sampling
-  - flow analytics
-  - scalable traffic visibility
+  - sFlow protocol
+  - packet sampling
+  - network monitoring
+  - flow monitoring
+  - traffic monitoring
+  - sampled headers
 ---
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is sFlow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "sFlow is a network monitoring protocol that exports sampled packet data and interface counters to a collector. It provides bandwidth monitoring and traffic analysis through packet sampling instead of flow recording. sFlow usesDatagrams to export sampled headers and counter data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does sFlow work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "sFlow agents on switches and routers sample packets at configured rates. Sampled packet headers and interface counters are packaged into sFlow datagrams and sent to collectors via UDP. Collectors aggregate samples to estimate traffic volumes and patterns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between sFlow and NetFlow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NetFlow exports flow records summarizing conversations. sFlow exports sampled packet headers. NetFlow tracks all flows with optional sampling. sFlow always uses packet sampling. sFlow provides better scalability at high speeds but less accurate per-flow data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is sFlow used?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "sFlow is used at high speeds where NetFlow export would overload devices. It is used for bandwidth monitoring, DDoS detection, and traffic analysis. sFlow is common in data centers and high-speed networks requiring scalable monitoring."
+      }
+    }
+  ]
+};
 
 # What is sFlow?
 
-sFlow is a network traffic monitoring technology that uses packet sampling and interface statistics to provide scalable visibility into network traffic behavior.
-
-Unlike traditional flow technologies that track every flow individually, sFlow uses statistical sampling to reduce monitoring overhead while still providing meaningful traffic analytics.
-
-sFlow helps organizations define traffic visibility roles by monitoring:
-- bandwidth usage
-- application traffic
-- traffic trends
-- interface utilization
-- top talkers
-- congestion behavior
-- communication patterns
-
-It is widely used for:
-- high-speed traffic monitoring
-- data center visibility
-- ISP analytics
-- cloud monitoring
-- capacity planning
-- performance monitoring
-
-## **How sFlow Works**
-
-sFlow-enabled devices such as:
-
-- switches
-- routers
-- servers
-- virtual switches
-
-sample packets at configurable intervals and export traffic metadata to an sFlow collector.
-
-A typical workflow looks like this:
-
-Network Traffic → Packet Sampling → sFlow Export → sFlow Collector → Analytics
-
-The exported data may include:
-
-- sampled packets
-- interface counters
-- bandwidth statistics
-- protocol information
-- source and destination addresses
-- VLAN information
-
-For example:
-
-Sampling Ratio: 1:1000
-
-This means:
-
-1 out of every 1,000 packets is sampled and analyzed.
-
-sFlow is designed for scalable monitoring in high-volume environments where monitoring every packet or flow may be impractical.
-
-![](images/sFlow.png)
+sFlow is a network monitoring protocol that exports sampled packet data and interface counters to a collector. It provides bandwidth monitoring and traffic analysis through packet sampling instead of flow recording. sFlow uses datagrams to export sampled headers and counter data.
 
 ---
 
-## **Why sFlow Matters**
+## How sFlow works
 
-Modern networks generate enormous traffic volumes that can overwhelm monitoring systems.
+sFlow agents on switches and routers sample packets at configured rates. Sampling can be 1 in N packets or based on byte count. Sampled packet headers (first N bytes) and interface counters are packaged into sFlow datagrams and sent to collectors via UDP port 6343.
 
-Without scalable visibility approaches, organizations may struggle to:
-
-- monitor high-speed traffic efficiently
-- analyze distributed environments
-- maintain visibility at scale
-- optimize storage and CPU usage
-- monitor cloud-native infrastructures
-
-sFlow helps teams:
-
-- scale traffic monitoring
-- reduce monitoring overhead
-- analyze bandwidth trends
-- monitor distributed traffic
-- maintain operational visibility
-- improve traffic analytics efficiency
-
-It is especially important in:
-
-- ISP infrastructures
-- data centers
-- cloud environments
-- hyperscale networks
-- enterprise backbones
-- virtualized infrastructures
-
-Humans looked at impossible traffic volumes and decided, “what if we just sampled a few packets and hoped statistics handled the rest?” Disturbingly effective, honestly.
+Collectors aggregate samples to estimate traffic volumes. Statistical methods extrapolate total traffic from samples. Interface counters provide utilization data complementing packet samples.
 
 ---
 
-## **Common Operational Use Cases**
+## sFlow in network operations
 
-### High-Speed Traffic Monitoring
+In the NOC, use sFlow for bandwidth monitoring at high speeds. sFlow scales better than NetFlow at gigabit speeds because packet sampling generates less data than flow export. Security teams use sFlow for DDoS detection through traffic volume analysis.
 
-Monitor multi-gigabit and terabit traffic environments efficiently.
-
-### Data Center Visibility
-
-Analyze east-west traffic and server communication.
-
-### Cloud Traffic Analytics
-
-Monitor distributed cloud workloads and virtual networks.
-
-### Capacity Planning
-
-Track long-term traffic growth and interface utilization.
-
-### DDoS Visibility
-
-Detect large-scale traffic spikes and volumetric attacks.
+Capacity planning uses sFlow data for traffic trends. Even with sampling, traffic patterns are visible. sFlow provides sufficient accuracy for bandwidth estimation and top talkers identification.
 
 ---
 
-## **sFlow vs NetFlow**
+## sFlow vs NetFlow comparison
 
-| Feature | sFlow | NetFlow |
+| Aspect | sFlow | NetFlow |
 |---|---|---|
-| Monitoring Method | Packet sampling | Flow-based tracking |
-| Scalability | Very high | High |
-| Resource Usage | Lower | Higher |
-| Visibility Precision | Approximate | More detailed |
-| High-Speed Suitability | Excellent | Strong |
-
-sFlow prioritizes scalability and lightweight monitoring, while NetFlow provides more detailed flow visibility.
-
----
-
-## **How Trisul Handles sFlow Analytics**
-
-Trisul provides scalable traffic analytics for sFlow-enabled environments.
-
-Combined with:
-
-- Flow Analysis
-- Top-K Analyticsᵀ
-- Multigraph Analyticsᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-- Long-Term Traffic Retention
-
-Trisul helps teams:
-
-- analyze sampled traffic behavior
-- monitor interface utilization
-- identify bandwidth consumers
-- investigate anomalies
-- visualize distributed traffic patterns
-- optimize monitoring workflows
-
-Trisul can also integrate:
-
-- Flow Sampling
-- NetFlow
-- ISP Traffic Analytics
-
-workflows for broader traffic visibility.
+| Data type | Sampled packet headers | Flow records |
+| Sampling | Always samples | Optional sampling |
+| Scalability | Better at high speeds | Good at moderate speeds |
+| Per-flow accuracy | Lower | Higher |
+| Bandwidth overhead | Lower | Higher |
+| Use case | High-speed monitoring | Detailed flow analysis |
 
 ---
 
-## **Related Terms**
+## What makes sFlow work in practice
 
-- Flow Sampling
-- NetFlow
-- IPFIX
-- Bandwidth Monitoring
-- ISP Traffic Analytics
-- Flow Analysis
+Sampling rate configuration determines accuracy. Higher sampling rates (lower ratios) provide better accuracy but more overhead. Lower sampling rates (higher ratios) reduce overhead but miss small flows. Balance sampling rate against accuracy requirements.
+
+Collector capacity must match sample volume. sFlow agents send samples continuously. If sample rate exceeds collector capacity, data is dropped. Monitor collector CPU and network bandwidth.
 
 ---
 
-## **FAQ**
+## How Trisul handles sFlow
+
+Trisul collects sFlow data from switches and routers natively. sFlow datagrams are decoded and aggregated for analysis. Trisul provides real-time traffic graphs, historical reports, and anomaly detection from sFlow data. Flow monitoring tracks millions of flows enabling long-term retention. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is NetFlow?](/glossary/netflow)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is packet sampling?](/glossary/packet-sampling)
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is traffic analysis?](/glossary/traffic-analysis)
+
+---
+
+## Frequently asked questions
 
 ### What is sFlow?
 
-sFlow is a network monitoring technology that uses packet sampling to provide scalable traffic visibility and analytics.
-
-### Why is sFlow important?
-
-It helps organizations monitor high-speed traffic environments efficiently with lower monitoring overhead.
+sFlow is a network monitoring protocol that exports sampled packet data and interface counters to a collector. It provides bandwidth monitoring and traffic analysis through packet sampling instead of flow recording. sFlow uses datagrams to export sampled headers and counter data.
 
 ### How does sFlow work?
 
-Devices sample packets and export traffic metadata and interface statistics to an sFlow collector.
+sFlow agents on switches and routers sample packets at configured rates. Sampled packet headers and interface counters are packaged into sFlow datagrams and sent to collectors via UDP. Collectors aggregate samples to estimate traffic volumes and patterns.
 
-### What's the difference between sFlow and NetFlow?
+### What is the difference between sFlow and NetFlow?
 
-sFlow uses statistical packet sampling, while NetFlow tracks flow records more directly and in greater detail.
+NetFlow exports flow records summarizing conversations. sFlow exports sampled packet headers. NetFlow tracks all flows with optional sampling. sFlow always uses packet sampling. sFlow provides better scalability at high speeds but less accurate per-flow data.
 
-### Is sFlow suitable for high-speed networks?
+### When is sFlow used?
 
-Yes. sFlow is designed specifically for scalable monitoring in large and high-speed environments.
-
-### Can sFlow help detect DDoS attacks?
-
-Yes. sFlow can identify abnormal traffic spikes and volumetric traffic behavior efficiently.
+sFlow is used at high speeds where NetFlow export would overload devices. It is used for bandwidth monitoring, DDoS detection, and traffic analysis. sFlow is common in data centers and high-speed networks requiring scalable monitoring.

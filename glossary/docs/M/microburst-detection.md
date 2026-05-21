@@ -1,202 +1,130 @@
 ---
-title: What is Microburst Detection?
-sidebar_label: Microburst Detection
-sidebar_position: 67
+title: What is microburst detection?
+description: Microburst detection identifies unexpected data bursts within very small time windows of microseconds. It detects traffic spikes that cause packet loss and congestion even when average utilization appears normal.
+sidebar_label: Microburst detection
+sidebar_position: 64
 slug: /glossary/microburst-detection
-description: Learn what microburst detection is, how microbursts affect network performance, and why detecting short traffic spikes is important for troubleshooting and latency-sensitive applications.
 keywords:
   - microburst detection
-  - network microbursts
-  - burst traffic analysis
-  - latency troubleshooting
-  - traffic spike detection
-  - network performance monitoring
+  - traffic burst detection
+  - microsecond monitoring
+  - network bursts
+  - congestion detection
+  - traffic spike analytics
+  - buffer insights
 ---
 
-# What is Microburst Detection?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a microburst?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A microburst occurs when a specific amount of data in bytes is exceeded in a given time interval. Microbursts are unexpected data bursts within very small time windows of microseconds. They disrupt performance, cause security risks, and create network blind spots when average utilization appears normal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is microburst detection important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microburst detection is critical because microbursts cause packet loss and congestion even when average link utilization appears normal. Average-based monitoring misses microbursts entirely. Continuous high-resolution visibility is needed to detect bursts at the wire level in real time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is microburst detection performed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microburst detection continuously computes the traffic rate and detects unexpected data bursts reporting them as soon as they occur. Millisecond monitoring detects bursts at the wire level using dedicated FPGAs or ASICs on each port. Buffer and queue insights pinpoint congestion before packets are lost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you configure microburst monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set micro-burst threshold values for an interface and configure the maximum number of micro-bursts allowed. Configure ingress and egress port settings separately. Specify traffic rate limit as percentage of link speed. When threshold is exceeded the system generates a Syslog alarm message."
+      }
+    }
+  ]
+};
 
-Microburst Detection is the process of identifying extremely short-duration traffic spikes that temporarily overwhelm network interfaces, buffers, or devices.
+# What is microburst detection?
 
-Microbursts usually last only milliseconds or microseconds, but they can still cause:
-- packet drops
-- latency spikes
-- jitter
-- application slowdowns
-- VoIP issues
-- congestion events
-
-Because microbursts happen so quickly, traditional monitoring systems may miss them entirely.
-
-Microburst detection helps organizations identify hidden performance problems affecting high-speed and latency-sensitive networks.
-
-## **How Microbursts Work**
-
-In stable traffic conditions, packets arrive at relatively predictable rates.
-
-A microburst occurs when:
-1. a large amount of traffic arrives suddenly
-2. interface buffers fill rapidly
-3. packets are delayed or dropped
-4. network performance temporarily degrades
-
-For example:
-
-1. Multiple servers send traffic simultaneously
-2. A switch interface receives traffic faster than it can forward
-3. Queue buffers overflow briefly
-4. Packet loss and latency occur for milliseconds
-
-Although short-lived, these bursts can heavily affect:
-- VoIP calls
-- video conferencing
-- financial applications
-- cloud workloads
-- storage traffic
-- real-time applications
-
-## **Why Microburst Detection Matters**
-
-Traditional monitoring tools often use:
-- 1-minute averages
-- 5-minute averages
-- low-frequency polling
-
-Microbursts may disappear before these systems detect them.
-
-Without microburst visibility, organizations may struggle to:
-- explain intermittent packet loss
-- troubleshoot random latency spikes
-- diagnose VoIP quality issues
-- analyze congestion events
-- identify switch buffer saturation
-
-Microburst detection helps teams:
-- identify hidden congestion
-- improve troubleshooting accuracy
-- monitor real-time application quality
-- optimize high-speed links
-- reduce packet loss
-- improve network stability
-
-It is especially important in:
-- data centers
-- high-speed enterprise networks
-- financial trading environments
-- storage networks
-- cloud infrastructures
-- ISP backbones
-
-## **Common Causes of Microbursts**
-
-### Simultaneous Traffic Streams
-
-Multiple systems transmit large amounts of data at once.
-
-### Buffer Saturation
-
-Switch or router buffers temporarily overflow.
-
-### High-Speed East-West Traffic
-
-Distributed applications generate sudden internal traffic spikes.
-
-### Storage and Backup Operations
-
-Large transfers create short-duration congestion bursts.
-
-### Virtualized Workloads
-
-Shared infrastructure produces unpredictable traffic patterns.
-
-## **Common Operational Use Cases**
-
-### VoIP Troubleshooting
-
-Identify packet delay and jitter affecting voice quality.
-
-### Data Center Performance Analysis
-
-Monitor burst traffic across high-speed fabrics.
-
-### Storage Network Monitoring
-
-Analyze traffic spikes during replication or backup operations.
-
-### Latency Investigation
-
-Detect short-duration congestion events.
-
-### High-Frequency Trading Networks
-
-Monitor low-latency communication stability.
-
-## **Microburst Detection vs Standard Bandwidth Monitoring**
-
-| Feature | Microburst Detection | Standard Bandwidth Monitoring |
-|---|---|---|
-| Visibility Granularity | Very high frequency | Averaged intervals |
-| Short-Duration Spike Visibility | Strong | Often missed |
-| Latency Troubleshooting | Advanced | Limited |
-| Congestion Detection | Precise | General |
-| Operational Focus | Hidden burst behavior | Overall utilization |
-
-Microburst detection focuses on very short traffic spikes that standard monitoring may overlook.
-
-## **How Trisul Handles Microburst Detection**
-
-Trisul provides high-resolution traffic analytics and packet visibility for analyzing burst traffic behavior.
-
-Combined with:
-- Packet Capture
-- Flow Analysis
-- Top-K Analyticsᵀ
-- Retro Analysisᵀ
-- Contextᵀ
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-- identify short-duration traffic spikes
-- analyze packet loss events
-- troubleshoot latency anomalies
-- monitor high-speed traffic behavior
-- investigate burst congestion
-- improve real-time application visibility
-
-Trisul can also integrate [Jitter Monitoring](/glossary/jitter-monitoring), [Latency Monitoring](/glossary/latency-monitoring), and [Dropped Packets](/glossary/dropped-packets) workflows for deeper performance analysis.
-
-## **Related Terms**
-
-- [Burst Traffic](/glossary/burst-traffic)
-- [Latency Monitoring](/glossary/latency-monitoring)
-- [Jitter Monitoring](/glossary/jitter-monitoring)
-- [Dropped Packets](/glossary/dropped-packets)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Packet Capture](/glossary/packet-capture)
+Microburst detection identifies unexpected data bursts within very small time windows of microseconds. It detects traffic spikes that cause packet loss and congestion even when average utilization appears normal. A microburst occurs when a specific amount of data in bytes is exceeded in a given time interval.
 
 ---
 
-## **FAQ**
+## How microburst detection works
 
-### What is a network microburst?
+Microburst detection continuously computes the traffic rate and detects unexpected data bursts. Millisecond monitoring detects bursts at the wire level in real time using dedicated FPGAs or ASICs on each port. Buffer and queue insights pinpoint congestion before packets are lost.
 
-A microburst is a very short-duration traffic spike that temporarily overwhelms network resources.
+Flow monitoring with high-resolution timestamps can detect microbursts. Traditional flow export at 1-minute intervals misses microbursts entirely. Microsecond-level monitoring is required to see bursts that last milliseconds.
 
-### Why are microbursts difficult to detect?
+---
 
-They happen extremely quickly and may be missed by low-frequency monitoring systems.
+## Microburst detection in network operations
 
-### What problems can microbursts cause?
+In the NOC, monitor for microbursts on links carrying bursty traffic like backups and data replication. Microbursts cause packet loss even when average utilization is under 50 percent. Security teams detect microbursts that might indicate DDoS attacks or data exfiltration.
 
-Microbursts can cause packet drops, latency spikes, jitter, congestion, and application instability.
+Traffic spike analytics track how bursts impact latency, packet loss, and application performance. Threshold-based alerts instantly notify operators when microbursts exceed capacity. This enables response before users experience problems.
+
+---
+
+## Microburst monitoring configuration
+
+| Parameter | Description |
+|---|---|
+| Threshold | Traffic threshold as percentage of link speed |
+| Window size | Window size for microburst check in microseconds |
+| Link speed | Link speed in Mbit/s |
+| Ingress/egress | Configure separately for each direction |
+| Max bursts | Maximum number of microbursts allowed on interface |
+
+---
+
+## What makes microburst detection work in practice
+
+High-resolution sampling is essential for microburst detection. Traditional SNMP polling at 5-minute intervals completely misses microbursts. Flow export at 1-minute intervals also misses them. Continuous wire-level monitoring at millisecond or microsecond resolution is required.
+
+Hardware acceleration enables microburst detection at line rate. Dedicated FPGAs or ASICs on ports compute traffic rate continuously without CPU overhead. Software-based detection cannot keep up with wire speed and misses bursts.
+
+---
+
+## How Trisul handles microburst detection
+
+Trisul detects microbursts through high-resolution flow monitoring and packet capture timestamps. Continuous traffic rate computation identifies unexpected data bursts. Microburst detection specifies traffic rate limit as percentage of link speed. When threshold is exceeded, the system generates logs. Full documentation is at https://docs.trisul.org/docs/ag/install/.
+
+---
+
+## Related terms
+
+- [What is congestion detection?](/glossary/congestion-detection)
+- [What is packet loss?](/glossary/packet-loss)
+- [What is traffic spike analytics?](/glossary/traffic-spike-analytics)
+- [What is buffer monitoring?](/glossary/buffer-monitoring)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+
+---
+
+## Frequently asked questions
+
+### What is a microburst?
+
+A microburst occurs when a specific amount of data in bytes is exceeded in a given time interval. Microbursts are unexpected data bursts within very small time windows of microseconds. They disrupt performance, cause security risks, and create network blind spots when average utilization appears normal.
 
 ### Why is microburst detection important?
 
-It helps identify hidden performance issues affecting real-time and latency-sensitive applications.
+Microburst detection is critical because microbursts cause packet loss and congestion even when average link utilization appears normal. Average-based monitoring misses microbursts entirely. Continuous high-resolution visibility is needed to detect bursts at the wire level in real time.
 
-### Where are microbursts most common?
+### How is microburst detection performed?
 
-They commonly occur in data centers, cloud environments, storage networks, and high-speed infrastructures.
+Microburst detection continuously computes the traffic rate and detects unexpected data bursts reporting them as soon as they occur. Millisecond monitoring detects bursts at the wire level using dedicated FPGAs or ASICs on each port. Buffer and queue insights pinpoint congestion before packets are lost.
 
-### Can microbursts affect VoIP and video calls?
+### How do you configure microburst monitoring?
 
-Yes. Even brief congestion spikes can introduce jitter, delay, and packet loss that affect communication quality.
+Set micro-burst threshold values for an interface and configure the maximum number of micro-bursts allowed. Configure ingress and egress port settings separately. Specify traffic rate limit as percentage of link speed. When threshold is exceeded the system generates a Syslog alarm message.

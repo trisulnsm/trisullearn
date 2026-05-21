@@ -1,218 +1,130 @@
 ---
-title: What is Subscriber Mapping?
-sidebar_label: Subscriber Mapping
-sidebar_position: 107
+title: What is subscriber mapping?
+description: Subscriber mapping associates IP addresses with subscriber identities using RADIUS, DHCP, or authentication logs. It enables per-subscriber traffic analysis for ISPs providing visibility into individual user bandwidth and usage patterns.
+sidebar_label: Subscriber mapping
+sidebar_position: 106
 slug: /glossary/subscriber-mapping
-description: Learn what subscriber mapping is, how subscriber identity correlation works, and why mapping users to IP activity is important for ISPs, compliance, and traffic investigations.
 keywords:
   - subscriber mapping
-  - IP subscriber mapping
-  - subscriber identity correlation
-  - ISP subscriber analytics
-  - NAT subscriber mapping
-  - user activity mapping
+  - subscriber identification
+  - IP to user mapping
+  - subscriber analytics
+  - ISP analytics
+  - user identification
+  - subscriber tracking
 ---
 
-# What is Subscriber Mapping?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is subscriber mapping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subscriber mapping associates IP addresses with subscriber identities using RADIUS, DHCP, or authentication logs. It enables per-subscriber traffic analysis for ISPs providing visibility into individual user bandwidth and usage patterns. Mapping converts IP addresses to subscriber names."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does subscriber mapping work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subscriber mapping correlates IP addresses with subscriber identities from authentication logs. RADIUS logs provide username and IP mapping. DHCP logs provide lease information. Flow records are classified by subscriber enabling per-subscriber analytics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is subscriber mapping important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subscriber mapping is critical for ISPs providing per-subscriber billing, capacity planning, and security monitoring. Without mapping, traffic appears as IP addresses only. With mapping, traffic is attributed to specific subscribers enabling chargeback and abuse tracking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are subscriber mapping use cases?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subscriber mapping use cases include per-subscriber billing and chargeback, bandwidth quota enforcement, abuse tracking and enforcement, capacity planning by subscriber, security monitoring detecting anomalous subscriber behavior, and customer support troubleshooting subscriber issues."
+      }
+    }
+  ]
+};
 
-Subscriber Mapping is the process of correlating network activity, IP addresses, sessions, and traffic records with specific subscribers, users, or customer identities.
+# What is subscriber mapping?
 
-It enables organizations and ISPs to identify:
-- which subscriber used an IP address
-- when a session occurred
-- what traffic activity was generated
-- how users accessed network resources
-- which services were consumed
-
-Subscriber mapping helps organizations define user visibility roles by connecting traffic behavior to subscriber identities.
-
-It is especially important for:
-- ISPs
-- telecom providers
-- broadband operators
-- hotspot networks
-- compliance systems
-- security investigations
-
-## **How Subscriber Mapping Works**
-
-Subscriber mapping systems correlate visibility data from:
-
-- RADIUS logs
-- DHCP logs
-- NAT logs
-- IPDR records
-- authentication systems
-- traffic analytics platforms
-
-A typical workflow looks like this:
-
-Subscriber Authentication → IP Assignment → Traffic Activity → Subscriber Mapping
-
-For example:
-
-- A subscriber connects to the ISP network
-- The subscriber receives a temporary IP address
-- Traffic activity is generated
-- Subscriber mapping correlates the IP and session with the user identity
-
-Subscriber mapping may track:
-
-- subscriber IDs
-- assigned IP addresses
-- NAT translations
-- session timestamps
-- usage duration
-- access methods
-- traffic behavior
-
-![](images/subscriber-mapping.png)
+Subscriber mapping associates IP addresses with subscriber identities using RADIUS, DHCP, or authentication logs. It enables per-subscriber traffic analysis for ISPs providing visibility into individual user bandwidth and usage patterns. Mapping converts IP addresses to subscriber names.
 
 ---
 
-## **Why Subscriber Mapping Matters**
+## How subscriber mapping works
 
-Modern networks frequently use:
+Subscriber mapping correlates IP addresses with subscriber identities from authentication logs. RADIUS logs provide username and IP mapping during authentication. DHCP logs provide lease information mapping IPs to MAC addresses and subscribers.
 
-- dynamic IP assignment
-- CGNAT
-- temporary sessions
-- shared address pools
-
-Without subscriber mapping, organizations may struggle to:
-
-- identify users behind IP addresses
-- investigate suspicious activity
-- support compliance requirements
-- troubleshoot subscriber issues
-- trace historical communication
-- correlate user sessions accurately
-
-Subscriber mapping helps teams:
-
-- improve user traceability
-- strengthen forensic investigations
-- maintain compliance visibility
-- investigate security incidents
-- analyze subscriber behavior
-- improve operational visibility
-
-It is especially important in:
-
-- ISP infrastructures
-- telecom environments
-- Wi-Fi access networks
-- broadband services
-- VPN environments
-- regulatory compliance systems
-
-Humans ran out of IPv4 addresses, stuffed thousands of users behind shared IPs, then invented elaborate mapping systems to remember who did what. A masterpiece of self-inflicted complexity.
+Flow records are classified by subscriber. Traffic volumes are aggregated per subscriber. Upstream and downstream traffic is tracked separately per subscriber. Real-time and historical subscriber traffic is available.
 
 ---
 
-## **Common Operational Use Cases**
+## Subscriber mapping in network operations
 
-### Telecom Compliance
+In the NOC, use subscriber mapping to track per-subscriber bandwidth usage. Top subscribers by bandwidth are identified. Security teams detect anomalous subscriber behavior indicating compromised accounts. Billing systems use subscriber mapping for chargeback.
 
-Maintain subscriber traceability for regulatory requirements.
-
-### Security Investigations
-
-Identify which subscriber generated suspicious traffic.
-
-### NAT Correlation
-
-Map users behind shared CGNAT addresses.
-
-### Subscriber Troubleshooting
-
-Analyze connectivity and session issues.
-
-### Usage Analytics
-
-Monitor subscriber behavior and traffic trends.
+Capacity planning uses per-subscriber bandwidth averages to plan for subscriber growth. Understanding typical per-subscriber usage enables accurate capacity forecasts.
 
 ---
 
-## **Subscriber Mapping vs NAT Logging**
+## Subscriber mapping sources
 
-| Feature | Subscriber Mapping | NAT Logging |
-|---|---|---|
-| Primary Focus | User identity correlation | Address translation records |
-| Subscriber Visibility | Strong | Moderate |
-| Authentication Context | Included | Limited |
-| Session Correlation | Advanced | Moderate |
-| Compliance Use | Critical | Critical |
-
-Subscriber mapping connects traffic activity to actual user identities, while NAT logging focuses mainly on translation records.
+| Source | What it provides |
+|---|---|
+| RADIUS logs | Username and IP mapping during authentication |
+| DHCP logs | IP lease information with MAC address |
+| Authentication logs | User login events with IP |
+| PPPoE logs | PPPoE session mapping |
+| IPAM | IP address management records |
 
 ---
 
-## **How Trisul Handles Subscriber Mapping**
+## What makes subscriber mapping work in practice
 
-Trisul provides scalable subscriber visibility and traffic correlation for enterprise and ISP environments.
+Log accuracy determines mapping quality. RADIUS logs must be complete and accurate. Missing authentication logs mean unmapped IPs. Ensure all authentication flows through RADIUS and logs are collected reliably.
 
-Combined with:
-
-- NAT Logging
-- CGNAT Logging
-- IPDR Visibility
-- RADIUS Logging
-- Contextᵀ
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- correlate subscriber sessions
-- map IP activity to users
-- investigate suspicious traffic
-- maintain long-term traceability
-- support compliance workflows
-- improve subscriber analytics visibility
-
-Trisul can also integrate:
-
-- IPDR
-- NAT Logging
-- DoT Compliance
-
-workflows for deeper subscriber visibility.
+Dynamic IP addressing complicates mapping. IPs change as subscribers reconnect. Mapping must track IP changes over time. Historical mapping requires correlating IP changes with subscriber identity.
 
 ---
 
-## **Related Terms**
+## How Trisul handles subscriber mapping
 
-- IPDR
-- NAT Logging
-- CGNAT Logging
-- RADIUS Logging
-- DoT Compliance
-- Traffic Investigation
+Trisul provides subscriber mapping through RADIUS logging correlation mapping IP addresses to usernames. Flow records are classified by subscriber enabling per-subscriber traffic analysis. Real-time and historical subscriber traffic is tracked. Subscriber analytics shows per-subscriber upstream and downstream usage. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
 ---
 
-## **FAQ**
+## Related terms
+
+- [What is RADIUS logging?](/glossary/radius-logging)
+- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
+- [What is subscriber analytics?](/glossary/subscriber-analytics)
+- [What is user traffic analytics?](/glossary/user-traffic-analytics)
+- [What is DHCP?](/glossary/dhcp)
+
+---
+
+## Frequently asked questions
 
 ### What is subscriber mapping?
 
-Subscriber mapping is the process of correlating network activity and IP addresses with specific users or subscribers.
+Subscriber mapping associates IP addresses with subscriber identities using RADIUS, DHCP, or authentication logs. It enables per-subscriber traffic analysis for ISPs providing visibility into individual user bandwidth and usage patterns. Mapping converts IP addresses to subscriber names.
+
+### How does subscriber mapping work?
+
+Subscriber mapping correlates IP addresses with subscriber identities from authentication logs. RADIUS logs provide username and IP mapping. DHCP logs provide lease information. Flow records are classified by subscriber enabling per-subscriber analytics.
 
 ### Why is subscriber mapping important?
 
-It helps organizations identify users behind traffic activity, support compliance, and investigate incidents.
+Subscriber mapping is critical for ISPs providing per-subscriber billing, capacity planning, and security monitoring. Without mapping, traffic appears as IP addresses only. With mapping, traffic is attributed to specific subscribers enabling chargeback and abuse tracking.
 
-### What data sources are used for subscriber mapping?
+### What are subscriber mapping use cases?
 
-Common sources include RADIUS logs, DHCP logs, NAT logs, IPDR records, and authentication systems.
-
-### How does subscriber mapping help ISPs?
-
-It helps ISPs trace subscriber activity, troubleshoot sessions, and maintain compliance visibility.
-
-### Why is subscriber mapping important in CGNAT environments?
-
-Multiple users may share the same public IP address, making identity correlation difficult without subscriber mapping.
-
-### What's the difference between subscriber mapping and NAT logging?
-
-Subscriber mapping identifies users associated with traffic activity, while NAT logging records address translation events.
+Subscriber mapping use cases include per-subscriber billing and chargeback, bandwidth quota enforcement, abuse tracking and enforcement, capacity planning by subscriber, security monitoring detecting anomalous subscriber behavior, and customer support troubleshooting subscriber issues.

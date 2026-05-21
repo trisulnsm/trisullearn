@@ -1,217 +1,131 @@
 ---
-title: What is Wire-Speed Packet Capture?
-sidebar_label: Wire-Speed Packet Capture
-sidebar_position: 127
+title: What is wire-speed packet capture?
+description: Wire-speed packet capture records all packets at line rate without dropping packets even at high speeds (1G, 10G, 40G, 100G). It provides complete forensic visibility requiring specialized hardware and software optimized for high-speed capture.
+sidebar_label: Wire-speed packet capture
+sidebar_position: 123
 slug: /glossary/wire-speed-packet-capture
-description: Learn what wire-speed packet capture is, how high-speed packet recording works, and why lossless packet visibility is important for network forensics and traffic analysis.
 keywords:
-  - wire-speed packet capture
-  - high-speed packet capture
-  - lossless packet capture
-  - packet recording
-  - network forensics
-  - full packet visibility
+  - wire-speed capture
+  - line rate capture
+  - full fidelity capture
+  - packet capture
+  - high-speed capture
+  - zero packet loss
+  - forensic capture
 ---
 
-# What is Wire-Speed Packet Capture?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is wire-speed packet capture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wire-speed packet capture records all packets at line rate without dropping packets even at high speeds (1G, 10G, 40G, 100G). It provides complete forensic visibility requiring specialized hardware and software optimized for high-speed capture. Wire-speed capture achieves zero packet loss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does wire-speed capture work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wire-speed capture uses specialized hardware (10G/40G/100G network cards) with kernel-bypass technologies (PF_RING, DPDK) and optimized capture engines. Packets are captured directly from NIC to userspace avoiding kernel overhead. Writing is optimized for sustained high throughput."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is wire-speed capture important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wire-speed capture is critical for forensic investigation requiring complete packet evidence. Packet loss means missing evidence. At high speeds, standard capture drops packets. Wire-speed capture ensures complete visibility even at 10G and above."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What enables wire-speed capture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wire-speed capture requires fast NICs (10G+, with hardware timestamping), kernel-bypass (PF_RING ZC, DPDK), fast storage (RAID, SSD), optimized capture software, and sufficient CPU. All components must handle line rate throughput."
+      }
+    }
+  ]
+};
 
-Wire-Speed Packet Capture is the process of capturing network packets at the full speed of the network link without dropping packets.
+# What is wire-speed packet capture?
 
-It enables monitoring systems to record traffic at line rate even on very high-speed links such as:
-- 10 Gbps
-- 40 Gbps
-- 100 Gbps
-- carrier-grade backbone networks
-
-Wire-speed capture helps organizations define forensic and traffic visibility roles by preserving:
-- complete packet data
-- timing information
-- application communication
-- protocol behavior
-- session activity
-- security evidence
-
-It is especially important for:
-- network forensics
-- security investigations
-- packet analysis
-- high-speed monitoring
-- telecom visibility
-- performance troubleshooting
-
-## **How Wire-Speed Packet Capture Works**
-
-Packet capture systems connect to traffic visibility sources such as:
-- network TAPs
-- SPAN ports
-- packet brokers
-- visibility fabrics
-
-The capture platform then:
-1. receives packets at full link speed
-2. writes packets to storage rapidly
-3. indexes metadata for retrieval
-4. supports retrospective analysis workflows
-
-A typical workflow looks like this:
-
-Network Traffic → High-Speed Capture Engine → Packet Storage → Investigation
-
-Wire-speed packet capture systems are optimized using:
-
-- high-performance NICs
-- hardware acceleration
-- fast storage arrays
-- kernel bypass technologies
-- optimized capture pipelines
-
-For example:
-
-- A DDoS attack occurs at 40 Gbps
-- The capture system records all packets without loss
-- Analysts reconstruct the attack timeline later
-- Detailed forensic analysis becomes possible
+Wire-speed packet capture records all packets at line rate without dropping packets even at high speeds (1G, 10G, 40G, 100G). It provides complete forensic visibility requiring specialized hardware and software optimized for high-speed capture. Wire-speed capture achieves zero packet loss.
 
 ---
 
-## **Why Wire-Speed Packet Capture Matters**
+## How wire-speed capture works
 
-High-speed networks generate enormous traffic volumes continuously.
+Wire-speed capture uses specialized hardware (10G/40G/100G network cards) with kernel-bypass technologies (PF_RING ZC, DPDK) and optimized capture engines. Packets are captured directly from NIC to userspace avoiding kernel overhead.
 
-Without lossless packet visibility, organizations may struggle to:
-
-- investigate attacks accurately
-- reconstruct communication sessions
-- troubleshoot intermittent issues
-- analyze protocol behavior
-- preserve forensic evidence
-- monitor backbone traffic reliably
-
-Wire-speed packet capture helps teams:
-
-- maintain complete visibility
-- improve forensic investigations
-- analyze packet-level behavior
-- troubleshoot high-speed networks
-- strengthen security operations
-- preserve historical evidence
-
-It is especially important in:
-
-- ISP infrastructures
-- telecom backbones
-- SOC environments
-- enterprise data centers
-- cloud interconnects
-- high-frequency operational networks
-
-Humans built networks so fast that ordinary packet capture started dropping evidence mid-investigation. Naturally the solution was even more hardware screaming at impossible speeds.
+Writing is optimized for sustained high throughput. Storage must handle continuous write rates. Buffers absorb traffic spikes. When buffers fill, capture drops packets. Wire-speed capture minimizes drops through optimization.
 
 ---
 
-## **Common Operational Use Cases**
+## Wire-speed capture in network operations
 
-### Network Forensics
+In the NOC, wire-speed capture provides complete forensic visibility. Security teams require complete packet capture for incident investigation. Packet loss means missing evidence. Wire-speed capture ensures complete visibility even at 10G and above.
 
-Preserve complete packet evidence for retrospective analysis.
-
-### Security Investigations
-
-Analyze malware traffic, exploits, and attack communication.
-
-### DDoS Analysis
-
-Capture and analyze volumetric attack traffic.
-
-### Performance Troubleshooting
-
-Investigate latency, retransmissions, and packet-level anomalies.
-
-### Protocol Analysis
-
-Analyze application and protocol behavior deeply.
+Capacity planning monitors capture system resources. CPU utilization, storage throughput, and buffer utilization must be tracked. When resources approach limits, capture may start dropping packets. Upgrade before dropping occurs.
 
 ---
 
-## **Wire-Speed Packet Capture vs Standard Packet Capture**
+## Wire-speed capture requirements
 
-| Feature | Wire-Speed Packet Capture | Standard Packet Capture |
-|---|---|---|
-| Packet Loss Risk | Very low | Higher under load |
-| High-Speed Capability | Excellent | Moderate |
-| Forensic Reliability | Strong | Variable |
-| Storage Performance | Optimized | General-purpose |
-| Backbone Visibility | Advanced | Limited |
-
-Wire-speed packet capture is specifically engineered for reliable high-speed visibility without packet drops.
-
----
-
-## **How Trisul Handles Wire-Speed Packet Capture**
-
-Trisul provides scalable packet visibility and forensic analytics for high-speed enterprise and ISP environments.
-
-Combined with:
-
-- Full Packet Capture
-- Packet Analysis
-- Retro Analysisᵀ
-- Contextᵀ
-- Security Analytics
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- capture traffic at high speeds
-- investigate packet-level anomalies
-- reconstruct communication timelines
-- analyze security incidents
-- preserve forensic visibility
-- optimize operational investigations
-
-Trisul can also integrate:
-
-- Full Packet Capture
-- Packet Analysis
-- Network Forensics
-
-workflows for deeper packet visibility.
+| Component | Requirement |
+|---|---|
+| NIC | 10G/40G/100G with hardware timestamping |
+| Kernel-bypass | PF_RING ZC or DPDK |
+| Storage | RAID with sustained write throughput |
+| CPU | Multi-core with high clock speed |
+| Memory | Sufficient for buffers |
+| TAP | Matching link speed (10G, 40G, 100G) |
 
 ---
 
-## **Related Terms**
+## What makes wire-speed capture work in practice
 
-- Full Packet Capture
-- Packet Analysis
-- Network Forensics
-- Packet Capture
-- Visibility Fabric
-- Traffic Investigation
+Storage throughput is the bottleneck. Sustained write throughput must exceed line rate. 10G full duplex at wire rate requires ~1.25 GB/s sustained write. RAID arrays or SSDs must handle this. Slow storage causes packet drops.
+
+Kernel-bypass eliminates overhead. Standard packet capture goes through kernel network stack causing overhead. Kernel-bypass (PF_RING ZC, DPDK) captures directly from NIC to userspace. This reduces CPU usage and enables wire speed.
 
 ---
 
-## **FAQ**
+## How Trisul handles wire-speed packet capture
+
+Trisul provides wire-speed packet capture through PF_RING ZC kernel-bypass technology capturing at line rate. Trisul captures raw packets continuously building per-flow index at write time using Slice Retentionᵀ. Packet capture records every packet headers and payload. Full fidelity capture at 10G and above is supported. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+
+---
+
+## Related terms
+
+- [What is packet capture?](/glossary/packet-capture)
+- [What is PF_RING?](/glossary/pf-ring)
+- [What is zero packet loss capture?](/glossary/zero-packet-loss-capture)
+- [What is network TAP?](/glossary/network-tap)
+- [What is network forensics?](/glossary/network-forensics)
+
+---
+
+## Frequently asked questions
 
 ### What is wire-speed packet capture?
 
-Wire-speed packet capture is the recording of network packets at full link speed without dropping traffic.
+Wire-speed packet capture records all packets at line rate without dropping packets even at high speeds (1G, 10G, 40G, 100G). It provides complete forensic visibility requiring specialized hardware and software optimized for high-speed capture. Wire-speed capture achieves zero packet loss.
 
-### Why is wire-speed packet capture important?
+### How does wire-speed capture work?
 
-It preserves complete traffic visibility for forensic investigations, troubleshooting, and security analysis.
+Wire-speed capture uses specialized hardware (10G/40G/100G network cards) with kernel-bypass technologies (PF_RING, DPDK) and optimized capture engines. Packets are captured directly from NIC to userspace avoiding kernel overhead. Writing is optimized for sustained high throughput.
 
-### What network speeds commonly require wire-speed capture?
+### Why is wire-speed capture important?
 
-High-speed environments such as 10 Gbps, 40 Gbps, and 100 Gbps links commonly require wire-speed capture systems.
+Wire-speed capture is critical for forensic investigation requiring complete packet evidence. Packet loss means missing evidence. At high speeds, standard capture drops packets. Wire-speed capture ensures complete visibility even at 10G and above.
 
-### How does wire-speed capture prevent packet loss?
+### What enables wire-speed capture?
 
-It uses optimized hardware, fast storage, and high-performance capture pipelines designed for line-rate traffic.
-
-### What's the difference between standard packet capture and wire-speed capture?
-
-Wire-speed capture is optimized for lossless high-speed recording, while standard capture tools may drop packets under heavy load.
-
-### Is wire-speed packet capture useful for DDoS investigations?
-
-Yes. It enables analysts to preserve and analyze complete attack traffic at very high bandwidth levels.
+Wire-speed capture requires fast NICs (10G+, with hardware timestamping), kernel-bypass (PF_RING ZC, DPDK), fast storage (RAID, SSD), optimized capture software, and sufficient CPU. All components must handle line rate throughput.

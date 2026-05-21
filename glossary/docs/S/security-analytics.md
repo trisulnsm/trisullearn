@@ -1,227 +1,131 @@
 ---
-title: What is Security Analytics?
-sidebar_label: Security Analytics
-sidebar_position: 100
+title: What is security analytics?
+description: Security analytics uses network traffic data to detect, investigate, and respond to security threats. It combines flow monitoring, packet capture, and threat intelligence to identify indicators of compromise and security incidents.
+sidebar_label: Security analytics
+sidebar_position: 99
 slug: /glossary/security-analytics
-description: Learn what security analytics is, how traffic and security data are analyzed, and why behavioral and forensic visibility are important for threat detection and incident response.
 keywords:
   - security analytics
-  - network security analytics
   - threat detection
-  - behavioral security monitoring
-  - security traffic analysis
-  - incident response analytics
+  - network security
+  - security monitoring
+  - threat intelligence
+  - indicator of compromise
+  - security investigation
 ---
 
-# What is Security Analytics?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is security analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Security analytics uses network traffic data to detect, investigate, and respond to security threats. It combines flow monitoring, packet capture, and threat intelligence to identify indicators of compromise and security incidents. Security analytics enables proactive threat detection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does security analytics work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Security analytics collects flow data and packet capture from network observation points. Threat intelligence feeds provide known malicious indicators. Analytics correlates traffic with threat indicators to detect compromises. Network behavior analysis identifies anomalies indicating threats."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does security analytics detect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Security analytics detects indicators of compromise including communication with malicious domains, data exfiltration patterns, lateral movement, malware command and control, port scanning activity, DDoS attacks, and policy violations. These indicators signal security incidents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is security analytics important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Security analytics is critical because it enables detection of threats that perimeter defenses miss. It provides visibility into what happens after attackers breach defenses. Security analytics reduces time to detect and respond to incidents, limiting damage."
+      }
+    }
+  ]
+};
 
-Security Analytics is the process of collecting, correlating, and analyzing network, traffic, and security-related data to detect threats, investigate suspicious activity, and improve security operations.
+# What is security analytics?
 
-Instead of relying only on isolated alerts or signatures, security analytics combines multiple visibility sources to understand:
-- traffic behavior
-- communication patterns
-- anomalies
-- user activity
-- attack indicators
-- operational context
-- threat relationships
-
-Security analytics helps organizations define security and investigation roles by enabling deeper visibility into how attacks and abnormal behavior occur across the network.
-
-It is widely used for:
-- threat detection
-- incident response
-- network forensics
-- anomaly detection
-- behavioral analysis
-- security operations
-
-## **How Security Analytics Works**
-
-Security analytics platforms collect visibility data from:
-
-- flow records
-- packet captures
-- IDS alerts
-- firewall logs
-- DNS activity
-- endpoint telemetry
-- cloud visibility systems
-- authentication logs
-
-The platform then:
-
-1. correlates traffic and security events
-2. analyzes communication behavior
-3. identifies anomalies and suspicious activity
-4. generates investigation insights and alerts
-
-A typical workflow looks like this:
-
-Security Data → Correlation → Analytics → Threat Detection and Investigation
-
-For example:
-
-- A device begins unusual outbound communication
-- Security analytics correlates DNS, flow, and traffic behavior
-- The activity deviates from the normal baseline
-- Analysts investigate the communication as a potential compromise
-
-Security analytics may reveal:
-
-- lateral movement
-- malware communication
-- DDoS activity
-- suspicious authentication patterns
-- traffic anomalies
-- data exfiltration
-- command-and-control traffic
+Security analytics uses network traffic data to detect, investigate, and respond to security threats. It combines flow monitoring, packet capture, and threat intelligence to identify indicators of compromise and security incidents. Security analytics enables proactive threat detection.
 
 ---
 
-## **Why Security Analytics Matters**
+## How security analytics works
 
-Modern attacks are:
+Security analytics collects flow data and packet capture from network observation points. Threat intelligence feeds provide known malicious indicators including IP addresses, domains, and file hashes. Analytics correlates traffic with threat indicators to detect compromises.
 
-- distributed
-- encrypted
-- behavior-driven
-- difficult to detect using static rules alone
-
-Without advanced analytics, organizations may struggle to:
-
-- identify unknown threats
-- investigate incidents efficiently
-- correlate security events
-- reconstruct attack timelines
-- detect abnormal behavior
-- analyze encrypted traffic patterns
-
-Security analytics helps teams:
-
-- improve threat visibility
-- detect suspicious behavior faster
-- strengthen incident response
-- analyze attack patterns
-- improve forensic investigations
-- enhance operational awareness
-
-It is especially important in:
-
-- SOC environments
-- enterprise security operations
-- ISP infrastructures
-- cloud environments
-- telecom operations
-- hybrid deployments
-
-Humans built systems to watch other humans misuse computers, then needed analytics to survive the flood of alerts created by those systems. An ecosystem of paranoia held together by dashboards.
+Network behavior analysis identifies anomalies indicating threats. Baselines of normal traffic are established. Deviations from baseline trigger alerts. Machine learning models detect patterns indicating malicious activity.
 
 ---
 
-## **Common Operational Use Cases**
+## Security analytics in network operations
 
-### Threat Detection
+In the SOC, security analytics is the detection layer. Flow data indicates suspicious traffic patterns. Packet capture provides evidence for investigation. Threat intelligence identifies known malicious destinations. Security analysts investigate alerts and respond to incidents.
 
-Identify suspicious communication and attack behavior.
-
-### Incident Response
-
-Correlate traffic and security events during investigations.
-
-### Behavioral Analytics
-
-Detect abnormal user, device, or application behavior.
-
-### Malware Investigation
-
-Analyze command-and-control traffic and exploit activity.
-
-### Security Forensics
-
-Reconstruct attack timelines and communication paths.
+Security analytics supports incident response by identifying affected systems and quantifying data exfiltration. Flow records show which hosts communicated with malicious destinations and how much data was transferred.
 
 ---
 
-## **Security Analytics vs Traditional Security Monitoring**
+## Security analytics capabilities
 
-| Feature | Security Analytics | Traditional Security Monitoring |
-|---|---|---|
-| Behavioral Visibility | Strong | Moderate |
-| Correlation Capability | Advanced | Limited |
-| Threat Detection Depth | High | Moderate |
-| Historical Investigation | Strong | Limited |
-| Context Awareness | Rich | Basic |
-
-Security analytics focuses on deep correlation and behavioral investigation rather than isolated event monitoring.
-
----
-
-## **How Trisul Handles Security Analytics**
-
-Trisul provides contextual traffic analytics and forensic visibility for enterprise and ISP security operations.
-
-Combined with:
-
-- Badfellasᵀ
-- Contextᵀ
-- Retro Analysisᵀ
-- Packet Capture
-- Flow Analysis
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-
-- analyze suspicious communication
-- investigate anomalies
-- reconstruct attack timelines
-- correlate traffic relationships
-- monitor behavioral activity
-- improve forensic visibility
-
-Trisul can also integrate:
-
-- Network Security Monitoring (NSM)
-- Anomaly Detection
-- Network Forensics
-
-workflows for deeper threat visibility.
+| Capability | Description |
+|---|---|
+| Threat detection | Identify indicators of compromise |
+| Threat intelligence | Correlate with known malicious indicators |
+| Behavior analysis | Detect anomalies from normal patterns |
+| Incident investigation | Trace attack paths and scope |
+| Data exfiltration | Quantify data stolen |
+| Lateral movement | Detect internal spread |
 
 ---
 
-## **Related Terms**
+## What makes security analytics work in practice
 
-- Network Security Monitoring (NSM)
-- Anomaly Detection
-- Network Forensics
-- Traffic Investigation
-- Packet Capture
-- Badfellasᵀ
+Threat intelligence currency determines detection accuracy. Intelligence must be updated regularly with new indicators. Outdated intelligence misses new threats. Automated intelligence feeds update regularly.
+
+Flow data scope determines detection coverage. Security analytics can only detect threats in monitored traffic. Missing observation points create blind spots. Place observation points at all critical network locations.
 
 ---
 
-## **FAQ**
+## How Trisul handles security analytics
+
+Trisul provides security analytics through flow-based visibility identifying indicators of compromise, detecting unusual traffic patterns, and tracing attack paths. Flow data enables identification of communication with malicious domains, data exfiltration quantification, and affected system identification. Packet capture provides evidence for investigation. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is threat detection?](/glossary/threat-detection)
+- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is indicator of compromise?](/glossary/indicator-of-compromise)
+- [What is threat intelligence?](/glossary/threat-intelligence)
+- [What is incident response?](/glossary/incident-response)
+
+---
+
+## Frequently asked questions
 
 ### What is security analytics?
 
-Security analytics is the process of analyzing network and security data to detect threats and investigate suspicious activity.
+Security analytics uses network traffic data to detect, investigate, and respond to security threats. It combines flow monitoring, packet capture, and threat intelligence to identify indicators of compromise and security incidents. Security analytics enables proactive threat detection.
+
+### How does security analytics work?
+
+Security analytics collects flow data and packet capture from network observation points. Threat intelligence feeds provide known malicious indicators. Analytics correlates traffic with threat indicators to detect compromises. Network behavior analysis identifies anomalies indicating threats.
+
+### What does security analytics detect?
+
+Security analytics detects indicators of compromise including communication with malicious domains, data exfiltration patterns, lateral movement, malware command and control, port scanning activity, DDoS attacks, and policy violations. These indicators signal security incidents.
 
 ### Why is security analytics important?
 
-It helps organizations identify attacks, correlate security events, and improve incident response.
-
-### What data sources are used in security analytics?
-
-Common sources include flow records, packet captures, IDS alerts, DNS logs, endpoint telemetry, and firewall logs.
-
-### How does security analytics help threat detection?
-
-It identifies abnormal behavior, suspicious communication, and attack patterns across multiple visibility sources.
-
-### What's the difference between security analytics and traditional monitoring?
-
-Security analytics focuses on correlation and behavioral analysis, while traditional monitoring often focuses on isolated alerts.
-
-### Can security analytics detect unknown threats?
-
-Yes. Behavioral analytics can identify suspicious activity even when attack signatures are unknown.
+Security analytics is critical because it enables detection of threats that perimeter defenses miss. It provides visibility into what happens after attackers breach defenses. Security analytics reduces time to detect and respond to incidents, limiting damage.

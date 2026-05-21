@@ -1,204 +1,127 @@
 ---
-title: What is Incident Response?
-sidebar_label: Incident Response
+title: What is incident response?
+description: Incident response is the organized approach to detecting, responding to, containing, and recovering from security incidents or cyberattacks, following a structured process to minimize damage and prevent future incidents.
+sidebar_label: Incident response
 sidebar_position: 54
 slug: /glossary/incident-response
-description: Learn what incident response is, how security incident response works, and why rapid investigation and containment are critical for cybersecurity operations.
 keywords:
   - incident response
-  - cybersecurity incident response
-  - security incident handling
-  - network security response
-  - threat investigation
-  - incident management
+  - security incident response
+  - incident response plan
+  - cybersecurity incident
+  - incident handling
+  - incident response team
+  - CSIRT
 ---
 
-# What is Incident Response?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is incident response?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Incident response is the organized approach to managing security incidents and cyberattacks. It contains and eradicates threats when an attacker exploits a vulnerability within an organization. Incident response follows a structured process to detect, respond to, contain, and recover from security breaches, minimizing damage and recovery time while reducing the risk of future incidents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the steps of incident response?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SANS Institute outlines six steps. Preparation establishes policies, builds an incident response team, deploys tools, and trains. Identification detects and validates incidents through monitoring, logs, and alerts. Containment stops the incident from worsening and isolates affected systems. Eradication removes threats and discovers root causes. Recovery restores systems from backup, patches, and returns to normal operations. Lessons learned conducts post-incident review and improves processes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an incident response team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An incident response team known as CSIRT or Computer Security Incident Response Team is a cross-functional group responsible for handling security incidents. Roles include leadership that coordinates overall strategy, investigation that determines root cause, and response that executes containment and recovery. The team includes technical members and nontechnical roles for communication and liability decisions, with an executive advocate at the highest company levels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does incident response relate to network monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network monitoring provides the data needed for early incident detection. Flow data including NetFlow, sFlow, and IPFIX and packet capture help identify indicators of compromise, detect unusual traffic patterns, and support forensic analysis. Incident responders use flow data to identify affected systems, trace attack paths, quantify data exfiltration, and validate that threats have been eradicated after containment."
+      }
+    }
+  ]
+};
 
-Incident Response is the process of detecting, investigating, containing, and recovering from cybersecurity incidents that affect networks, systems, applications, or users.
+# What is incident response?
 
-A security incident may include:
-- malware infections
-- ransomware attacks
-- unauthorized access
-- suspicious traffic
-- data breaches
-- DDoS attacks
-- insider threats
-
-Incident response helps organizations minimize damage, restore operations, and prevent future attacks.
-
-## **How Incident Response Works**
-
-Security teams use monitoring and investigation systems to identify suspicious activity across the network.
-
-A typical incident response workflow includes:
-
-1. Detection of suspicious activity
-2. Investigation and analysis
-3. Containment of the threat
-4. Removal and remediation
-5. Recovery of affected systems
-6. Post-incident review and improvement
-
-Incident response teams rely on visibility from:
-- flow analytics
-- packet capture
-- IDS alerts
-- endpoint monitoring
-- DNS analysis
-- SIEM platforms
-- traffic investigation tools
-
-For example:
-
-1. A monitoring platform detects suspicious outbound communication
-2. Analysts investigate the affected systems
-3. Malicious traffic is isolated and blocked
-4. Compromised systems are remediated
-5. Historical traffic is reviewed for additional impact
-
-## **Why Incident Response Matters**
-
-Modern cyberattacks can spread rapidly across networks and cloud environments.
-
-Without effective incident response, organizations may struggle to:
-- contain attacks quickly
-- investigate suspicious behavior
-- identify compromised systems
-- reconstruct attack timelines
-- restore operations safely
-
-Incident response helps teams:
-- reduce operational damage
-- improve recovery time
-- strengthen security visibility
-- investigate threats efficiently
-- minimize downtime
-- improve organizational resilience
-
-It is especially important in:
-- SOC environments
-- enterprise security operations
-- ISP infrastructures
-- cloud environments
-- regulated industries
-
-## **Common Incident Response Phases**
-
-### Detection
-
-Identify suspicious traffic, alerts, or abnormal behavior.
-
-### Investigation
-
-Analyze traffic activity, affected systems, and attack scope.
-
-### Containment
-
-Limit attacker movement and isolate compromised assets.
-
-### Eradication
-
-Remove malware, malicious access, or persistence mechanisms.
-
-### Recovery
-
-Restore systems and validate operational stability.
-
-### Lessons Learned
-
-Improve monitoring, detection, and security policies after the incident.
-
-## **Common Operational Use Cases**
-
-### Malware Investigation
-
-Analyze malicious communication and infected systems.
-
-### DDoS Response
-
-Investigate and mitigate traffic flood attacks.
-
-### Insider Threat Investigation
-
-Analyze suspicious internal communication behavior.
-
-### Cloud Security Response
-
-Investigate attacks targeting cloud workloads and services.
-
-### Traffic Forensics
-
-Reconstruct attack timelines using historical traffic visibility.
-
-## **Incident Response vs Threat Detection**
-
-| Feature | Incident Response | Threat Detection |
-|---|---|---|
-| Primary Goal | Manage and contain incidents | Identify suspicious activity |
-| Operational Scope | Full incident lifecycle | Early warning and alerts |
-| Investigation Depth | Extensive | Initial analysis |
-| Recovery Activities | Included | Not included |
-| Workflow Focus | Action and remediation | Detection and visibility |
-
-Threat detection identifies suspicious activity, while incident response manages the full investigation and recovery process.
-
-## **How Trisul Supports Incident Response**
-
-Trisul provides deep traffic visibility and forensic workflows for security investigations and operational response.
-
-Combined with:
-- Retro Analysisᵀ
-- Packet Capture
-- Flow Analysis
-- Badfellasᵀ
-- Conversation View
-- Contextᵀ
-
-Trisul helps teams:
-- investigate suspicious communication
-- reconstruct attack timelines
-- analyze lateral movement
-- correlate historical traffic activity
-- identify affected systems
-- improve forensic visibility
-
-Trisul can also integrate [IDS Integration](/glossary/ids-integration), [Packet Capture](/glossary/packet-capture), and [Flow Forensics](/glossary/flow-forensics) workflows for deeper incident investigation.
-
-## **Related Terms**
-
-- [Network Security Monitoring](/glossary/network-security-monitoring-nsm)
-- [Traffic Investigation](/glossary/traffic-investigation)
-- [Flow Forensics](/glossary/flow-forensics)
-- [Packet Capture](/glossary/packet-capture)
-- [IDS Integration](/glossary/ids-integration)
-- [Anomaly Detection](/glossary/anomaly-detection)
+Incident response is the organized approach to managing security incidents and cyberattacks. It contains and eradicates threats when an attacker exploits a vulnerability within an organization. Incident response follows a structured process to detect, respond to, contain, and recover from security breaches, minimizing damage and recovery time while reducing the risk of future incidents.
 
 ---
 
-## **FAQ**
+## How incident response works
+
+Incident response begins with preparation including establishing policies, building a team, deploying tools, and training. When an incident occurs, identification detects and validates it through monitoring and alerts. Containment stops the spread. Eradication removes the threat. Recovery restores normal operations. Lessons learned improves future response.
+
+---
+
+## Incident response in network operations
+
+In the SOC, incident response is the process for handling security breaches. NetFlow data and packet capture provide evidence for investigation. The NOC monitors network traffic for indicators of compromise and unusual patterns. The response team coordinates containment, eradication, and recovery activities. Leadership manages communication with stakeholders and executive advocacy.
+
+---
+
+## The 6 steps of incident response
+
+| Step | Description |
+|---|---|
+| Preparation | Establish policies, build incident response team, deploy tools, create playbooks, and train the team through drills |
+| Identification | Detect and validate incidents through monitoring, logs, alerts, intrusion detection systems, and error messages |
+| Containment | Stop the incident from worsening, isolate affected systems, quarantine threats, and prevent spread |
+| Eradication | Remove malware and threats, discover root causes, and eliminate attacker access |
+| Recovery | Restore systems from backup, patch vulnerabilities, return to normal operations, and monitor for return of threat |
+| Lessons learned | Conduct post-incident review, identify gaps, update procedures, improve processes, and provide additional training |
+
+---
+
+## What makes incident response work in practice
+
+Preparation determines response speed. Teams with pre-written playbooks, tested runbooks, and practiced drills respond faster than teams that figure things out during an incident. Jump bags with forensic tools and laptops enable rapid deployment. Communication templates ensure consistent stakeholder updates.
+
+Flow data enables forensic analysis without packet capture. Flow records show who talked to whom, when, and how much. This identifies affected systems and quantifies data exfiltration. When packet capture is available, analysts pivot from flow to packets for deep inspection. Without it, flow data still supports investigation and containment decisions.
+
+---
+
+## How Trisul handles incident response
+
+Trisul supports incident response by providing flow-based visibility into network traffic that helps with early detection, analysis, and forensic investigation. NetFlow data enables identification of indicators of compromise, detection of unusual traffic patterns, and tracing of attack paths. Flow data helps quantify data exfiltration, identify affected systems, and validate threat eradication after containment. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+
+---
+
+## Related terms
+
+- [What is threat detection?](/glossary/threat-detection)
+- [What is indicator of compromise?](/glossary/indicator-of-compromise)
+- [What is forensic analysis?](/glossary/forensic-analysis)
+- [What is network monitoring?](/glossary/network-monitoring)
+- [What is SIEM?](/glossary/siem)
+
+---
+
+## Frequently asked questions
 
 ### What is incident response?
 
-Incident response is the process of detecting, investigating, containing, and recovering from cybersecurity incidents.
+Incident response is the organized approach to managing security incidents and cyberattacks. It contains and eradicates threats when an attacker exploits a vulnerability within an organization. Incident response follows a structured process to detect, respond to, contain, and recover from security breaches, minimizing damage and recovery time while reducing the risk of future incidents.
 
-### Why is incident response important?
+### What are the steps of incident response?
 
-It helps organizations minimize damage, restore operations, and investigate security threats effectively.
+The SANS Institute outlines six steps. Preparation establishes policies, builds an incident response team, deploys tools, and trains. Identification detects and validates incidents through monitoring, logs, and alerts. Containment stops the incident from worsening and isolates affected systems. Eradication removes threats and discovers root causes. Recovery restores systems from backup, patches, and returns to normal operations. Lessons learned conducts post-incident review and improves processes.
 
-### What types of incidents require incident response?
+### What is an incident response team?
 
-Examples include malware infections, ransomware attacks, unauthorized access, DDoS attacks, and suspicious network activity.
+An incident response team known as CSIRT or Computer Security Incident Response Team is a cross-functional group responsible for handling security incidents. Roles include leadership that coordinates overall strategy, investigation that determines root cause, and response that executes containment and recovery. The team includes technical members and nontechnical roles for communication and liability decisions, with an executive advocate at the highest company levels.
 
-### What tools are used during incident response?
+### How does incident response relate to network monitoring?
 
-Common tools include SIEMs, IDS platforms, flow analyzers, packet capture systems, endpoint monitoring tools, and traffic analytics platforms.
-
-### How does historical traffic analysis help incident response?
-
-Historical visibility helps reconstruct attack timelines and identify affected systems or suspicious communication.
-
-### Can incident response help prevent future attacks?
-
-Yes. Post-incident analysis helps improve detection rules, monitoring visibility, and security policies.
+Network monitoring provides the data needed for early incident detection. Flow data including NetFlow, sFlow, and IPFIX and packet capture help identify indicators of compromise, detect unusual traffic patterns, and support forensic analysis. Incident responders use flow data to identify affected systems, trace attack paths, quantify data exfiltration, and validate that threats have been eradicated after containment.

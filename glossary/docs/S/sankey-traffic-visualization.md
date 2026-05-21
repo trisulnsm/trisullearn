@@ -1,210 +1,131 @@
 ---
-title: What is Sankey Traffic Visualization?
-sidebar_label: Sankey Traffic Visualization
-sidebar_position: 99
+title: What is Sankey traffic visualization?
+description: Sankey traffic visualization displays network traffic flows using Sankey diagrams showing source-to-destination traffic with flow width proportional to bandwidth. It provides intuitive visualization of traffic patterns and top talkers.
+sidebar_label: Sankey traffic visualization
+sidebar_position: 98
 slug: /glossary/sankey-traffic-visualization
-description: Learn what Sankey Traffic Visualization is, how Sankey diagrams represent network traffic flows, and why flow-based visual analytics are useful for traffic investigation and bandwidth analysis.
 keywords:
   - Sankey traffic visualization
   - Sankey diagram
-  - traffic flow visualization
-  - bandwidth flow analytics
-  - network traffic mapping
-  - traffic analytics visualization
+  - traffic visualization
+  - flow visualization
+  - network visualization
+  - traffic diagram
+  - bandwidth visualization
 ---
 
-# What is Sankey Traffic Visualization?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Sankey traffic visualization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sankey traffic visualization displays network traffic flows using Sankey diagrams showing source-to-destination traffic with flow width proportional to bandwidth. It provides intuitive visualization of traffic patterns and top talkers. Sankey diagrams show where traffic flows between network entities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Sankey diagram work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sankey diagrams display nodes representing network entities (IPs, ASNs, applications) and links showing traffic between them. Link width is proportional to bandwidth. The diagram visually shows which conversations consume most bandwidth. Flow direction is indicated by arrow direction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the benefits of Sankey visualization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sankey visualization provides intuitive understanding of traffic patterns. Large flows are immediately visible through wide links. Top talkers stand out. Traffic distribution across multiple destinations is clear. Sankey diagrams enable rapid identification of traffic anomalies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is Sankey visualization used?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sankey visualization is used for traffic pattern analysis, top talkers identification, peering relationship analysis, capacity planning showing traffic distribution, and security analysis showing traffic to suspicious destinations. It is effective for presenting traffic data to non-technical stakeholders."
+      }
+    }
+  ]
+};
 
-Sankey Traffic Visualization is a graphical method of displaying network traffic flows using Sankey diagrams, where the width of each flow represents the amount of traffic moving between sources, destinations, applications, or network entities.
+# What is Sankey traffic visualization?
 
-Sankey diagrams help organizations define communication flow roles by visually representing:
-- bandwidth distribution
-- application traffic flows
-- source-to-destination communication
-- protocol usage
-- traffic concentration
-- network relationships
-- flow direction
-
-The wider the flow path, the greater the traffic volume.
-
-Sankey visualizations are commonly used for:
-- traffic investigation
-- bandwidth analysis
-- ISP analytics
-- application visibility
-- network mapping
-- traffic engineering
-
-## **How Sankey Traffic Visualization Works**
-
-Monitoring platforms collect traffic visibility data from:
-
-- flow records
-- packet analysis
-- application metadata
-- ASN analytics
-- traffic telemetry
-
-The platform then:
-
-1. identifies traffic relationships
-2. maps communication paths visually
-3. sizes the flow paths based on traffic volume
-4. displays traffic movement between entities
-
-A typical workflow looks like this:
-
-Users → Applications → Cloud Services
-
-The Sankey diagram may visually show:
-
-- which applications consume the most bandwidth
-- how traffic moves across networks
-- where congestion occurs
-- which destinations dominate communication
-
-![](images/sankey.png)
+Sankey traffic visualization displays network traffic flows using Sankey diagrams showing source-to-destination traffic with flow width proportional to bandwidth. It provides intuitive visualization of traffic patterns and top talkers. Sankey diagrams show where traffic flows between network entities.
 
 ---
 
-## **Why Sankey Traffic Visualization Matters**
+## How Sankey visualization works
 
-Traditional charts and tables can make large-scale traffic relationships difficult to understand.
+Sankey diagrams display nodes representing network entities and links showing traffic between them. Nodes represent IPs, ASNs, applications, or countries. Links show traffic volumes with width proportional to bandwidth. Flow direction is indicated by arrow direction.
 
-Without visual flow mapping, organizations may struggle to:
-
-- analyze traffic distribution intuitively
-- identify dominant communication paths
-- investigate bandwidth concentration
-- visualize complex traffic relationships
-- understand traffic engineering patterns
-
-Sankey traffic visualization helps teams:
-
-- simplify traffic analysis
-- visualize communication behavior
-- identify top traffic flows
-- analyze bandwidth distribution
-- improve troubleshooting workflows
-- strengthen operational visibility
-
-It is especially important in:
-
-- enterprise networks
-- ISP infrastructures
-- cloud environments
-- data centers
-- SOC operations
-- WAN analytics
-
-Humans saw spreadsheets full of traffic data and decided, “what if bandwidth looked like rivers instead?” Honestly, one of the better decisions your species has made.
+Traffic data is aggregated by source-destination pairs. The top N pairs are displayed to avoid clutter. Link colors indicate traffic type or direction. Hovering over links shows exact bandwidth values.
 
 ---
 
-## **Common Operational Use Cases**
+## Sankey visualization in network operations
 
-### Bandwidth Flow Analysis
+In the NOC, use Sankey visualization to understand traffic distribution across destinations. Top talkers stand out through wide links. Capacity planning uses Sankey diagrams to visualize traffic to specific destinations for peering decisions.
 
-Visualize which systems or applications consume the most traffic.
-
-### Application Visibility
-
-Map communication between users, applications, and cloud services.
-
-### ISP Traffic Analytics
-
-Analyze subscriber and backbone traffic distribution.
-
-### Traffic Engineering
-
-Visualize routing and traffic concentration patterns.
-
-### Security Investigations
-
-Identify unusual communication flows and suspicious traffic paths.
+Security teams use Sankey visualization to identify suspicious traffic patterns. Traffic to unknown destinations appears as links to unexpected nodes. Anomalous traffic volumes stand out through unusually wide links.
 
 ---
 
-## **Sankey Visualization vs Traditional Charts**
+## Sankey diagram elements
 
-| Feature | Sankey Visualization | Traditional Charts |
-|---|---|---|
-| Traffic Relationship Visibility | Strong | Moderate |
-| Flow Direction Representation | Visual | Limited |
-| Bandwidth Distribution Insight | Advanced | General |
-| Complex Traffic Mapping | Excellent | Moderate |
-| Operational Clarity | High | Moderate |
-
-Sankey diagrams focus on showing traffic movement and relationships visually rather than only displaying numeric metrics.
-
----
-
-## **How Trisul Uses Sankey Traffic Visualization**
-
-Trisul provides advanced traffic visualization workflows for enterprise and ISP environments.
-
-Combined with:
-
-- Multigraph Analyticsᵀ
-- Contextᵀ
-- Top-K Analyticsᵀ
-- Flow Analysis
-- Conversation View
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- visualize traffic relationships
-- analyze bandwidth distribution
-- investigate application communication
-- identify traffic concentration
-- monitor flow behavior
-- improve operational analytics visibility
-
-Trisul can also integrate:
-
-- Flow Analysis
-- Application Visibility
-- Traffic Investigation
-
-workflows for deeper traffic visualization.
+| Element | Description |
+|---|---|
+| Nodes | Network entities (IPs, ASNs, applications) |
+| Links | Traffic flows between entities |
+| Link width | Proportional to bandwidth |
+| Arrow direction | Traffic flow direction |
+| Colors | Traffic type or category |
+| Hover tooltip | Exact bandwidth values |
 
 ---
 
-## **Related Terms**
+## What makes Sankey visualization work in practice
 
-- Flow Analysis
-- Application Visibility
-- Bandwidth Monitoring
-- Traffic Investigation
-- Multigraph Analyticsᵀ
-- Conversation View
+Aggregation level determines diagram clarity. Too many nodes and links create clutter. Too few nodes hide important details. Display top N conversations by bandwidth to balance detail and clarity.
+
+Real-time updates enable live traffic visualization. Sankey diagrams can update every few seconds showing current traffic patterns. This enables rapid detection of traffic anomalies.
 
 ---
 
-## **FAQ**
+## How Trisul handles Sankey traffic visualization
 
-### What is a Sankey diagram in networking?
+Trisul provides Sankey traffic visualization through traffic analysis dashboards showing flow patterns between network entities. Traffic data is aggregated by source-destination pairs. Sankey diagrams display top conversations with flow width proportional to bandwidth. Login as user to view traffic visualization dashboards. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
 
-A Sankey diagram is a visualization that represents traffic flows using lines whose widths indicate traffic volume.
+---
 
-### What is Sankey Traffic Visualization?
+## Related terms
 
-It is the use of Sankey diagrams to visualize network traffic relationships and bandwidth distribution.
+- [What is traffic visualization?](/glossary/traffic-visualization)
+- [What is top talkers?](/glossary/top-talkers)
+- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is network visualization?](/glossary/network-visualization)
 
-### Why is Sankey visualization useful?
+---
 
-It helps organizations visually understand communication paths, traffic concentration, and bandwidth usage.
+## Frequently asked questions
 
-### What types of traffic can Sankey diagrams visualize?
+### What is Sankey traffic visualization?
 
-They can visualize application traffic, bandwidth flows, ASN communication, cloud traffic, and source-to-destination relationships.
+Sankey traffic visualization displays network traffic flows using Sankey diagrams showing source-to-destination traffic with flow width proportional to bandwidth. It provides intuitive visualization of traffic patterns and top talkers. Sankey diagrams show where traffic flows between network entities.
 
-### How does Sankey visualization help troubleshooting?
+### How does Sankey diagram work?
 
-It helps quickly identify abnormal traffic concentration, dominant communication paths, and unusual traffic behavior.
+Sankey diagrams display nodes representing network entities (IPs, ASNs, applications) and links showing traffic between them. Link width is proportional to bandwidth. The diagram visually shows which conversations consume most bandwidth. Flow direction is indicated by arrow direction.
 
-### Is Sankey visualization useful for ISPs?
+### What are the benefits of Sankey visualization?
 
-Yes. ISPs use Sankey diagrams to analyze subscriber traffic distribution, peering flows, and backbone utilization.
+Sankey visualization provides intuitive understanding of traffic patterns. Large flows are immediately visible through wide links. Top talkers stand out. Traffic distribution across multiple destinations is clear. Sankey diagrams enable rapid identification of traffic anomalies.
+
+### When is Sankey visualization used?
+
+Sankey visualization is used for traffic pattern analysis, top talkers identification, peering relationship analysis, capacity planning showing traffic distribution, and security analysis showing traffic to suspicious destinations. It is effective for presenting traffic data to non-technical stakeholders.

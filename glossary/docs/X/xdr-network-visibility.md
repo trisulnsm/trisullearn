@@ -1,227 +1,132 @@
 ---
-title: What is XDR Network Visibility?
-sidebar_label: XDR Network Visibility
-sidebar_position: 128
+title: What is XDR network visibility?
+description: XDR (Extended Detection and Response) network visibility integrates network traffic data into XDR platforms providing comprehensive security visibility across endpoints, network, and cloud for threat detection and response.
+sidebar_label: XDR network visibility
+sidebar_position: 124
 slug: /glossary/xdr-network-visibility
-description: Learn what XDR network visibility is, how Extended Detection and Response platforms use network telemetry, and why integrated visibility is important for threat detection and incident response.
 keywords:
-  - XDR network visibility
-  - Extended Detection and Response
-  - network telemetry
-  - security analytics
+  - XDR visibility
+  - XDR network
+  - extended detection
+  - network visibility
+  - security visibility
   - threat detection
-  - incident response visibility
+  - security response
 ---
 
-# What is XDR Network Visibility?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is XDR network visibility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XDR (Extended Detection and Response) network visibility integrates network traffic data into XDR platforms providing comprehensive security visibility across endpoints, network, and cloud for threat detection and response. Network data complements endpoint and cloud data in XDR."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does XDR network visibility work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XDR network visibility integrates flow data and packet capture into XDR platforms through APIs or native integrations. Network events are correlated with endpoint events and cloud events. Cross-domain correlation detects threats spanning multiple domains."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is XDR network visibility important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XDR network visibility is critical because threats span multiple domains. Endpoint-only visibility misses network-based attacks. Network-only visibility misses insider threats. XDR combining all domains provides comprehensive threat detection. Network data fills endpoint visibility gaps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What network data integrates with XDR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Network data integrating with XDR includes flow data (NetFlow, IPFIX), packet capture metadata, DNS queries, IDS alerts, firewall logs, proxy logs, and network behavior anomalies. All network security data feeds XDR platforms."
+      }
+    }
+  ]
+};
 
-XDR Network Visibility refers to the use of network traffic, telemetry, and communication analytics within an XDR (Extended Detection and Response) platform to improve threat detection, investigation, and incident response.
+# What is XDR network visibility?
 
-:contentReference[oaicite:0]{index=0} platforms combine visibility from multiple security layers such as:
-- endpoints
-- networks
-- cloud environments
-- identity systems
-- applications
-- email security
-- authentication systems
-
-Network visibility is a critical part of XDR because it helps analysts understand:
-- communication behavior
-- traffic anomalies
-- attack movement
-- suspicious connections
-- application activity
-- lateral movement
-- command-and-control traffic
-
-XDR network visibility is widely used for:
-- threat detection
-- SOC operations
-- incident response
-- security analytics
-- network forensics
-- behavioral monitoring
-
-## **How XDR Network Visibility Works**
-
-XDR platforms ingest visibility data from:
-- flow records
-- packet analytics
-- endpoint telemetry
-- DNS activity
-- firewall logs
-- IDS alerts
-- cloud telemetry
-- authentication systems
-
-The platform then:
-1. correlates network and security events
-2. analyzes attack behavior across environments
-3. identifies suspicious patterns
-4. automates investigations and response workflows
-
-A typical workflow looks like this:
-
-Network Telemetry → XDR Correlation Engine → Threat Detection → Investigation and Response
-
-For example:
-
-- An endpoint shows suspicious process behavior
-- XDR correlates unusual outbound traffic from the same system
-- DNS and flow analytics reveal possible malware communication
-- Analysts investigate and contain the threat
-
-XDR network visibility may reveal:
-
-- lateral movement
-- malware communication
-- abnormal user behavior
-- data exfiltration
-- suspicious DNS activity
-- cloud-based attacks
-- encrypted threat traffic
+XDR (Extended Detection and Response) network visibility integrates network traffic data into XDR platforms providing comprehensive security visibility across endpoints, network, and cloud for threat detection and response. Network data complements endpoint and cloud data in XDR.
 
 ---
 
-## **Why XDR Network Visibility Matters**
+## How XDR network visibility works
 
-Modern attacks often move across multiple environments and security layers.
+XDR network visibility integrates flow data and packet capture into XDR platforms through APIs or native integrations. Network events are timestamped and correlated with endpoint events and cloud events using timestamps and IP addresses.
 
-Without integrated network visibility, organizations may struggle to:
-
-- correlate attack activity
-- investigate incidents efficiently
-- detect advanced threats
-- reconstruct attack timelines
-- analyze east-west communication
-- identify hidden malicious behavior
-
-XDR network visibility helps teams:
-
-- improve threat detection accuracy
-- strengthen incident response
-- correlate security events faster
-- investigate attacks deeply
-- improve forensic visibility
-- reduce operational blind spots
-
-It is especially important in:
-
-- SOC environments
-- enterprise security operations
-- cloud infrastructures
-- hybrid environments
-- telecom security operations
-- regulated industries
-
-Humans built separate security tools for everything, then realized attackers simply moved between the gaps. XDR is basically the industry admitting the dashboards needed to start talking to each other.
+Cross-domain correlation detects threats spanning multiple domains. For example, endpoint detects malware execution, network detects command and control communication, cloud detects data exfiltration. XDR correlates all three detecting the full attack chain.
 
 ---
 
-## **Common Operational Use Cases**
+## XDR network visibility in network operations
 
-### Threat Detection
+In the SOC, XDR network visibility provides comprehensive threat detection. Network data fills endpoint visibility gaps. When endpoint agents are absent (IoT, servers), network data detects threats. XDR correlates network and endpoint detecting attacks neither sees alone.
 
-Identify suspicious communication and attack behavior.
-
-### Incident Response
-
-Correlate endpoint, network, and cloud activity during investigations.
-
-### Malware Investigation
-
-Analyze command-and-control traffic and lateral movement.
-
-### Behavioral Analytics
-
-Detect unusual communication and application activity.
-
-### Security Forensics
-
-Reconstruct attack timelines using integrated visibility.
+Security analysts use XDR for incident investigation. XDR shows full attack timeline across all domains. Network data provides evidence of communication and data transfer. XDR accelerates investigation through correlation.
 
 ---
 
-## **XDR Network Visibility vs Traditional Security Monitoring**
+## XDR data integration
 
-| Feature | XDR Network Visibility | Traditional Security Monitoring |
-|---|---|---|
-| Cross-Layer Correlation | Advanced | Limited |
-| Network Context | Strong | Moderate |
-| Automated Investigation | Strong | Minimal |
-| Threat Detection Depth | High | Moderate |
-| Behavioral Analytics | Advanced | Limited |
-
-XDR visibility combines multiple security layers into a unified investigation workflow instead of relying on isolated monitoring systems.
-
----
-
-## **How Trisul Supports XDR Visibility**
-
-Trisul provides deep traffic analytics and contextual network visibility for XDR and SOC workflows.
-
-Combined with:
-
-- Security Analytics
-- Packet Analysis
-- Contextᵀ
-- Retro Analysisᵀ
-- Flow Analysis
-- Badfellasᵀ
-
-Trisul helps teams:
-
-- analyze suspicious communication
-- investigate attack behavior
-- correlate traffic relationships
-- reconstruct incident timelines
-- improve forensic visibility
-- strengthen XDR investigations
-
-Trisul can also integrate:
-
-- SOC Visibility
-- Security Analytics
-- Network Forensics
-
-workflows for broader security visibility.
+| Data Source | What it Provides |
+|---|---|
+| Flow data | Network conversation metadata |
+| Packet capture | Network packet evidence |
+| DNS queries | Domain resolution |
+| IDS alerts | Signature-based detection |
+| Firewall logs | Allowed/blocked traffic |
+| Endpoint data | Process execution, file access |
+| Cloud data | Cloud service activity |
 
 ---
 
-## **Related Terms**
+## What makes XDR network visibility work in practice
 
-- SOC Visibility
-- Security Analytics
-- Network Forensics
-- Anomaly Detection
-- Packet Analysis
-- Badfellasᵀ
+Data normalization is essential. Network, endpoint, and cloud data use different formats. XDR normalizes data to common schema. Without normalization, correlation is impossible. Normalization maps different fields to common names.
+
+Correlation accuracy determines effectiveness. Events must be correlated by timestamp and IP address. Clock synchronization ensures accurate correlation. Without sync, correlation fails. NTP synchronization is critical.
 
 ---
 
-## **FAQ**
+## How Trisul handles XDR network visibility
 
-### What is XDR?
+Trisul provides XDR network visibility through flow data and packet capture integration with XDR platforms. Network events are made available through APIs for XDR correlation. Trisul's flow-based visibility identifies indicators of compromise complementing endpoint detection. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
 
-XDR stands for Extended Detection and Response, a security architecture that combines multiple visibility sources into unified threat detection and response workflows.
+---
+
+## Related terms
+
+- [What is XDR?](/glossary/xdr)
+- [What is security visibility?](/glossary/security-visibility)
+- [What is threat detection?](/glossary/threat-detection)
+- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is incident response?](/glossary/incident-response)
+
+---
+
+## Frequently asked questions
 
 ### What is XDR network visibility?
 
-It is the use of network telemetry and traffic analytics within XDR platforms to improve threat detection and investigations.
+XDR (Extended Detection and Response) network visibility integrates network traffic data into XDR platforms providing comprehensive security visibility across endpoints, network, and cloud for threat detection and response. Network data complements endpoint and cloud data in XDR.
 
-### Why is network visibility important for XDR?
+### How does XDR network visibility work?
 
-Network visibility helps detect suspicious communication, lateral movement, and attack behavior across environments.
+XDR network visibility integrates flow data and packet capture into XDR platforms through APIs or native integrations. Network events are correlated with endpoint events and cloud events. Cross-domain correlation detects threats spanning multiple domains.
 
-### What data sources contribute to XDR visibility?
+### Why is XDR network visibility important?
 
-Common sources include flow records, packet analytics, endpoint telemetry, DNS activity, firewall logs, and cloud telemetry.
+XDR network visibility is critical because threats span multiple domains. Endpoint-only visibility misses network-based attacks. Network-only visibility misses insider threats. XDR combining all domains provides comprehensive threat detection. Network data fills endpoint visibility gaps.
 
-### How does XDR improve incident response?
+### What network data integrates with XDR?
 
-It correlates activity across security layers to accelerate investigations and threat containment.
-
-### Can XDR visibility detect advanced threats?
-
-Yes. Behavioral analytics and cross-layer correlation help identify sophisticated and previously unknown attacks.
+Network data integrating with XDR includes flow data (NetFlow, IPFIX), packet capture metadata, DNS queries, IDS alerts, firewall logs, proxy logs, and network behavior anomalies. All network security data feeds XDR platforms.

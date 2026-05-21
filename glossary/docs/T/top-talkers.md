@@ -1,224 +1,131 @@
 ---
-title: What are Top Talkers?
-sidebar_label: Top Talkers
-sidebar_position: 113
+title: What are top talkers?
+description: Top talkers are the hosts or conversations consuming the most bandwidth. Top talkers analysis identifies highest bandwidth users for capacity planning, security monitoring, and traffic optimization.
+sidebar_label: Top talkers
+sidebar_position: 112
 slug: /glossary/top-talkers
-description: Learn what Top Talkers are in network monitoring, how top traffic consumers are identified, and why Top Talker visibility is important for troubleshooting and bandwidth analysis.
 keywords:
   - top talkers
-  - bandwidth consumers
-  - network traffic analysis
-  - top traffic sources
-  - traffic visibility
-  - bandwidth monitoring
+  - bandwidth top talkers
+  - top bandwidth users
+  - traffic top talkers
+  - highest bandwidth
+  - bandwidth consumption
+  - top conversations
 ---
 
-# What are Top Talkers?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are top talkers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top talkers are the hosts or conversations consuming the most bandwidth. Top talkers analysis identifies highest bandwidth users for capacity planning, security monitoring, and traffic optimization. Top talkers show which IPs, conversations, or applications use most bandwidth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are top talkers identified?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top talkers are identified by aggregating flow data by source IP, destination IP, conversation, or application. Traffic volumes are summed and sorted. The highest volume entries are top talkers. Top-N lists show top 10, 20, or 100 talkers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why analyze top talkers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top talker analysis identifies bandwidth hogs for capacity planning. Security teams detect compromised hosts through unusual top talker patterns. Network optimization targets top talkers for traffic engineering. Top talkers show what consumes most bandwidth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are top talker use cases?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top talker use cases include capacity planning identifying heavy bandwidth users, security monitoring detecting compromised hosts, traffic optimization reducing bandwidth consumption, policy enforcement identifying policy violators, and billing showing top bandwidth consumers."
+      }
+    }
+  ]
+};
 
-Top Talkers are the hosts, users, applications, devices, or network entities generating or consuming the highest amount of network traffic during a given period.
+# What are top talkers?
 
-Top Talker analysis helps organizations define bandwidth and communication roles by identifying:
-- high-bandwidth users
-- dominant applications
-- busiest servers
-- large data transfers
-- unusual traffic spikes
-- heavy communication patterns
-
-Top Talkers are commonly analyzed by:
-- bandwidth usage
-- packet volume
-- flow count
-- session count
-- protocol activity
-- application traffic
-
-This visibility is widely used for:
-- bandwidth monitoring
-- troubleshooting
-- security investigations
-- traffic optimization
-- capacity planning
-- application analysis
-
-## **How Top Talker Analysis Works**
-
-Monitoring platforms collect traffic visibility using:
-- NetFlow
-- IPFIX
-- sFlow
-- packet analysis
-- traffic telemetry
-- DPI engines
-
-The analytics platform then:
-1. aggregates traffic statistics
-2. ranks entities by traffic volume
-3. displays the highest traffic consumers
-4. enables investigation into communication behavior
-
-A typical workflow looks like this:
-
-Traffic Data → Traffic Ranking → Top Talkers → Investigation
-
-Top Talkers may include:
-
-- IP addresses
-- applications
-- ASNs
-- VLANs
-- users
-- cloud services
-- protocols
-
-For example:
-
-- A WAN link becomes congested
-- Top Talker analytics identify a backup application consuming bandwidth
-- Teams optimize traffic policies to reduce congestion
-
-![](images/toptalkers.png)
+Top talkers are the hosts or conversations consuming the most bandwidth. Top talkers analysis identifies highest bandwidth users for capacity planning, security monitoring, and traffic optimization. Top talkers show which IPs, conversations, or applications use most bandwidth.
 
 ---
 
-## **Why Top Talker Visibility Matters**
+## How top talkers work
 
-Modern networks carry enormous volumes of distributed traffic continuously.
+Flow data is aggregated by source IP, destination IP, conversation (5-tuple), or application. Traffic volumes (bytes, packets) are summed for each group. Lists are sorted by volume descending. Top-N lists show top 10, 20, or 100 entries.
 
-Without Top Talker visibility, organizations may struggle to:
-
-- identify bandwidth hogs
-- troubleshoot congestion
-- detect abnormal traffic spikes
-- analyze application behavior
-- optimize WAN performance
-- investigate suspicious communication
-
-Top Talker analysis helps teams:
-
-- improve operational awareness
-- optimize bandwidth usage
-- identify traffic anomalies
-- prioritize troubleshooting
-- strengthen security visibility
-- improve capacity planning
-
-It is especially important in:
-
-- enterprise WANs
-- ISP infrastructures
-- cloud environments
-- data centers
-- campus networks
-- telecom operations
-
-Humans always ask “who’s using all the bandwidth?” and the answer is almost inevitably backups, video streaming, or one mysterious server nobody wants to admit exists.
+Real-time top talkers show current bandwidth consumers. Historical top talkers show trends over time. Top talkers can be filtered by time range, interface, application, or other criteria.
 
 ---
 
-## **Common Operational Use Cases**
+## Top talkers in network operations
 
-### Bandwidth Troubleshooting
+In the NOC, top talkers identify bandwidth hogs consuming most capacity. When links approach saturation, top talkers show what causes congestion. Capacity planning targets top talkers for optimization.
 
-Identify applications or hosts consuming excessive bandwidth.
-
-### Security Investigations
-
-Detect suspicious high-volume communication or data exfiltration.
-
-### WAN Optimization
-
-Analyze traffic distribution across limited-bandwidth links.
-
-### Application Visibility
-
-Identify dominant applications affecting network performance.
-
-### Capacity Planning
-
-Analyze long-term growth in traffic consumption.
+Security teams detect compromised hosts through unusual top talker patterns. A host suddenly appearing in top talkers with high outbound traffic may be infected. Top talkers enable rapid identification of security incidents.
 
 ---
 
-## **Top Talkers vs General Traffic Monitoring**
+## Top talker categories
 
-| Feature | Top Talkers Analysis | General Traffic Monitoring |
-|---|---|---|
-| Traffic Prioritization Visibility | Strong | Moderate |
-| High-Bandwidth Entity Identification | Advanced | Limited |
-| Operational Focus | Traffic concentration | Broad traffic visibility |
-| Troubleshooting Speed | Faster | Moderate |
-| Bandwidth Optimization Support | Strong | Moderate |
-
-Top Talker analysis focuses specifically on identifying the most significant traffic consumers.
-
----
-
-## **How Trisul Handles Top Talker Analytics**
-
-Trisul provides scalable Top Talker visibility and bandwidth analytics for enterprise and ISP environments.
-
-Combined with:
-
-- Top-K Analyticsᵀ
-- Flow Analysis
-- Contextᵀ
-- Multigraph Analyticsᵀ
-- Real-Time Traffic Monitoring
-- Retro Analysisᵀ
-
-Trisul helps teams:
-
-- identify high-bandwidth consumers
-- analyze traffic spikes
-- investigate suspicious communication
-- optimize WAN visibility
-- monitor application behavior
-- improve troubleshooting workflows
-
-Trisul can also integrate:
-
-- Bandwidth Monitoring
-- Application Visibility
-- Traffic Investigation
-
-workflows for deeper operational visibility.
+| Category | Description |
+|---|---|
+| Top source IPs | Hosts sending most traffic |
+| Top destination IPs | Hosts receiving most traffic |
+| Top conversations | Source-destination pairs with most traffic |
+| Top applications | Applications consuming most bandwidth |
+| Top ASN | Autonomous systems with most traffic |
+| Top countries | Countries with most traffic |
 
 ---
 
-## **Related Terms**
+## What makes top talkers work in practice
 
-- Bandwidth Monitoring
-- Application Visibility
-- Traffic Investigation
-- Flow Analysis
-- Top-K Analyticsᵀ
-- Real-Time Traffic Monitoring
+Top-K efficiency enables fast queries. Top-N lists are pre-computed at write time using Top-K algorithms. Without pre-computation, queries must scan all flows and sort. Pre-computed top talkers enable instant dashboards even with millions of flows.
+
+Time window selection affects results. Short windows (1 minute) show current top talkers. Long windows (24 hours) show sustained top talkers. Different time windows reveal different insights. Real-time and historical top talkers complement each other.
 
 ---
 
-## **FAQ**
+## How Trisul handles top talkers
 
-### What are Top Talkers in networking?
+Trisul provides top talkers through real-time and historical analysis showing top sources, destinations, conversations, and applications by bandwidth. Top talkers are pre-computed at write time enabling instant access. Top-N views show top 10, 20, or 100 talkers. Login as user to view top talkers dashboards. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
 
-Top Talkers are the hosts, applications, or entities generating or consuming the most network traffic.
+---
 
-### Why is Top Talker analysis important?
+## Related terms
 
-It helps organizations identify bandwidth-heavy traffic, troubleshoot congestion, and analyze traffic behavior.
+- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is traffic analysis?](/glossary/traffic-analysis)
+- [What is Top-K Analyticsᵀ?](/glossary/top-k-analytics)
+- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
 
-### What can Top Talker analytics identify?
+---
 
-It can identify high-bandwidth users, applications, servers, protocols, and suspicious communication patterns.
+## Frequently asked questions
 
-### How are Top Talkers measured?
+### What are top talkers?
 
-They are commonly measured using bandwidth usage, packet volume, flow count, or session activity.
+Top talkers are the hosts or conversations consuming the most bandwidth. Top talkers analysis identifies highest bandwidth users for capacity planning, security monitoring, and traffic optimization. Top talkers show which IPs, conversations, or applications use most bandwidth.
 
-### Can Top Talker analysis help security investigations?
+### How are top talkers identified?
 
-Yes. It helps identify unusual traffic spikes, data exfiltration, and suspicious communication behavior.
+Top talkers are identified by aggregating flow data by source IP, destination IP, conversation (5-tuple), or application. Traffic volumes are summed and sorted. The highest volume entries are top talkers. Top-N lists show top 10, 20, or 100 talkers.
 
-### Is Top Talker visibility useful for ISPs?
+### Why analyze top talkers?
 
-Yes. ISPs use Top Talker analytics to monitor subscriber traffic, backbone utilization, and application distribution.
+Top talker analysis identifies bandwidth hogs for capacity planning. Security teams detect compromised hosts through unusual top talker patterns. Network optimization targets top talkers for traffic engineering. Top talkers show what consumes most bandwidth.
+
+### What are top talker use cases?
+
+Top talker use cases include capacity planning identifying heavy bandwidth users, security monitoring detecting compromised hosts, traffic optimization reducing bandwidth consumption, policy enforcement identifying policy violators, and billing showing top bandwidth consumers.

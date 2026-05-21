@@ -1,189 +1,128 @@
 ---
-title: What is Long-Term Traffic Retention?
-sidebar_label: Long-Term Traffic Retention
-sidebar_position: 65
+title: What is long term traffic retention?
+description: Long term traffic retention stores flow data for extended periods to enable historical analysis, capacity planning, compliance reporting, and forensic investigation. It provides visibility into traffic trends over weeks, months, and years.
+sidebar_label: Long term traffic retention
+sidebar_position: 62
 slug: /glossary/long-term-traffic-retention
-description: Learn what long-term traffic retention is, how network traffic data is stored over time, and why historical visibility is important for security, compliance, and analytics.
 keywords:
-  - long-term traffic retention
-  - historical traffic storage
-  - network data retention
-  - traffic retention
-  - network forensics
-  - historical traffic analytics
+  - long term traffic retention
+  - historical traffic data
+  - traffic archive
+  - flow retention
+  - traffic history
+  - capacity planning
+  - compliance reporting
 ---
 
-# What is Long-Term Traffic Retention?
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is long term traffic retention?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Long term traffic retention stores flow data for extended periods to enable historical analysis, capacity planning, compliance reporting, and forensic investigation. Trisul does not summarize or roll up any old data. Use retro analysis tools, long term traffic charts, monthly usage reports and other tools for historical analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is long term retention important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Long term retention enables capacity planning by tracking bandwidth growth trends over months and years. It supports compliance reporting for regulatory requirements. Forensic investigation requires historical data to analyze past security incidents. Monthly usage reports need long-term storage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should traffic data be retained?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retention period depends on use case. Flow data can be retained for weeks to months on the same hardware that stores PCAP for hours to days. Full fidelity retention of more than 7 to 14 days requires either heavy filtering or purpose-built storage infrastructure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you draw long term bandwidth usage charts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select Tools, then Long Term Traffic. Choose Apps or Hosts from Counter Group and Total from meters. Enter port number or IP address in item box. Click Analyze to draw long term bandwidth usage chart for that port or host."
+      }
+    }
+  ]
+};
 
-Long-Term Traffic Retention is the practice of storing network traffic data for extended periods so organizations can analyze historical communication, investigate incidents, monitor trends, and support compliance requirements.
+# What is long term traffic retention?
 
-Instead of keeping only short-term visibility, long-term retention helps teams review traffic activity weeks, months, or even years after it occurred.
+Long term traffic retention stores flow data for extended periods to enable historical analysis, capacity planning, compliance reporting, and forensic investigation. It provides visibility into traffic trends over weeks, months, and years. Trisul does not summarize or roll up any old data for historical analysis.
 
-Organizations retain traffic data such as:
-- flow records
-- packet captures
-- bandwidth statistics
-- DNS activity
-- application visibility
-- subscriber logs
-- traffic metadata
+---
 
-Long-term retention is especially important for:
-- security investigations
-- compliance monitoring
-- capacity planning
-- traffic forensics
-- operational analytics
+## How long term retention works
 
-## **How Long-Term Traffic Retention Works**
+Flow data is collected continuously and stored in backend databases. Data is retained without summarization or rollup. Long term traffic charts query historical flow data to show bandwidth usage over time. Monthly usage reports summarize traffic for billing and capacity planning.
 
-Monitoring systems continuously collect traffic visibility data from:
-- routers
-- switches
-- firewalls
-- packet capture systems
-- flow exporters
-- DPI platforms
+Aggregate statistics are stored at 1 minute resolution. Historical data is indexed for fast querying. Retro analysis tools apply new detection rules to historical data after the fact.
 
-The collected data is:
-1. indexed and compressed
-2. stored in scalable databases or storage systems
-3. retained according to operational or compliance policies
-4. made searchable for future investigation
+---
 
-For example:
+## Long term retention in network operations
 
-1. Traffic activity is recorded continuously
-2. Data is retained for several months
-3. A security incident is discovered later
-4. Analysts review historical traffic behavior to reconstruct the event
+In capacity planning, use long term traffic charts to track bandwidth growth trends. Identify seasonal patterns and peak utilization periods. Engineering uses historical data to plan network upgrades before links reach saturation. Compliance teams generate monthly usage reports for billing and regulatory requirements.
 
-Retention strategies may vary depending on:
-- storage capacity
-- compliance requirements
-- traffic volume
-- investigation needs
-- operational goals
+Forensic investigation uses historical data to analyze past security incidents. Retro analysis determines whether a host communicated with a newly-discovered malicious domain before the threat was known.
 
-![](images/longtermretention.png)
+---
 
-## **Why Long-Term Traffic Retention Matters**
+## Retention comparison
 
-Many operational and security issues are discovered long after they occur.
-
-Without historical retention, organizations may struggle to:
-- reconstruct attack timelines
-- investigate subscriber activity
-- analyze recurring anomalies
-- troubleshoot intermittent issues
-- support compliance investigations
-- study long-term traffic trends
-
-Long-term retention helps teams:
-- improve forensic visibility
-- support incident response
-- analyze historical behavior
-- maintain compliance records
-- optimize capacity planning
-- investigate stealthy attacks
-
-It is especially important in:
-- SOC environments
-- ISP infrastructures
-- enterprise networks
-- telecom compliance systems
-- cloud environments
-- regulated industries
-
-## **Common Operational Use Cases**
-
-### Security Investigations
-
-Reconstruct attack timelines and suspicious communication history.
-
-### Compliance Monitoring
-
-Retain historical records for audit and regulatory requirements.
-
-### Capacity Planning
-
-Analyze long-term bandwidth and application growth trends.
-
-### Subscriber Traceability
-
-Investigate historical subscriber and NAT activity.
-
-### Traffic Forensics
-
-Review historical communication patterns and anomalies.
-
-## **Long-Term Traffic Retention vs Live Monitoring**
-
-| Feature | Long-Term Traffic Retention | Live Monitoring |
+| Data Type | Retention Period | Storage |
 |---|---|---|
-| Time Scope | Historical visibility | Current visibility |
-| Investigation Capability | Strong | Limited |
-| Trend Analysis | Advanced | Moderate |
-| Storage Requirement | High | Lower |
-| Operational Focus | Retrospective analysis | Real-time awareness |
-
-Long-term retention focuses on historical visibility, while live monitoring focuses on current network activity.
-
-## **How Trisul Handles Long-Term Traffic Retention**
-
-Trisul is designed for scalable long-term traffic analytics across enterprise and ISP environments.
-
-Combined with:
-- Retro Analysisᵀ
-- Flow Analysis
-- Packet Capture
-- Top-K Analyticsᵀ
-- Contextᵀ
-- Multigraph Analyticsᵀ
-
-Trisul helps teams:
-- investigate historical traffic behavior
-- reconstruct communication timelines
-- analyze long-term trends
-- retain scalable traffic visibility
-- troubleshoot recurring issues
-- support compliance workflows
-
-Trisul can also integrate [Historical Traffic Analysis](/glossary/historical-traffic-analysis), [Flow Forensics](/glossary/flow-forensics), and [IPDR](/glossary/ipdr) workflows for deeper historical visibility.
-
-## **Related Terms**
-
-- [Historical Traffic Analysis](/glossary/historical-traffic-analysis)
-- [Flow Forensics](/glossary/flow-forensics)
-- [Retro Analysisᵀ](/glossary/retro-analysis)
-- [Packet Capture](/glossary/packet-capture)
-- [IPDR](/glossary/ipdr)
-- [Traffic Investigation](/glossary/traffic-investigation)
+| Full PCAP | Hours to days | Tens of TB per day |
+| Flow data | Weeks to months | 1 to 2% of PCAP volume |
+| Aggregate stats | Years | Minimal storage |
 
 ---
 
-## **FAQ**
+## What makes long term retention work in practice
 
-### What is long-term traffic retention?
+Storage capacity determines retention period. Flow data is approximately 1 to 2 percent of equivalent PCAP volume enabling weeks or months of retention on the same hardware. Tiered storage moves old data to cheaper disks while keeping recent data on fast storage.
 
-Long-term traffic retention is the practice of storing network traffic data for extended historical analysis and investigation.
+Query performance degrades with large archives. Indexing and aggregation enable fast queries even with terabytes of historical data. Without indexing, queries scan all files manually and become unusable at scale.
 
-### Why is long-term traffic retention important?
+---
 
-It helps organizations investigate incidents, analyze trends, support compliance, and maintain historical visibility.
+## How Trisul handles long term retention
 
-### What types of data are commonly retained?
+Trisul stores flow data without summarization or rollup. Use retro analysis tools, long term traffic charts, and monthly usage reports for historical analysis. Select Tools, then Long Term Traffic to draw bandwidth usage charts. Full historical data is available for analysis. Retention is determined by storage capacity. Flow monitoring tracks millions of flows enabling long-term retention. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
 
-Common retained data includes flow records, packet captures, DNS logs, bandwidth metrics, and subscriber activity.
+---
 
-### How long is traffic data typically retained?
+## Related terms
 
-Retention periods vary depending on operational needs, storage capacity, and compliance requirements.
+- [What is retro analysis?](/glossary/retro-analysis)
+- [What is capacity planning?](/glossary/capacity-planning)
+- [What is monthly usage reports?](/glossary/monthly-usage-reports)
+- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is storage?](/glossary/storage)
 
-### Is long-term retention useful for security investigations?
+---
 
-Yes. It helps reconstruct attack timelines and investigate suspicious communication after incidents are discovered.
+## Frequently asked questions
 
-### Can long-term traffic retention support telecom compliance?
+### What is long term traffic retention?
 
-Yes. ISPs and telecom providers often retain historical traffic and subscriber activity for compliance and traceability requirements.
+Long term traffic retention stores flow data for extended periods to enable historical analysis, capacity planning, compliance reporting, and forensic investigation. Trisul does not summarize or roll up any old data. Use retro analysis tools, long term traffic charts, monthly usage reports and other tools for historical analysis.
+
+### Why is long term retention important?
+
+Long term retention enables capacity planning by tracking bandwidth growth trends over months and years. It supports compliance reporting for regulatory requirements. Forensic investigation requires historical data to analyze past security incidents. Monthly usage reports need long-term storage.
+
+### How long should traffic data be retained?
+
+Retention period depends on use case. Flow data can be retained for weeks to months on the same hardware that stores PCAP for hours to days. Full fidelity retention of more than 7 to 14 days requires either heavy filtering or purpose-built storage infrastructure.
+
+### How do you draw long term bandwidth usage charts?
+
+Select Tools, then Long Term Traffic. Choose Apps or Hosts from Counter Group and Total from meters. Enter port number or IP address in item box. Click Analyze to draw long term bandwidth usage chart for that port or host.

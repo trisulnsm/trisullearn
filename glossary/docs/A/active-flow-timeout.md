@@ -30,7 +30,7 @@ export const jsonLd = {
       "@type": "Question",
       "name": "Why set active timeout to 1 minute?",
       "acceptedAnswer": {
-        "@type": "Answer,
+        "@type": "Answer",
         "text": "Setting active timeout to 1 minute breaks long-lived flows (like 10GB downloads) into minute-sized fragments. This enables accurate trending without spikes. Without it, a 10-minute 10GB download exported at 30-minute active timeout would show as 10GB/minute in one snapshot instead of 1GB/minute for 10 minutes. Most collectors expect 60-second intervals."
       }
     },
