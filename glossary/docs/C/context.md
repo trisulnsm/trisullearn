@@ -92,11 +92,11 @@ Trisul supports multiple contexts per production license, each with its own isol
 
 ## Related terms
 
-- [What is a node?](/glossary/node)
-- [What is a distributed domain?](/glossary/distributed-domain)
-- [What is multitenancy?](/glossary/multitenancy)
-- [What is webadmin?](/glossary/webadmin)
-- [What is a context menu?](/glossary/context-menu)
+- [What is a node?](/docs/glossary/node)
+- [What is a distributed domain?](/docs/glossary/distributed-domain)
+- [What is multitenancy?](/docs/glossary/multitenancy)
+- [What is webadmin?](/docs/glossary/webadmin)
+- [What is a context menu?](/docs/glossary/context-menu)
 
 ---
 

@@ -92,11 +92,11 @@ Trisul provides baseline traffic analytics through flow monitoring with historic
 
 ## Related terms
 
-- [What is anomaly detection?](/glossary/anomaly-detection)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is DDoS detection?](/glossary/ddos-detection)
-- [What is burst traffic?](/glossary/burst-traffic)
-- [What is capacity planning?](/glossary/capacity-planning)
+- [What is anomaly detection?](/docs/glossary/anomaly-detection)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is DDoS detection?](/docs/glossary/ddos-detection)
+- [What is burst traffic?](/docs/glossary/burst-traffic)
+- [What is capacity planning?](/docs/glossary/capacity-planning)
 
 ---
 

@@ -92,11 +92,11 @@ Trisul provides application visibility through flow monitoring that enriches flo
 
 ## Related terms
 
-- [What is DPI?](/glossary/dpi)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is encrypted traffic analytics?](/glossary/encrypted-traffic-analytics)
-- [What is JA3?](/glossary/ja3)
-- [What is Top-K analytics?](/glossary/top-k-analytics)
+- [What is DPI?](/docs/glossary/dpi)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is encrypted traffic analytics?](/docs/glossary/encrypted-traffic-analytics)
+- [What is JA3?](/docs/glossary/ja3)
+- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
 
 ---
 

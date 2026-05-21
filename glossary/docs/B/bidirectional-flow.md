@@ -92,11 +92,11 @@ Trisul performs NetFlow conversation analysis by deduplicating overlapping flow 
 
 ## Related terms
 
-- [What is flow stitching?](/glossary/flow-stitching)
-- [What is conversation view?](/glossary/conversation-view)
-- [What is flow legs?](/glossary/flow-legs)
-- [What is flow deduplication?](/glossary/flow-deduplication)
-- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is flow stitching?](/docs/glossary/flow-stitching)
+- [What is conversation view?](/docs/glossary/conversation-view)
+- [What is flow legs?](/docs/glossary/flow-legs)
+- [What is flow deduplication?](/docs/glossary/flow-deduplication)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
 
 ---
 

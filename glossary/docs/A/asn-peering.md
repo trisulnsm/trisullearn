@@ -92,11 +92,11 @@ Trisul provides ASN peering analytics by enriching flow records with source and 
 
 ## Related terms
 
-- [What is BGP?](/glossary/bgp)
-- [What is ASN?](/glossary/asn)
-- [What is peering?](/glossary/peering)
-- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
-- [What is transit?](/glossary/transit)
+- [What is BGP?](/docs/glossary/bgp)
+- [What is ASN?](/docs/glossary/asn)
+- [What is peering?](/docs/glossary/peering)
+- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
+- [What is transit?](/docs/glossary/transit)
 
 ---
 

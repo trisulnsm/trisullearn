@@ -92,11 +92,11 @@ Trisul provides ISP Peering Analytics with real-time monitoring of active route 
 
 ## Related terms
 
-- [What is BGP?](/glossary/bgp)
-- [What is peering?](/glossary/peering)
-- [What is ASN?](/glossary/asn)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is ISP?](/glossary/isp)
+- [What is BGP?](/docs/glossary/bgp)
+- [What is peering?](/docs/glossary/peering)
+- [What is ASN?](/docs/glossary/asn)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is ISP?](/docs/glossary/isp)
 
 ---
 

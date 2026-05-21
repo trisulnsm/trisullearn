@@ -92,11 +92,11 @@ Trisul provides custom flow analytics through Flow Taggers and the LUA API. Flow
 
 ## Related terms
 
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow analysis?](/glossary/flow-analysis)
-- [What is Top-K analytics?](/glossary/top-k-analytics)
-- [What is flow data?](/glossary/flow-data)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow analysis?](/docs/glossary/flow-analysis)
+- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
+- [What is flow data?](/docs/glossary/flow-data)
 
 ---
 

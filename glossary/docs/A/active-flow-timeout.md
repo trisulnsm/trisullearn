@@ -92,11 +92,11 @@ Trisul accepts flow data exported at any active timeout value from exporters. Sh
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow cache?](/glossary/flow-cache)
-- [What is flow export?](/glossary/flow-export)
-- [What is NetFlow?](/glossary/netflow)
-- [What is baseline traffic analytics?](/glossary/baseline-traffic-analytics)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow cache?](/docs/glossary/flow-cache)
+- [What is flow export?](/docs/glossary/flow-export)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is baseline traffic analytics?](/docs/glossary/baseline-traffic-analytics)
 
 ---
 

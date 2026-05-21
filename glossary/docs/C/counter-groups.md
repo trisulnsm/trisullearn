@@ -93,11 +93,11 @@ Trisul ships with 40 to 50 built-in counter groups and supports all five custom 
 
 ## Related terms
 
-- [What is Top-K analytics?](/glossary/top-k-analytics)
-- [What is custom flow analytics?](/glossary/custom-flow-analytics)
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow analyzer?](/glossary/flow-analyzer)
+- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
+- [What is custom flow analytics?](/docs/glossary/custom-flow-analytics)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow analyzer?](/docs/glossary/flow-analyzer)
 
 ---
 

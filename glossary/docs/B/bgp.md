@@ -92,11 +92,11 @@ Trisul enriches flow records with BGP attributes including source and destinatio
 
 ## Related terms
 
-- [What is ASN?](/glossary/asn)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is peering?](/glossary/peering)
-- [What is CIDR?](/glossary/cidr)
-- [What is autonomous system?](/glossary/autonomous-system)
+- [What is ASN?](/docs/glossary/asn)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is peering?](/docs/glossary/peering)
+- [What is CIDR?](/docs/glossary/cidr)
+- [What is autonomous system?](/docs/glossary/autonomous-system)
 
 ---
 

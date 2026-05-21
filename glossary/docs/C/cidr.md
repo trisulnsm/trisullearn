@@ -92,11 +92,11 @@ Trisul uses CIDR notation to group flows by subnet, ASN, or region in queries an
 
 ## Related terms
 
-- [What is subnet mask?](/glossary/subnet-mask)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is ASN?](/glossary/asn)
-- [What is IP address?](/glossary/ip-address)
-- [What is flow tagger?](/glossary/flow-tagger)
+- [What is subnet mask?](/docs/glossary/subnet-mask)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is ASN?](/docs/glossary/asn)
+- [What is IP address?](/docs/glossary/ip-address)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
 
 ---
 

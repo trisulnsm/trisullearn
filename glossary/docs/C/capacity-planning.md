@@ -91,11 +91,11 @@ Trisul supports capacity planning through Interface Tracking for per-interface u
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is interface utilization?](/glossary/interface-utilization)
-- [What is Top-K analytics?](/glossary/top-k-analytics)
-- [What is flow analysis?](/glossary/flow-analysis)
-- [What is interface saturation?](/glossary/interface-saturation)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is interface utilization?](/docs/glossary/interface-utilization)
+- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
+- [What is flow analysis?](/docs/glossary/flow-analysis)
+- [What is interface saturation?](/docs/glossary/interface-saturation)
 
 ---
 

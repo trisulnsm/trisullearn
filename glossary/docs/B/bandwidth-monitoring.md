@@ -91,11 +91,11 @@ Trisul provides real-time bandwidth monitoring through Interface Tracking for pe
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is interface utilization?](/glossary/interface-utilization)
-- [What is capacity planning?](/glossary/capacity-planning)
-- [What is Top-K analytics?](/glossary/top-k-analytics)
-- [What is anomaly detection?](/glossary/anomaly-detection)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is interface utilization?](/docs/glossary/interface-utilization)
+- [What is capacity planning?](/docs/glossary/capacity-planning)
+- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
+- [What is anomaly detection?](/docs/glossary/anomaly-detection)
 
 ---
 

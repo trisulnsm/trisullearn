@@ -92,11 +92,11 @@ Trisul captures CGNAT logs by collecting Syslog or IPFIX feeds from CGNAT device
 
 ## Related terms
 
-- [What is IPDR?](/glossary/ipdr)
-- [What is DoT Compliance?](/glossary/dot-compliance)
-- [What is CGNAT?](/glossary/cgnat)
-- [What is NAT?](/glossary/nat)
-- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is IPDR?](/docs/glossary/ipdr)
+- [What is DoT Compliance?](/docs/glossary/dot-compliance)
+- [What is CGNAT?](/docs/glossary/cgnat)
+- [What is NAT?](/docs/glossary/nat)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
 
 ---
 
