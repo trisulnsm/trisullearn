@@ -67,6 +67,8 @@ The collector then handles operational concerns: deduplication of records from m
 
 Records are stored in a database optimized for high-volume time-series data, indexed by IP addresses, ports, protocol, and time. This indexing enables queries that return results for flows from weeks ago in seconds rather than minutes.
 
+![](./images/flow-collector.png)
+
 ---
 
 ## Flow collectors in network operations

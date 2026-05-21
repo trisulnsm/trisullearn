@@ -65,6 +65,8 @@ The DoT IPDR mandate requires ISPs to continuously capture network flow paramete
 
 IPDR logs correlate flow records, NAT events, and AAA events to create a complete log of flow activities. This enables Law Enforcement Agencies to track dynamic IP addresses and prosecute cases under the Indian Evidence Act meeting standards of electronic evidence.
 
+![](./images/dot-compliance.png)
+
 ---
 
 ## DoT Compliance in network operations

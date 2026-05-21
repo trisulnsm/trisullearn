@@ -65,6 +65,7 @@ Layer 7 visibility inspects packet payloads to identify applications. It reads a
 
 Deep packet inspection enables Layer 7 classification. Flow monitoring tools extract application metadata from packet payloads and add it to flow records. This provides application-level visibility without storing full packets.
 
+![](./images/layer7-visibility.png)
 ---
 
 ## Layer 7 visibility in network operations

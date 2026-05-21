@@ -65,6 +65,7 @@ sFlow agents on switches and routers sample packets at configured rates. Samplin
 
 Collectors aggregate samples to estimate traffic volumes. Statistical methods extrapolate total traffic from samples. Interface counters provide utilization data complementing packet samples.
 
+![](./images/sflow.png)
 ---
 
 ## sFlow in network operations

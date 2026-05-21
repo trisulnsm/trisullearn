@@ -65,6 +65,8 @@ Streaming analytics processes flow data events as they arrive. Aggregates are ma
 
 Real-time dashboards update as new data arrives. Traffic graphs show current utilization within seconds. Flow Tracker Alerts trigger in near real-time with latency of 1 to 5 seconds.
 
+![](./images/streaming-analytics.png)
+
 ---
 
 ## Streaming analytics in network operations

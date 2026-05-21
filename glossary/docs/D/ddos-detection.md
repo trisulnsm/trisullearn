@@ -65,6 +65,8 @@ Detection examines traffic volume anomalies, top talkers, source/destination dis
 
 SYN flooding is detected by a large number of SYN packets with no corresponding ACK packets. DNS amplification is detected by high DNS query volumes from spoofed sources. Application-layer attacks are detected by HTTP request patterns and response codes.
 
+![](./images/ddos-detection.png)
+
 ---
 
 ## DDoS detection in network operations

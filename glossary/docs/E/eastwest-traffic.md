@@ -57,6 +57,8 @@ export const jsonLd = {
 
 East-west traffic is network communication between devices within the same data center or network. It includes server-to-server communication, database replication, file transfers, and inter-process calls in microservices architectures. East-west traffic stays inside the network perimeter and never traverses external firewalls or gateways. As cloud and containerized applications have grown, east-west traffic now accounts for most data center traffic, making its security critical.
 
+![](./images/eastwest-traffic.png)
+
 ---
 
 ## What east-west traffic includes

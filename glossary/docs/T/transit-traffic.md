@@ -65,6 +65,8 @@ Transit traffic enters the ISP's network from one upstream provider or peer and 
 
 Flow data enriched with BGP attributes identifies transit traffic. Source ASN and destination ASN both outside the ISP's customer base indicates transit. Transit traffic is aggregated by upstream provider and peer.
 
+![](./images/transit-traffic.png)
+
 ---
 
 ## Transit traffic in network operations

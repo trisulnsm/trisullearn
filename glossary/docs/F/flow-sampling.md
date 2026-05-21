@@ -75,6 +75,7 @@ sFlow uses a related but distinct mechanism. Rather than sampling flows, sFlow s
 
 Both mechanisms report the sampling rate to the collector. A collector that ignores the sampling rate field and treats sampled data as complete will produce significant undercounting in all volume metrics.
 
+![](./images/flow-sampling.png)
 ---
 
 ## Flow sampling in network operations

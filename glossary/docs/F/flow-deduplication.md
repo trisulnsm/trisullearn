@@ -66,6 +66,8 @@ The time window must accommodate the different active and inactive timeout value
 
 Fields outside the 5-tuple, such as ingress and egress interface identifiers, DSCP markings, and BGP next-hop values, will differ between legs exported by different devices. Merging drops or averages those fields, which is why some collectors retain the original legs alongside the deduplicated record rather than replacing them.
 
+![](./images/flow-deduplication.png)
+
 ---
 
 ## Flow deduplication in network operations

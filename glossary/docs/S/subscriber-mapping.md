@@ -65,6 +65,8 @@ Subscriber mapping correlates IP addresses with subscriber identities from authe
 
 Flow records are classified by subscriber. Traffic volumes are aggregated per subscriber. Upstream and downstream traffic is tracked separately per subscriber. Real-time and historical subscriber traffic is available.
 
+![](./images/subscriber-mapping.png)
+
 ---
 
 ## Subscriber mapping in network operations

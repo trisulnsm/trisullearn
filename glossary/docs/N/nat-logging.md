@@ -63,6 +63,8 @@ NAT logging records Network Address Translation events including source and dest
 
 NAT logging occurs on routers, firewalls, and NAT gateways that perform address translation. When a packet is translated, the NAT device creates a translation entry and logs the event. Logs are sent to collectors via Syslog or stored locally. Each log entry includes original and translated addresses with timestamps.
 
+![](./images/nat-logging.png)
+
 ---
 
 ## NAT logging in network operations

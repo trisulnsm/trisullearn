@@ -65,6 +65,8 @@ Flow data from peering interfaces is classified by peer AS using BGP information
 
 BGP peering analytics provides AS-level visibility. Flow records are enriched with peer AS information. Traffic is mapped to peering relationships. Utilization per peering link is calculated.
 
+![](./images/peering-traffic-analytics.png)
+
 ---
 
 ## Peering traffic analysis in network operations

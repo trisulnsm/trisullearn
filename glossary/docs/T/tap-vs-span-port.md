@@ -65,6 +65,8 @@ Network TAPs passively split optical or electrical signals copying all traffic t
 
 SPAN ports use switch port mirroring to copy traffic from source ports to destination monitoring ports. The switch CPU processes mirrored traffic. Under heavy load, SPAN ports may drop packets without indicating loss. SPAN ports consume switch resources.
 
+![](./images/tapvsspan-port.png)
+
 ---
 
 ## TAP vs SPAN in network operations

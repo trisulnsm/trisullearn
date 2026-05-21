@@ -63,6 +63,8 @@ Network Security Monitoring (NSM) is the collection and analysis of network data
 
 NSM collects flow data from NetFlow, sFlow, and IPFIX exporters. Full packet capture records every packet headers and payload. Intrusion detection systems analyze traffic for known attack patterns. Network behavior analysis identifies anomalies indicating threats. SIEM correlates alerts from all sources.
 
+![](./images/nsm.png)
+
 ---
 
 ## NSM in network operations

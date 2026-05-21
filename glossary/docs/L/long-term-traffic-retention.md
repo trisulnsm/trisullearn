@@ -65,6 +65,8 @@ Flow data is collected continuously and stored in backend databases. Data is ret
 
 Aggregate statistics are stored at 1 minute resolution. Historical data is indexed for fast querying. Retro analysis tools apply new detection rules to historical data after the fact.
 
+![](./images/longterm-traffic-retention.png)
+
 ---
 
 ## Long term retention in network operations

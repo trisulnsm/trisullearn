@@ -67,6 +67,8 @@ Flow tags expand analysis by grouping traffic by business context: country, ASN,
 
 Time-based analysis is central. Traffic trends over days or weeks reveal capacity issues and baseline shifts invisible in single snapshots. Backward investigation from a known indicator relies on the flow database retention window.
 
+![](./images/flow-analysis.png)
+
 ---
 
 ## Flow analysis in network operations

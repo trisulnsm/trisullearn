@@ -65,6 +65,8 @@ NetFlow Analyzer collects flow data from routers and switches via NetFlow, sFlow
 
 Real-time traffic graphs update within seconds of flow data arrival. Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior and identifies unusual traffic patterns as anomalies. Historical reports show trends over days, weeks, and months.
 
+![](./images/nf-analyzer.png)
+
 ---
 
 ## NetFlow Analyzer in network operations

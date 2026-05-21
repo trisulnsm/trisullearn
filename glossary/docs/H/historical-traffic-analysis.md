@@ -63,6 +63,8 @@ Historical traffic analysis examines stored network traffic data collected over 
 
 Flow data (NetFlow, sFlow, J-Flow, IPFIX) and SNMP interface counters are collected continuously and stored in backend databases. Data is aggregated by time intervals (hourly, daily, weekly, monthly) and analyzed using traffic charts, bandwidth trend reports, and heatmaps. Machine learning algorithms forecast future bandwidth requirements based on historical patterns.
 
+![](./images/historical-traffic-analysis.png)
+
 ---
 
 ## In network operations

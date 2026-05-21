@@ -63,6 +63,8 @@ IPFIX (IP Flow Information Export) is an IETF standard protocol for exporting IP
 
 An IPFIX exporter on a router or probe observes IP packets at an observation point and groups them into flows. Flow records are encoded using templates and sent periodically to a collector. Templates describe the structure of data records, enabling the collector to always interpret records correctly even when new fields are added. IPFIX is a push protocol where the exporter sends data without any request from the collector.
 
+![](./images/ipfix.png)
+
 ---
 
 ## IPFIX in network operations

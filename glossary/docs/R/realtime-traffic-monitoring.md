@@ -65,6 +65,8 @@ Flow exporters on routers and switches send NetFlow, sFlow, or IPFIX data contin
 
 Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior and identifies unusual traffic patterns as anomalies. Real-time 2-second views of gateway port utilization, AS traffic, and prefix flows enable rapid response.
 
+![](./images/rt-traffic-monitoring.png)
+
 ---
 
 ## Realtime monitoring in network operations

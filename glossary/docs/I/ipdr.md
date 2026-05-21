@@ -63,6 +63,8 @@ IPDR (Internet Protocol Detail Record) is an industry standard for collecting an
 
 IPDR data is created by networking devices like cable modems, set-top boxes, CMTS, OLT, gateways, and other network elements. Each IPDR record contains metadata about network activity including IP addresses, timestamps, packet sizes, and protocols. IPDR data is stored, aggregated, and sent to operations and business support systems for processing.
 
+![](./images/ipdr.png)
+
 ---
 
 ## IPDR in network operations

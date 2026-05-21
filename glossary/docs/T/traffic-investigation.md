@@ -65,6 +65,8 @@ Traffic investigation starts with an alert or symptom. Investigators use query-b
 
 Packet capture provides packet-level evidence showing payload content. Logs provide context including authentication events and configuration changes. Investigation traces the full timeline from initial compromise to containment.
 
+![](./images/traffic-investigation.png)
+
 ---
 
 ## Traffic investigation in network operations

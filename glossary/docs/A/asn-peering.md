@@ -63,6 +63,8 @@ ASN peering establishes BGP peering relationships between two Autonomous Systems
 
 Peering requires a publicly routable ASN, dual-stack IPv4 and IPv6 support, and at least one /24 prefix. ASes exchange routes via eBGP, with each announcing its prefixes to the peer. Traffic flows directly between the two networks based on the advertised routes.
 
+![](./images/asn-peering.png)
+
 ---
 
 ## In network operations

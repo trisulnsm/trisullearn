@@ -65,6 +65,8 @@ Packets are intercepted at a tap or SPAN port and written to disk in PCAP or PCA
 
 Most platforms build a per-flow index at write time mapping each 5-tuple to its byte offsets in the capture store. This lets analysts retrieve packets for a specific conversation in seconds rather than scanning terabytes of raw files.
 
+![](./images/packet-capture.png)
+
 ---
 
 ## Packet capture in network operations

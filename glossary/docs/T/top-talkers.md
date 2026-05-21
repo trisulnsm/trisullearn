@@ -65,6 +65,8 @@ Flow data is aggregated by source IP, destination IP, conversation (5-tuple), or
 
 Real-time top talkers show current bandwidth consumers. Historical top talkers show trends over time. Top talkers can be filtered by time range, interface, application, or other criteria.
 
+![](./images/top-talkers.png)
+
 ---
 
 ## Top talkers in network operations

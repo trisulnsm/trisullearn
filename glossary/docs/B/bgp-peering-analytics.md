@@ -63,6 +63,8 @@ BGP peering analytics monitors traffic flows across BGP peerings by combining fl
 
 BGP peering analytics combines flow data from NetFlow, J-Flow, sFlow, and IPFIX with BGP routing information from route collectors. The BGP data is automatically in sync with traffic tables. Traffic is mapped to AS number, prefix, gateway, next hop, and peering interface with real-time and historical trending.
 
+![](./images/bgp-peering-analytics.png)
+
 ---
 
 ## In network operations

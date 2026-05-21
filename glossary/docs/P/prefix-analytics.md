@@ -65,6 +65,8 @@ Flow records include destination and source IP addresses. BGP routing tables map
 
 Real-time and historical prefix traffic flows are tracked. Prefix traffic is mapped to gateways and next hops. Traffic patterns by prefix are analyzed for capacity planning.
 
+![](./images/prefix-analytics.png)
+
 ---
 
 ## Prefix analytics in network operations

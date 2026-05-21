@@ -65,6 +65,8 @@ Flow monitoring tracks input and output packet counts on interfaces. The differe
 
 Loss rates are calculated as percentage of packets lost. A 1% loss rate means 1 packet out of 100 is dropped. Monitoring alerts when loss exceeds thresholds. Trend analysis identifies increasing loss patterns.
 
+![](./images/packetloss-monitoring.png)
+
 ---
 
 ## Packet loss monitoring in network operations

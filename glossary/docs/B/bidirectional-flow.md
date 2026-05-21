@@ -63,6 +63,8 @@ A bidirectional flow combines two unidirectional flow records into a single reco
 
 When two unidirectional records with reversed IP addresses and ports arrive at the collector, they are stitched into one bidirectional flow. The stitched flow shows bytes in, bytes out, packets in, packets out, start time, and duration. Duplicate legs are deduplicated before stitching to avoid overcounting.
 
+![](./images/bidirectional-flow.png)
+
 ---
 
 ## In network operations

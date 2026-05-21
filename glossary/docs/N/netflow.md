@@ -63,6 +63,8 @@ NetFlow is a network protocol developed by Cisco that collects IP traffic inform
 
 NetFlow exporters on routers and switches observe passing packets and group them into flows based on 5-tuple: source IP, destination IP, source port, destination port, and protocol. When a flow ends or times out, the exporter sends a flow record to the collector. Records are sent periodically via UDP.
 
+![](./images/nf.png)
+
 ---
 
 ## NetFlow in network operations

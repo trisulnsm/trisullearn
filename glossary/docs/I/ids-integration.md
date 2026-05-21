@@ -65,6 +65,8 @@ IDS monitors network traffic for anomalies and cyberattacks using signature-base
 
 Flow data also helps identify affected systems and trace attack paths. When integrated with firewalls and IPS, the IDS can trigger automated blocking of malicious traffic. SIEM integration provides centralized logging and correlation across multiple security tools.
 
+![](./images/ids-integration.png)
+
 ---
 
 ## IDS integration in network operations
