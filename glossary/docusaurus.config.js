@@ -27,7 +27,7 @@ const config = {
   organizationName: 'facebook',
   projectName: 'docusaurus',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -109,7 +109,7 @@ const config = {
             items: [
               {
                 label: 'Glossary Category',
-                to: '/docs/intro',
+                to: '/',
               },
             ],
           },

@@ -92,11 +92,9 @@ Trisul detects burst traffic through real-time Interface Tracking and Top-K anal
 
 ## Related terms
 
-- [What is interface utilization?](/docs/glossary/interface-utilization)
-- [What is interface saturation?](/docs/glossary/interface-saturation)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
 - [What is DDoS detection?](/docs/glossary/ddos-detection)
-- [What is QoS?](/docs/glossary/qos)
+
 
 ---
 

@@ -1,128 +1,209 @@
 ---
-title: What is Key Dashboard in Trisul?
-description: In Trisul, the Key Dashboard is a detailed view for a specific network entity (IP address, port, application, or host) showing real-time stats, historical traffic, and investigative tools for that key.
-sidebar_label: Key Dashboard
-sidebar_position: 57
-slug: /glossary/key-dashboard
+title: What is Latency Monitoring?
+sidebar_label: Latency Monitoring
+sidebar_position: 62
+slug: /glossary/latency-monitoring
+description: Learn what latency monitoring is, how network latency affects performance, and why monitoring delay is important for applications, users, and real-time communication.
 keywords:
-  - key dashboard
-  - trisul key dashboard
-  - host dashboard
-  - IP dashboard
-  - traffic dashboard
-  - network analytics
-  - key details
+  - latency monitoring
+  - network latency
+  - delay monitoring
+  - application performance monitoring
+  - network performance analytics
+  - response time monitoring
 ---
 
-export const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the Key Dashboard in Trisul?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "In Trisul, the Key Dashboard is a detailed view for a specific network entity such as an IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What modules are available on the Key Dashboard?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Key Dashboard includes Key Details module with Real Time Stabbers, Toppers, flow activity, and historical traffic charts. It provides access to traffic patterns, top conversations, application usage, and flow tracking for the selected entity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you access the Key Dashboard?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Login as user, select Dashboards, then Real Time Traffic. Click on the tag on the right side next to any host to open the Key Dashboard. You can also use search to find an IP and click the key to go to the key dashboard."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What can you do on the Key Dashboard?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "On the Key Dashboard you can view real-time traffic stats, see top hosts by usage within 3 seconds, analyze traffic patterns, investigate past activity using retro analysis, view flow activity in real time, and chart specific metrics for that entity."
-      }
-    }
-  ]
-};
+# What is Latency Monitoring?
 
-# What is Key Dashboard in Trisul?
+Latency Monitoring is the process of measuring and analyzing the time it takes for network traffic or application data to travel between systems across a network.
 
-In Trisul, the Key Dashboard is a detailed view for a specific network entity including IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
+Latency represents communication delay and is typically measured in milliseconds (ms).
+
+Monitoring latency helps organizations understand:
+- network responsiveness
+- application performance
+- WAN stability
+- cloud connectivity
+- user experience
+- real-time communication quality
+
+Latency visibility is especially important for:
+- VoIP
+- video conferencing
+- cloud applications
+- online gaming
+- financial systems
+- distributed applications
+
+## How Latency Works
+
+Whenever devices communicate across a network, packets require time to travel between source and destination systems.
+
+Latency is influenced by:
+- physical distance
+- routing paths
+- congestion
+- packet processing
+- bandwidth saturation
+- queuing delays
+
+A typical communication workflow looks like this:
+
+1. A device sends a request
+2. Packets travel through the network
+3. The destination responds
+4. Monitoring systems measure the delay
+
+For example:
+
+1. A user accesses a cloud application
+2. The request travels across WAN and internet links
+3. Network congestion increases delay
+4. The application becomes slow or unresponsive
+
+## Why Latency Monitoring Matters
+
+High latency can affect:
+- application responsiveness
+- user experience
+- voice quality
+- video stability
+- transaction speed
+- operational productivity
+
+Without latency visibility, organizations may struggle to:
+- troubleshoot slow applications
+- identify WAN issues
+- monitor cloud performance
+- detect congestion
+- analyze routing problems
+
+Latency monitoring helps teams:
+- improve application performance
+- identify unstable links
+- troubleshoot delays
+- optimize WAN connectivity
+- monitor SLA compliance
+- improve user experience
+
+It is especially important in:
+- enterprise WANs
+- cloud environments
+- ISP infrastructures
+- remote work deployments
+- unified communications platforms
+
+## Common Causes of Latency
+
+### Network Congestion
+
+Overloaded links increase packet travel time.
+
+### Long Routing Paths
+
+Traffic traveling across distant networks experiences more delay.
+
+### Bandwidth Saturation
+
+High utilization creates packet queuing delays.
+
+### Packet Processing Delays
+
+Network devices require time to inspect and forward traffic.
+
+### Cloud and Internet Transit
+
+External routing and provider networks may introduce additional delay.
+
+## Common Operational Use Cases
+
+### WAN Performance Monitoring
+
+Track branch office and inter-site communication quality.
+
+### Cloud Application Monitoring
+
+Analyze responsiveness for SaaS and cloud-hosted applications.
+
+### VoIP and Video Monitoring
+
+Monitor communication quality for real-time applications.
+
+### ISP Backbone Monitoring
+
+Measure latency across high-speed provider networks.
+
+### SLA Monitoring
+
+Ensure service response times meet operational targets.
+
+## Latency vs Jitter
+
+| Feature | Latency | Jitter |
+|---|---|---|
+| Meaning | Overall packet delay | Variation in packet timing |
+| Measurement Focus | Travel time | Timing consistency |
+| Application Impact | Slow response | Choppy communication |
+| Typical Unit | Milliseconds | Milliseconds |
+| Real-Time Traffic Importance | High | High |
+
+Latency measures delay, while jitter measures delay variation.
+
+## How Trisul Handles Latency Monitoring
+
+Trisul provides traffic analytics and performance visibility workflows for analyzing latency and communication quality.
+
+Combined with:
+- Flow Analysis
+- Packet Capture
+- Top-K Analyticsᵀ
+- Retro Analysisᵀ
+- Contextᵀ
+- Traffic Investigation
+
+Trisul helps teams:
+- analyze communication delays
+- troubleshoot WAN performance
+- investigate application slowness
+- monitor cloud connectivity
+- correlate latency spikes with traffic behavior
+- identify congestion events
+
+Trisul can also integrate [Jitter Monitoring](/glossary/jitter-monitoring), [Bandwidth Monitoring](/glossary/bandwidth-monitoring), and [Dropped Packets](/glossary/dropped-packets) workflows for deeper performance visibility.
+
+## Related Terms
+
+- [Jitter Monitoring](/glossary/jitter-monitoring)
+- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
+- [Dropped Packets](/glossary/dropped-packets)
+- [Packet Capture](/glossary/packet-capture)
+- [Application Visibility](/glossary/application-visibility)
+- [Traffic Investigation](/glossary/traffic-investigation)
 
 ---
 
-## How the Key Dashboard works
+## FAQ
 
-The Key Dashboard aggregates all traffic data for a single entity. It displays metrics from multiple counter groups including Hosts, Applications, Ports, and Flows. Real-time stabbers show current traffic within 3 seconds. Historical charts show traffic patterns over days, weeks, or months.
+### What is network latency?
 
----
+Network latency is the time it takes for data to travel between systems across a network.
 
-## Key Dashboard in network operations
+### Why is latency monitoring important?
 
-In the NOC, use the Key Dashboard to investigate suspicious hosts or high-traffic applications. Security teams analyze flow activity for specific IPs to detect compromise. Engineering uses the dashboard to understand traffic patterns for capacity planning.
+It helps organizations identify delays affecting applications, users, and real-time communication.
 
-Click on real-time stabbers to drill down into flow activity, top conversations, and application usage. The dashboard provides instant access to all investigative tools for the selected entity.
+### What causes high latency?
 
----
+Common causes include congestion, long routing paths, bandwidth saturation, and packet processing delays.
 
-## Key Dashboard modules
+### How does latency affect applications?
 
-| Module | Description |
-|---|---|
-| Key Details | Real-time stabbers, toppers, flow activity |
-| Real Time Traffic | Traffic within 3 seconds for the entity |
-| Historical Charts | Long-term traffic patterns and trends |
-| Flow Activity | Current flows involving the entity |
-| Retro Analysis | Tools to investigate past activity |
+High latency can cause slow responses, lag, buffering, and poor user experience.
 
----
+### What's the difference between latency and jitter?
 
-## What makes the Key Dashboard work in practice
+Latency measures overall delay, while jitter measures inconsistency in packet timing.
 
-The dashboard uses Trisul's per-flow indexing to retrieve data quickly. Without indexing, searching for a specific IP would require scanning all flow records. With indexing, the dashboard loads in seconds even for large archives.
+### How is latency measured?
 
-Real-time stabbers provide near-instant visibility. Traffic statistics update every 1 to 3 seconds showing current activity. This enables rapid response to emerging issues without waiting for data aggregation.
-
----
-
-## How Trisul handles the Key Dashboard
-
-Trisul provides the Key Dashboard as part of its core UI. Login as user, navigate to Dashboards, select Real Time Traffic, and click the tag next to any host. The Key Dashboard displays Key Details module with Real Time Stabbers, Toppers, and flow activity. Use the search box to find an IP and click the key to go to the dashboard. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
-
----
-
-## Related terms
-
-- [What is Explore Flows?](/docs/glossary/explore-flows)
-- [What is real-time traffic?](/docs/glossary/real-time-traffic)
-- [What is counter group?](/docs/glossary/counter-group)
-- [What is flow tracker?](/docs/glossary/flow-tracker)
-- [What is retro analysis?](/docs/glossary/retro-analysis)
-
----
-
-## Frequently asked questions
-
-### What is the Key Dashboard in Trisul?
-
-In Trisul, the Key Dashboard is a detailed view for a specific network entity such as an IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
-
-### What modules are available on the Key Dashboard?
-
-The Key Dashboard includes Key Details module with Real Time Stabbers, Toppers, flow activity, and historical traffic charts. It provides access to traffic patterns, top conversations, application usage, and flow tracking for the selected entity.
-
-### How do you access the Key Dashboard?
-
-Login as user, select Dashboards, then Real Time Traffic. Click on the tag on the right side next to any host to open the Key Dashboard. You can also use search to find an IP and click the key to go to the key dashboard.
-
-### What can you do on the Key Dashboard?
-
-On the Key Dashboard you can view real-time traffic stats, see top hosts by usage within 3 seconds, analyze traffic patterns, investigate past activity using retro analysis, view flow activity in real time, and chart specific metrics for that entity.
+Latency is typically measured in milliseconds using packet travel time or round-trip delay analysis.

@@ -93,10 +93,6 @@ Trisul flow monitoring can analyze traffic that matches ACL rules by examining f
 ## Related terms
 
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is packet filtering?](/docs//glossary/packet-filtering)
-- [What is firewall?](/docs//glossary/firewall)
-- [What is QoS?](/docs//glossary/qos)
-- [What is NAT?](/docs//glossary/nat)
 
 ---
 

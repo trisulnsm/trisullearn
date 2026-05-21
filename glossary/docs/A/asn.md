@@ -94,7 +94,6 @@ Trisul enriches flow records with source and destination ASN from BGP data. This
 
 - [What is BGP?](/docs/glossary/bgp)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is peering?](/docs/glossary/peering)
 - [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
 - [What is Top-K analytics?](/docs/glossary/top-k-analytics)
 

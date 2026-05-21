@@ -93,9 +93,6 @@ Badfellas is built into Trisul 3.6 and later as part of the Long Tail Hosts moni
 
 - [What is Top-K analytics?](/docs/glossary/top-k-analytics)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is host monitor?](/docs/glossary/host-monitor)
-- [What is Top-K?](/docs/glossary/top-k)
-- [What is long-tail analytics?](/docs/glossary/long-tail-analytics)
 
 ---
 
