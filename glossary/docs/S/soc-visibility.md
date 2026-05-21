@@ -104,11 +104,11 @@ Trisul provides comprehensive SOC visibility through flow-based visibility ident
 
 ## Related terms
 
-- [What is network security monitoring?](/glossary/network-security-monitoring)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is security analytics?](/glossary/security-analytics)
-- [What is threat detection?](/glossary/threat-detection)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is security analytics?](/docs/glossary/security-analytics)
+- [What is threat detection?](/docs/glossary/threat-detection)
 
 ---
 

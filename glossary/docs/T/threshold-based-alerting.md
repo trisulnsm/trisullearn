@@ -103,11 +103,11 @@ Trisul provides threshold-based alerting through Flow Tracker Alerts that trigge
 
 ## Related terms
 
-- [What is alerting?](/glossary/alerting)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
-- [What is anomaly detection?](/glossary/anomaly-detection)
-- [What is QoS monitoring?](/glossary/qos-monitoring)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
+- [What is alerting?](/docs/glossary/alerting)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
+- [What is anomaly detection?](/docs/glossary/anomaly-detection)
+- [What is QoS monitoring?](/docs/glossary/qos-monitoring)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
 
 ---
 

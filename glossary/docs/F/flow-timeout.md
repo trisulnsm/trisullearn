@@ -102,12 +102,12 @@ For NetFlow and IPFIX inputs, Trisul receives flow records as exported by the up
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is flow sampling?](/glossary/flow-sampling)
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is flow tracker?](/glossary/flow-tracker)
+- [What is a flow?](/docs/glossary/flow)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is flow tracker?](/docs/glossary/flow-tracker)
 
 ---
 

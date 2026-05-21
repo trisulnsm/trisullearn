@@ -103,11 +103,11 @@ Trisul provides SLA monitoring through QoS monitoring tracking latency, jitter, 
 
 ## Related terms
 
-- [What is QoS monitoring?](/glossary/qos-monitoring)
-- [What is uptime monitoring?](/glossary/uptime-monitoring)
-- [What is latency monitoring?](/glossary/latency-monitoring)
-- [What is packet loss monitoring?](/glossary/packet-loss-monitoring)
-- [What is availability?](/glossary/availability)
+- [What is QoS monitoring?](/docs/glossary/qos-monitoring)
+- [What is uptime monitoring?](/docs/glossary/uptime-monitoring)
+- [What is latency monitoring?](/docs/glossary/latency-monitoring)
+- [What is packet loss monitoring?](/docs/glossary/packet-loss-monitoring)
+- [What is availability?](/docs/glossary/availability)
 
 ---
 

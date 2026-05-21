@@ -106,11 +106,11 @@ Trisul provides peering traffic analysis through ISP Analytics applications. Flo
 
 ## Related terms
 
-- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
-- [What is ASN?](/glossary/asn)
-- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is transit traffic?](/glossary/transit-traffic)
+- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
+- [What is ASN?](/docs/glossary/asn)
+- [What is ISP traffic analytics?](/docs/glossary/isp-traffic-analytics)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is transit traffic?](/docs/glossary/transit-traffic)
 
 ---
 

@@ -101,11 +101,11 @@ Trisul collects flow data from multiple observation points through NetFlow, J-Fl
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is network TAP?](/glossary/network-tap)
-- [What is SPAN port?](/glossary/span-port)
-- [What is IPFIX?](/glossary/ipfix)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is network TAP?](/docs/glossary/network-tap)
+- [What is SPAN port?](/docs/glossary/span-port)
+- [What is IPFIX?](/docs/glossary/ipfix)
 
 ---
 

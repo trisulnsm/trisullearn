@@ -104,11 +104,11 @@ Trisul provides zero packet loss capture through PF_RING ZC kernel-bypass techno
 
 ## Related terms
 
-- [What is wire-speed packet capture?](/glossary/wire-speed-packet-capture)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is network forensics?](/glossary/network-forensics)
-- [What is PF_RING?](/glossary/pf-ring)
-- [What is network TAP?](/glossary/network-tap)
+- [What is wire-speed packet capture?](/docs/glossary/wire-speed-packet-capture)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is network forensics?](/docs/glossary/network-forensics)
+- [What is PF_RING?](/docs/glossary/pf-ring)
+- [What is network TAP?](/docs/glossary/network-tap)
 
 ---
 

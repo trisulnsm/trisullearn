@@ -101,12 +101,12 @@ For full DNS traffic analysis including passive DNS, DNS tunneling detection, an
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is passive DNS?](/glossary/passive-dns)
-- [What is DNS tunneling?](/glossary/dns-tunneling)
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is flow analysis?](/glossary/flow-analysis)
-- [What is DNSSEC?](/glossary/dnssec)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is passive DNS?](/docs/glossary/passive-dns)
+- [What is DNS tunneling?](/docs/glossary/dns-tunneling)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is flow analysis?](/docs/glossary/flow-analysis)
+- [What is DNSSEC?](/docs/glossary/dnssec)
 
 ---
 

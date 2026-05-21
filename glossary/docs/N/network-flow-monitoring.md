@@ -103,11 +103,11 @@ Trisul provides network flow monitoring by collecting NetFlow, J-Flow, sFlow, an
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is sFlow?](/glossary/sflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is packet capture?](/glossary/packet-capture)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is sFlow?](/docs/glossary/sflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is packet capture?](/docs/glossary/packet-capture)
 
 ---
 

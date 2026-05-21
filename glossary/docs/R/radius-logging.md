@@ -107,11 +107,11 @@ Trisul correlates RADIUS logging data with flow records to provide user-level vi
 
 ## Related terms
 
-- [What is AAA?](/glossary/aaa)
-- [What is authentication logging?](/glossary/authentication-logging)
-- [What is network access?](/glossary/network-access)
-- [What is user analytics?](/glossary/user-analytics)
-- [What is Syslog?](/glossary/syslog)
+- [What is AAA?](/docs/glossary/aaa)
+- [What is authentication logging?](/docs/glossary/authentication-logging)
+- [What is network access?](/docs/glossary/network-access)
+- [What is user analytics?](/docs/glossary/user-analytics)
+- [What is Syslog?](/docs/glossary/syslog)
 
 ---
 

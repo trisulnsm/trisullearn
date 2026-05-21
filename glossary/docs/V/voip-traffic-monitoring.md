@@ -102,11 +102,11 @@ Trisul provides VoIP traffic monitoring through QoS monitoring tracking latency,
 
 ## Related terms
 
-- [What is QoS monitoring?](/glossary/qos-monitoring)
-- [What is latency monitoring?](/glossary/latency-monitoring)
-- [What is jitter monitoring?](/glossary/jitter-monitoring)
-- [What is packet loss monitoring?](/glossary/packet-loss-monitoring)
-- [What is RTP?](/glossary/rtp)
+- [What is QoS monitoring?](/docs/glossary/qos-monitoring)
+- [What is latency monitoring?](/docs/glossary/latency-monitoring)
+- [What is jitter monitoring?](/docs/glossary/jitter-monitoring)
+- [What is packet loss monitoring?](/docs/glossary/packet-loss-monitoring)
+- [What is RTP?](/docs/glossary/rtp)
 
 ---
 

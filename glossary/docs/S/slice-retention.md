@@ -104,11 +104,11 @@ Trisul captures raw packets continuously using PF_RING or AF_PACKET and builds a
 
 ## Related terms
 
-- [What is packet capture?](/glossary/packet-capture)
-- [What is per-flow indexing?](/glossary/per-flow-indexing)
-- [What is retro analysis?](/glossary/retro-analysis)
-- [What is network forensics?](/glossary/network-forensics)
-- [What is retention policy?](/glossary/retention-policy)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is per-flow indexing?](/docs/glossary/per-flow-indexing)
+- [What is retro analysis?](/docs/glossary/retro-analysis)
+- [What is network forensics?](/docs/glossary/network-forensics)
+- [What is retention policy?](/docs/glossary/retention-policy)
 
 ---
 

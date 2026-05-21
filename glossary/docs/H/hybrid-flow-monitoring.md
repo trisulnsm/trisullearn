@@ -98,10 +98,10 @@ Trisul uses flow-based monitoring that collects NetFlow, J-Flow, sFlow, and IPFI
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is network observability?](/glossary/network-observability)
-- [What is hybrid network monitoring?](/glossary/hybrid-network-monitoring)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is network observability?](/docs/glossary/network-observability)
+- [What is hybrid network monitoring?](/docs/glossary/hybrid-network-monitoring)
 
 ---
 

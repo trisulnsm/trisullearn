@@ -106,11 +106,11 @@ Trisul provides traffic investigation through integrated flow data and packet ca
 
 ## Related terms
 
-- [What is network forensics?](/glossary/network-forensics)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is query based traffic investigation?](/glossary/query-based-traffic-investigation)
-- [What is incident response?](/glossary/incident-response)
+- [What is network forensics?](/docs/glossary/network-forensics)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is query based traffic investigation?](/docs/glossary/query-based-traffic-investigation)
+- [What is incident response?](/docs/glossary/incident-response)
 
 ---
 

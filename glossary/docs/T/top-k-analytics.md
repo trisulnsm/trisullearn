@@ -104,11 +104,11 @@ Trisul implements Top-K Analyticsᵀ as proprietary technology computing stream 
 
 ## Related terms
 
-- [What is top talkers?](/glossary/top-talkers)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is streaming analytics?](/glossary/streaming-analytics)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is traffic analysis?](/glossary/traffic-analysis)
+- [What is top talkers?](/docs/glossary/top-talkers)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is streaming analytics?](/docs/glossary/streaming-analytics)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is traffic analysis?](/docs/glossary/traffic-analysis)
 
 ---
 

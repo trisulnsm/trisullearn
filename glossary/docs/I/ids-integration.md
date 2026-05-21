@@ -103,12 +103,12 @@ Trisul supports IDS integration by providing flow-based visibility that correlat
 
 ## Related terms
 
-- [What is threat detection?](/glossary/threat-detection)
-- [What is indicator of compromise?](/glossary/indicator-of-compromise)
-- [What is intrusion prevention system?](/glossary/intrusion-prevention-system)
-- [What is SIEM?](/glossary/siem)
-- [What is incident response?](/glossary/incident-response)
-- [What is network traffic analysis?](/glossary/network-traffic-analysis)
+- [What is threat detection?](/docs/glossary/threat-detection)
+- [What is indicator of compromise?](/docs/glossary/indicator-of-compromise)
+- [What is intrusion prevention system?](/docs/glossary/intrusion-prevention-system)
+- [What is SIEM?](/docs/glossary/siem)
+- [What is incident response?](/docs/glossary/incident-response)
+- [What is network traffic analysis?](/docs/glossary/network-traffic-analysis)
 
 ---
 

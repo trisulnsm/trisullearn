@@ -105,11 +105,11 @@ Trisul provides XDR network visibility through flow data and packet capture inte
 
 ## Related terms
 
-- [What is XDR?](/glossary/xdr)
-- [What is security visibility?](/glossary/security-visibility)
-- [What is threat detection?](/glossary/threat-detection)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
-- [What is incident response?](/glossary/incident-response)
+- [What is XDR?](/docs/glossary/xdr)
+- [What is security visibility?](/docs/glossary/security-visibility)
+- [What is threat detection?](/docs/glossary/threat-detection)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is incident response?](/docs/glossary/incident-response)
 
 ---
 

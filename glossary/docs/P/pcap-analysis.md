@@ -104,11 +104,11 @@ Trisul provides PCAP analysis through integrated packet capture and flow data. F
 
 ## Related terms
 
-- [What is packet capture?](/glossary/packet-capture)
-- [What is packet analysis?](/glossary/packet-analysis)
-- [What is Wireshark?](/glossary/wireshark)
-- [What is network forensics?](/glossary/network-forensics)
-- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is packet analysis?](/docs/glossary/packet-analysis)
+- [What is Wireshark?](/docs/glossary/wireshark)
+- [What is network forensics?](/docs/glossary/network-forensics)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
 
 ---
 

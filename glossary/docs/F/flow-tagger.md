@@ -98,13 +98,13 @@ Tagger groups provide a namespace for tags, allowing operators to distinguish ta
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is flow tracker?](/glossary/flow-tracker)
-- [What is flow timeout?](/glossary/flow-timeout)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is a flow?](/docs/glossary/flow)
+- [What is flow tracker?](/docs/glossary/flow-tracker)
+- [What is flow timeout?](/docs/glossary/flow-timeout)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
 
 ---
 

@@ -101,11 +101,11 @@ Trisul supports configurable retention policies for flow data and packet capture
 
 ## Related terms
 
-- [What is packet capture?](/glossary/packet-capture)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is retention policy?](/glossary/retention-policy)
-- [What is long term traffic retention?](/glossary/long-term-traffic-retention)
-- [What is archive?](/glossary/archive)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is retention policy?](/docs/glossary/retention-policy)
+- [What is long term traffic retention?](/docs/glossary/long-term-traffic-retention)
+- [What is archive?](/docs/glossary/archive)
 
 ---
 

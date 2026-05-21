@@ -98,11 +98,11 @@ Trisul provides GRE tunnel monitoring through flow data collection from tunnel i
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is tunnel content inspection?](/glossary/tunnel-content-inspection)
-- [What is encapsulation?](/glossary/encapsulation)
-- [What is point-to-point link?](/glossary/point-to-point-link)
-- [What is interface monitoring?](/glossary/interface-monitoring)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is tunnel content inspection?](/docs/glossary/tunnel-content-inspection)
+- [What is encapsulation?](/docs/glossary/encapsulation)
+- [What is point-to-point link?](/docs/glossary/point-to-point-link)
+- [What is interface monitoring?](/docs/glossary/interface-monitoring)
 
 ---
 

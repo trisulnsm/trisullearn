@@ -103,11 +103,11 @@ Trisul integrates SNMP monitoring with flow data providing comprehensive visibil
 
 ## Related terms
 
-- [What is SNMP?](/glossary/snmp)
-- [What is NetFlow?](/glossary/netflow)
-- [What is interface monitoring?](/glossary/interface-monitoring)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is MIB?](/glossary/mib)
+- [What is SNMP?](/docs/glossary/snmp)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is interface monitoring?](/docs/glossary/interface-monitoring)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is MIB?](/docs/glossary/mib)
 
 ---
 

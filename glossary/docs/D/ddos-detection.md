@@ -104,12 +104,12 @@ Trisul's Trigger-based alerting allows operators to set fixed limits for specifi
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow analysis?](/glossary/flow-analysis)
-- [What is anomaly detection?](/glossary/anomaly-detection)
-- [What is SYN flood?](/glossary/syn-flood)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
-- [What is Top-K analytics?](/glossary/top-k-analytics)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow analysis?](/docs/glossary/flow-analysis)
+- [What is anomaly detection?](/docs/glossary/anomaly-detection)
+- [What is SYN flood?](/docs/glossary/syn-flood)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
 
 ---
 

@@ -100,11 +100,11 @@ Trisul collects IPFIX data natively alongside NetFlow v5, NetFlow v9, sFlow, and
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is sFlow?](/glossary/sflow)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow exporter?](/glossary/flow-exporter)
-- [What is flow collector?](/glossary/flow-collector)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is sFlow?](/docs/glossary/sflow)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow exporter?](/docs/glossary/flow-exporter)
+- [What is flow collector?](/docs/glossary/flow-collector)
 
 ---
 

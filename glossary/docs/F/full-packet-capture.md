@@ -140,14 +140,14 @@ Storage policies let operators define exactly what gets written, by protocol, di
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is retro analysis?](/glossary/retro-analysis)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
-- [What is deep packet inspection?](/glossary/deep-packet-inspection)
-- [What is sFlow?](/glossary/sflow)
-- [What is flow tracker?](/glossary/flow-tracker)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is retro analysis?](/docs/glossary/retro-analysis)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is deep packet inspection?](/docs/glossary/deep-packet-inspection)
+- [What is sFlow?](/docs/glossary/sflow)
+- [What is flow tracker?](/docs/glossary/flow-tracker)
 
 ---
 

@@ -105,11 +105,11 @@ Trisul provides subscriber mapping through RADIUS logging correlation mapping IP
 
 ## Related terms
 
-- [What is RADIUS logging?](/glossary/radius-logging)
-- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
-- [What is subscriber analytics?](/glossary/subscriber-analytics)
-- [What is user traffic analytics?](/glossary/user-traffic-analytics)
-- [What is DHCP?](/glossary/dhcp)
+- [What is RADIUS logging?](/docs/glossary/radius-logging)
+- [What is ISP traffic analytics?](/docs/glossary/isp-traffic-analytics)
+- [What is subscriber analytics?](/docs/glossary/subscriber-analytics)
+- [What is user traffic analytics?](/docs/glossary/user-traffic-analytics)
+- [What is DHCP?](/docs/glossary/dhcp)
 
 ---
 

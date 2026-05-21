@@ -102,14 +102,14 @@ For links where device-level flow export is unavailable or produces sampled data
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow forensics?](/glossary/flow-forensics)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is flow sampling?](/glossary/flow-sampling)
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is flow tagger?](/glossary/flow-tagger)
+- [What is a flow?](/docs/glossary/flow)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow forensics?](/docs/glossary/flow-forensics)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
 
 ---
 

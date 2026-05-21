@@ -106,11 +106,11 @@ Trisul provides prefix analytics through ISP Analytics applications. Real-time a
 
 ## Related terms
 
-- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
-- [What is ASN?](/glossary/asn)
-- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
-- [What is CIDR?](/glossary/cidr)
-- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
+- [What is ASN?](/docs/glossary/asn)
+- [What is ISP traffic analytics?](/docs/glossary/isp-traffic-analytics)
+- [What is CIDR?](/docs/glossary/cidr)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
 
 ---
 

@@ -104,11 +104,11 @@ Trisul provides user traffic analytics through RADIUS logging correlation mappin
 
 ## Related terms
 
-- [What is RADIUS logging?](/glossary/radius-logging)
-- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
-- [What is subscriber analytics?](/glossary/subscriber-analytics)
-- [What is billing?](/glossary/billing)
-- [What is user behavior analysis?](/glossary/user-behavior-analysis)
+- [What is RADIUS logging?](/docs/glossary/radius-logging)
+- [What is ISP traffic analytics?](/docs/glossary/isp-traffic-analytics)
+- [What is subscriber analytics?](/docs/glossary/subscriber-analytics)
+- [What is billing?](/docs/glossary/billing)
+- [What is user behavior analysis?](/docs/glossary/user-behavior-analysis)
 
 ---
 

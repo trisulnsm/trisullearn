@@ -103,14 +103,14 @@ Trisul stores every flow record without rollup, preserving full resolution for q
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is flow data?](/glossary/flow-data)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow analyzer?](/glossary/flow-analyzer)
-- [What is flow forensics?](/glossary/flow-forensics)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is full packet capture?](/glossary/full-packet-capture)
+- [What is a flow?](/docs/glossary/flow)
+- [What is flow data?](/docs/glossary/flow-data)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow analyzer?](/docs/glossary/flow-analyzer)
+- [What is flow forensics?](/docs/glossary/flow-forensics)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
 
 ---
 

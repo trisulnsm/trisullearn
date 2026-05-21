@@ -104,11 +104,11 @@ Trisul provides zone-based traffic analysis through IP-to-zone mapping enriching
 
 ## Related terms
 
-- [What is network segmentation?](/glossary/network-segmentation)
-- [What is security zones?](/glossary/security-zones)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is policy enforcement?](/glossary/policy-enforcement)
-- [What is lateral movement?](/glossary/lateral-movement)
+- [What is network segmentation?](/docs/glossary/network-segmentation)
+- [What is security zones?](/docs/glossary/security-zones)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is policy enforcement?](/docs/glossary/policy-enforcement)
+- [What is lateral movement?](/docs/glossary/lateral-movement)
 
 ---
 

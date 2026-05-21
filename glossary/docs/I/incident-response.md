@@ -100,11 +100,11 @@ Trisul supports incident response by providing flow-based visibility into networ
 
 ## Related terms
 
-- [What is threat detection?](/glossary/threat-detection)
-- [What is indicator of compromise?](/glossary/indicator-of-compromise)
-- [What is forensic analysis?](/glossary/forensic-analysis)
-- [What is network monitoring?](/glossary/network-monitoring)
-- [What is SIEM?](/glossary/siem)
+- [What is threat detection?](/docs/glossary/threat-detection)
+- [What is indicator of compromise?](/docs/glossary/indicator-of-compromise)
+- [What is forensic analysis?](/docs/glossary/forensic-analysis)
+- [What is network monitoring?](/docs/glossary/network-monitoring)
+- [What is SIEM?](/docs/glossary/siem)
 
 ---
 

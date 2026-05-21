@@ -101,12 +101,12 @@ Trisul IPDR Solution offers real-time analysis, deduplication, and compression t
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is IPDR?](/glossary/ipdr)
-- [What is lawful interception?](/glossary/lawful-interception)
-- [What is flow data?](/glossary/flow-data)
-- [What is TRAI compliance?](/glossary/trai-compliance)
-- [What is NAT?](/glossary/nat)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is IPDR?](/docs/glossary/ipdr)
+- [What is lawful interception?](/docs/glossary/lawful-interception)
+- [What is flow data?](/docs/glossary/flow-data)
+- [What is TRAI compliance?](/docs/glossary/trai-compliance)
+- [What is NAT?](/docs/glossary/nat)
 
 ---
 

@@ -103,11 +103,11 @@ Trisul stores flow data without summarization or rollup. Use retro analysis tool
 
 ## Related terms
 
-- [What is retro analysis?](/glossary/retro-analysis)
-- [What is capacity planning?](/glossary/capacity-planning)
-- [What is monthly usage reports?](/glossary/monthly-usage-reports)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is storage?](/glossary/storage)
+- [What is retro analysis?](/docs/glossary/retro-analysis)
+- [What is capacity planning?](/docs/glossary/capacity-planning)
+- [What is monthly usage reports?](/docs/glossary/monthly-usage-reports)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is storage?](/docs/glossary/storage)
 
 ---
 

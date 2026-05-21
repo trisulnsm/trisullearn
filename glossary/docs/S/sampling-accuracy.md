@@ -102,11 +102,11 @@ Trisul receives sampled NetFlow data and scales byte and packet counts by the in
 
 ## Related terms
 
-- [What is NetFlow sampling?](/glossary/netflow-sampling)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is traffic estimation?](/glossary/traffic-estimation)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is sFlow?](/glossary/sflow)
+- [What is NetFlow sampling?](/docs/glossary/netflow-sampling)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is traffic estimation?](/docs/glossary/traffic-estimation)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is sFlow?](/docs/glossary/sflow)
 
 ---
 

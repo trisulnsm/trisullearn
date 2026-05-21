@@ -106,11 +106,11 @@ Trisul accepts traffic from both TAPs and SPAN ports for packet capture and flow
 
 ## Related terms
 
-- [What is network TAP?](/glossary/network-tap)
-- [What is SPAN port?](/glossary/span-port)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is observation point?](/glossary/observation-point)
-- [What is passive network monitoring?](/glossary/passive-network-monitoring)
+- [What is network TAP?](/docs/glossary/network-tap)
+- [What is SPAN port?](/docs/glossary/span-port)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is observation point?](/docs/glossary/observation-point)
+- [What is passive network monitoring?](/docs/glossary/passive-network-monitoring)
 
 ---
 

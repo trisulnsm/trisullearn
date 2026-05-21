@@ -105,11 +105,11 @@ Trisul provides query based investigation through search functionality. Search b
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is Key Dashboard?](/glossary/key-dashboard)
-- [What is per-flow indexing?](/glossary/per-flow-indexing)
-- [What is incident investigation?](/glossary/incident-investigation)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is Key Dashboard?](/docs/glossary/key-dashboard)
+- [What is per-flow indexing?](/docs/glossary/per-flow-indexing)
+- [What is incident investigation?](/docs/glossary/incident-investigation)
 
 ---
 

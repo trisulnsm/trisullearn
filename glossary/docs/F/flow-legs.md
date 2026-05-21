@@ -90,12 +90,12 @@ For NAT environments, Trisul's NAT leg correlation applies port heuristics to de
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is flow stitching?](/glossary/flow-stitching)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is NetFlow?](/glossary/netflow)
-- [What is flow sampling?](/glossary/flow-sampling)
-- [What is flow timeout?](/glossary/flow-timeout)
+- [What is a flow?](/docs/glossary/flow)
+- [What is flow stitching?](/docs/glossary/flow-stitching)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
+- [What is flow timeout?](/docs/glossary/flow-timeout)
 
 ---
 

@@ -100,11 +100,11 @@ Trisul ISP Analytics is a set of applications installed on top of the base Trisu
 
 ## Related terms
 
-- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
-- [What is ASN?](/glossary/asn)
-- [What is NetFlow?](/glossary/netflow)
-- [What is prefix?](/glossary/prefix)
-- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
+- [What is ASN?](/docs/glossary/asn)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is prefix?](/docs/glossary/prefix)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
 
 ---
 

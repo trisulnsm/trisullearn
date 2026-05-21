@@ -104,11 +104,11 @@ Trisul provides VLAN traffic analysis through flow data enriched with VLAN ID fr
 
 ## Related terms
 
-- [What is VLAN?](/glossary/vlan)
-- [What is inter-VLAN routing?](/glossary/inter-vlan-routing)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is network segmentation?](/glossary/network-segmentation)
+- [What is VLAN?](/docs/glossary/vlan)
+- [What is inter-VLAN routing?](/docs/glossary/inter-vlan-routing)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is network segmentation?](/docs/glossary/network-segmentation)
 
 ---
 

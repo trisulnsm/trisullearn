@@ -104,11 +104,11 @@ Trisul provides security analytics through flow-based visibility identifying ind
 
 ## Related terms
 
-- [What is threat detection?](/glossary/threat-detection)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
-- [What is indicator of compromise?](/glossary/indicator-of-compromise)
-- [What is threat intelligence?](/glossary/threat-intelligence)
-- [What is incident response?](/glossary/incident-response)
+- [What is threat detection?](/docs/glossary/threat-detection)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is indicator of compromise?](/docs/glossary/indicator-of-compromise)
+- [What is threat intelligence?](/docs/glossary/threat-intelligence)
+- [What is incident response?](/docs/glossary/incident-response)
 
 ---
 

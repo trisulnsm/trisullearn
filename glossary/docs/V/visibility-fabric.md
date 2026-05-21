@@ -104,11 +104,11 @@ Trisul integrates with Visibility Fabric through flow data and packet capture fr
 
 ## Related terms
 
-- [What is network TAP?](/glossary/network-tap)
-- [What is SPAN port?](/glossary/span-port)
-- [What is packet broker?](/glossary/packet-broker)
-- [What is observation point?](/glossary/observation-point)
-- [What is passive network monitoring?](/glossary/passive-network-monitoring)
+- [What is network TAP?](/docs/glossary/network-tap)
+- [What is SPAN port?](/docs/glossary/span-port)
+- [What is packet broker?](/docs/glossary/packet-broker)
+- [What is observation point?](/docs/glossary/observation-point)
+- [What is passive network monitoring?](/docs/glossary/passive-network-monitoring)
 
 ---
 

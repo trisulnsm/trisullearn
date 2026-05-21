@@ -105,11 +105,11 @@ Trisul provides streaming analytics through flow data processing data as it arri
 
 ## Related terms
 
-- [What is real-time traffic monitoring?](/glossary/realtime-traffic-monitoring)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
-- [What is alerting?](/glossary/alerting)
-- [What is batch processing?](/glossary/batch-processing)
+- [What is real-time traffic monitoring?](/docs/glossary/realtime-traffic-monitoring)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
+- [What is alerting?](/docs/glossary/alerting)
+- [What is batch processing?](/docs/glossary/batch-processing)
 
 ---
 

@@ -103,12 +103,12 @@ For direct dropped packet monitoring, operators should use network device counte
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is network performance monitoring?](/glossary/network-performance-monitoring)
-- [What is TCP retransmission?](/glossary/tcp-retransmission)
-- [What is congestion?](/glossary/congestion)
-- [What is QoS?](/glossary/qos)
-- [What is interface saturation?](/glossary/interface-saturation)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is network performance monitoring?](/docs/glossary/network-performance-monitoring)
+- [What is TCP retransmission?](/docs/glossary/tcp-retransmission)
+- [What is congestion?](/docs/glossary/congestion)
+- [What is QoS?](/docs/glossary/qos)
+- [What is interface saturation?](/docs/glossary/interface-saturation)
 
 ---
 

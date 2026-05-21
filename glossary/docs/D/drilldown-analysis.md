@@ -101,12 +101,12 @@ Clicking on a metric in a dashboard, such as top talkers or interface utilizatio
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow analysis?](/glossary/flow-analysis)
-- [What is Interface Tracking?](/glossary/interface-tracking)
-- [What is top talkers?](/glossary/top-talkers)
-- [What is a flow?](/glossary/flow)
-- [What is root cause analysis?](/glossary/root-cause-analysis)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow analysis?](/docs/glossary/flow-analysis)
+- [What is Interface Tracking?](/docs/glossary/interface-tracking)
+- [What is top talkers?](/docs/glossary/top-talkers)
+- [What is a flow?](/docs/glossary/flow)
+- [What is root cause analysis?](/docs/glossary/root-cause-analysis)
 
 ---
 

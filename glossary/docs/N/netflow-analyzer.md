@@ -106,11 +106,11 @@ Trisul provides NetFlow Analyzer capabilities through flow collection and analys
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is capacity planning?](/glossary/capacity-planning)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is capacity planning?](/docs/glossary/capacity-planning)
 
 ---
 

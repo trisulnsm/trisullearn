@@ -105,11 +105,11 @@ Trisul captures raw packets continuously using PF_RING or AF_PACKET and builds a
 
 ## Related terms
 
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is network TAP?](/glossary/network-tap)
-- [What is SPAN port?](/glossary/span-port)
-- [What is network forensics?](/glossary/network-forensics)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is network TAP?](/docs/glossary/network-tap)
+- [What is SPAN port?](/docs/glossary/span-port)
+- [What is network forensics?](/docs/glossary/network-forensics)
 
 ---
 

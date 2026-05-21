@@ -104,11 +104,11 @@ Trisul establishes traffic baselines through historical traffic analysis computi
 
 ## Related terms
 
-- [What is anomaly detection?](/glossary/anomaly-detection)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
-- [What is threshold-based alerting?](/glossary/threshold-based-alerting)
-- [What is security analytics?](/glossary/security-analytics)
-- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is anomaly detection?](/docs/glossary/anomaly-detection)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
+- [What is threshold-based alerting?](/docs/glossary/threshold-based-alerting)
+- [What is security analytics?](/docs/glossary/security-analytics)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
 
 ---
 

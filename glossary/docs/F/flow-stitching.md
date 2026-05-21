@@ -103,13 +103,13 @@ For environments where per-leg detail is not needed, Trisul provides three handl
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is flow timeout?](/glossary/flow-timeout)
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is flow sampling?](/glossary/flow-sampling)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is a flow?](/docs/glossary/flow)
+- [What is flow timeout?](/docs/glossary/flow-timeout)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
 
 ---
 

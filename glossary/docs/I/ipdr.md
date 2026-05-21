@@ -104,11 +104,11 @@ Trisul collects and analyzes IPDR data from various sources including CMTS, OLT,
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is CDR?](/glossary/cdr)
-- [What is subscriber billing?](/glossary/subscriber-billing)
-- [What is OSS BSS?](/glossary/oss-bss)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is CDR?](/docs/glossary/cdr)
+- [What is subscriber billing?](/docs/glossary/subscriber-billing)
+- [What is OSS BSS?](/docs/glossary/oss-bss)
 
 ---
 

@@ -102,12 +102,12 @@ For full DPI capabilities including malware detection, application identificatio
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is encrypted traffic analytics?](/glossary/encrypted-traffic-analytics)
-- [What is IDS?](/glossary/ids)
-- [What is NGFW?](/glossary/ngfw)
-- [What is JA3?](/glossary/ja3)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is encrypted traffic analytics?](/docs/glossary/encrypted-traffic-analytics)
+- [What is IDS?](/docs/glossary/ids)
+- [What is NGFW?](/docs/glossary/ngfw)
+- [What is JA3?](/docs/glossary/ja3)
 
 ---
 

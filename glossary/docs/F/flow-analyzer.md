@@ -101,14 +101,14 @@ Trigger-based alerting is built into the analyzer: fixed-limit alerts for specif
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow collector?](/glossary/flow-collector)
-- [What is flow data?](/glossary/flow-data)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is Top-K analytics?](/glossary/top-k-analytics)
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is flow tracker?](/glossary/flow-tracker)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow collector?](/docs/glossary/flow-collector)
+- [What is flow data?](/docs/glossary/flow-data)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is flow tracker?](/docs/glossary/flow-tracker)
 
 ---
 

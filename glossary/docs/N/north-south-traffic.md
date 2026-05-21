@@ -101,11 +101,11 @@ Trisul monitors north south traffic at data center edge interfaces through flow 
 
 ## Related terms
 
-- [What is east west traffic?](/glossary/east-west-traffic)
-- [What is inbound traffic?](/glossary/inbound-traffic)
-- [What is outbound traffic?](/glossary/outbound-traffic)
-- [What is data center monitoring?](/glossary/data-center-monitoring)
-- [What is traffic direction?](/glossary/traffic-direction)
+- [What is east west traffic?](/docs/glossary/east-west-traffic)
+- [What is inbound traffic?](/docs/glossary/inbound-traffic)
+- [What is outbound traffic?](/docs/glossary/outbound-traffic)
+- [What is data center monitoring?](/docs/glossary/data-center-monitoring)
+- [What is traffic direction?](/docs/glossary/traffic-direction)
 
 ---
 

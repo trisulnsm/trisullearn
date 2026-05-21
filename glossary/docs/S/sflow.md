@@ -105,11 +105,11 @@ Trisul collects sFlow data from switches and routers natively. sFlow datagrams a
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is packet sampling?](/glossary/packet-sampling)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is traffic analysis?](/glossary/traffic-analysis)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is packet sampling?](/docs/glossary/packet-sampling)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is traffic analysis?](/docs/glossary/traffic-analysis)
 
 ---
 

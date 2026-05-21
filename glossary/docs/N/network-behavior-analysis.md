@@ -104,11 +104,11 @@ Trisul provides Network Behavior Analysis through Traffic Pattern Analysis that 
 
 ## Related terms
 
-- [What is anomaly detection?](/glossary/anomaly-detection)
-- [What is threat detection?](/glossary/threat-detection)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
-- [What is machine learning?](/glossary/machine-learning)
-- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is anomaly detection?](/docs/glossary/anomaly-detection)
+- [What is threat detection?](/docs/glossary/threat-detection)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
+- [What is machine learning?](/docs/glossary/machine-learning)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
 
 ---
 

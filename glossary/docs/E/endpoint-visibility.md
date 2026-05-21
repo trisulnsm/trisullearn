@@ -101,12 +101,12 @@ Trisul helps bridge the gap by correlating network activity with endpoint IPs an
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
-- [What is flow analysis?](/glossary/flow-analysis)
-- [What is endpoint detection and response?](/glossary/endpoint-detection-and-response)
-- [What is a flow?](/glossary/flow)
-- [What is full packet capture?](/glossary/full-packet-capture)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is flow analysis?](/docs/glossary/flow-analysis)
+- [What is endpoint detection and response?](/docs/glossary/endpoint-detection-and-response)
+- [What is a flow?](/docs/glossary/flow)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
 
 ---
 

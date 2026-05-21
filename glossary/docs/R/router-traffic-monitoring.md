@@ -104,11 +104,11 @@ Trisul provides router traffic monitoring through flow data collection from rout
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is SNMP?](/glossary/snmp)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is interface monitoring?](/glossary/interface-monitoring)
-- [What is top talkers?](/glossary/top-talkers)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is SNMP?](/docs/glossary/snmp)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is interface monitoring?](/docs/glossary/interface-monitoring)
+- [What is top talkers?](/docs/glossary/top-talkers)
 
 ---
 

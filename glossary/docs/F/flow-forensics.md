@@ -103,13 +103,13 @@ For incidents where flow scope needs to be confirmed at the packet level, Trisul
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is flow sampling?](/glossary/flow-sampling)
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is retro analysis?](/glossary/retro-analysis)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is a flow?](/docs/glossary/flow)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is retro analysis?](/docs/glossary/retro-analysis)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
 
 ---
 

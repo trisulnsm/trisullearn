@@ -120,14 +120,14 @@ Every flow record is stored without rollup or summarization, preserving full res
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is sFlow?](/glossary/sflow)
-- [What is flow sampling?](/glossary/flow-sampling)
-- [What is flow stitching?](/glossary/flow-stitching)
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is full packet capture?](/glossary/full-packet-capture)
+- [What is a flow?](/docs/glossary/flow)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is sFlow?](/docs/glossary/sflow)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
+- [What is flow stitching?](/docs/glossary/flow-stitching)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
 
 ---
 

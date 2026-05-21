@@ -103,11 +103,11 @@ Trisul is deployed as trisul-probe instances reporting back to trisul-hub in dis
 
 ## Related terms
 
-- [What is network segmentation?](/glossary/network-segmentation)
-- [What is VLAN?](/glossary/vlan)
-- [What is VRF?](/glossary/vrf)
-- [What is cloud monitoring?](/glossary/cloud-monitoring)
-- [What is MSP?](/glossary/msp)
+- [What is network segmentation?](/docs/glossary/network-segmentation)
+- [What is VLAN?](/docs/glossary/vlan)
+- [What is VRF?](/docs/glossary/vrf)
+- [What is cloud monitoring?](/docs/glossary/cloud-monitoring)
+- [What is MSP?](/docs/glossary/msp)
 
 ---
 

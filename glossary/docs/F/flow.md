@@ -120,14 +120,14 @@ Flow Taggers allow operators to attach searchable text labels to flow records in
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is sFlow?](/glossary/sflow)
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is flow tagger?](/glossary/flow-tagger)
-- [What is flow tracker?](/glossary/flow-tracker)
-- [What is flow sampling?](/glossary/flow-sampling)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is sFlow?](/docs/glossary/sflow)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is flow tagger?](/docs/glossary/flow-tagger)
+- [What is flow tracker?](/docs/glossary/flow-tracker)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
 
 ---
 

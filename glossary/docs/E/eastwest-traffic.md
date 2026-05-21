@@ -103,12 +103,12 @@ Trisul's flow analytics support east-west traffic analysis by identifying top ta
 
 ## Related terms
 
-- [What is north-south traffic?](/glossary/north-south-traffic)
-- [What is lateral movement?](/glossary/lateral-movement)
-- [What is micro-segmentation?](/glossary/micro-segmentation)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
-- [What is a flow?](/glossary/flow)
+- [What is north-south traffic?](/docs/glossary/north-south-traffic)
+- [What is lateral movement?](/docs/glossary/lateral-movement)
+- [What is micro-segmentation?](/docs/glossary/micro-segmentation)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is a flow?](/docs/glossary/flow)
 
 ---
 

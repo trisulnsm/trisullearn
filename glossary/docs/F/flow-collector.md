@@ -105,14 +105,14 @@ For observation points where device-based export is unavailable or produces samp
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is flow exporter?](/glossary/flow-exporter)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow data?](/glossary/flow-data)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is sFlow?](/glossary/sflow)
-- [What is flow sampling?](/glossary/flow-sampling)
+- [What is a flow?](/docs/glossary/flow)
+- [What is flow exporter?](/docs/glossary/flow-exporter)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow data?](/docs/glossary/flow-data)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is sFlow?](/docs/glossary/sflow)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
 
 ---
 

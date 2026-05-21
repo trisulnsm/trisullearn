@@ -101,11 +101,11 @@ Trisul provides live traffic monitoring through real-time flow data collection. 
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is real-time traffic?](/glossary/real-time-traffic)
-- [What is Key Dashboard?](/glossary/key-dashboard)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
-- [What is NetFlow?](/glossary/netflow)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is real-time traffic?](/docs/glossary/real-time-traffic)
+- [What is Key Dashboard?](/docs/glossary/key-dashboard)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
+- [What is NetFlow?](/docs/glossary/netflow)
 
 ---
 

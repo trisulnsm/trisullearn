@@ -101,11 +101,11 @@ Trisul provides the Key Dashboard as part of its core UI. Login as user, navigat
 
 ## Related terms
 
-- [What is Explore Flows?](/glossary/explore-flows)
-- [What is real-time traffic?](/glossary/real-time-traffic)
-- [What is counter group?](/glossary/counter-group)
-- [What is flow tracker?](/glossary/flow-tracker)
-- [What is retro analysis?](/glossary/retro-analysis)
+- [What is Explore Flows?](/docs/glossary/explore-flows)
+- [What is real-time traffic?](/docs/glossary/real-time-traffic)
+- [What is counter group?](/docs/glossary/counter-group)
+- [What is flow tracker?](/docs/glossary/flow-tracker)
+- [What is retro analysis?](/docs/glossary/retro-analysis)
 
 ---
 

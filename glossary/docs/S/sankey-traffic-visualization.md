@@ -104,11 +104,11 @@ Trisul provides Sankey traffic visualization through traffic analysis dashboards
 
 ## Related terms
 
-- [What is traffic visualization?](/glossary/traffic-visualization)
-- [What is top talkers?](/glossary/top-talkers)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is network visualization?](/glossary/network-visualization)
+- [What is traffic visualization?](/docs/glossary/traffic-visualization)
+- [What is top talkers?](/docs/glossary/top-talkers)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is network visualization?](/docs/glossary/network-visualization)
 
 ---
 

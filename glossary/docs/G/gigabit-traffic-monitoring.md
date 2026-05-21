@@ -91,11 +91,11 @@ Trisul uses flow-based monitoring that scales to gigabit speeds by collecting Ne
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is SNMP?](/glossary/snmp)
-- [What is NetFlow?](/glossary/netflow)
-- [What is interface saturation?](/glossary/interface-saturation)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is SNMP?](/docs/glossary/snmp)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is interface saturation?](/docs/glossary/interface-saturation)
 
 ---
 

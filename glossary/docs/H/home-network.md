@@ -99,11 +99,11 @@ Trisul uses home network configuration to classify traffic direction and enable 
 
 ## Related terms
 
-- [What is flow tagging?](/glossary/flow-tagging)
-- [What is Explore Flows?](/glossary/explore-flows)
-- [What is counter group?](/glossary/counter-group)
-- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
-- [What is RFC1918?](/glossary/rfc1918)
+- [What is flow tagging?](/docs/glossary/flow-tagging)
+- [What is Explore Flows?](/docs/glossary/explore-flows)
+- [What is counter group?](/docs/glossary/counter-group)
+- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
+- [What is RFC1918?](/docs/glossary/rfc1918)
 
 ---
 

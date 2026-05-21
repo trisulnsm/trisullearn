@@ -106,11 +106,11 @@ Trisul correlates NAT logging data with flow records to provide visibility into 
 
 ## Related terms
 
-- [What is NetFlow?](/glossary/netflow)
-- [What is security auditing?](/glossary/security-auditing)
-- [What is firewall logging?](/glossary/firewall-logging)
-- [What is incident investigation?](/glossary/incident-investigation)
-- [What is Syslog?](/glossary/syslog)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is security auditing?](/docs/glossary/security-auditing)
+- [What is firewall logging?](/docs/glossary/firewall-logging)
+- [What is incident investigation?](/docs/glossary/incident-investigation)
+- [What is Syslog?](/docs/glossary/syslog)
 
 ---
 

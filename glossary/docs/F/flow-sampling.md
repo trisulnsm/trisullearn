@@ -123,14 +123,14 @@ For environments where complete flow visibility is required, Trisul can reconstr
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is sFlow?](/glossary/sflow)
-- [What is flow timeout?](/glossary/flow-timeout)
-- [What is flow stitching?](/glossary/flow-stitching)
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
+- [What is a flow?](/docs/glossary/flow)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is sFlow?](/docs/glossary/sflow)
+- [What is flow timeout?](/docs/glossary/flow-timeout)
+- [What is flow stitching?](/docs/glossary/flow-stitching)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
 
 ---
 

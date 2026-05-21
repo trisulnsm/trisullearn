@@ -103,11 +103,11 @@ Trisul monitors jitter through flow data analysis and packet capture timestamps.
 
 ## Related terms
 
-- [What is latency monitoring?](/glossary/latency-monitoring)
-- [What is network performance?](/glossary/network-performance)
-- [What is VoIP?](/glossary/voip)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is flow monitoring?](/glossary/flow-monitoring)
+- [What is latency monitoring?](/docs/glossary/latency-monitoring)
+- [What is network performance?](/docs/glossary/network-performance)
+- [What is VoIP?](/docs/glossary/voip)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
 
 ---
 

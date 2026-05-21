@@ -99,10 +99,10 @@ Trisul enriches flow records with BGP attributes including source and destinatio
 
 ## Related terms
 
-- [What is ASN?](/glossary/asn)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is BGP peering analytics?](/glossary/bgp-peering-analytics)
-- [What is IP address?](/glossary/ip-address)
+- [What is ASN?](/docs/glossary/asn)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
+- [What is IP address?](/docs/glossary/ip-address)
 
 ---
 

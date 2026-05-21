@@ -103,11 +103,11 @@ Trisul provides QoS monitoring through flow data analysis tracking bandwidth uti
 
 ## Related terms
 
-- [What is latency monitoring?](/glossary/latency-monitoring)
-- [What is jitter monitoring?](/glossary/jitter-monitoring)
-- [What is packet loss monitoring?](/glossary/packet-loss-monitoring)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is network performance?](/glossary/network-performance)
+- [What is latency monitoring?](/docs/glossary/latency-monitoring)
+- [What is jitter monitoring?](/docs/glossary/jitter-monitoring)
+- [What is packet loss monitoring?](/docs/glossary/packet-loss-monitoring)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is network performance?](/docs/glossary/network-performance)
 
 ---
 

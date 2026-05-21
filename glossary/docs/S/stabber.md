@@ -105,11 +105,11 @@ Trisul provides Stabberᵀ as a core real-time statistics module. Flow data is p
 
 ## Related terms
 
-- [What is real-time traffic monitoring?](/glossary/realtime-traffic-monitoring)
-- [What is streaming analytics?](/glossary/streaming-analytics)
-- [What is top talkers?](/glossary/top-talkers)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
+- [What is real-time traffic monitoring?](/docs/glossary/realtime-traffic-monitoring)
+- [What is streaming analytics?](/docs/glossary/streaming-analytics)
+- [What is top talkers?](/docs/glossary/top-talkers)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
 
 ---
 

@@ -106,11 +106,11 @@ Trisul provides top talkers through real-time and historical analysis showing to
 
 ## Related terms
 
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is traffic analysis?](/glossary/traffic-analysis)
-- [What is Top-K Analyticsᵀ?](/glossary/top-k-analytics)
-- [What is traffic pattern analysis?](/glossary/traffic-pattern-analysis)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is traffic analysis?](/docs/glossary/traffic-analysis)
+- [What is Top-K Analyticsᵀ?](/docs/glossary/top-k-analytics)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
 
 ---
 

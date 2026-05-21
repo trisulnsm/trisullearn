@@ -103,11 +103,11 @@ Trisul provides upstream vs downstream analytics through ISP Analytics applicati
 
 ## Related terms
 
-- [What is ISP traffic analytics?](/glossary/isp-traffic-analytics)
-- [What is traffic direction?](/glossary/traffic-direction)
-- [What is inbound traffic?](/glossary/inbound-traffic)
-- [What is outbound traffic?](/glossary/outbound-traffic)
-- [What is bandwidth asymmetry?](/glossary/bandwidth-asymmetry)
+- [What is ISP traffic analytics?](/docs/glossary/isp-traffic-analytics)
+- [What is traffic direction?](/docs/glossary/traffic-direction)
+- [What is inbound traffic?](/docs/glossary/inbound-traffic)
+- [What is outbound traffic?](/docs/glossary/outbound-traffic)
+- [What is bandwidth asymmetry?](/docs/glossary/bandwidth-asymmetry)
 
 ---
 

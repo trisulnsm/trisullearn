@@ -103,13 +103,13 @@ For observation points where hardware exporters are insufficient, Trisul can act
 
 ## Related terms
 
-- [What is a flow?](/glossary/flow)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is NetFlow?](/glossary/netflow)
-- [What is IPFIX?](/glossary/ipfix)
-- [What is sFlow?](/glossary/sflow)
-- [What is flow sampling?](/glossary/flow-sampling)
-- [What is flow legs?](/glossary/flow-legs)
+- [What is a flow?](/docs/glossary/flow)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is sFlow?](/docs/glossary/sflow)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
+- [What is flow legs?](/docs/glossary/flow-legs)
 
 ---
 

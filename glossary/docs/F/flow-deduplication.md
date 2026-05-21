@@ -102,13 +102,13 @@ Flow Legs Correlation in Web Trisul options provides a middle path: legs are gro
 
 ## Related terms
 
-- [What is flow legs?](/glossary/flow-legs)
-- [What is flow stitching?](/glossary/flow-stitching)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is flow exporter?](/glossary/flow-exporter)
-- [What is a flow?](/glossary/flow)
-- [What is NetFlow?](/glossary/netflow)
-- [What is flow sampling?](/glossary/flow-sampling)
+- [What is flow legs?](/docs/glossary/flow-legs)
+- [What is flow stitching?](/docs/glossary/flow-stitching)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is flow exporter?](/docs/glossary/flow-exporter)
+- [What is a flow?](/docs/glossary/flow)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is flow sampling?](/docs/glossary/flow-sampling)
 
 ---
 

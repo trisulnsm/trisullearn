@@ -107,11 +107,11 @@ Trisul stores flow data in backend databases for historical analysis and reporti
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is capacity planning?](/glossary/capacity-planning)
-- [What is bandwidth monitoring?](/glossary/bandwidth-monitoring)
-- [What is trend analysis?](/glossary/trend-analysis)
-- [What is real-time monitoring?](/glossary/real-time-monitoring)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is capacity planning?](/docs/glossary/capacity-planning)
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- [What is trend analysis?](/docs/glossary/trend-analysis)
+- [What is real-time monitoring?](/docs/glossary/real-time-monitoring)
 
 ---
 

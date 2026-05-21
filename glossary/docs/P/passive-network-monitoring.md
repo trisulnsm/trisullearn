@@ -101,11 +101,11 @@ Trisul implements passive network monitoring through flow data collection from r
 
 ## Related terms
 
-- [What is network TAP?](/glossary/network-tap)
-- [What is SPAN port?](/glossary/span-port)
-- [What is active monitoring?](/glossary/active-monitoring)
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is packet capture?](/glossary/packet-capture)
+- [What is network TAP?](/docs/glossary/network-tap)
+- [What is SPAN port?](/docs/glossary/span-port)
+- [What is active monitoring?](/docs/glossary/active-monitoring)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is packet capture?](/docs/glossary/packet-capture)
 
 ---
 

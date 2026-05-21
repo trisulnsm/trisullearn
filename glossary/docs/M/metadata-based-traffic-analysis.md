@@ -103,11 +103,11 @@ Trisul uses metadata based traffic analysis by collecting NetFlow, J-Flow, sFlow
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is packet capture?](/glossary/packet-capture)
-- [What is NetFlow?](/glossary/netflow)
-- [What is application monitoring?](/glossary/application-monitoring)
-- [What is threat detection?](/glossary/threat-detection)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is NetFlow?](/docs/glossary/netflow)
+- [What is application monitoring?](/docs/glossary/application-monitoring)
+- [What is threat detection?](/docs/glossary/threat-detection)
 
 ---
 

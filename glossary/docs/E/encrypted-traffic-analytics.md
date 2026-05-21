@@ -101,12 +101,12 @@ Trisul does not perform decryption. It uses metadata and behavioral analysis to 
 
 ## Related terms
 
-- [What is flow monitoring?](/glossary/flow-monitoring)
-- [What is full packet capture?](/glossary/full-packet-capture)
-- [What is JA3?](/glossary/ja3)
-- [What is flow analysis?](/glossary/flow-analysis)
-- [What is network security monitoring?](/glossary/network-security-monitoring)
-- [What is TLS?](/glossary/tls)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is full packet capture?](/docs/glossary/full-packet-capture)
+- [What is JA3?](/docs/glossary/ja3)
+- [What is flow analysis?](/docs/glossary/flow-analysis)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is TLS?](/docs/glossary/tls)
 
 ---
 
