@@ -1,6 +1,6 @@
 ---
 title: What is application visibility?
-description: Application visibility is the ability to identify, monitor, and analyze network traffic by application rather than just by IP address and port, enabling granular control, QoS policies, and security monitoring at the application layer.
+description: Application visibility is the ability to identify, monitor, and analyze network traffic by application rather than just by IP address and port.
 sidebar_label: Application visibility
 sidebar_position: 41
 slug: /glossary/application-visibility
@@ -10,92 +10,122 @@ keywords:
   - application identification
   - layer 7 visibility
   - application classification
-  - netaflow application visibility
+  - netflow application visibility
   - application monitoring
+  - flow monitoring
+  - Top-K analytics
 ---
 
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How does application visibility work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Application visibility identifies applications using deep packet inspection, behavioral analysis, signature matching, and statistical classification. It looks at application signatures within traffic flows regardless of port or protocol. Modern applications often use dynamic ports or tunnel within other services, so application visibility must go beyond port-based identification."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between port-based and application-based identification?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Port-based identification classifies traffic by destination port (e.g., port 80 = HTTP, port 443 = HTTPS). Application-based identification classifies traffic by application signature, behavior, or protocol characteristics regardless of port. Modern cloud apps often evade port-based detection by switching ports or tunneling, making application-based identification essential."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What use cases does application visibility support?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Application visibility supports QoS by prioritizing critical applications, security by detecting unauthorized applications, capacity planning by identifying bandwidth-hogging apps, compliance by monitoring application usage, and troubleshooting by identifying application latency issues. It enables policies based on application name rather than IP and port."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does encryption affect application visibility?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Encryption hides payload content, making traditional DPI ineffective. Application visibility tools use JA3 fingerprints, SNI, certificate analysis, and behavioral patterns to identify encrypted traffic. Some organizations perform TLS decryption to inspect encrypted payloads, but this raises privacy and legal concerns."
-      }
+  "@type": "Article",
+  "headline": "What is Application Visibility?",
+  "description": "Application visibility is the ability to identify, monitor, and analyze network traffic by application rather than just by IP address and port.",
+  "about": {
+    "@type": "DefinedTerm",
+    "name": "Application Visibility",
+    "inDefinedTermSet": {
+      "@type": "DefinedTermSet",
+      "name": "Network Analytics Glossary",
+      "url": "https://www.trisul.org/glossary"
     }
-  ]
+  }
 };
 
 # What is application visibility?
 
-Application visibility identifies, monitors, and analyzes network traffic by application rather than just by IP address and port. It enables granular control, QoS policies, and security monitoring at Layer 7. Modern applications often use dynamic ports or tunnel within other services, making application-based identification essential beyond simple port-based classification.
+Application visibility is the ability to **identify**, **monitor**, and **analyze** network traffic by application rather than just by IP address and port. It helps operators understand traffic at the application level, which is more useful than port-only classification in many modern networks.
 
 ---
 
 ## How it works
 
-Application visibility uses deep packet inspection, behavioral analysis, signature matching, and statistical classification to identify applications regardless of port. It examines application signatures within traffic flows. For encrypted traffic, it uses JA3 fingerprints, SNI, certificate analysis, and behavioral patterns instead of payload inspection.
+Application visibility identifies applications using packet inspection, protocol analysis, behavioral analysis, and traffic classification. It looks at application signatures and traffic characteristics rather than relying only on port numbers.
+
+The identification process typically involves:
+1. **Traffic capture** → Collect flow data or packets.
+2. **Signature matching** → Compare traffic patterns against known application signatures.
+3. **Behavioral analysis** → Analyze traffic behavior such as packet sizes, timing, and flow duration.
+4. **Classification** → Assign an application name to the traffic flow.
+5. **Enrichment** → Add application metadata to flow records for analysis.
+
+For encrypted traffic, application visibility may rely on metadata, handshake characteristics, SNI, certificate details, and behavioral patterns instead of payload inspection.
 
 ---
 
 ## In network operations
 
-- **NOC:** Use application-based QoS to prioritize critical apps like VoIP over non-critical traffic like streaming.
+- **NOC:** Use application-based prioritization to support critical services such as VoIP or conferencing.
 - **SOC:** Detect unauthorized applications and policy violations by identifying app usage regardless of port.
-- **Capacity Planning:** Identify bandwidth-hogging applications and plan upgrades based on application traffic patterns.
+- **Capacity Planning:** Identify bandwidth-heavy applications and plan upgrades based on application traffic patterns.
+
+Application visibility is most useful when traffic can be analyzed by application name rather than by only IP address and port.
 
 ---
 
-## Port-based vs application-based identification
+## Port-based vs application-based
 
 | Dimension | Port-based | Application-based |
 |---|---|---|
-| Classification | By destination port only | By app signature, behavior |
-| Dynamic ports | Cannot detect | Detects regardless of port |
-| Tunneling | Cannot detect | Detects tunneled traffic |
-| Encryption | Limited with encrypted traffic | Uses metadata and fingerprints |
+| Classification | By destination port only | By application signature, behavior, and protocol characteristics |
+| Dynamic ports | Limited | Better suited |
+| Tunneling | Limited | Better suited |
+| Encryption | Limited with encrypted traffic | Can use metadata and behavioral cues |
+| Accuracy | Lower in modern cloud environments | Higher in many modern environments |
+
+Application-based identification is important because modern applications may use dynamic ports or tunnel within other services.
 
 ---
 
-## How Trisul handles it
+## Application visibility use cases
 
-Trisul provides application visibility through flow monitoring that enriches flow records with application identification from BGP and application metadata. Trisul's flow analytics enable querying and reporting by application in Explore Flows and dashboards. Top-K analytics provides per-application traffic ranking. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+| Use Case | Benefit |
+|---|---|
+| QoS prioritization | Prioritize critical applications such as VoIP or video conferencing. |
+| Security monitoring | Detect unauthorized applications and shadow IT. |
+| Capacity planning | Identify bandwidth-heavy applications. |
+| Compliance | Monitor application usage for audits. |
+| Troubleshooting | Identify application latency issues. |
+| Policy enforcement | Block or limit specific applications. |
 
 ---
+
+## Encryption impact
+
+Encryption hides payload content, which can limit traditional payload inspection. Application visibility tools may use handshake metadata, certificate details, and traffic behavior to identify encrypted applications.
+
+| Method | What it analyzes |
+|---|---|
+| Handshake metadata | TLS session characteristics |
+| SNI | Domain name information in the TLS handshake |
+| Certificate analysis | SSL/TLS certificate details |
+| Behavioral patterns | Packet sizes, timing, and flow duration |
+| Flow metadata | Source, destination, ports, protocol, bytes, and packets |
+
+Some organizations decrypt TLS traffic for deeper inspection, but that can raise privacy and operational concerns.
+
+---
+
+## Trisul relevance
+
+Application visibility is relevant to Trisul Network Analytics as a traffic-analysis concept, but it should be described carefully as network-level visibility rather than full application performance monitoring. Avoid claiming application-layer inspection features unless they are explicitly documented.
 
 ## Related terms
 
-- [What is DPI?](/docs/glossary/dpi)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is encrypted traffic analytics?](/docs/glossary/encrypted-traffic-analytics)
-- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
+- [DPI (Deep Packet Inspection)](/glossary/dpi)
+- [Flow monitoring](/glossary/flow-monitoring)
+- [Encrypted traffic analytics](/glossary/encrypted-traffic-analytics)
+- [Top-K analytics](/glossary/top-k-analytics)
+- [NetFlow](/glossary/netflow)
+- [Application monitoring](/glossary/application-monitoring)
+- [Protocol detection](/glossary/protocol-detection)
+- [Traffic classification](/glossary/traffic-classification)
+- [QoS](/glossary/qos)
+- [Shadow IT](/glossary/shadow-it)
+- [Explore Flows](/glossary/explore-flows)
+- [Aggregate Flows](/glossary/aggregate-flows)
+- [Rule Builder](/glossary/rule-builder)
+- [JA3 fingerprint](/glossary/ja3-fingerprint)
 
 ---
 
@@ -103,16 +133,28 @@ Trisul provides application visibility through flow monitoring that enriches flo
 
 ### How does application visibility work?
 
-Application visibility identifies applications using deep packet inspection, behavioral analysis, signature matching, and statistical classification. It looks at application signatures within traffic flows regardless of port or protocol. Modern applications often use dynamic ports or tunnel within other services, so application visibility must go beyond port-based identification.
+Application visibility identifies applications using packet inspection, protocol analysis, behavioral analysis, and traffic classification. It looks at application signatures and traffic characteristics rather than relying only on port numbers.
 
 ### What is the difference between port-based and application-based identification?
 
-Port-based identification classifies traffic by destination port (e.g., port 80 = HTTP, port 443 = HTTPS). Application-based identification classifies traffic by application signature, behavior, or protocol characteristics regardless of port. Modern cloud apps often evade port-based detection by switching ports or tunneling, making application-based identification essential.
+Port-based identification classifies traffic by destination port. Application-based identification classifies traffic by application signature, behavior, or protocol characteristics regardless of port.
 
 ### What use cases does application visibility support?
 
-Application visibility supports QoS by prioritizing critical applications, security by detecting unauthorized applications, capacity planning by identifying bandwidth-hogging apps, compliance by monitoring application usage, and troubleshooting by identifying application latency issues. It enables policies based on application name rather than IP and port.
+Application visibility supports QoS prioritization, security monitoring, capacity planning, compliance, troubleshooting, and policy enforcement.
 
 ### How does encryption affect application visibility?
 
-Encryption hides payload content, making traditional DPI ineffective. Application visibility tools use JA3 fingerprints, SNI, certificate analysis, and behavioral patterns to identify encrypted traffic. Some organizations perform TLS decryption to inspect encrypted payloads, but this raises privacy and legal concerns.
+Encryption hides payload content, which can limit traditional payload inspection. Application visibility tools may use metadata, handshake characteristics, SNI, certificate details, and behavioral patterns to identify encrypted traffic.
+
+### How does Trisul provide application visibility?
+
+Trisul should be described here only in terms of traffic-level analysis and flow-based visibility. Avoid claiming specific Layer 7 inspection or full application monitoring capabilities unless officially documented.
+
+### Can Trisul identify encrypted application traffic?
+
+Trisul can provide traffic analysis of encrypted flows through flow metadata, but the page should not assert specific encrypted-traffic identification methods unless they are documented.
+
+### What is the advantage of flow-based application visibility over DPI?
+
+Flow-based visibility is less intrusive and can work with traffic metadata, while DPI inspects packet payloads. The best choice depends on the operational goal and the level of visibility required.

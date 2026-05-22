@@ -12,50 +12,29 @@ keywords:
   - active timeout
   - flow export timeout
   - flow cache
+  - flow monitoring
+  - anomaly detection
 ---
 
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the difference between active timeout and inactive timeout?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Active timeout is the maximum duration a flow remains in cache before export, even if still transmitting data. Inactive timeout is the duration of inactivity after which a flow is exported. A setting of 15 seconds for inactive timeout ensures finished flows are exported quickly. A setting of 1 minute for active timeout breaks long-lived flows into minute-sized fragments for trending."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why set active timeout to 1 minute?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Setting active timeout to 1 minute breaks long-lived flows (like 10GB downloads) into minute-sized fragments. This enables accurate trending without spikes. Without it, a 10-minute 10GB download exported at 30-minute active timeout would show as 10GB/minute in one snapshot instead of 1GB/minute for 10 minutes. Most collectors expect 60-second intervals."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the default active timeout value?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The default active timeout is typically 30 minutes (1800 seconds) on most routers. For Juniper Trio-based routers, active timeout ranges are 60-1800 seconds for forwarding-options configurations and 10-600 seconds for services configurations. Recommended practice is 5 minutes or less for faster export and better trending."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does active timeout affect flow data quality?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Longer active timeouts cause traffic reports to show spikes when data is finally exported. Shorter timeouts spread the data across time intervals, enabling accurate trending. Active timeout also affects latency in detecting anomalies: shorter timeouts enable faster detection but increase exporter CPU load due to more frequent exports."
-      }
+  "@type": "Article",
+  "headline": "What is Active Flow Timeout?",
+  "description": "Active flow timeout is the maximum duration a flow remains in the exporter's cache before being exported to the collector, even if the flow is still transmitting data.",
+  "about": {
+    "@type": "DefinedTerm",
+    "name": "Active Flow Timeout",
+    "inDefinedTermSet": {
+      "@type": "DefinedTermSet",
+      "name": "Network Analytics Glossary",
+      "url": "https://www.trisul.org/glossary"
     }
-  ]
+  }
 };
 
 # What is active flow timeout?
 
-Active flow timeout is the maximum duration a flow remains in the exporter's cache before being exported to the collector, even if the flow is still transmitting data. It prevents long-lived flows from staying in cache too long. Setting it to 1 minute breaks long-lived flows into minute-sized fragments for accurate trending without spikes.
+Active flow timeout is the maximum duration a flow remains in the exporter's cache before being exported to the collector, even if the flow is still transmitting data. It prevents long-lived flows from staying in cache too long.
 
 ---
 
@@ -63,13 +42,17 @@ Active flow timeout is the maximum duration a flow remains in the exporter's cac
 
 When a flow reaches the active timeout duration, the exporter packages the flow data and sends it to the collector. The flow may continue, and a new record is exported at the next timeout interval. Inactive timeout is separate: flows with no packets for the inactive timeout duration are exported immediately.
 
+The export process creates flow records with start time, end time, and byte or packet counters that are used for time-series analysis.
+
 ---
 
 ## In network operations
 
 - **NOC:** Set active timeout to 1 minute for collectors that display data in 1-minute increments.
-- **Security:** Use shorter active timeouts (5 minutes or less) for faster anomaly detection.
+- **Security:** Use shorter active timeouts for faster anomaly detection.
 - **Capacity Planning:** Use standard active timeout values to avoid traffic report spikes and enable accurate trending.
+
+Shorter active timeouts can improve trending granularity in flow analytics by spreading long-lived traffic across more time buckets.
 
 ---
 
@@ -78,24 +61,44 @@ When a flow reaches the active timeout duration, the exporter packages the flow 
 | Dimension | Active timeout | Inactive timeout |
 |---|---|---|
 | When to export | Flow duration reached | No packets received |
-| Recommended value | 1 minute (60 seconds) | 15 seconds |
-| Default value | 30 minutes (1800 seconds) | 15 seconds |
+| Recommended value | Depends on collector and reporting interval | Short enough to export idle flows promptly |
+| Typical default | 30 minutes on many exporters | 15 seconds on many exporters |
 | Purpose | Prevent long-lived flow spikes | Export finished flows quickly |
+| Trisul impact | More granular trending data | Faster visibility into completed flows |
+
+## Timeout values and their effects
+
+| Active Timeout | Use Case | Trisul Visibility |
+|---|---|---|
+| 1 minute (60s) | Accurate trending, collectors expecting 60-second intervals | Minute-by-minute traffic breakdown |
+| 5 minutes (300s) | Faster anomaly detection, security monitoring | 5-minute granularity |
+| 30 minutes (1800s) | Common default on many routers | Less granular reporting, possible spikes |
 
 ---
 
-## How Trisul handles it
+## How Trisul handles active timeout
 
-Trisul accepts flow data exported at any active timeout value from exporters. Shorter active timeouts (1 minute) enable more accurate trending and faster anomaly detection. Trisul's flow parser handles both active and inactive timeouts from NetFlow, J-Flow, sFlow, and IPFIX exporters. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Trisul can ingest flow data exported with different active timeout values from common flow exporters. For glossary accuracy, avoid claiming a specific internal timeout mechanism unless it is documented in Trisul product materials.
+
+- **Multi-protocol compatibility**: Trisul works with standard flow-export formats such as NetFlow, J-Flow, sFlow, and IPFIX.
+- **Trending**: Shorter active timeouts generally improve time-based reporting granularity by reducing the size of each exported flow fragment.
+- **Anomaly detection**: More frequent exports can reduce visibility lag in flow analytics.
+- **Historical analysis**: Trisul can aggregate exported flow records over time for capacity planning and baseline analysis.
 
 ---
 
 ## Related terms
 
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is flow exporter?](/docs/glossary/flow-exporter)
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is baseline traffic analytics?](/docs/glossary/baseline-traffic-analytics)
+- [Flow monitoring](/glossary/flow-monitoring)
+- [Flow exporter](/glossary/flow-exporter)
+- [NetFlow](/glossary/netflow)
+- [J-Flow](/glossary/jflow)
+- [sFlow](/glossary/sflow)
+- [IPFIX](/glossary/ipfix)
+- [Flow cache](/glossary/flow-cache)
+- [Baseline traffic analytics](/glossary/baseline-traffic-analytics)
+- [Anomaly detection](/glossary/anomaly-detection)
+- [Flow record](/glossary/flow-record)
 
 ---
 
@@ -103,16 +106,24 @@ Trisul accepts flow data exported at any active timeout value from exporters. Sh
 
 ### What is the difference between active timeout and inactive timeout?
 
-Active timeout is the maximum duration a flow remains in cache before export, even if still transmitting data. Inactive timeout is the duration of inactivity after which a flow is exported. A setting of 15 seconds for inactive timeout ensures finished flows are exported quickly. A setting of 1 minute for active timeout breaks long-lived flows into minute-sized fragments for trending.
+Active timeout is the maximum duration a flow remains in cache before export, even if it is still transmitting data. Inactive timeout is the duration of inactivity after which a flow is exported. A shorter active timeout can improve trending granularity, while a shorter inactive timeout exports finished flows more quickly.
 
 ### Why set active timeout to 1 minute?
 
-Setting active timeout to 1 minute breaks long-lived flows (like 10GB downloads) into minute-sized fragments. This enables accurate trending without spikes. Without it, a 10-minute 10GB download exported at 30-minute active timeout would show as 10GB/minute in one snapshot instead of 1GB/minute for 10 minutes. Most collectors expect 60-second intervals.
+A 1-minute active timeout can make reporting more granular by breaking long-lived flows into smaller time slices. This helps avoid sudden spikes in time-series views when a long flow is exported all at once.
 
 ### What is the default active timeout value?
 
-The default active timeout is typically 30 minutes (1800 seconds) on most routers. For Juniper Trio-based routers, active timeout ranges are 60-1800 seconds for forwarding-options configurations and 10-600 seconds for services configurations. Recommended practice is 5 minutes or less for faster export and better trending.
+The default active timeout varies by exporter and device vendor. Many exporters use 30 minutes, but the actual value should be checked on the device or flow source.
 
 ### How does active timeout affect flow data quality?
 
-Longer active timeouts cause traffic reports to show spikes when data is finally exported. Shorter timeouts spread the data across time intervals, enabling accurate trending. Active timeout also affects latency in detecting anomalies: shorter timeouts enable faster detection but increase exporter CPU load due to more frequent exports.
+Longer active timeouts can make reports look spiky because more traffic is exported in fewer records. Shorter timeouts usually improve time-series granularity, but they also increase export frequency.
+
+### What active timeout should I use with Trisul?
+
+A shorter timeout is generally better for minute-level reporting, while a longer timeout may be acceptable for broad capacity planning. The best value depends on the exporter, reporting interval, and operational goal.
+
+### Does Trisul have its own flow timeout settings?
+
+Trisul receives flow records from exporters and analyzes the records it is given. Any timeout behavior is determined by the exporter configuration, not by the glossary term itself.
