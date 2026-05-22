@@ -145,7 +145,7 @@ Storage policies let operators define exactly what gets written, by protocol, di
 - [What is flow tagger?](/docs/glossary/flow-tagger)
 - [What is retro analysis?](/docs/glossary/retro-analysis)
 - [What is network security monitoring?](/docs/glossary/network-security-monitoring)
-- [What is deep packet inspection?](/docs/glossary/deep-packet-inspection)
+- [What is deep packet inspection?](/docs/glossary/dpi)
 - [What is sFlow?](/docs/glossary/sflow)
 - [What is flow tracker?](/docs/glossary/flow-tracker)
 

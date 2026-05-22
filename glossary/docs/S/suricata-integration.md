@@ -104,10 +104,10 @@ Trisul integrates with Suricata by correlating Suricata alerts with flow data an
 
 ## Related terms
 
-- [What is intrusion detection system?](/docs/glossary/intrusion-detection-system)
+- [What is intrusion detection system?](/docs/glossary/ids)
 - [What is threat detection?](/docs/glossary/threat-detection)
 - [What is packet capture?](/docs/glossary/packet-capture)
-- [What is security monitoring?](/docs/glossary/security-monitoring)
+- [What is security monitoring?](/docs/glossary/network-security-monitoring)
 - [What is SIEM?](/docs/glossary/siem)
 
 ---

@@ -3,7 +3,7 @@ title: What is an intrusion detection system?
 description: An intrusion detection system, or IDS, monitors network traffic for suspicious or malicious activity and raises alerts when it detects patterns that match known threats or anomalies.
 sidebar_label: Intrusion detection system
 sidebar_position: 151
-slug: /glossary/intrusion-detection-system
+slug: /glossary/ids
 keywords:
   - intrusion detection system
   - IDS

@@ -1,17 +1,16 @@
 ---
-title: What is interface saturation?
-description: Interface saturation is the state where a network interface is operating at or near its maximum capacity for sustained periods. At saturation, queues build up and packets may be delayed or dropped.
-sidebar_label: Interface saturation
-sidebar_position: 132
-slug: /glossary/interface-saturation
+title: What is a node in network analytics?
+description: A node is a single physical or virtual machine running the Trisul Network Analytics software. Nodes work together in a distributed deployment to collect, process, and store network telemetry at scale.
+sidebar_label: Node
+sidebar_position: 138
+slug: /glossary/node
 keywords:
-  - interface saturation
-  - saturated link
-  - congestion
-  - link saturation
-  - packet loss
-  - network capacity
-  - interface load
+  - node
+  - Trisul node
+  - network analytics node
+  - distributed analytics
+  - probe node
+  - hub node
 ---
 
 export const jsonLd = {
@@ -20,111 +19,109 @@ export const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is interface saturation?",
+      "name": "What is a node in network analytics?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Interface saturation is the state where a network interface is operating at or near its maximum capacity for sustained periods. At saturation, queues build up and packets may be delayed or dropped."
+        "text": "A node is a single physical or virtual machine running the Trisul Network Analytics software. Nodes work together in a distributed deployment to collect, process, and store network telemetry at scale."
       }
     },
     {
       "@type": "Question",
-      "name": "How does saturation differ from utilization?",
+      "name": "What types of nodes exist in Trisul?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Utilization is a percentage of capacity in use. Saturation is the operational condition that occurs when that usage is high enough and sustained long enough to cause delay, queueing, or packet loss."
+        "text": "Trisul uses two primary node types: the probe node which collects and processes traffic, and the hub node which aggregates data and serves the dashboard. A single machine can run both roles in smaller deployments."
       }
     },
     {
       "@type": "Question",
-      "name": "What are signs of interface saturation?",
+      "name": "How do nodes work together?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Common signs include persistent high utilization, rising queue depth, increased latency, packet loss, retransmissions, and poor application performance during busy periods."
+        "text": "Probe nodes capture and process traffic at collection points. They send summarized data to a hub node which consolidates results and serves the web interface. Multiple probes can feed a single hub."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is saturation important to monitor?",
+      "name": "Why is the node concept important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Saturation is important because it indicates the link can no longer carry traffic cleanly. Monitoring it helps prevent application slowdown and reveals when capacity must be upgraded or traffic must be redistributed."
+        "text": "The node concept is important because it defines how Trisul scales. Adding more probe nodes extends coverage to more network segments without changing the central hub."
       }
     }
   ]
 };
 
-# What is interface saturation?
+# What is a node in network analytics?
 
-Interface saturation is the state where a network interface is operating at or near its maximum capacity for sustained periods. At saturation, queues build up and packets may be delayed or dropped.
-
----
-
-## How interface saturation works
-
-A link may be busy without being saturated. Saturation happens when traffic demand stays high enough that the interface cannot keep up without queueing or loss.
-
-At that point, packets wait longer to be sent. If the pressure continues, the queue fills and packets are dropped. This is what causes congestion symptoms.
+A node is a single physical or virtual machine running the Trisul Network Analytics software. Nodes work together in a distributed deployment to collect, process, and store network telemetry at scale.
 
 ---
 
-## Interface saturation in network operations
+## How nodes work
 
-Saturation is what operators worry about when utilization remains high for too long. It often shows up during peaks, backups, large file transfers, or traffic shifts.
+Trisul uses two primary node roles. A probe node sits at a collection point and captures flow data or packets directly from the network. A hub node consolidates data from one or more probes and serves the dashboard and query interface.
 
-A saturated interface can affect many applications at once. Voice, video, and interactive services are usually the first to suffer.
+In smaller deployments, one machine can run both roles. In larger or distributed deployments, probes and hubs run on separate machines to handle scale.
 
 ---
 
-## Signs of saturation
+## Nodes in network operations
 
-| Sign | Effect |
+Nodes define the physical layout of a Trisul deployment. Each probe node covers one or more network segments. Adding a probe extends visibility to a new location without redesigning the rest of the system.
+
+Hub nodes are the central point for dashboards, queries, and alerts. Operators interact with the system through the hub regardless of how many probes are deployed.
+
+---
+
+## Node roles
+
+| Role | Function |
 |---|---|
-| High sustained utilization | Link stays busy |
-| Queue growth | Traffic waits longer |
-| Latency increase | Responses slow down |
-| Packet loss | Traffic is dropped |
-| Retransmissions | TCP retries lost data |
+| Probe node | Captures and processes traffic at collection point |
+| Hub node | Aggregates data, serves dashboard and queries |
+| Combined node | Runs both roles on one machine |
 
 ---
 
-## What makes interface saturation work in practice
+## What makes nodes work in practice
 
-A spike alone does not necessarily mean saturation. What matters is duration and whether queues or loss appear. Short bursts may be harmless, while sustained pressure indicates a real capacity issue.
+Each probe node must have reliable access to traffic at its collection point. Probe-to-hub connectivity must be stable and have sufficient throughput for the summarized data being sent.
 
-The best way to detect saturation is to watch utilization together with delay and loss. That combination gives the clearest signal.
+Node health monitoring is important. If a probe goes offline, coverage for that segment is lost. Alerts on node health help operators respond quickly.
 
 ---
 
-## How Trisul handles interface saturation
+## How Trisul handles nodes
 
-Trisul helps operators see when a link is nearing or crossing saturation by showing utilization trends and traffic patterns over time. This makes it easier to spot congestion before users feel the impact.
+Trisul's architecture is built around the probe-hub model. Each node is managed from the web interface. Operators can view per-node status, manage configurations, and monitor health from a central location. Full documentation is at https://docs.trisul.org/.
 
 ---
 
 ## Related terms
 
-- Interface utilization
-- Congestion
-- Packet loss
-- Queueing
-- Capacity planning
+- Distributed domain
+- Probe
+- Hub
+- Multitenancy
+- Flow collector
 
 ---
 
 ## Frequently asked questions
 
-### What is interface saturation?
+### What is a node in network analytics?
 
-Interface saturation is the state where a network interface is operating at or near its maximum capacity for sustained periods. At saturation, queues build up and packets may be delayed or dropped.
+A node is a single physical or virtual machine running the Trisul Network Analytics software. Nodes work together in a distributed deployment to collect, process, and store network telemetry at scale.
 
-### How does saturation differ from utilization?
+### What types of nodes exist in Trisul?
 
-Utilization is a percentage of capacity in use. Saturation is the operational condition that occurs when that usage is high enough and sustained long enough to cause delay, queueing, or packet loss.
+Trisul uses two primary node types: the probe node which collects and processes traffic, and the hub node which aggregates data and serves the dashboard. A single machine can run both roles in smaller deployments.
 
-### What are signs of interface saturation?
+### How do nodes work together?
 
-Common signs include persistent high utilization, rising queue depth, increased latency, packet loss, retransmissions, and poor application performance during busy periods.
+Probe nodes capture and process traffic at collection points. They send summarized data to a hub node which consolidates results and serves the web interface. Multiple probes can feed a single hub.
 
-### Why is saturation important to monitor?
+### Why is the node concept important?
 
-Saturation is important because it indicates the link can no longer carry traffic cleanly. Monitoring it helps prevent application slowdown and reveals when capacity must be upgraded or traffic must be redistributed.
+The node concept is important because it defines how Trisul scales. Adding more probe nodes extends coverage to more network segments without changing the central hub.

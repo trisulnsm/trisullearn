@@ -104,7 +104,7 @@ Trisul supports NSM by providing flow-based visibility and packet capture for fo
 ## Related terms
 
 - [What is threat detection?](/docs/glossary/threat-detection)
-- [What is intrusion detection system?](/docs/glossary/intrusion-detection-system)
+- [What is intrusion detection system?](/docs/glossary/ids)
 - [What is packet capture?](/docs/glossary/packet-capture)
 - [What is SIEM?](/docs/glossary/siem)
 - [What is incident response?](/docs/glossary/incident-response)

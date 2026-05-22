@@ -106,7 +106,7 @@ Trisul monitors packet loss through flow data analysis tracking input and output
 
 ## Related terms
 
-- [What is network congestion?](/docs/glossary/network-congestion)
+- [What is network congestion?](/docs/glossary/congestion)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
 - [What is packet capture?](/docs/glossary/packet-capture)
 - [What is network performance?](/docs/glossary/network-performance)

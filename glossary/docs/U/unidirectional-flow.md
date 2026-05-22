@@ -107,7 +107,6 @@ Trisul receives unidirectional flow data from NetFlow v5 and NetFlow v9 exporter
 - [What is NetFlow?](/docs/glossary/netflow)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
 - [What is traffic direction?](/docs/glossary/traffic-direction)
-- [What is flow record?](/docs/glossary/flow-record)
 
 ---
 

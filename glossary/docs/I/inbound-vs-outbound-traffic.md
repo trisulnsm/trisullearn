@@ -80,7 +80,7 @@ Trisul classifies traffic direction based on home network configuration. **DIR_I
 
 - [What is home network?](/docs/glossary/home-network)
 - [What is traffic direction?](/docs/glossary/traffic-direction)
-- [What is Aggregates counter group?](/docs/glossary/aggregates-counter-group)
+- [What is Aggregates counter group?](/docs/glossary/aggregate-counter-group)
 - [What is Explore Flows?](/docs/glossary/explore-flows)
 
 ---

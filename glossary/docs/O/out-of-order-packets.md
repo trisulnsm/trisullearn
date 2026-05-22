@@ -105,7 +105,7 @@ Trisul detects out of order packets through TCP sequence number analysis in pack
 
 - [What is TCP?](/docs/glossary/tcp)
 - [What is packet capture?](/docs/glossary/packet-capture)
-- [What is network congestion?](/docs/glossary/network-congestion)
+- [What is network congestion?](/docs/glossary/congestion)
 - [What is packet loss?](/docs/glossary/packet-loss)
 - [What is latency?](/docs/glossary/latency)
 

@@ -169,16 +169,16 @@ Trisul helps teams:
 - correlate latency spikes with traffic behavior
 - identify congestion events
 
-Trisul can also integrate [Jitter Monitoring](/glossary/jitter-monitoring), [Bandwidth Monitoring](/glossary/bandwidth-monitoring), and [Dropped Packets](/glossary/dropped-packets) workflows for deeper performance visibility.
+Trisul can also integrate [Jitter Monitoring](/docs/glossary/jitter-monitoring), [Bandwidth Monitoring](/docs/glossary/bandwidth-monitoring), and [Dropped Packets](/docs/glossary/dropped-packets) workflows for deeper performance visibility.
 
 ## Related Terms
 
-- [Jitter Monitoring](/glossary/jitter-monitoring)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Dropped Packets](/glossary/dropped-packets)
-- [Packet Capture](/glossary/packet-capture)
-- [Application Visibility](/glossary/application-visibility)
-- [Traffic Investigation](/glossary/traffic-investigation)
+- [Jitter Monitoring](/docs/glossary/jitter-monitoring)
+- [Bandwidth Monitoring](/docs/glossary/bandwidth-monitoring)
+- [Dropped Packets](/docs/glossary/dropped-packets)
+- [Packet Capture](/docs/glossary/packet-capture)
+- [Application Visibility](/docs/glossary/application-visibility)
+- [Traffic Investigation](/docs/glossary/traffic-investigation)
 
 ---
 

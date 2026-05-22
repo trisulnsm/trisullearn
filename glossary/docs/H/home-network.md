@@ -103,7 +103,7 @@ Trisul uses home network configuration to classify traffic direction and enable 
 - [What is Explore Flows?](/docs/glossary/explore-flows)
 - [What is counter group?](/docs/glossary/counter-group)
 - [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
-- [What is RFC1918?](/docs/glossary/rfc1918)
+- [What is RFC1918?](/docs/glossary/rfc-1918)
 
 ---
 

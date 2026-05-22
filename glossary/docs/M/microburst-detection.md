@@ -105,7 +105,7 @@ Trisul detects microbursts through high-resolution flow monitoring and packet ca
 
 - [What is congestion detection?](/docs/glossary/congestion-detection)
 - [What is packet loss?](/docs/glossary/packet-loss)
-- [What is traffic spike analytics?](/docs/glossary/traffic-spike-analytics)
+- [What is traffic spike analytics?](/docs/glossary/traffic-spike-analysis)
 - [What is buffer monitoring?](/docs/glossary/buffer-monitoring)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
 

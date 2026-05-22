@@ -105,7 +105,7 @@ Trisul provides packet analysis through packet capture and flow data. From any a
 
 - [What is packet capture?](/docs/glossary/packet-capture)
 - [What is PCAP analysis?](/docs/glossary/pcap-analysis)
-- [What is deep packet inspection?](/docs/glossary/deep-packet-inspection)
+- [What is deep packet inspection?](/docs/glossary/dpi)
 - [What is Wireshark?](/docs/glossary/wireshark)
 - [What is network troubleshooting?](/docs/glossary/network-troubleshooting)
 

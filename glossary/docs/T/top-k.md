@@ -102,11 +102,11 @@ Trisul uses Top-K style summaries to show the most important traffic groups quic
 
 ## Related terms
 
-- Top talkers
-- Heavy hitters
-- Ranking
-- Traffic analysis
-- Summary statistics
+- [Top talkers](/docs/glossary/top-talkers)
+- [Heavy hitters](/docs/glossary/heavy-hitters)
+- [Ranking](/docs/glossary/ranking)
+- [Traffic analysis](/docs/glossary/network-traffic-analysis)
+- [Summary statistics](/docs/glossary/summary-statistics)
 
 ---
 

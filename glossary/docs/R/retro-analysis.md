@@ -105,7 +105,6 @@ Trisul provides retro analysis through flow taggers and PCAP scanning that run a
 
 - [What is packet capture?](/docs/glossary/packet-capture)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is threat hunting?](/docs/glossary/threat-hunting)
 - [What is network forensics?](/docs/glossary/network-forensics)
 - [What is long term traffic retention?](/docs/glossary/long-term-traffic-retention)
 

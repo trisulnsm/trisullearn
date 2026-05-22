@@ -107,7 +107,7 @@ Trisul provides transit traffic analysis through ISP Analytics applications. Flo
 - [What is ISP traffic analytics?](/docs/glossary/isp-traffic-analytics)
 - [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
 - [What is ASN?](/docs/glossary/asn)
-- [What is upstream traffic?](/docs/glossary/upstream-traffic)
+- [What is upstream traffic?](/docs/glossary/upstream-vs-downstream-traffic)
 - [What is peering traffic analysis?](/docs/glossary/peering-traffic-analysis)
 
 ---

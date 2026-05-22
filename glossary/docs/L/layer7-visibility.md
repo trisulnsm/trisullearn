@@ -102,7 +102,7 @@ Trisul provides Layer 7 visibility through flow monitoring that extracts applica
 
 ## Related terms
 
-- [What is deep packet inspection?](/docs/glossary/deep-packet-inspection)
+- [What is deep packet inspection?](/docs/glossary/dpi)
 - [What is application monitoring?](/docs/glossary/application-monitoring)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
 - [What is TLS inspection?](/docs/glossary/tls-inspection)

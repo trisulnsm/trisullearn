@@ -170,16 +170,16 @@ Trisul helps teams:
 - visualize infrastructure health
 - improve troubleshooting efficiency
 
-Trisul can also integrate [Bandwidth Monitoring](/glossary/bandwidth-monitoring), [Jitter Monitoring](/glossary/jitter-monitoring), and [Historical Traffic Analysis](/glossary/historical-traffic-analysis) workflows for deeper operational visibility.
+Trisul can also integrate [Bandwidth Monitoring](/docs/glossary/bandwidth-monitoring), [Jitter Monitoring](/docs/glossary/jitter-monitoring), and [Historical Traffic Analysis](/docs/glossary/historical-traffic-analysis) workflows for deeper operational visibility.
 
 ## Related Terms
 
-- [Key Dashboardᵀ](/glossary/key-dashboard)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Latency Monitoring](/glossary/latency-monitoring)
-- [Jitter Monitoring](/glossary/jitter-monitoring)
-- [Historical Traffic Analysis](/glossary/historical-traffic-analysis)
-- [Flow Analysis](/glossary/flow-analysis)
+- [Key Dashboardᵀ](/docs/glossary/key-dashboard)
+- [Bandwidth Monitoring](/docs/glossary/bandwidth-monitoring)
+- [Latency Monitoring](/docs/glossary/latency-monitoring)
+- [Jitter Monitoring](/docs/glossary/jitter-monitoring)
+- [Historical Traffic Analysis](/docs/glossary/historical-traffic-analysis)
+- [Flow Analysis](/docs/glossary/flow-analysis)
 
 ---
 

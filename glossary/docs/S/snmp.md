@@ -101,8 +101,25 @@ Trisul can combine SNMP-style device data with traffic analytics to show both li
 
 ## Related terms
 
-- Interface monitoring
-- Network observability
-- Device health
-- Polling
-- MIB
+- [Interface monitoring](/docs/glossary/interface-monitoring)
+- [Network observability](/docs/glossary/network-observability)
+
+---
+
+## Frequently asked questions
+
+### What is SNMP?
+
+SNMP, or Simple Network Management Protocol, is a standard protocol used to query and monitor network devices. It is widely used for collecting interface counters, device status, and performance data.
+
+### What does SNMP monitor?
+
+SNMP can monitor interface utilization, device uptime, errors, temperature, fan status, and many other counters depending on the device and MIB support.
+
+### Why is SNMP important?
+
+SNMP is important because it provides a standard way to collect operational data from many kinds of devices. It is a foundation of network monitoring.
+
+### How is SNMP used with analytics?
+
+SNMP is used with analytics to add device and interface counters to traffic data. This helps correlate traffic behavior with link health and device status.

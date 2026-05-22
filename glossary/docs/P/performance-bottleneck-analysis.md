@@ -105,7 +105,7 @@ Trisul provides bottleneck analysis through flow monitoring tracking link utiliz
 
 - [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
 - [What is capacity planning?](/docs/glossary/capacity-planning)
-- [What is network congestion?](/docs/glossary/network-congestion)
+- [What is network congestion?](/docs/glossary/congestion)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
 - [What is top talkers?](/docs/glossary/top-talkers)
 

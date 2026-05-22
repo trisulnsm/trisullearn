@@ -55,6 +55,7 @@ export const jsonLd = {
 # What are heavy hitters in networking?
 
 Heavy hitters are flows, hosts, or entities that account for a disproportionately large share of traffic volume or activity on a network.
+
 ---
 
 ## How heavy hitter analysis works

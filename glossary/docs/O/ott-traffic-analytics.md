@@ -107,7 +107,7 @@ Trisul provides OTT traffic analytics through Layer 7 visibility that identifies
 - [What is Layer 7 visibility?](/docs/glossary/layer-7-visibility)
 - [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
 - [What is quality of experience?](/docs/glossary/quality-of-experience)
-- [What is deep packet inspection?](/docs/glossary/deep-packet-inspection)
+- [What is deep packet inspection?](/docs/glossary/dpi)
 - [What is streaming video?](/docs/glossary/streaming-video)
 
 ---

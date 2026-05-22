@@ -104,7 +104,6 @@ Trisul provides WAN traffic analysis through flow data collection at WAN edge ro
 
 ## Related terms
 
-- [What is WAN?](/docs/glossary/wan)
 - [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
 - [What is capacity planning?](/docs/glossary/capacity-planning)
 - [What is QoS monitoring?](/docs/glossary/qos-monitoring)

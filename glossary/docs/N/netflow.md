@@ -104,7 +104,7 @@ Trisul collects NetFlow v5, NetFlow v9, J-Flow, sFlow, and IPFIX data natively. 
 - [What is IPFIX?](/docs/glossary/ipfix)
 - [What is sFlow?](/docs/glossary/sflow)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is J-Flow?](/docs/glossary/j-flow)
+- [What is J-Flow?](/docs/glossary/jflow)
 - [What is flow collector?](/docs/glossary/flow-collector)
 
 ---

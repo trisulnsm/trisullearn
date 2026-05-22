@@ -104,8 +104,7 @@ Trisul provides tunnel traffic analysis through flow data collection at tunnel e
 
 ## Related terms
 
-- [What is VPN?](/docs/glossary/vpn)
-- [What is encrypted traffic?](/docs/glossary/encrypted-traffic)
+- [What is encrypted traffic?](/docs/glossary/encrypted-traffic-analytics)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
 - [What is packet capture?](/docs/glossary/packet-capture)
 - [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)

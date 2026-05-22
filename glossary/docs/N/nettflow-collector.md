@@ -106,7 +106,7 @@ Trisul acts as a NetFlow Collector receiving NetFlow v5, NetFlow v9, J-Flow, sFl
 - [What is IPFIX?](/docs/glossary/ipfix)
 - [What is flow monitoring?](/docs/glossary/flow-monitoring)
 - [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
-- [What is traffic analysis?](/docs/glossary/traffic-analysis)
+- [What is traffic analysis?](/docs/glossary/network-traffic-analysis)
 
 ---
 
