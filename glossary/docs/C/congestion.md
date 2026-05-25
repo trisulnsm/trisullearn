@@ -64,154 +64,75 @@ export const jsonLd = {
 
 # What is congestion in network analytics?
 
-**Congestion** is a network condition where traffic demand exceeds available forwarding or transmission capacity, causing queue buildup, increased latency, packet loss, jitter, or reduced throughput.
-
-Congestion is one of the most common causes of degraded network performance and poor application experience.
-
-Congestion may occur on:
-- Interfaces
-- WAN links
-- Routers
-- Switches
-- Firewalls
-- Internet or cloud paths
-- Shared forwarding infrastructure
-
-Trisul supports congestion-oriented traffic analysis through flow visibility, utilization monitoring, and historical traffic analytics.
+**Congestion** is a network condition where traffic demand exceeds available forwarding or transmission capacity, causing queues to grow, latency and jitter to increase, packets to be dropped, and effective throughput to fall. It is one of the most common causes of degraded application performance and poor user experience.
 
 ---
 
 ## How congestion works
 
-When packets arrive faster than a link or device can forward them, packets begin to accumulate in queues and buffers.
-
-As congestion increases:
-- Queue depth grows
-- Latency increases
-- Jitter becomes more noticeable
-- Packet drops may occur
-- TCP retransmissions increase
-- Effective throughput decreases
-
-Typical congestion workflow:
-
-1. **Traffic increase** → Demand rises on a network path or interface
-2. **Queue buildup** → Packets begin waiting in buffers
-3. **Delay increase** → Latency and jitter become visible
-4. **Buffer saturation** → Queues and buffers approach capacity
-5. **Packet loss** → Devices begin dropping packets
-6. **Protocol recovery** → TCP retransmissions and throughput reduction occur
-
-Short bursts of congestion may be temporary and harmless, while sustained congestion usually indicates persistent overload or insufficient capacity.
+Congestion occurs when traffic arrives at a link, interface, or device faster than it can be forwarded. Packets are held in queues and buffers, which increases latency and jitter. As load grows further, buffers may fill and packets may be dropped, triggering TCP retransmissions and further load. Short bursts can be absorbed, but sustained congestion usually indicates a capacity or traffic‑distribution issue.
 
 ---
 
 ## Congestion in network operations
 
-Congestion analysis is an important operational workflow across enterprise, ISP, cloud, and service-provider environments.
-
-Common operational use cases include:
-
-- **Performance troubleshooting**: Investigate slow applications and degraded services
-- **Voice and video quality analysis**: Identify latency and jitter affecting real-time traffic
-- **Capacity planning**: Detect overloaded interfaces and recurring bottlenecks
-- **Traffic engineering**: Optimize path selection and traffic distribution
-- **QoS validation**: Verify prioritization and shaping effectiveness
-- **Security monitoring**: Identify overload conditions caused by traffic anomalies or DDoS activity
-
-Congestion often appears during:
-- Peak usage periods
-- Large file transfers
-- Backup operations
-- Cloud synchronization
-- Traffic rerouting events
-- Unexpected traffic surges
+In enterprise, ISP, and cloud environments, congestion analysis helps explain slow applications, poor voice/video quality, and intermittent failures. Operators use it to detect overloaded links, validate traffic‑engineering and QoS policies, and plan capacity upgrades. Congestion often appears during peak usage, large transfers, backups, cloud sync, or unexpected traffic spikes.
 
 ---
 
 ## Common congestion symptoms
 
-| Symptom | Meaning |
-|---|---|
-| High utilization | Links or interfaces are heavily loaded |
-| Queue buildup | Packets are waiting in buffers |
-| Packet loss | Buffers or forwarding paths are overloaded |
-| Increased latency | Packets take longer to traverse the network |
-| Jitter | Delay variation affecting real-time traffic |
-| TCP retransmissions | TCP resends lost packets |
-| Reduced throughput | Effective delivery rates decrease |
+| Symptom              | Meaning |
+|----------------------|---------|
+| High utilization     | Link or interface is heavily loaded |
+| Queue buildup        | Packets waiting in buffers |
+| Packet loss          | Buffers or forwarding paths overwhelmed |
+| Increased latency    | Packets take longer to traverse the network |
+| Jitter               | Delay variation affects real‑time traffic |
+| TCP retransmissions  | Lost packets being resent |
+| Reduced throughput   | Effective delivery rate drops |
 
-These symptoms are usually analyzed together because no single metric alone definitively confirms congestion.
+These signals are best interpreted together rather than in isolation.
 
 ---
 
 ## Congestion vs high utilization
 
-| Dimension | Congestion | High utilization |
-|---|---|---|
-| Meaning | Service-impacting overload condition | High percentage of bandwidth usage |
-| Impact | Causes delay, loss, and degradation | May still operate normally |
-| Indicators | Queueing, latency, loss, retransmissions | Primarily interface usage |
-| Operational concern | Performance degradation | Capacity consumption |
+| Dimension          | Congestion                                 | High utilization                          |
+|--------------------|--------------------------------------------|-------------------------------------------|
+| Meaning            | Service‑impacting overload condition       | High percentage of bandwidth usage        |
+| Impact             | Causes delay, loss, and degradation        | May still operate normally                |
+| Typical indicators | Queueing, loss, latency, retransmissions  | Interface counters only                   |
+| Operational concern| Performance degradation                    | Capacity consumption                      |
 
-A heavily utilized link is not always congested, and moderate average utilization can still experience congestion during burst periods.
+A heavily utilized link is not always congested, and congestion can occur even with moderate average utilization if traffic is bursty.
 
 ---
 
 ## Why congestion matters
 
-Unchecked congestion can cause:
-- Application slowdowns
-- Voice and video quality degradation
-- Increased latency
-- Packet loss
-- Reduced throughput
-- Service instability
-
-Monitoring congestion helps operators:
-- Improve user experience
-- Detect bottlenecks early
-- Optimize traffic engineering
-- Validate QoS behavior
-- Plan infrastructure upgrades more effectively
-
-Historical analysis is especially useful because congestion often recurs on specific paths, interfaces, or time periods.
+Unmanaged congestion leads to higher latency, jitter, and packet loss, which degrade applications and services. It increases the risk of user dissatisfaction, intermittent outages, and inefficient resource use. Monitoring congestion helps detect bottlenecks, validate QoS and traffic engineering, and plan upgrades more accurately. Historical analysis is useful because congestion often recurs on specific paths or time windows.
 
 ---
 
-## How Trisul handles congestion
+## In Trisul
 
-Trisul supports congestion-oriented traffic investigation through flow analytics and operational traffic visibility.
-
-Relevant capabilities include:
-
-- **Interface utilization visibility** for identifying overloaded links
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Top-K analytics** for identifying major traffic contributors
-- **Historical traffic trending** for recurring congestion analysis
-- **Explore Flows** for traffic investigation and drill-down analysis
-- **Aggregate Flows** for summarizing traffic behavior across interfaces and time periods
-- **Traffic correlation workflows** for analyzing spikes, utilization changes, and traffic anomalies
-
-These capabilities help operators identify bottlenecks, analyze congestion symptoms, and investigate high-volume traffic behavior affecting performance.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul supports congestion‑oriented analysis through flow‑based telemetry (NetFlow, IPFIX, sFlow), interface utilization visibility, and historical trending. It shows which hosts, applications, or ASes drive traffic on overloaded links, and Top‑K analytics and Explore Flows help drill into high‑volume flows and recurring congestion patterns. This helps operators identify where congestion occurs and what is causing it.
 
 ---
 
 ## Related terms
 
-- [Interface utilization](/glossary/interface-utilization)
-- [Interface saturation](/glossary/interface-saturation)
-- [Packet loss](/glossary/packet-loss)
-- [TCP retransmission](/glossary/tcp-retransmission)
-- [Capacity planning](/glossary/capacity-planning)
-- [Queueing](/glossary/queueing)
-- [Congestion detection](/glossary/congestion-detection)
-- [Burst traffic](/glossary/burst-traffic)
+- Congestion  
+- Network congestion  
+- Interface utilization  
+- Interface saturation  
+- Packet loss  
+- TCP retransmission  
+- Capacity planning  
+- Queueing  
+- Congestion detection  
+- Burst traffic  
 
 ---
 
@@ -235,4 +156,4 @@ Congestion directly affects application quality, user experience, and service re
 
 ### How does Trisul help analyze congestion?
 
-Trisul helps operators investigate congestion conditions using flow analytics, interface utilization visibility, traffic trending, and traffic investigation workflows to identify overloaded paths and high-volume traffic sources.
+Trisul helps operators investigate congestion conditions using flow analytics, interface utilization visibility, traffic trending, and traffic investigation workflows to identify overloaded paths and high‑volume traffic sources.

@@ -1,6 +1,6 @@
 ---
 title: What is bidirectional flow?
-description: A bidirectional flow combines traffic information from both directions of a communication exchange into a single conversational view. Trisul supports conversation-oriented flow analysis through bidirectional traffic visibility and flow correlation workflows.
+description: A bidirectional flow is a network conversation that combines two unidirectional flow records into a single record showing both directions of communication between two endpoints.
 sidebar_label: Bidirectional flow
 sidebar_position: 33
 slug: /glossary/bidirectional-flow
@@ -12,176 +12,96 @@ keywords:
   - flow stitching
   - conversational flow
   - netflow biflow
-  - conversation view
-  - flow monitoring
 ---
 
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What is Bidirectional Flow?",
-  "description": "A bidirectional flow combines traffic information from both directions of a communication exchange into a single conversational view. Trisul supports conversation-oriented flow analysis through bidirectional traffic visibility and flow correlation workflows.",
-  "about": {
-    "@type": "DefinedTerm",
-    "name": "Bidirectional Flow",
-    "inDefinedTermSet": {
-      "@type": "DefinedTermSet",
-      "name": "Network Analytics Glossary",
-      "url": "https://www.trisul.org/glossary"
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is a bidirectional flow created?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A bidirectional flow is created by matching two unidirectional flow records with reversed 5-tuples. The source and destination IP addresses and ports are swapped between the two records. When the flow collector detects this reversal, it stitches them into one bidirectional record with combined directional metrics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What fields does a bidirectional flow contain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A bidirectional flow contains source and destination IP and port, total bytes and packets, bytes in and bytes out, packets in and packets out, start time, last time, and duration. It also includes protocol information and application identification if available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why use bidirectional flows instead of unidirectional flows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bidirectional flows make network conversations readable at a glance. Instead of mentally pairing two records, analysts see the full exchange in one row. They are more storage-efficient because two exported records become one stored record. They also make data transfer ratio analysis easier for detecting exfiltration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does bidirectional flow relate to conversation view?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Conversation view is the display mode that shows bidirectional flows. Bidirectional flow is the underlying data structure. When an operator clicks on a conversation in the interface, they are viewing a stitched bidirectional flow record."
+      }
     }
-  }
+  ]
 };
 
 # What is bidirectional flow?
 
-A **bidirectional flow** (or **biflow**) represents traffic exchanged between two endpoints as a single conversational record containing information from both directions of communication.
-
-Traditional flow exporters often generate separate unidirectional records for each direction of traffic. Bidirectional flow analysis correlates these related records into a unified conversation-oriented view.
-
-Trisul supports conversation-oriented flow analysis through bidirectional traffic visibility and flow correlation workflows.
+A bidirectional flow is a network conversation that combines two unidirectional flow records into a single record showing both directions of communication between two endpoints. NetFlow‑style exporters emit one record per direction by default; bidirectional flows are created by “stitching” matching records whose 5‑tuples are reversed (source and destination swapped).
 
 ---
 
 ## How it works
 
-Bidirectional flow analysis correlates matching traffic records that represent opposite directions of the same communication exchange.
+When two unidirectional flow records with reversed IP addresses and ports arrive at the collector, they are matched and stitched into one bidirectional flow. The stitched record shows bytes in, bytes out, packets in, packets out, start time, last time, and duration. Overlapping or duplicate legs are deduplicated before stitching to avoid overcounting.
 
-Correlation is typically based on:
-- Source and destination IP addresses
-- Source and destination ports
-- Protocol
-- Timing information
-
-Typical workflow:
-
-1. **Flow export** → Devices export flow records for observed traffic
-2. **Flow correlation** → Matching directional records are identified
-3. **Conversation assembly** → Related traffic directions are associated into one conversation
-4. **Metric calculation** → Directional bytes, packets, and timing information are analyzed
-5. **Conversation analysis** → Operators investigate communication behavior using a unified traffic view
-
-Some implementations may also perform deduplication or normalization before conversation analysis.
+![./images/bidirectional-flow.png](./images/bidirectional-flow.png)
 
 ---
 
 ## In network operations
 
-Bidirectional flow analysis improves visibility into network conversations and communication behavior.
-
-Common operational use cases include:
-
-- **Traffic investigation**: Review request-response behavior in one view
-- **Security analysis**: Compare ingress and egress traffic ratios
-- **Conversation tracking**: Analyze communications between hosts
-- **Troubleshooting**: Understand application exchange behavior
-- **Traffic profiling**: Identify dominant conversations and long-duration exchanges
-
-Trisul supports these workflows through conversation-oriented traffic analysis and flow visibility.
+- **NOC:** Read total bandwidth and directionality for each exchange at a glance, without manually pairing two records.  
+- **SOC:** Analyze data‑transfer ratios between internal and external hosts to detect exfiltration patterns or unusual conversations.  
+- **Investigation:** Pivot from a suspicious IP to all its bidirectional conversations, where both directions of each exchange appear in a single row.
 
 ---
 
 ## Bidirectional flow vs unidirectional flow
 
-| Dimension | Bidirectional flow | Unidirectional flow |
-|---|---|---|
-| View model | Combined conversation | Single traffic direction |
-| Records per exchange | Typically one logical conversation | One record per direction |
-| Readability | Easier conversation analysis | Requires directional correlation |
-| Directional metrics | Includes ingress and egress visibility | Limited to one direction |
-| Operational focus | Conversation analysis | Traffic observation and export |
-
-Bidirectional flows simplify analysis by presenting both directions of communication together.
+| Dimension                 | Bidirectional flow                       | Unidirectional flow                                  |
+|---------------------------|------------------------------------------|------------------------------------------------------|
+| Records per exchange      | One per conversation                     | Two (one per direction)                              |
+| Readability               | High; full conversation in one row       | Lower; requires manual pairing of records            |
+| Storage efficiency        | Higher; two exports → one stored record  | Lower; each direction stored separately              |
+| Best fit                  | Conversation‑level and host‑level analysis | Topology, interface‑level, and device‑level views   |
 
 ---
 
-## Fields commonly associated with bidirectional flows
+## In Trisul
 
-| Field | Description |
-|---|---|
-| Source IP | One endpoint in the conversation |
-| Destination IP | Other endpoint in the conversation |
-| Source port | Source transport port |
-| Destination port | Destination transport port |
-| Protocol | Transport protocol |
-| Bytes sent | Traffic transmitted in one direction |
-| Bytes received | Traffic transmitted in the opposite direction |
-| Packets sent | Packet count in one direction |
-| Packets received | Packet count in the opposite direction |
-| Start time | Conversation start timestamp |
-| End time | Conversation end timestamp |
-| Duration | Total conversation duration |
-
-Available fields depend on exporter capabilities and flow processing workflows.
-
----
-
-## Why bidirectional flows are useful
-
-Bidirectional flow analysis improves visibility into communication behavior.
-
-Benefits include:
-
-- Easier interpretation of network conversations
-- Better visibility into request-response traffic patterns
-- Improved investigation workflows
-- Simplified traffic analysis for operators
-- Enhanced visibility into directional traffic ratios
-- Improved context for security and operational analysis
-
-Bidirectional analysis is especially useful when examining application behavior, suspicious traffic exchanges, or long-lived conversations.
-
----
-
-## Bidirectional flow and conversation view
-
-Conversation-oriented displays commonly use bidirectional flow correlation to present network exchanges in a unified format.
-
-| Term | Meaning |
-|---|---|
-| Bidirectional flow | Correlated traffic representing both directions |
-| Conversation view | Interface or analytical representation of conversations |
-| Flow legs | Individual directional traffic records |
-
-Conversation views help operators analyze communication behavior without manually correlating separate traffic directions.
-
----
-
-## How Trisul handles bidirectional flows
-
-Trisul supports conversation-oriented flow analytics through bidirectional traffic visibility and flow correlation workflows.
-
-Relevant capabilities include:
-
-- **Conversation-oriented traffic analysis**
-- **Flow correlation and conversation visibility**
-- **Directional traffic metrics** for ingress and egress analysis
-- **Explore Flows integration** for conversation investigation
-- **Top-K analytics** for identifying dominant traffic conversations
-- **Aggregate Flows** for historical conversation trend analysis
-- **Flow investigation workflows** for operational and security analysis
-
-These capabilities help operators analyze communication behavior, investigate suspicious exchanges, and understand traffic relationships between hosts.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+Trisul performs NetFlow‑style conversation analysis by deduplicating overlapping flow records and merging unidirectional flows into bidirectional conversations.  
+Explore Flows displays results in **conversation view** by default, with **legs view** available for deeper path‑level investigation. This lets operators see stitched bidirectional flows for easier conversation‑level analysis while still retaining access to individual direction‑level detail when needed.
 
 ---
 
 ## Related terms
 
-- [Flow stitching](/glossary/flow-stitching)
-- [Conversation view](/glossary/conversation-view)
-- [Flow legs](/glossary/flow-legs)
-- [Flow deduplication](/glossary/flow-deduplication)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [NetFlow](/glossary/netflow)
-- [5-tuple](/glossary/5-tuple)
-- [Data exfiltration](/glossary/data-exfiltration)
-- [Top-K analytics](/glossary/top-k-analytics)
-- [Aggregate Flows](/glossary/aggregate-flows)
-- [Explore Flows](/glossary/explore-flows)
+- Bidirectional flow
+- Flow stitching
+- Conversation view
+- Flow legs
+- Flow deduplication
+- NetFlow biflow
+- Flow monitoring
 
 ---
 
@@ -189,24 +109,16 @@ Relevant Trisul use cases:
 
 ### How is a bidirectional flow created?
 
-A bidirectional flow is created by correlating traffic records representing opposite directions of the same communication exchange.
+A bidirectional flow is created by matching two unidirectional flow records with reversed 5‑tuples. The source and destination IP addresses and ports are swapped between the two records. When the flow collector detects this reversal, it stitches them into one bidirectional record with combined directional metrics.
 
 ### What fields does a bidirectional flow contain?
 
-Typical fields include source and destination addresses, ports, protocol, directional byte and packet counts, timestamps, and duration information.
+A bidirectional flow contains source and destination IP and port, total bytes and packets, bytes in and bytes out, packets in and packets out, start time, last time, and duration. It also includes protocol information and application identification if available.
 
 ### Why use bidirectional flows instead of unidirectional flows?
 
-Bidirectional flows simplify conversation analysis by presenting both directions of communication together in a unified view.
+Bidirectional flows make network conversations readable at a glance. Instead of mentally pairing two records, analysts see the full exchange in one row. They are more storage‑efficient because two exported records become one stored record. They also make data‑transfer‑ratio analysis easier for detecting exfiltration.
 
 ### How does bidirectional flow relate to conversation view?
 
-Conversation view is the analytical or display representation of bidirectional communication behavior derived from correlated flow records.
-
-### How does Trisul create bidirectional flows?
-
-Trisul supports conversation-oriented flow analysis using flow correlation workflows and bidirectional traffic visibility.
-
-### What is the advantage of conversation-oriented flow analysis?
-
-It improves operational visibility by making communication behavior easier to interpret and investigate.
+Conversation view is the display mode that shows bidirectional flows. Bidirectional flow is the underlying data structure. When an operator clicks on a conversation in the interface, they are viewing a stitched bidirectional flow record.

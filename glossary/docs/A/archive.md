@@ -11,122 +11,102 @@ keywords:
   - retained logs
   - retained flows
   - long-term data
-  - flow storage
-  - forensic analysis
-  - compliance
-  - long-term traffic
 ---
 
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What is an Archive in Network Analytics?",
-  "description": "An archive in network analytics is retained historical data stored for later search, reporting, compliance, or forensic review.",
-  "about": {
-    "@type": "DefinedTerm",
-    "name": "Archive (Network Analytics)",
-    "inDefinedTermSet": {
-      "@type": "DefinedTermSet",
-      "name": "Network Analytics Glossary",
-      "url": "https://www.trisul.org/glossary"
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an archive in network analytics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An archive in network analytics is retained historical data stored for later search, reporting, compliance, or forensic review."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is an archive useful?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An archive is useful because it preserves history that may be needed long after the original event has passed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can be archived?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An archive can include logs, flow records, packets, reports, and summary metrics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is an archive used?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An archive is used for investigation, reporting, trend analysis, and compliance review."
+      }
     }
-  }
+  ]
 };
 
 # What is an archive in network analytics?
 
-An archive in network analytics is **retained historical data** stored for later search, reporting, compliance, or forensic review.
+An archive in network analytics is retained historical data stored for later search, reporting, compliance, or forensic review. It extends visibility beyond the live‑data window by keeping older data accessible in a structured, queryable form.
 
 ---
 
 ## How an archive works
 
-Operational data is moved from active use into longer-term storage while remaining searchable or retrievable. This allows teams to preserve history without keeping everything in high-speed storage.
+Operational data is moved from active, high‑speed storage into longer‑term storage while remaining searchable or retrievable. This allows teams to preserve history without keeping everything in expensive real‑time storage.
 
-The archive may include raw data or summarized records. The exact format depends on cost, retention goals, and query needs.
-
-The archival process typically involves:
-1. **Data collection** → Gather logs, flow records, packets, or metrics.
-2. **Compression** → Reduce storage footprint through compression.
-3. **Indexing** → Make data searchable by time, IP, protocol, or other fields.
-4. **Storage tiering** → Move to cost-effective long-term storage.
-5. **Retrieval** → Query and analyze archived data when needed.
+The archive may include raw data such as logs and packets, or summarized records such as flow aggregates and reports. The exact format and granularity depend on cost, retention goals, and the need for detailed versus high‑level queries.
 
 ---
 
 ## Archive use in operations
 
-Archives are valuable when teams need to investigate something that happened days, weeks, or months earlier. They also support reporting and audit requirements.
+Archives are valuable when teams need to investigate something that happened days, weeks, or months earlier, or when compliance mandates historical reporting. They also support trend analysis and long‑term capacity planning.
 
-Without an archive, visibility ends when live retention expires. That can make late investigations difficult or impossible.
-
-Common operational use cases:
-- **Forensic investigation**: Reconstruct what happened during a security incident weeks or months after the fact.
-- **Compliance audits**: Provide evidence of network activity for regulatory requirements.
-- **Trend analysis**: Identify long-term traffic patterns for capacity planning.
-- **Incident response**: Gather historical context for ongoing security incidents.
-- **Performance baselining**: Compare current performance against historical patterns.
+Without an archive, visibility effectively ends when live retention expires. That can make late investigations difficult or impossible and may leave gaps in reporting and compliance.
 
 ---
 
 ## Common archived data
 
-| Data type | Use |
-|---|---|
-| Logs | Event history |
-| Flow records | Traffic history |
-| Packets | Detailed evidence |
-| Summaries | Long-term trends |
-
----
-
-## Archive retention strategies
-
-| Strategy | Description | Use Case |
-|---|---|---|
-| Raw data retention | Keep uncompressed flow or packet data | Short-term forensic investigation |
-| Compressed retention | Store compressed flow records | Medium-term compliance |
-| Aggregated retention | Store only summaries or statistics | Long-term trend analysis |
-| Tiered storage | Hot storage for recent data, cold for older | Cost-effective mixed retention |
+| Data type   | Use |
+|-------------|-----|
+| Logs        | Event history for troubleshooting and auditing |
+| Flow records| Traffic history for usage, trends, and capacity analysis |
+| Packets     | Detailed evidence for deep forensic analysis |
+| Summaries   | Long‑term trends and usage reports |
 
 ---
 
 ## What makes an archive useful
 
-An archive is useful because it extends the useful life of operational data. Teams can revisit the past instead of relying only on live views.
-
-It is most effective when the archived data is indexed and easy to search.
-
-Key characteristics of effective archives:
-- **Searchable**: Indexed by time, IP address, protocol, port, or other fields.
-- **Retrievable**: Can be quickly accessed when needed for investigation.
-- **Integrity-preserving**: Data remains unaltered for forensic validity.
-- **Cost-effective**: Storage costs are manageable for the required retention period.
-- **Compliant**: Meets regulatory retention requirements.
+An archive is useful because it extends the useful life of operational data, allowing teams to revisit the past instead of relying only on live views.  
+It is most effective when the archived data is indexed, structured, and easy to search, so investigations and reports can be run quickly without full‑packet replay.
 
 ---
 
-## Trisul relevance
+## In Trisul
 
-Archive is relevant to Trisul Network Analytics when it refers to long-term retention and historical analysis of flow-based traffic data. The page should avoid implying full packet archive management unless that capability is explicitly documented.
+Trisul can support archival use cases by retaining traffic history and making past activity available for later analysis.  
+Through its flow‑based storage and query capabilities, Trisul allows operators to search and analyze historical traffic patterns, flows, and top‑talkers over extended periods, which supports investigations, compliance reporting, and long‑term trend analysis.
+
+---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [NetFlow](/glossary/netflow)
-- [Forensic analysis](/glossary/forensic-analysis)
-- [Compliance](/glossary/compliance)
-- [Long Term Traffic Tool](/glossary/long-term-traffic-tool)
-- [Monthly charts](/glossary/monthly-charts)
-- [Explore Flows](/glossary/explore-flows)
-- [Aggregate Flows](/glossary/aggregate-flows)
-- [Trend analysis](/glossary/trend-analysis)
-- [Storage](/glossary/storage)
-- [Batch processing](/glossary/batch-processing)
-- [Summary statistics](/glossary/summary-statistics)
-- [Monthly usage reports](/glossary/monthly-usage-reports)
-- [Packet capture](/glossary/packet-capture)
-- [Syslog](/glossary/syslog)
+- Archive
+- Storage
+- Batch processing
+- Summary statistics
+- Forensic analysis
+- Compliance reporting
 
 ---
 
@@ -134,28 +114,16 @@ Archive is relevant to Trisul Network Analytics when it refers to long-term rete
 
 ### What is an archive in network analytics?
 
-An archive in network analytics is retained historical data stored for later search, reporting, compliance, or forensic review.
+An archive in network analytics is retained historical data stored for later search, reporting, compliance, or forensic review. It extends visibility beyond the live‑data window into the past.
 
 ### Why is an archive useful?
 
-An archive is useful because it preserves history that may be needed long after the original event has passed, enabling forensic investigation, compliance audits, and long-term trend analysis.
+An archive is useful because it preserves history that may be needed long after the original event has passed. It supports investigations, reporting, and compliance even when live data is no longer available.
 
 ### What can be archived?
 
-An archive can include logs, flow records, packets, reports, and summary metrics. Flow records are often preferred in network analytics because they require less storage than full packet captures.
+An archive can include logs, flow records, packets, reports, and summary metrics. These types of data together provide both high‑level trends and detailed evidence for analysis.
 
 ### How is an archive used?
 
-An archive is used for investigation, reporting, trend analysis, and compliance review. Teams query archived data to reconstruct past events, provide audit evidence, or identify long-term traffic patterns.
-
-### How does Trisul handle archiving?
-
-Trisul should be described here only in terms of long-term retention and historical analysis of flow-based data. Avoid claiming specific archive-management features unless they are documented in official Trisul materials.
-
-### How long does Trisul retain archived data?
-
-Retention depends on the configured storage policy, data volume, and operational requirements. The page should avoid stating a fixed retention period unless documented.
-
-### Do I need separate archive storage for Trisul?
-
-Not necessarily. Whether separate archive storage is needed depends on retention goals, data type, and how much historical detail must be preserved.
+An archive is used for investigation, reporting, trend analysis, and compliance review. Teams query archived data when they need to look back at historical behavior, support an audit, or explain long‑term changes in usage or performance.

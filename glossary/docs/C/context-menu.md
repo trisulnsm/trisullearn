@@ -64,141 +64,66 @@ export const jsonLd = {
 
 # What is a context menu in network analytics?
 
-A **context menu** in network analytics is an interactive menu that provides investigation and navigation actions related to a selected traffic item, flow, host, alert, or metric.
-
-Context menus are commonly used in:
-- Network monitoring platforms
-- Security analytics systems
-- Flow analytics tools
-- SOC and NOC dashboards
-- Traffic investigation workflows
-
-In Trisul, context menus support rapid drill-down and traffic investigation workflows by allowing analysts to pivot directly from selected traffic entities into related analytical views.
+A **context menu** in network analytics is an interactive menu that appears when you select a traffic item, flow, host, alert, or metric. It offers relevant investigation and navigation actions tied to that item, such as viewing flows, filtering traffic, or pivoting to related entities. In Trisul, context menus accelerate drill‑down and traffic‑investigation workflows.
 
 ---
 
 ## How the context menu works
 
-A context menu is triggered when an analyst selects or clicks on a traffic-related object such as:
-- IP addresses
-- Hosts
-- Applications
-- Flows
-- Alerts
-- Interfaces
-- Protocols
-- Traffic graphs
-
-The available actions depend on the selected object type and the analytical context.
-
-Typical workflow:
-
-1. **Entity selection** → Analyst selects a traffic item or metric
-2. **Context menu display** → Relevant investigation actions appear
-3. **Scoped filtering** → Actions automatically inherit the selected context
-4. **Pivot execution** → Analyst launches drill-down or related investigation workflows
-5. **Operational analysis** → Additional traffic visibility and correlation become available
-
-Context-aware filtering reduces the need for manually building complex queries during investigations.
+You trigger a context menu by right‑clicking or selecting an object such as an IP address, host, application, flow, alert, interface, or metric. The menu shows actions scoped to that object, so you can immediately launch traffic views, host details, or historical analysis without manually building filters. The selection’s context (for example, host, ASN, or time window) is automatically carried into the new view.
 
 ---
 
 ## Context menus in network operations
 
-Context menus improve operational efficiency by enabling rapid traffic investigation and workflow navigation.
-
-Common operational use cases include:
-
-- **Traffic investigation**: Pivot from a host or flow into related traffic
-- **Security analysis**: Investigate suspicious IP addresses or conversations
-- **Performance troubleshooting**: Drill into congested interfaces or high-volume applications
-- **Packet analysis**: Retrieve packet data associated with traffic events
-- **Historical investigation**: Review prior activity related to a selected entity
-- **SOC and NOC workflows**: Accelerate operational response and navigation
-
-Fast drill-down workflows are especially important in environments where analysts must investigate large traffic volumes quickly.
+Context menus improve analyst efficiency by reducing manual filter‑building and enabling fast pivoting. They are commonly used for traffic investigation, security analysis on suspicious IPs, performance troubleshooting on high‑volume links or apps, packet retrieval, and correlated alerts or host‑scope analysis. In SOC and NOC workflows, they let analysts move quickly from high‑level metrics to detailed flows or packets.
 
 ---
 
 ## Common context menu actions
 
-| Action | Purpose |
-|---|---|
-| View flows | Show flows related to the selected entity |
-| Retrieve packets | Access matching packet data or PCAP workflows |
-| Host details | View host-related activity and traffic summaries |
-| Pivot to applications | Analyze traffic by application or service |
-| Historical analysis | Investigate past activity and trends |
-| Filter traffic | Narrow views to related traffic only |
-| Alert investigation | Review alerts associated with the selected item |
+| Action                  | Purpose |
+|-------------------------|---------|
+| View flows              | Show flows related to the selected entity |
+| Retrieve packets        | Access packet or PCAP data for the traffic |
+| Host details            | View host‑level activity and traffic |
+| Pivot to applications   | Analyze traffic by app or service |
+| Historical analysis     | Review past activity and trends |
+| Filter traffic          | Restrict views to traffic matching the context |
+| Alert investigation     | Jump to alerts tied to the selected item |
 
-The exact actions available depend on the platform and the selected entity type.
+Exact actions depend on the platform and the type of object selected.
 
 ---
 
 ## Why context menus are useful
 
-Context menus improve investigation speed and operational usability.
-
-Benefits include:
-- Faster analyst workflows
-- Reduced manual filtering
-- Simplified drill-down investigation
-- Easier navigation across related traffic views
-- Improved operational efficiency
-- Better correlation between analytical contexts
-
-Effective context menus help analysts move quickly between high-level summaries and detailed investigative views.
+Context menus speed up investigations and navigation across views. They reduce manual query construction, support scoped drilling, and make it easier to correlate traffic, hosts, alerts, and metrics. Well‑designed context menus help analysts move quickly from summaries to detail without losing context.
 
 ---
 
 ## Context menu and drill-down workflows
 
-Context menus are commonly associated with drill-down and pivot-based investigation workflows.
-
-| Workflow | Purpose |
-|---|---|
-| Drill-down | Move from summary views to detailed analysis |
-| Pivoting | Navigate between related traffic entities |
-| Scoped investigation | Maintain contextual filtering during analysis |
-| Cross-view navigation | Correlate information across analytical views |
-
-These workflows are important in large-scale traffic analytics and security operations environments.
+Context menus are closely tied to drill‑down and pivot workflows. Drill‑down moves from summary dashboards to flow‑level or packet‑level analysis. Pivoting lets you switch between related entities (for example, host → flows → alerts) while preserving filters. Context menus make these workflows one‑click instead of multi‑step.
 
 ---
 
-## How Trisul handles context menus
+## In Trisul
 
-Trisul provides context menus throughout dashboards and analytical workflows to support traffic investigation and operational analysis.
-
-Relevant capabilities include:
-
-- **Context-aware drill-down workflows**
-- **Flow-oriented investigation actions**
-- **Explore Flows integration** for traffic analysis
-- **Traffic pivot workflows** across related entities
-- **Packet retrieval workflows** where packet visibility is available
-- **Host and traffic visibility integration**
-- **Operational navigation across analytical views**
-
-These capabilities help analysts investigate traffic behavior, correlate related activity, and move efficiently between operational views.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+Trisul adds context menus throughout dashboards and analytical views so you can drill into flows, hosts, alerts, or interfaces with a single click. Actions include flow‑oriented investigation, **Explore Flows**, packet‑retrieval workflows, and pivoting between traffic, host, and application contexts. This helps analysts investigate behavior and correlate events without manually specifying filters or time ranges.
 
 ---
 
 ## Related terms
 
-- [Traffic investigation](/glossary/traffic-investigation)
-- [Flow analysis](/glossary/flow-analysis)
-- [Packet capture](/glossary/packet-capture)
-- [Host monitor](/glossary/host-monitor)
-- [Drill-down](/glossary/drill-down)
-- [Explore Flows](/glossary/explore-flows)
-- [Top-K analytics](/glossary/top-k-analytics)
+- Context menu  
+- Traffic investigation  
+- Flow analysis  
+- Packet capture  
+- Host monitor  
+- Drill‑down  
+- Explore Flows  
+- Top‑K analytics  
 
 ---
 
@@ -222,4 +147,4 @@ In Trisul, context menus appear throughout dashboards and analytical views where
 
 ### How does Trisul use context menus?
 
-Trisul uses context menus to support drill-down investigation workflows, traffic pivots, flow analysis, packet retrieval workflows, and rapid navigation between related analytical views.
+Trisul uses context menus to support drill‑down investigation workflows, traffic pivots, flow analysis, packet retrieval workflows, and rapid navigation between related analytical views.

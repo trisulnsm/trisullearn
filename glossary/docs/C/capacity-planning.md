@@ -1,6 +1,6 @@
 ---
 title: What is capacity planning?
-description: Capacity planning is the process of forecasting and managing network resources to ensure bandwidth, infrastructure, and services can support current and future demand without performance degradation. Trisul supports capacity planning through traffic visibility, utilization analysis, and historical flow analytics.
+description: Capacity planning is the process of forecasting and managing network resources to ensure bandwidth, hardware, and infrastructure can meet current and future demand without service degradation.
 sidebar_label: Capacity planning
 sidebar_position: 31
 slug: /glossary/capacity-planning
@@ -20,10 +20,10 @@ export const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What are the common capacity planning strategies?",
+      "name": "What are the three types of capacity planning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Common strategies include lead planning, where capacity is added ahead of expected demand; lag planning, where upgrades occur after demand increases; and match planning, where capacity is expanded incrementally as utilization grows."
+        "text": "Lead strategy adds capacity before demand increases, ensuring adequate capacity but risking overbuilding. Lag strategy adds capacity only after running at full capacity, reducing waste risk but potentially losing customers. Match strategy adds capacity in small amounts in response to changing demand, balancing risk and cost."
       }
     },
     {
@@ -31,7 +31,15 @@ export const jsonLd = {
       "name": "What metrics are used in network capacity planning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Common metrics include interface utilization, peak bandwidth usage, traffic growth trends, top talkers, application distribution, packet rates, congestion events, and historical traffic patterns."
+        "text": "Key metrics include interface utilization over time, peak bandwidth usage, top talkers by volume, link saturation events, byte and packet counts per second, and application traffic breakdown. These are all available from flow monitoring data without requiring packet capture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far in advance should capacity be planned?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Short-term planning covers days to weeks for operational adjustments. Mid-term planning covers months for purchasing and deployment cycles. Long-term planning covers years for strategic infrastructure decisions and budget allocation. Flow monitoring retention of 30 to 90 days supports mid-term planning."
       }
     },
     {
@@ -39,23 +47,7 @@ export const jsonLd = {
       "name": "How does flow monitoring support capacity planning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow monitoring provides visibility into traffic patterns, utilization trends, application behavior, and bandwidth consumption. This helps operators identify growing demand, saturated links, and high-volume traffic sources."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is historical traffic analysis important for capacity planning?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Historical analysis helps operators identify recurring traffic patterns, seasonal growth, peak utilization periods, and long-term demand trends that influence upgrade planning and infrastructure investment decisions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does Trisul help with capacity planning?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Trisul supports capacity planning through interface utilization visibility, Top-K analytics, historical traffic trending, flow analysis, and long-term traffic investigation workflows."
+        "text": "Flow monitoring provides interface utilization trending, top talker identification, and application traffic breakdown without packet capture. Operators can identify which links are approaching saturation, which hosts drive traffic, and plan upgrades based on data rather than guesswork."
       }
     }
   ]
@@ -63,163 +55,73 @@ export const jsonLd = {
 
 # What is capacity planning?
 
-**Capacity planning** is the process of forecasting and managing network resources to ensure bandwidth, infrastructure, and services can support current and future demand without performance degradation.
-
-Capacity planning helps organizations:
-- Prevent congestion and saturation
-- Avoid service degradation
-- Plan infrastructure upgrades
-- Understand traffic growth trends
-- Allocate operational budgets more effectively
-
-Flow analytics and utilization monitoring provide the operational data needed for evidence-based planning decisions.
-
-Trisul supports capacity planning through traffic visibility, utilization analysis, and historical flow analytics.
+Capacity planning is the process of forecasting and managing network resources to ensure bandwidth, hardware, and infrastructure can meet current and future demand without service degradation. It prevents outages and performance issues by identifying capacity constraints before they are hit. Flow monitoring provides the data needed for data‑driven capacity decisions.
 
 ---
 
 ## How it works
 
-Capacity planning relies on measuring current network behavior and projecting future demand trends.
-
-Common telemetry and analysis sources include:
-- Interface utilization statistics
-- NetFlow and IPFIX telemetry
-- Traffic trend analysis
-- Application usage visibility
-- Historical bandwidth consumption
-- Peak utilization monitoring
-
-Typical workflow:
-
-1. **Traffic measurement** → Collect utilization and traffic telemetry
-2. **Trend analysis** → Identify recurring growth and usage patterns
-3. **Peak analysis** → Evaluate saturation periods and burst conditions
-4. **Constraint identification** → Detect overloaded links or infrastructure
-5. **Forecasting** → Estimate future demand and growth
-6. **Planning and upgrades** → Schedule infrastructure expansion or optimization
-
-Capacity planning is most effective when based on long-term traffic visibility rather than short-term averages alone.
+Capacity planning uses interface utilization trending, peak bandwidth analysis, and top‑talker identification from flow data. Historical trends over days, weeks, and months reveal usage patterns that inform when and where to add capacity. Operators choose between lead, lag, and match strategies to determine how early to add capacity relative to demand.
 
 ---
 
 ## In network operations
 
-Capacity planning is important across enterprise, ISP, and service-provider environments.
-
-Common operational use cases include:
-
-- **NOC operations**: Identify interfaces approaching saturation
-- **Infrastructure planning**: Justify upgrades using measured utilization data
-- **ISP operations**: Plan peering, transit, and backbone growth
-- **Application planning**: Understand bandwidth consumption by services
-- **Budget forecasting**: Align infrastructure spending with traffic growth
-
-Effective planning reduces the risk of congestion, instability, and service-impacting overload conditions.
+- **NOC:** Identify links approaching or nearing saturation using interface utilization charts and top‑talker reports.  
+- **Finance:** Use traffic trends to justify infrastructure upgrades with concrete data instead of estimates.  
+- **ISP:** Plan peering agreements and backbone capacity based on per‑prefix and per‑AS traffic analysis from flow data.
 
 ---
 
 ## Capacity planning strategies
 
-| Strategy | Description | Typical tradeoff |
-|---|---|---|
-| Lead strategy | Add capacity before expected demand growth | Higher upfront cost |
-| Lag strategy | Add capacity after utilization increases | Greater congestion risk |
-| Match strategy | Expand capacity incrementally with growth | Balanced cost and responsiveness |
-
-Organizations select strategies based on operational risk tolerance, budget constraints, and expected growth patterns.
+| Strategy | When to add capacity                        | Risk profile                            | Best for |
+|----------|---------------------------------------------|-----------------------------------------|----------|
+| Lead     | Before demand increases                    | Risk of overbuilding and unused cost    | Critical services, high‑growth or mission‑critical networks |
+| Lag      | After running at or near full capacity      | Risk of service degradation or churn    | Cost‑sensitive, mature, or stable‑growth environments |
+| Match    | In small increments as demand changes       | Balanced risk and cost                  | Networks with relatively predictable, steady growth |
 
 ---
 
-## Common metrics used in capacity planning
+## What makes capacity planning useful
 
-| Metric | Operational use |
-|---|---|
-| Interface utilization | Identify overloaded links |
-| Peak bandwidth usage | Evaluate maximum demand |
-| Traffic growth trends | Forecast future capacity needs |
-| Top talkers | Identify major traffic consumers |
-| Packet rates | Measure forwarding pressure |
-| Congestion events | Detect recurring overload conditions |
-| Application distribution | Understand service-level demand |
-
-Combining these metrics provides a more accurate picture of infrastructure stress and future requirements.
+Capacity planning is useful because it replaces guesswork with measurement. By understanding how traffic grows and which links or services are most constrained, organizations can invest only where needed and avoid both under‑ and over‑provisioning. It also improves user experience by preventing service‑degrading congestion.
 
 ---
 
-## Why capacity planning matters
+## In Trisul
 
-Poor capacity planning can lead to:
-- Congestion
-- Packet loss
-- Increased latency
-- Service instability
-- Unexpected infrastructure costs
-
-Well-executed capacity planning improves:
-- Network reliability
-- Performance consistency
-- Upgrade prioritization
-- Operational visibility
-- Budget efficiency
-
-Historical traffic visibility is especially important for identifying recurring demand cycles and long-term growth patterns.
-
----
-
-## How Trisul handles capacity planning
-
-Trisul supports capacity planning through traffic analytics, utilization visibility, and historical flow analysis workflows.
-
-Relevant capabilities include:
-
-- **Interface utilization visibility** for identifying overloaded links
-- **Flow-based traffic analysis** using NetFlow, IPFIX, sFlow, and J-Flow
-- **Top-K analytics** for identifying major bandwidth consumers
-- **Historical traffic trending** for long-term growth analysis
-- **Explore Flows** for traffic investigation and drill-down analysis
-- **Aggregate Flows** for summarizing utilization and traffic patterns
-- **Long-term traffic visibility** for infrastructure planning workflows
-
-These capabilities help operators identify congestion trends, analyze traffic growth, and plan infrastructure upgrades using measured network behavior.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
+Trisul supports capacity planning through **Interface Tracking** for per‑interface utilization and top‑talker views, and **Top‑K analytics** for real‑time identification of highest‑consumption hosts, applications, or ASes. Flow‑data retention of 30 to 90 days enables mid‑term trend analysis, allowing operators to see how usage evolves and make informed decisions about when to upgrade links, interfaces, or peering relationships.
 
 ---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Interface utilization](/glossary/interface-utilization)
-- [Top-K analytics](/glossary/top-k-analytics)
-- [Flow analysis](/glossary/flow-analysis)
-- [Interface saturation](/glossary/interface-saturation)
-- [Congestion detection](/glossary/congestion-detection)
-- [Traffic trending](/glossary/traffic-trending)
+- Capacity planning
+- Network capacity planning
+- Interface utilization
+- Interface saturation
+- Flow monitoring
+- Top‑K analytics
+- Flow analysis
+- Traffic trending
 
 ---
 
 ## Frequently asked questions
 
-### What are the common capacity planning strategies?
+### What are the three types of capacity planning?
 
-Common strategies include lead planning, where capacity is added ahead of expected demand; lag planning, where upgrades occur after demand increases; and match planning, where capacity is expanded incrementally as utilization grows.
+Lead strategy adds capacity before demand increases, ensuring adequate capacity but risking overbuilding. Lag strategy adds capacity only after the network is running at or near full capacity, reducing the risk of wasted cost but increasing the risk of service degradation or customer loss. Match strategy adds capacity in small increments as demand changes, balancing risk and cost.
 
 ### What metrics are used in network capacity planning?
 
-Common metrics include interface utilization, peak bandwidth usage, traffic growth trends, top talkers, application distribution, packet rates, congestion events, and historical traffic patterns.
+Key metrics include interface utilization over time, peak bandwidth usage, top talkers by volume, link saturation events, byte and packet counts per second, and application‑level traffic breakdown. All of these can be derived from flow monitoring data without requiring packet capture.
+
+### How far in advance should capacity be planned?
+
+Short‑term planning covers days to weeks for operational adjustments such as traffic‑engineering changes. Mid‑term planning covers months for hardware procurement and deployment cycles. Long‑term planning covers years for major infrastructure and budgeting decisions. Flow monitoring retention of 30 to 90 days typically supports mid‑term capacity‑planning analysis.
 
 ### How does flow monitoring support capacity planning?
 
-Flow monitoring provides visibility into traffic patterns, utilization trends, application behavior, and bandwidth consumption. This helps operators identify growing demand, saturated links, and high-volume traffic sources.
-
-### Why is historical traffic analysis important for capacity planning?
-
-Historical analysis helps operators identify recurring traffic patterns, seasonal growth, peak utilization periods, and long-term demand trends that influence upgrade planning and infrastructure investment decisions.
-
-### How does Trisul help with capacity planning?
-
-Trisul supports capacity planning through interface utilization visibility, Top-K analytics, historical traffic trending, flow analysis, and long-term traffic investigation workflows.
+Flow monitoring provides interface‑utilization trending, top‑talker identification, and application traffic breakdown without requiring packet capture. Operators can use this data to identify which links are approaching saturation, which hosts or ASes drive traffic, and when to plan upgrades, allowing capacity planning to be based on actual measurements rather than estimates.

@@ -11,137 +11,104 @@ keywords:
   - access
   - reliability
   - system health
-  - flow monitoring
-  - network monitoring
-  - outage detection
-  - connectivity
 ---
 
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What is Availability?",
-  "description": "Availability is the measure of whether a service, system, or network is accessible and functioning when needed.",
-  "about": {
-    "@type": "DefinedTerm",
-    "name": "Availability",
-    "inDefinedTermSet": {
-      "@type": "DefinedTermSet",
-      "name": "Network Analytics Glossary",
-      "url": "https://www.trisul.org/glossary"
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is availability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Availability is the measure of whether a service, system, or network is accessible and functioning when needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is availability important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Availability is important because users can only use services that are reachable and working."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is availability measured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Availability is measured by uptime, response success, and service reachability over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What affects availability?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Availability can be affected by outages, congestion, failures, maintenance, and access policy."
+      }
     }
-  }
+  ]
 };
 
 # What is availability?
 
-Availability is the measure of whether a **service**, **system**, or **network** is **accessible** and **functioning when needed**.
+Availability is the measure of whether a service, system, or network is accessible and functioning when needed. It answers the simple question: “Can users reach and use this right now?”
 
 ---
 
 ## How availability works
 
-A system is available when users can reach it and complete the expected action. If the service is down or unreachable, availability drops.
+A system is available when users can reach it and complete the expected action, such as loading a web page, connecting to an API, or logging in. If the service is down, unreachable, or not responding to valid requests, availability drops.
 
-Availability is often tracked as uptime over a period of time. It may also include successful response rates.
-
-Availability calculation:
-
-```math
-\text{Availability} =
-\frac{\text{Uptime}}
-{\text{Uptime} + \text{Downtime}}
-\times 100\%
-```
-
-Common availability targets:
-
-- **99%**: "Two nines" about 3.65 days downtime per year.
-- **99.9%**: "Three nines" about 8.76 hours downtime per year.
-- **99.99%**: "Four nines" about 52.6 minutes downtime per year.
-- **99.999%**: "Five nines" about 5.26 minutes downtime per year.
+Availability is often tracked as uptime over a period of time (for example, 99.9% over a month) and can also be expressed as a request success rate or reachability percentage over a measurement interval.
 
 ---
 
 ## Availability in operations
 
-Availability is a basic service goal for nearly every networked system. Teams monitor it closely because outages have immediate impact.
+Availability is a basic service goal for nearly every networked system. Operations teams monitor it closely because outages have an immediate impact on users and business processes.
 
-It also forms the basis for reporting and service-level targets. Many dashboards and agreements are built around availability.
-
-Common operational use cases:
-
-- **Service monitoring**: Track whether critical services are reachable 24/7.
-- **SLA compliance**: Measure availability against contractual service-level agreements.
-- **Outage detection**: Identify when services go down and notify teams immediately.
-- **Capacity planning**: Identify links or services approaching capacity limits that could cause availability issues.
-- **Trend analysis**: Track availability trends over time to identify recurring issues.
+It also forms the basis for reporting and service‑level objectives (SLOs) or service‑level agreements (SLAs). Many dashboards and operational reports are built around availability metrics and targets.
 
 ---
 
 ## Common availability signals
 
-| Signal | Meaning |
-|---|---|
-| Uptime | Time service was up |
-| Reachability | Whether it can be contacted |
-| Success rate | How often requests work |
-| Downtime | Time service is unavailable |
-
----
-
-## Availability vs related metrics
-
-| Metric | What it measures | Relationship to availability |
-|---|---|---|
-| Uptime | Time service is operational | Direct measure of availability |
-| Latency | Response time | Affects user experience, but service may still be available |
-| Packet loss | Percentage of lost packets | High loss can make service effectively unavailable |
-| Throughput | Data transfer rate | Low throughput may indicate partial availability |
-| Error rate | Failed requests | High errors can indicate degraded availability |
+| Signal       | Meaning |
+|--------------|---------|
+| Uptime       | Time the service was operational and reachable |
+| Reachability | Whether the service can be contacted from relevant locations |
+| Success rate | How often requests or probes succeed versus failing |
+| Downtime     | Time the service is reported as unavailable or unreachable |
 
 ---
 
 ## What makes availability useful
 
-Availability is useful because it is easy to understand and directly tied to user access. If a service is unavailable, nothing else matters much.
+Availability is useful because it is easy to understand and directly tied to user access. If a service is unavailable, performance and security largely stop mattering from the user’s perspective.
 
-It becomes more useful when paired with latency and error details.
-
-Key characteristics of effective availability monitoring:
-
-- **Real-time detection**: Quickly identify when services go down.
-- **Accurate measurement**: Track actual uptime versus downtime precisely.
-- **Context-rich alerts**: Include which service, when, and potential cause.
-- **Historical tracking**: Maintain records for SLA reporting and trend analysis.
-- **Correlation**: Link availability events with network conditions for root cause analysis.
+It becomes more useful when combined with latency, error‑rate, and traffic‑volume data, since those metrics help explain why availability changed and how the degradation felt to users.
 
 ---
 
-## Trisul relevance
+## In Trisul
 
-Availability is relevant to Trisul Network Analytics as a traffic-observability concept, but the page should avoid claiming native uptime-probe functionality unless it is documented in official Trisul materials.
-
-Trisul is better positioned as providing traffic context around connectivity and service reachability rather than as a dedicated availability-monitoring tool.
+Trisul can help relate availability events to traffic and network conditions so teams can understand why access or service reachability changed.  
+By correlating flow‑based traffic patterns, protocol behavior, and interface metrics with external availability‑check results, Trisul supports faster root‑cause analysis when services appear to drop or become unreachable.
 
 ---
 
 ## Related terms
 
-- [Uptime monitoring](/glossary/uptime-monitoring)
-- [Active monitoring](/glossary/active-monitoring)
-- [Network access](/glossary/network-access)
-- [Network performance](/glossary/network-performance)
-- [QoE (Quality of Experience)](/glossary/quality-of-experience)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Outage detection](/glossary/outage-detection)
-- [Connectivity](/glossary/connectivity)
-- [SLA](/glossary/sla)
-- [NetFlow](/glossary/netflow)
-- [Explore Flows](/glossary/explore-flows)
-- [Aggregate Flows](/glossary/aggregate-flows)
-- [Top-K analytics](/glossary/top-k-analytics)
-- [Rule Builder](/glossary/rule-builder)
+- Availability
+- Uptime monitoring
+- Active monitoring
+- Network access
+- Network performance
+- Quality of experience
+- Service‑level agreement
 
 ---
 
@@ -149,33 +116,16 @@ Trisul is better positioned as providing traffic context around connectivity and
 
 ### What is availability?
 
-Availability is the measure of whether a service, system, or network is accessible and functioning when needed.
+Availability is the measure of whether a service, system, or network is accessible and functioning when needed. It indicates whether users can reach and use the service at a given time.
 
 ### Why is availability important?
 
-Availability is important because users can only use services that are reachable and working. Without availability, performance and features do not matter.
+Availability is important because users can only use services that are reachable and working. Poor availability directly impacts user experience, business operations, and revenue.
 
 ### How is availability measured?
 
-Availability is measured by uptime, response success, and service reachability over time.
-
-```math
-\text{Availability} =
-\frac{\text{Uptime}}
-{\text{Uptime} + \text{Downtime}}
-\times 100\%
-```
+Availability is measured by uptime, response success, and service reachability over time. Common expressions include uptime percentages and success‑rate metrics over specific intervals.
 
 ### What affects availability?
 
-Availability can be affected by outages, congestion, failures, maintenance, and access policy. Network issues, server failures, and application crashes can all impact availability.
-
-### How does Trisul monitor availability?
-
-Trisul should be described here only as providing traffic context that helps operators understand connectivity and reachability changes, not as a dedicated uptime-monitoring system.
-
-### What is the advantage of traffic-based availability analysis over active monitoring?
-
-Traffic-based analysis does not require probes and shows what real traffic is doing on the network.
-
-Active monitoring adds probe traffic and may not reflect actual user experience. Both approaches can complement each other.
+Availability can be affected by outages, congestion, hardware or software failures, maintenance windows, and access‑control policies that block legitimate traffic.

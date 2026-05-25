@@ -11,124 +11,108 @@ keywords:
   - identity logs
   - sign-in events
   - auth events
-  - AAA
-  - syslog
-  - security auditing
-  - incident investigation
 ---
 
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What is Authentication Logging?",
-  "description": "Authentication logging is the recording of login attempts, success or failure events, and identity-related actions on systems and networks.",
-  "about": {
-    "@type": "DefinedTerm",
-    "name": "Authentication Logging",
-    "inDefinedTermSet": {
-      "@type": "DefinedTermSet",
-      "name": "Network Analytics Glossary",
-      "url": "https://www.trisul.org/glossary"
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is authentication logging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Authentication logging is the recording of login attempts, success or failure events, and identity-related actions on systems and networks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is authentication logging important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Authentication logging is important because it provides evidence of who tried to access a system and whether access was granted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do authentication logs show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Authentication logs can show user names, device identities, success or failure status, timestamps, and source information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is authentication logging used?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Authentication logging is used for auditing, troubleshooting, and incident investigation."
+      }
     }
-  }
+  ]
 };
 
 # What is authentication logging?
 
-Authentication logging is the **recording of login attempts**, **success or failure events**, and **identity-related actions** on systems and networks.
+Authentication logging is the recording of login attempts, success or failure events, and identity‑related actions on systems and networks. It creates a historical record of who tried to access what, when, and from where, which is essential for security, auditing, and incident response.
 
 ---
 
 ## How authentication logging works
 
-When a user or device tries to sign in, the system records the attempt. That record may include the account name, time, source, and whether the attempt succeeded.
+When a user or device tries to sign in, the system records the attempt. That record typically includes the account name, time of attempt, source IP or device identifier, and whether the attempt succeeded or failed.
 
-If access fails, the log may also show the reason. This helps administrators determine whether the issue is a bad password, policy restriction, or system problem.
-
-The authentication logging process typically involves:
-1. **Authentication attempt** → User or device submits credentials.
-2. **Validation** → System checks credentials against the identity store.
-3. **Log generation** → System creates a log entry with attempt details.
-4. **Log storage** → Entry is stored locally or sent to centralized logging such as syslog or a SIEM.
-5. **Log analysis** → Administrators review logs for security and troubleshooting.
+If access fails, the log may also capture the reason, such as wrong password, account lockout, or policy restriction. This helps administrators distinguish between user error, configuration issues, and potential abuse.
 
 ---
 
 ## Authentication logging in operations
 
-Authentication logs are important for security and troubleshooting. They help teams see whether access is working correctly and whether suspicious activity is occurring.
+Authentication logs are critical for security and operations. They help teams see whether access is working as expected and whether suspicious activity—such as repeated failed logins or logins from unusual locations—may indicate a compromise.
 
-They are also useful during incident review. Multiple failed logins or unusual access times can point to abuse or compromise.
-
-Common operational use cases:
-- **Security monitoring**: Detect brute force attacks from repeated failed logins.
-- **Access auditing**: Verify who accessed systems and when for compliance.
-- **Troubleshooting**: Identify why users cannot authenticate, such as a bad password or policy restriction.
-- **Incident investigation**: Reconstruct access patterns during security incidents.
-- **Privilege creep detection**: Identify unusual access patterns or unauthorized account usage.
+They are also essential during incident review. Correlating authentication events with other logs can reveal patterns such as brute‑force attempts, lateral movement, or misuse of credentials.
 
 ---
 
 ## Common authentication log fields
 
-| Field | Meaning | Example |
-|---|---|---|
-| User | Account involved | john.doe, admin, root |
-| Source | Where the attempt came from | 192.168.1.100, hostname |
-| Status | Success or failure | Success, Failed, Denied |
-| Time | When it happened | 2026-05-22 14:32:15 UTC |
-| Service | Authentication service | SSH, RADIUS, TACACS+, LDAP |
-| Reason | Why it failed, if applicable | Bad password, account locked |
-
----
-
-## Authentication logging sources
-
-| Source | What it logs | Common protocol |
-|---|---|---|
-| Network devices | Admin login attempts | TACACS+, RADIUS, SSH |
-| Servers | User login events | SSH, Windows Event Log |
-| Firewalls | User authentication | AAA, captive portal |
-| Wi-Fi access points | User/network access | RADIUS, 802.1X |
-| Applications | Application-level authentication | LDAP, SAML, OAuth |
+| Field  | Meaning |
+|--------|---------|
+| User   | Account or identity involved |
+| Source | Device, host, or network address where the attempt originated |
+| Status | Success or failure of the authentication attempt |
+| Time   | When the event occurred, including date and time |
 
 ---
 
 ## What makes authentication logging useful
 
-Authentication logging is useful because it creates a record of access attempts. That record supports auditing and investigation.
+Authentication logging is useful because it creates a persistent record of access attempts that can be reviewed after the fact. That record supports:
 
-It is most useful when logs are centralized and retained long enough for review.
+- **Auditing** compliance with access policies,  
+- **Troubleshooting** access problems, and  
+- **Incident investigation** for security events.  
 
-Key characteristics of effective authentication logging:
-- **Centralized collection**: Logs sent to a syslog server or SIEM for unified analysis.
-- **Sufficient retention**: Logs retained long enough for compliance and investigation.
-- **Rich context**: Include user, source, time, status, and failure reason.
-- **Real-time alerting**: Alert on suspicious patterns such as multiple failed logins or unusual times.
-- **Tamper protection**: Logs stored securely to prevent modification.
+It is most effective when logs are centralized, structured, and retained for a sufficient period to cover normal and post‑incident review windows.
 
 ---
 
-## Trisul relevance
+## In Trisul
 
-Authentication logging is relevant to Trisul Network Analytics primarily as an external log source that can be correlated with traffic analysis. The page should avoid claiming native identity-management or authentication-processing features unless those are explicitly documented.
+Trisul can correlate authentication‑related events (for example, from syslog or AAA/Identity‑system logs) with traffic activity so operators can understand access behavior across the network.  
+By linking a user‑ or device‑level authentication event to corresponding flows, interfaces, and protocols, Trisul supports faster investigation of suspicious access patterns, lateral‑movement indicators, and anomalous post‑login activity.
+
+---
 
 ## Related terms
 
-- [AAA](/glossary/aaa)
-- [Network access](/glossary/network-access)
-- [Syslog](/glossary/syslog)
-- [Security auditing](/glossary/security-auditing)
-- [Incident investigation](/glossary/incident-investigation)
-- [RADIUS](/glossary/radius)
-- [TACACS+](/glossary/tacacs-plus)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [SIEM](/glossary/siem)
-- [Brute force attack](/glossary/brute-force-attack)
-- [Access control](/glossary/access-control)
-- [Explore Flows](/glossary/explore-flows)
-- [Rule Builder](/glossary/rule-builder)
-- [Baseline traffic analytics](/glossary/baseline-traffic-analytics)
+- Authentication logging
+- AAA
+- Network access
+- Syslog
+- Security auditing
+- Incident investigation
+- Access logs
 
 ---
 
@@ -136,24 +120,16 @@ Authentication logging is relevant to Trisul Network Analytics primarily as an e
 
 ### What is authentication logging?
 
-Authentication logging is the recording of login attempts, success or failure events, and identity-related actions on systems and networks.
+Authentication logging is the recording of login attempts, success or failure events, and identity‑related actions on systems and networks. It creates a historical record of who tried to access what, when, and from where.
 
 ### Why is authentication logging important?
 
-Authentication logging is important because it provides evidence of who tried to access a system and whether access was granted. It enables security monitoring, compliance auditing, and incident investigation.
+Authentication logging is important because it provides evidence of who tried to access a system and whether access was granted. This evidence supports security, compliance, and incident‑response requirements.
 
 ### What do authentication logs show?
 
-Authentication logs can show user names, device identities, success or failure status, timestamps, source information such as an IP address or hostname, authentication service, and failure reasons such as a bad password or account lockout.
+Authentication logs can show user names, device identities, success or failure status, timestamps, and source information. Together, these fields reveal the context of each access attempt.
 
 ### How is authentication logging used?
 
-Authentication logging is used for auditing, troubleshooting, and incident investigation.
-
-### How does Trisul work with authentication logging?
-
-Trisul should be described here only as correlating external authentication events with flow data when those logs are available. Avoid implying that Trisul itself performs authentication logging.
-
-### What suspicious patterns should I look for in authentication logs?
-
-Suspicious patterns include multiple failed logins from the same source, successful logins at unusual times, authentication from unexpected source IPs, account lockouts, and sudden increases in authentication failures.
+Authentication logging is used for auditing, troubleshooting, and incident investigation. Teams query authentication logs to verify compliance, diagnose login failures, and trace suspicious or abusive access behavior.

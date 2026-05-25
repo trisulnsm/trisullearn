@@ -64,146 +64,70 @@ export const jsonLd = {
 
 # What is congestion detection?
 
-**Congestion detection** is the process of identifying when network demand approaches or exceeds available forwarding or transmission capacity.
-
-Congestion occurs when traffic load exceeds the ability of links, devices, or forwarding paths to process and transmit packets efficiently.
-
-Congestion detection helps operators:
-- Identify bottlenecks
-- Prevent service degradation
-- Detect overloaded links
-- Investigate performance issues
-- Improve traffic engineering and capacity planning
-
-Trisul supports congestion-oriented traffic analysis through flow visibility, utilization monitoring, and historical traffic analytics.
+**Congestion detection** is the process of identifying when network demand approaches or exceeds available forwarding or transmission capacity. It helps operators detect bottlenecks, queue buildup, latency increases, and packet loss before severe service degradation occurs. Rather than simply measuring how busy a link is, congestion detection looks at how traffic impacts forwarding and user experience.
 
 ---
 
 ## How congestion detection works
 
-Congestion detection relies on observing multiple operational signals together rather than depending on a single metric.
+Congestion detection relies on multiple operational signals that are analyzed together, rather than a single metric. As traffic increases, several changes typically appear in sequence: interface utilization rises, queuing and buffer occupancy grow, latency and jitter increase, packet loss and retransmissions occur, and effective throughput may drop. A robust detection workflow observes all of these behaviors and correlates them to distinguish normal high‑utilization periods from true congestion that impacts applications.
 
-As traffic demand increases:
-- Interface utilization rises
-- Queues begin to grow
-- Buffer occupancy increases
-- Latency and jitter rise
-- Packet drops may occur
-- Retransmissions become more frequent
-
-Typical workflow:
-
-1. **Traffic monitoring** → Collect utilization and traffic telemetry
-2. **Queue and delay analysis** → Observe queue buildup and latency changes
-3. **Loss analysis** → Detect packet drops and retransmissions
-4. **Trend correlation** → Compare traffic growth with congestion indicators
-5. **Operational investigation** → Identify overloaded paths or devices
-6. **Mitigation** → Apply rerouting, QoS adjustments, or capacity upgrades
-
-Transient congestion may occur briefly during bursts, while persistent congestion usually indicates insufficient capacity or traffic imbalance.
+A typical workflow starts with continuous traffic monitoring to collect utilization and flow telemetry. Then the system observes whether queues and buffers are growing and whether latency is rising. Packet loss and retransmissions are analyzed to confirm that forwarding capacity is being exceeded. Finally, traffic trends are compared with these congestion indicators to identify overloaded links, devices, or routing paths. Some congestion is transient and occurs during short bursts, but persistent congestion usually indicates a structural issue that requires rerouting, QoS adjustments, or capacity upgrades.
 
 ---
 
 ## Congestion detection in network operations
 
-Congestion detection is important in enterprise, ISP, cloud, and service-provider environments.
+In enterprise, ISP, cloud, and service‑provider networks, congestion detection plays a central role in maintaining service quality. Operators use it to troubleshoot slow or unresponsive applications, identify the root cause of poor voice and video quality, and validate that traffic‑engineering and QoS policies are working as intended. By spotting overloaded links early, teams can avoid widespread performance problems and reduce the time it takes to resolve incidents.
 
-Common operational use cases include:
-
-- **Performance troubleshooting**: Investigate slow applications and degraded services
-- **Voice and video quality analysis**: Detect latency and jitter affecting real-time traffic
-- **Capacity planning**: Identify overloaded interfaces and recurring bottlenecks
-- **QoS validation**: Verify prioritization and shaping effectiveness
-- **Traffic engineering**: Optimize path selection and load balancing
-- **Security monitoring**: Detect overload conditions caused by DDoS activity or traffic anomalies
-
-Early congestion detection helps reduce service-impacting outages and improves operational response times.
+Capacity planning also depends heavily on congestion‑detection data. Operators can see which interfaces or segments repeatedly hit their limits and then decide where to add capacity or rebalance traffic. In security operations, congestion detection can reveal abnormal overload conditions, such as DDoS, traffic spikes, or misconfigured services that consume disproportionate bandwidth. Overall, early congestion detection reduces service‑impacting outages and improves operational response times.
 
 ---
 
 ## Common congestion signals
 
-| Signal | Meaning |
-|---|---|
-| High utilization | Link or interface capacity is nearing saturation |
-| Queueing | Packets are waiting in buffers |
-| Packet loss | Buffers or forwarding paths are overloaded |
-| Latency | Packet delivery times are increasing |
-| Jitter | Delay variation affecting real-time traffic |
-| Retransmissions | Traffic must be resent because packets were lost |
-| Throughput degradation | Effective transfer rates decrease |
+Several key signals indicate congestion, and they are most meaningful when viewed together. High interface utilization is one of the first signs that a link or device is under load, but it does not by itself prove congestion. If queues and buffers are growing, packets are spending more time waiting in the network, which shows up as rising latency and jitter. Packet loss indicates that buffers or forwarding paths have become full and packets are being discarded, often followed by retransmissions that further increase load.
 
-No single metric alone guarantees congestion. Operators typically correlate multiple indicators to confirm network bottlenecks.
+Throughput degradation is another important sign. Even if utilization looks high, congestion becomes operationally relevant when the effective data transfer rate drops or becomes unstable. Operators usually correlate utilization, latency, loss, and traffic volume to confirm congestion rather than relying on a single metric alone. This multidimensional view helps distinguish between normal heavy usage and genuine bottlenecks that affect user experience.
 
 ---
 
 ## Congestion detection vs link utilization
 
-| Dimension | Congestion detection | Link utilization monitoring |
-|---|---|---|
-| Primary focus | Service-impacting overload conditions | Percentage of bandwidth usage |
-| Data sources | Utilization, delay, loss, queueing | Interface counters |
-| Operational goal | Identify bottlenecks and degradation | Measure bandwidth consumption |
-| Analysis depth | Multidimensional | Primarily capacity-oriented |
+While link utilization monitoring focuses on how much of a link’s bandwidth is being used, congestion detection focuses on the impact that traffic has on forwarding and application performance. Link utilization provides a straightforward percentage of capacity consumption, but congestion detection adds context by including queueing behavior, latency, packet loss, and traffic trends. A link can be highly utilized but still comfortable for applications if buffers and scheduling are properly sized, while another link can appear only moderately busy on average yet still suffer from severe congestion during bursts.
 
-High utilization does not always indicate congestion, and congestion can sometimes occur even when average utilization appears moderate due to burst traffic or queue buildup.
+In practice, operators use link utilization as a starting point and then apply congestion detection whenever high utilization coincides with rising latency, loss, or user‑reported slowdowns. This distinction ensures that upgrades and traffic‑engineering efforts are targeted at true bottlenecks, not just busy links that are still performing well.
 
 ---
 
 ## Why congestion detection matters
 
-Unchecked congestion can lead to:
-- Increased latency
-- Packet loss
-- Application slowdowns
-- Voice and video degradation
-- Service instability
-- Poor user experience
+Unchecked congestion can have a direct impact on user experience and service reliability. It leads to higher latency, jitter, and packet loss, which degrade applications and can cause voice or video sessions to fail. Services may become unstable, with intermittent failures or long response times. Over time, this affects both customer satisfaction and operational efficiency, as teams spend more time chasing intermittent issues rather than addressing root causes.
 
-Effective congestion detection improves:
-- Operational visibility
-- Network reliability
-- Troubleshooting efficiency
-- Capacity planning accuracy
-- QoS validation
-
-Trend analysis is especially important because congestion often appears repeatedly on specific links, interfaces, or time periods.
+Effective congestion detection improves operational visibility, network reliability, and troubleshooting speed. It also improves the accuracy of capacity planning and helps validate that QoS and traffic‑engineering configurations are actually improving performance. Trend analysis is particularly important, because congestion often appears repeatedly on the same links or during the same periods of the day, allowing operators to anticipate and prevent recurring problems.
 
 ---
 
-## How Trisul handles congestion detection
+## In Trisul
 
-Trisul supports congestion-oriented analysis workflows through traffic visibility and flow analytics.
+Trisul supports congestion‑oriented analysis by combining flow‑based traffic visibility with interface utilization and historical trending. Through flow‑based telemetry such as NetFlow, IPFIX, and sFlow, Trisul shows not only that a link is busy, but also which hosts, applications, or ASes are responsible for the traffic. Interface utilization visibility helps operators spot overloaded links and devices, while historical traffic trending reveals whether congestion tends to repeat at certain times or under certain conditions.
 
-Relevant capabilities include:
-
-- **Interface utilization visibility** for identifying overloaded links
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Historical traffic trending** for identifying recurring congestion patterns
-- **Top-K analytics** for identifying dominant traffic contributors
-- **Explore Flows** for drill-down investigation and traffic analysis
-- **Aggregate Flows** for summarizing traffic and utilization behavior
-- **Traffic correlation workflows** for analyzing utilization, spikes, and traffic anomalies
-
-These capabilities help operators investigate congestion symptoms, identify bottlenecks, and analyze traffic conditions associated with service degradation.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Top‑K analytics highlights the largest traffic contributors, and Explore Flows enables drill‑down into specific conversations or time windows. Aggregate Flows can summarize traffic and identify sustained spikes or long‑running sessions that contribute to congestion. By correlating bursts, loss‑prone paths, and latency‑sensitive applications, Trisul helps operators understand not just that congestion exists, but where it is, what is causing it, and how best to respond.
 
 ---
 
 ## Related terms
 
-- [Link load](/glossary/link-load)
-- [Queueing](/glossary/queueing)
-- [Packet loss](/glossary/packet-loss)
-- [Network performance](/glossary/network-performance)
-- [Realtime traffic](/glossary/realtime-traffic)
-- [Burst traffic](/glossary/burst-traffic)
-- [Buffer monitoring](/glossary/buffer-monitoring)
-- [Interface utilization](/glossary/interface-utilization)
+- Congestion detection  
+- Network congestion  
+- Bottleneck detection  
+- Packet loss  
+- Queueing  
+- Network performance  
+- Burst traffic  
+- Buffer monitoring  
+- Interface utilization  
+- Link load  
 
 ---
 

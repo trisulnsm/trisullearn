@@ -11,128 +11,128 @@ keywords:
   - identity management
   - accounting logs
   - user access
-  - RADIUS
-  - TACACS+
-  - NetFlow
-  - network analytics
 ---
 
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What is AAA (Authentication, Authorization, Accounting)?",
-  "description": "AAA is a framework for controlling network access and recording user activity through authentication, authorization, and accounting.",
-  "about": {
-    "@type": "DefinedTerm",
-    "name": "AAA (Authentication, Authorization, Accounting)",
-    "inDefinedTermSet": {
-      "@type": "DefinedTermSet",
-      "name": "Network Analytics Glossary",
-      "url": "https://www.trisul.org/glossary"
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AAA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AAA stands for authentication, authorization, and accounting. It is a framework for controlling who can access network resources, what they can do, and recording what they did."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does authentication mean in AAA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Authentication means verifying who a user or device is, usually by checking a username and password or another credential."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does authorization mean in AAA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Authorization means deciding what an authenticated user or device is allowed to do on the network."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does accounting mean in AAA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Accounting means recording what the user did, when they did it, and how much data or service they used."
+      }
     }
-  }
+  ]
 };
 
 # What is AAA?
 
-AAA stands for **authentication**, **authorization**, and **accounting**. It is a framework for controlling access and recording user activity on networks and systems.
+AAA stands for authentication, authorization, and accounting. It is a simple three‑step framework that:
+
+1. **Verifies identity** (who you are),  
+2. **Controls what you can do** (access and permissions), and  
+3. **Keeps a log of what you actually did** (for auditing, billing, or investigation).  
+
+This makes it easier to manage secure and traceable access to networks and systems.
 
 ---
 
 ## How AAA works
 
-Authentication checks identity first. Authorization then decides what that identity is allowed to do.
+Authentication checks **who you are**, usually by verifying a username and password or another credential.  
+Authorization then decides **what you are allowed to do** (for example, read files, change settings, or access certain services).  
 
-Accounting records the activity for review, billing, auditing, or investigation. Together, these three functions create a complete access-control framework.
-
-In practice, AAA workflows typically follow this sequence:
-1. **Authentication** → User or device proves identity.
-2. **Authorization** → System grants specific permissions.
-3. **Accounting** → System logs actions for audit trails.
+Accounting records **what you actually did**, such as when you logged in, how long you stayed connected, and how much data you used.  
+Together, these three steps give a clear, controlled, and auditable way to manage access.
 
 ---
 
 ## AAA in network operations
 
-AAA is common in remote access, administrative login, and enterprise [network access control](/glossary/nac) systems. It helps ensure that only approved users can get in.
-
-It also provides traceability. If something changes or fails, accounting records help show who did what and when, supporting [security auditing](/glossary/security-auditing).
-
-For a Trisul glossary hub, this term is technically valid but only indirectly relevant because AAA is primarily an access-control concept rather than a core Trisul feature or workflow.
+AAA is commonly used in VPNs, Wi‑Fi logins, administrative access, and enterprise networks that use protocols such as RADIUS or TACACS+.  
+It helps ensure that only approved users can get in and makes it easy to trace actions back to specific users when something goes wrong.
 
 ---
 
 ## AAA components
 
-| Component | Meaning |
-|---|---|
-| Authentication | Verify identity. |
-| Authorization | Allow specific actions. |
-| Accounting | Record activity. |
-
-## Common AAA protocols
-
-| Protocol | Use Case | Transport |
-|---|---|---|
-| RADIUS | Network access, Wi-Fi, VPN | UDP (1812/1813) |
-| TACACS+ | Device administration, especially Cisco environments | TCP (49) |
-| Diameter | 4G/5G networks and roaming | TCP or SCTP (3868) |
+| Component       | Meaning |
+|-----------------|---------|
+| Authentication  | Verifying who a user or device is. |
+| Authorization   | Deciding what an authenticated user or device is allowed to do. |
+| Accounting      | Recording what the user did, when, and how much they used. |
 
 ---
 
 ## What makes AAA useful
 
-AAA is useful because it separates identity, permission, and recordkeeping. That makes access control easier to manage and audit.
+AAA is useful because it cleanly separates identity, permission, and logging into three clear steps.  
+This makes it easier to enforce security policies, perform audits, and generate usage or billing reports for users.
 
-Key benefits:
-- **Clear separation of concerns**: Identity management is decoupled from permission enforcement.
-- **Audit compliance**: Accounting logs support regulatory and internal audit requirements.
-- **Incident investigation**: Accounting records enable forensic analysis of user actions.
-- **Billing and chargeback**: Accounting data supports usage-based billing models.
+It is one of the most common frameworks for managing secure and accountable access in networks.
 
 ---
 
-## Trisul relevance
+## In Trisul
 
-AAA can be useful in environments where Trisul is used to analyze traffic related to authentication systems, remote access, or administrative activity. In that case, Trisul can help correlate network flows with AAA-related events from external systems, but the glossary page should avoid implying native AAA processing features unless they are documented in Trisul product materials.
+Trisul Network Analytics does not run AAA servers but can use AAA‑related user information to enrich network activity.  
+For example, when AAA systems (such as RADIUS) send logs over syslog or AAA‑dump files, Trisul can ingest those logs and attach user IDs and session metadata to network flows.  
+
+This lets network operators see which user was behind a specific IP address or flow, including in NAT and CGNAT environments, and use that user context for troubleshooting, compliance queries, and user‑centric analytics.
+
+---
 
 ## Related terms
 
-- [RADIUS](/glossary/radius)
-- [TACACS+](/glossary/tacacs-plus)
-- [Diameter](/glossary/diameter)
-- [Flow metadata](/glossary/flow-metadata)
-- [NetFlow](/glossary/netflow)
-- [Syslog](/glossary/syslog)
-- [SIEM](/glossary/siem)
-- [Network access control](/glossary/nac)
-- [Packet capture](/glossary/packet-capture)
-- [Authentication logging](/glossary/authentication-logging)
-- [User analytics](/glossary/user-analytics)
-- [Security auditing](/glossary/security-auditing)
+- Authentication logging
+- Network access
+- User analytics
+- Security auditing
+- Syslog
+
+---
 
 ## Frequently asked questions
 
 ### What is AAA?
 
-AAA stands for authentication, authorization, and accounting. It is a framework for controlling access and recording user activity on networks and systems.
+AAA stands for authentication, authorization, and accounting. It is a simple three‑step framework that verifies who you are, controls what you can do, and records what you actually did on a network.
 
 ### What does authentication mean in AAA?
 
-Authentication means verifying the identity of a user or device, typically through credentials, certificates, or tokens.
+Authentication means verifying who a user or device is, usually by checking a username and password or another credential.
 
 ### What does authorization mean in AAA?
 
-Authorization means deciding what an authenticated user or device is allowed to do, such as accessing specific resources or executing commands.
+Authorization means deciding what an authenticated user or device is allowed to do on the network.
 
 ### What does accounting mean in AAA?
 
-Accounting means recording what actions were taken, when they happened, and by whom, creating audit trails for compliance and investigation.
-
-### How does Trisul use AAA data?
-
-Trisul can be used to correlate network flows with external AAA-related events when those data sources are available in the broader monitoring stack.
-
-### What are the most common AAA protocols?
-
-RADIUS is common for network access and Wi-Fi, TACACS+ for device administration, and Diameter for 4G/5G mobile networks.
+Accounting means recording what the user did, when they did it, and how much data or service they used.

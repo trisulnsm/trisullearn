@@ -64,154 +64,103 @@ export const jsonLd = {
 
 # What is a CDR?
 
-A **CDR (Call Detail Record)** is a structured log that captures metadata about a communication session such as participants, timestamps, duration, routing information, and usage details.
-
-CDRs are widely used in:
-- Telecom networks
-- VoIP systems
-- Mobile carrier environments
-- Subscriber services
-- Billing and reporting systems
-
-They are commonly used for:
-- Billing
-- Usage tracking
-- Operational reporting
-- Auditing
-- Subscriber analytics
-- Compliance workflows
-
-Trisul can analyze session-oriented and communication-related metadata for operational visibility and usage-oriented analytics workflows.
+A **CDR (Call Detail Record)** is a structured log that captures metadata about a communication session such as participants, timestamps, duration, routing, and usage information. CDRs are widely used in telecom networks, VoIP systems, mobile carriers, and subscriber‑oriented services for billing, usage tracking, and operational analytics.
 
 ---
 
 ## How a CDR works
 
-A CDR is generated whenever a communication event or session occurs.
+A CDR is generated each time a communication event or session starts and completes. The system records key attributes such as who is involved, when the session occurred, how long it lasted, and how much service was consumed. After the session ends, the final record is stored and made available for billing, reporting, or analytics.
 
-Depending on the service type, the record may describe:
-- Voice calls
-- VoIP sessions
-- Messaging activity
-- Subscriber sessions
-- Data-service usage
-- Multimedia communications
+Typical stages:
+1. **Session initiation** – A communication event begins.  
+2. **Metadata collection** – Session attributes are recorded in real time.  
+3. **Session completion** – Duration and usage metrics are finalized.  
+4. **Record generation** – A structured CDR is created.  
+5. **Storage and processing** – Records feed into billing, reporting, or analytics systems.  
 
-Typical workflow:
-
-1. **Session initiation** → A communication event begins
-2. **Metadata collection** → Session attributes are recorded
-3. **Session completion** → Duration and usage metrics are finalized
-4. **Record generation** → The system creates a structured CDR
-5. **Storage and processing** → Records are used for billing, reporting, or analytics
-6. **Operational analysis** → Operators analyze usage patterns and service behavior
-
-CDRs typically contain metadata about communications rather than the communication content itself.
+CDRs contain metadata, not content; they describe the session rather than the conversation itself.
 
 ---
 
 ## CDRs in network operations
 
-CDRs are important in telecom and service-provider environments because they provide structured operational visibility into communication activity.
+In telecom and service‑provider environments, CDRs provide structured visibility into communication activity. Common use cases include:
 
-Common operational use cases include:
+- **Subscriber billing** and usage accounting  
+- **Operational reporting** and service dashboards  
+- **Fraud investigation** and anomaly detection  
+- **Subscriber behavior analysis** and churn‑risk modeling  
+- **Regulatory and compliance reporting**  
+- **Troubleshooting** service‑quality issues  
 
-- **Subscriber billing**
-- **Usage accounting**
-- **Service auditing**
-- **Fraud investigation**
-- **Subscriber behavior analysis**
-- **Regulatory and compliance reporting**
-- **Operational troubleshooting**
-
-CDRs also help operators understand service demand, subscriber trends, and communication behavior over time.
+CDRs also help operators understand traffic demand, peak‑usage patterns, and the behavior of different user segments.
 
 ---
 
 ## Common CDR fields
 
-| Field | Meaning |
-|---|---|
-| Source | Session initiator or calling party |
-| Destination | Receiving party or destination |
-| Start time | When the session began |
-| Duration | Length of the communication |
-| Usage | Amount of service consumed |
-| Service type | Voice, messaging, data, or multimedia |
-| Routing information | Path or gateway metadata |
-| Session status | Successful, failed, dropped, etc. |
+| Field              | Meaning |
+|--------------------|---------|
+| Source             | Session initiator or calling party |
+| Destination        | Receiving party or destination |
+| Start time         | When the session began |
+| Duration           | Length of the communication |
+| Usage              | Amount of service consumed (for example, minutes or data volume) |
+| Service type       | Voice, messaging, data, or multimedia |
+| Routing information| Path or gateway metadata |
+| Session status     | Successful, failed, dropped, or abandoned |
 
-The exact fields vary depending on the telecom platform, service type, and vendor implementation.
+The exact fields depend on the vendor, protocol, and service type (for example, voice, SMS, or data).
 
 ---
 
 ## Why CDRs are useful
 
-CDRs provide structured and machine-readable communication metadata that is easy to process programmatically.
+CDRs provide structured, machine‑readable communication metadata that is easy to aggregate and analyze at scale. Benefits include:
 
-Benefits include:
-- Consistent reporting formats
-- Simplified billing workflows
-- Historical usage visibility
-- Subscriber activity analysis
-- Easier operational auditing
-- Automated analytics and reporting
+- Standardized reporting and billing workflows  
+- Historical visibility into subscriber usage  
+- Clear audit trails for compliance  
+- Straightforward analytics on communication patterns  
 
-Their standardized structure makes large-scale processing and aggregation practical in telecom environments.
+Their consistent format makes large‑scale processing practical and enables automation across billing, operations, and analytics systems.
 
 ---
 
 ## CDRs vs flow records
 
-| Dimension | CDR | Flow record |
-|---|---|---|
-| Primary focus | Communication sessions | Network traffic flows |
-| Typical environment | Telecom and subscriber systems | IP network monitoring |
-| Common use | Billing and subscriber analytics | Traffic visibility and flow analysis |
-| Data scope | Session metadata | Packet and traffic metadata |
-| Operational focus | Usage accounting and services | Network behavior and utilization |
+| Dimension           | CDR                                        | Flow record                                      |
+|---------------------|--------------------------------------------|--------------------------------------------------|
+| Primary focus       | Communication sessions                     | Network traffic flows                            |
+| Typical environment | Telecom and subscriber systems             | IP network monitoring                            |
+| Common use          | Billing, subscriber analytics               | Traffic visibility and flow analysis              |
+| Data scope          | Session‑level metadata                     | Packet‑ and flow‑level metadata                   |
+| Operational focus   | Usage accounting and services              | Network behavior and utilization                  |
 
-While both describe communication activity, CDRs are generally subscriber- or session-oriented, whereas flow records focus on network traffic visibility.
+While both describe communication activity, CDRs are generally subscriber‑ or session‑oriented, whereas flow records focus on network‑level visibility and performance.
 
 ---
 
-## How Trisul handles CDR-style analytics
+## In Trisul
 
-Trisul is primarily a network traffic analytics platform rather than a telecom billing or CDR-generation system.
-
-However, Trisul can support analysis workflows involving:
-- Session-oriented metadata
-- Subscriber-related visibility
-- Usage-oriented analytics
-- Historical traffic investigation
-- Communication-pattern analysis
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Subscriber-oriented traffic visibility**
-- **Historical traffic trending**
-- **Aggregate Flows** for summarizing communication activity
-- **Explore Flows** for investigation and drill-down analysis
-- **Usage-oriented reporting workflows**
-
-These capabilities help operators analyze communication behavior, traffic trends, and usage-related activity in service-provider and operational environments.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+Trisul is primarily a network‑traffic analytics platform and does not generate CDRs like a telecom‑billing system.  
+However, it can support CDR‑style analytics by analyzing session‑oriented and flow‑oriented communication metadata for traffic visibility, usage analysis, and subscriber‑oriented workflows.  
+Capabilities such as **flow‑based telemetry**, **subscriber‑oriented traffic tagging**, **historical trending**, **Aggregate Flows**, and **Explore Flows** help operators investigate communication behavior, usage patterns, and service‑level activity in ISP and service‑provider environments.
 
 ---
 
 ## Related terms
 
-- [IPDR](/glossary/ipdr)
-- [OSS/BSS](/glossary/oss-bss)
-- [Subscriber billing](/glossary/subscriber-billing)
-- [Session logs](/glossary/session-logs)
-- [Telecom reporting](/glossary/telecom-reporting)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Subscriber analytics](/glossary/subscriber-analytics)
+- CDR
+- Call Detail Record
+- IPDR
+- OSS/BSS
+- Subscriber billing
+- Session logs
+- Telecom reporting
+- Flow monitoring
+- Subscriber analytics
 
 ---
 
@@ -231,8 +180,8 @@ CDRs are important because they provide structured communication records used fo
 
 ### How are CDRs used in analytics?
 
-CDRs are used to analyze subscriber behavior, communication patterns, service utilization, routing activity, and usage trends across telecom and service-provider environments.
+CDRs are used to analyze subscriber behavior, communication patterns, service utilization, routing activity, and usage trends across telecom and service‑provider environments.
 
 ### How does Trisul relate to CDR-style analytics?
 
-Trisul can analyze session-oriented and flow-oriented communication metadata for traffic visibility, usage analysis, subscriber-oriented workflows, and operational analytics.
+Trisul can analyze session‑oriented and flow‑oriented communication metadata for traffic visibility, usage analysis, subscriber‑oriented workflows, and operational analytics.

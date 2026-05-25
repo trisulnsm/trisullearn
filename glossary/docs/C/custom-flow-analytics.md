@@ -64,153 +64,71 @@ export const jsonLd = {
 
 # What is custom flow analytics?
 
-**Custom flow analytics** extends standard flow monitoring by applying user-defined classification, enrichment, tagging, and detection logic to flow data for organization-specific operational, security, and business analytics workflows.
-
-Traditional flow analytics typically focuses on:
-- Top talkers
-- Protocol distribution
-- Interface utilization
-- Traffic volumes
-- Basic flow visibility
-
-Custom flow analytics adds organizational context by enabling operators to:
-- Tag traffic
-- Apply business-specific classifications
-- Create custom detections
-- Build specialized operational metrics
-- Implement policy-aware analytics
-- Enrich flow data with external context
-
-Trisul supports custom flow analytics through Flow Taggers, Lua scripting, and extensible traffic analytics workflows.
+**Custom flow analytics** extends standard flow monitoring by applying user‑defined classification, enrichment, tagging, and detection logic to flow data for organization‑specific operational, security, and business workflows. Instead of only generic metrics like top talkers and protocol breakdowns, it aligns traffic analysis with local business units, policies, customers, and security rules.
 
 ---
 
 ## How custom flow analytics works
 
-Custom flow analytics extends standard telemetry processing with user-defined analytical logic.
-
-Typical workflow:
-
-1. **Flow ingestion** → Flow telemetry is collected from exporters
-2. **Traffic classification** → User-defined logic categorizes traffic
-3. **Enrichment and tagging** → Labels or metadata are attached to flows
-4. **Custom analytics processing** → Rules, counters, or detections are applied
-5. **Aggregation and reporting** → Results appear in dashboards and analytics workflows
-6. **Operational investigation** → Analysts investigate tagged or enriched traffic
-
-Custom analytics may use:
-- IP ranges
-- Ports
-- Protocols
-- ASN mappings
-- Geographic metadata
-- Security intelligence
-- Organizational rules
-- Business-specific classifications
-
-These workflows allow traffic analysis to reflect operational and organizational requirements rather than only generic network metrics.
+Custom flow analytics processes standard flows and then applies organization‑specific rules to classify, enrich, and detect traffic. Typical steps include flow ingestion, classification (for example by customer or service), adding tags or metadata, and then running custom detections or counters. This enriched data flows into dashboards, alerts, and reports so operators can see traffic in terms of their own structure instead of pure IP‑ or protocol‑level views.
 
 ---
 
 ## Custom flow analytics in network operations
 
-Custom analytics workflows are commonly used in enterprise, ISP, SOC, and managed-service environments.
-
-Common operational use cases include:
-
-- **Customer-based analytics**: Group traffic by tenant or subscriber
-- **Security analytics**: Detect organization-specific policy violations or suspicious activity
-- **Compliance workflows**: Label traffic associated with regulated environments
-- **Service analytics**: Classify applications or business-critical services
-- **Threat investigation**: Enrich flows with threat intelligence or risk metadata
-- **Operational reporting**: Build organization-specific traffic reports and dashboards
-
-Custom enrichment improves the operational usefulness of flow telemetry by aligning traffic analytics with business and security requirements.
+In enterprise, ISP, and SOC environments, custom flow analytics lets teams define traffic categories that match their own structure, such as customers, departments, countries, or critical services. It supports customer‑based reporting, security policies, compliance‑related labeling, and threat‑investigation workflows that reference internal classifications. By tailoring analytics to local requirements, it makes flow data more actionable and improves operational alignment.
 
 ---
 
 ## Flow tagging vs flow filtering
 
-| Dimension | Flow tagging | Flow filtering |
-|---|---|---|
-| Purpose | Add metadata or labels | Restrict or isolate traffic |
-| Record retention | Original records remain available | Analysis scope may be reduced |
-| Operational focus | Enrichment and categorization | Selection and isolation |
-| Typical use | Business or security labeling | Scoped analysis or processing |
+| Dimension        | Flow tagging                         | Flow filtering                              |
+|------------------|--------------------------------------|---------------------------------------------|
+| Purpose          | Add metadata or labels               | Restrict or isolate traffic                 |
+| Record retention | Original flows remain unchanged      | Analysis scope is narrowed                  |
+| Operational focus| Enrichment and categorization        | Selection and subset processing             |
+| Typical use      | Business or security labeling        | Scoped analysis or retention tiers          |
 
-Tagging enriches flow visibility while filtering narrows the analytical scope.
+Tagging enhances context; filtering narrows the dataset.
 
 ---
 
-## Custom analytics vs built-in analytics
+## Custom analytics vs built‑in analytics
 
-| Dimension | Built-in analytics | Custom flow analytics |
-|---|---|---|
-| Classification | Standard traffic dimensions | Organization-specific logic |
-| Detection | Generic analytics workflows | Customized detections and policies |
-| Reporting | Predefined operational views | Business-specific operational reporting |
-| Extensibility | Platform defaults | User-defined enrichment and scripting |
-| Operational context | Generic traffic visibility | Tailored organizational intelligence |
+| Dimension              | Built‑in analytics                                   | Custom flow analytics                                   |
+|------------------------|------------------------------------------------------|---------------------------------------------------------|
+| Classification           | Standard dimensions (hosts, protocols, interfaces)   | Custom logic (customer, service, policy)               |
+| Detection                | Generic patterns                                     | Organization‑specific detections and rules             |
+| Reporting                | Predefined views                                     | Business‑specific dashboards and reports               |
+| Extensibility            | Fixed platform features                              | Lua, tags, and custom groups                           |
+| Operational context      | Generic network visibility                           | Tailored to local business and security models         |
 
-Custom analytics helps operators adapt flow monitoring to real operational environments.
+Custom analytics adapts standard flows to real‑world operations.
 
 ---
 
 ## What is flow enrichment?
 
-Flow enrichment adds contextual information to flow records to improve operational visibility and analysis.
-
-Examples include:
-- Customer labels
-- Business-unit mappings
-- Threat intelligence metadata
-- Geographic information
-- Service classifications
-- Organizational ownership
-- Compliance scopes
-
-Enriched flow records improve:
-- Searchability
-- Reporting
-- Security analysis
-- Traffic investigation
-- Operational context awareness
+Flow enrichment attaches contextual metadata to flow records such as customer labels, business‑unit mappings, threat‑intelligence tags, geographic information, or compliance scopes. These tags improve searchability, reporting, and investigation by letting analysts filter and summarize traffic based on organizational rather than purely technical criteria. Enriched flows are especially useful for security, billing‑adjacent use cases, and hierarchical reporting.
 
 ---
 
-## How Trisul handles custom flow analytics
+## In Trisul
 
-Trisul supports custom flow analytics through extensible traffic-processing and enrichment workflows.
-
-Relevant capabilities include:
-
-- **Flow Taggers** for traffic classification and enrichment
-- **Lua scripting** for custom analytics logic
-- **Custom counter groups** for organization-specific aggregation
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Top-K analytics integration**
-- **Traffic investigation workflows**
-- **Operational dashboards and reporting**
-- **Historical traffic trending and analysis**
-
-These capabilities help operators adapt analytics workflows to local operational, business, and security requirements.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
+Trisul supports custom flow analytics through **Flow Taggers**, **Lua scripting**, **custom counter groups**, and **traffic‑enrichment workflows**. Flows ingested via NetFlow, IPFIX, or sFlow can be tagged, classified, and processed with user‑defined logic that then feeds into Top‑K analytics, trending dashboards, alerts, and investigation views. This lets operators align analytics to customers, services, security policies, and reporting needs within a single deployment.
 
 ---
 
 ## Related terms
 
-- [Flow tagger](/glossary/flow-tagger)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Flow analysis](/glossary/flow-analysis)
-- [Top-K analytics](/glossary/top-k-analytics)
-- [Flow data](/glossary/flow-data)
-- [Counter groups](/glossary/counter-groups)
-- [Traffic enrichment](/glossary/traffic-enrichment)
+- Custom flow analytics  
+- Flow tagger  
+- Flow monitoring  
+- Flow analysis  
+- Top‑K analytics  
+- Flow data  
+- Counter groups  
+- Traffic enrichment  
 
 ---
 
@@ -218,15 +136,15 @@ Relevant Trisul use cases:
 
 ### Why is custom flow analytics needed?
 
-Custom flow analytics adds organization-specific operational and security context to standard flow monitoring by allowing custom classification, tagging, enrichment, and detection workflows tailored to local requirements.
+Custom flow analytics adds organization‑specific operational and security context to standard flow monitoring by allowing custom classification, tagging, enrichment, and detection workflows tailored to local requirements.
 
 ### What can custom flow analytics classify?
 
-Custom flow analytics can classify traffic by customer, subnet, business unit, application, geographic region, ASN, security category, service type, operational role, or organization-specific traffic patterns.
+Custom flow analytics can classify traffic by customer, subnet, business unit, application, geographic region, ASN, security category, service type, operational role, or organization‑specific traffic patterns.
 
 ### How does Lua extend flow analytics?
 
-Lua scripting enables custom flow processing, enrichment, tagging, counters, alerts, and organization-specific analytical workflows within Trisul traffic analytics environments.
+Lua scripting enables custom flow processing, enrichment, tagging, counters, alerts, and organization‑specific analytical workflows within Trisul traffic analytics environments.
 
 ### What is the difference between flow tagging and flow filtering?
 
@@ -234,4 +152,4 @@ Flow tagging enriches traffic records with additional labels or metadata while r
 
 ### How does Trisul support custom flow analytics?
 
-Trisul supports custom flow analytics through Flow Taggers, Lua scripting, custom counter groups, traffic enrichment workflows, and flow-based operational analytics.
+Trisul supports custom flow analytics through Flow Taggers, Lua scripting, custom counter groups, traffic enrichment workflows, and flow‑based operational analytics.

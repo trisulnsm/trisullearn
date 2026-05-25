@@ -1,6 +1,6 @@
 ---
 title: What is bandwidth monitoring?
-description: Bandwidth monitoring tracks network traffic volume and utilization across interfaces, hosts, applications, and protocols. Trisul provides flow-based traffic analytics, Top-K visibility, and interface monitoring for bandwidth analysis and capacity planning.
+description: Bandwidth monitoring tracks network traffic volume in real time across devices, users, applications, and protocols to identify usage patterns, detect bottlenecks, prevent congestion, and support capacity planning.
 sidebar_label: Bandwidth monitoring
 sidebar_position: 37
 slug: /glossary/bandwidth-monitoring
@@ -12,180 +12,111 @@ keywords:
   - network utilization
   - bandwidth analysis
   - network traffic analysis
-  - flow monitoring
-  - Top-K analytics
-  - interface tracking
 ---
 
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What is Bandwidth Monitoring?",
-  "description": "Bandwidth monitoring tracks network traffic volume and utilization across interfaces, hosts, applications, and protocols. Trisul provides flow-based traffic analytics, Top-K visibility, and interface monitoring for bandwidth analysis and capacity planning.",
-  "about": {
-    "@type": "DefinedTerm",
-    "name": "Bandwidth Monitoring",
-    "inDefinedTermSet": {
-      "@type": "DefinedTermSet",
-      "name": "Network Analytics Glossary",
-      "url": "https://www.trisul.org/glossary"
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the two main methods of bandwidth monitoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SNMP polling sends queries to SNMP-enabled devices and retrieves interface counters from MIBs, showing device-centric bandwidth usage. Flow-based monitoring (NetFlow, sFlow, J-Flow, IPFIX) collects detailed traffic records from routers, switches, and firewalls, showing traffic by application, user, and protocol."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can bandwidth monitoring detect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bandwidth monitoring can detect top talkers consuming the most bandwidth, non-critical or unauthorized traffic, bandwidth exhaustion, anomalies like DDoS attacks or port scans, and application performance issues. It also identifies bandwidth hogging processes running during peak load periods."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does bandwidth monitoring support capacity planning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bandwidth monitoring maps historical trends for capacity planning by tracking interface utilization over days, weeks, and months. It identifies which links are approaching saturation, enabling proactive upgrades before outages occur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What metrics does bandwidth monitoring track?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Key metrics include real-time bandwidth usage, peak and average utilization, top talkers by volume, protocol distribution, application breakdown, and interface saturation events. All are available from flow data without requiring packet capture."
+      }
     }
-  }
+  ]
 };
 
 # What is bandwidth monitoring?
 
-**Bandwidth monitoring** is the process of measuring and analyzing network traffic volume and utilization across interfaces, hosts, applications, and protocols.
-
-It is used to:
-- Detect congestion and abnormal traffic patterns
-- Understand traffic distribution and usage trends
-- Support troubleshooting and capacity planning
-- Monitor application and user activity
-- Identify operational or security anomalies
-
-Trisul provides bandwidth monitoring through flow-based traffic analytics, interface monitoring, and Top-K traffic visibility.
+Bandwidth monitoring tracks network traffic volume in real time across devices, users, applications, and protocols. It identifies usage patterns, detects bottlenecks, prevents congestion, and supports capacity planning. Real‑time monitoring can proactively reveal security issues and performance degradation before they cause outages.
 
 ---
 
 ## How it works
 
-Bandwidth monitoring commonly relies on two complementary approaches:
-
-- **SNMP-based monitoring** collects interface counters from network devices and measures utilization at the interface level.
-- **Flow-based monitoring** analyzes exported flow telemetry such as NetFlow, IPFIX, sFlow, and similar technologies to provide traffic visibility by host, application, protocol, conversation, or interface.
-
-Typical monitoring workflow:
-
-1. **Data collection** → Flow exports or interface telemetry are collected from network infrastructure
-2. **Normalization and aggregation** → Traffic data is processed into usable metrics and time series
-3. **Traffic analysis** → Usage trends, peaks, anomalies, and utilization levels are calculated
-4. **Visualization** → Dashboards and reports present real-time and historical traffic patterns
-5. **Alerting and investigation** → Operators investigate congestion, spikes, or abnormal traffic behavior
+Two main methods are used.  
+**SNMP polling** sends queries to SNMP‑enabled devices and retrieves interface counters from MIBs, showing device‑centric bandwidth usage.  
+**Flow‑based monitoring** (NetFlow, sFlow, J‑Flow, IPFIX) collects detailed traffic records from routers, switches, and firewalls, showing traffic by application, user, and protocol. Flow data is analyzed into bandwidth usage, trends, peaks, valleys, and anomalies.
 
 ---
 
 ## In network operations
 
-Bandwidth monitoring is widely used in operational and security workflows.
-
-Common operational use cases include:
-
-- **NOC operations**: Monitor interface utilization and congestion trends
-- **Capacity planning**: Forecast growth and identify upgrade requirements
-- **Security monitoring**: Detect traffic spikes, scanning activity, or abnormal flow behavior
-- **Application analysis**: Understand bandwidth consumption by applications and services
-- **Troubleshooting**: Identify bottlenecks and high-utilization interfaces
-
-Trisul supports these workflows through flow analytics and interface-level traffic visibility.
+- **NOC:** Track real‑time interface utilization and receive alerts when links approach saturation.  
+- **Security:** Detect DDoS attacks, port scans, and anomalous traffic surges through unexpected bandwidth spikes.  
+- **Capacity Planning:** Map historical trends to forecast growth and plan upgrades before links reach saturation.
 
 ---
 
 ## SNMP vs flow-based monitoring
 
-| Dimension | SNMP monitoring | Flow-based monitoring |
-|---|---|---|
-| Data scope | Interface counters | Traffic conversations and metadata |
-| Visibility | Device/interface level | Host, protocol, application, and flow level |
-| Granularity | Per-interface utilization | Per-flow and multidimensional analysis |
-| Application awareness | Limited | Strong application and protocol visibility |
-| Top talker analysis | Limited | Native Top-K traffic analysis |
-
-SNMP monitoring is useful for interface utilization tracking, while flow monitoring provides deeper traffic analysis and operational visibility.
+| Dimension            | SNMP polling                                      | Flow-based monitoring                                                       |
+|----------------------|---------------------------------------------------|------------------------------------------------------------------------------|
+| Data scope           | Device‑centric interface counters                 | Traffic by application, user, and protocol                                   |
+| Granularity          | Per‑interface only                                | Per‑flow, per‑application, per‑host, per‑AS                                  |
+| Best for             | Overall interface utilization                     | Detailed traffic analysis and application‑level breakdown                    |
 
 ---
 
-## What bandwidth monitoring can detect
+## In Trisul
 
-| Detection Type | What it identifies | Operational value |
-|---|---|---|
-| Top talkers | High-bandwidth hosts and applications | Identify heavy traffic consumers |
-| Congestion | Interfaces approaching saturation | Prevent performance degradation |
-| Traffic anomalies | Unexpected traffic spikes or changes | Detect abnormal behavior |
-| Application usage | Traffic distribution by service or protocol | Improve traffic visibility |
-| Utilization trends | Long-term bandwidth growth | Support capacity planning |
-| Security events | DDoS activity, scanning, unusual traffic patterns | Improve operational awareness |
-
----
-
-## Metrics tracked by bandwidth monitoring
-
-| Metric | Description | Operational use |
-|---|---|---|
-| Interface utilization | Current link usage levels | Congestion monitoring |
-| Peak traffic | Highest observed usage | Capacity planning |
-| Average utilization | Mean traffic levels over time | Trend analysis |
-| Top talkers | Largest bandwidth consumers | Bottleneck analysis |
-| Protocol distribution | Traffic composition by protocol | Application visibility |
-| Traffic direction | Ingress and egress behavior | Directional analysis |
-| Historical trends | Long-term usage patterns | Growth forecasting |
-
-These metrics can be derived from flow telemetry and interface statistics without requiring full packet capture.
-
----
-
-## How Trisul handles bandwidth monitoring
-
-Trisul provides bandwidth monitoring through flow analytics, traffic visualization, and interface-level monitoring capabilities.
-
-Relevant capabilities include:
-
-- **Interface Tracking** for interface utilization and traffic trending
-- **Top-K analytics** for identifying top hosts, applications, protocols, and conversations
-- **Flow-based monitoring** using NetFlow, IPFIX, sFlow, J-Flow, and similar telemetry
-- **Explore Flows** for traffic investigation and drill-down analysis
-- **Aggregate Flows** for long-term trend analysis and reporting
-- **Directional traffic visibility** for ingress and egress monitoring
-- **Historical traffic analytics** for capacity planning and operational analysis
-- **Alerting and anomaly detection workflows** through rule-based monitoring
-
-These capabilities help operators monitor utilization, investigate traffic behavior, and identify congestion or anomalous bandwidth usage patterns.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul provides real‑time bandwidth monitoring through **Interface Tracking** for per‑interface utilization and **Top‑K analytics** for per‑application, per‑host, and per‑AS traffic analysis. Trigger‑based alerting can send notifications when thresholds are exceeded, and historical trending supports capacity planning and behavior analysis. This allows operators to see both high‑level link utilization and detailed traffic composition without requiring packet capture.
 
 ---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Interface utilization](/glossary/interface-utilization)
-- [Top-K analytics](/glossary/top-k-analytics)
-- [Traffic analysis](/glossary/traffic-analysis)
-- [Capacity planning](/glossary/capacity-planning)
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [sFlow](/glossary/sflow)
-- [Interface Tracking](/glossary/interface-tracking)
-- [Explore Flows](/glossary/explore-flows)
-- [Aggregate Flows](/glossary/aggregate-flows)
+- Bandwidth monitoring
+- Flow monitoring
+- Capacity planning
+- Top‑K analytics
+- Anomaly detection
+- Interface utilization
+- Traffic direction
 
 ---
 
 ## Frequently asked questions
 
-### What is bandwidth monitoring?
+### What are the two main methods of bandwidth monitoring?
 
-Bandwidth monitoring measures and analyzes network traffic volume and utilization across interfaces, hosts, applications, and protocols.
-
-### Why is bandwidth monitoring important?
-
-Bandwidth monitoring helps operators identify congestion, understand traffic patterns, troubleshoot performance issues, and plan network capacity upgrades.
-
-### What is the difference between SNMP and flow-based monitoring?
-
-SNMP monitoring focuses on interface counters and device utilization, while flow-based monitoring provides visibility into hosts, applications, protocols, and traffic conversations.
+SNMP polling sends queries to SNMP‑enabled devices and retrieves interface counters from MIBs, showing device‑centric bandwidth usage. Flow‑based monitoring (NetFlow, sFlow, J‑Flow, IPFIX) collects detailed traffic records from routers, switches, and firewalls, showing traffic by application, user, and protocol.
 
 ### What can bandwidth monitoring detect?
 
-Bandwidth monitoring can detect congestion, traffic spikes, anomalous traffic behavior, high-bandwidth consumers, and long-term utilization trends.
+Bandwidth monitoring can detect top talkers consuming the most bandwidth, non‑critical or unauthorized traffic, bandwidth exhaustion, anomalies like DDoS attacks or port scans, and application performance issues. It also identifies bandwidth‑hogging processes running during peak load periods.
 
-### How does Trisul handle bandwidth monitoring?
+### How does bandwidth monitoring support capacity planning?
 
-Trisul provides bandwidth monitoring using flow telemetry, interface monitoring, Top-K analytics, traffic visualization, and flow investigation capabilities.
+Bandwidth monitoring maps historical trends for capacity planning by tracking interface utilization over days, weeks, and months. It identifies which links are approaching saturation, enabling proactive upgrades before outages occur.
 
-### Does bandwidth monitoring require packet capture?
+### What metrics does bandwidth monitoring track?
 
-No. Many bandwidth monitoring workflows rely on flow telemetry and interface statistics rather than full packet capture.
+Key metrics include real‑time bandwidth usage, peak and average utilization, top talkers by volume, protocol distribution, application breakdown, and interface saturation events. All are available from flow data without requiring packet capture.

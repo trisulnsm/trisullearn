@@ -64,122 +64,58 @@ export const jsonLd = {
 
 # What is a Trisul context?
 
-A **Trisul context** is an isolated analytics domain within a Trisul deployment, with its own database, configuration, and processing state while sharing common administration and web-management infrastructure.
+A **Trisul context** is an isolated analytics domain inside a Trisul deployment. Each context has its own database, configuration, and processing state, but shares the same administration and web management infrastructure as other contexts. This lets one Trisul deployment host multiple separate operational environments without full‑deployment duplication.
 
-Contexts allow a single Trisul deployment to support multiple isolated operational environments without requiring completely separate installations.
-
-Contexts are commonly used to separate:
-- Customers
-- Business units
-- Regions
-- Security domains
-- Operational environments
-- Analytics workloads
-
-Trisul contexts support operational isolation while maintaining centralized administrative management.
+Contexts are commonly used to separate customers, business units, regions, security domains, or operational environments, while still enabling centralized management and administration.
 
 ---
 
 ## How a Trisul context works
 
-Each context behaves as an independent analytics environment with separate operational state and traffic data.
-
-A context typically maintains:
-- Separate analytics data
-- Independent configuration
-- Dedicated processing state
-- Separate retention and operational history
-- Isolated investigative workflows
-
-Contexts are managed from the Trisul hub infrastructure using administrative tooling.
-
-Typical workflow:
-
-1. **Context creation** → Administrator provisions a new context
-2. **Initialization** → Separate analytics state and storage are prepared
-3. **Traffic processing** → The context independently processes assigned telemetry and traffic
-4. **Operational analysis** → Analysts work within the isolated analytics domain
-5. **Administrative management** → Shared management infrastructure controls deployment-wide administration
-
-This architecture allows operational separation without requiring completely independent Trisul platforms.
+Each context behaves like an independent analytics environment. It holds its own traffic and analytics data, uses its own configuration, and tracks its own retention and operational history. Contexts are created and managed from the Trisul hub using administrative tools such as `trisulctl_hub`. Telemetry and traffic are routed to the appropriate context, and analysts work within that context without seeing data from others.
 
 ---
 
 ## Contexts in network operations
 
-Contexts are useful in environments requiring operational isolation or multi-tenant analytics.
-
-Common operational use cases include:
-
-- **Managed service providers (MSPs)**: Separate customer analytics environments
-- **ISPs**: Isolate operational domains or service groups
-- **Enterprise environments**: Separate departments, subsidiaries, or security zones
-- **SOC operations**: Isolate security analytics by region or tenant
-- **Testing and staging**: Separate lab and production analytics workflows
-
-Contexts help reduce data overlap while simplifying centralized deployment management.
+Contexts are useful when you need to keep analytics and traffic data separated, such as MSPs managing multiple customers, ISPs segmenting service groups, or large enterprises isolating departments or security zones. Contexts help avoid data overlap while keeping deployment and administration simpler and more centralized.
 
 ---
 
 ## Context vs node
 
-| Dimension | Context | Node |
-|---|---|---|
-| Purpose | Isolated analytics domain | System running Trisul services |
-| Operational scope | Separate analytics and processing state | Infrastructure and service execution |
-| Data handling | Isolated analytics data | May host one or more contexts |
-| Configuration | Context-specific | Platform and deployment-level |
-| Deployment relationship | Multiple contexts can coexist | Physical or virtual infrastructure component |
+| Dimension       | Context                                      | Node                                       |
+|-----------------|----------------------------------------------|--------------------------------------------|
+| Purpose         | Isolated analytics domain                    | System running Trisul services             |
+| Operational scope | Separate analytics and processing state     | Hosts services and may run multiple contexts |
+| Data handling   | Isolated analytics data and history          | Infrastructure layer, no data isolation    |
+| Configuration   | Context‑specific config and settings         | Platform‑level config and service settings |
 
-A single deployment may contain multiple contexts distributed across one or more nodes.
+A single Trisul deployment can host multiple contexts across one or more nodes.
 
 ---
 
 ## Why contexts are useful
 
-Contexts improve operational flexibility in large or multi-tenant environments.
-
-Benefits include:
-- Data isolation
-- Simplified multi-tenant analytics
-- Operational separation
-- Independent workflows
-- Flexible organizational boundaries
-- Centralized administration
-
-Contexts also allow different teams or operational domains to work independently within the same deployment framework.
+Contexts provide operational isolation and multi‑tenant flexibility. They let different teams or tenants work independently with their own data and workflows, while still sharing administration, reporting, and monitoring at the platform level. This is especially useful for MSPs, ISPs, and large enterprises that need to segment analytics without running separate Trisul installations.
 
 ---
 
-## How Trisul handles contexts
+## In Trisul
 
-Trisul supports multi-context deployments for operational separation and analytics isolation.
-
-Relevant capabilities include:
-
-- **Separate analytics domains** within a shared deployment
-- **Independent traffic and analytics processing**
-- **Context-specific configuration and operational state**
-- **Shared administrative and web-management infrastructure**
-- **Centralized operational management**
-- **Multi-tenant and distributed operational workflows**
-
-Contexts are managed using Trisul administrative tooling such as `trisulctl_hub`.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#managed-security-service-provider
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
+Trisul supports multi‑context deployments for analytics isolation and multi‑tenant operations. Each context has its own analytics domain, traffic processing, and configuration, but all are managed through the same hub and web administration interface. You create and manage contexts using `trisulctl_hub` and related tooling, and route traffic to the appropriate context based on organization, customer, or region.
 
 ---
 
 ## Related terms
 
-- [Node](/glossary/node)
-- [Distributed domain](/glossary/distributed-domain)
-- [Multitenancy](/glossary/multitenancy)
-- [Webadmin](/glossary/webadmin)
-- [Context menu](/glossary/context-menu)
-- [Hub node](/glossary/hub-node)
+- Context  
+- Node  
+- Distributed domain  
+- Multitenancy  
+- Webadmin  
+- Context menu  
+- Hub node  
 
 ---
 
@@ -187,7 +123,7 @@ Relevant Trisul use cases:
 
 ### What does a Trisul context isolate?
 
-A Trisul context maintains separate analytics data, configuration, operational state, and processing workflows while sharing common administration and web-management infrastructure with other contexts.
+A Trisul context maintains separate analytics data, configuration, operational state, and processing workflows while sharing common administration and web‑management infrastructure with other contexts.
 
 ### Why use multiple contexts?
 
@@ -195,7 +131,7 @@ Multiple contexts help isolate analytics by tenant, environment, region, custome
 
 ### How do you create a context in Trisul?
 
-Contexts are created and managed from the hub node using Trisul administrative tooling such as trisulctl_hub.
+Contexts are created and managed from the hub node using Trisul administrative tooling such as `trisulctl_hub`.
 
 ### What is the difference between a context and a node?
 
