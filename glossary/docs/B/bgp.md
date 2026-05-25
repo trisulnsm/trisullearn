@@ -1,6 +1,6 @@
 ---
 title: What is BGP?
-description: BGP (Border Gateway Protocol) is the routing protocol for the Internet that exchanges network reachability information between autonomous systems. Trisul enriches flow records with BGP attributes including source/destination ASN, BGP next hop, and communities for traffic analysis.
+description: BGP (Border Gateway Protocol) is the inter-domain routing protocol used to exchange network reachability information between autonomous systems. Trisul supports BGP-aware traffic analysis through ASN and routing-enriched flow visibility.
 sidebar_label: BGP
 sidebar_position: 34
 slug: /glossary/bgp
@@ -21,7 +21,7 @@ export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "What is BGP (Border Gateway Protocol)?",
-  "description": "BGP (Border Gateway Protocol) is the routing protocol for the Internet that exchanges network reachability information between autonomous systems. Trisul enriches flow records with BGP attributes including source/destination ASN, BGP next hop, and communities for traffic analysis.",
+  "description": "BGP (Border Gateway Protocol) is the inter-domain routing protocol used to exchange network reachability information between autonomous systems. Trisul supports BGP-aware traffic analysis through ASN and routing-enriched flow visibility.",
   "about": {
     "@type": "DefinedTerm",
     "name": "BGP (Border Gateway Protocol)",
@@ -35,31 +35,58 @@ export const jsonLd = {
 
 # What is BGP?
 
-**BGP (Border Gateway Protocol)** is the routing protocol for the Internet that exchanges network reachability information between autonomous systems. It selects the best path based on policies and path attributes like Weight, Local Preference, and AS Path. BGP runs over TCP port 179 and supports CIDR. Trisul enriches flow records with BGP attributes for traffic analysis by autonomous system.
+**BGP (Border Gateway Protocol)** is the inter-domain routing protocol used to exchange network reachability information between autonomous systems (ASes) on the Internet.
+
+BGP is responsible for:
+- Internet route exchange
+- Policy-based routing decisions
+- Inter-provider connectivity
+- Traffic engineering between networks
+
+BGP operates over **TCP port 179** and uses routing attributes and policies to determine preferred paths between networks.
+
+Trisul supports BGP-aware traffic analysis through ASN and routing-enriched flow visibility.
 
 ---
 
 ## How it works
 
-BGP peers establish a TCP connection and exchange reachability information including the destination network and AS path. BGP constructs an AS connectivity graph to prevent routing loops and enforce policy decisions. When routes change, BGP advertises only the delta rather than the full routing table.
+BGP peers establish TCP sessions and exchange routing information about reachable IP prefixes and associated path attributes.
 
-The BGP operation process:
-1. **Peer establishment** → BGP peers establish TCP connection on port 179
-2. **Initial exchange** → Peers exchange full routing tables
-3. **Update mechanism** → Only route changes (deltas) are advertised thereafter
-4. **Path selection** → BGP evaluates path attributes to select best path
-5. **Route propagation** → Selected routes are advertised to other peers
-6. **Loop prevention** → AS Path attribute prevents routing loops
+BGP routing decisions are influenced by:
+- AS Path
+- Local Preference
+- MED (Multi-Exit Discriminator)
+- Next Hop
+- Communities
+- Local routing policies
+
+Typical BGP workflow:
+
+1. **Peer establishment** → Routers establish BGP sessions over TCP port 179
+2. **Route exchange** → Peers exchange routing information for reachable prefixes
+3. **Path evaluation** → Routers evaluate candidate routes using BGP attributes and policy
+4. **Best-path selection** → Preferred routes are selected and installed
+5. **Route advertisement** → Selected routes are propagated to peers
+6. **Incremental updates** → Route changes are advertised dynamically without retransmitting the full table
+
+The AS Path attribute helps prevent routing loops between autonomous systems.
 
 ---
 
 ## In network operations
 
-- **NOC:** Monitor BGP peer status and route changes to detect coupling or routing anomalies.
-- **ISP:** Use BGP for peering and traffic engineering, selecting upstream paths based on cost and performance.
-- **Security:** Detect BGP hijacking by monitoring for unexpected route origin changes or AS path anomalies.
+BGP is central to ISP, carrier, and Internet edge operations.
 
-Trisul supports all three operational use cases through BGP-enriched flow monitoring and BGP peering analytics.
+Typical operational use cases include:
+
+- **Peering management**: Exchange routes with peers and upstream providers
+- **Traffic engineering**: Influence inbound and outbound traffic paths
+- **Redundancy and failover**: Maintain multiple external routing paths
+- **Route monitoring**: Detect routing instability or unexpected changes
+- **Security analysis**: Investigate route hijacking or anomalous route advertisements
+
+Trisul supports BGP-related traffic analysis through flow telemetry enriched with ASN and routing context.
 
 ---
 
@@ -68,27 +95,27 @@ Trisul supports all three operational use cases through BGP-enriched flow monito
 | Dimension | eBGP (External BGP) | iBGP (Internal BGP) |
 |---|---|---|
 | Scope | Between different ASes | Within the same AS |
-| Use case | Internet peering | Internal route consistency |
-| TTL | 1 | 255 |
-| Next hop | Changes at AS boundary | Preserved across AS |
-| Where used | Edge routers connecting to peers/upstreams | Internal routers within an AS |
+| Primary use | Internet and inter-provider routing | Internal route distribution |
+| Administrative boundary | Crosses AS boundaries | Remains inside one AS |
+| Typical deployment | Edge routers | Internal routing infrastructure |
+| Routing purpose | External connectivity | Internal route consistency |
 
-eBGP is used for Internet peering; iBGP is used for internal route consistency.
+eBGP is primarily used for inter-network routing, while iBGP distributes external routes internally within an autonomous system.
 
 ---
 
 ## BGP path attributes
 
-| Attribute | Description | Selection preference |
+| Attribute | Description | Preference behavior |
 |---|---|---|
-| Weight | Cisco-specific, locally significant | Higher is preferred |
-| Local Preference | Indicates preference for exit path | Higher is preferred |
-| AS Path | List of ASes the route has traversed | Shorter is preferred |
-| Next Hop | IP address of next router | Best reachable next hop |
-| MED (Multi-Exit Discriminator) | Suggests entry point to相邻 AS | Lower is preferred |
-| Communities | Tag for routing policy | Policy-dependent |
+| Weight | Vendor-specific local preference attribute | Higher preferred |
+| Local Preference | Preferred outbound routing path | Higher preferred |
+| AS Path | Sequence of traversed ASes | Shorter generally preferred |
+| Next Hop | Next router toward destination | Must be reachable |
+| MED | Suggested inbound entry preference | Lower generally preferred |
+| Communities | Routing policy tags | Policy-dependent |
 
-BGP evaluates these path attributes to select the best path according to local policy configuration.
+BGP uses these attributes together with routing policy to select preferred paths.
 
 ---
 
@@ -96,42 +123,56 @@ BGP evaluates these path attributes to select the best path according to local p
 
 | Message Type | Purpose |
 |---|---|
-| OPEN | Establish BGP peer connection |
+| OPEN | Establish BGP session |
 | UPDATE | Advertise or withdraw routes |
-| KEEPALIVE | Maintain peer connection |
-| NOTIFICATION | Report errors and close connection |
+| KEEPALIVE | Maintain peer session |
+| NOTIFICATION | Report errors and terminate session |
 
 ---
 
-## How is BGP used in flow monitoring
+## How BGP is used in flow monitoring
 
-Flow monitoring enriches flow records with BGP attributes:
+Flow monitoring systems can enrich traffic telemetry with routing metadata derived from BGP.
 
-| BGP Attribute | Flow Record Field | Use Case |
-|---|---|---|
-| Source ASN | Source Autonomous System Number | Traffic analysis by originating AS |
-| Destination ASN | Destination Autonomous System Number | Traffic analysis by destination AS |
-| BGP Next Hop | Next Hop IP Address | Route path analysis |
-| Communities | BGP Community Tags | Policy-based traffic classification |
+Common enrichments include:
 
-This enables traffic analysis by autonomous system, peering analysis, and identification of traffic patterns by routing path.
+| BGP Attribute | Use in flow analytics |
+|---|---|
+| Source ASN | Identify originating Autonomous System |
+| Destination ASN | Identify destination Autonomous System |
+| Next Hop | Analyze routing path behavior |
+| Communities | Apply policy-aware traffic analysis |
+| Prefix association | Analyze traffic by routed prefix |
+
+This enables:
+- ASN-based traffic visibility
+- Peering traffic analysis
+- Transit utilization analysis
+- Prefix-level traffic investigation
+- Routing-aware traffic engineering workflows
 
 ---
 
 ## How Trisul handles BGP
 
-Trisul provides comprehensive BGP integration for network analytics:
+Trisul supports BGP-aware traffic analytics using flow telemetry enriched with routing context.
 
-- **BGP-enriched flow records**: Trisul enriches flow records (NetFlow, J-Flow, sFlow, IPFIX) with BGP attributes including source and destination ASN, BGP next hop, and communities, enabling traffic analysis by autonomous system rather than just IP address
-- **Explore Flows by BGP attributes**: Query and report by autonomous system in Trisul's Explore Flows, investigating traffic patterns to/from specific ASes with full BGP metadata
-- **BGP peering analytics**: Trisul's ISP Peering Analytics combines flow data with BGP routing information to analyze traffic per AS, per prefix, and per peering interface in real time
-- **ASN traffic analysis**: Trisul provides Top-K analytics for per-AS traffic ranking, identifying top source ASes, top destination ASes, and traffic patterns by autonomous system
-- **BGP peering EEG**: Trisul's BGP peering EEG (Executive Executive Graph) enables real-time monitoring of active route topology and ASN relationships
-- **Route analytics dashboards**: Trisul dashboards present BGP route topology, AS peerings, and prefix analysis for at-a-glance BGP visibility
-- **Aggregate Flows by ASN**: Summarize traffic by source ASN or destination ASN over time for trending and capacity planning
-- **BGP route receiver**: Trisul has an inbuilt BGP route receiver that automatically receives BGP routing information and keeps it in sync with traffic tables
+Relevant capabilities include:
 
-Trisul enriches flow records with BGP attributes including source and destination ASN, BGP next hop, and communities. This enables querying and reporting by autonomous system in Explore Flows and dashboards for comprehensive BGP-based traffic analysis.
+- **ASN-enriched flow visibility** for traffic analysis by Autonomous System
+- **Flow telemetry analysis** using NetFlow, IPFIX, sFlow, and J-Flow
+- **Traffic analysis by ASN and prefix**
+- **BGP-aware peering analytics workflows**
+- **Top-K traffic analysis** for identifying high-volume ASNs and routing entities
+- **Historical traffic trending** by ASN and routing metadata
+- **Explore Flows integration** for ASN and route-oriented investigation
+
+These capabilities help operators analyze peering traffic, routing behavior, transit utilization, and ASN-level traffic distribution.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
 
 ---
 
@@ -149,7 +190,6 @@ Trisul enriches flow records with BGP attributes including source and destinatio
 - [Traffic engineering](/glossary/traffic-engineering)
 - [Explore Flows](/glossary/explore-flows)
 - [Top-K analytics](/glossary/top-k-analytics)
-- [BGP peering EEG](/glossary/bgp-peering-eeg)
 - [Route collector](/glossary/route-collector)
 
 ---
@@ -158,24 +198,24 @@ Trisul enriches flow records with BGP attributes including source and destinatio
 
 ### What are the two types of BGP?
 
-eBGP (External BGP) exchanges routing information between routers in different autonomous systems. iBGP (Internal BGP) exchanges routing information between routers within the same autonomous system. eBGP is used for Internet peering; iBGP is used for internal route consistency.
+eBGP exchanges routing information between different autonomous systems, while iBGP distributes routing information within the same autonomous system.
 
 ### How does BGP select the best path?
 
-BGP evaluates path attributes including Weight (Cisco-specific, higher is preferred), Local Preference (higher is preferred), Autonomous System Path (shorter is preferred), and Next Hop. The router selects the path with the best attributes according to its local policy configuration.
+BGP evaluates routing attributes such as Local Preference, AS Path, MED, Next Hop, and policy rules to determine preferred routing paths.
 
 ### What port does BGP use?
 
-BGP runs over TCP port 179. BGP peers establish a TCP connection before exchanging routing information. This makes BGP more reliable than routing protocols that run directly over IP without a transport layer.
+BGP operates over TCP port 179.
 
 ### How is BGP used in flow monitoring?
 
-Flow monitoring enriches flow records with BGP attributes including source and destination ASN, BGP next hop, and communities. This enables traffic analysis by autonomous system, peering analysis, and identification of traffic patterns by routing path.
+Flow telemetry can be enriched with ASN and routing metadata to enable traffic analysis by Autonomous System, prefix, routing path, and peering relationship.
 
 ### How does Trisul integrate with BGP?
 
-Trisul integrates with BGP by enriching NetFlow, J-Flow, sFlow, and IPFIX records with BGP attributes (source/destination ASN, BGP next hop, communities), providing BGP peering analytics with real-time route topology monitoring, and including an inbuilt BGP route receiver that stays in sync with traffic tables.
+Trisul supports BGP-aware traffic analysis by correlating flow telemetry with ASN and routing metadata for traffic visibility and peering analytics workflows.
 
 ### What BGP analytics can Trisul provide?
 
-Trisul provides BGP analytics including traffic per AS number, traffic per prefix, traffic per peering interface, ASN traffic ranking through Top-K analytics, real-time route topology through BGP peering EEG, and comprehensive peering dashboards for AS peerings, prefix analysis, and route analytics.
+Trisul supports ASN-oriented traffic visibility, peering traffic analysis, prefix-based traffic investigation, Top-K ASN analysis, and routing-aware traffic trending.

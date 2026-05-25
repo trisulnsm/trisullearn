@@ -1,6 +1,6 @@
 ---
 title: What is burst traffic?
-description: Burst traffic is a sudden, temporary spike in network activity that rises sharply for a short period before returning to baseline. It is also called bursty traffic when it occurs frequently or unpredictably.
+description: Burst traffic is a sudden, temporary spike in network activity that rises sharply for a short period before returning to normal levels. Trisul helps operators analyze burst behavior through flow analytics, interface visibility, and traffic trending.
 sidebar_label: Burst traffic
 sidebar_position: 32
 slug: /glossary/burst-traffic
@@ -23,7 +23,7 @@ export const jsonLd = {
       "name": "What causes burst traffic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Burst traffic can be caused by live streaming events, software updates, cloud backups, file transfers, video conferencing, or security incidents like DDoS attacks. Short-scale burstiness is also a natural characteristic of Internet traffic due to the way applications and protocols behave."
+        "text": "Burst traffic can be caused by software updates, backups, video streaming, cloud synchronization, file transfers, traffic engineering changes, or security events such as DDoS attacks. Short-duration burstiness is also a normal property of many network applications and protocols."
       }
     },
     {
@@ -31,7 +31,7 @@ export const jsonLd = {
       "name": "How does burst traffic affect network performance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bursts can temporarily saturate link capacity, causing packet loss, increased latency, and jitter. Networks sized for average traffic may struggle with bursts. Proper buffer sizing, QoS, and capacity planning help absorb bursts without degrading performance."
+        "text": "Burst traffic can temporarily saturate interfaces and buffers, increasing latency, jitter, queuing delay, and packet loss. Networks engineered only for average utilization may experience congestion during bursts."
       }
     },
     {
@@ -39,7 +39,7 @@ export const jsonLd = {
       "name": "What is burst size in networking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Burst size is the maximum number of bytes that can be transmitted at full line rate before rate limiting or shaping takes effect. It is used in QoS and traffic policing to allow short bursts to pass while controlling sustained high rates. Burst size is typically expressed as a power of 2 in bytes."
+        "text": "Burst size is the amount of traffic allowed to temporarily exceed a configured rate limit before shaping or policing mechanisms begin restricting traffic flow."
       }
     },
     {
@@ -47,7 +47,15 @@ export const jsonLd = {
       "name": "How do you detect burst traffic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Burst traffic is detected by monitoring interface utilization in real time and comparing current rates to baseline averages. Flow monitoring tools identify bursts by tracking bandwidth per second and flagging when traffic exceeds thresholds. Top talkers and per-interface trending reveal burst sources and patterns."
+        "text": "Burst traffic is detected through interface monitoring, flow analytics, utilization trending, and anomaly analysis. Operators compare current traffic levels against expected baselines to identify abnormal spikes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul help analyze burst traffic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul helps operators investigate burst traffic using flow visibility, interface utilization analysis, Top-K analytics, and historical traffic trending to identify burst sources and congestion-related behavior."
       }
     }
   ]
@@ -55,21 +63,53 @@ export const jsonLd = {
 
 # What is burst traffic?
 
-Burst traffic is a sudden, temporary spike in network activity that rises sharply for a short period before returning to baseline. It is also called bursty traffic when it occurs frequently or unpredictably. Burst traffic can indicate legitimate high-demand events or security incidents like DDoS attacks.
+**Burst traffic** is a sudden, temporary spike in network activity that rises sharply for a short period before returning to normal levels.
+
+When burst behavior occurs frequently or unpredictably, traffic may be described as **bursty**.
+
+Burst traffic can result from:
+- Normal application behavior
+- Large file transfers
+- Streaming activity
+- Cloud synchronization
+- Backup operations
+- Traffic engineering changes
+- Security incidents such as DDoS attacks
+
+Trisul helps operators analyze burst behavior through flow analytics, interface visibility, and traffic trending.
 
 ---
 
 ## How it works
 
-Bursts occur when many applications or users transmit data simultaneously. A network on which many bursts occur is said to be bursty. Burst size in rate limiting is the maximum bytes that can be sent at full line rate before shaping takes effect.
+Burst traffic occurs when many packets or flows are transmitted within a short time interval, temporarily increasing demand on network resources.
+
+Bursts may:
+- Fill interface queues
+- Increase buffer occupancy
+- Cause temporary congestion
+- Increase latency and jitter
+- Trigger packet drops if capacity is exceeded
+
+Burstiness is a natural property of many network applications and transport protocols, particularly in TCP-based environments.
+
+In QoS and traffic shaping systems, **burst size** defines how much traffic may temporarily exceed configured limits before policing or shaping mechanisms take effect.
 
 ---
 
 ## In network operations
 
-- **NOC:** Monitor interface utilization dashboards to spot bursts before they cause packet loss or congestion.
-- **SOC:** Distinguish legitimate traffic bursts from DDoS attacks using flow-based anomaly detection.
-- **ISP:** Plan capacity with peak burst rates rather than average utilization to avoid service degradation.
+Burst traffic analysis is important for operational monitoring and capacity planning.
+
+Common operational use cases include:
+
+- **Congestion analysis**: Identify short-duration overload conditions
+- **Performance troubleshooting**: Investigate latency spikes and packet loss
+- **DDoS investigation**: Distinguish legitimate spikes from attack traffic
+- **Capacity planning**: Engineer networks for peak demand rather than average utilization
+- **QoS validation**: Verify traffic shaping and prioritization behavior
+
+Burst visibility is especially important in environments with highly variable traffic patterns.
 
 ---
 
@@ -77,24 +117,59 @@ Bursts occur when many applications or users transmit data simultaneously. A net
 
 | Dimension | Burst traffic | Steady traffic |
 |---|---|---|
-| Duration | Seconds to minutes | Hours to days |
-| Pattern | Sharp spike, fast return to baseline | Consistent over time |
-| Capacity need | Peak rate driven | Average rate driven |
-| Risk | Saturation, packet loss | Predictable, stable |
+| Duration | Short-lived spikes | Sustained over time |
+| Traffic pattern | Rapid utilization changes | Relatively consistent utilization |
+| Capacity impact | Peak-rate sensitive | Average-rate sensitive |
+| Congestion risk | Higher during spikes | More predictable |
+| Operational challenge | Queue buildup and transient overload | Long-term utilization growth |
 
 ---
 
-## How Trisul handles it
+## Why burst traffic matters
 
-Trisul detects burst traffic through real-time Interface Tracking and Top-K analytics that show spikes in bandwidth and top talkers. Trigger-based alerting sends notifications when interface utilization exceeds thresholds. Historical trending shows burst patterns over time. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Short bursts can temporarily overwhelm network buffers and interfaces even when average utilization appears low.
+
+This can lead to:
+- Increased latency
+- Jitter
+- Packet loss
+- Queue buildup
+- Application performance degradation
+
+Monitoring burst behavior helps operators better understand real-world network stress conditions and transient congestion events.
+
+---
+
+## How Trisul handles burst traffic
+
+Trisul helps operators investigate burst traffic through flow visibility and traffic analysis workflows.
+
+Relevant capabilities include:
+
+- **Interface utilization visibility** for identifying sudden traffic spikes
+- **Flow-based traffic analysis** using NetFlow, IPFIX, sFlow, and J-Flow
+- **Top-K analytics** for identifying burst-generating hosts, applications, or destinations
+- **Historical traffic trending** for identifying recurring burst patterns
+- **Explore Flows** for burst investigation and drill-down analysis
+- **Aggregate Flows** for analyzing traffic trends across time periods
+
+These capabilities help operators correlate utilization spikes, congestion symptoms, and high-volume traffic behavior.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
 
 ---
 
 ## Related terms
 
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is DDoS detection?](/docs/glossary/ddos-detection)
-
+- [Flow monitoring](/glossary/flow-monitoring)
+- [DDoS detection](/glossary/ddos-detection)
+- [Congestion detection](/glossary/congestion-detection)
+- [Traffic spike](/glossary/traffic-spike)
+- [Queueing](/glossary/queueing)
+- [Packet loss](/glossary/packet-loss)
 
 ---
 
@@ -102,16 +177,20 @@ Trisul detects burst traffic through real-time Interface Tracking and Top-K anal
 
 ### What causes burst traffic?
 
-Burst traffic can be caused by live streaming events, software updates, cloud backups, file transfers, video conferencing, or security incidents like DDoS attacks. Short-scale burstiness is also a natural characteristic of Internet traffic due to the way applications and protocols behave.
+Burst traffic can be caused by software updates, backups, video streaming, cloud synchronization, file transfers, traffic engineering changes, or security events such as DDoS attacks. Short-duration burstiness is also a normal property of many network applications and protocols.
 
 ### How does burst traffic affect network performance?
 
-Bursts can temporarily saturate link capacity, causing packet loss, increased latency, and jitter. Networks sized for average traffic may struggle with bursts. Proper buffer sizing, QoS, and capacity planning help absorb bursts without degrading performance.
+Burst traffic can temporarily saturate interfaces and buffers, increasing latency, jitter, queuing delay, and packet loss. Networks engineered only for average utilization may experience congestion during bursts.
 
 ### What is burst size in networking?
 
-Burst size is the maximum number of bytes that can be transmitted at full line rate before rate limiting or shaping takes effect. It is used in QoS and traffic policing to allow short bursts to pass while controlling sustained high rates. Burst size is typically expressed as a power of 2 in bytes.
+Burst size is the amount of traffic allowed to temporarily exceed a configured rate limit before shaping or policing mechanisms begin restricting traffic flow.
 
 ### How do you detect burst traffic?
 
-Burst traffic is detected by monitoring interface utilization in real time and comparing current rates to baseline averages. Flow monitoring tools identify bursts by tracking bandwidth per second and flagging when traffic exceeds thresholds. Top talkers and per-interface trending reveal burst sources and patterns.
+Burst traffic is detected through interface monitoring, flow analytics, utilization trending, and anomaly analysis. Operators compare current traffic levels against expected baselines to identify abnormal spikes.
+
+### How does Trisul help analyze burst traffic?
+
+Trisul helps operators investigate burst traffic using flow visibility, interface utilization analysis, Top-K analytics, and historical traffic trending to identify burst sources and congestion-related behavior.

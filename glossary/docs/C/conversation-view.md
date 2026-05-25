@@ -1,6 +1,6 @@
 ---
 title: What is conversation view?
-description: Conversation view is a display mode in flow analysis that stitches unidirectional flow records into bidirectional conversations, showing both sides of a network exchange as a single record with combined directional metrics.
+description: Conversation view is a flow-analysis representation that combines traffic from both directions of a network exchange into a single conversational record for easier analysis and investigation.
 sidebar_label: Conversation view
 sidebar_position: 27
 slug: /glossary/conversation-view
@@ -12,6 +12,7 @@ keywords:
   - netflow conversation analysis
   - flow pair
   - biflow
+  - conversational analytics
 ---
 
 export const jsonLd = {
@@ -23,7 +24,7 @@ export const jsonLd = {
       "name": "What does conversation view show?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Conversation view shows both directions of a network exchange as a single record: source and destination IP and port, bytes sent and received, packets sent and received, start time, duration, and protocol. It replaces two unidirectional records with one bidirectional record that makes the full exchange readable at a glance."
+        "text": "Conversation view presents traffic exchanged between two endpoints as a single conversational record containing directional traffic metrics such as bytes, packets, duration, ports, and protocol information."
       }
     },
     {
@@ -31,7 +32,7 @@ export const jsonLd = {
       "name": "How does conversation view relate to flow stitching?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow stitching is the process that produces conversation view. Stitching matches two unidirectional records with reversed 5-tuples and merges them into one bidirectional record. Conversation view is the display output of that process. Without stitching, analysts must mentally pair two records to understand a single exchange."
+        "text": "Conversation-oriented analysis commonly relies on flow correlation or flow stitching techniques that associate related directional traffic records into a unified conversational representation."
       }
     },
     {
@@ -39,7 +40,7 @@ export const jsonLd = {
       "name": "What is the difference between conversation view and flow legs view?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow legs view shows all individual records as exported by each device, preserving per-device and per-interface detail. Conversation view merges records into bidirectional pairs for readability. Legs view is for topology-level investigation; conversation view is for understanding individual exchanges."
+        "text": "Conversation view emphasizes readability by combining related traffic directions, while flow legs view preserves individual directional or exporter-specific flow records for detailed path and topology analysis."
       }
     },
     {
@@ -47,7 +48,15 @@ export const jsonLd = {
       "name": "When is conversation view not enough?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Conversation view loses per-device detail. It cannot tell you which router interface a flow entered on, or how traffic volumes differed at each hop. For path tracing, interface-level drilldown, or multi-hop analysis, the underlying leg records are needed."
+        "text": "Conversation view may not preserve detailed exporter, interface, or path-level visibility required for topology analysis, path tracing, or multi-hop traffic investigation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul use conversation view?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul supports conversation-oriented traffic analysis workflows through flow correlation, bidirectional traffic visibility, and investigation workflows available in Explore Flows and related analytics views."
       }
     }
   ]
@@ -55,48 +64,146 @@ export const jsonLd = {
 
 # What is conversation view?
 
-Conversation view stitches unidirectional flow records into bidirectional conversations, showing both sides of a network exchange as a single record. NetFlow exporters emit one record per direction by default. Conversation view pairs those records by reversed 5-tuple, combining directional byte and packet counts into one readable entry per exchange.
+**Conversation view** is a flow-analysis representation that combines traffic from both directions of a network exchange into a single conversational record for easier analysis and investigation.
+
+Traditional flow exporters commonly generate separate unidirectional records for each traffic direction. Conversation-oriented analysis associates these directional records into a unified view of the communication exchange.
+
+Conversation view is commonly used in:
+- Flow analytics platforms
+- NetFlow and IPFIX analysis
+- Security investigations
+- Traffic troubleshooting
+- Network operations workflows
+
+Trisul supports conversation-oriented traffic analysis workflows through bidirectional traffic visibility and flow correlation capabilities.
 
 ---
 
-## How it works
+## How conversation view works
 
-When two unidirectional flow records with reversed 5-tuples arrive at the collector, the stitching engine matches them by source/destination IP and port pairs and merges them. The resulting conversation record shows bytes in, bytes out, packets in, packets out, start time, and duration. Duplicate legs from multiple exporters on the same path are deduplicated before stitching.
+Conversation view correlates related traffic records representing opposite directions of the same communication exchange.
+
+Correlation commonly uses:
+- Source and destination IP addresses
+- Source and destination ports
+- Protocol identifiers
+- Timing information
+- Flow characteristics
+
+Typical workflow:
+
+1. **Flow export** → Devices export directional traffic records
+2. **Flow correlation** → Related directional records are associated
+3. **Conversation assembly** → Bidirectional traffic metrics are combined
+4. **Conversation analysis** → Operators investigate the communication exchange
+5. **Traffic investigation** → Analysts pivot into related operational views
+
+The resulting conversational representation may include:
+- Source and destination endpoints
+- Directional byte counts
+- Directional packet counts
+- Session duration
+- Protocol information
+- Traffic timing details
+
+Some platforms may also perform deduplication or normalization before conversation-oriented analysis.
 
 ---
 
-## In network operations
+## Conversation view in network operations
 
-- **NOC:** Read bandwidth consumed per exchange at a glance without manually pairing two records.
-- **SOC:** Identify data transfer ratios between internal and external hosts to detect exfiltration patterns.
-- **Investigation:** Pivot from a suspicious IP directly to all conversations it participated in, with both directions visible in one row.
+Conversation view simplifies operational analysis by presenting both sides of a communication exchange together.
+
+Common operational use cases include:
+
+- **Traffic investigation**: Analyze communication behavior between endpoints
+- **Security analysis**: Investigate suspicious inbound and outbound traffic ratios
+- **Performance troubleshooting**: Understand request-response traffic behavior
+- **Flow analytics**: Identify dominant traffic conversations
+- **Historical investigation**: Review prior communications involving selected hosts
+
+Conversation-oriented analysis is especially useful when investigating large traffic volumes where manually correlating directional records would be difficult.
 
 ---
 
-## Conversation view vs legs view
+## Conversation view vs flow legs view
 
-| Dimension | Conversation view | Legs view |
+| Dimension | Conversation view | Flow legs view |
 |---|---|---|
-| Records per exchange | One bidirectional record | One per exporting device per direction |
-| Per-device detail | Lost on merge | Preserved |
-| Readability | High | Low for multi-hop paths |
-| Best fit | Understanding individual exchanges | Topology and path tracing |
+| Representation | Combined conversational analysis | Individual directional flow records |
+| Readability | Easier communication analysis | More detailed but less compact |
+| Directional visibility | Combined bidirectional metrics | Per-direction and exporter visibility |
+| Operational focus | Endpoint conversations | Path and topology investigation |
+| Typical use | Traffic and security investigation | Interface and multi-hop analysis |
+
+Conversation view improves readability, while legs-oriented views preserve lower-level operational detail.
 
 ---
 
-## How Trisul handles it
+## Why conversation view is useful
 
-Trisul performs NetFlow conversation analysis by deduplicating overlapping flow records and merging unidirectional flows into bidirectional conversations. Explore Flows displays results in conversation view by default, with legs view available for path-level investigation. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Conversation-oriented analysis improves visibility into communication behavior.
+
+Benefits include:
+- Easier traffic interpretation
+- Faster investigations
+- Simplified bidirectional analysis
+- Better visibility into request-response behavior
+- Improved traffic correlation
+- Faster operational workflows
+
+Conversation views help analysts understand communication exchanges without manually pairing directional records.
+
+---
+
+## Conversation view and flow correlation
+
+Conversation-oriented analytics often rely on flow correlation workflows.
+
+| Workflow | Purpose |
+|---|---|
+| Flow correlation | Associate related directional records |
+| Flow stitching | Merge related traffic directions |
+| Deduplication | Reduce overlapping or duplicate records |
+| Bidirectional analysis | Analyze ingress and egress behavior |
+
+The exact implementation depends on exporter behavior, telemetry format, and analytics platform design.
+
+---
+
+## How Trisul handles conversation view
+
+Trisul supports conversation-oriented traffic analysis through flow correlation and bidirectional traffic visibility workflows.
+
+Relevant capabilities include:
+
+- **Conversation-oriented traffic analytics**
+- **Bidirectional traffic visibility**
+- **Explore Flows integration** for conversational investigation
+- **Flow correlation workflows**
+- **Top-K analytics** for identifying dominant traffic conversations
+- **Aggregate Flows** for summarizing communication activity
+- **Historical traffic investigation workflows**
+- **Traffic drill-down and pivot analysis**
+
+These capabilities help operators investigate communication behavior, analyze traffic relationships, and improve operational visibility.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
 
 ---
 
 ## Related terms
 
-- [What is flow stitching?](/docs/glossary/flow-stitching)
-- [What is flow legs?](/docs/glossary/flow-legs)
-- [What is flow deduplication?](/docs/glossary/flow-deduplication)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is a flow?](/docs/glossary/flow)
+- [Flow stitching](/glossary/flow-stitching)
+- [Flow legs](/glossary/flow-legs)
+- [Flow deduplication](/glossary/flow-deduplication)
+- [Flow monitoring](/glossary/flow-monitoring)
+- [Flow](/glossary/flow)
+- [Bidirectional flow](/glossary/bidirectional-flow)
+- [Explore Flows](/glossary/explore-flows)
 
 ---
 
@@ -104,16 +211,20 @@ Trisul performs NetFlow conversation analysis by deduplicating overlapping flow 
 
 ### What does conversation view show?
 
-Conversation view shows both directions of a network exchange as a single record: source and destination IP and port, bytes sent and received, packets sent and received, start time, duration, and protocol. It replaces two unidirectional records with one bidirectional record that makes the full exchange readable at a glance.
+Conversation view presents traffic exchanged between two endpoints as a single conversational record containing directional traffic metrics such as bytes, packets, duration, ports, and protocol information.
 
 ### How does conversation view relate to flow stitching?
 
-Flow stitching is the process that produces conversation view. Stitching matches two unidirectional records with reversed 5-tuples and merges them into one bidirectional record. Conversation view is the display output of that process. Without stitching, analysts must mentally pair two records to understand a single exchange.
+Conversation-oriented analysis commonly relies on flow correlation or flow stitching techniques that associate related directional traffic records into a unified conversational representation.
 
 ### What is the difference between conversation view and flow legs view?
 
-Flow legs view shows all individual records as exported by each device, preserving per-device and per-interface detail. Conversation view merges records into bidirectional pairs for readability. Legs view is for topology-level investigation; conversation view is for understanding individual exchanges.
+Conversation view emphasizes readability by combining related traffic directions, while flow legs view preserves individual directional or exporter-specific flow records for detailed path and topology analysis.
 
 ### When is conversation view not enough?
 
-Conversation view loses per-device detail. It cannot tell you which router interface a flow entered on, or how traffic volumes differed at each hop. For path tracing, interface-level drilldown, or multi-hop analysis, the underlying leg records are needed.
+Conversation view may not preserve detailed exporter, interface, or path-level visibility required for topology analysis, path tracing, or multi-hop traffic investigation.
+
+### How does Trisul use conversation view?
+
+Trisul supports conversation-oriented traffic analysis workflows through flow correlation, bidirectional traffic visibility, and investigation workflows available in Explore Flows and related analytics views.

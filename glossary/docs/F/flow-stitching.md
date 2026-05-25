@@ -1,17 +1,18 @@
 ---
 title: What is flow stitching?
-description: Flow stitching is the process of combining two unidirectional flow records representing opposite directions of the same conversation into a single bidirectional flow entry for analysis.
+description: Flow stitching is the process of correlating and combining related unidirectional flow records into a bidirectional or conversation-oriented view for traffic analysis, troubleshooting, and security investigations.
 sidebar_label: Flow stitching
 sidebar_position: 5
 slug: /glossary/flow-stitching
 keywords:
   - flow stitching
   - bidirectional flow
-  - flow deduplication
-  - netflow stitching
-  - flow legs
   - biflow
   - flow correlation
+  - netflow stitching
+  - flow deduplication
+  - flow legs
+  - telemetry correlation
 ---
 
 export const jsonLd = {
@@ -20,10 +21,10 @@ export const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Why does flow stitching fail in asymmetric routing environments?",
+      "name": "Why does flow stitching become difficult in asymmetric routing environments?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow stitching requires both directions of a conversation to be visible at the same collection point. In asymmetric routing, the forward path may traverse one router and the return path a different one, each exporting to a different collector. When the two legs land at separate collectors, neither has enough information to stitch the pair. The result is two orphaned unidirectional records rather than one complete bidirectional entry, and volume figures for the stitched flow remain incomplete."
+        "text": "Flow stitching generally works best when both traffic directions are visible within the same telemetry-analysis workflow. In asymmetric routing environments, the forward and return paths may traverse different exporters, interfaces, or collectors, making directional correlation more difficult and potentially reducing stitching accuracy."
       }
     },
     {
@@ -31,23 +32,31 @@ export const jsonLd = {
       "name": "What is the difference between flow stitching and flow deduplication?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow deduplication removes duplicate records generated when the same flow is exported by multiple devices it traverses, for example a flow passing through both a core router and an edge router that both have NetFlow enabled. Flow stitching combines two opposite-direction records from the same conversation into one bidirectional entry. The two problems often occur together: a collector may receive multiple legs that are both duplicates and in need of directional stitching before they produce a useful record."
+        "text": "Flow stitching correlates related directional flow records into a conversation-oriented view, while flow deduplication removes overlapping telemetry generated when multiple exporters observe the same communication path. The two workflows solve different telemetry-correlation problems and may be used together in multi-device monitoring environments."
       }
     },
     {
       "@type": "Question",
-      "name": "Does flow stitching affect traffic volume accounting?",
+      "name": "Does flow stitching affect traffic accounting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Without deduplication, a flow traversing two NetFlow-enabled devices is counted twice in bandwidth reports. Without stitching, the inbound and outbound bytes for a session are reported as separate unrelated flows rather than as the total transfer volume of a single conversation. Both distortions affect capacity planning and billing accuracy at ISP scale, where over-reporting utilization directly impacts infrastructure investment decisions."
+        "text": "Flow stitching may improve operational readability by combining directional traffic into a conversation-oriented representation. However, accurate traffic accounting also depends on exporter placement, deduplication workflows, sampling behavior, and telemetry completeness across the monitoring environment."
       }
     },
     {
       "@type": "Question",
-      "name": "Does flow stitching work across NAT boundaries?",
+      "name": "Can flow stitching work across NAT boundaries?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Stitching across NAT is harder because the source IP or port visible on the inside of the NAT device differs from what is visible on the outside, making direct 5-tuple matching impossible. Platforms that support NAT-aware flow leg correlation apply heuristics to detect port translations and match the pre-NAT and post-NAT legs. Without this, flows that cross a NAT boundary produce unmatched legs that cannot be automatically joined."
+        "text": "NAT environments complicate stitching because addresses and ports may change across translation boundaries. Some platforms support NAT-aware correlation workflows that use timestamps, ports, interface context, or heuristic matching to associate related telemetry before and after translation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul support flow-stitching workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul supports flow-stitching and correlation workflows through Flow Legs Correlation, MergeMultipleSources configuration options, NAT-aware telemetry correlation, historical traffic analysis, and operational visibility workflows for multi-device environments."
       }
     }
   ]
@@ -55,27 +64,122 @@ export const jsonLd = {
 
 # What is flow stitching?
 
-Flow stitching is the process of combining two unidirectional flow records that represent opposite directions of the same network conversation into a single bidirectional entry. NetFlow and IPFIX exporters emit one record per direction: a client-to-server flow and a separate server-to-client flow, each with its own byte and packet counts. Flow stitching joins these two records at the collector so analysts work with a single conversation view rather than two disconnected entries.
+**Flow stitching** is the process of correlating and combining related unidirectional flow records into a bidirectional or conversation-oriented view for traffic analysis, troubleshooting, and security investigations.
+
+Many telemetry systems export traffic directionally:
+- Client-to-server traffic appears as one record
+- Server-to-client traffic appears as another record
+
+Flow stitching associates these related records so analysts can work with a unified conversation view instead of separate directional entries.
+
+Flow stitching is commonly used with:
+- NetFlow
+- IPFIX
+- Packet-derived flow telemetry
+- Multi-device telemetry environments
+
+The goal is operational clarity:
+- Understanding full conversations
+- Improving traffic visibility
+- Simplifying investigations
+- Supporting historical analysis
+- Correlating communication behavior
+
+Trisul supports flow-stitching and flow-correlation workflows for operational and security visibility.
 
 ---
 
 ## How flow stitching works
 
-When a collector receives flow records, it matches pairs using the reversed 5-tuple: the source IP and port of one record should correspond to the destination IP and port of the other, with the same protocol. When a matching pair is found within the correlation window, the two records are merged into a biflow carrying the combined metadata: total bytes and packets in each direction, the full session duration, and the flags observed on both sides.
+Flow stitching correlates related telemetry records representing opposite directions of a communication.
 
-The correlation has a timing constraint. If the return flow record arrives significantly after the forward record, the correlation window may have closed and the pair will not be stitched. Active timeout configuration on exporters affects this: shorter active timeouts reduce the gap between matching records arriving at the collector, which improves stitching accuracy for long-running flows.
+Typical workflow:
 
-For TCP flows, stitching is straightforward because the 5-tuple is symmetric and well-defined. For UDP and ICMP, stitching relies on heuristics rather than session state, and match accuracy is lower, particularly for high-volume stateless protocols.
+1. **Telemetry ingestion** → Directional flow records are received
+2. **Directional matching** → Related traffic directions are identified
+3. **Correlation analysis** → Timing, addresses, ports, and metadata are compared
+4. **Conversation association** → Related records are grouped logically
+5. **Operational visualization** → Analysts work with a conversation-oriented view
+
+Correlation commonly uses:
+- Source and destination addresses
+- Ports and protocols
+- Traffic timing
+- Flow duration
+- Export timestamps
+- Interface metadata
+- Exporter identifiers
+
+Depending on platform design, stitched views may:
+- Preserve original telemetry records
+- Create correlated overlays
+- Generate derived bidirectional views
+- Support visual grouping workflows
+
+Different implementations handle:
+- Timing windows
+- Flow expiration
+- Protocol behavior
+- Export delays
+- Multi-device correlation
+
+in different ways.
+
+![](./images/flow-stitching.png)
 
 ---
 
 ## Flow stitching in network operations
 
-The operational reason for stitching is usability. Unidirectional flow records are technically correct but operationally awkward. An analyst investigating a suspicious data transfer needs to see both sides of the conversation in one record: who initiated it, how much was sent, and how much was returned. Two separate unidirectional records require manual correlation to answer that question.
+Flow stitching is widely used across operational and security environments.
 
-At ISP scale, unstitched flow data also distorts volume accounting. A 1 GB file transfer produces one record showing 1 GB outbound from the server and a separate record showing acknowledgment traffic and request data from the client. Without stitching, reports show two separate flows rather than one complete session, and total byte counts must be summed manually to represent the full transfer.
+### NOC operations
 
-Flow stitching becomes unreliable in networks with asymmetric routing, where forward and return paths traverse different devices exporting to different collectors. In that topology, neither collector sees both legs and stitching cannot occur locally. Centralised collection or cross-collector correlation is required to resolve this.
+Network operations teams use stitched visibility for:
+- Traffic troubleshooting
+- Application analysis
+- Bandwidth investigations
+- Congestion analysis
+- Session-level visibility
+- Communication-path analysis
+
+Conversation-oriented visibility helps operators understand:
+- Who initiated communication
+- Which direction carried most traffic
+- How sessions evolved over time
+- Whether communication behaved normally
+
+### SOC operations
+
+Security teams use flow stitching for:
+- Threat hunting
+- Lateral movement investigations
+- Historical communication analysis
+- Data-exfiltration investigations
+- Incident response
+- Timeline reconstruction
+
+Correlated directional visibility improves:
+- Investigation readability
+- Communication tracking
+- Historical context
+- Threat reconstruction workflows
+
+### ISP and carrier environments
+
+ISPs and carriers may use stitching workflows for:
+- Subscriber traffic analysis
+- Traffic engineering
+- Usage visibility
+- Operational reporting
+- Capacity analysis
+- Historical traffic investigations
+
+The operational value depends heavily on:
+- Exporter placement
+- Telemetry completeness
+- Correlation quality
+- Monitoring architecture
 
 ---
 
@@ -83,50 +187,157 @@ Flow stitching becomes unreliable in networks with asymmetric routing, where for
 
 | Dimension | Flow stitching | Flow deduplication |
 |---|---|---|
-| Problem it solves | Two opposite-direction records for one conversation | Multiple copies of the same flow from multiple exporters |
-| Input | Two unidirectional flow records with reversed 5-tuples | Two or more identical or near-identical flow records |
-| Output | One bidirectional biflow record | One deduplicated flow record |
-| Failure condition | Asymmetric routing splits legs across collectors | Sampling differences or timing skew cause imperfect deduplication |
-| Effect on volume reporting | Without stitching, inbound and outbound are counted separately | Without deduplication, the same flow volume is counted multiple times |
+| Primary purpose | Correlate opposite traffic directions | Remove overlapping telemetry from multiple exporters |
+| Input telemetry | Directional communication records | Multiple observations of the same traffic |
+| Operational outcome | Conversation-oriented visibility | Normalized telemetry visibility |
+| Common challenge | Asymmetric visibility | Multi-hop overlap |
+| Typical use case | Bidirectional traffic analysis | Multi-device traffic normalization |
 
-Both problems are common in multi-device environments where traffic crosses several NetFlow-enabled nodes. They are often addressed together in the collector pipeline, with deduplication running before stitching.
+The two workflows are complementary and commonly coexist in large-scale telemetry-analysis systems.
+
+---
+
+## Flow stitching and asymmetric routing
+
+Asymmetric routing complicates stitching because:
+- Forward and return traffic may traverse different devices
+- Different exporters may observe each direction
+- Timing differences may occur
+- Collectors may receive incomplete visibility
+
+In distributed telemetry architectures:
+- One collector may see only one direction
+- Different telemetry paths may arrive asynchronously
+- Correlation windows may expire before matching occurs
+
+Some environments address this using:
+- Centralized collectors
+- Cross-collector correlation
+- Multi-source telemetry analysis
+- Historical stitching workflows
+
+Perfect stitching may not always be possible in highly distributed environments.
+
+---
+
+## NAT and flow stitching
+
+NAT environments complicate directional matching because:
+- Addresses change across translation boundaries
+- Source ports may be rewritten
+- Internal and external visibility differ
+- Exact tuple matching may fail
+
+NAT-aware stitching workflows may therefore use:
+- Timestamp proximity
+- Port heuristics
+- Interface context
+- Directionality analysis
+- Session timing
+- Exporter relationships
+
+The exact implementation varies across platforms and telemetry architectures.
+
+NAT-aware correlation improves:
+- Traffic attribution
+- Historical investigations
+- Path reconstruction
+- Security visibility
+
+---
+
+## Operational considerations
+
+Flow-stitching workflows commonly face operational considerations including:
+- Asymmetric routing
+- Export timing variation
+- Multi-device visibility overlap
+- Sampling inconsistencies
+- Exporter clock drift
+- NAT translation
+- Correlation-window tuning
+- High-cardinality telemetry
+
+Operational accuracy depends heavily on:
+- Exporter placement
+- Telemetry completeness
+- Timing synchronization
+- Monitoring architecture
+- Correlation logic
+
+Organizations commonly balance:
+- Correlation fidelity
+- Operational scalability
+- Historical retention
+- Investigation usability
+- Raw telemetry preservation
+
+Understanding telemetry limitations is important for accurate analysis.
 
 ---
 
 ## How Trisul handles flow stitching
 
-When Trisul receives flow telemetry from multiple devices, the same flow can appear as multiple legs: one per device the flow traversed. By default, Trisul retains each leg as a separate record, preserving the router and interface information so operators can drill down from a specific router interface to the flows it handled.
+Trisul supports configurable flow-stitching and telemetry-correlation workflows for multi-device monitoring environments.
 
-For environments where per-leg detail is not needed, Trisul provides three handling options: keep flows as-is (default), merge flows using the MergeMultipleSources option in the NetFlow configuration file which removes per-router information, or enable Flow Legs Correlation in Web Trisul options which groups the legs visually without discarding the source detail. NAT-aware leg correlation is also available, applying source port heuristics to detect and correlate legs that cross NAT boundaries. Full documentation is at https://docs.trisul.org/docs/ug/flow/deduplication/.
+Relevant capabilities include:
+
+- **Flow Legs Correlation** workflows
+- **MergeMultipleSources** configuration options
+- **NAT-aware correlation workflows**
+- **Historical traffic analysis**
+- **Explore Flows** for interactive investigations
+- **Interface Tracking** for per-interface visibility
+- **Flow Taggers** for contextual traffic enrichment
+- **Host and application traffic analysis**
+- **Operational traffic-correlation workflows**
+- **Preservation of underlying telemetry perspectives where configured**
+
+Trisul can preserve original telemetry records while also supporting correlated operational views depending on deployment requirements.
+
+These capabilities help operators analyze conversations, investigate historical communications, normalize overlapping telemetry, and support operational or security workflows.
+
+Trisul primarily focuses on scalable traffic analytics and operational visibility rather than payload-only forensic workflows.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
 
 ---
 
 ## Related terms
 
-- [What is a flow?](/docs/glossary/flow)
-- [What is flow timeout?](/docs/glossary/flow-timeout)
-- [What is flow tagger?](/docs/glossary/flow-tagger)
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is IPFIX?](/docs/glossary/ipfix)
-- [What is flow sampling?](/docs/glossary/flow-sampling)
-- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [Flow](/glossary/flow)
+- [Flow timeout](/glossary/flow-timeout)
+- [Flow Tagger](/glossary/flow-tagger)
+- [NetFlow](/glossary/netflow)
+- [IPFIX](/glossary/ipfix)
+- [Flow sampling](/glossary/flow-sampling)
+- [Flow legs](/glossary/flow-legs)
+- [Network security monitoring](/glossary/network-security-monitoring)
 
 ---
 
 ## Frequently asked questions
 
-### Why does flow stitching fail in asymmetric routing environments?
+### Why does flow stitching become difficult in asymmetric routing environments?
 
-Flow stitching requires both directions of a conversation to be visible at the same collection point. In asymmetric routing, the forward path may traverse one router and the return path a different one, each exporting to a different collector. When the two legs land at separate collectors, neither has enough information to stitch the pair. The result is two orphaned unidirectional records rather than one complete bidirectional entry, and volume figures remain incomplete.
+Flow stitching generally works best when both traffic directions are visible within the same telemetry-analysis workflow. In asymmetric routing environments, the forward and return paths may traverse different exporters, interfaces, or collectors, making directional correlation more difficult and potentially reducing stitching accuracy.
 
 ### What is the difference between flow stitching and flow deduplication?
 
-Flow deduplication removes duplicate records generated when the same flow is exported by multiple devices it traverses, for example a flow passing through both a core router and an edge router that both have NetFlow enabled. Flow stitching combines two opposite-direction records from the same conversation into one bidirectional entry. The two problems often occur together: a collector may receive multiple legs that are both duplicates and in need of directional stitching before they produce a useful record.
+Flow stitching correlates related directional flow records into a conversation-oriented view, while flow deduplication removes overlapping telemetry generated when multiple exporters observe the same communication path. The two workflows solve different telemetry-correlation problems and may be used together in multi-device monitoring environments.
 
-### Does flow stitching affect traffic volume accounting?
+### Does flow stitching affect traffic accounting?
 
-Yes. Without deduplication, a flow traversing two NetFlow-enabled devices is counted twice in bandwidth reports. Without stitching, the inbound and outbound bytes for a session are reported as separate unrelated flows rather than as the total transfer volume of a single conversation. Both distortions affect capacity planning and billing accuracy at ISP scale, where over-reporting utilization directly impacts infrastructure investment decisions.
+Flow stitching may improve operational readability by combining directional traffic into a conversation-oriented representation. However, accurate traffic accounting also depends on exporter placement, deduplication workflows, sampling behavior, and telemetry completeness across the monitoring environment.
 
-### Does flow stitching work across NAT boundaries?
+### Can flow stitching work across NAT boundaries?
 
-Stitching across NAT is harder because the source IP or port visible on the inside of the NAT device differs from what is visible on the outside, making direct 5-tuple matching impossible. Platforms that support NAT-aware flow leg correlation apply heuristics to detect port translations and match the pre-NAT and post-NAT legs. Without this, flows that cross a NAT boundary produce unmatched legs that cannot be automatically joined.
+NAT environments complicate stitching because addresses and ports may change across translation boundaries. Some platforms support NAT-aware correlation workflows that use timestamps, ports, interface context, or heuristic matching to associate related telemetry before and after translation.
+
+### How does Trisul support flow-stitching workflows?
+
+Trisul supports flow-stitching and correlation workflows through Flow Legs Correlation, MergeMultipleSources configuration options, NAT-aware telemetry correlation, historical traffic analysis, and operational visibility workflows for multi-device environments.

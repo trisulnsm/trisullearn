@@ -1,6 +1,6 @@
 ---
 title: What is flow tagger?
-description: A flow tagger is a rule-based mechanism in Trisul Network Analytics that assigns one or more text labels to network flows in real time, based on matching criteria such as IP addresses, ports, protocols, or counter group activity.
+description: A flow tagger is a rule-based enrichment mechanism that assigns contextual labels to network flows based on matching conditions such as addresses, ports, protocols, applications, or metadata-derived attributes.
 sidebar_label: Flow tagger
 sidebar_position: 4
 slug: /glossary/flow-tagger
@@ -8,8 +8,10 @@ keywords:
   - flow tagger
   - flow tagging
   - network flow labeling
-  - flow classification
   - flow enrichment
+  - flow classification
+  - telemetry enrichment
+  - traffic tagging
   - trisul flow tagger
 ---
 
@@ -19,18 +21,18 @@ export const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What can you use a flow tagger for?",
+      "name": "What can you use flow tagging for?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow taggers are used to classify flows that are operationally meaningful but not identifiable from the 5-tuple alone. Common examples include tagging all flows to a specific country or ASN, labeling traffic associated with known internal services, or marking connections that involve a high-risk IP range. Once tagged, flows can be retrieved, grouped, and aggregated by label without rebuilding filter expressions each time."
+        "text": "Flow tagging is commonly used to enrich flow telemetry with operationally meaningful labels such as countries, ASNs, internal services, application groups, customer identifiers, threat-intelligence matches, or policy-related classifications. Tagged flows become easier to search, aggregate, correlate, and analyze during operational or security investigations."
       }
     },
     {
       "@type": "Question",
-      "name": "Can a single flow carry more than one tag?",
+      "name": "Can a single flow carry multiple tags?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. A single flow can be matched by multiple taggers simultaneously and will carry all matching tags. This means a flow from an internal host to an external IP in a monitored country that also matches a threat intelligence rule can be labeled with both tags at once, making it retrievable from either search context."
+        "text": "Yes. A single flow may match multiple tagging rules simultaneously and therefore carry multiple contextual labels. Multi-tag visibility improves search flexibility and supports overlapping operational or security classifications."
       }
     },
     {
@@ -38,15 +40,23 @@ export const jsonLd = {
       "name": "What is automatic flow tagging?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Automatic flow tagging uses the AUTO: prefix on a tagger rule and selects a counter group with a wildcard key. Instead of matching a specific value, Trisul automatically extracts the actual key from the counter group and attaches it as the tag value. For example, configuring auto-tagging against the country counter group will tag each flow with the actual country code observed, rather than a static label. This is equivalent to log enrichment in SIEM workflows."
+        "text": "Automatic flow tagging dynamically derives tag values from matched metadata rather than assigning only predefined static labels. Depending on the platform implementation, tags may be generated from attributes such as country codes, ASNs, applications, or other contextual telemetry fields."
       }
     },
     {
       "@type": "Question",
-      "name": "How do flow tags differ from firewall or router-level traffic classification?",
+      "name": "How are flow tags different from firewall classification?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Firewall and router classification happens at the forwarding plane and is limited to what the device can match in line. Flow tags are applied by a monitoring platform after the fact, using richer context: counter group activity, geolocation, protocol behavior, or combinations of conditions that would not be expressible as a single ACL or policy rule. Tags also persist in the flow record for historical search, whereas forwarding-plane classification typically leaves no searchable audit trail."
+        "text": "Firewall classification typically operates within the forwarding path using inline policy logic, while flow tagging enriches telemetry after observation for analytics, search, reporting, and historical investigations. Flow tags are generally intended for visibility and analysis workflows rather than direct packet-forwarding decisions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul support flow-tagging workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul supports flow-tagging workflows through Flow Taggers, Trisul Filter Format rule matching, automatic tagging capabilities, Explore Flows integration, Aggregate Flows workflows, and contextual traffic-enrichment features for operational and security analysis."
       }
     }
   ]
@@ -54,23 +64,161 @@ export const jsonLd = {
 
 # What is flow tagger?
 
-A flow tagger is a rule-based mechanism that assigns one or more text labels to network flows in real time as traffic is observed. Rules are defined against matching criteria: IP addresses, port ranges, protocols, or activity in any Trisul counter group such as country, ASN, or URL category. When a flow matches a rule, the configured label is attached to its record and stored, making that flow searchable and groupable by tag for the lifetime of its retention in the database.
+A **flow tagger** is a rule-based enrichment mechanism that assigns contextual labels to network flows based on matching conditions such as addresses, ports, protocols, applications, or metadata-derived attributes.
+
+Flow tagging adds operational context to traffic telemetry by attaching searchable labels directly to flow records.
+
+Common tagging criteria include:
+- IP addresses or subnets
+- Ports and protocols
+- ASN information
+- Country metadata
+- Application identifiers
+- Service classifications
+- Threat-intelligence matches
+- User-defined filters
+
+Tagged flows become easier to:
+- Search
+- Aggregate
+- Correlate
+- Investigate
+- Report on
+- Classify operationally
+
+Flow tagging is commonly used in:
+- Security operations
+- Traffic investigations
+- Historical analysis
+- Service classification
+- Customer visibility
+- Threat hunting
+- Policy-oriented reporting
+
+Trisul supports flow-tagging workflows using Flow Taggers, contextual traffic enrichment, and integrated traffic-analysis capabilities.
 
 ---
 
-## How flow tagger works
+## How flow tagging works
 
-Each flow tagger rule is built from a Trisul filter expression that specifies the matching condition and a tag string that will be written to matching flow records. Rules are evaluated in real time as flows are observed. A flow that matches one or more rules receives all matching tags simultaneously; there is no limit to how many tags a single flow can carry.
+Flow tagging evaluates traffic telemetry against defined matching rules and attaches labels to matching flow records.
 
-Trisul also supports automatic flow tagging using the AUTO: prefix on a tag name. In this mode, instead of writing a static label, Trisul extracts the actual value of the matched counter group key and uses it as the tag. Configuring automatic tagging against the country counter group, for example, tags every flow with the actual country code seen in that flow rather than a predefined string. This is functionally equivalent to log enrichment in SIEM workflows: the tag makes raw flow records carry contextual metadata that would otherwise require a separate lookup at query time.
+Typical workflow:
+
+1. **Telemetry observation** → Flow records are generated or ingested
+2. **Rule evaluation** → Matching logic is applied against flow metadata
+3. **Context enrichment** → Matching labels are attached to flow records
+4. **Historical storage** → Tagged flows are retained for later analysis
+5. **Operational querying** → Analysts search and aggregate flows using tags
+
+Matching conditions may include:
+- Source or destination addresses
+- Ports and protocols
+- Application metadata
+- ASN information
+- Country codes
+- Counter-group activity
+- Behavioral indicators
+- User-defined filter logic
+
+Depending on implementation, tagging workflows may:
+- Apply multiple tags simultaneously
+- Use static labels
+- Generate dynamic labels
+- Enrich historical telemetry
+- Support grouped tag namespaces
+
+The exact behavior depends on:
+- Platform capabilities
+- Rule configuration
+- Metadata availability
+- Telemetry architecture
+
+![](./images/flow-tagger.png)
 
 ---
 
-## Flow tagger in network operations
+## Flow tagging in network operations
 
-The primary value of flow tagging is that it moves classification work to ingestion time rather than query time. Without tags, an analyst investigating traffic to a specific country or internal service segment must reconstruct filter expressions for every search. With a tagger in place, the label is already on the record and a simple tag search returns all matching flows regardless of when they occurred.
+Flow tagging is widely used across operational and security environments.
 
-In SOC workflows, flow taggers are used to flag traffic matching threat intelligence criteria, mark east-west flows between sensitive segments, or identify connections involving monitored user groups. In ISP and enterprise operations, taggers are used to classify traffic by customer, service type, or geographic destination. In both cases, tagged flows can be reviewed through the Flow Taggers tool, searched using Explore Flows, or aggregated using the Aggregate Flows tool in Trisul.
+### SOC operations
+
+Security teams use flow tagging for:
+- Threat-intelligence enrichment
+- Suspicious traffic classification
+- Lateral movement visibility
+- Data-exfiltration investigations
+- High-risk communication tagging
+- Historical threat hunting
+
+Tagging improves operational workflows by making:
+- Suspicious traffic easier to retrieve
+- Investigations faster to scope
+- Historical searches more efficient
+- Correlation workflows more consistent
+
+### NOC operations
+
+Network operations teams use tagging for:
+- Service classification
+- Customer segmentation
+- Geographic traffic analysis
+- Application visibility
+- Traffic engineering
+- Operational reporting
+
+Examples include:
+- Labeling traffic by country
+- Identifying customer traffic groups
+- Marking internal services
+- Tracking specific applications
+- Classifying WAN traffic categories
+
+### ISP and carrier environments
+
+ISPs and carriers may use flow tagging for:
+- Subscriber classification
+- Traffic categorization
+- Service visibility
+- Usage reporting
+- Operational troubleshooting
+- Policy-oriented analytics
+
+The operational value depends heavily on:
+- Tagging accuracy
+- Metadata quality
+- Rule consistency
+- Monitoring architecture
+
+---
+
+## Automatic flow tagging
+
+Some telemetry platforms support dynamic or automatic tagging workflows.
+
+Instead of assigning only predefined labels, automatic tagging may:
+- Extract metadata values dynamically
+- Generate contextual labels automatically
+- Apply enrichment based on observed telemetry
+
+Examples include:
+- Country-code tagging
+- ASN-based tagging
+- Application-derived labels
+- Dynamic service classification
+
+This approach improves:
+- Historical searchability
+- Traffic enrichment
+- Operational correlation
+- Investigation workflows
+
+Automatic tagging behaves similarly to telemetry enrichment workflows commonly used in:
+- SIEM platforms
+- Security analytics systems
+- Observability pipelines
+- Historical traffic-analysis systems
 
 ---
 
@@ -78,50 +226,117 @@ In SOC workflows, flow taggers are used to flag traffic matching threat intellig
 
 | Dimension | Flow tagger | Flow tracker |
 |---|---|---|
-| Primary function | Assigns text labels to flows at ingestion | Monitors flows for conditions and generates alerts |
-| Trigger | Matching rule on IP, port, protocol, or counter group | Threshold or behavioral condition on an active flow |
-| Output | A searchable label on the flow record | An alert or notification when condition is met |
-| Query use | Retrieve and group flows by label after the fact | Active detection during flow lifetime |
-| Best fit | Classification, enrichment, retrospective search | Real-time detection of elephant flows, anomalies |
+| Primary purpose | Enrich and classify telemetry | Detect operational or behavioral conditions |
+| Common output | Searchable contextual labels | Alerts, notifications, or triggered workflows |
+| Operational focus | Historical search and organization | Real-time monitoring and detection |
+| Typical use case | Traffic classification and enrichment | Elephant-flow or anomaly detection |
+| Workflow style | Metadata enrichment | Behavioral monitoring |
 
-Flow taggers and flow trackers address different operational needs and are typically used together. Taggers organize and enrich the flow database for investigative search; trackers fire alerts during live traffic observation.
+The two workflows are complementary and commonly used together.
+
+---
+
+## Operational considerations
+
+Flow-tagging workflows commonly face operational considerations including:
+- Rule complexity
+- Metadata availability
+- High-cardinality labels
+- Telemetry scaling
+- Rule-overlap behavior
+- Historical retention
+- Search performance
+- Tag consistency
+
+Operational accuracy depends heavily on:
+- Rule quality
+- Metadata completeness
+- Monitoring placement
+- Telemetry fidelity
+- Namespace organization
+
+Poorly designed tagging strategies may create:
+- Excessive cardinality
+- Inconsistent labels
+- Operational confusion
+- Query inefficiency
+
+Organizations commonly use:
+- Grouped tag namespaces
+- Standardized tagging conventions
+- Contextual metadata normalization
+- Historical enrichment workflows
+
+to improve operational consistency.
 
 ---
 
 ## How Trisul handles flow tagger
 
-Trisul ships with a set of built-in flow taggers that are disabled by default. Operators create and enable taggers through the admin interface under Context: default, Profile0, Flows, Flow Taggers. Each tagger requires a session group, a tag string, and a filter rule built using the Trisul Filter Format or the interactive Rule Builder. Changes take effect after a Trisul restart.
+Trisul supports configurable flow-tagging workflows through integrated telemetry-enrichment and traffic-analysis capabilities.
 
-Tagger groups provide a namespace for tags, allowing operators to distinguish tags from different classification contexts when using the Aggregate Flows tool. For example, tags from a country-based tagger and tags from a service-classification tagger can be kept in separate groups and queried independently. Full documentation is at https://docs.trisul.org/docs/ug/flow/tagger/.
+Relevant capabilities include:
+
+- **Flow Taggers** for contextual flow enrichment
+- **Trisul Filter Format** rule matching
+- **Automatic tagging workflows**
+- **Tagger groups** for namespace organization
+- **Explore Flows** integration
+- **Aggregate Flows** workflows
+- **Historical traffic analysis**
+- **Host and application traffic visibility**
+- **Operational search and correlation workflows**
+- **Context-aware telemetry enrichment**
+
+Trisul supports both:
+- Static tag assignment
+- Dynamic metadata-derived tagging
+
+depending on operational requirements and rule configuration.
+
+These capabilities help operators classify traffic, accelerate investigations, organize historical telemetry, enrich operational visibility, and support security-analysis workflows.
+
+Trisul primarily focuses on scalable traffic analytics and operational visibility rather than inline enforcement workflows.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
 
 ---
 
 ## Related terms
 
-- [What is a flow?](/docs/glossary/flow)
-- [What is flow tracker?](/docs/glossary/flow-tracker)
-- [What is flow timeout?](/docs/glossary/flow-timeout)
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is IPFIX?](/docs/glossary/ipfix)
-- [What is full packet capture?](/docs/glossary/full-packet-capture)
-- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [Flow](/glossary/flow)
+- [Flow tracker](/glossary/flow-tracker)
+- [Flow timeout](/glossary/flow-timeout)
+- [NetFlow](/glossary/netflow)
+- [IPFIX](/glossary/ipfix)
+- [Full packet capture](/glossary/full-packet-capture)
+- [Network security monitoring](/glossary/network-security-monitoring)
+- [Traffic analysis](/glossary/traffic-analysis)
 
 ---
 
 ## Frequently asked questions
 
-### What can you use a flow tagger for?
+### What can you use flow tagging for?
 
-Flow taggers are used to classify flows that are operationally meaningful but not identifiable from the 5-tuple alone. Common examples include tagging all flows to a specific country or ASN, labeling traffic associated with known internal services, or marking connections that involve a high-risk IP range. Once tagged, flows can be retrieved, grouped, and aggregated by label without rebuilding filter expressions each time.
+Flow tagging is commonly used to enrich flow telemetry with operationally meaningful labels such as countries, ASNs, internal services, application groups, customer identifiers, threat-intelligence matches, or policy-related classifications. Tagged flows become easier to search, aggregate, correlate, and analyze during operational or security investigations.
 
-### Can a single flow carry more than one tag?
+### Can a single flow carry multiple tags?
 
-Yes. A single flow can be matched by multiple taggers simultaneously and will carry all matching tags. This means a flow from an internal host to an external IP in a monitored country that also matches a threat intelligence rule can be labeled with both tags at once, making it retrievable from either search context.
+Yes. A single flow may match multiple tagging rules simultaneously and therefore carry multiple contextual labels. Multi-tag visibility improves search flexibility and supports overlapping operational or security classifications.
 
 ### What is automatic flow tagging?
 
-Automatic flow tagging uses the AUTO: prefix on a tagger rule and selects a counter group with a wildcard key. Instead of matching a specific value, Trisul automatically extracts the actual key from the counter group and attaches it as the tag value. For example, configuring auto-tagging against the country counter group will tag each flow with the actual country code observed, rather than a static label. This is equivalent to log enrichment in SIEM workflows.
+Automatic flow tagging dynamically derives tag values from matched metadata rather than assigning only predefined static labels. Depending on the platform implementation, tags may be generated from attributes such as country codes, ASNs, applications, or other contextual telemetry fields.
 
-### How do flow tags differ from firewall or router-level traffic classification?
+### How are flow tags different from firewall classification?
 
-Firewall and router classification happens at the forwarding plane and is limited to what the device can match in line. Flow tags are applied by a monitoring platform using richer context: counter group activity, geolocation, protocol behavior, or combinations of conditions not expressible as a single ACL. Tags also persist in the flow record for historical search, whereas forwarding-plane classification typically leaves no searchable audit trail.
+Firewall classification typically operates within the forwarding path using inline policy logic, while flow tagging enriches telemetry after observation for analytics, search, reporting, and historical investigations. Flow tags are generally intended for visibility and analysis workflows rather than direct packet-forwarding decisions.
+
+### How does Trisul support flow-tagging workflows?
+
+Trisul supports flow-tagging workflows through Flow Taggers, Trisul Filter Format rule matching, automatic tagging capabilities, Explore Flows integration, Aggregate Flows workflows, and contextual traffic-enrichment features for operational and security analysis.

@@ -1,6 +1,6 @@
 ---
 title: What is drilldown analysis?
-description: Drilldown analysis is the ability to move from a high-level summary view to progressively detailed views by clicking on a data point, revealing the underlying records that make up that summary.
+description: Drilldown analysis is the process of moving from high-level summaries to progressively more detailed views in order to investigate underlying records, traffic behavior, anomalies, or operational events.
 sidebar_label: Drilldown analysis
 sidebar_position: 20
 slug: /glossary/drilldown-analysis
@@ -12,6 +12,7 @@ keywords:
   - hierarchical exploration
   - root cause analysis
   - dashboard drilldown
+  - flow investigation
 ---
 
 export const jsonLd = {
@@ -23,7 +24,7 @@ export const jsonLd = {
       "name": "How does drilldown analysis work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Drilldown starts with an aggregated view, such as total bandwidth by interface. When a user clicks on a data point, the view refreshes to show the next level of detail, such as flows on that interface. Each level filters the data to show only records that belong to the selected category. The process repeats until the user reaches individual flow records or packets."
+        "text": "Drilldown analysis starts with aggregated summaries and progressively narrows the investigation into more detailed records such as interfaces, hosts, conversations, flows, sessions, or packets by applying contextual filters and hierarchical navigation."
       }
     },
     {
@@ -31,7 +32,7 @@ export const jsonLd = {
       "name": "What is the difference between drilldown and drill-through?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Drilldown moves down a predefined hierarchy within the same dataset, such as from region to country to city. Drill-through opens a new view or report that shows records related to the selected data point, often crossing different data sources. Drilldown follows a single path; drill-through can jump to any related view."
+        "text": "Drilldown generally navigates deeper into increasingly detailed views within related datasets or hierarchical contexts, while drill-through opens related investigations, reports, or datasets that may exist outside the current analytical hierarchy."
       }
     },
     {
@@ -39,7 +40,7 @@ export const jsonLd = {
       "name": "What use cases does drilldown analysis support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Drilldown supports root cause analysis, anomaly investigation, capacity planning, and security incident scoping. NOC teams use it to identify which flows are causing interface saturation. SOC teams use it to trace which hosts communicated with a malicious IP. Analysts use it to understand why a metric changed, such as a sudden spike in outbound traffic."
+        "text": "Drilldown analysis supports operational troubleshooting, root-cause analysis, anomaly investigation, security investigations, capacity analysis, traffic analysis, and historical network investigation workflows."
       }
     },
     {
@@ -47,7 +48,15 @@ export const jsonLd = {
       "name": "Why is drilldown important for flow monitoring?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow monitoring generates massive volumes of data. Drilldown allows operators to start with a summary, such as top talkers or interface utilization, and immediately investigate the flows behind any metric without writing manual queries. This reduces investigation time from hours to seconds and prevents operators from missing critical details buried in aggregated views."
+        "text": "Drilldown is important because flow-monitoring environments generate large volumes of aggregated telemetry. Drilldown workflows help operators quickly move from summary metrics to the underlying traffic records associated with operational or security events."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul support drilldown workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul supports drilldown workflows through flow analytics, interactive traffic exploration, Explore Flows, interface-oriented investigation, and historical traffic analysis capabilities."
       }
     }
   ]
@@ -55,25 +64,96 @@ export const jsonLd = {
 
 # What is drilldown analysis?
 
-Drilldown analysis moves from a high-level summary to progressively detailed views by clicking on a data point. It reveals the underlying records that make up that summary. In flow monitoring, drilldown typically starts with interface utilization or top talkers and drills down to flows, then to individual flow records. Each level filters the data to show only records that belong to the selected category.
+**Drilldown analysis** is the process of moving from high-level summaries to progressively more detailed views in order to investigate underlying records, traffic behavior, anomalies, or operational events.
+
+Drilldown workflows help operators:
+- Investigate traffic behavior
+- Analyze anomalies
+- Troubleshoot operational problems
+- Perform root-cause analysis
+- Correlate network events
+- Explore traffic hierarchies
+- Investigate security incidents
+
+In network analytics environments, drilldown commonly starts with:
+- Traffic summaries
+- Interface utilization
+- Top talkers
+- Alert dashboards
+- Protocol summaries
+- Security events
+
+Operators then progressively navigate toward:
+- Hosts
+- Conversations
+- Flows
+- Sessions
+- Packets
+- Historical records
+
+Trisul supports interactive drilldown workflows through traffic analytics and flow-investigation capabilities.
 
 ---
 
 ## How drilldown analysis works
 
-Drilldown starts with an aggregated view, such as total bandwidth by interface or top hosts by volume. When a user clicks on a data point, the view refreshes to show the next level of detail, such as flows on that interface or conversations for that host. The selected value becomes a filter for the next level.
+Drilldown analysis begins with aggregated operational data and progressively narrows the investigation scope.
 
-The process repeats until the user reaches individual flow records or packets. Each level provides more granularity while maintaining the filtering context from previous selections. This hierarchical navigation allows operators to trace the root cause of a metric without manual SQL or scripting.
+Typical workflow:
+
+1. **Summary visibility** → Operators view aggregated metrics or dashboards
+2. **Selection and filtering** → A metric, host, interface, or anomaly is selected
+3. **Context narrowing** → The system applies contextual filters
+4. **Detailed exploration** → More granular records are displayed
+5. **Iterative investigation** → Analysts continue exploring deeper operational context
+
+Drilldown workflows commonly involve:
+- Hierarchical navigation
+- Context preservation
+- Interactive filtering
+- Temporal narrowing
+- Traffic correlation
+- Historical exploration
+
+The exact workflow depends on:
+- Dataset structure
+- Analytics platform
+- Operational goals
+- Available telemetry
+
+Some workflows may eventually reach:
+- Individual flow records
+- Packet-level visibility
+- Session reconstruction
+- Endpoint activity context
 
 ---
 
 ## Drilldown analysis in network operations
 
-NOC teams use drilldown to identify which flows are causing interface saturation. They start with an interface utilization chart, click on the saturated interface, and drill down to top talkers on that interface, then to the specific flows responsible.
+Drilldown workflows are widely used in NOC, SOC, ISP, and operational analytics environments.
 
-SOC teams use drilldown for security incident scoping. They start with a list of malicious IPs, click on one, and drill down to all internal hosts that communicated with it, then to the specific flows and timestamps for each conversation.
+Common operational use cases include:
 
-Analysts use drilldown for anomaly investigation. When a metric spike appears, they drill down to understand what changed, such as a new host appearing in the top talker list or a protocol that was previously low suddenly dominating traffic.
+- **Root-cause analysis**: Investigate performance degradation
+- **Traffic analysis**: Identify dominant applications or hosts
+- **Interface troubleshooting**: Analyze utilization spikes
+- **Security investigations**: Investigate suspicious communications
+- **Anomaly analysis**: Understand unusual operational behavior
+- **Capacity planning**: Identify persistent traffic-growth patterns
+- **Historical investigation**: Reconstruct operational events over time
+
+Example operational workflow:
+
+| Investigation stage | Example |
+|---|---|
+| Summary | High WAN utilization |
+| Interface view | Saturated interface identified |
+| Host analysis | Dominant hosts identified |
+| Flow investigation | Specific conversations analyzed |
+| Packet visibility | Protocol behavior reviewed |
+
+Drilldown workflows help reduce investigation time by allowing operators to navigate interactively instead of manually constructing complex queries.
 
 ---
 
@@ -81,32 +161,99 @@ Analysts use drilldown for anomaly investigation. When a metric spike appears, t
 
 | Dimension | Drilldown | Drill-through |
 |---|---|---|
-| Navigation | Down a predefined hierarchy | To any related view or report |
-| Data scope | Same dataset, more granular | Crosses data sources or reports |
-| Typical path | Region → Country → City | Flow → Packet capture → Alert |
-| Filtering | Accumulates filters at each level | Opens a new view with applied filter |
-| Best fit | Hierarchical exploration | Cross-context investigation |
+| Navigation style | Progressively deeper exploration | Jump to related investigations or reports |
+| Context | Usually retains hierarchical context | May switch contexts or datasets |
+| Dataset relationship | Typically related or nested data | May cross unrelated systems or reports |
+| Operational use | Granular exploration | Cross-platform or cross-domain analysis |
+| Example | Interface → Host → Flow | Flow → SIEM alert → Packet capture |
 
-Drilldown is for hierarchical exploration within a dataset. Drill-through is for jumping to related views that may use different data sources.
+Some analytics platforms combine both workflows within the same investigation interface.
+
+---
+
+## Drilldown analysis and flow monitoring
+
+Flow-monitoring environments produce large volumes of summarized telemetry.
+
+Without drilldown workflows, operators may struggle to:
+- Correlate anomalies
+- Identify root causes
+- Investigate traffic spikes
+- Analyze suspicious communications
+- Understand operational trends
+
+Drilldown workflows allow analysts to:
+- Start with summaries
+- Preserve operational context
+- Investigate interactively
+- Correlate traffic patterns
+- Explore historical behavior
+
+This is especially important in:
+- ISP environments
+- Enterprise monitoring
+- Security operations
+- Large-scale traffic analytics deployments
+
+---
+
+## Operational considerations
+
+Effective drilldown systems typically require:
+- Efficient indexing
+- Fast query execution
+- Historical retention
+- Context-aware filtering
+- Scalable telemetry storage
+- Interactive visualization workflows
+
+Operational challenges may include:
+- Large-scale telemetry volumes
+- Query latency
+- Retention management
+- Cross-domain correlation
+- High-cardinality traffic datasets
+
+The usability of drilldown workflows strongly affects operational investigation efficiency.
 
 ---
 
 ## How Trisul handles drilldown analysis
 
-Trisul provides drilldown through its Routers and Interfaces tool, Interface Tracking, and Explore Flows. Operators select a router, navigate to its interfaces, and drill down into hosts, applications, and flows on that interface without constructing manual queries. The Routers and Interfaces tool lets operators drill from a device down to its interfaces and then into hosts, applications, and flows on that interface.
+Trisul supports interactive drilldown workflows through traffic analytics, flow visibility, and operational investigation capabilities.
 
-Clicking on a metric in a dashboard, such as top talkers or interface utilization, filters the underlying flow data and shows the records that make up that metric. This allows operators to move from summary to detail in seconds. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
+Relevant capabilities include:
+
+- **Explore Flows** for interactive traffic investigation
+- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
+- **Routers and Interfaces workflows**
+- **Interface-oriented traffic exploration**
+- **Historical traffic analysis**
+- **Traffic correlation workflows**
+- **Interactive filtering and operational investigation**
+- **Packet and flow visibility**
+- **Top-K analytics** for traffic summarization and navigation
+
+These capabilities help operators move from summarized operational visibility to increasingly detailed traffic analysis during troubleshooting and security investigations.
+
+Trisul emphasizes interactive operational visibility and flow-oriented investigation workflows rather than static reporting-only analytics.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
 
 ---
 
 ## Related terms
 
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is flow analysis?](/docs/glossary/flow-analysis)
-- [What is Interface Tracking?](/docs/glossary/interface-tracking)
-- [What is top talkers?](/docs/glossary/top-talkers)
-- [What is a flow?](/docs/glossary/flow)
-- [What is root cause analysis?](/docs/glossary/root-cause-analysis)
+- [Flow monitoring](/glossary/flow-monitoring)
+- [Flow analysis](/glossary/flow-analysis)
+- [Interface tracking](/glossary/interface-tracking)
+- [Top talkers](/glossary/top-talkers)
+- [Flow](/glossary/flow)
+- [Root cause analysis](/glossary/root-cause-analysis)
+- [Traffic analysis](/glossary/traffic-analysis)
 
 ---
 
@@ -114,16 +261,20 @@ Clicking on a metric in a dashboard, such as top talkers or interface utilizatio
 
 ### How does drilldown analysis work?
 
-Drilldown starts with an aggregated view, such as total bandwidth by interface. When a user clicks on a data point, the view refreshes to show the next level of detail, such as flows on that interface. Each level filters the data to show only records that belong to the selected category. The process repeats until the user reaches individual flow records or packets.
+Drilldown analysis starts with aggregated summaries and progressively narrows the investigation into more detailed records such as interfaces, hosts, conversations, flows, sessions, or packets by applying contextual filters and hierarchical navigation.
 
 ### What is the difference between drilldown and drill-through?
 
-Drilldown moves down a predefined hierarchy within the same dataset, such as from region to country to city. Drill-through opens a new view or report that shows records related to the selected data point, often crossing different data sources. Drilldown follows a single path; drill-through can jump to any related view.
+Drilldown generally navigates deeper into increasingly detailed views within related datasets or hierarchical contexts, while drill-through opens related investigations, reports, or datasets that may exist outside the current analytical hierarchy.
 
 ### What use cases does drilldown analysis support?
 
-Drilldown supports root cause analysis, anomaly investigation, capacity planning, and security incident scoping. NOC teams use it to identify which flows are causing interface saturation. SOC teams use it to trace which hosts communicated with a malicious IP. Analysts use it to understand why a metric changed, such as a sudden spike in outbound traffic.
+Drilldown analysis supports operational troubleshooting, root-cause analysis, anomaly investigation, security investigations, capacity analysis, traffic analysis, and historical network investigation workflows.
 
 ### Why is drilldown important for flow monitoring?
 
-Flow monitoring generates massive volumes of data. Drilldown allows operators to start with a summary, such as top talkers or interface utilization, and immediately investigate the flows behind any metric without writing manual queries. This reduces investigation time from hours to seconds and prevents operators from missing critical details buried in aggregated views.
+Drilldown is important because flow-monitoring environments generate large volumes of aggregated telemetry. Drilldown workflows help operators quickly move from summary metrics to the underlying traffic records associated with operational or security events.
+
+### How does Trisul support drilldown workflows?
+
+Trisul supports drilldown workflows through flow analytics, interactive traffic exploration, Explore Flows, interface-oriented investigation, and historical traffic analysis capabilities.

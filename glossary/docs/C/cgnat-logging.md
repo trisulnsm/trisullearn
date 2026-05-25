@@ -1,6 +1,6 @@
 ---
 title: What is CGNAT logging?
-description: CGNAT logging records the mapping between private subscriber IP addresses and the public IPv4 addresses and ports assigned by a Carrier-Grade NAT device, enabling ISPs to trace user activity for legal, security, and troubleshooting purposes.
+description: CGNAT logging records the mapping between subscriber private IP addresses and translated public IPv4 addresses and ports assigned by Carrier-Grade NAT systems. These logs help ISPs support subscriber traceability, troubleshooting, compliance, and security investigations.
 sidebar_label: CGNAT logging
 sidebar_position: 30
 slug: /glossary/cgnat-logging
@@ -12,6 +12,7 @@ keywords:
   - nat session logging
   - ipdr
   - port mapping logging
+  - subscriber traceability
 ---
 
 export const jsonLd = {
@@ -20,34 +21,42 @@ export const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What fields are required in CGNAT logs?",
+      "name": "What fields are commonly required in CGNAT logs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Required fields include source private IP address, source private port, translated public IP address, translated public port, protocol (TCP, UDP, ICMP), timestamp of session start and end, and destination IP address. These fields enable tracing from a public IP and port back to the subscriber at a specific time."
+        "text": "Common fields include private subscriber IP address, translated public IP address, source and translated ports, protocol, timestamps, destination information, and session metadata required for subscriber traceability."
       }
     },
     {
       "@type": "Question",
-      "name": "How long must CGNAT logs be retained?",
+      "name": "How long are CGNAT logs retained?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Retention periods vary by jurisdiction. Most ISPs must store CGNAT logs for 6 months to 2 years. In India, DoT mandates IPDR retention for 2 years for ISPs. Law enforcement may require logs going back many years for investigations, so storage capacity must be planned accordingly."
+        "text": "Retention periods vary by jurisdiction, regulatory requirements, and operator policy. ISPs commonly retain CGNAT logs for extended periods to support compliance, auditing, and law-enforcement investigations."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the storage requirement for CGNAT logs?",
+      "name": "Why are CGNAT logs important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For 10,000 users, NAT log storage grows at approximately 0.4MB per second in raw ASCII format, or 346GB per day. With gzip compression (27:1 ratio), this reduces to 13GB per day per 10,000 users. For 2-year retention of 10,000 subscribers, approximately 4.7 terabytes of storage is required."
+        "text": "CGNAT logs are important because multiple subscribers may share a single public IPv4 address. Logging enables operators to trace traffic activity back to a specific subscriber and time period."
       }
     },
     {
       "@type": "Question",
-      "name": "What is Port Block Allocation (PBA) in CGNAT?",
+      "name": "What is Port Block Allocation in CGNAT?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Port Block Allocation pre-assigns fixed ranges of ports to each subscriber, reducing the volume of logging required. Instead of logging every individual port mapping, the CGNAT device logs which port block was assigned to which subscriber. This makes logging more efficient while maintaining traceability."
+        "text": "Port Block Allocation assigns groups of ports to subscribers instead of logging every individual port mapping. This reduces logging volume while maintaining subscriber traceability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul relate to CGNAT logging workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul can assist operational workflows involving CGNAT environments through flow visibility, subscriber-oriented analytics, historical traffic investigation, and traffic correlation capabilities."
       }
     }
   ]
@@ -55,21 +64,82 @@ export const jsonLd = {
 
 # What is CGNAT logging?
 
-CGNAT logging records the mapping between private subscriber IP addresses and the public IPv4 addresses and ports assigned by a Carrier-Grade NAT device. ISPs use CGNAT to share a single public IPv4 among multiple customers, so without logging they cannot trace a public IP back to a specific subscriber. CGNAT logs enable compliance with law enforcement, security investigations, and troubleshooting.
+**CGNAT logging** records the mapping between subscriber private IP addresses and translated public IPv4 addresses and ports assigned by a Carrier-Grade NAT (CGNAT) system.
+
+Because multiple subscribers may share a single public IPv4 address, operators require logging to identify which subscriber was associated with a public IP address and port at a specific time.
+
+CGNAT logging is commonly used for:
+- Subscriber traceability
+- Regulatory compliance
+- Security investigations
+- Abuse handling
+- Troubleshooting
+- Operational auditing
+
+Trisul can support operational workflows involving CGNAT environments through flow visibility and subscriber-oriented analytics.
 
 ---
 
 ## How it works
 
-CGNAT devices log NAT session events including port mapping, session start and end, and protocol type. Logs are sent via Syslog or IPFIX to a central collector or external server with large storage. The collector stores logs with rotation and retention policies set by local requirements.
+CGNAT systems translate private subscriber addresses into shared public IPv4 addresses using port mappings.
+
+During this process, logging systems record metadata such as:
+- Private subscriber IP address
+- Public translated IP address
+- Port mappings
+- Protocol type
+- Session timestamps
+- Destination information
+
+Typical workflow:
+
+1. **Subscriber connection** → Subscriber traffic reaches the CGNAT platform
+2. **Address translation** → Private addresses are translated to shared public IPv4 addresses
+3. **Port assignment** → Public ports are allocated for subscriber sessions
+4. **Log generation** → Translation and session metadata are recorded
+5. **Central collection** → Logs are exported to centralized storage or analytics systems
+6. **Operational analysis** → Operators investigate subscriber activity or operational events
+
+Logs are commonly exported using:
+- Syslog
+- IPFIX
+- Vendor-specific telemetry formats
 
 ---
 
-## In network operations
+## CGNAT logging in network operations
 
-- **NOC:** Use CGNAT logs to diagnose connectivity issues by mapping internal IPs to public IPs and ports.
-- **SOC:** Correlate CGNAT logs with security events to trace malicious activity back to the specific subscriber.
-- **ISP:** Provide CGNAT logs to law enforcement agencies in response to subpoenas or legal requests.
+CGNAT logging is critical in ISP and service-provider environments because public IPv4 addresses are shared among many subscribers.
+
+Common operational use cases include:
+
+- **Subscriber traceability**
+- **Security investigations**
+- **Law-enforcement response workflows**
+- **Abuse complaint handling**
+- **Connectivity troubleshooting**
+- **Compliance reporting**
+- **Subscriber session correlation**
+
+Without logging, operators may be unable to associate public IPv4 activity with a specific subscriber.
+
+---
+
+## Common CGNAT log fields
+
+| Field | Description |
+|---|---|
+| Private IP address | Subscriber-side address |
+| Public IP address | Translated shared IPv4 address |
+| Private port | Subscriber source port |
+| Public port | Translated public port |
+| Protocol | TCP, UDP, ICMP, etc. |
+| Timestamp | Session timing information |
+| Destination IP | External communication target |
+| Session metadata | Additional NAT or subscriber details |
+
+The exact fields depend on vendor implementation, logging format, and regulatory requirements.
 
 ---
 
@@ -77,43 +147,96 @@ CGNAT devices log NAT session events including port mapping, session start and e
 
 | Dimension | CGNAT logging | IPDR |
 |---|---|---|
-| Purpose | NAT port mapping traceability | ISP flow record compliance |
-| Scope | Internal IP to public IP/port mapping | Full flow parameters including user ID |
-| Transport | Syslog or IPFIX | IPFIX |
-| Retention | 6 months to 2 years | 2 years mandated in India |
+| Primary purpose | NAT translation traceability | Subscriber and usage reporting |
+| Main focus | IP and port mappings | Session and usage records |
+| Typical use | Subscriber identification | Compliance and usage analytics |
+| Common transport | Syslog, IPFIX | IPFIX and structured records |
+| Operational scope | Address translation tracking | Broader subscriber activity reporting |
+
+While related, CGNAT logs and IPDR records serve different operational purposes.
 
 ---
 
-## How Trisul handles it
+## What is Port Block Allocation (PBA)?
 
-Trisul captures CGNAT logs by collecting Syslog or IPFIX feeds from CGNAT devices and storing them with flow records. Trisul's flow database enables correlation of CGNAT mapping data with broadband session logs and AAA events for complete subscriber traceability. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+**Port Block Allocation (PBA)** assigns ranges of ports to subscribers instead of dynamically logging every individual translation event.
+
+Benefits include:
+- Reduced logging volume
+- Improved scalability
+- Lower storage requirements
+- Simplified operational traceability
+
+PBA is commonly used in large-scale CGNAT deployments to reduce operational overhead.
+
+---
+
+## Why CGNAT logging matters
+
+CGNAT logging is operationally important because IPv4 address sharing reduces direct subscriber traceability.
+
+Accurate logging helps operators:
+- Identify subscribers associated with network activity
+- Investigate abuse reports
+- Support security investigations
+- Meet regulatory obligations
+- Troubleshoot connectivity issues
+
+Retention requirements and storage strategies vary depending on jurisdiction and operational policy.
+
+---
+
+## How Trisul handles CGNAT-related analytics
+
+Trisul is primarily a network traffic analytics platform rather than a dedicated CGNAT logging system.
+
+However, Trisul can support operational workflows involving CGNAT environments through:
+
+- **Flow-based traffic visibility** using NetFlow, IPFIX, sFlow, and related telemetry
+- **Subscriber-oriented traffic analysis**
+- **Historical traffic investigation**
+- **Flow correlation workflows**
+- **Aggregate Flows** for usage and traffic summarization
+- **Explore Flows** for investigation and drill-down analysis
+- **Operational visibility into shared-address environments**
+
+These capabilities help operators investigate traffic behavior, correlate usage patterns, and analyze activity within CGNAT-enabled service-provider environments.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
 
 ---
 
 ## Related terms
 
-- [What is IPDR?](/docs/glossary/ipdr)
-- [What is DoT Compliance?](/docs/glossary/dot-compliance)
-- [What is CGNAT?](/docs/glossary/cgnat)
-- [What is NAT?](/docs/glossary/nat)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [IPDR](/glossary/ipdr)
+- [DoT compliance](/glossary/dot-compliance)
+- [CGNAT](/glossary/cgnat)
+- [NAT](/glossary/nat)
+- [Flow monitoring](/glossary/flow-monitoring)
+- [Subscriber analytics](/glossary/subscriber-analytics)
 
 ---
 
 ## Frequently asked questions
 
-### What fields are required in CGNAT logs?
+### What fields are commonly required in CGNAT logs?
 
-Required fields include source private IP address, source private port, translated public IP address, translated public port, protocol (TCP, UDP, ICMP), timestamp of session start and end, and destination IP address. These fields enable tracing from a public IP and port back to the subscriber at a specific time.
+Common fields include private subscriber IP address, translated public IP address, source and translated ports, protocol, timestamps, destination information, and session metadata required for subscriber traceability.
 
-### How long must CGNAT logs be retained?
+### How long are CGNAT logs retained?
 
-Retention periods vary by jurisdiction. Most ISPs must store CGNAT logs for 6 months to 2 years. In India, DoT mandates IPDR retention for 2 years for ISPs. Law enforcement may require logs going back many years for investigations, so storage capacity must be planned accordingly.
+Retention periods vary by jurisdiction, regulatory requirements, and operator policy. ISPs commonly retain CGNAT logs for extended periods to support compliance, auditing, and law-enforcement investigations.
 
-### What is the storage requirement for CGNAT logs?
+### Why are CGNAT logs important?
 
-For 10,000 users, NAT log storage grows at approximately 0.4MB per second in raw ASCII format, or 346GB per day. With gzip compression (27:1 ratio), this reduces to 13GB per day per 10,000 users. For 2-year retention of 10,000 subscribers, approximately 4.7 terabytes of storage is required.
+CGNAT logs are important because multiple subscribers may share a single public IPv4 address. Logging enables operators to trace traffic activity back to a specific subscriber and time period.
 
-### What is Port Block Allocation (PBA) in CGNAT?
+### What is Port Block Allocation in CGNAT?
 
-Port Block Allocation pre-assigns fixed ranges of ports to each subscriber, reducing the volume of logging required. Instead of logging every individual port mapping, the CGNAT device logs which port block was assigned to which subscriber. This makes logging more efficient while maintaining traceability.
+Port Block Allocation assigns groups of ports to subscribers instead of logging every individual port mapping. This reduces logging volume while maintaining subscriber traceability.
+
+### How does Trisul relate to CGNAT logging workflows?
+
+Trisul can assist operational workflows involving CGNAT environments through flow visibility, subscriber-oriented analytics, historical traffic investigation, and traffic correlation capabilities.

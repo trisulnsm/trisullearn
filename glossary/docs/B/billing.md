@@ -1,6 +1,6 @@
 ---
 title: What is billing in network analytics?
-description: Billing in network analytics is the process of turning usage data into charges, allocations, or account summaries for customers or internal groups. Trisul supports billing by measuring traffic usage and helping attribute it to the correct user, subscriber, or service.
+description: Billing in network analytics is the process of converting measured network usage into charges, allocations, or usage summaries for customers, subscribers, or internal departments. Trisul supports usage measurement and traffic attribution through flow analytics and subscriber visibility.
 sidebar_label: Billing
 sidebar_position: 259
 slug: /glossary/billing
@@ -20,7 +20,7 @@ export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "What is Billing in Network Analytics?",
-  "description": "Billing in network analytics is the process of turning usage data into charges, allocations, or account summaries for customers or internal groups. Trisul supports billing by measuring traffic usage and helping attribute it to the correct user, subscriber, or service.",
+  "description": "Billing in network analytics is the process of converting measured network usage into charges, allocations, or usage summaries for customers, subscribers, or internal departments. Trisul supports usage measurement and traffic attribution through flow analytics and subscriber visibility.",
   "about": {
     "@type": "DefinedTerm",
     "name": "Billing (Network Analytics)",
@@ -34,58 +34,110 @@ export const jsonLd = {
 
 # What is billing in network analytics?
 
-**Billing in network analytics** is the process of turning **usage data** into **charges**, **allocations**, or **account summaries** for customers or internal groups. Trisul supports billing by measuring traffic usage and helping attribute it to the correct user, subscriber, or service.
+**Billing in network analytics** is the process of converting measured network usage into charges, allocations, or usage summaries for customers, subscribers, departments, or services.
+
+Billing-related analytics commonly involve:
+- Usage measurement
+- Subscriber or account attribution
+- Usage aggregation
+- Reporting and auditing
+- Chargeback or invoicing workflows
+
+Trisul supports usage measurement and traffic attribution through flow analytics and subscriber visibility.
 
 ---
 
 ## How billing works
 
-Usage data is collected from traffic, sessions, or service records and then mapped to an account or subscriber. The resulting totals are used to compute charges or internal allocations.
+Billing workflows typically collect traffic or session data and associate that usage with a subscriber, customer account, service, or internal business unit.
 
-The accuracy of billing depends on good attribution and reliable measurement. If usage cannot be tied to the right account, the bill becomes less trustworthy.
+Common telemetry sources include:
+- NetFlow
+- IPFIX
+- sFlow
+- Session accounting systems
+- Interface statistics
+
+Typical billing workflow:
+
+1. **Usage collection** → Traffic or session activity is measured
+2. **Attribution** → Usage is associated with users, subscribers, or services
+3. **Aggregation** → Usage is summarized across defined billing periods
+4. **Policy application** → Charging or allocation rules are applied
+5. **Reporting** → Usage summaries or billing records are generated
+6. **Audit and investigation** → Historical records are reviewed when needed
+
+Billing accuracy depends heavily on reliable measurement and correct attribution.
 
 ---
 
 ## Billing in operations
 
-Billing is important in service-provider and enterprise environments where network usage has financial value. It supports customer invoicing, chargeback, and cost control.
+Billing-related analytics are commonly used in:
+- ISPs
+- Managed service providers
+- Multi-tenant environments
+- Enterprise chargeback systems
+- Campus and subscriber networks
 
-It also encourages accountability. If teams can see usage by group or service, they can manage demand more carefully.
+Operational use cases include:
+
+- **Customer usage accounting**
+- **Internal chargeback**
+- **Bandwidth consumption reporting**
+- **Subscriber usage visibility**
+- **Quota monitoring**
+- **Dispute investigation and auditing**
+
+These workflows require accurate traffic measurement and historical usage visibility.
 
 ---
 
 ## Common billing inputs
 
-| Input | Meaning |
+| Input | Description |
 |---|---|
 | Usage volume | Total traffic consumed |
-| Subscriber identity | Account to charge |
-| Time window | Period being billed |
-| Service class | Category of usage |
+| Subscriber identity | User, customer, or account identifier |
+| Billing period | Time interval for accounting |
+| Service category | Usage classification or service tier |
+| Session records | Connection or subscriber session details |
+| Traffic attributes | Protocol, application, or destination metadata |
 
 ---
 
-## What makes billing useful
+## Why billing analytics are useful
 
-Billing is useful because it translates network usage into business value. That helps organizations recover costs and manage resources fairly.
+Billing analytics help organizations:
+- Recover operational costs
+- Allocate shared infrastructure expenses
+- Understand subscriber usage behavior
+- Support auditing and reporting requirements
+- Improve visibility into resource consumption
 
-It works best with accurate data and clear policy. Without those, disputes are more likely.
+Accurate usage measurement and attribution reduce billing disputes and improve operational transparency.
 
 ---
 
 ## How Trisul handles billing
 
-Trisul supports billing by measuring traffic usage and helping attribute it to the correct user, subscriber, or service:
+Trisul supports billing-oriented analytics through traffic measurement, flow visibility, and usage aggregation workflows.
 
-- **Traffic usage measurement**: Trisul measures traffic usage from flow records (NetFlow, J-Flow, sFlow, IPFIX), providing byte and packet counts for billing purposes
-- **Flow attribution**: Trisul helps attribute usage to the correct user, subscriber, or service through flow monitoring
-- **Subscriber analytics**: Trisul provides subscriber analytics showing traffic per subscriber
-- **Monthly charts**: Trisul's Monthly charts provide monthly usage summaries for billing cycles
-- **Aggregate Flows**: Trisul's Aggregate Flows feature summarizes traffic by dimension for usage reporting
-- **Explore Flows**: Use Trisul's Explore Flows to investigate usage details with full flow metadata when billing disputes arise
-- **Flow storage**: Trisul stores all flows without loss (in default mode), providing a complete audit trail for billing verification
+Relevant capabilities include:
 
-Trisul can support billing by measuring traffic usage and helping attribute it to the correct user, subscriber, or service. The flow monitoring capabilities in Trisul provide the usage measurement needed for billing calculations.
+- **Flow-based traffic measurement** using NetFlow, IPFIX, sFlow, and J-Flow
+- **Subscriber and traffic visibility** for usage-oriented analysis
+- **Historical usage trending** for recurring billing periods
+- **Aggregate Flows** for summarizing usage across dimensions such as hosts, interfaces, or services
+- **Monthly charts** for long-term usage visualization
+- **Explore Flows** for investigating usage records and traffic details
+- **Historical flow retention workflows** for operational review and auditing
+
+These capabilities help operators analyze usage patterns, generate usage summaries, and investigate traffic-related billing questions.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
 
 ---
 
@@ -108,24 +160,24 @@ Trisul can support billing by measuring traffic usage and helping attribute it t
 
 ### What is billing in network analytics?
 
-Billing in network analytics is the process of turning usage data into charges, allocations, or account summaries for customers or internal groups.
+Billing in network analytics is the process of converting measured network usage into charges, allocations, or usage summaries.
 
 ### Why is billing important?
 
-Billing is important because organizations need to account for network usage accurately when charging customers or allocating costs. It enables cost recovery and financial accountability.
+Billing enables organizations to account for network usage, recover operational costs, allocate expenses, and monitor subscriber or service consumption.
 
 ### What data is used for billing?
 
-Billing can use traffic volume, service usage, subscriber activity, and time-based records. Flow data from NetFlow, J-Flow, sFlow, or IPFIX provides the traffic volume measurements.
+Billing workflows commonly use flow telemetry, traffic volume measurements, subscriber identifiers, session records, and usage summaries.
 
 ### How is billing related to network analytics?
 
-Billing relies on network analytics to measure usage accurately and attribute it to the right account or service. Network analytics provides the measurement and attribution capabilities needed for accurate billing.
+Network analytics provides the measurement, attribution, aggregation, and reporting capabilities needed for usage-based accounting and billing workflows.
 
 ### How does Trisul support billing?
 
-Trisul supports billing by measuring traffic usage from flow records (NetFlow, J-Flow, sFlow, IPFIX), attributing usage to the correct user/subscriber/service, providing subscriber analytics for per-customer usage tracking, and generating Monthly charts for monthly billing cycles. Trisul stores all flows without loss, providing a complete audit trail for billing verification.
+Trisul supports billing-oriented analytics through flow-based traffic measurement, subscriber visibility, historical usage analysis, and traffic aggregation workflows.
 
 ### What Trisul features are useful for billing?
 
-Trisul features useful for billing include flow monitoring (for traffic measurement), subscriber analytics (for per-customer tracking), Monthly charts (for monthly usage summaries), Aggregate Flows (for usage reporting by dimension), and Explore Flows (for billing dispute investigation).
+Useful capabilities include flow monitoring, Aggregate Flows, Explore Flows, Monthly charts, subscriber-oriented visibility, and historical traffic analysis.

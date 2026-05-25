@@ -1,6 +1,6 @@
 ---
 title: What is home network in Trisul?
-description: In Trisul, home network defines the IP subnets under your administrative domain. Trisul uses this to classify traffic direction as incoming, outgoing, internal, or transit and enable features like directional traffic reports and flow tagging.
+description: In Trisul, home network refers to the IP subnets and network ranges considered part of the monitored administrative domain. Trisul uses this definition to classify traffic direction as incoming, outgoing, internal, or transit for traffic analysis, reporting, and flow-tagging workflows.
 sidebar_label: Home network
 sidebar_position: 49
 slug: /glossary/home-network
@@ -13,6 +13,7 @@ keywords:
   - transit traffic
   - internal traffic
   - administrative domain
+  - directional traffic analysis
 ---
 
 export const jsonLd = {
@@ -24,31 +25,39 @@ export const jsonLd = {
       "name": "What is home network in Trisul?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In Trisul, home network defines which IP addresses belong to your network under your administrative domain. Several Trisul features depend on distinguishing between home network IPs and external IPs. By default, Trisul considers RFC1918 private IP ranges including 10.0.0.0/8, 192.168.0.0/16, and 172.16.0.0/12 as home networks. Admin can add custom subnets to define home network accurately."
+        "text": "In Trisul, home network refers to the IP subnets and network ranges considered part of the monitored administrative domain. Trisul uses this definition to classify traffic direction as incoming, outgoing, internal, or transit for traffic analysis, reporting, and flow-tagging workflows."
       }
     },
     {
       "@type": "Question",
-      "name": "What are the traffic direction classifications in Trisul?",
+      "name": "What traffic directions does Trisul classify using home networks?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul classifies traffic into four directions based on home network. Outgoing Traffic has source IP in home network but destination IP external. Incoming Traffic has source IP external but destination IP in home network. Internal Traffic has both source and destination IP in home network. Transit Traffic has both source and destination IP external to home network. These directional metrics appear in Aggregates counter group."
+        "text": "Trisul classifies traffic as incoming, outgoing, internal, or transit depending on whether the source and destination IP addresses belong to configured home-network ranges. These directional classifications are used in traffic reports, flow tagging, and aggregate traffic analysis."
       }
     },
     {
       "@type": "Question",
-      "name": "How do you configure home network in Trisul?",
+      "name": "How are home networks configured in Trisul?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Login as admin, go to Context: Default, then Profile0, then Home Networks. Click Add button, enter an IP and subnet mask such as 59.92.0.0 and 255.255.0.0 that represents your home network, then click Create. You can add networks one by one or copy-paste comma-separated or one-per-line networks in CIDR format. Click Delete to remove networks or Edit to modify existing entries."
+        "text": "Administrators configure home networks by defining IP subnets or CIDR ranges that represent the monitored administrative domain. Accurate configuration is important because directional traffic analysis depends on correct identification of internal and external traffic."
       }
     },
     {
       "@type": "Question",
-      "name": "How does home network enable flow tagging in Trisul?",
+      "name": "Why is home network configuration important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul uses Flow Taggers to tag each flow with a direction hint based on endpoint home addresses. Enable TagFlowsWithDirection setting in the NetFlow configuration file. Then in Tools, select Explore Flows, and you can search for flows with directional tags. For example, to see all Transit flows, enter tag equals [dir]transit in the search query."
+        "text": "Home network configuration is important because it affects traffic-direction classification, reporting accuracy, flow tagging, and operational visibility. Incorrect subnet definitions may cause internal traffic to be classified as external or transit traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul use home network information in flow analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul uses home network definitions to enrich flows with directional context such as internal, incoming, outgoing, or transit communication. These classifications can then be used in Explore Flows, traffic reports, historical analysis, and operational investigations."
       }
     }
   ]
@@ -56,54 +65,252 @@ export const jsonLd = {
 
 # What is home network in Trisul?
 
-In Trisul, home network defines the IP subnets under your administrative domain. Trisul uses this to classify traffic direction as incoming, outgoing, internal, or transit and enable features like directional traffic reports and flow tagging. By default, Trisul considers RFC1918 private IP ranges as home networks, but admins can add custom subnets for accurate classification.
+In Trisul, home network refers to the IP subnets and network ranges considered part of the monitored administrative domain. Trisul uses this definition to classify traffic direction as incoming, outgoing, internal, or transit for traffic analysis, reporting, and flow-tagging workflows.
+
+Home network definitions help Trisul determine:
+- Which systems are internal
+- Which traffic is external
+- Which traffic is transit traffic
+- Which flows remain inside the organization
+- Which communications cross administrative boundaries
+
+Directional classification is important for:
+- Traffic reporting
+- Flow analysis
+- Security investigations
+- Capacity planning
+- Traffic baselining
+- Operational visibility
+- Flow tagging workflows
+
+By default, private RFC1918 ranges are commonly treated as internal networks, but administrators can define additional subnets and network ranges depending on deployment requirements.
+
+Trisul uses home-network context across traffic-analysis and flow-investigation workflows.
 
 ---
 
-## How home network works in Trisul
+## How home network classification works
 
-Trisul collects flow data from network devices and classifies traffic by network segment. Home network traffic is identified by IP address ranges, device types, or network topology configuration. Explore Flows enables querying traffic by home network segment, showing bandwidth usage, top applications, and communication patterns specific to home devices.
+Home-network classification compares source and destination IP addresses against configured internal-network definitions.
+
+Typical workflow:
+
+1. **Subnet definition** → Administrators define internal network ranges
+2. **Traffic observation** → Flow or packet telemetry is collected
+3. **Address comparison** → IP addresses are matched against home-network ranges
+4. **Direction classification** → Traffic is categorized by direction
+5. **Operational analysis** → Reports and investigations use directional context
+
+Common telemetry sources include:
+- NetFlow
+- IPFIX
+- sFlow
+- Packet telemetry
+- Interface traffic analysis
+
+Directional classification commonly depends on:
+- Source IP address
+- Destination IP address
+- Configured subnet ranges
+- Administrative-domain boundaries
+
+The exact behavior depends on:
+- Deployment architecture
+- Monitoring placement
+- Network segmentation
+- Tunnel visibility
+- Addressing design
+
+![](./images/home-network.png)
 
 ---
 
-## Home network in network operations
+## Home network classification in network operations
 
-Login as admin and go to Context: Default, then Profile0, then Home Networks to configure. Traffic direction metrics appear in the Aggregates counter group. Login as user and go to Tools, then Long Term Traffic, set Counter group to Aggregates, Meter to Total, and Keys to the Item to DIR_INTOHOME, DIR_OUTOFHOME, DIR_TRANSIT, and DIR_WITHINHOME to view directional traffic data.
+Home-network awareness is widely used across operational and security environments.
+
+### NOC operations
+
+Network operations teams use home-network classification for:
+- Traffic-direction reporting
+- WAN analysis
+- Capacity planning
+- Utilization analysis
+- Transit-traffic visibility
+- Internal traffic analysis
+
+Operators commonly investigate:
+- Unexpected outbound traffic
+- High inbound utilization
+- Excessive transit traffic
+- Internal communication patterns
+- Directional traffic growth
+
+Historical directionality helps teams identify:
+- Long-term traffic trends
+- Utilization imbalance
+- Network-boundary changes
+- Routing or segmentation issues
+
+### SOC operations
+
+Security teams use home-network context for:
+- Threat investigations
+- Data-exfiltration analysis
+- Suspicious outbound traffic detection
+- Internal lateral-movement analysis
+- External communication monitoring
+- Traffic attribution workflows
+
+Directional classification helps analysts identify:
+- Which systems initiated communication
+- Which traffic crossed organizational boundaries
+- Which communications remained internal
+- Which flows involved external destinations
+
+Security investigations commonly correlate:
+- Flow telemetry
+- DNS activity
+- Firewall logs
+- Endpoint telemetry
+- Historical traffic patterns
+
+### ISP and carrier environments
+
+In ISP and carrier environments, home-network concepts may also include:
+- Customer network ranges
+- Autonomous-system ownership
+- Downstream prefixes
+- Routed administrative domains
+
+Operational value depends heavily on:
+- Correct subnet configuration
+- Routing visibility
+- BGP awareness
+- Historical telemetry retention
+- Traffic-correlation workflows
 
 ---
 
-## Traffic direction classifications
+## Common traffic direction classifications
 
-| Direction | Definition |
+| Direction | Meaning |
 |---|---|
-| Outgoing Traffic | Source IP is in home network, but destination IP is not |
-| Incoming Traffic | Source IP is not in home network, but destination IP is in home network |
-| Internal Traffic | Both source IP and destination IP are in home network |
-| Transit Traffic | Both source IP and destination IP are not in home network |
+| Incoming traffic | External source communicating with internal destination |
+| Outgoing traffic | Internal source communicating with external destination |
+| Internal traffic | Both endpoints belong to the home network |
+| Transit traffic | Neither endpoint belongs to the home network |
+
+These classifications may be used in:
+- Aggregate traffic reports
+- Directional traffic analysis
+- Flow tagging
+- Historical reporting
+- Security investigations
 
 ---
 
-## What makes home network classification work in practice
+## Home network classification vs routing awareness
 
-The home network definition must match your actual network topology. If you add new subnets and forget to update the home network configuration, traffic from those subnets will be classified as transit instead of internal. This skews reports and breaks directional alerts. Review the configuration after any network change.
+| Dimension | Home-network classification | Routing awareness |
+|---|---|---|
+| Primary focus | Administrative ownership of address space | Reachability and forwarding paths |
+| Main input | Configured internal subnets | Routing tables and topology |
+| Operational purpose | Directional traffic visibility | Path and forwarding analysis |
+| Common use case | Reporting and flow classification | Routing operations and troubleshooting |
+| Typical telemetry | Flow and address metadata | Routing and topology telemetry |
 
-For ISP deployments, the home network is defined differently. The Home AS Number is configured in the NetFlow and Geo configuration files. All autonomous systems whose prefixes are advertised by the network being monitored by Trisul are considered home networks. Trisul automatically collects route information from public and private BGP peering locations and uses BGP analytics to compute AS advertised as downstream.
+The two workflows are complementary and commonly correlated together.
+
+---
+
+## What makes home network classification effective
+
+Effective home-network classification depends heavily on:
+- Accurate subnet definitions
+- Up-to-date network inventory
+- Correct routing visibility
+- Consistent segmentation
+- Telemetry completeness
+- Historical correlation workflows
+
+Operational challenges commonly include:
+- Missing subnet updates
+- NAT visibility limitations
+- Overlapping address spaces
+- Hybrid-cloud architectures
+- Tunnel visibility gaps
+- Multi-site deployments
+
+Classification quality also depends on:
+- Monitoring placement
+- Addressing consistency
+- Exporter configuration
+- Historical telemetry retention
+
+Incorrect home-network configuration may cause:
+- Internal traffic to appear external
+- Transit traffic misclassification
+- Reporting inaccuracies
+- Incorrect flow tagging
+- Misleading operational dashboards
+
+Organizations commonly improve classification accuracy through:
+- Centralized subnet management
+- Automated inventory workflows
+- Routing-aware telemetry correlation
+- Historical validation workflows
 
 ---
 
 ## How Trisul handles home network
 
-Trisul uses home network configuration to classify traffic direction and enable directional reporting. Flow data is tagged with direction hints including DIR_INTOHOME, DIR_OUTOFHOME, DIR_TRANSIT, and DIR_WITHINHOME based on whether source and destination IPs are in the home network. This directional classification appears in Aggregates counter group and can be queried in Explore Flows using directional flow tags. Full documentation is at https://docs.trisul.org/docs/ag/context/home_networks/.
+Trisul uses home-network definitions to enrich traffic telemetry with directional context for operational analysis and investigations.
+
+Relevant capabilities include:
+
+- **Directional traffic analysis**
+- **Flow and packet visibility**
+- **Explore Flows** for investigative drill-down
+- **Flow Taggers** for contextual telemetry enrichment
+- **Historical traffic analysis**
+- **Traffic-pattern and aggregate analysis**
+- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
+- **Operational dashboards and reporting workflows**
+- **Directional flow classification workflows**
+
+Trisul can help operators:
+- Analyze incoming and outgoing traffic
+- Investigate transit traffic behavior
+- Identify internal communication patterns
+- Correlate directional traffic trends
+- Support operational and security investigations
+
+These workflows are particularly useful for:
+- Traffic reporting
+- Capacity planning
+- Security investigations
+- Traffic attribution
+- Operational baselining
+- Directional traffic analysis
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
 
 ---
 
 ## Related terms
 
-- [What is flow tagging?](/docs/glossary/flow-tagging)
-- [What is Explore Flows?](/docs/glossary/explore-flows)
-- [What is counter group?](/docs/glossary/counter-group)
-- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
-- [What is RFC1918?](/docs/glossary/rfc-1918)
+- [Flow tagging](/glossary/flow-tagging)
+- [Explore Flows](/glossary/explore-flows)
+- [Counter group](/glossary/counter-group)
+- [BGP peering analytics](/glossary/bgp-peering-analytics)
+- [RFC1918](/glossary/rfc1918)
+- [Flow attribution](/glossary/flow-attribution)
+- [Traffic analysis](/glossary/traffic-analysis)
 
 ---
 
@@ -111,16 +318,20 @@ Trisul uses home network configuration to classify traffic direction and enable 
 
 ### What is home network in Trisul?
 
-In Trisul, home network defines which IP addresses belong to your network under your administrative domain. Several Trisul features depend on distinguishing between home network IPs and external IPs. By default, Trisul considers RFC1918 private IP ranges including 10.0.0.0/8, 192.168.0.0/16, and 172.16.0.0/12 as home networks. Admin can add custom subnets to define home network accurately.
+In Trisul, home network refers to the IP subnets and network ranges considered part of the monitored administrative domain. Trisul uses this definition to classify traffic direction as incoming, outgoing, internal, or transit for traffic analysis, reporting, and flow-tagging workflows.
 
-### What are the traffic direction classifications in Trisul?
+### What traffic directions does Trisul classify using home networks?
 
-Trisul classifies traffic into four directions based on home network. Outgoing Traffic has source IP in home network but destination IP external. Incoming Traffic has source IP external but destination IP in home network. Internal Traffic has both source and destination IP in home network. Transit Traffic has both source and destination IP external to home network. These directional metrics appear in Aggregates counter group.
+Trisul classifies traffic as incoming, outgoing, internal, or transit depending on whether the source and destination IP addresses belong to configured home-network ranges. These directional classifications are used in traffic reports, flow tagging, and aggregate traffic analysis.
 
-### How do you configure home network in Trisul?
+### How are home networks configured in Trisul?
 
-Login as admin, go to Context: Default, then Profile0, then Home Networks. Click Add button, enter an IP and subnet mask such as 59.92.0.0 and 255.255.0.0 that represents your home network, then click Create. You can add networks one by one or copy-paste comma-separated or one-per-line networks in CIDR format. Click Delete to remove networks or Edit to modify existing entries.
+Administrators configure home networks by defining IP subnets or CIDR ranges that represent the monitored administrative domain. Accurate configuration is important because directional traffic analysis depends on correct identification of internal and external traffic.
 
-### How does home network enable flow tagging in Trisul?
+### Why is home network configuration important?
 
-Trisul uses Flow Taggers to tag each flow with a direction hint based on endpoint home addresses. Enable TagFlowsWithDirection setting in the NetFlow configuration file. Then in Tools, select Explore Flows, and you can search for flows with directional tags. For example, to see all Transit flows, enter tag equals [dir]transit in the search query.
+Home network configuration is important because it affects traffic-direction classification, reporting accuracy, flow tagging, and operational visibility. Incorrect subnet definitions may cause internal traffic to be classified as external or transit traffic.
+
+### How does Trisul use home network information in flow analysis?
+
+Trisul uses home network definitions to enrich flows with directional context such as internal, incoming, outgoing, or transit communication. These classifications can then be used in Explore Flows, traffic reports, historical analysis, and operational investigations.

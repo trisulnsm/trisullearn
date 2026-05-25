@@ -1,6 +1,6 @@
 ---
 title: What is CGNAT?
-description: CGNAT, or Carrier-Grade NAT, is large-scale address translation used by ISPs to share a small pool of public IPv4 addresses among a large number of subscribers. Multiple subscribers share one public IP address.
+description: CGNAT (Carrier-Grade NAT) is a large-scale network address translation technique used by service providers to share public IPv4 addresses among many subscribers. It helps ISPs conserve IPv4 address space while continuing to provide Internet connectivity at scale.
 sidebar_label: CGNAT
 sidebar_position: 145
 slug: /glossary/cgnat
@@ -12,6 +12,7 @@ keywords:
   - shared public IP
   - IPv4 exhaustion
   - subscriber attribution
+  - NAT translation
 ---
 
 export const jsonLd = {
@@ -23,7 +24,7 @@ export const jsonLd = {
       "name": "What is CGNAT?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CGNAT, or Carrier-Grade NAT, is large-scale address translation used by ISPs to share a small pool of public IPv4 addresses among a large number of subscribers. Multiple subscribers share one public IP address."
+        "text": "CGNAT (Carrier-Grade NAT) is a large-scale network address translation technique used by service providers to share public IPv4 addresses among many subscribers."
       }
     },
     {
@@ -31,23 +32,31 @@ export const jsonLd = {
       "name": "How does CGNAT work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CGNAT translates private subscriber addresses to shared public IPs using port-based translation. Many subscribers may share a single public IP, distinguished only by their assigned port ranges. Translation logs record the mapping."
+        "text": "CGNAT translates private subscriber addresses into shared public IPv4 addresses using port-based translation. Multiple subscribers can share the same public IP address while remaining distinguishable through port mappings."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does CGNAT make analytics harder?",
+      "name": "Why does CGNAT make analytics more complex?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CGNAT makes analytics harder because many subscribers share one public IP. Without NAT logs, it is impossible to identify which subscriber made a specific connection. This complicates troubleshooting, abuse investigation, and lawful intercept."
+        "text": "CGNAT makes analytics more complex because many subscribers share the same public IPv4 address. Subscriber attribution requires NAT translation logs and timestamp correlation."
       }
     },
     {
       "@type": "Question",
-      "name": "How is CGNAT handled in compliance?",
+      "name": "Why are CGNAT logs important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CGNAT compliance requires storing NAT translation logs that map each public IP and port to the originating subscriber. These logs are essential for responding to law enforcement requests and abuse complaints."
+        "text": "CGNAT logs are important because they allow operators to associate public IP addresses and ports with specific subscribers for troubleshooting, abuse handling, compliance, and security investigations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul relate to CGNAT environments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul supports operational visibility in CGNAT environments through flow analytics, subscriber-oriented traffic analysis, historical investigation workflows, and traffic correlation capabilities."
       }
     }
   ]
@@ -55,23 +64,78 @@ export const jsonLd = {
 
 # What is CGNAT?
 
-CGNAT, or Carrier-Grade NAT, is large-scale address translation used by ISPs to share a small pool of public IPv4 addresses among a large number of subscribers. Multiple subscribers share one public IP address.
+**CGNAT (Carrier-Grade NAT)** is a large-scale network address translation technique used by service providers to share public IPv4 addresses among many subscribers.
+
+CGNAT is widely deployed by:
+- ISPs
+- Mobile carriers
+- Broadband providers
+- Large service-provider networks
+
+It helps conserve limited IPv4 address space by allowing multiple subscribers to share a smaller pool of public IPv4 addresses.
+
+Trisul supports operational visibility in CGNAT environments through flow analytics and subscriber-oriented traffic analysis workflows.
 
 ---
 
 ## How CGNAT works
 
-CGNAT places a large NAT device in the ISP network that translates subscriber private addresses to shared public addresses. Port-based translation distinguishes sessions from different subscribers using the same public IP.
+CGNAT systems translate private subscriber addresses into shared public IPv4 addresses using port-based translation mechanisms.
 
-Each session is tracked in a translation table. When the session ends, the port is returned to the pool. NAT logs capture the mapping between subscriber, private address, public address, and port for later attribution.
+Because many subscribers may share the same public IP address, unique source ports are used to distinguish subscriber sessions.
+
+Typical workflow:
+
+1. **Subscriber traffic generation** → Devices use private IP addressing
+2. **Address translation** → CGNAT devices translate private addresses to shared public IPv4 addresses
+3. **Port allocation** → Public source ports are assigned for each session
+4. **Session tracking** → Translation state is maintained during the communication session
+5. **Log generation** → NAT translation metadata may be recorded for traceability
+6. **Session expiration** → Port mappings are released after sessions end
+
+CGNAT commonly relies on:
+- Port Address Translation (PAT)
+- Stateful translation tables
+- Large-scale session tracking
+- NAT logging systems
+
+---
+
+## Why CGNAT is widely used
+
+CGNAT became common because globally routable IPv4 addresses are limited.
+
+Benefits include:
+- Delayed IPv4 exhaustion
+- Reduced public IPv4 address consumption
+- Large-scale subscriber support
+- Continued IPv4 Internet access for growing subscriber bases
+
+CGNAT is often used as a transitional approach while IPv6 adoption continues to expand.
 
 ---
 
 ## CGNAT in network operations
 
-CGNAT is widely deployed because IPv4 addresses are exhausted. Without CGNAT, ISPs would need a unique public IP for every subscriber, which is no longer feasible at scale.
+CGNAT introduces operational and analytical challenges because public IPv4 addresses no longer uniquely identify subscribers.
 
-For operations and analytics, CGNAT creates a visibility challenge. Network-level traffic shows shared public IPs. Subscriber-level analysis requires correlating traffic with NAT logs to identify the actual source.
+Common operational considerations include:
+
+- **Subscriber traceability**
+- **Security investigations**
+- **Abuse handling**
+- **Law-enforcement response workflows**
+- **Troubleshooting**
+- **Compliance and auditing**
+- **NAT log retention**
+
+Subscriber attribution typically requires correlation between:
+- NAT translation logs
+- Timestamps
+- Port mappings
+- Subscriber-session information
+
+Accurate time synchronization is important for reliable correlation and investigation workflows.
 
 ---
 
@@ -79,34 +143,69 @@ For operations and analytics, CGNAT creates a visibility challenge. Network-leve
 
 | Aspect | Standard NAT | CGNAT |
 |---|---|---|
-| Scale | Single site | ISP-wide |
-| Subscribers per IP | Few | Hundreds |
-| Log volume | Low | Very high |
-| Compliance need | Limited | Mandatory |
+| Deployment scope | Home or enterprise edge | ISP or carrier scale |
+| Public IP sharing | Limited | Extensive |
+| Subscriber scale | Small number of users | Large subscriber populations |
+| Logging complexity | Lower | Much higher |
+| Operational requirements | Basic translation | Large-scale traceability and logging |
+
+CGNAT operates at significantly larger scale and requires more extensive operational visibility than traditional edge NAT deployments.
 
 ---
 
-## What makes CGNAT work in practice
+## Why CGNAT logging matters
 
-Log retention is critical. NAT translation logs must be stored long enough to respond to law enforcement and abuse requests. ISPs must retain these logs in a searchable format with accurate timestamps.
+Because many subscribers share public IPv4 addresses, NAT translation logs are important for operational traceability.
 
-Time synchronization is essential. All CGNAT devices must use the same time source. Without synchronized clocks, it is impossible to accurately match a translation log to a specific event.
+Logs commonly record:
+- Subscriber private IP address
+- Public translated IP address
+- Source and translated ports
+- Protocol type
+- Session timestamps
+
+These records help operators:
+- Investigate abuse reports
+- Troubleshoot subscriber issues
+- Correlate network activity
+- Support compliance workflows
+- Perform subscriber attribution
+
+Retention policies and logging requirements vary depending on operator policy and regulatory obligations.
 
 ---
 
-## How Trisul handles CGNAT
+## How Trisul handles CGNAT-related analytics
 
-Trisul collects NAT event logs from CGNAT devices alongside flow data. It correlates subscriber identity from RADIUS logs with NAT translations to provide full subscriber-level visibility in CGNAT environments. Full documentation is at https://docs.trisul.org/docs/ug/ipdr/.
+Trisul is primarily a network traffic analytics platform rather than a dedicated CGNAT gateway or NAT logging appliance.
+
+However, Trisul can support operational workflows in CGNAT environments through:
+
+- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
+- **Subscriber-oriented traffic visibility**
+- **Historical traffic investigation**
+- **Traffic correlation workflows**
+- **Aggregate Flows** for summarizing traffic behavior
+- **Explore Flows** for drill-down investigation and analysis
+- **Operational visibility into shared-address environments**
+
+These capabilities help operators analyze traffic behavior, investigate activity patterns, and improve operational visibility in CGNAT-enabled service-provider environments.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
 
 ---
 
 ## Related terms
 
-- NAT
-- IPDR
-- Subscriber mapping
-- IPv4 exhaustion
-- Lawful intercept
+- [NAT](/glossary/nat)
+- [IPDR](/glossary/ipdr)
+- [Subscriber mapping](/glossary/subscriber-mapping)
+- [IPv4 exhaustion](/glossary/ipv4-exhaustion)
+- [Lawful intercept](/glossary/lawful-intercept)
+- [CGNAT logging](/glossary/cgnat-logging)
+- [Flow monitoring](/glossary/flow-monitoring)
 
 ---
 
@@ -114,16 +213,20 @@ Trisul collects NAT event logs from CGNAT devices alongside flow data. It correl
 
 ### What is CGNAT?
 
-CGNAT, or Carrier-Grade NAT, is large-scale address translation used by ISPs to share a small pool of public IPv4 addresses among a large number of subscribers. Multiple subscribers share one public IP address.
+CGNAT (Carrier-Grade NAT) is a large-scale network address translation technique used by service providers to share public IPv4 addresses among many subscribers.
 
 ### How does CGNAT work?
 
-CGNAT translates private subscriber addresses to shared public IPs using port-based translation. Many subscribers may share a single public IP, distinguished only by their assigned port ranges. Translation logs record the mapping.
+CGNAT translates private subscriber addresses into shared public IPv4 addresses using port-based translation. Multiple subscribers can share the same public IP address while remaining distinguishable through port mappings.
 
-### Why does CGNAT make analytics harder?
+### Why does CGNAT make analytics more complex?
 
-CGNAT makes analytics harder because many subscribers share one public IP. Without NAT logs, it is impossible to identify which subscriber made a specific connection. This complicates troubleshooting, abuse investigation, and lawful intercept.
+CGNAT makes analytics more complex because many subscribers share the same public IPv4 address. Subscriber attribution requires NAT translation logs and timestamp correlation.
 
-### How is CGNAT handled in compliance?
+### Why are CGNAT logs important?
 
-CGNAT compliance requires storing NAT translation logs that map each public IP and port to the originating subscriber. These logs are essential for responding to law enforcement requests and abuse complaints.
+CGNAT logs are important because they allow operators to associate public IP addresses and ports with specific subscribers for troubleshooting, abuse handling, compliance, and security investigations.
+
+### How does Trisul relate to CGNAT environments?
+
+Trisul supports operational visibility in CGNAT environments through flow analytics, subscriber-oriented traffic analysis, historical investigation workflows, and traffic correlation capabilities.

@@ -1,6 +1,6 @@
 ---
 title: What is batch processing?
-description: Batch processing is the execution of data processing tasks in grouped runs rather than continuously in real time. Trisul supports batch-style analysis for reports, summaries, rankings, and historical traffic review through scheduled reports and Monthly charts.
+description: Batch processing is the execution of data processing tasks in grouped runs rather than continuously in real time. Trisul supports scheduled reporting, historical traffic analysis, and aggregated flow analytics for large-scale network data review.
 sidebar_label: Batch processing
 sidebar_position: 249
 slug: /glossary/batch-processing
@@ -20,7 +20,7 @@ export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "What is Batch Processing?",
-  "description": "Batch processing is the execution of data processing tasks in grouped runs rather than continuously in real time. Trisul supports batch-style analysis for reports, summaries, rankings, and historical traffic review through scheduled reports and Monthly charts.",
+  "description": "Batch processing is the execution of data processing tasks in grouped runs rather than continuously in real time. Trisul supports scheduled reporting, historical traffic analysis, and aggregated flow analytics for large-scale network data review.",
   "about": {
     "@type": "DefinedTerm",
     "name": "Batch Processing",
@@ -34,52 +34,64 @@ export const jsonLd = {
 
 # What is batch processing?
 
-**Batch processing** is the execution of data processing tasks in **grouped runs** rather than continuously in real time. Trisul supports batch-style analysis for reports, summaries, rankings, and historical traffic review through scheduled reports and Monthly charts.
+**Batch processing** is a data processing model where tasks are executed on accumulated datasets at scheduled intervals instead of continuously in real time.
+
+In networking and analytics environments, batch processing is commonly used for:
+- Historical reporting
+- Trend analysis
+- Traffic summarization
+- Ranking and aggregation
+- Archive analysis
+- Long-term operational review
+
+Trisul supports batch-style analytics workflows through scheduled reporting, historical traffic analysis, and aggregated flow processing.
 
 ---
 
 ## How batch processing works
 
-Data is collected over a period and then processed together at a scheduled time or when enough data accumulates. This allows systems to analyze large volumes efficiently.
+In batch processing systems, data is collected over time and processed together as a group.
 
-Because the work is delayed, the results are not immediate. That makes batch processing better for summaries and reports than urgent alerts.
+Unlike real-time processing, results are not generated immediately after each event occurs. Instead, workloads are executed periodically or after sufficient data has accumulated.
 
-The batch processing workflow:
-1. **Data collection** → Accumulate data over a time period (hours, days, months)
-2. **Batch formation** → Group collected data into processing units
-3. **Scheduled execution** → Run processing at scheduled time or when threshold is met
-4. **Processing** → Analyze, summarize, or aggregate the batch data
-5. **Result generation** → Produce reports, summaries, or updated metrics
-6. **Result delivery** → Send results via email, dashboard, or storage
+Typical workflow:
+
+1. **Data collection** → Traffic or telemetry data is accumulated over time
+2. **Batch formation** → Data is grouped into processing windows or datasets
+3. **Scheduled execution** → Processing runs at configured intervals or on demand
+4. **Analysis and aggregation** → Data is summarized, ranked, or analyzed
+5. **Result generation** → Reports, trends, or summary statistics are produced
+6. **Distribution or storage** → Results are delivered through dashboards, exports, or reports
+
+Batch processing is generally optimized for efficiency and large-scale analysis rather than low-latency response.
 
 ---
 
 ## Batch processing in operations
 
-Batch processing is often used for monthly reports, historical analysis, ranking, and archive-based analytics. It is useful when teams want a broad picture instead of instant visibility.
+Batch-oriented workflows are widely used in operational analytics environments.
 
-It can also reduce system load during peak hours. Heavy analysis can be moved to off-hours instead of running continuously.
+Common use cases include:
 
-Common operational use cases:
-- **Monthly usage reports**: Generate comprehensive traffic summaries for billing or capacity planning
-- **Historical analysis**: Review archived traffic data for trend analysis or forensics
-- **Top-N ranking**: Calculate top talkers, top applications, or top destinations over a period
-- **Aggregate statistics**: Compute summary measures (total bytes, average utilization, peak times)
-- **Compliance reporting**: Generate audit-ready reports for regulatory requirements
-- **Capacity trend analysis**: Analyze long-term growth patterns for infrastructure planning
+- **Historical reporting**: Generate periodic traffic summaries
+- **Capacity planning**: Analyze long-term utilization trends
+- **Ranking analysis**: Identify top applications, hosts, or destinations over time
+- **Archive analysis**: Review retained traffic data for investigation or compliance
+- **Trend analysis**: Study traffic behavior across days, weeks, or months
+- **Statistical summarization**: Compute aggregate metrics from large datasets
 
-Trisul uses batch processing for monthly summaries, scheduled reports, and historical traffic analysis.
+Batch processing can also reduce operational load by moving heavy analytical workloads away from peak monitoring periods.
 
 ---
 
 ## Common batch uses
 
-| Use | Purpose | Trisul Implementation |
+| Use | Purpose | Example |
 |---|---|---|
-| Reporting | Summarize past activity | Scheduled email reports, Monthly charts |
-| Ranking | Order top entities | Top-K analytics batch calculations |
-| Archive analysis | Review retained data | Long Term Traffic Tool historical queries |
-| Statistics | Compute aggregate measures | Aggregate Flows summarization |
+| Reporting | Summarize historical activity | Monthly traffic reports |
+| Ranking | Order entities by traffic volume | Top applications or hosts |
+| Archive analysis | Investigate retained data | Historical flow review |
+| Aggregation | Compute summary metrics | Long-term traffic trends |
 
 ---
 
@@ -87,42 +99,53 @@ Trisul uses batch processing for monthly summaries, scheduled reports, and histo
 
 | Dimension | Batch processing | Real-time processing |
 |---|---|---|
-| Timing | Delayed, at intervals | Immediate, continuous |
-| Data volume | Large accumulated batches | Individual events/flows |
-| Latency | High (minutes to hours) | Low (seconds) |
-| Best for | Reports, summaries, trends | Alerts, monitoring, detection |
-| System load | Can be scheduled for off-peak | Continuous during operation |
-| Trisul example | Monthly charts, scheduled reports | Interface Tracking, trigger-based alerting |
+| Timing | Scheduled or delayed | Continuous and immediate |
+| Data handling | Processes accumulated datasets | Processes events individually |
+| Latency | Higher | Lower |
+| Best suited for | Reports, trends, summaries | Monitoring, alerting, detection |
+| Resource usage | Can be optimized for off-peak execution | Continuous operational overhead |
+| Networking examples | Historical reporting | Live traffic monitoring |
+
+Batch processing is optimized for scalability and large-scale analysis, while real-time processing prioritizes immediate operational visibility.
 
 ---
 
-## What makes batch processing useful
+## Why batch processing is useful
 
-Batch processing is useful because it is efficient for large-scale analysis. It allows deeper computation without the pressure of immediate response.
+Batch processing is effective when:
+- Immediate results are not required
+- Large volumes of data must be analyzed efficiently
+- Historical context is important
+- Aggregation and summarization are required
 
-Its main tradeoff is delay. If the result is needed right away, batch processing may not be the right choice.
+Benefits include:
+- Efficient processing of large datasets
+- Reduced continuous processing overhead
+- Improved scalability for historical analytics
+- Better suitability for long-term reporting and trend analysis
 
-Key benefits of batch processing:
-- **Efficiency**: Process large data volumes in a single run
-- **Resource optimization**: Schedule heavy processing for off-peak hours
-- **Comprehensive analysis**: Perform complex calculations on complete datasets
-- **Reduced overhead**: Less frequentprocessing reduces system overhead
-- **Cost-effective**: Typically requires less infrastructure than real-time processing
+The primary tradeoff is increased latency compared to real-time analytics systems.
 
 ---
 
 ## How Trisul handles batch processing
 
-Trisul supports batch-style analysis for network analytics through multiple features:
+Trisul supports batch-oriented analysis workflows for historical traffic analytics and reporting.
 
-- **Scheduled email reports**: Trisul can generate and email reports on a scheduled basis (daily, weekly, monthly), delivering batch-processed traffic summaries, top talkers lists, and usage statistics to operators
-- **Monthly charts**: Trisul's Monthly charts aggregate traffic data into monthly summaries using batch processing, providing long-term trend analysis and capacity planning data in compressed historical format
-- **Long Term Traffic Tool**: Trisul's Long Term Traffic Tool performs batch-style historical analysis on archived flow data, enabling review of retained traffic for forensics, compliance, or trend analysis
-- **Top-K analytics batch calculations**: Trisul calculates top talkers, top applications, and top destinations using batch processing over defined time periods, ranking entities by traffic volume
-- **Aggregate Flows summarization**: Trisul uses batch processing to aggregate flow data by application, host, protocol, or other dimensions, computing summary statistics efficiently
-- **Archive-based analytics**: Trisul supports batch analysis on archived flow records, enabling historical review without impacting real-time monitoring performance
+Relevant capabilities include:
 
-Trisul supports batch-style analysis for reports, summaries, rankings, and historical traffic review. Batch processing in Trisul enables efficient handling of large traffic datasets for monthly reporting, capacity planning, and historical analysis while keeping real-time monitoring performant.
+- **Scheduled reports** for periodic operational summaries
+- **Monthly charts** for long-term traffic visualization and trend analysis
+- **Long Term Traffic Tool** for historical traffic investigation
+- **Aggregate Flows** for summarizing traffic across hosts, protocols, applications, and interfaces
+- **Top-K analytics** for ranking traffic entities over defined time windows
+- **Historical flow analysis** using retained flow telemetry
+
+These capabilities support reporting, capacity planning, historical investigation, and large-scale traffic summarization workflows.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
 
 ---
 
@@ -147,24 +170,24 @@ Trisul supports batch-style analysis for reports, summaries, rankings, and histo
 
 ### What is batch processing?
 
-Batch processing is the execution of data processing tasks in grouped runs rather than continuously in real time.
+Batch processing is the execution of processing tasks on accumulated datasets at scheduled intervals rather than continuously in real time.
 
 ### Why is batch processing used?
 
-Batch processing is used to handle large amounts of data efficiently when immediate results are not required. It allows comprehensive analysis without the pressure of real-time response.
+Batch processing is used to efficiently analyze large datasets for reporting, summarization, ranking, and historical analysis.
 
 ### What is batch processing used for?
 
-Batch processing is used for reporting, summarization, archival analysis, and scheduled analytics. Common use cases include monthly usage reports, historical trend analysis, top-N ranking, and compliance reporting.
+Common uses include historical reporting, trend analysis, archive review, traffic summarization, and long-term capacity planning.
 
 ### How is batch processing different from real-time processing?
 
-Batch processing works on accumulated data at intervals, while real-time processing handles events as they happen. Batch processing has higher latency but is more efficient for large-scale analysis; real-time processing provides immediate results for monitoring and alerting.
+Batch processing analyzes accumulated data periodically, while real-time processing handles events continuously as they occur.
 
 ### How does Trisul use batch processing?
 
-Trisul uses batch processing for scheduled email reports, Monthly charts (monthly traffic summaries), Long Term Traffic Tool (historical analysis), Top-K analytics batch calculations, and Aggregate Flows summarization. This enables efficient handling of large traffic datasets for reporting and capacity planning.
+Trisul supports batch-oriented workflows through scheduled reports, historical traffic analysis, Aggregate Flows, Top-K analytics, and long-term traffic visualization.
 
-### When should I use batch processing vs real-time processing?
+### When should batch processing be used instead of real-time processing?
 
-Use batch processing for reports, summaries, historical analysis, and capacity planning where delay is acceptable. Use real-time processing for monitoring, alerting, and security detection where immediate response is required. Trisul uses both: batch processing for Monthly charts and scheduled reports, real-time processing for Interface Tracking and trigger-based alerting.
+Batch processing is preferable for historical analysis, large-scale summarization, and scheduled reporting where immediate results are not required.

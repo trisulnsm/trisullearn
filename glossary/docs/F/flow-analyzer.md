@@ -1,6 +1,6 @@
 ---
 title: What is a flow analyzer?
-description: A flow analyzer is software or a platform that receives flow records from network devices, stores them, and provides tools for querying, visualizing, and alerting on traffic patterns for operations and security use cases.
+description: A flow analyzer is software or a platform that receives network flow telemetry, stores or indexes flow records, and provides operational tools for querying, visualizing, investigating, and alerting on traffic behavior.
 sidebar_label: Flow analyzer
 sidebar_position: 14
 slug: /glossary/flow-analyzer
@@ -12,6 +12,7 @@ keywords:
   - flow analytics
   - ipfix analyzer
   - sflow analyzer
+  - network traffic analytics
 ---
 
 export const jsonLd = {
@@ -23,7 +24,7 @@ export const jsonLd = {
       "name": "What is the difference between a flow analyzer and a flow collector?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A flow collector receives and stores flow records. A flow analyzer adds a user interface, dashboards, alerting, and reporting on top of that stored data. The collector is the data pipeline; the analyzer is the analytics and visualization layer. In practice, most platforms combine both: the underlying collector stores the raw records, and the analyzer provides the interface to query and visualize them. Trisul is an example of a combined collector and analyzer in a single platform."
+        "text": "A flow collector primarily receives, processes, and stores flow telemetry from exporters such as routers or switches. A flow analyzer adds operational workflows such as dashboards, traffic visualization, alerting, investigation tools, and historical traffic analysis on top of collected flow data. Many modern platforms combine both functions."
       }
     },
     {
@@ -31,15 +32,15 @@ export const jsonLd = {
       "name": "What can a flow analyzer do that raw flow data cannot?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A flow analyzer turns raw flow records into actionable views: per-interface bandwidth utilization trending, top talkers ranked by volume, application traffic breakdowns, and alerting on anomalous behavior. Raw flow data is just a database of records. The analyzer provides the interface, the pre-built queries, the visualizations, and the alerting rules that make that data usable by NOC and SOC teams without manual SQL or scripting."
+        "text": "A flow analyzer transforms raw flow records into operational visibility through dashboards, traffic trending, top-talker analysis, anomaly visibility, historical investigations, alerting workflows, and interactive traffic exploration. It helps operators analyze traffic behavior without manually querying raw telemetry records."
       }
     },
     {
       "@type": "Question",
-      "name": "How does a flow analyzer detect anomalies?",
+      "name": "How do flow analyzers detect anomalies?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Anomaly detection in flow analyzers typically relies on baseline deviation: the analyzer learns what normal traffic looks like for each interface, host, or protocol over time, and flags deviations that exceed a configured threshold. A sudden spike in outbound traffic from a host, a new destination that has not been seen before, or a protocol that accounts for a larger share of traffic than expected are all patterns a flow analyzer can detect. Some analyzers also support threshold-based alerts, where operators set fixed limits for specific metrics."
+        "text": "Flow analyzers may use threshold-based alerting, traffic baselines, statistical analysis, behavioral analytics, or operational heuristics to identify unusual traffic patterns. Detection capabilities vary by platform and telemetry quality."
       }
     },
     {
@@ -47,7 +48,15 @@ export const jsonLd = {
       "name": "What is Top-K analytics in a flow analyzer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Top-K analytics identifies the highest-consumers across a set of flows in real time, such as the top N hosts by volume, the top N protocols by packet count, or the top N destinations by bytes sent. The analyzer tracks these rankings continuously and updates them as traffic changes. This is practical for capacity planning and for detecting traffic anomalies when a host suddenly appears in the top list or when a protocol that normally ranks low spikes into the top K."
+        "text": "Top-K analytics identifies the highest-ranking traffic entities across selected dimensions such as hosts, applications, interfaces, protocols, or destinations. This helps operators quickly identify dominant traffic consumers and operational anomalies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul support flow-analysis workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul supports flow-analysis workflows through flow ingestion, historical traffic analysis, Interface Tracking, Explore Flows investigation workflows, Top-K analytics, Flow Taggers, and operational traffic-visibility capabilities using NetFlow, IPFIX, sFlow, and related telemetry."
       }
     }
   ]
@@ -55,25 +64,120 @@ export const jsonLd = {
 
 # What is a flow analyzer?
 
-A flow analyzer is software that receives flow records from network devices, stores them, and provides tools for querying, visualizing, and alerting on traffic patterns. The analyzer sits on top of the flow collector: it takes the raw records and turns them into dashboards, reports, and alerts that NOC and SOC teams can act on. Flow analyzers are used for bandwidth trending, capacity planning, security detection, and compliance reporting.
+**A flow analyzer** is software or a platform that receives network flow telemetry, stores or indexes flow records, and provides operational tools for querying, visualizing, investigating, and alerting on traffic behavior.
+
+Flow analyzers are commonly used for:
+- Network traffic visibility
+- Bandwidth trending
+- Capacity planning
+- Security investigations
+- Traffic anomaly detection
+- Historical traffic analysis
+- Operational troubleshooting
+- ISP and carrier traffic engineering
+
+Flow analyzers commonly process telemetry from:
+- NetFlow
+- IPFIX
+- sFlow
+- J-Flow
+- NetStream
+- Vendor-specific flow-export technologies
+
+Unlike raw flow collectors alone, flow analyzers provide operational investigation and visualization workflows on top of stored telemetry.
+
+Trisul combines flow-collection and flow-analysis workflows within a single traffic-analytics platform.
 
 ---
 
 ## How a flow analyzer works
 
-A flow analyzer receives flow records from NetFlow, IPFIX, or sFlow exporters and stores them in a time-series database indexed by IP, port, protocol, and time. The analyzer builds queries and aggregations on top of that database to produce dashboards: per-interface utilization, top talkers, application breakdowns, and traffic trends over defined time windows. The underlying data is the same flow metadata that the collector stores; the analyzer adds the query interface, visualization, and alerting logic.
+Flow analyzers receive telemetry exported from routers, switches, firewalls, probes, or other network devices.
 
-Alerting in a flow analyzer can be threshold-based or anomaly-based. Threshold alerts fire when a metric exceeds a fixed limit, such as an interface exceeding 80 percent utilization or a host sending more than a defined number of bytes per minute. Anomaly alerts fire when traffic deviates from a learned baseline, such as a sudden spike in outbound traffic from a host that normally only receives traffic.
+Typical workflow:
+
+1. **Flow export** → Network devices export flow telemetry
+2. **Telemetry ingestion** → The analyzer receives and processes flow records
+3. **Storage and indexing** → Flow records are indexed for operational querying
+4. **Aggregation and analytics** → Traffic behavior is summarized and analyzed
+5. **Operational visibility** → Dashboards, alerts, and investigation workflows are presented to operators
+
+Flow analyzers commonly analyze:
+- Source and destination addresses
+- Ports and protocols
+- Byte and packet counts
+- Interface utilization
+- Traffic timing
+- Application visibility
+- Historical trends
+- Communication relationships
+
+The exact capabilities depend on:
+- Exporter telemetry depth
+- Sampling configuration
+- Retention architecture
+- Storage scalability
+- Analytics workflows
+- Platform design
 
 ---
 
 ## Flow analyzers in network operations
 
-NOC teams use flow analyzers for bandwidth trending and capacity planning. Interface utilization reports show which links are approaching saturation, and top talker reports identify the hosts or applications responsible. Without a flow analyzer, this information is available only through manual queries on the raw flow database.
+Flow analyzers are widely used in:
+- NOC operations
+- SOC investigations
+- ISP traffic engineering
+- Datacenter monitoring
+- Cloud-network visibility
+- Incident response
+- Compliance workflows
 
-SOC teams use flow analyzers for detection. Anomalies that would be invisible in a log-based stack, such as data exfiltration over an unusual port, a host scanning the internal network, or long-duration connections to external destinations, are all visible in flow patterns. The analyzer surfaces these patterns as alerts or dashboards instead of requiring manual investigation of raw records.
+### NOC operations
 
-ISPs use flow analyzers for traffic engineering and peering analysis. Per-prefix and per-AS traffic reports show which destinations and networks generate the most flow traffic, informing routing policy and peering capacity decisions.
+NOC teams use flow analyzers for:
+- Interface utilization trending
+- Capacity planning
+- Congestion analysis
+- Application-usage visibility
+- Traffic troubleshooting
+- Top-talker identification
+
+Flow visibility helps operators identify:
+- Saturated interfaces
+- Unexpected traffic growth
+- High-volume applications
+- Persistent bottlenecks
+- Traffic imbalances
+
+### SOC operations
+
+SOC teams use flow analyzers for:
+- Threat investigations
+- Historical traffic analysis
+- Lateral movement visibility
+- Data-exfiltration investigations
+- Suspicious communication analysis
+- Traffic anomaly investigations
+
+Flow analyzers help establish:
+- Communication timelines
+- Host relationships
+- Historical activity patterns
+- Scope of compromise
+- Traffic anomalies
+
+### ISP and carrier operations
+
+ISPs and carriers use flow analyzers for:
+- Per-prefix traffic analysis
+- ASN-level visibility
+- Peering analysis
+- Routing optimization
+- Capacity engineering
+- Traffic trending
+
+The operational value depends heavily on telemetry quality, exporter placement, retention depth, and investigation workflows.
 
 ---
 
@@ -81,34 +185,135 @@ ISPs use flow analyzers for traffic engineering and peering analysis. Per-prefix
 
 | Dimension | Flow collector | Flow analyzer |
 |---|---|---|
-| Primary function | Receives and stores flow records | Queries, visualizes, and alerts on stored data |
-| User interface | None or minimal | Dashboards, reports, alert configuration |
-| Query capability | Raw data access only | Pre-built queries and custom filters |
-| Alerting | Optional or none | Built-in threshold and anomaly alerts |
-| Best fit | Data pipeline and storage | Operations visibility and detection |
+| Primary function | Receives and processes flow telemetry | Provides operational analytics and investigation workflows |
+| Operational visibility | Minimal or infrastructure-focused | Dashboards, traffic analytics, and investigation tools |
+| Query capabilities | Raw telemetry access | Interactive filtering, analytics, and traffic exploration |
+| Alerting support | Limited or optional | Threshold and anomaly visibility workflows |
+| Common role | Telemetry ingestion pipeline | Operational traffic analysis platform |
 
-In practice, most platforms combine collector and analyzer in a single product. The raw data is stored by the collector component, and the visualization and alerting layer is the analyzer component.
+In practice, many platforms combine collector and analyzer functionality within the same architecture.
+
+---
+
+## Common flow-analysis capabilities
+
+Flow analyzers commonly provide:
+- Historical traffic analysis
+- Traffic dashboards
+- Top-talker visibility
+- Application analysis
+- Interface trending
+- Alerting workflows
+- Host investigation
+- Protocol analysis
+- Traffic baselining
+- Interactive traffic exploration
+
+Some platforms also support:
+- Traffic enrichment
+- Threat-intelligence tagging
+- ASN mapping
+- Geolocation
+- Behavioral analytics
+- Packet-correlation workflows
+
+The exact visibility depends on telemetry depth and platform capabilities.
+
+---
+
+## Alerting and anomaly visibility
+
+Flow analyzers commonly support:
+- Threshold-based alerts
+- Traffic anomaly visibility
+- Baseline deviation analysis
+- Operational trend monitoring
+- Host or interface behavior analysis
+
+Examples may include:
+- High outbound traffic volume
+- Unusual protocol usage
+- Traffic spikes
+- Unexpected communication patterns
+- Interface saturation
+- Long-duration flows
+
+Different platforms use different:
+- Detection logic
+- Statistical models
+- Baseline methodologies
+- Alert thresholds
+- Investigation workflows
+
+Anomaly visibility quality depends on:
+- Historical baselines
+- Telemetry completeness
+- Sampling behavior
+- Retention depth
+- Exporter consistency
+
+---
+
+## Operational considerations
+
+Flow-analysis platforms commonly face operational considerations including:
+- Large-scale telemetry storage
+- Sampling limitations
+- Exporter coverage gaps
+- Query scalability
+- High-cardinality datasets
+- Long-term retention requirements
+- Alert fatigue
+- Distributed telemetry correlation
+
+Sampled telemetry may:
+- Miss short-duration flows
+- Underrepresent low-volume traffic
+- Affect anomaly visibility
+
+Understanding telemetry limitations is important when interpreting traffic-analysis results.
 
 ---
 
 ## How Trisul handles flow analysis
 
-Trisul is both a flow collector and a flow analyzer. It accepts NetFlow v1, v5, v9, Flexible NetFlow, IPFIX, and all sFlow versions, auto-discovers routers and interfaces, and stores every flow record without rollup or summarization. The analyzer layer provides dashboards and tools for querying and visualizing flow data: Interface Tracking for per-interface utilization and top talkers, Top-K analytics for real-time identification of highest consumers across counter groups, and Flow Tagger for label-based classification and search.
+Trisul combines flow collection and flow-analysis workflows within a unified traffic-analytics platform.
 
-Trigger-based alerting is built into the analyzer: fixed-limit alerts for specific metrics and key combinations, and Flow Tracker for monitoring per-flow conditions as traffic flows. Flow Taggers and LUA API allow custom real-time analytics plugins to extend the analysis logic. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
+Relevant capabilities include:
+
+- **NetFlow, IPFIX, sFlow, and related telemetry ingestion**
+- **Historical traffic analysis**
+- **Interface Tracking** for interface-level traffic visibility
+- **Top-K analytics** for identifying high-volume traffic entities
+- **Explore Flows** for interactive traffic investigations
+- **Flow Taggers** for contextual traffic labeling
+- **Traffic anomaly visibility**
+- **Host and application traffic analysis**
+- **Operational traffic dashboards and investigation workflows**
+- **Lua API extensibility for custom analytics workflows**
+
+These capabilities help operators analyze traffic behavior, investigate anomalies, troubleshoot operational issues, perform historical traffic investigations, and support network-security workflows.
+
+Trisul focuses primarily on scalable traffic analytics and operational visibility rather than payload-centric deep packet inspection workflows.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
 
 ---
 
 ## Related terms
 
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is flow collector?](/docs/glossary/flow-collector)
-- [What is flow data?](/docs/glossary/flow-data)
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is IPFIX?](/docs/glossary/ipfix)
-- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
-- [What is flow tagger?](/docs/glossary/flow-tagger)
-- [What is flow tracker?](/docs/glossary/flow-tracker)
+- [Flow monitoring](/glossary/flow-monitoring)
+- [Flow collector](/glossary/flow-collector)
+- [Flow data](/glossary/flow-data)
+- [NetFlow](/glossary/netflow)
+- [IPFIX](/glossary/ipfix)
+- [Top-K analytics](/glossary/top-k-analytics)
+- [Flow Tagger](/glossary/flow-tagger)
+- [Flow tracker](/glossary/flow-tracker)
 
 ---
 
@@ -116,16 +321,20 @@ Trigger-based alerting is built into the analyzer: fixed-limit alerts for specif
 
 ### What is the difference between a flow analyzer and a flow collector?
 
-A flow collector receives and stores flow records. A flow analyzer adds a user interface, dashboards, alerting, and reporting on top of that stored data. The collector is the data pipeline; the analyzer is the analytics and visualization layer. In practice, most platforms combine both: the underlying collector stores the raw records, and the analyzer provides the interface to query and visualize them. Trisul is an example of a combined collector and analyzer in a single platform.
+A flow collector primarily receives, processes, and stores flow telemetry from exporters such as routers or switches. A flow analyzer adds operational workflows such as dashboards, traffic visualization, alerting, investigation tools, and historical traffic analysis on top of collected flow data. Many modern platforms combine both functions.
 
 ### What can a flow analyzer do that raw flow data cannot?
 
-A flow analyzer turns raw flow records into actionable views: per-interface bandwidth utilization trending, top talkers ranked by volume, application traffic breakdowns, and alerting on anomalous behavior. Raw flow data is just a database of records. The analyzer provides the interface, the pre-built queries, the visualizations, and the alerting rules that make that data usable by NOC and SOC teams without manual SQL or scripting.
+A flow analyzer transforms raw flow records into operational visibility through dashboards, traffic trending, top-talker analysis, anomaly visibility, historical investigations, alerting workflows, and interactive traffic exploration. It helps operators analyze traffic behavior without manually querying raw telemetry records.
 
-### How does a flow analyzer detect anomalies?
+### How do flow analyzers detect anomalies?
 
-Anomaly detection in flow analyzers typically relies on baseline deviation: the analyzer learns what normal traffic looks like for each interface, host, or protocol over time, and flags deviations that exceed a configured threshold. A sudden spike in outbound traffic from a host, a new destination that has not been seen before, or a protocol that accounts for a larger share of traffic than expected are all patterns a flow analyzer can detect. Some analyzers also support threshold-based alerts, where operators set fixed limits for specific metrics.
+Flow analyzers may use threshold-based alerting, traffic baselines, statistical analysis, behavioral analytics, or operational heuristics to identify unusual traffic patterns. Detection capabilities vary by platform and telemetry quality.
 
 ### What is Top-K analytics in a flow analyzer?
 
-Top-K analytics identifies the highest-consumers across a set of flows in real time, such as the top N hosts by volume, the top N protocols by packet count, or the top N destinations by bytes sent. The analyzer tracks these rankings continuously and updates them as traffic changes. This is practical for capacity planning and for detecting traffic anomalies when a host suddenly appears in the top list or when a protocol that normally ranks low spikes into the top K.
+Top-K analytics identifies the highest-ranking traffic entities across selected dimensions such as hosts, applications, interfaces, protocols, or destinations. This helps operators quickly identify dominant traffic consumers and operational anomalies.
+
+### How does Trisul support flow-analysis workflows?
+
+Trisul supports flow-analysis workflows through flow ingestion, historical traffic analysis, Interface Tracking, Explore Flows investigation workflows, Top-K analytics, Flow Taggers, and operational traffic-visibility capabilities using NetFlow, IPFIX, sFlow, and related telemetry.

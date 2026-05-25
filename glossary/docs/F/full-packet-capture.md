@@ -1,6 +1,6 @@
 ---
 title: What is full packet capture?
-description: Full packet capture (PCAP) records every packet on a network link — headers and payload — to disk for analysis and forensic investigation.
+description: Full packet capture (PCAP) is the practice of recording complete network packets, including headers and payload where visible, for troubleshooting, traffic analysis, forensic investigation, and security monitoring.
 sidebar_label: Full packet capture
 sidebar_position: 1
 slug: /glossary/full-packet-capture
@@ -11,6 +11,7 @@ keywords:
   - packet forensics
   - raw packet capture
   - network forensics
+  - packet analysis
   - deep packet inspection
 ---
 
@@ -23,7 +24,7 @@ export const jsonLd = {
       "name": "How much storage does full packet capture require?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 1 Gbps link at 50% utilization generates roughly 5–6 TB of PCAP per day. Most deployments reduce this by filtering out known-good traffic such as bulk backups and encrypted CDN streams, and tiering storage between fast NVMe for recent data and cheaper disk for archive. Retaining more than 7–14 days at full fidelity requires either heavy filtering or purpose-built storage infrastructure."
+        "text": "Storage requirements depend on link speed, utilization, traffic composition, retention goals, and capture policies. High-speed links can generate very large volumes of data, so organizations commonly use filtering, tiered storage, selective retention, or rolling capture windows to manage storage consumption."
       }
     },
     {
@@ -31,47 +32,31 @@ export const jsonLd = {
       "name": "What is the difference between full packet capture and NetFlow?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "NetFlow records who talked to whom, when, and how much. Full packet capture records what was actually exchanged. Flow data tells you a host sent 2 GB over port 443 at 2AM; PCAP shows you what was in that transfer. The two are complementary: flow data for detection and triage, PCAP for investigation and confirmation."
+        "text": "NetFlow and IPFIX summarize communications using flow metadata such as addresses, ports, byte counts, and timestamps. Full packet capture preserves the actual packets observed on the network, enabling deeper protocol analysis and packet-level investigation. The two approaches are complementary and are often used together."
       }
     },
     {
       "@type": "Question",
-      "name": "Does full packet capture work on encrypted traffic?",
+      "name": "Does full packet capture work with encrypted traffic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PCAP captures the encrypted bytes as they appear on the wire. Headers are readable; TLS payloads are ciphertext. You still get flow metadata, TLS certificate details, and JA3 fingerprints from the handshake. To inspect payload content, you need either a TLS inspection proxy inline or access to session keys."
+        "text": "Packet capture records encrypted traffic exactly as it appears on the wire. While encrypted payloads remain unreadable without decryption capabilities or session keys, analysts can still observe metadata such as addresses, protocols, TLS handshakes, certificates, timing, and traffic behavior."
       }
     },
     {
       "@type": "Question",
-      "name": "What are the main failure modes in a full packet capture deployment?",
+      "name": "Why is packet loss a concern in PCAP deployments?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The most common failure is silent packet loss at the capture interface. SPAN ports drop mirrored packets under load, often without any visible counter increment. Passive optical taps are lossless but require per-link hardware. The second failure mode is storage exhaustion: PCAP stores fill quietly and overwrite the data you need before an investigation begins."
+        "text": "Dropped packets reduce investigative accuracy because the retained capture no longer reflects the complete communication sequence. High-speed environments require careful capture architecture, storage planning, and monitoring to minimize packet loss during sustained traffic loads."
       }
     },
     {
       "@type": "Question",
-      "name": "How do analysts navigate from an alert to the relevant PCAP?",
+      "name": "How does Trisul support full packet capture workflows?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In platforms with per-flow indexing, analysts click from an alert directly to the matching packets. The flow 5-tuple and timestamp handle the lookup automatically. Without indexing, analysts load large capture files into Wireshark and filter by hand. That manual process works at small scale but breaks down when your archive spans terabytes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you apply new detection rules to traffic that was already captured?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, this is called retro analysis. New detection rules or threat indicators can be run against stored historical PCAP after the fact. This matters because threat intelligence often arrives days after an intrusion. With retro analysis, you can determine whether a host communicated with a newly-discovered malicious domain before you knew to look for it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What capture interface should be used for high-speed full packet capture?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Above 1 Gbps, kernel-bypass frameworks like PF_RING or AF_PACKET (TPACKET_V3) are required. Standard libpcap introduces enough CPU overhead to cause dropped packets at line rate on busy links. The capture interface should be fed by a passive network TAP rather than a SPAN port to avoid hardware-level loss."
+        "text": "Trisul supports full packet capture workflows through packet recording, indexed traffic analysis, Explore Flows investigations, historical querying, PF_RING integration, and packet-to-flow correlation workflows for operational troubleshooting and incident investigation."
       }
     }
   ]
@@ -79,27 +64,127 @@ export const jsonLd = {
 
 # What is full packet capture?
 
-Full packet capture (PCAP) is the practice of recording every packet on a network link, both headers and payload, to persistent storage. Unlike flow monitoring, which summarizes traffic into conversation records, PCAP preserves the complete wire-level data. It is the definitive record of what actually crossed the network, and the foundation for forensic investigation and incident response.
+Full packet capture (PCAP) is the practice of recording complete network packets, including headers and payload where visible, for troubleshooting, traffic analysis, forensic investigation, and security monitoring.
+
+Unlike flow telemetry, which summarizes traffic into metadata records, full packet capture preserves the actual observed packets from the network.
+
+Packet capture is commonly used for:
+- Incident investigation
+- Network forensics
+- Application troubleshooting
+- Protocol analysis
+- Threat hunting
+- Security monitoring
+- Historical traffic reconstruction
+- Operational troubleshooting
+
+Full packet capture is widely associated with:
+- PCAP and PCAPNG file formats
+- Network security monitoring
+- Protocol analyzers
+- Deep packet inspection workflows
+- Historical traffic analysis
+
+Trisul supports full packet capture and indexed packet-analysis workflows for operational and security investigations.
 
 ---
 
 ## How full packet capture works
 
-Packets are intercepted at a tap or SPAN port and written to disk in PCAP or PCAPNG format as a continuous ring buffer. Each frame is timestamped, and the raw bytes from the Ethernet frame onwards are stored verbatim.
+Packet-capture systems observe network traffic from:
+- Network TAPs
+- SPAN or mirror ports
+- Virtual taps
+- Inline capture devices
+- Software capture interfaces
 
-At speeds above 1 Gbps, standard socket-based capture drops packets. Kernel-bypass frameworks such as PF_RING or AF_PACKET move packets directly from the NIC to disk, bypassing the kernel networking stack and eliminating that overhead.
+Captured packets are written to storage in formats such as:
+- PCAP
+- PCAPNG
 
-Most platforms also build a per-flow index at write time, mapping each 5-tuple to its byte offsets in the capture store. This lets analysts retrieve packets for a specific conversation in seconds rather than scanning terabytes of raw files.
+Typical workflow:
+
+1. **Traffic observation** → Packets are mirrored or intercepted
+2. **Packet capture** → Raw packets are written to storage
+3. **Timestamping** → Packets are associated with capture timestamps
+4. **Indexing and metadata generation** → Systems build searchable references
+5. **Historical analysis** → Analysts retrieve and inspect packets later
+
+Captured visibility may include:
+- Ethernet headers
+- IP headers
+- TCP and UDP metadata
+- Protocol exchanges
+- DNS activity
+- TLS handshakes
+- Application-layer payloads where visible
+
+The exact visibility depends on:
+- Encryption usage
+- Capture location
+- Network architecture
+- Storage policies
+- Packet-loss conditions
+
+At higher traffic rates, specialized capture frameworks may be used to improve sustained capture performance and reduce packet loss.
+
+![](./images/full-packet-capture.png)
 
 ---
 
 ## Full packet capture in network operations
 
-In a SOC, PCAP is the evidence layer. Flow data or IDS alerts tell you something suspicious happened. PCAP tells you what was exchanged: commands issued, files transferred, credentials passed. For incident confirmation, there is no substitute.
+Full packet capture is widely used across operational and security environments.
 
-NOC teams use PCAP for application performance root cause analysis. TCP retransmissions, window behavior, TLS handshake failures, and application-level error codes are only visible at the packet level. Flow telemetry shows a conversation; it does not show that the conversation was broken.
+### SOC operations
 
-Storage is the central operational constraint. A 10 Gbps link at moderate utilization generates tens of terabytes per day. Deployments manage this with capture filters, excluding encrypted bulk traffic, focusing on externally-routed flows, or applying per-flow rules, which can reduce stored volume by 60 to 80% without significant loss to investigative value.
+Security teams use PCAP for:
+- Incident confirmation
+- Malware investigations
+- Threat hunting
+- Command-and-control analysis
+- Data-exfiltration investigations
+- Historical communication reconstruction
+
+Flow telemetry may indicate:
+- Which systems communicated
+- When communication occurred
+- How much traffic was exchanged
+
+Packet capture can provide additional protocol-level evidence and investigative detail where traffic visibility is available.
+
+### NOC operations
+
+Network operations teams use packet capture for:
+- Application troubleshooting
+- TCP analysis
+- TLS troubleshooting
+- Protocol debugging
+- Latency investigations
+- Root-cause analysis
+
+Packet-level visibility helps operators investigate:
+- Retransmissions
+- Connection failures
+- Protocol errors
+- Session behavior
+- Handshake failures
+
+### Compliance and investigative workflows
+
+Organizations may also use PCAP for:
+- Audit investigations
+- Historical analysis
+- Regulatory review
+- Internal investigations
+- Traffic reconstruction
+
+The operational value depends heavily on:
+- Capture completeness
+- Retention duration
+- Storage scalability
+- Search performance
+- Time synchronization
 
 ---
 
@@ -107,47 +192,123 @@ Storage is the central operational constraint. A 10 Gbps link at moderate utiliz
 
 | Dimension | Full packet capture | NetFlow / IPFIX |
 |---|---|---|
-| What it stores | Complete packet: headers and payload | Flow metadata: 5-tuple, byte counts, timestamps |
-| Investigative depth | Payload content, application behavior, file transfers | Who talked to whom, volume, duration |
-| Storage footprint | Very high, scales with wire speed | Low, approximately 1 to 2% of equivalent PCAP volume |
-| Retention period | Hours to days at full fidelity | Weeks to months |
-| Encrypted traffic | Headers readable; payload is ciphertext | Metadata only, no payload visibility |
-| Best fit | Forensic investigation, incident confirmation | Traffic trending, anomaly detection, compliance |
+| Primary visibility | Raw packets and protocol exchanges | Flow metadata and traffic summaries |
+| Investigative depth | Packet-level analysis | Conversation-level visibility |
+| Storage requirements | High | Relatively low |
+| Retention duration | Often shorter due to storage cost | Often longer |
+| Payload visibility | Possible where traffic is not encrypted | No payload visibility |
+| Common use case | Forensics and troubleshooting | Trending and operational analytics |
 
-Both are complementary. Flow data handles detection and long-term trending; PCAP handles investigation and confirmation. Most mature SOC and NSM deployments run both.
+The two approaches are complementary and commonly used together in mature monitoring environments.
 
 ---
 
-## What makes full packet capture work in practice
+## Encrypted traffic and packet capture
 
-The capture point determines loss. SPAN ports drop packets under load silently, above roughly 500 Mbps on a busy switch. Passive optical taps are the only lossless option for high-speed links.
+Packet capture records encrypted traffic exactly as it appears on the network.
 
-Index quality determines investigation speed. Without per-flow indexing, analysts scan raw files manually. With it, any alert can pivot directly to the relevant packets in seconds. For a terabyte-scale archive, this is the difference between a usable tool and an unusable one.
+Even when payloads are encrypted, analysts may still observe:
+- Addresses
+- Ports
+- Protocol metadata
+- TLS certificates
+- Handshake behavior
+- Session timing
+- Traffic patterns
 
-Retention management must be active. Ring-buffer overflow is the most common operational failure in PCAP deployments. The store fills, overwrites old data, and nobody notices until an investigation needs packets that no longer exist. Monitoring write rate and store utilization is not optional.
+Payload inspection generally requires:
+- TLS interception infrastructure
+- Session keys
+- Endpoint-level visibility
+- Decryption workflows
 
-Capture policies reduce storage without reducing value. Excluding known-good encrypted bulk flows, tiering to cheaper storage, and applying flow-level filters all extend effective retention significantly on the same hardware.
+Encryption therefore reduces payload visibility but does not eliminate traffic-analysis value entirely.
+
+---
+
+## Operational considerations
+
+Full packet-capture deployments commonly face operational considerations including:
+- Storage scalability
+- Packet-loss prevention
+- Capture-interface limitations
+- Search performance
+- Historical retention
+- High-speed traffic handling
+- Encryption visibility
+- Distributed monitoring architectures
+
+Operational effectiveness depends heavily on:
+- Capture completeness
+- Retention planning
+- Index quality
+- Monitoring placement
+- Timestamp accuracy
+- Storage architecture
+
+Packet loss is particularly important because:
+- Missing packets reduce investigative confidence
+- Incomplete captures may distort timelines
+- Dropped packets weaken protocol reconstruction
+
+Organizations commonly improve PCAP operations through:
+- Tiered storage architectures
+- Selective retention policies
+- Indexed packet retrieval
+- Centralized analysis workflows
+- High-performance capture frameworks
+- Capture filtering strategies
 
 ---
 
 ## How Trisul handles full packet capture
 
-Trisul captures raw packets continuously using PF_RING or AF_PACKET and builds a per-flow index at write time. From any alert, topper, or flow in the dashboard, analysts can pivot directly to the matching PCAP without manual file correlation. The capture store distributes across multiple disks to extend retention and reduce cost per byte.
+Trisul supports full packet capture and indexed traffic-analysis workflows for operational troubleshooting and security investigations.
 
-Storage policies let operators define exactly what gets written, by protocol, direction, or custom LUA rules, to control volume without losing investigative coverage. Retro analysis allows detection logic and flow taggers to be run against historical packet data after the fact, so new IOCs or detection rules can be applied to traffic captured before the threat was known. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+Relevant capabilities include:
+
+- **Packet recording and historical retention**
+- **Indexed packet retrieval workflows**
+- **Explore Flows** for packet-to-flow investigation
+- **Flow Taggers** for contextual telemetry enrichment
+- **Historical traffic analysis**
+- **PF_RING integration for high-speed capture workflows**
+- **Packet and flow correlation**
+- **Operational dashboards and drill-down workflows**
+- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
+- **Traffic reconstruction and investigation workflows**
+
+Trisul can help operators:
+- Investigate historical communications
+- Correlate packets with flows
+- Troubleshoot protocol behavior
+- Analyze suspicious activity
+- Support forensic investigations
+
+Capture policies and storage workflows can also be tuned to balance:
+- Retention duration
+- Investigative fidelity
+- Storage efficiency
+- Operational scalability
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
 
 ---
 
 ## Related terms
 
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is IPFIX?](/docs/glossary/ipfix)
-- [What is flow tagger?](/docs/glossary/flow-tagger)
-- [What is retro analysis?](/docs/glossary/retro-analysis)
-- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
-- [What is deep packet inspection?](/docs/glossary/dpi)
-- [What is sFlow?](/docs/glossary/sflow)
-- [What is flow tracker?](/docs/glossary/flow-tracker)
+- [NetFlow](/glossary/netflow)
+- [IPFIX](/glossary/ipfix)
+- [Flow tagger](/glossary/flow-tagger)
+- [Retro analysis](/glossary/retro-analysis)
+- [Network security monitoring](/glossary/network-security-monitoring)
+- [Deep packet inspection](/glossary/dpi)
+- [sFlow](/glossary/sflow)
+- [Flow tracker](/glossary/flow-tracker)
 
 ---
 
@@ -155,28 +316,20 @@ Storage policies let operators define exactly what gets written, by protocol, di
 
 ### How much storage does full packet capture require?
 
-A 1 Gbps link at 50% utilization generates roughly 5 to 6 TB of PCAP per day. Most deployments reduce this by filtering out known-good traffic such as bulk backups and encrypted CDN streams, and tiering storage between fast NVMe for recent data and cheaper disk for archive. Retaining more than 7 to 14 days at full fidelity requires either heavy filtering or purpose-built storage infrastructure.
+Storage requirements depend on link speed, utilization, traffic composition, retention goals, and capture policies. High-speed links can generate very large volumes of data, so organizations commonly use filtering, tiered storage, selective retention, or rolling capture windows to manage storage consumption.
 
 ### What is the difference between full packet capture and NetFlow?
 
-NetFlow records who talked to whom, when, and how much. Full packet capture records what was actually exchanged. Flow data tells you a host sent 2 GB over port 443 at 2AM; PCAP shows you what was in that transfer. The two are complementary: flow data for detection and triage, PCAP for investigation and confirmation.
+NetFlow and IPFIX summarize communications using flow metadata such as addresses, ports, byte counts, and timestamps. Full packet capture preserves the actual packets observed on the network, enabling deeper protocol analysis and packet-level investigation. The two approaches are complementary and are often used together.
 
-### Does full packet capture work on encrypted traffic?
+### Does full packet capture work with encrypted traffic?
 
-PCAP captures the encrypted bytes as they appear on the wire. Headers are readable; TLS payloads are ciphertext. You still get flow metadata, TLS certificate details, and JA3 fingerprints from the handshake. To inspect payload content, you need either a TLS inspection proxy inline or access to session keys.
+Packet capture records encrypted traffic exactly as it appears on the wire. While encrypted payloads remain unreadable without decryption capabilities or session keys, analysts can still observe metadata such as addresses, protocols, TLS handshakes, certificates, timing, and traffic behavior.
 
-### What are the main failure modes in a full packet capture deployment?
+### Why is packet loss a concern in PCAP deployments?
 
-The most common failure is silent packet loss at the capture interface. SPAN ports drop mirrored packets under load, often without any visible counter increment. Passive optical taps are lossless but require per-link hardware. The second failure mode is storage exhaustion: PCAP stores fill quietly and overwrite the data you need before an investigation begins.
+Dropped packets reduce investigative accuracy because the retained capture no longer reflects the complete communication sequence. High-speed environments require careful capture architecture, storage planning, and monitoring to minimize packet loss during sustained traffic loads.
 
-### How do analysts navigate from an alert to the relevant PCAP?
+### How does Trisul support full packet capture workflows?
 
-In platforms with per-flow indexing, analysts click from an alert directly to the matching packets. The flow 5-tuple and timestamp handle the lookup automatically. Without indexing, analysts load large capture files into Wireshark and filter by hand. That manual process works at small scale but breaks down when your archive spans terabytes.
-
-### Can you apply new detection rules to traffic that was already captured?
-
-Yes, this is called retro analysis. New detection rules or threat indicators can be run against stored historical PCAP after the fact. This matters because threat intelligence often arrives days after an intrusion. With retro analysis, you can determine whether a host communicated with a newly-discovered malicious domain before you knew to look for it.
-
-### What capture interface should be used for high-speed full packet capture?
-
-Above 1 Gbps, kernel-bypass frameworks like PF_RING or AF_PACKET (TPACKET_V3) are required. Standard libpcap introduces enough CPU overhead to cause dropped packets at line rate on busy links. The capture interface should be fed by a passive network TAP rather than a SPAN port to avoid hardware-level loss.
+Trisul supports full packet capture workflows through packet recording, indexed traffic analysis, Explore Flows investigations, historical querying, PF_RING integration, and packet-to-flow correlation workflows for operational troubleshooting and incident investigation.

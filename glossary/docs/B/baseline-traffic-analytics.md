@@ -1,6 +1,6 @@
 ---
 title: What is baseline traffic analytics?
-description: Baseline traffic analytics establishes a reference point for normal network traffic patterns over time. Trisul provides baseline traffic analytics through flow monitoring with historical trending, Interface Tracking for per-interface baselines, and Top-K analytics for anomaly detection.
+description: Baseline traffic analytics establishes reference patterns for normal network behavior over time. Trisul supports baseline-oriented traffic analysis through historical flow visibility, interface monitoring, and traffic trend analytics.
 sidebar_label: Baseline traffic analytics
 sidebar_position: 36
 slug: /glossary/baseline-traffic-analytics
@@ -21,7 +21,7 @@ export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "What is Baseline Traffic Analytics?",
-  "description": "Baseline traffic analytics establishes a reference point for normal network traffic patterns over time. Trisul provides baseline traffic analytics through flow monitoring with historical trending, Interface Tracking for per-interface baselines, and Top-K analytics for anomaly detection.",
+  "description": "Baseline traffic analytics establishes reference patterns for normal network behavior over time. Trisul supports baseline-oriented traffic analysis through historical flow visibility, interface monitoring, and traffic trend analytics.",
   "about": {
     "@type": "DefinedTerm",
     "name": "Baseline Traffic Analytics",
@@ -35,31 +35,58 @@ export const jsonLd = {
 
 # What is baseline traffic analytics?
 
-**Baseline traffic analytics** establishes a reference point for normal network traffic patterns over time, enabling anomaly detection, capacity planning, and security monitoring. It defines what "**normal**" looks like on a network, making every deviation immediately visible for investigation. Static baselines are fixed; dynamic baselines adapt to time-of-day and day-of-week patterns. Trisul provides baseline traffic analytics through flow monitoring with historical trending and Interface Tracking.
+**Baseline traffic analytics** is the process of establishing reference patterns for normal network behavior over time.
+
+These baselines help operators:
+- Identify anomalies and unusual traffic behavior
+- Detect operational and security issues
+- Understand long-term traffic trends
+- Support capacity planning and troubleshooting
+
+A baseline represents expected traffic conditions for a network, interface, host, application, or protocol during normal operation.
+
+Trisul supports baseline-oriented traffic analysis through historical flow visibility, interface monitoring, and traffic trend analytics.
 
 ---
 
 ## How it works
 
-Baseline analytics collects traffic data over a representative period using NetFlow, sFlow, or packet capture. It analyzes patterns during peak and off-peak hours, identifies normal traffic volumes and types, and documents common communication paths. The baseline is updated regularly to reflect infrastructure or business changes.
+Baseline analytics relies on collecting and analyzing traffic telemetry over time to identify recurring patterns and expected operating conditions.
 
-The baseline establishment process:
-1. **Data collection** → Gather traffic data using NetFlow, sFlow, J-Flow, IPFIX, or packet capture
-2. **Representative period** → Collect data over days/weeks covering peak and off-peak hours
-3. **Pattern analysis** → Identify normal traffic volumes, types, and communication paths
-4. **Baseline creation** → Document typical patterns as the reference point
-5. **Continuous monitoring** → Compare current traffic against baseline
-6. **Regular updates** → Update baseline quarterly or when infrastructure changes
+Common telemetry sources include:
+- NetFlow
+- IPFIX
+- sFlow
+- J-Flow
+- Interface statistics
+- Packet or metadata analysis
+
+Typical baseline workflow:
+
+1. **Data collection** → Traffic telemetry is collected from network infrastructure
+2. **Historical analysis** → Traffic behavior is analyzed across different time periods
+3. **Pattern identification** → Recurring utilization and communication patterns are identified
+4. **Reference establishment** → Expected traffic behavior becomes the operational baseline
+5. **Continuous comparison** → Current traffic is compared against historical expectations
+6. **Deviation analysis** → Significant deviations are investigated for operational or security impact
+
+Baselines may be static or adaptive depending on operational requirements.
 
 ---
 
 ## In network operations
 
-- **NOC:** Detect performance issues by identifying traffic spikes that deviate from baseline utilization patterns.
-- **SOC:** Detect security incidents by identifying unusual data flows, unfamiliar protocols, or communication with unexpected destinations.
-- **Capacity Planning:** Use baseline trends to forecast growth and plan upgrades before links reach saturation.
+Baseline traffic analytics is commonly used in operational monitoring and security analysis.
 
-Trisul's baseline analytics supports all three operational use cases through automatic baseline establishment and deviation detection.
+Typical use cases include:
+
+- **NOC operations**: Detect unusual utilization spikes or traffic shifts
+- **Security monitoring**: Identify unexpected communication behavior or abnormal traffic patterns
+- **Capacity planning**: Track long-term growth trends and recurring utilization cycles
+- **Application analysis**: Compare current application behavior against historical norms
+- **Troubleshooting**: Identify traffic deviations associated with outages or degraded performance
+
+Trisul supports these workflows through flow analytics and historical traffic visibility.
 
 ---
 
@@ -67,12 +94,12 @@ Trisul's baseline analytics supports all three operational use cases through aut
 
 | Dimension | Static baseline | Dynamic baseline |
 |---|---|---|
-| Adaptation | None | Accounts for time-of-day, day-of-week |
-| False positives | Higher | Lower |
-| Maintenance | Manual updates | Automatic adjustments |
-| Best for | Stable networks | Modern dynamic networks |
+| Adaptation | Fixed reference values | Adjusts to recurring traffic patterns |
+| Maintenance | Manual updates required | Continuously adapts over time |
+| False positives | Higher in changing environments | Lower in variable environments |
+| Best suited for | Stable traffic environments | Dynamic enterprise or ISP networks |
 
-Dynamic baselines are more effective in modern networks because they account for normal variations rather than flagging them as anomalies.
+Dynamic baselines are generally more effective in environments where traffic patterns vary by time, application behavior, or user activity.
 
 ---
 
@@ -80,40 +107,50 @@ Dynamic baselines are more effective in modern networks because they account for
 
 | Detection Type | What it identifies | Example |
 |---|---|---|
-| Traffic spikes | Sudden increases in volume | DDoS attack, viral content |
-| Unusual data flows | Unexpected communication patterns | Data exfiltration, C2 communication |
-| Unfamiliar protocols | New or unexpected protocols | Malware, unauthorized applications |
-| Unknown destinations | Communication with new endpoints | Compromised host, phishing |
-| Performance degradation | Deviations from normal latency/throughput | Congestion, network issues |
-| Capacity trends | Gradual growth toward saturation | Need for link upgrade |
+| Traffic spikes | Sudden increases in traffic volume | DDoS activity, unexpected load |
+| Traffic drops | Unusual decreases in activity | Service outage, routing failure |
+| New communication patterns | Unexpected host or protocol behavior | Compromised system activity |
+| Utilization anomalies | Deviations from expected interface usage | Congestion or operational instability |
+| Long-term growth trends | Gradual traffic increases | Capacity upgrade planning |
+| Behavioral anomalies | Unexpected application or flow behavior | Unauthorized or suspicious traffic |
 
 ---
 
 ## How baseline traffic analytics supports anomaly detection
 
-Once a baseline is established, the analysis process shifts to identifying deviations from the norm:
+Once baseline patterns are established, operators can compare live traffic against historical expectations.
 
-- **Sudden traffic spikes**: Automated monitoring identifies volume increases beyond baseline thresholds
-- **Unusual data flows**: Unfamiliar communication patterns trigger alerts for investigation
-- **Unfamiliar protocols**: New protocols not in baseline are flagged
-- **Automated algorithms**: Statistical algorithms continuously analyze traffic
-- **Alert generation**: Teams are notified when anomalies exceed defined thresholds
-- **Investigation support**: Anomalies are enriched with context for faster root cause analysis
+This helps identify:
+- Sudden traffic spikes
+- Unusual communication behavior
+- Unexpected protocol usage
+- Significant utilization changes
+- Deviations in host or application behavior
+
+Baseline comparisons improve operational visibility by helping teams distinguish normal variation from potentially important anomalies.
 
 ---
 
 ## How Trisul handles baseline traffic analytics
 
-Trisul provides baseline traffic analytics through flow-based monitoring:
+Trisul supports baseline-oriented analysis through historical traffic visibility and multidimensional flow analytics.
 
-- **Flow monitoring with historical trending**: Trisul collects flow records (NetFlow, sFlow, J-Flow, IPFIX) and maintains historical data for establishing baselines across days, weeks, and months
-- **Interface Tracking for per-interface baselines**: Trisul's Interface Tracking establishes per-interface traffic baselines, monitoring each interface's normal utilization patterns and alerting when deviations occur
-- **Top-K analytics against baseline expectations**: Trisul's Top-K analytics identifies top talkers, top destinations, and top applications against baseline expectations, flagging when normally quiet hosts suddenly become active
-- **Trigger-based alerting**: Trisul sends notifications when traffic deviates from configured thresholds or baseline patterns, with customizable sensitivity levels
-- **Explore Flows for baseline deviation investigation**: When a baseline deviation is detected, use Trisul's Explore Flows to investigate the traffic pattern with full flow metadata
-- **Aggregate Flows for baseline trending**: Summarize traffic by application, host, or protocol over time to establish and monitor baseline trends
+Relevant capabilities include:
 
-Trisul provides baseline traffic analytics through flow monitoring with historical trending, Interface Tracking for per-interface baselines, and Top-K analytics for identifying top talkers against baseline expectations. Trigger-based alerting sends notifications when traffic deviates from configured thresholds, enabling anomaly detection.
+- **Flow monitoring** using NetFlow, IPFIX, sFlow, J-Flow, and similar telemetry
+- **Historical traffic trending** for identifying recurring utilization patterns
+- **Interface Tracking** for monitoring interface behavior over time
+- **Top-K analytics** for identifying major traffic contributors and behavioral changes
+- **Explore Flows** for investigating anomalous traffic patterns
+- **Aggregate Flows** for long-term traffic analysis and trend comparison
+- **Threshold and rule-based monitoring workflows** for identifying operational deviations
+
+These capabilities help operators analyze changing traffic behavior, investigate anomalies, and understand long-term network trends.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
 
 ---
 
@@ -138,24 +175,24 @@ Trisul provides baseline traffic analytics through flow monitoring with historic
 
 ### What is a network traffic baseline?
 
-A network traffic baseline is a detailed profile of normal network operations representing typical data flow patterns across devices, applications, and users over a specified period. It includes traffic volumes, types of traffic, and common communication paths. Once established, the baseline becomes a benchmark for detecting deviations that indicate security incidents or performance issues.
+A network traffic baseline is a reference model of normal network behavior established from historical traffic observations over time.
 
 ### How is a traffic baseline established?
 
-Establishing a baseline involves collecting traffic data over a representative period using NetFlow or deep packet inspection, analyzing patterns during peak and off-peak hours, documenting normal traffic volumes and types, and implementing continuous monitoring with alerts for deviations. The baseline should be updated quarterly to reflect infrastructure changes.
+A baseline is established by collecting and analyzing traffic telemetry across representative operational periods to identify recurring patterns and expected behavior.
 
 ### What is the difference between static and dynamic baselines?
 
-Static baselines are fixed reference points that do not change over time. Dynamic baselines adapt to changing network conditions such as time-of-day fluctuations, day-of-week patterns, and business growth. Dynamic baselines are more effective in modern networks because they account for normal variations rather than flagging them as anomalies.
+Static baselines use fixed reference values, while dynamic baselines adapt to changing traffic conditions and recurring usage patterns.
 
 ### How does baseline traffic analytics support anomaly detection?
 
-Once a baseline is established, the analysis process shifts to identifying deviations from the norm, including sudden traffic spikes, unusual data flows, or unfamiliar protocols. Automated monitoring tools use algorithms to continuously analyze traffic, identify anomalies, and alert teams for investigation.
+Baseline analytics helps identify deviations from expected traffic behavior, including unusual spikes, unexpected communication patterns, or abnormal utilization changes.
 
 ### How does Trisul implement baseline traffic analytics?
 
-Trisul implements baseline traffic analytics through flow monitoring with historical trending, Interface Tracking for per-interface baselines, and Top-K analytics comparing current traffic against baseline expectations. Trigger-based alerting sends notifications when traffic deviates from configured thresholds.
+Trisul supports baseline-oriented analysis through historical flow visibility, Interface Tracking, Top-K analytics, traffic trending, and flow investigation workflows.
 
-### What anomalies can Trisul baseline analytics detect?
+### What anomalies can baseline traffic analytics detect?
 
-Trisul baseline analytics can detect DDoS attacks (traffic volume spikes), data exfiltration (unusual outbound flows), port scans (unfamiliar connection patterns), compromised hosts (communication with unexpected destinations), bandwidth hogs (top talkers exceeding baseline), and capacity trends (gradual growth toward saturation).
+Baseline analytics can help identify traffic spikes, unusual communication behavior, congestion events, abnormal utilization patterns, and long-term traffic growth trends.

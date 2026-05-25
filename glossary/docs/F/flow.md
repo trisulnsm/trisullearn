@@ -1,6 +1,6 @@
 ---
 title: What is a flow?
-description: A network flow is a sequence of packets sharing a common 5-tuple — source IP, destination IP, source port, destination port, and protocol — treated as a single unit of traffic for monitoring and analysis.
+description: A network flow is a sequence of packets sharing common traffic attributes such as source and destination addresses, ports, and protocol, treated as a logical unit of communication for monitoring and analysis.
 sidebar_label: Flow
 sidebar_position: 2
 slug: /glossary/flow
@@ -12,6 +12,7 @@ keywords:
   - flow record
   - flow analysis
   - packet flow
+  - network telemetry
 ---
 
 export const jsonLd = {
@@ -23,7 +24,7 @@ export const jsonLd = {
       "name": "What is the difference between a flow and a packet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A packet is a single unit of data on the wire. A flow is a logical grouping of packets that share the same 5-tuple. A single HTTP session might consist of thousands of packets, but it is one flow. Monitoring tools work at the flow level because it gives you a manageable, conversation-level view of what is happening on the network without processing every individual packet in isolation."
+        "text": "A packet is a single unit of network data, while a flow is a logical grouping of packets that share common communication attributes such as addresses, ports, and protocol. Flow analysis summarizes communication behavior rather than storing every packet individually."
       }
     },
     {
@@ -31,7 +32,7 @@ export const jsonLd = {
       "name": "How is a flow different from a session?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A flow is unidirectional by definition: it tracks packets from source A to destination B. A session is the full bidirectional exchange, combining the two opposing flows. NetFlow and IPFIX exporters typically emit separate flow records for each direction. Some monitoring platforms stitch these into a single bidirectional session record for analysis; others store and query them separately."
+        "text": "A flow is often treated as directional telemetry describing packets moving in one direction between endpoints, while a session generally refers to the full bidirectional communication exchange. Some analytics platforms correlate directional flows into conversation-oriented views."
       }
     },
     {
@@ -39,7 +40,7 @@ export const jsonLd = {
       "name": "When does a flow end?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For TCP flows, termination is typically triggered by a FIN or RST flag. For UDP and other stateless protocols, exporters rely on an idle timeout, commonly 15 to 30 seconds, and an active timeout for long-running flows, typically 1 to 30 minutes. These timeout values are configurable on most exporters and directly affect how flow records are split and counted in your collector."
+        "text": "Flow expiration depends on exporter behavior, protocol handling, and timeout configuration. TCP flows may end after FIN or RST activity, while inactive or long-running flows are commonly expired using inactive and active timeout policies."
       }
     },
     {
@@ -47,23 +48,23 @@ export const jsonLd = {
       "name": "What information does a flow record contain?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A basic flow record includes the 5-tuple, start and end timestamps, byte and packet counts, and TCP flags. Extended formats like IPFIX can carry additional fields: ingress and egress interface, BGP AS numbers, VLAN IDs, MPLS labels, and application IDs. What fields are exported depends on the exporter platform and the configured template."
+        "text": "A flow record commonly contains addresses, ports, protocol identifiers, byte and packet counters, timestamps, and exporter metadata. Extended telemetry formats such as IPFIX may also include VLAN information, BGP attributes, application identifiers, or interface metadata."
       }
     },
     {
       "@type": "Question",
-      "name": "Can flow data detect encrypted threats?",
+      "name": "Can flow data help analyze encrypted traffic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow data does not provide payload visibility into encrypted sessions. What it can reveal is behavioral anomalies: unusual destinations, abnormal transfer volumes, unexpected port usage, and connection patterns inconsistent with normal baselines. TLS metadata visible in flow records, such as destination IP and port, connection duration, and byte ratios, can support detection even without decrypting the payload."
+        "text": "Yes. Although flow telemetry does not expose encrypted payload content, it can still reveal behavioral indicators such as communication timing, transfer volume, protocol usage, destination patterns, and long-duration sessions that may support operational or security analysis."
       }
     },
     {
       "@type": "Question",
-      "name": "What is flow sampling and what does it affect?",
+      "name": "How does flow sampling affect visibility?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Flow sampling exports only a fraction of observed flows, typically 1 in every N packets or flows, to reduce exporter and collector load at high speeds. The tradeoff is statistical accuracy: short flows and low-volume events are frequently missed. An attack that generates a small number of packets, a port scan, a targeted exfiltration over a slow channel, may not appear in sampled data at all. Unsampled flow collection is necessary where completeness matters for security investigations."
+        "text": "Sampling reduces telemetry volume by observing only a subset of traffic. This improves scalability but may reduce visibility into low-volume, short-duration, or infrequent communications. The operational impact depends on sampling ratios, exporter behavior, and monitoring requirements."
       }
     }
   ]
@@ -71,63 +72,282 @@ export const jsonLd = {
 
 # What is a flow?
 
-A network flow is a sequence of packets that share the same 5-tuple: source IP address, destination IP address, source port, destination port, and IP protocol. Every packet belonging to the same conversation between two endpoints is grouped into a single flow record. Routers, switches, and probes observe these packets at defined points in the network and export flow records to a collector for storage and analysis.
+A **network flow** is a logical grouping of packets that share common traffic attributes such as:
+- Source IP address
+- Destination IP address
+- Source port
+- Destination port
+- Protocol
+
+These fields are commonly called the **5-tuple**.
+
+Flow telemetry summarizes communication activity between endpoints and provides a scalable way to analyze network behavior without storing every packet payload.
+
+Flow records are commonly generated by:
+- Routers
+- Switches
+- Firewalls
+- Packet-analysis systems
+- Telemetry probes
+
+and exported to collectors for:
+- Traffic analysis
+- Capacity planning
+- Security investigations
+- Historical visibility
+- Operational monitoring
+
+Flow monitoring is widely used across:
+- Enterprise networks
+- Datacenters
+- ISP and carrier environments
+- Cloud infrastructure
+- Security operations
+
+Trisul supports large-scale flow analysis using NetFlow, IPFIX, sFlow, and packet-derived telemetry workflows.
 
 ---
 
 ## How a flow works
 
-As packets traverse a network device configured for flow export, the device inspects the 5-tuple of each packet. Packets matching an existing 5-tuple are counted against that flow. New 5-tuples create a new flow entry in the device's flow cache.
+As packets traverse a monitored device, telemetry systems analyze packet headers and group matching traffic into flow records.
 
-Flow records are exported to a collector when a flow ends or when a timeout fires. For TCP, a FIN or RST triggers export. For UDP and other stateless protocols, idle and active timers determine when the record is flushed. The exported record carries the 5-tuple, byte and packet counts, start and end timestamps, and any additional fields the exporter is configured to include.
+Typical workflow:
 
-The flow record itself contains no payload. It is a summary of the conversation: who talked, when, for how long, and how much data was exchanged.
+1. **Traffic observation** → Packets are observed at monitored interfaces or capture points
+2. **Flow identification** → Matching packet attributes are grouped logically
+3. **Flow-cache tracking** → Exporters maintain state for active communications
+4. **Flow expiration** → Timeout or protocol events trigger export
+5. **Telemetry export** → Flow records are sent to collectors for analysis
+
+Flow records commonly include:
+- Source and destination addresses
+- Ports and protocols
+- Byte and packet counters
+- Start and end timestamps
+- Traffic direction
+- Interface metadata
+- Exporter identifiers
+
+Extended telemetry formats such as IPFIX may also export:
+- VLAN information
+- MPLS labels
+- BGP attributes
+- Application identifiers
+- Tunnel metadata
+
+The exact telemetry depth depends on:
+- Exporter capabilities
+- Protocol support
+- Sampling configuration
+- Monitoring architecture
+- Telemetry templates
+
+The flow record itself is typically metadata-oriented rather than payload-oriented.
+
+![](./images/flow.png)
 
 ---
 
 ## Flows in network operations
 
-Flow data is the primary visibility mechanism in most enterprise and ISP networks. It requires no dedicated capture hardware; existing routers and switches export it natively via NetFlow, IPFIX, or sFlow. This makes it practical to deploy across large, distributed networks where full packet capture is not feasible at every point.
+Flow telemetry is one of the most widely used operational visibility mechanisms in modern networks.
 
-In security operations, flow records underpin detection use cases that do not require payload: identifying connections to known malicious IPs, detecting internal hosts scanning the network, spotting long-duration beaconing sessions, or flagging unusually large data transfers. These patterns are visible in flow metadata even when the session itself is encrypted.
+### NOC operations
 
-In network operations, flows are the foundation for bandwidth trending, application traffic analysis, and capacity planning. Engineers use per-flow data to identify top talkers, trace the path of specific traffic, and investigate interface saturation without needing packet-level detail.
+Network operations teams use flows for:
+- Bandwidth trending
+- Capacity planning
+- Interface-utilization analysis
+- Application visibility
+- Traffic troubleshooting
+- Congestion investigations
+
+Flow telemetry helps operators identify:
+- Top talkers
+- High-volume applications
+- Unexpected traffic growth
+- Routing asymmetry
+- Saturated interfaces
+
+### SOC operations
+
+Security teams use flow telemetry for:
+- Threat hunting
+- Historical investigations
+- Beaconing analysis
+- Lateral movement visibility
+- Data-exfiltration investigations
+- Communication analysis
+
+Even when traffic is encrypted, metadata may still reveal:
+- Suspicious destinations
+- Long-duration sessions
+- Repeated communication patterns
+- Unusual transfer behavior
+- Unexpected protocol usage
+
+### ISP and carrier environments
+
+ISPs and carriers use flow telemetry for:
+- Traffic engineering
+- Subscriber visibility
+- ASN-level analysis
+- Peering visibility
+- Capacity management
+- Historical reporting
+
+Operational usefulness depends heavily on:
+- Exporter placement
+- Telemetry completeness
+- Retention depth
+- Sampling behavior
+- Analytics workflows
 
 ---
 
 ## Flow vs full packet capture
 
-| Dimension | Flow record | Full packet capture |
+| Dimension | Flow telemetry | Full packet capture |
 |---|---|---|
-| What it stores | 5-tuple, byte counts, timestamps, flags | Complete packet including payload |
-| Payload visibility | None | Full, subject to encryption |
-| Storage footprint | Very low, approximately 1 to 2% of PCAP volume | Very high, scales with wire speed |
-| Retention period | Weeks to months | Hours to days at full fidelity |
-| Encrypted traffic | Metadata and behavioral patterns only | Headers visible; payload is ciphertext |
-| Best fit | Detection, trending, capacity planning | Forensic investigation, incident confirmation |
+| Primary visibility | Communication metadata | Individual packets and payloads |
+| Payload visibility | Typically none | Available where payloads are visible |
+| Scalability | Very high | Lower because of storage and processing requirements |
+| Typical retention | Often weeks or months | Often shorter because of storage demands |
+| Encrypted traffic | Behavioral visibility only | Payload remains encrypted unless decrypted separately |
+| Common use case | Trending, detection, operational visibility | Deep forensic or protocol analysis |
 
-Flow and PCAP are complementary. Flow data gives you long retention and breadth of coverage; PCAP gives you the depth needed to confirm and investigate. Most SOC deployments use flow data for triage and pivot to PCAP for evidence.
+Flow telemetry and packet capture are complementary rather than competing approaches.
+
+Many operational environments combine:
+- Topology-wide flow visibility
+- Selective packet capture
+- Historical telemetry retention
+- Packet-to-flow investigation workflows
+
+---
+
+## Flow directionality and sessions
+
+Many telemetry exporters treat flows directionally:
+- Client-to-server traffic may appear as one flow
+- Server-to-client traffic may appear as another flow
+
+A session or conversation often represents the combined bidirectional exchange.
+
+Some analytics platforms support:
+- Flow stitching
+- Bidirectional correlation
+- Conversation-oriented views
+- Multi-source telemetry correlation
+
+The exact behavior depends on:
+- Exporter implementation
+- Telemetry architecture
+- Analytics workflows
+- Correlation logic
+
+---
+
+## Flow sampling and visibility
+
+Some telemetry deployments use sampling to reduce exporter and collector load.
+
+Sampling improves scalability but may reduce visibility into:
+- Short-duration communications
+- Low-volume traffic
+- Sparse beaconing
+- Intermittent activity
+- Small security events
+
+Sampled telemetry is often useful for:
+- Trending
+- Capacity planning
+- Large-scale operational visibility
+
+while unsampled telemetry generally improves:
+- Investigation fidelity
+- Historical accuracy
+- Low-volume traffic visibility
+
+The operational impact depends on:
+- Sampling ratios
+- Traffic patterns
+- Exporter behavior
+- Monitoring requirements
+
+---
+
+## Operational considerations
+
+Flow-analysis deployments commonly face operational considerations including:
+- Sampling limitations
+- Exporter coverage gaps
+- Telemetry loss under load
+- Distributed telemetry architectures
+- High-cardinality traffic
+- Historical retention scaling
+- Multi-device correlation
+- Asymmetric routing
+
+Operational visibility depends heavily on:
+- Exporter placement
+- Telemetry completeness
+- Monitoring architecture
+- Retention policies
+- Collector scalability
+
+Organizations commonly validate telemetry quality using:
+- Interface counters
+- Exporter statistics
+- Baseline comparisons
+- Historical trend analysis
+- Packet-level validation workflows
 
 ---
 
 ## How Trisul handles flows
 
-Trisul stores a record of every flow without summarization or rollup. Flows can be ingested from NetFlow, IPFIX, or sFlow exporters, or reconstructed directly from raw packets. The flow database is designed to handle billions of flow records per day while maintaining fast query response times across large time ranges.
+Trisul supports scalable flow analysis through integrated telemetry-ingestion and traffic-analysis workflows.
 
-Flow Taggers allow operators to attach searchable text labels to flow records in real time based on matching rules, making it possible to classify and retrieve flows by business context, not just by IP and port. Flow Trackers apply streaming Top-K analysis to identify flows matching defined conditions, such as elephant flows, long-duration sessions, or high-volume transfers, as they occur. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
+Relevant capabilities include:
+
+- **NetFlow, IPFIX, sFlow, and related telemetry ingestion**
+- **Packet-derived flow generation workflows**
+- **Historical traffic analysis**
+- **Explore Flows** for interactive investigations
+- **Flow Taggers** for contextual traffic enrichment
+- **Flow Trackers** for operational traffic monitoring workflows
+- **Top-K analytics** for identifying dominant traffic entities
+- **Host and application traffic analysis**
+- **Operational dashboards and historical querying workflows**
+- **Flow correlation and multi-source visibility workflows**
+
+Trisul can ingest exported telemetry or generate flow records directly from packet observations depending on deployment architecture and operational requirements.
+
+These capabilities help operators investigate traffic behavior, analyze historical communications, troubleshoot operational problems, and support security investigations across large-scale environments.
+
+Relevant Trisul documentation:
+- https://docs.trisul.org/docs/ug/flow/
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
 
 ---
 
 ## Related terms
 
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is IPFIX?](/docs/glossary/ipfix)
-- [What is sFlow?](/docs/glossary/sflow)
-- [What is full packet capture?](/docs/glossary/full-packet-capture)
-- [What is flow tagger?](/docs/glossary/flow-tagger)
-- [What is flow tracker?](/docs/glossary/flow-tracker)
-- [What is flow sampling?](/docs/glossary/flow-sampling)
-- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
+- [What is NetFlow?](/glossary/netflow)
+- [What is IPFIX?](/glossary/ipfix)
+- [What is sFlow?](/glossary/sflow)
+- [What is full packet capture?](/glossary/full-packet-capture)
+- [What is flow tagger?](/glossary/flow-tagger)
+- [What is flow tracker?](/glossary/flow-tracker)
+- [What is flow sampling?](/glossary/flow-sampling)
+- [What is network security monitoring?](/glossary/network-security-monitoring)
 
 ---
 
@@ -135,24 +355,24 @@ Flow Taggers allow operators to attach searchable text labels to flow records in
 
 ### What is the difference between a flow and a packet?
 
-A packet is a single unit of data on the wire. A flow is a logical grouping of packets that share the same 5-tuple. A single HTTP session might consist of thousands of packets, but it is one flow. Monitoring tools work at the flow level because it gives you a manageable, conversation-level view of what is happening on the network without processing every individual packet in isolation.
+A packet is a single unit of network data, while a flow is a logical grouping of packets that share common communication attributes such as addresses, ports, and protocol. Flow analysis summarizes communication behavior rather than storing every packet individually.
 
 ### How is a flow different from a session?
 
-A flow is unidirectional by definition: it tracks packets from source A to destination B. A session is the full bidirectional exchange, combining the two opposing flows. NetFlow and IPFIX exporters typically emit separate flow records for each direction. Some monitoring platforms stitch these into a single bidirectional session record for analysis; others store and query them separately.
+A flow is often treated as directional telemetry describing packets moving in one direction between endpoints, while a session generally refers to the full bidirectional communication exchange. Some analytics platforms correlate directional flows into conversation-oriented views.
 
 ### When does a flow end?
 
-For TCP flows, termination is typically triggered by a FIN or RST flag. For UDP and other stateless protocols, exporters rely on an idle timeout, commonly 15 to 30 seconds, and an active timeout for long-running flows, typically 1 to 30 minutes. These timeout values are configurable on most exporters and directly affect how flow records are split and counted in your collector.
+Flow expiration depends on exporter behavior, protocol handling, and timeout configuration. TCP flows may end after FIN or RST activity, while inactive or long-running flows are commonly expired using inactive and active timeout policies.
 
 ### What information does a flow record contain?
 
-A basic flow record includes the 5-tuple, start and end timestamps, byte and packet counts, and TCP flags. Extended formats like IPFIX can carry additional fields: ingress and egress interface, BGP AS numbers, VLAN IDs, MPLS labels, and application IDs. What fields are exported depends on the exporter platform and the configured template.
+A flow record commonly contains addresses, ports, protocol identifiers, byte and packet counters, timestamps, and exporter metadata. Extended telemetry formats such as IPFIX may also include VLAN information, BGP attributes, application identifiers, or interface metadata.
 
-### Can flow data detect encrypted threats?
+### Can flow data help analyze encrypted traffic?
 
-Flow data does not provide payload visibility into encrypted sessions. What it can reveal is behavioral anomalies: unusual destinations, abnormal transfer volumes, unexpected port usage, and connection patterns inconsistent with normal baselines. TLS metadata visible in flow records, such as destination IP and port, connection duration, and byte ratios, can support detection even without decrypting the payload.
+Yes. Although flow telemetry does not expose encrypted payload content, it can still reveal behavioral indicators such as communication timing, transfer volume, protocol usage, destination patterns, and long-duration sessions that may support operational or security analysis.
 
-### What is flow sampling and what does it affect?
+### How does flow sampling affect visibility?
 
-Flow sampling exports only a fraction of observed flows, typically 1 in every N packets or flows, to reduce exporter and collector load at high speeds. The tradeoff is statistical accuracy: short flows and low-volume events are frequently missed. An attack that generates a small number of packets, such as a port scan or a targeted exfiltration over a slow channel, may not appear in sampled data at all. Unsampled flow collection is necessary where completeness matters for security investigations.
+Sampling reduces telemetry volume by observing only a subset of traffic. This improves scalability but may reduce visibility into low-volume, short-duration, or infrequent communications. The operational impact depends on sampling ratios, exporter behavior, and monitoring requirements.

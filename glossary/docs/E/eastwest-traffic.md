@@ -1,6 +1,6 @@
 ---
 title: What is east-west traffic?
-description: East-west traffic is network communication between devices within the same data center or network, such as server-to-server communication, database replication, and inter-process calls.
+description: East-west traffic is network communication between systems within the same internal environment, such as server-to-server, workload-to-workload, or service-to-service communication inside datacenters, cloud environments, or enterprise networks.
 sidebar_label: East-west traffic
 sidebar_position: 18
 slug: /glossary/east-west-traffic
@@ -12,6 +12,7 @@ keywords:
   - server-to-server traffic
   - north-south traffic
   - micro-segmentation
+  - lateral movement
 ---
 
 export const jsonLd = {
@@ -23,15 +24,15 @@ export const jsonLd = {
       "name": "What are examples of east-west traffic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Common examples include database replication between servers, file transfers within a data center, inter-process communication in microservices architectures, application requests between services, and VM migration traffic. These are all server-to-server communications that stay inside the network perimeter and never traverse external firewalls or gateways."
+        "text": "Examples include database replication, application-to-application communication, microservices interactions, VM migration traffic, storage synchronization, and server-to-server communications within internal environments."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is east-west traffic harder to secure than north-south traffic?",
+      "name": "Why is east-west traffic important for security monitoring?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "East-west traffic stays within the trusted internal network and typically bypasses perimeter security devices like firewalls and intrusion detection systems that sit at the network edge. Once an attacker compromises one host, they can move laterally across the network using east-west traffic without triggering perimeter alerts. This is why micro-segmentation and internal traffic monitoring are essential for east-west security."
+        "text": "East-west traffic is important for security monitoring because attackers often use internal lateral movement after an initial compromise. Monitoring internal communications helps identify suspicious behavior, anomalous traffic patterns, and unauthorized access attempts."
       }
     },
     {
@@ -39,7 +40,7 @@ export const jsonLd = {
       "name": "How does east-west traffic relate to lateral movement?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lateral movement is the technique attackers use to move east-west across a network after compromising an initial host. They use east-west traffic to access other servers, escalate privileges, and exfiltrate data from within the network. Monitoring east-west traffic is critical for detecting lateral movement and stopping attackers before they reach high-value targets."
+        "text": "Lateral movement involves attackers moving between systems inside an environment after gaining initial access. This activity commonly uses east-west traffic paths to reach additional hosts, services, or sensitive systems."
       }
     },
     {
@@ -47,7 +48,15 @@ export const jsonLd = {
       "name": "What is the difference between east-west and north-south traffic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "East-west traffic flows horizontally within a data center or network, between servers and devices inside the perimeter. North-south traffic flows vertically into or out of the network, between clients outside and servers inside. East-west is internal and lateral; north-south is external and perimeter-crossing. They require different security approaches: micro-segmentation for east-west, perimeter firewalls for north-south."
+        "text": "East-west traffic refers to communication within internal environments such as datacenters or cloud networks, while north-south traffic refers to traffic entering or leaving the environment across external boundaries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul support east-west traffic analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul supports east-west traffic analysis through flow analytics, internal traffic visibility, traffic investigation workflows, historical traffic analysis, and operational monitoring capabilities."
       }
     }
   ]
@@ -55,27 +64,94 @@ export const jsonLd = {
 
 # What is east-west traffic?
 
-East-west traffic is network communication between devices within the same data center or network. It includes server-to-server communication, database replication, file transfers, and inter-process calls in microservices architectures. East-west traffic stays inside the network perimeter and never traverses external firewalls or gateways. As cloud and containerized applications have grown, east-west traffic now accounts for most data center traffic, making its security critical.
+**East-west traffic** is network communication between systems within the same internal environment, such as server-to-server, workload-to-workload, or service-to-service communication inside datacenters, cloud environments, or enterprise networks.
 
-![](./images/eastwest-traffic.png)
+East-west traffic commonly includes:
+- Application-to-application communication
+- Database replication
+- Microservices communication
+- VM migration traffic
+- Internal API calls
+- Storage synchronization
+- Internal service discovery
+- Container-to-container communication
+
+Unlike traffic entering or leaving the environment, east-west traffic remains primarily within internal infrastructure boundaries.
+
+East-west visibility is important for:
+- Security monitoring
+- Lateral-movement detection
+- Capacity planning
+- Performance analysis
+- Application troubleshooting
+- Internal traffic analytics
+
+Trisul supports internal traffic visibility and east-west traffic investigation workflows through flow analytics and operational traffic analysis.
 
 ---
 
 ## What east-west traffic includes
 
-Examples include database replication between servers, file transfers within a data center, inter-process communication in microservices architectures, application requests between services, and VM migration traffic. All are server-to-server communications that originate and terminate within the same network scope.
+East-west traffic exists across many types of internal infrastructure.
 
-The term comes from network diagram conventions where internal communications are drawn horizontally, from left to right across the diagram. North-south traffic, by contrast, is drawn vertically, up and down between the network and external clients.
+Common examples include:
+
+| Traffic type | Operational purpose |
+|---|---|
+| Database replication | Synchronize distributed databases |
+| Microservices communication | Service-to-service application communication |
+| VM migration traffic | Move workloads between hypervisors |
+| Internal API traffic | Backend application communication |
+| Storage replication | Synchronize storage systems |
+| Container networking | Communication between containers and services |
+| Cluster synchronization | Distributed application coordination |
+
+Modern cloud-native and microservices environments often generate significant volumes of east-west traffic because applications are increasingly distributed internally across many interconnected services.
 
 ---
 
 ## East-west traffic in network operations
 
-SOC teams monitor east-west traffic to detect lateral movement. Once an attacker compromises one host, they move east-west to reach other servers, escalate privileges, and access high-value data. This movement is often invisible to perimeter security that only monitors north-south traffic.
+East-west visibility is important in:
+- Datacenters
+- Cloud environments
+- Enterprise networks
+- Kubernetes environments
+- Virtualized infrastructure
+- Hybrid cloud deployments
 
-NOC teams monitor east-west traffic for performance and capacity planning. Database replication, VM migration, and microservices chatter can consume significant bandwidth between racks or switches. Unusual east-west traffic patterns can indicate misconfiguration, performance issues, or application errors.
+Common operational use cases include:
 
-Enterprise architects use east-west traffic analysis to design micro-segmentation policies. Without segmentation, east-west traffic between any two hosts flows unimpeded, creating a flat network where lateral movement is easy. Micro-segmentation restricts east-west traffic to only what is required for applications to function.
+- **Security monitoring**: Detect lateral movement and suspicious internal communication
+- **Performance analysis**: Investigate internal application latency and congestion
+- **Capacity planning**: Analyze internal traffic growth and workload distribution
+- **Microservices troubleshooting**: Investigate service-to-service communication failures
+- **Operational visibility**: Understand internal dependency relationships
+- **Segmentation validation**: Verify internal access-control policies
+
+East-west traffic visibility becomes increasingly important as distributed applications generate more internal communications than traditional perimeter-oriented traffic models.
+
+---
+
+## East-west traffic and lateral movement
+
+Attackers commonly use east-west communication paths after initial compromise.
+
+Lateral movement may involve:
+- Accessing additional hosts
+- Escalating privileges
+- Discovering internal services
+- Reaching sensitive systems
+- Moving between workloads or segments
+
+Operational indicators may include:
+- Unusual internal connections
+- Unexpected service communications
+- Abnormal authentication patterns
+- New host-to-host relationships
+- Traffic spikes between internal systems
+
+Monitoring east-west traffic helps security teams investigate suspicious internal behavior and improve visibility into distributed environments.
 
 ---
 
@@ -83,32 +159,92 @@ Enterprise architects use east-west traffic analysis to design micro-segmentatio
 
 | Dimension | East-west traffic | North-south traffic |
 |---|---|---|
-| Direction | Horizontal within data center | Vertical into or out of network |
-| Scope | Internal, server-to-server | External, client-to-server |
-| Security perimeter | Bypasses perimeter firewalls | Crosses perimeter security |
-| Monitoring focus | Internal traffic, lateral movement | Ingress and egress traffic |
-| Best protection | Micro-segmentation | Perimeter firewalls and IDS |
+| Scope | Internal communications | External ingress or egress communications |
+| Typical direction | Internal lateral traffic | Traffic crossing environment boundaries |
+| Common examples | Service-to-service communication | User-to-application access |
+| Security focus | Internal visibility and segmentation | Perimeter protection and access control |
+| Operational concern | Lateral movement and internal performance | External exposure and edge security |
 
-Both traffic types require security, but they are protected differently. East-west traffic needs internal visibility and segmentation; north-south traffic needs perimeter protection and detection.
+Both traffic types are operationally important and often require different monitoring and security approaches.
+
+---
+
+## East-west traffic and micro-segmentation
+
+Micro-segmentation restricts internal communications between workloads, applications, or network segments.
+
+Micro-segmentation workflows commonly involve:
+- Internal access controls
+- Application-aware segmentation
+- Policy enforcement
+- East-west traffic restriction
+- Workload isolation
+
+East-west traffic visibility helps operators:
+- Understand communication dependencies
+- Validate segmentation policies
+- Identify unnecessary connectivity
+- Detect policy violations
+
+Effective segmentation requires operational visibility into normal internal communication patterns.
+
+---
+
+## Operational considerations
+
+East-west traffic analysis may be operationally challenging because:
+- Internal traffic volumes can be very large
+- Distributed applications create complex communication patterns
+- Cloud-native environments are highly dynamic
+- Encryption may reduce payload visibility
+- Monitoring points may be difficult to place internally
+
+Operational visibility often depends on:
+- Flow telemetry
+- Internal packet visibility
+- Cloud telemetry
+- Workload instrumentation
+- Historical traffic analysis
+
+The exact visibility level depends on deployment architecture and telemetry availability.
 
 ---
 
 ## How Trisul handles east-west traffic
 
-Trisul monitors east-west traffic through flow monitoring and packet capture within the data center. It captures internal traffic between servers, VMs, and containers, providing visibility into lateral communication patterns. Flow records show which hosts communicate, when, and how much data is exchanged.
+Trisul supports east-west traffic visibility and operational investigation workflows through flow analytics and internal traffic analysis capabilities.
 
-Trisul's flow analytics support east-west traffic analysis by identifying top talkers, detecting anomalous internal traffic patterns, and enabling search for lateral movement indicators. For micro-segmentation visibility, Trisul can be deployed with internal traffic taps or SPAN ports at the data center level. Full flow analysis documentation is at https://docs.trisul.org/docs/ug/flow/.
+Relevant capabilities include:
+
+- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
+- **Internal traffic visibility**
+- **Historical traffic trending**
+- **Explore Flows** for traffic investigation and drill-down workflows
+- **Traffic anomaly visibility**
+- **Top-K analytics** for identifying dominant internal communications
+- **Interface and traffic correlation workflows**
+- **Operational visibility into lateral traffic behavior**
+
+These capabilities help operators analyze internal communications, investigate lateral movement patterns, monitor distributed application behavior, and improve operational visibility across internal infrastructure environments.
+
+Trisul primarily provides traffic analytics and visibility rather than micro-segmentation enforcement or policy-control functionality.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#datacenter-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
 
 ---
 
 ## Related terms
 
-- [What is north-south traffic?](/docs/glossary/north-south-traffic)
-- [What is lateral movement?](/docs/glossary/lateral-movement)
-- [What is micro-segmentation?](/docs/glossary/micro-segmentation)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
-- [What is a flow?](/docs/glossary/flow)
+- [North-south traffic](/glossary/north-south-traffic)
+- [Lateral movement](/glossary/lateral-movement)
+- [Micro-segmentation](/glossary/micro-segmentation)
+- [Flow monitoring](/glossary/flow-monitoring)
+- [Network security monitoring](/glossary/network-security-monitoring)
+- [Flow](/glossary/flow)
+- [Datacenter monitoring](/glossary/datacenter-monitoring)
 
 ---
 
@@ -116,16 +252,20 @@ Trisul's flow analytics support east-west traffic analysis by identifying top ta
 
 ### What are examples of east-west traffic?
 
-Common examples include database replication between servers, file transfers within a data center, inter-process communication in microservices architectures, application requests between services, and VM migration traffic. These are all server-to-server communications that stay inside the network perimeter and never traverse external firewalls or gateways.
+Examples include database replication, application-to-application communication, microservices interactions, VM migration traffic, storage synchronization, and server-to-server communications within internal environments.
 
-### Why is east-west traffic harder to secure than north-south traffic?
+### Why is east-west traffic important for security monitoring?
 
-East-west traffic stays within the trusted internal network and typically bypasses perimeter security devices like firewalls and intrusion detection systems that sit at the network edge. Once an attacker compromises one host, they can move laterally across the network using east-west traffic without triggering perimeter alerts. This is why micro-segmentation and internal traffic monitoring are essential for east-west security.
+East-west traffic is important for security monitoring because attackers often use internal lateral movement after an initial compromise. Monitoring internal communications helps identify suspicious behavior, anomalous traffic patterns, and unauthorized access attempts.
 
 ### How does east-west traffic relate to lateral movement?
 
-Lateral movement is the technique attackers use to move east-west across a network after compromising an initial host. They use east-west traffic to access other servers, escalate privileges, and exfiltrate data from within the network. Monitoring east-west traffic is critical for detecting lateral movement and stopping attackers before they reach high-value targets.
+Lateral movement involves attackers moving between systems inside an environment after gaining initial access. This activity commonly uses east-west traffic paths to reach additional hosts, services, or sensitive systems.
 
 ### What is the difference between east-west and north-south traffic?
 
-East-west traffic flows horizontally within a data center or network, between servers and devices inside the perimeter. North-south traffic flows vertically into or out of the network, between clients outside and servers inside. East-west is internal and lateral; north-south is external and perimeter-crossing. They require different security approaches: micro-segmentation for east-west, perimeter firewalls for north-south.
+East-west traffic refers to communication within internal environments such as datacenters or cloud networks, while north-south traffic refers to traffic entering or leaving the environment across external boundaries.
+
+### How does Trisul support east-west traffic analysis?
+
+Trisul supports east-west traffic analysis through flow analytics, internal traffic visibility, traffic investigation workflows, historical traffic analysis, and operational monitoring capabilities.

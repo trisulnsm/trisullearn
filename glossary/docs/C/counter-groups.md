@@ -1,6 +1,6 @@
 ---
 title: What is a counter group?
-description: A counter group is a named collection of traffic meters in Trisul that tracks a specific dimension of network traffic, such as hosts, applications, or protocols, by accumulating byte, packet, and flow counts per key over time.
+description: A counter group is a logical collection of traffic counters in Trisul used to measure and analyze specific dimensions of network activity such as hosts, applications, protocols, interfaces, or traffic categories over time.
 sidebar_label: Counter groups
 sidebar_position: 26
 slug: /glossary/counter-groups
@@ -12,6 +12,7 @@ keywords:
   - network traffic counters
   - flow metrics
   - top-k analytics
+  - traffic analytics
 ---
 
 export const jsonLd = {
@@ -23,7 +24,7 @@ export const jsonLd = {
       "name": "What built-in counter groups does Trisul provide?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul ships with 40 to 50 built-in counter groups covering hosts, applications, protocols, interfaces, countries, ASNs, VLANs, and more. Each group tracks byte, packet, and flow counts per key. Built-in groups feed Top-K dashboards, trending reports, and threshold alerts without any configuration."
+        "text": "Trisul includes built-in counter groups for analyzing hosts, applications, protocols, interfaces, countries, ASNs, VLANs, and other traffic dimensions used in operational analytics workflows."
       }
     },
     {
@@ -31,7 +32,7 @@ export const jsonLd = {
       "name": "What types of custom counter groups can be created?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul supports five types: Filtered (meter a subset of a parent group by applying a filter, such as Web Hosts counting only HTTP and HTTPS traffic), Keyset (group keys into named sets, such as VoIP, Web, and Email ports), Stat Based (count only keys whose metric values exceed a threshold, such as Scanners where Security Alerts is more than 0), Rule Based (arbitrary rules matching business needs, such as CCTV Cameras defined by port and subnet), and Cross Keys (cross product of two or three groups, such as Internal Hosts by Country by External Hosts)."
+        "text": "Trisul supports multiple custom counter-group approaches including filtered groups, keyset-based grouping, rule-based classification, threshold-oriented statistical grouping, and cross-dimensional analytics."
       }
     },
     {
@@ -39,7 +40,7 @@ export const jsonLd = {
       "name": "What is cardinality counting in a counter group?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cardinality counting tracks unique values of one dimension per key in another. For example, adding a Unique Apps meter to the Hosts counter group tracks how many distinct applications each host uses. It is not a separate counter group but an additional meter added to any existing group."
+        "text": "Cardinality counting measures the number of unique values associated with a traffic entity or metric, such as the number of distinct applications used by a host."
       }
     },
     {
@@ -47,7 +48,15 @@ export const jsonLd = {
       "name": "How do counter groups relate to Top-K analytics?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every counter group feeds Top-K analytics. Trisul continuously ranks keys within each group by each meter, so Top-K reports for any group are available in real time without recomputation. Custom counter groups created via configuration or LUA appear in Top-K views alongside built-in groups."
+        "text": "Counter groups provide the traffic metrics and ranked entities used in Top-K analytics workflows, helping operators identify dominant traffic contributors and operational trends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Trisul use counter groups?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trisul uses counter groups to organize, meter, aggregate, and analyze traffic across multiple operational dimensions for monitoring, reporting, trending, and investigation workflows."
       }
     }
   ]
@@ -55,49 +64,171 @@ export const jsonLd = {
 
 # What is a counter group?
 
-A counter group is a named collection of traffic meters that tracks one dimension of network traffic, accumulating byte, packet, and flow counts per key over time. Trisul ships with 40 to 50 built-in counter groups covering hosts, applications, protocols, interfaces, countries, and ASNs. Custom counter groups extend this by applying filters, key groupings, statistical conditions, business rules, or cross-products of existing groups.
+A **counter group** is a logical collection of traffic counters in Trisul used to measure and analyze specific dimensions of network activity such as hosts, applications, protocols, interfaces, or traffic categories over time.
+
+Counter groups organize traffic analytics into measurable operational dimensions where each entity, or key, accumulates traffic-related metrics such as:
+- Bytes
+- Packets
+- Flows
+- Sessions
+- Events
+- Statistical measurements
+
+Counter groups are widely used throughout Trisul analytics workflows including:
+- Top-K analytics
+- Trending
+- Traffic investigation
+- Threshold monitoring
+- Operational reporting
+- Custom analytics
 
 ---
 
-## How it works
+## How counter groups work
 
-Each counter group has a set of keys and one or more meters. For the Hosts group, each key is an IP address and meters track bytes in, bytes out, and flows. Trisul accumulates these counters continuously and feeds them into Top-K rankings, trending charts, and threshold alerts. Custom groups are built on top of existing ones without duplicating the underlying data.
+Each counter group contains:
+- A set of keys representing traffic entities
+- One or more associated counters or meters
+- Aggregation and ranking workflows
+
+Examples include:
+- Hosts
+- Applications
+- Protocols
+- Interfaces
+- Countries
+- VLANs
+- Autonomous Systems (ASNs)
+
+Typical workflow:
+
+1. **Traffic observation** → Telemetry and traffic activity are collected
+2. **Entity classification** → Traffic is associated with keys in a counter group
+3. **Metric accumulation** → Counters accumulate bytes, packets, flows, or other measurements
+4. **Aggregation and ranking** → Traffic statistics are summarized and ranked
+5. **Operational analysis** → Operators investigate trends, anomalies, and traffic behavior
+
+Counter groups allow Trisul to organize large traffic volumes into operationally useful analytical categories.
 
 ---
 
-## In network operations
+## Counter groups in network operations
 
-- **NOC:** Use Keyset groups to roll up ports into named services like VoIP, Web, and Email for capacity planning dashboards.
-- **SOC:** Use Stat Based groups to create a Scanners group that only surfaces hosts with non-zero security alert counts.
-- **ISP:** Use Cross Keys groups to meter Internal Hosts by Country by External Hosts for peering and traffic engineering analysis.
+Counter groups are used extensively in operational analytics workflows.
+
+Common operational use cases include:
+
+- **Traffic monitoring**: Measure utilization across hosts, protocols, and services
+- **Top-K analysis**: Identify dominant traffic contributors
+- **Capacity planning**: Analyze long-term usage trends
+- **Security analysis**: Identify unusual traffic behavior and anomalies
+- **Subscriber analytics**: Group traffic by customer or service category
+- **Operational reporting**: Summarize traffic activity across multiple dimensions
+
+Counter groups simplify operational analysis by organizing traffic into structured analytical views.
 
 ---
 
-## Custom counter group types
+## Common counter-group dimensions
 
-| Type | What it does | Example |
+| Dimension | Operational focus |
+|---|---|
+| Hosts | Traffic by IP address or endpoint |
+| Applications | Traffic by application or service |
+| Protocols | Traffic by network protocol |
+| Interfaces | Traffic by network interface |
+| Countries | Geographic traffic analysis |
+| ASNs | Autonomous-system traffic visibility |
+| VLANs | Segmented network analysis |
+
+Different counter groups emphasize different operational perspectives on the same traffic data.
+
+---
+
+## Custom counter-group types
+
+Trisul supports multiple approaches for creating custom analytical groupings.
+
+| Type | Purpose | Example |
 |---|---|---|
-| Filtered | Meters a subset of a parent group | Web Hosts: only HTTP and HTTPS traffic |
-| Keyset | Groups keys into named sets | Apps grouped as VoIP, Web, Email |
-| Stat Based | Counts keys exceeding a metric threshold | Scanners: hosts with Security Alerts > 0 |
-| Rule Based | Arbitrary rules by port, subnet, or field | CCTV Cameras: port 80 AND subnet 10.2.2.0/24 |
-| Cross Keys | Cross product of two or three groups | Internal Hosts X Country X External Hosts |
+| Filtered | Analyze subsets of traffic | Web traffic only |
+| Keyset | Group related entities | VoIP, Web, and Email services |
+| Rule-based | Define custom operational logic | CCTV traffic identification |
+| Statistical | Identify threshold-based conditions | Hosts with abnormal activity |
+| Cross-dimensional | Combine multiple analytical dimensions | Internal hosts by country |
+
+Custom counter groups help organizations adapt analytics to operational, business, and security requirements.
 
 ---
 
-## How Trisul handles it
+## What is cardinality counting?
 
-Trisul ships with 40 to 50 built-in counter groups and supports all five custom types through the Admin panel and LUA API. Custom groups appear in the same Top-K dashboards, trending charts, and alerts as built-in groups. Full documentation is at https://docs.trisul.org/docs/ag/context/custom_countergroup/.
+Cardinality counting measures the number of unique values associated with an analytical entity.
+
+Examples include:
+- Unique applications per host
+- Unique destinations per source IP
+- Unique protocols per interface
+
+Cardinality-oriented metrics help operators:
+- Detect unusual behavior
+- Analyze traffic diversity
+- Identify scanning or discovery activity
+- Measure service consumption patterns
+
+These metrics are often useful in security and operational analytics workflows.
+
+---
+
+## Why counter groups are useful
+
+Counter groups improve scalability and operational visibility by organizing traffic into structured analytical dimensions.
+
+Benefits include:
+- Simplified traffic analysis
+- Efficient aggregation
+- Faster Top-K analysis
+- Flexible operational reporting
+- Easier anomaly detection
+- Improved traffic categorization
+
+Counter groups help operators move from raw traffic data to operationally meaningful analytics.
+
+---
+
+## How Trisul handles counter groups
+
+Counter groups are a core component of Trisul analytics architecture.
+
+Relevant capabilities include:
+
+- **Built-in traffic counter groups**
+- **Custom analytical groupings**
+- **Top-K analytics integration**
+- **Historical traffic trending**
+- **Threshold and anomaly workflows**
+- **Flow-based traffic analytics**
+- **Lua-based extensibility and customization**
+- **Cross-dimensional traffic analysis**
+
+These capabilities help operators analyze traffic behavior across multiple operational dimensions and investigative workflows.
+
+Relevant Trisul use cases:
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
 
 ---
 
 ## Related terms
 
-- [What is Top-K analytics?](/docs/glossary/top-k-analytics)
-- [What is custom flow analytics?](/docs/glossary/custom-flow-analytics)
-- [What is flow tagger?](/docs/glossary/flow-tagger)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is flow analyzer?](/docs/glossary/flow-analyzer)
+- [Top-K analytics](/glossary/top-k-analytics)
+- [Custom flow analytics](/glossary/custom-flow-analytics)
+- [Flow tagger](/glossary/flow-tagger)
+- [Flow monitoring](/glossary/flow-monitoring)
+- [Flow analyzer](/glossary/flow-analyzer)
+- [Aggregate Flows](/glossary/aggregate-flows)
+- [Cardinality counting](/glossary/cardinality-counting)
 
 ---
 
@@ -105,16 +236,20 @@ Trisul ships with 40 to 50 built-in counter groups and supports all five custom 
 
 ### What built-in counter groups does Trisul provide?
 
-Trisul ships with 40 to 50 built-in counter groups covering hosts, applications, protocols, interfaces, countries, ASNs, VLANs, and more. Each group tracks byte, packet, and flow counts per key. Built-in groups feed Top-K dashboards, trending reports, and threshold alerts without any configuration.
+Trisul includes built-in counter groups for analyzing hosts, applications, protocols, interfaces, countries, ASNs, VLANs, and other traffic dimensions used in operational analytics workflows.
 
 ### What types of custom counter groups can be created?
 
-Trisul supports five types: Filtered (meter a subset by filter), Keyset (group keys into named sets), Stat Based (count keys exceeding a metric threshold), Rule Based (arbitrary rules by port, subnet, or field), and Cross Keys (cross product of two or three groups). Each type is built on top of an existing parent group without duplicating underlying data.
+Trisul supports multiple custom counter-group approaches including filtered groups, keyset-based grouping, rule-based classification, threshold-oriented statistical grouping, and cross-dimensional analytics.
 
 ### What is cardinality counting in a counter group?
 
-Cardinality counting tracks unique values of one dimension per key in another. Adding a Unique Apps meter to the Hosts group tracks how many distinct applications each host uses. It is an additional meter on any existing group, not a separate group type.
+Cardinality counting measures the number of unique values associated with a traffic entity or metric, such as the number of distinct applications used by a host.
 
 ### How do counter groups relate to Top-K analytics?
 
-Every counter group feeds Top-K analytics. Trisul continuously ranks keys within each group by each meter, so Top-K reports are available in real time without recomputation. Custom counter groups appear in Top-K views alongside built-in groups.
+Counter groups provide the traffic metrics and ranked entities used in Top-K analytics workflows, helping operators identify dominant traffic contributors and operational trends.
+
+### How does Trisul use counter groups?
+
+Trisul uses counter groups to organize, meter, aggregate, and analyze traffic across multiple operational dimensions for monitoring, reporting, trending, and investigation workflows.

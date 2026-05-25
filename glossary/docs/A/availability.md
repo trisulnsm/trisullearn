@@ -46,15 +46,20 @@ A system is available when users can reach it and complete the expected action. 
 Availability is often tracked as uptime over a period of time. It may also include successful response rates.
 
 Availability calculation:
-\\[
-\\text{Availability} = \\frac{\\text{Uptime}}{\\text{Uptime} + \\text{Downtime}} \\times 100\\%
-\\]
+
+```math
+\text{Availability} =
+\frac{\text{Uptime}}
+{\text{Uptime} + \text{Downtime}}
+\times 100\%
+```
 
 Common availability targets:
-- **99%**: "Two nines" — about 3.65 days downtime per year.
-- **99.9%**: "Three nines" — about 8.76 hours downtime per year.
-- **99.99%**: "Four nines" — about 52.6 minutes downtime per year.
-- **99.999%**: "Five nines" — about 5.26 minutes downtime per year.
+
+- **99%**: "Two nines" about 3.65 days downtime per year.
+- **99.9%**: "Three nines" about 8.76 hours downtime per year.
+- **99.99%**: "Four nines" about 52.6 minutes downtime per year.
+- **99.999%**: "Five nines" about 5.26 minutes downtime per year.
 
 ---
 
@@ -65,6 +70,7 @@ Availability is a basic service goal for nearly every networked system. Teams mo
 It also forms the basis for reporting and service-level targets. Many dashboards and agreements are built around availability.
 
 Common operational use cases:
+
 - **Service monitoring**: Track whether critical services are reachable 24/7.
 - **SLA compliance**: Measure availability against contractual service-level agreements.
 - **Outage detection**: Identify when services go down and notify teams immediately.
@@ -103,6 +109,7 @@ Availability is useful because it is easy to understand and directly tied to use
 It becomes more useful when paired with latency and error details.
 
 Key characteristics of effective availability monitoring:
+
 - **Real-time detection**: Quickly identify when services go down.
 - **Accurate measurement**: Track actual uptime versus downtime precisely.
 - **Context-rich alerts**: Include which service, when, and potential cause.
@@ -113,7 +120,11 @@ Key characteristics of effective availability monitoring:
 
 ## Trisul relevance
 
-Availability is relevant to Trisul Network Analytics as a traffic-observability concept, but the page should avoid claiming native uptime-probe functionality unless it is documented in official Trisul materials. Trisul is better positioned as providing traffic context around connectivity and service reachability rather than as a dedicated availability-monitoring tool.
+Availability is relevant to Trisul Network Analytics as a traffic-observability concept, but the page should avoid claiming native uptime-probe functionality unless it is documented in official Trisul materials.
+
+Trisul is better positioned as providing traffic context around connectivity and service reachability rather than as a dedicated availability-monitoring tool.
+
+---
 
 ## Related terms
 
@@ -146,7 +157,14 @@ Availability is important because users can only use services that are reachable
 
 ### How is availability measured?
 
-Availability is measured by uptime, response success, and service reachability over time. The formula is: Availability = Uptime / (Uptime + Downtime) × 100%.
+Availability is measured by uptime, response success, and service reachability over time.
+
+```math
+\text{Availability} =
+\frac{\text{Uptime}}
+{\text{Uptime} + \text{Downtime}}
+\times 100\%
+```
 
 ### What affects availability?
 
@@ -158,4 +176,6 @@ Trisul should be described here only as providing traffic context that helps ope
 
 ### What is the advantage of traffic-based availability analysis over active monitoring?
 
-Traffic-based analysis does not require probes and shows what real traffic is doing on the network. Active monitoring adds probe traffic and may not reflect actual user experience. Both can complement each other.
+Traffic-based analysis does not require probes and shows what real traffic is doing on the network.
+
+Active monitoring adds probe traffic and may not reflect actual user experience. Both approaches can complement each other.
