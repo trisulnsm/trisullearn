@@ -64,182 +64,56 @@ export const jsonLd = {
 
 # What is DPI?
 
-**Deep packet inspection (DPI)** is a method of analyzing network packets beyond basic headers by examining protocol details and, where possible, packet payloads to identify applications, detect threats, enforce policies, and analyze network behavior.
-
-Unlike basic traffic monitoring that focuses mainly on metadata such as:
-- IP addresses
-- Ports
-- Timestamps
-- Byte counts
-
-DPI-oriented systems analyze additional protocol and payload information to provide deeper visibility into:
-- Application behavior
-- Protocol usage
-- Threat activity
-- Traffic classification
-- Policy enforcement
-
-DPI is commonly used in:
-- Network security monitoring
-- Intrusion detection
-- Application identification
-- Traffic management
-- Compliance environments
-- ISP traffic analysis
-- Operational troubleshooting
-
-Trisul supports packet visibility and traffic-analysis workflows that complement DPI-oriented operational analysis.
+**Deep packet inspection (DPI)** is a method of examining network packets beyond basic IP/transport headers by inspecting protocol details and, when possible, packet payloads. The goal is to identify applications, detect threats, enforce policies, and understand network behavior at a much deeper level than simple flow‑based monitoring. Where traditional tools see only IPs, ports, and bytes, DPI‑aware systems can recognize HTTP, DNS, VoIP, or malware‑specific traffic even if they run on non‑standard ports.
 
 ---
 
 ## How DPI works
 
-DPI systems inspect traffic at deeper protocol layers by analyzing:
-- Packet headers
-- Protocol fields
-- Session behavior
-- Application signatures
-- Payload content where visible
-- Traffic patterns
-
-Typical workflow:
-
-1. **Traffic capture or interception** → Packets are observed at strategic monitoring points
-2. **Protocol parsing** → Traffic is decoded and classified
-3. **Session reconstruction** → Related packets are correlated into sessions or streams
-4. **Signature and behavioral analysis** → Applications or threats are identified
-5. **Operational response** → Traffic is monitored, classified, alerted on, or controlled
-
-DPI systems may use:
-- Signature-based analysis
-- Protocol decoding
-- Behavioral heuristics
-- Statistical analysis
-- TLS metadata inspection
-- Session reconstruction
-
-The exact inspection depth depends on:
-- Traffic visibility
-- Encryption usage
-- Deployment architecture
-- Legal and operational constraints
+DPI systems capture packets at strategic points (for example, routers, firewalls, or dedicated probes), then decode and analyze them. They look at protocol fields, session state, and, when not encrypted, actual application data. Signature‑based engines match patterns (for example, known exploit or malware fingerprints), while behavioral systems look for unusual timing, sizes, or sequences. When traffic is encrypted, DPI can still inspect metadata such as TLS handshakes, JA3 fingerprints, SNI values, and certificate details, even though it cannot read the full payload.
 
 ---
 
 ## DPI in network operations
 
-DPI is widely used in operational and security environments.
-
-Common operational use cases include:
-
-- **Application identification**: Detect applications independent of port usage
-- **Threat detection**: Identify malware or suspicious communications
-- **Traffic classification**: Categorize network traffic for operational analysis
-- **Quality-of-service workflows**: Prioritize or shape selected traffic categories
-- **Data-loss prevention**: Identify sensitive-data movement
-- **Web filtering and policy enforcement**: Apply organizational traffic policies
-- **Operational troubleshooting**: Analyze application-layer communication issues
-
-Different organizations may deploy DPI for operational visibility, security monitoring, compliance enforcement, or traffic-engineering workflows.
+In operations, DPI is used for application‑aware analysis and security‑driven control. Teams use it to identify which services users are running, detect command‑and‑control traffic, enforce QoS or content‑filtering policies, and troubleshoot application‑level issues. ISPs and large enterprises can apply policies and shaping rules based on actual application, not just traffic volume or port. DPI also feeds into data‑loss‑prevention workflows by spotting sensitive‑data patterns in cleartext traffic. However, it must be balanced against performance and privacy concerns.
 
 ---
 
 ## DPI vs flow monitoring
 
-| Dimension | DPI | Flow monitoring |
-|---|---|---|
-| Primary visibility | Protocol and payload inspection | Traffic metadata and communication statistics |
-| Payload visibility | Possible when payloads are accessible | None |
-| Application identification | Signature and protocol analysis | Metadata-based or behavioral analysis |
-| Encryption impact | Payload visibility reduced without decryption | Metadata visibility usually retained |
-| Resource requirements | Higher processing overhead | Lower operational overhead |
-| Typical use | Security and application visibility | Traffic analytics and operational monitoring |
-
-DPI and flow monitoring are complementary approaches that provide different levels of operational visibility.
+DPI and flow monitoring are complementary. **Flow monitoring** tracks metadata such as source/destination IPs, ports, bytes, packets, and timestamps and is lightweight and scalable. **DPI** inspects whole packets and protocol states, providing deeper visibility but requiring more compute and often sitting inline or heavily mirror‑ing traffic. In practice, DPI powers detailed inspection and policy enforcement, while flow monitoring provides the high‑level analytics and historical trending that guide where to focus DPI resources.
 
 ---
 
 ## DPI and encrypted traffic
 
-Modern encrypted traffic significantly affects DPI visibility.
-
-Without decryption, DPI systems generally cannot inspect encrypted payload contents directly. However, systems may still analyze:
-- TLS handshake metadata
-- JA3 fingerprints
-- Certificate information
-- Server Name Indication (SNI)
-- Flow behavior
-- Traffic timing and patterns
-
-Encrypted traffic inspection may require:
-- TLS interception
-- Decryption infrastructure
-- Endpoint cooperation
-- Legal and privacy considerations
-
-The exact visibility depends on encryption protocols, deployment architecture, and operational policy.
+Modern TLS and HTTPS make full payload inspection impossible without decryption. When traffic is encrypted, DPI‑style tools typically fall back to metadata analysis: TLS fingerprints, certificates, SNI, jitter, and packet sizes. To inspect payloads, organizations may deploy TLS interception (SSL‑inspection) gear and PAC files or endpoint agents, but this introduces complexity, key‑management risk, and often requires explicit policy and user‑consent considerations.
 
 ---
 
-## DPI limitations and operational considerations
+## DPI limitations and operational trade‑offs
 
-DPI systems face several operational challenges.
-
-Common limitations include:
-- Reduced visibility into encrypted payloads
-- High computational overhead
-- Privacy and legal considerations
-- Evasion and obfuscation techniques
-- Rapidly changing application behaviors
-- Large-scale traffic-processing requirements
-
-Operational considerations include:
-- Monitoring placement
-- Performance impact
-- Retention policies
-- Security-policy management
-- Signature maintenance
-- Scalability planning
-
-DPI deployments must balance visibility, performance, operational cost, and privacy requirements.
+DPI is powerful but not a silver bullet. Encrypted traffic, protocol‑obfuscation, and polymorphic malware limit signatures. DPI appliances can become bottlenecks at high line rates, so they are often deployed at chokepoints or behind optimized traffic‑conditioning layers. Legal and privacy rules may restrict what can be inspected, especially in regulated or user‑facing networks. Operators therefore tend to combine DPI with flow‑based analytics: using DPI for targeted inspection and policy, and flows for broad‑scale visibility and trending.
 
 ---
 
-## How Trisul handles DPI-related workflows
+## In Trisul
 
-Trisul supports packet visibility and traffic-analysis workflows that complement DPI-oriented operational and security analysis.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Packet visibility and packet-analysis workflows**
-- **TLS metadata visibility** including JA3 fingerprints and certificate-related information
-- **Historical traffic analysis**
-- **Explore Flows** for traffic investigation and drill-down workflows
-- **Traffic anomaly visibility**
-- **Flow and packet correlation workflows**
-- **Operational traffic investigation capabilities**
-
-These capabilities help operators investigate traffic behavior, analyze suspicious communications, correlate traffic activity, and improve operational visibility.
-
-Trisul is primarily a traffic analytics and visibility platform rather than a full standalone DPI enforcement or malware-signature inspection engine.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+Trisul complements DPI workflows by adding scalable packet‑ and flow‑level analytics, not by replacing inline DPI engines. It can ingest NetFlow, IPFIX, and sFlow from existing DPI or firewall points, and correlate with packet captures where available. Features like **Explore Flows**, **JA3‑style TLS fingerprints**, and historical trending let operators explore app‑level behavior and traffic anomalies that DPI devices flag, while Trisul’s storage and query layer handles large‑scale retention and operational investigations. In other words, DPI does the deep inspection and enforcement; Trisul gives the visibility and investigation layer around it.
 
 ---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Full packet capture](/glossary/full-packet-capture)
-- [Encrypted traffic analytics](/glossary/encrypted-traffic-analytics)
-- [IDS](/glossary/ids)
-- [NGFW](/glossary/ngfw)
-- [JA3](/glossary/ja3)
-- [Packet analysis](/glossary/packet-analysis)
+- DPI  
+- Flow monitoring  
+- Full packet capture  
+- Encrypted traffic analytics  
+- IDS  
+- NGFW  
+- JA3  
+- Packet analysis  
 
 ---
 
@@ -255,7 +129,7 @@ DPI cannot fully inspect encrypted payloads without decryption, but it may still
 
 ### What are the primary uses of DPI?
 
-DPI is commonly used for application identification, threat detection, protocol analysis, security monitoring, traffic classification, policy enforcement, quality-of-service workflows, and operational troubleshooting.
+DPI is commonly used for application identification, threat detection, protocol analysis, security monitoring, traffic classification, policy enforcement, quality‑of‑service workflows, and operational troubleshooting.
 
 ### What are the limitations of DPI?
 
@@ -263,4 +137,4 @@ DPI effectiveness may be reduced by encrypted traffic, privacy restrictions, hig
 
 ### How does Trisul relate to DPI workflows?
 
-Trisul supports packet visibility, flow analytics, metadata extraction, and traffic investigation workflows that complement DPI-oriented operational and security analysis.
+Trisul supports packet visibility, flow analytics, metadata extraction, and traffic investigation workflows that complement DPI‑oriented operational and security analysis.

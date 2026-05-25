@@ -64,153 +64,73 @@ export const jsonLd = {
 
 # What is DHCP?
 
-**DHCP (Dynamic Host Configuration Protocol)** is a client-server protocol that automatically assigns IP addresses and related network configuration parameters to devices on an IP network.
-
-DHCP is widely used in:
-- Enterprise networks
-- ISP environments
-- Wireless networks
-- Datacenters
-- Home and office networks
-- Cloud and virtualized environments
-
-DHCP simplifies network administration by automating:
-- IP address assignment
-- Gateway configuration
-- DNS configuration
-- Lease management
-- Client onboarding
-
-Trisul can use DHCP-related context to support traffic attribution and operational investigation workflows.
+**DHCP (Dynamic Host Configuration Protocol)** is a client‑server protocol that automatically assigns IP addresses and related network configuration parameters to devices on an IP network. It is widely used in enterprises, ISPs, Wi‑Fi, datacenters, and home networks so that endpoints do not need to be configured manually. DHCP typically handles IP addresses, subnet masks, gateways, DNS servers, and lease durations.
 
 ---
 
 ## How DHCP works
 
-DHCP uses a client-server model where DHCP servers allocate configuration parameters to network clients dynamically.
-
-A DHCP server typically manages:
-- Address pools (scopes)
-- Lease durations
-- Network options
-- Reservation mappings
-- Configuration policies
-
-The standard DHCP process commonly follows the **DORA** sequence:
-
-| Step | Purpose |
-|---|---|
-| Discover | Client searches for available DHCP servers |
-| Offer | Server offers an available IP configuration |
-| Request | Client requests the offered configuration |
-| Acknowledge | Server confirms the lease assignment |
-
-DHCP commonly provides:
-- IP addresses
-- Subnet masks
-- Default gateways
-- DNS server addresses
-- Lease durations
-- Domain information
-- Additional network options
-
-Addresses are leased temporarily rather than assigned permanently, allowing address reuse and dynamic allocation.
+DHCP follows a client‑server model where a DHCP server maintains pools (scopes) of IP addresses and configuration options. When a device boots or connects, it sends a **Discover** message looking for DHCP servers. A server responds with an **Offer**, the client sends a **Request** for that offer, and the server replies with an **Acknowledge** confirming the lease. This four‑step process (DORA) temporarily assigns an IP address and network settings, after which the client can renew or release the lease when needed.
 
 ---
 
 ## DHCP in network operations
 
-DHCP is operationally important because it centralizes and automates network configuration management.
-
-Common operational use cases include:
-
-- **Client onboarding**: Automatically configure new devices
-- **Address management**: Prevent duplicate addressing conflicts
-- **Mobility support**: Support devices moving between networks
-- **Operational troubleshooting**: Correlate IP addresses with devices over time
-- **Security investigations**: Identify devices associated with network activity
-- **Large-scale network administration**: Simplify configuration in enterprise and ISP environments
-
-DHCP lease history is especially useful during operational and security investigations where device attribution is required.
+DHCP is a core operational tool for IP address management. It simplifies device onboarding, prevents IP conflicts, and supports mobility and large‑scale deployments. Network and security teams also use DHCP lease logs to correlate IP addresses with devices over time, which is especially useful for troubleshooting and forensic investigations. Lease history helps operators understand which devices used which IPs at what times.
 
 ---
 
 ## Common DHCP concepts
 
-| Concept | Meaning |
-|---|---|
-| Lease | Temporary address assignment |
-| Scope | Pool of addresses available for assignment |
-| Reservation | Fixed address assignment for a specific device |
-| Renewal | Extension of an existing lease |
-| Relay agent | Forwards DHCP traffic between networks |
-| DHCP option | Additional configuration information |
+| Concept       | Meaning |
+|---------------|---------|
+| Lease         | Temporary IP assignment to a client |
+| Scope         | Pool of IP addresses available for DHCP |
+| Reservation   | Fixed IP assignment tied to a specific device |
+| Renewal       | Extension of an existing lease |
+| Relay agent   | Device that forwards DHCP messages between subnets |
+| DHCP option   | Additional configuration (for example, NTP server, domain name) |
 
-Different DHCP implementations may support additional operational features and policy controls.
+Different environments may customize scopes, lease times, and options to match their policies.
 
 ---
 
 ## DHCP vs static IP addressing
 
-| Dimension | DHCP | Static addressing |
-|---|---|---|
-| Address assignment | Automatic | Manual |
-| Operational overhead | Lower | Higher |
-| Flexibility | High | Limited |
-| Address consistency | Dynamic by default | Fixed |
-| Scalability | High | Lower in large environments |
+| Dimension               | DHCP                            | Static addressing                      |
+|-------------------------|---------------------------------|----------------------------------------|
+| Assignment method       | Automatic                       | Manual                                 |
+| Operational overhead    | Lower                           | Higher                                 |
+| Flexibility             | Dynamic and adaptable           | Fixed per host                         |
+| Scalability             | High in large environments      | Lower and more labor‑intensive         |
+| Typical use             | Endpoints and mobile devices    | Servers, network infrastructure        |
 
-Static addressing is often used for infrastructure systems, while DHCP is commonly used for endpoint and client networks.
+Static addressing is preferred for critical infrastructure, while DHCP dominates for users and transient devices.
 
 ---
 
 ## Why DHCP is useful
 
-DHCP improves operational scalability and reduces manual configuration effort.
-
-Benefits include:
-- Simplified client configuration
-- Reduced configuration errors
-- Efficient address reuse
-- Faster onboarding
-- Centralized management
-- Easier operational administration
-
-Dynamic lease allocation is especially valuable in environments where devices frequently connect, disconnect, or move between networks.
+DHCP reduces manual configuration, avoids misconfiguration, and allows efficient reuse of IP addresses. It speeds up onboarding, supports devices that move between networks, and provides centralized control over IP assignments. In large environments, dynamic leases simplify management and make it easier to scale the network as the number of devices increases.
 
 ---
 
-## How Trisul handles DHCP-related context
+## In Trisul
 
-Trisul is not a DHCP server or IP address management platform, but it can use DHCP-related context during operational and security analysis workflows.
-
-Relevant workflows include:
-
-- **Traffic attribution**
-- **Historical IP-to-device correlation**
-- **Operational investigation**
-- **Security analytics**
-- **Flow-based traffic visibility**
-- **Host-oriented analysis**
-- **Historical traffic trending**
-
-These workflows help operators correlate device activity, analyze traffic behavior, and investigate operational or security events involving dynamically assigned addresses.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+Trisul is not a DHCP server, but it can use DHCP‑related information during operational and security workflows. When DHCP logs, client‑ID mappings, or other address‑assignment context is available, Trisul can use that data to correlate IP addresses with devices, reconstruct historical address usage, and enhance traffic‑attribution and host‑oriented analysis. This helps operators link traffic to specific devices and understand how address reuse affects security and compliance scenarios.
 
 ---
 
 ## Related terms
 
-- [Network access](/glossary/network-access)
-- [Authentication logging](/glossary/authentication-logging)
-- [Syslog](/glossary/syslog)
-- [Flow attribution](/glossary/flow-attribution)
-- [User analytics](/glossary/user-analytics)
-- [IP address](/glossary/ip-address)
-- [DHCP relay](/glossary/dhcp-relay)
+- DHCP  
+- IP address  
+- Network access  
+- Authentication logging  
+- DHCP relay  
+- Syslog  
+- Flow attribution  
+- User analytics  
 
 ---
 
@@ -218,7 +138,7 @@ Relevant Trisul use cases:
 
 ### What is DHCP?
 
-DHCP (Dynamic Host Configuration Protocol) is a client-server protocol that automatically assigns IP addresses and related network configuration parameters to devices on an IP network.
+DHCP (Dynamic Host Configuration Protocol) is a client‑server protocol that automatically assigns IP addresses and related network configuration parameters to devices on an IP network.
 
 ### Why is DHCP important?
 
@@ -232,6 +152,6 @@ DHCP commonly provides IP addresses, subnet masks, default gateways, DNS server 
 
 DHCP assigns IP addresses using leases, where addresses are temporarily allocated to clients for a defined period and can later be renewed, released, or reassigned.
 
-### How does Trisul use DHCP-related context?
+### How does Trisul use DHCP‑related context?
 
-Trisul can use DHCP-related information to help correlate IP addresses, device identity, traffic behavior, and historical address usage during operational and security investigations.
+Trisul can use DHCP‑related information to help correlate IP addresses, device identity, traffic behavior, and historical address usage during operational and security investigations.

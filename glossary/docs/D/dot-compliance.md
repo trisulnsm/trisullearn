@@ -64,171 +64,63 @@ export const jsonLd = {
 
 # What is DoT Compliance?
 
-**DoT Compliance** refers to adherence to regulatory requirements issued by India's **Department of Telecommunications (DoT)**, including obligations related to lawful interception, subscriber traceability, traffic logging, and Internet Protocol Detail Record (IPDR) retention for licensed telecom and ISP operators.
-
-DoT-related compliance workflows commonly involve:
-- IPDR retention
-- Subscriber traceability
-- NAT logging
-- Traffic metadata retention
-- Audit support
-- Lawful interception readiness
-- Regulatory reporting
-
-These requirements are especially important for:
-- Internet Service Providers (ISPs)
-- Telecom operators
-- Broadband providers
-- Managed network operators
-- Carrier-grade NAT environments
-
-Trisul supports IPDR-oriented operational workflows through flow analytics and historical traffic visibility capabilities.
+**DoT Compliance** refers to adherence to regulatory requirements issued by India’s **Department of Telecommunications (DoT)**, especially around lawful interception, subscriber traceability, traffic logging, and **Internet Protocol Detail Record (IPDR)** retention for licensed telecom and ISP operators. It is a core set of obligations for ISPs, broadband providers, and network operators that manage dynamic IP and NAT infrastructures in India.
 
 ---
 
 ## What DoT Compliance requires
 
-DoT compliance requirements commonly involve retaining sufficient traffic and subscriber-related metadata to support authorized operational and legal investigations.
-
-Operational requirements may include:
-- Retention of IPDR records
-- NAT translation logging
-- Subscriber association workflows
-- AAA correlation
-- Historical traffic traceability
-- Audit and reporting support
-
-Commonly retained data elements may include:
-- Start and end timestamps
-- Source and destination IP addresses
-- Source and destination ports
-- NAT translation details
-- Subscriber identifiers
-- Router or device identifiers
-- MAC addresses
-- Session-related metadata
-
-The exact operational requirements may vary depending on:
-- License category
-- Applicable regulations
-- Operational environment
-- Updated regulatory directives
-
-Operators are responsible for ensuring that retained records support authorized lawful-interception and investigative workflows.
+DoT‑related rules generally require operators to retain traffic and subscriber‑related metadata so authorized entities can carry out lawful‑interception and investigative work. Operators must maintain NAT mappings, session logs, and subscriber associations over defined retention periods. Typical data elements include timestamps, source and destination IP addresses, ports, NAT translation details, subscriber or AAA identifiers, device names, and session‑level metadata needed to trace which user used which IP at what time.
 
 ---
 
 ## Why IPDR retention matters
 
-IPDR retention is operationally important because many ISP environments use:
-- Dynamic IP addressing
-- Carrier-grade NAT (CGNAT)
-- Shared public IP infrastructure
-
-Without retained mapping records, it may become difficult to:
-- Identify subscriber activity
-- Trace historical network usage
-- Support authorized investigations
-- Correlate NAT translations
-- Validate operational events
-
-IPDR workflows help maintain subscriber traceability and operational accountability in large-scale service-provider environments.
+In Indian ISP environments, many users share public IP addresses via **CGNAT** and **dynamic addressing**, so raw IP logs alone cannot identify who generated traffic. IPDR retention solves this by storing the mapping between users, internal IPs, and public IP/port tuples. This traceability is essential for lawful‑interception orders, abuse investigations, and audit‑ready reporting when the DoT or law‑enforcement agencies request subscriber‑level details.
 
 ---
 
 ## DoT compliance in network operations
 
-ISP and telecom operations teams use traffic-monitoring and flow-analytics systems to support compliance workflows.
-
-Common operational use cases include:
-
-- **Subscriber traceability**
-- **NAT correlation analysis**
-- **Historical traffic retention**
-- **Lawful-interception support workflows**
-- **Operational auditing**
-- **Regulatory reporting**
-- **Traffic investigation**
-- **Security and abuse investigations**
-
-Operational platforms handling IPDR-scale workloads must typically support:
-- High-volume flow ingestion
-- Long-term retention
-- Efficient indexing
-- Fast historical querying
-- Operational scalability
-
-Retention periods and exact requirements depend on applicable regulatory obligations.
+For ISPs and telecom operators, DoT compliance shapes how traffic and flows are collected and stored. Operators use flow‑monitoring and analytics systems to capture IPDR‑style records at routers, firewalls, and NAT gateways, then retain them for mandated periods. Common workflows include subscriber traceability queries, NAT‑mapping investigations, historical traffic lookups, and regulatory reporting. Platforms must handle high‑volume ingestion, long‑term retention, and fast historical queries under production loads.
 
 ---
 
 ## IPDR logging vs flow monitoring
 
-| Dimension | IPDR logging | Flow monitoring |
-|---|---|---|
-| Primary purpose | Regulatory and subscriber-traceability workflows | Network operations and traffic analytics |
-| Data scope | Compliance-oriented metadata retention | Broad traffic visibility and analytics |
-| Retention focus | Long-term regulatory retention | Operational analytics retention |
-| Typical users | Compliance, audit, and investigative teams | NOC, SOC, and operations teams |
-| Operational emphasis | Traceability and lawful-interception readiness | Performance, security, and troubleshooting |
+| Aspect                   | IPDR logging                                 | Flow monitoring                             |
+|--------------------------|----------------------------------------------|---------------------------------------------|
+| Main purpose             | Regulatory traceability and LI readiness     | Network operations and analytics            |
+| Data scope               | Compliance‑oriented metadata                 | General traffic visibility and metrics      |
+| Retention emphasis       | Long‑term retention for audits               | Operational analytics retention             |
+| Primary users            | Regulators, auditors, LI teams              | NOC, SOC, operations                        |
+| Operational focus        | Traceability and investigations              | Performance, security, troubleshooting      |
 
-IPDR workflows commonly rely on flow-monitoring infrastructure but emphasize compliance-oriented retention and traceability requirements.
+IPDR workflows usually run on top of flow‑monitoring infrastructure, but they are tuned for regulatory rather than just operational needs.
 
 ---
 
 ## Operational considerations for IPDR environments
 
-Large-scale ISP and telecom environments face several operational challenges when implementing IPDR retention workflows.
-
-Common considerations include:
-- High-volume traffic ingestion
-- NAT event correlation
-- Subscriber mapping accuracy
-- Long-term storage efficiency
-- Query scalability
-- Regulatory retention requirements
-- Audit readiness
-- Secure data access controls
-
-Accurate timestamp synchronization is especially important because historical investigations often depend on precise event correlation.
+Large‑scale IPDR deployments require high‑volume ingestion, accurate NAT correlation, and efficient storage layouts. Operators must keep time‑sync stable, validate subscriber mappings, and design access controls for protected data. They also need to plan for query performance when investigating specific time ranges, IPs, or user IDs. Misconfiguration or clock drift can break forensic traceability and cause compliance risk.
 
 ---
 
-## How Trisul handles DoT Compliance workflows
+## In Trisul
 
-Trisul supports IPDR-oriented operational workflows through scalable traffic analytics and historical flow visibility capabilities.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Historical flow retention and analysis**
-- **NAT-aware traffic visibility**
-- **Subscriber and traffic correlation workflows**
-- **Large-scale flow ingestion**
-- **Explore Flows** for historical traffic investigation
-- **Aggregate Flows** for summarizing traffic activity
-- **Operational visibility for ISP and telecom environments**
-
-These capabilities help operators support subscriber traceability, investigate historical traffic activity, analyze NAT-related events, and maintain operational visibility in large-scale ISP and telecom environments.
-
-Trisul is primarily a traffic analytics and visibility platform rather than a lawful-interception platform itself.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
+Trisul supports DoT‑compliance workflows by providing scalable flow‑based IPDR‑style visibility. Using **NetFlow, IPFIX, sFlow**, and NAT‑aware exporters, Trisul can capture and retain per‑session flow metadata at ISP scale. Features like **NAT‑aware traffic views**, long‑term **historical flow retention**, and **Explore Flows** let operators reconstruct which user used which IP at a given time, query by subscriber, and support traceability and abuse investigations. Trisul acts as a traffic‑analytics layer that feeds compliant logging and reporting systems rather than as a standalone LI‑compliant appliance.
 
 ---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [IPDR](/glossary/ipdr)
-- [Lawful interception](/glossary/lawful-interception)
-- [Flow data](/glossary/flow-data)
-- [TRAI compliance](/glossary/trai-compliance)
-- [NAT](/glossary/nat)
-- [CGNAT](/glossary/cgnat)
+- DoT Compliance  
+- IPDR  
+- Lawful interception  
+- Flow monitoring  
+- TRAI compliance  
+- NAT  
+- CGNAT  
 
 ---
 
@@ -240,7 +132,7 @@ The Department of Telecommunications (DoT) requires licensed ISP operators in In
 
 ### What data elements are commonly required for IPDR compliance?
 
-Common IPDR-related data elements include timestamps, source and destination IP addresses, ports, NAT translation details, subscriber or AAA identifiers, router or device identifiers, and related traffic-session metadata required for subscriber traceability.
+Common IPDR‑related data elements include timestamps, source and destination IP addresses, ports, NAT translation details, subscriber or AAA identifiers, router or device identifiers, and related traffic‑session metadata required for subscriber traceability.
 
 ### Why is IPDR retention important?
 
@@ -252,4 +144,4 @@ Flow monitoring supports DoT compliance by collecting and retaining network flow
 
 ### How does Trisul support DoT compliance workflows?
 
-Trisul supports IPDR-oriented operational workflows through flow analytics, NAT correlation visibility, historical flow retention, and large-scale traffic analytics capabilities suitable for ISP and telecom monitoring environments.
+Trisul supports IPDR‑oriented operational workflows through flow analytics, NAT correlation visibility, historical flow retention, and large‑scale traffic analytics capabilities suitable for ISP and telecom monitoring environments.

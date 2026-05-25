@@ -64,140 +64,69 @@ export const jsonLd = {
 
 # What is a distributed domain?
 
-A **distributed domain** is a logical grouping of Trisul nodes that operate together as a unified analytics deployment, enabling centralized visibility, management, and querying across multiple distributed traffic-collection points.
-
-Distributed domains are commonly used in:
-- Enterprise networks
-- ISP environments
-- Multi-site deployments
-- Datacenters
-- Regional monitoring architectures
-- Managed service environments
-
-A distributed domain allows operators to analyze traffic and operational data across geographically separated locations through a unified analytics framework.
+A **distributed domain** is a logical grouping of Trisul nodes that work together as a single analytics deployment. It lets operators collect traffic at multiple locations while still viewing, querying, and managing data from a central point. Distributed domains are common in multi‑site enterprises, ISPs, datacenters, and managed‑service environments where traffic spans many physical or logical segments.
 
 ---
 
 ## How a distributed domain works
 
-A distributed domain commonly consists of:
-- One or more **probe nodes**
-- A centralized **hub node**
-- Shared operational coordination workflows
-
-Probe nodes:
-- Collect traffic locally
-- Process telemetry and analytics
-- Operate near monitored infrastructure
-
-Hub nodes:
-- Coordinate centralized visibility
-- Support unified querying and dashboards
-- Aggregate operational workflows across probes
-
-Typical workflow:
-
-1. **Traffic collection** → Probe nodes monitor local traffic and telemetry
-2. **Distributed analytics processing** → Traffic is processed at distributed collection points
-3. **Operational coordination** → Hub infrastructure organizes centralized visibility
-4. **Unified investigation** → Analysts query and investigate across distributed nodes
-5. **Centralized management** → Operational workflows are managed through shared interfaces
-
-This architecture improves scalability while supporting geographically distributed monitoring.
+A distributed domain typically uses a **hub‑and‑probe** model. One or more **hub nodes** coordinate visibility, queries, and dashboards, while **probe nodes** collect and process traffic locally at each site or segment. Probes gather flows or telemetry, apply analytics, and stream results back to the hub. The hub then aggregates data so analysts can investigate traffic across sites using a single interface.
 
 ---
 
 ## Distributed domains in network operations
 
-Distributed domains are useful when monitoring must occur across multiple physical or logical environments.
-
-Common operational use cases include:
-
-- **Multi-datacenter monitoring**: Centralize analytics across datacenters
-- **Branch-office visibility**: Monitor distributed enterprise sites
-- **ISP operations**: Analyze traffic across regional collection points
-- **Managed service environments**: Support customer-distributed monitoring
-- **Hybrid infrastructure monitoring**: Combine cloud and on-premises traffic visibility
-- **Security operations**: Correlate traffic activity across distributed locations
-
-Distributed analytics reduces the need for isolated monitoring systems at each location.
+Distributed domains are useful when monitoring must span datacenters, regional offices, branch sites, or ISP POPs. They let operators correlate traffic across locations, run consistent policies and dashboards, and avoid building isolated per‑site monitoring stacks. Common use cases include multi‑datacenter visibility, branch‑office monitoring, ISP‑wide traffic analysis, and hybrid cloud‑on‑premises traffic investigation.
 
 ---
 
-## Single-node vs distributed deployments
+## Single‑node vs distributed deployments
 
-| Deployment type | Description |
-|---|---|
-| Single-node deployment | One system handles collection and analytics workflows |
-| Distributed domain | Multiple probes operate under centralized coordination |
-| Multi-domain deployment | Separate independent analytics environments |
+| Type                       | Description |
+|----------------------------|-------------|
+| Single‑node deployment     | One system handles both collection and analytics |
+| Distributed domain         | Multiple probes collect locally; hub provides unified view |
+| Multi‑domain deployment    | Separate, independent analytics environments |
 
-The appropriate architecture depends on scale, geography, operational requirements, and organizational structure.
+Distributed domains suit environments where traffic sources are physically or logically spread out, but analysts need a single pane of glass.
 
 ---
 
 ## Distributed domains and operational reliability
 
-Distributed deployments require reliable coordination between nodes.
-
-Operational considerations include:
-- Network connectivity between nodes
-- Time synchronization accuracy
-- Telemetry transport reliability
-- Distributed query coordination
-- Operational scalability
-- Retention and storage planning
-
-Time synchronization is especially important because cross-site investigations rely on accurate event correlation across multiple collection points.
+Distributed deployments depend on stable connectivity and time synchronization between nodes. Operators must plan for network reachability, telemetry transport, clock accuracy, and consistent configuration across hubs and probes. Reliable time sync is especially important so that events across sites can be correlated correctly in dashboards and queries.
 
 ---
 
 ## Distributed domains vs multitenancy
 
-| Dimension | Distributed domain | Multitenancy |
-|---|---|---|
-| Primary goal | Distributed monitoring and analytics | Operational isolation |
-| Operational focus | Multi-node coordination | Tenant or context separation |
-| Infrastructure model | Distributed collection points | Shared infrastructure with isolated analytics |
-| Typical use | Geographic and operational scale | Customer or organizational separation |
+| Dimension           | Distributed domain                              | Multitenancy                                  |
+|---------------------|-------------------------------------------------|-----------------------------------------------|
+| Primary goal        | Geographically distributed monitoring           | Analytical and operational isolation          |
+| Operational focus   | Multi‑node coordination                         | Tenant or customer separation                 |
+| Infrastructure model| Distributed collection points                   | Shared infrastructure with separate contexts  |
+| Typical use         | Scale and location                              | Customers, business units, or security zones  |
 
-Many large deployments may use both distributed domains and multitenant contexts together.
+Many large deployments use both: a distributed domain for scale and locations, and multitenant contexts for isolation.
 
 ---
 
-## How Trisul handles distributed domains
+## In Trisul
 
-Distributed domains are a core architectural concept in Trisul deployments.
-
-Relevant capabilities include:
-
-- **Hub-and-probe deployment architecture**
-- **Distributed traffic collection**
-- **Centralized operational visibility**
-- **Unified investigation workflows**
-- **Distributed traffic analytics**
-- **Cross-site operational analysis**
-- **Flow-based traffic visibility**
-- **Centralized dashboards and querying**
-
-These capabilities help operators monitor distributed infrastructure, investigate traffic across multiple sites, and maintain centralized operational awareness.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-network-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#managed-security-service-provider
+Trisul implements distributed domains through its hub‑and‑probe architecture. Probes collect and process flow or telemetry at local sites, and hubs aggregate that data into centralized dashboards, queries, and investigation workflows. This lets operators monitor branch offices, datacenters, and ISP points from one console, while still distributing traffic‑processing where it is most efficient. Trisul supports cross‑site trending, top‑K views, and drill‑downs that span multiple nodes.
 
 ---
 
 ## Related terms
 
-- [Node](/glossary/node)
-- [Probe](/glossary/probe)
-- [Hub](/glossary/hub)
-- [Multitenancy](/glossary/multitenancy)
-- [Centralized monitoring](/glossary/centralized-monitoring)
-- [Context](/glossary/context)
-- [Distributed analytics](/glossary/distributed-analytics)
+- Distributed domain  
+- Node  
+- Probe  
+- Hub  
+- Multitenancy  
+- Centralized monitoring  
+- Context  
+- Distributed analytics  
 
 ---
 
@@ -205,7 +134,7 @@ Relevant Trisul use cases:
 
 ### What is a distributed domain?
 
-A distributed domain is a logical grouping of Trisul nodes that operate together as a unified analytics deployment, enabling centralized visibility, management, and querying across multiple distributed traffic-collection points.
+A distributed domain is a logical grouping of Trisul nodes that operate together as a unified analytics deployment, enabling centralized visibility, management, and querying across multiple distributed traffic‑collection points.
 
 ### How does a distributed domain work?
 
@@ -221,4 +150,4 @@ A distributed domain focuses on distributed analytics infrastructure and central
 
 ### How does Trisul support distributed domains?
 
-Trisul supports distributed analytics deployments using hub-and-probe architectures that provide centralized operational visibility, distributed traffic collection, and unified investigation workflows.
+Trisul supports distributed analytics deployments using hub‑and‑probe architectures that provide centralized operational visibility, distributed traffic collection, and unified investigation workflows.

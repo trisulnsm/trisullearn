@@ -64,166 +64,76 @@ export const jsonLd = {
 
 # What is DNSSEC?
 
-**DNSSEC (Domain Name System Security Extensions)** adds cryptographic authentication and integrity verification to DNS responses to help protect against spoofing, tampering, and forged DNS data.
-
-DNSSEC extends traditional DNS by allowing resolvers to validate that:
-- DNS responses are authentic
-- DNS data has not been modified
-- Responses originate from trusted DNS zones
-
-DNSSEC is commonly used to reduce risks associated with:
-- DNS spoofing
-- Cache poisoning
-- Forged DNS responses
-- Man-in-the-middle manipulation of DNS data
-
-Trisul supports DNS-oriented traffic visibility and investigation workflows in environments where DNSSEC is deployed.
+**DNSSEC (Domain Name System Security Extensions)** adds cryptographic authentication and integrity verification to DNS responses to protect against spoofing, tampering, and forged DNS data. Traditional DNS answers queries but gives no built‑in way to verify that the answer is genuine. DNSSEC fixes this by digitally signing DNS records so resolvers can confirm the data is authentic and unchanged.
 
 ---
 
 ## How DNSSEC works
 
-DNSSEC uses public-key cryptography to digitally sign DNS records.
-
-The validation process commonly involves:
-- Cryptographic signatures
-- DNSKEY records
-- DS (Delegation Signer) records
-- Chains of trust between DNS zones
-
-Typical workflow:
-
-1. **Zone signing** → DNS zones are signed using cryptographic keys
-2. **DNS query** → A client resolver requests DNS information
-3. **Signed response delivery** → DNS responses include signature-related records
-4. **Validation** → The resolver validates signatures and trust relationships
-5. **Acceptance or rejection** → Invalid responses may be rejected by validating resolvers
-
-If validation fails, resolvers may treat the DNS response as untrusted or invalid.
-
-DNSSEC validates authenticity and integrity but does not provide confidentiality.
+DNSSEC uses public‑key cryptography to sign DNS records and validate them. A DNS zone is signed with a private key; the corresponding public key is published in **DNSKEY** records. Responses include **RRSIG** signatures that resolvers check along with **DS** (Delegation Signer) records to build a “chain of trust” from the root down to the target domain. If any signature fails to validate, the resolver can treat the response as invalid.
 
 ---
 
 ## DNSSEC in network operations
 
-DNSSEC helps improve trust in DNS infrastructure by reducing risks associated with forged or manipulated DNS responses.
-
-Common operational benefits include:
-- Improved DNS integrity validation
-- Reduced spoofing risk
-- Protection against cache-poisoning attacks
-- Improved trust in DNS responses
-- Enhanced operational security for DNS-dependent services
-
-Operational considerations include:
-- Key management complexity
-- DNS zone signing workflows
-- Resolver compatibility
-- Validation troubleshooting
-- DNS response-size growth
-
-Incorrect DNSSEC configuration can lead to validation failures and DNS resolution problems.
+DNSSEC reduces the risk of DNS‑based attacks such as spoofed A records, poisoned DNS caches, and man‑in‑the‑middle manipulation of domain lookups. It is especially important for critical services, financial systems, and public infrastructure. Operators must manage signing keys, keep zones correctly signed, and ensure their resolvers support validation. Misconfigurations can cause resolution failures, so testing and monitoring are essential.
 
 ---
 
-## DNSSEC vs encrypted DNS protocols
+## DNSSEC vs encrypted DNS
 
-| Feature | DNSSEC | DoT / DoH |
-|---|---|---|
-| DNS integrity validation | Yes | No |
-| DNS traffic encryption | No | Yes |
-| DNS authenticity verification | Yes | Limited |
-| DNS visibility to observers | Generally visible | Reduced |
-| Protection against spoofed DNS data | Yes | Partial |
+DNSSEC and encrypted DNS solve different problems. **DNSSEC** protects the authenticity and integrity of DNS answers but does not encrypt traffic. **Encrypted DNS (DoT/DoH)** hides DNS query contents from observers but does not itself sign responses. In practice, many environments use DNSSEC plus encrypted DNS to get both integrity and confidentiality.
 
-DNSSEC and encrypted DNS technologies solve different security problems and are often complementary.
+| Aspect                 | DNSSEC                             | Encrypted DNS (DoT/DoH)             |
+|------------------------|------------------------------------|--------------------------------------|
+| Validates DNS records  | Yes                                | No                                   |
+| Encrypts DNS traffic   | No                                 | Yes                                  |
+| Prevents spoofing      | Yes (if validated)                | Limited effect alone                |
+| Hides queries from ISP | No                                 | Yes                                  |
 
 ---
 
-## DNSSEC-related DNS records
+## DNSSEC‑related records
 
-| Record type | Purpose |
-|---|---|
-| DNSKEY | Publishes public signing keys |
-| RRSIG | Stores cryptographic signatures |
-| DS | Establishes delegation trust relationships |
-| NSEC / NSEC3 | Supports authenticated denial of existence |
+DNSSEC uses several special record types:
 
-These records help validating resolvers confirm DNS authenticity and integrity.
+- **DNSKEY**: Holds the public keys that sign a zone.  
+- **RRSIG**: Holds the digital signatures for sets of records.  
+- **DS**: Links a child zone to a parent by signing the child’s public key.  
+- **NSEC**/**NSEC3**: Provide authenticated denial of existence, proving that a domain does not exist.  
+
+These records form the cryptographic backbone that resolvers use to validate DNSSEC‑signed responses.
 
 ---
 
 ## DNSSEC and traffic visibility
 
-DNSSEC changes DNS response behavior but generally does not eliminate DNS visibility for traffic-analysis platforms.
-
-Operational effects may include:
-- Larger DNS response sizes
-- Additional DNSSEC-related records
-- Increased use of TCP for large DNS responses
-- Validation-related DNS traffic patterns
-
-Unlike encrypted DNS technologies such as DoH or DoT, DNSSEC does not hide DNS queries or responses from network observers.
+DNSSEC does not encrypt or hide DNS queries; it only signs responses. From a traffic‑analysis point of view, DNS queries and answers remain visible, though responses may be larger because of extra signature and key records. This means platforms that inspect DNS traffic can still see domain‑level activity while organizations also benefit from DNSSEC’s integrity checks.
 
 ---
 
 ## Why DNSSEC matters
 
-Traditional DNS was not originally designed with cryptographic authentication.
-
-Without DNSSEC, attackers may attempt to:
-- Forge DNS responses
-- Redirect traffic to malicious systems
-- Poison DNS caches
-- Manipulate DNS resolution paths
-
-DNSSEC improves trust in DNS infrastructure by enabling cryptographic validation of DNS responses.
-
-However, DNSSEC alone does not:
-- Encrypt DNS traffic
-- Hide DNS metadata
-- Prevent all DNS abuse
-- Block malicious domains automatically
-
-It is one component of broader DNS security architectures.
+Without DNSSEC, an attacker can forge DNS answers that redirect users to malicious servers (for example, fake banking sites) or poison caches to affect many users at once. DNSSEC makes this much harder because resolvers can detect tampered or spoofed responses. It is not a complete security solution—DNSSEC does not block malicious domains or hide queries—but it is a key layer that hardens the DNS‑resolution path.
 
 ---
 
-## How Trisul handles DNSSEC-related analysis
+## In Trisul
 
-Trisul supports DNS-oriented traffic visibility and operational investigation workflows in DNSSEC-enabled environments.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Packet visibility and DNS traffic investigation**
-- **Explore Flows** for DNS-related analysis
-- **Historical traffic trending**
-- **Traffic anomaly visibility**
-- **Flow and packet correlation workflows**
-- **Operational visibility into DNS communication patterns**
-
-These capabilities help operators analyze DNS behavior, investigate DNS-related operational issues, and correlate DNS activity with broader security and network analytics workflows.
-
-Trisul is primarily a traffic analytics and visibility platform rather than a dedicated DNSSEC validation appliance or DNS resolver.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+Trisul does not perform DNSSEC validation itself, but it can help monitor DNSSEC‑related traffic and diagnose issues. Flow‑based analytics show DNS traffic patterns, packet visibility lets you inspect DNS message sizes and record types, and **Explore Flows** helps trace DNS‑related spikes or anomalies. Trisul’s dashboards and historical trending can highlight when DNS‑related loads increase (for example, from bigger DNSSEC‑enabled responses) or when certain hosts show abnormal DNS behavior, making it easier to correlate DNSSEC‑related changes with operational or security events.
 
 ---
 
 ## Related terms
 
-- [DNS](/glossary/dns)
-- [DoT](/glossary/dot)
-- [DoH](/glossary/doh)
-- [Passive DNS](/glossary/passive-dns)
-- [DNS security](/glossary/dns-security)
-- [DNS traffic analysis](/glossary/dns-traffic-analysis)
-- [Cache poisoning](/glossary/cache-poisoning)
+- DNSSEC  
+- DNS  
+- DNS traffic analysis  
+- Passive DNS  
+- DNS security  
+- Cache poisoning  
+- DoT  
+- DoH  
 
 ---
 
@@ -245,6 +155,6 @@ DNSSEC helps reduce the risk of DNS spoofing, cache poisoning, and forged DNS re
 
 No. DNSSEC provides authenticity and integrity verification for DNS responses, but it does not encrypt DNS traffic or hide DNS query contents from network observers.
 
-### How does Trisul support DNSSEC-related analysis?
+### How does Trisul support DNSSEC‑related analysis?
 
-Trisul can help operators analyze DNS and DNSSEC-related traffic behavior using traffic analytics, flow visibility, packet analysis, and DNS-oriented investigation workflows.
+Trisul can help operators analyze DNS and DNSSEC‑related traffic behavior using traffic analytics, flow visibility, packet analysis, and DNS‑oriented investigation workflows.

@@ -64,170 +64,72 @@ export const jsonLd = {
 
 # What is DNS tunneling?
 
-**DNS tunneling** is the use of DNS queries and responses to carry non-DNS data or conceal communications inside DNS traffic.
-
-DNS tunneling is commonly associated with:
-- Covert communication channels
-- Data exfiltration
-- Malware command-and-control activity
-- Security-control evasion
-- Unauthorized remote access
-
-Because DNS traffic is widely used and often broadly permitted through network controls, attackers may attempt to abuse DNS infrastructure to move hidden data through otherwise restricted environments.
-
-Trisul supports DNS-oriented traffic investigation workflows through traffic analytics and flow visibility capabilities.
+**DNS tunneling** is the use of DNS queries and responses to carry non‑DNS data or hide communications inside normal‑looking DNS traffic. Instead of only resolving hostnames, an attacker encodes commands, configuration, or stolen data into DNS messages and relays them across the network. This technique is often used for covert channels, malware command‑and‑control, and data exfiltration when other protocols are blocked or heavily monitored.
 
 ---
 
 ## How DNS tunneling works
 
-DNS tunneling works by encoding arbitrary data into DNS requests or responses.
-
-Common tunneling workflows include:
-- Encoding data into subdomains
-- Embedding payloads in DNS queries
-- Using TXT or other DNS records for data exchange
-- Maintaining bidirectional communication through repeated DNS transactions
-
-Typical workflow:
-
-1. **Data encoding** → Arbitrary data is encoded into DNS-compatible formats
-2. **DNS query generation** → Queries are sent toward attacker-controlled domains
-3. **Recursive resolution** → Queries traverse DNS infrastructure
-4. **Response handling** → Responses may carry commands or additional payloads
-5. **Communication persistence** → Repeated DNS exchanges maintain the tunnel
-
-The resulting traffic may resemble legitimate DNS activity but often exhibits unusual behavioral characteristics.
+DNS tunneling encodes payload data into parts of DNS messages, such as subdomain names, TXT record values, or query types. A client sends specially crafted DNS queries to a resolver that then forwards them to an attacker‑controlled name server, which decodes the data, generates a response, and embeds its own data back in the response. Repeated queries and responses create a bidirectional “tunnel” that can carry files, commands, or session‑like traffic. The traffic looks like normal DNS but often has abnormal patterns.
 
 ---
 
 ## Why DNS tunneling is a security concern
 
-DNS tunneling is considered a security concern because DNS traffic is frequently:
-- Trusted by default
-- Allowed through firewalls
-- Less heavily inspected than other protocols
-- Required for normal application behavior
-
-Attackers may abuse DNS tunneling to:
-- Exfiltrate sensitive information
-- Establish covert command-and-control channels
-- Evade traditional network controls
-- Bypass restricted outbound access policies
-- Maintain persistence during attacks
-
-DNS tunneling is commonly associated with malware, advanced threats, and covert operational activity.
+DNS is usually allowed freely through firewalls because almost all services depend on it, and many security tools inspect it lightly compared to HTTP or other protocols. Attackers exploit this trust to bypass filters and egress controls, move data laterally, and maintain persistence. DNS tunneling can be used to exfiltrate sensitive information, establish persistent command‑and‑control, or provide remote access in environments where outbound traffic is otherwise restricted.
 
 ---
 
 ## Common DNS tunneling indicators
 
-| Indicator | Possible significance |
-|---|---|
-| Unusually long query names | Encoded or embedded payloads |
-| High query frequency | Automated tunneling activity |
-| Excessive subdomain usage | Encoded communication channels |
-| High-entropy domain strings | Obfuscated or generated payloads |
-| Repetitive DNS behavior | Persistent communication attempts |
-| Abnormal query timing | Beaconing or automated exchanges |
-| Rare or suspicious domains | Potential attacker-controlled infrastructure |
+| Indicator                     | Possible meaning |
+|--------------------------------|------------------|
+| Very long query names          | Encoded payloads |
+| High query frequency per host  | Automated tunneling |
+| Many unique subdomains         | Generated channels |
+| High‑entropy, random‑looking names | Obfuscated data |
+| Repetitive timing or beaconing | Command‑and‑control |
+| Queries to rare or suspicious domains | Attack infrastructure |
 
-Detection reliability improves when multiple indicators are correlated together rather than relying on a single threshold.
-
----
-
-## DNS tunneling in network operations
-
-DNS tunneling analysis is important in:
-- SOC operations
-- Threat hunting
-- Incident response
-- Malware investigations
-- Insider-threat investigations
-- ISP abuse analysis
-- Enterprise security monitoring
-
-Common operational use cases include:
-
-- **Threat detection**: Identify covert DNS communications
-- **Data exfiltration analysis**: Investigate suspicious outbound DNS behavior
-- **Malware investigation**: Analyze command-and-control activity
-- **Traffic anomaly analysis**: Detect abnormal DNS usage patterns
-- **Historical investigation**: Correlate DNS activity with security events
-
-DNS visibility is especially important because malicious DNS activity may appear legitimate without deeper behavioral analysis.
+No single indicator is proof by itself; analysts usually combine multiple signs and correlate with flow or endpoint telemetry.
 
 ---
 
-## DNS tunneling vs legitimate DNS traffic
+## DNS tunneling vs legitimate DNS
 
-| Dimension | Legitimate DNS | DNS tunneling |
-|---|---|---|
-| Purpose | Name resolution | Hidden communication or data transfer |
-| Query structure | Human-readable or application-driven | Encoded or high-entropy payloads |
-| Query frequency | Application-dependent | Often repetitive or automated |
-| Behavioral patterns | Normal operational traffic | Anomalous communication behavior |
-| Security concern | Standard network operation | Potential malicious activity |
+| Aspect                | Legitimate DNS                           | DNS tunneling                            |
+|-----------------------|------------------------------------------|------------------------------------------|
+| Purpose               | Hostname resolution                      | Hidden data transfer                     |
+| Query structure       | Meaningful, short‑to‑medium names        | Long, high‑entropy, or random‑looking    |
+| Frequency and rhythm  | Sporadic, user‑ or app‑driven           | High, repetitive, or machine‑like        |
+| Security posture      | Normal operational traffic               | Potential malicious activity             |
 
-Behavioral analysis is usually more reliable than relying solely on static domain characteristics.
+Behavioral analysis and thresholds (for example, “top‑domain queries per host”) are more effective than static domain lists alone.
 
 ---
 
 ## Detection challenges
 
-DNS tunneling detection can be difficult because:
-- DNS traffic is extremely common
-- Some legitimate services generate unusual DNS patterns
-- Encrypted DNS technologies may reduce visibility
-- High query volumes may create operational noise
-- Attackers continuously adapt tunneling techniques
-
-Effective detection often combines:
-- DNS traffic analysis
-- Flow analytics
-- Endpoint telemetry
-- Threat intelligence
-- Historical traffic baselining
-
-Correlating DNS behavior with other operational signals improves investigation accuracy.
+Detecting DNS tunneling is hard because DNS traffic is large and noisy, some legitimate services (for example, CDN, telemetry, or cloud platforms) generate unusual patterns, and encrypted DNS (DoT, DoH) can hide payloads. Also, attackers keep changing encoding schemes and timing. Effective detection usually combines DNS traffic analysis, flow analytics, endpoint logs, and threat intelligence, backed by baselines of normal DNS behavior.
 
 ---
 
-## How Trisul handles DNS tunneling
+## In Trisul
 
-Trisul supports DNS-oriented traffic investigation workflows through traffic analytics and operational visibility.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **DNS-related traffic visibility**
-- **Historical traffic trending**
-- **Traffic anomaly investigation workflows**
-- **Top-K analytics** for identifying dominant DNS activity
-- **Explore Flows** for DNS traffic investigation and drill-down analysis
-- **Flow and packet correlation workflows**
-- **Operational visibility into abnormal DNS communication patterns**
-
-These capabilities help operators investigate suspicious DNS behavior, analyze anomalous traffic patterns, and correlate DNS activity with broader operational and security investigations.
-
-Trisul is primarily a traffic analytics and visibility platform rather than a dedicated standalone DNS tunneling detection appliance.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+Trisul helps investigate DNS tunneling by giving visibility into DNS‑related traffic patterns and anomalies. Flow‑based analytics let you see which hosts generate the most DNS queries, spot sudden spikes, or detect unusual ratios of DNS volume compared with other traffic. **Explore Flows** and **Top‑K analytics** can highlight suspicious DNS flows, while historical trending helps determine if a pattern is new or normal for that subnet or host. Trisul does not decode DNS payloads itself but provides the traffic‑level context operators need to trigger deeper inspection or correlate with dedicated DNS‑security tools.
 
 ---
 
 ## Related terms
 
-- [Passive DNS](/glossary/passive-dns)
-- [DNS security](/glossary/dns-security)
-- [Data exfiltration](/glossary/data-exfiltration)
-- [Covert channel](/glossary/covert-channel)
-- [Threat detection](/glossary/threat-detection)
-- [DNS traffic analysis](/glossary/dns-traffic-analysis)
-- [Flow analysis](/glossary/flow-analysis)
+- DNS tunneling  
+- DNS traffic analysis  
+- Passive DNS  
+- Covert channel  
+- Data exfiltration  
+- Threat detection  
+- DNS security  
+- Flow analysis  
 
 ---
 
@@ -235,7 +137,7 @@ Relevant Trisul use cases:
 
 ### What is DNS tunneling?
 
-DNS tunneling is the use of DNS queries and responses to carry non-DNS data or conceal communications inside DNS traffic. It is commonly associated with covert communication, command-and-control activity, and data exfiltration attempts.
+DNS tunneling is the use of DNS queries and responses to carry non‑DNS data or conceal communications inside DNS traffic. It is commonly associated with covert communication, command‑and‑control activity, and data exfiltration attempts.
 
 ### How does DNS tunneling work?
 
@@ -251,4 +153,4 @@ DNS tunneling detection commonly involves identifying abnormal DNS behavior such
 
 ### How does Trisul help investigate DNS tunneling?
 
-Trisul helps operators investigate suspicious DNS activity using traffic analytics, DNS-related flow visibility, historical traffic analysis, and operational investigation workflows.
+Trisul helps operators investigate suspicious DNS activity using traffic analytics, DNS‑related flow visibility, historical traffic analysis, and operational investigation workflows.

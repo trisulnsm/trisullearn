@@ -64,232 +64,62 @@ export const jsonLd = {
 
 # What are dropped packets?
 
-**Dropped packets** are network packets that are discarded before successfully reaching their intended destination.
-
-Packet drops commonly occur because of:
-- Congestion
-- Buffer exhaustion
-- Interface overruns
-- QoS policy enforcement
-- Hardware limitations
-- Wireless interference
-- Resource exhaustion
-- Malformed or invalid traffic
-
-Packet loss is an important operational signal because excessive drops can affect:
-- Application performance
-- Throughput
-- Latency
-- Voice and video quality
-- Service availability
-- User experience
-
-Trisul supports traffic-analysis workflows that help operators investigate congestion, retransmissions, traffic anomalies, and operational conditions associated with packet loss.
+**Dropped packets** are network packets that are discarded somewhere along the path before they arrive at their intended destination. They can be dropped at routers, switches, firewalls, hosts, or wireless links because traffic exceeds capacity, buffers are full, policies are enforced, or hardware or network conditions prevent clean delivery. Packet loss is a key signal in network operations: occasional drops are often tolerable, but sustained or high‑rate drops can severely impact application performance and user experience.
 
 ---
 
 ## What causes dropped packets
 
-Packets may be dropped at different points within a network or host stack.
-
-Common causes include:
-
-| Cause | Operational meaning |
-|---|---|
-| Congestion | Traffic exceeds forwarding capacity |
-| Buffer exhaustion | Queues cannot accept additional packets |
-| Interface overruns | Interfaces cannot process packets fast enough |
-| QoS enforcement | Lower-priority traffic is intentionally discarded |
-| Hardware limitations | Device resource exhaustion or hardware issues |
-| Wireless interference | Frames become corrupted or unusable |
-| Routing or forwarding problems | Packets cannot be forwarded correctly |
-| Invalid or malformed packets | Packets fail protocol validation |
-
-Packet drops may occur on:
-- Routers
-- Switches
-- Firewalls
-- Wireless infrastructure
-- Servers
-- Virtualized environments
-- Endpoint operating systems
-
-The operational impact depends on traffic type, application sensitivity, and loss severity.
+Drops occur at multiple points in the network stack. Common causes include congestion when traffic exceeds a link’s capacity, buffer exhaustion as queues overflow, interface overruns when hardware cannot keep up, and QoS or traffic‑shaping policies that intentionally discard lower‑priority traffic. Other causes include hardware limitations, wireless interference, malformed or invalid packets that fail validation, and routing or forwarding issues. Whether the drop happens on a router, firewall, server, or endpoint, the practical effect is the same: the data is never delivered and must be handled by the application or transport layer.
 
 ---
 
 ## Dropped packets and transport protocols
 
-Different protocols react differently to packet loss.
-
-### TCP behavior
-
-TCP generally:
-- Detects missing packets
-- Retransmits lost data
-- Reduces transmission rates during congestion
-- Adjusts congestion windows dynamically
-
-TCP packet loss often causes:
-- Increased latency
-- Reduced throughput
-- Retransmissions
-- Application slowdowns
-
-### UDP behavior
-
-UDP generally does not retransmit dropped packets automatically.
-
-UDP packet loss may directly affect:
-- Voice quality
-- Video quality
-- Gaming traffic
-- Realtime applications
-- Streaming consistency
-
-Operational effects may include:
-- Audio glitches
-- Video artifacts
-- Frame loss
-- Jitter-related degradation
+**TCP** reacts to packet loss by detecting missing segments, retransmitting data, and throttling send rates in response to congestion. This typically raises latency and reduces throughput but preserves data integrity. **UDP**, in contrast, generally does not retransmit dropped packets, so loss directly impacts realtime applications such as voice, video, and gaming, often manifesting as glitches, artifacts, jitter, or frame loss. Understanding which transport is affected helps determine whether the symptom is congestion‐induced throughput collapse (TCP) or quality degradation (UDP).
 
 ---
 
 ## Dropped packets in network operations
 
-Operations teams monitor packet drops to identify:
-- Congestion
-- Capacity bottlenecks
-- Hardware failures
-- Misconfigurations
-- Traffic anomalies
-- QoS issues
-
-Common operational workflows include:
-
-- **NOC operations**: Monitor interface drop counters and congestion
-- **SOC investigations**: Investigate anomalous traffic spikes or attack-related drops
-- **Capacity planning**: Identify overloaded links and infrastructure
-- **Wireless troubleshooting**: Investigate interference and retransmissions
-- **Performance monitoring**: Analyze application-impacting packet loss
-
-Sustained packet loss is often correlated with:
-- High utilization
-- Queue growth
-- TCP retransmissions
-- Latency increases
-- Interface saturation
+Operations teams treat dropped packets as a leading indicator of congestion, capacity issues, misconfigurations, or underlying hardware problems. They monitor interface counters, device telemetry, and flow‑based metrics to correlate packet loss with utilization spikes, queue growth, and TCP retransmissions. In NOC and SOC workflows, sudden or sustained drops can flag congestion, DDoS‑like traffic, misconfigured QoS, or failing components. In capacity planning and wireless troubleshooting, persistent drops help identify saturated links, interference‑prone channels, or poorly tuned buffers.
 
 ---
 
 ## Dropped packets vs corrupted packets
 
-| Dimension | Dropped packets | Corrupted packets |
-|---|---|---|
-| Operational outcome | Packet discarded | Packet received with integrity errors |
-| Typical causes | Congestion, buffering, policy enforcement | Physical-layer issues, interference, signal problems |
-| Detection methods | Drop counters, retransmissions, telemetry | CRC errors, FCS errors, integrity checks |
-| Common remediation | Capacity and congestion management | Hardware replacement or signal-quality improvements |
-| Network impact | Throughput and delivery loss | Data integrity problems |
-
-The two conditions are operationally different and often require different troubleshooting approaches.
+Dropped packets are never delivered to the receiver, while **corrupted packets** arrive but fail integrity checks (for example, CRC or FCS errors). Drops typically stem from congestion, buffering, or policy actions; corruption is more often tied to physical‑layer issues such as bad cables, interference, or weak signal. In practice, drops are managed via capacity and congestion control, whereas corruption calls for hardware or medium‑quality fixes.
 
 ---
 
 ## How dropped packets are diagnosed
 
-Packet-loss investigations commonly use:
-- Interface counters
-- Device telemetry
-- Flow analytics
-- Packet captures
-- Retransmission analysis
-- Queue statistics
-- Congestion metrics
-- Historical traffic analysis
-
-Common indicators include:
-- `rx_dropped`
-- `tx_dropped`
-- Retransmission rates
-- Interface utilization spikes
-- Queue overflows
-- TCP performance degradation
-
-Different operating systems and vendors expose packet-loss statistics differently.
+Diagnostics rely on drop counters (`rx_dropped`, `tx_dropped`), device telemetry, and congestion indicators on routers, switches, and hosts. Flow analytics and packet captures help correlate loss with traffic spikes, QoS markings, or retransmission bursts. TCP‑centric views—such as retransmission rates and latency trends—flag loss‑affected sessions, while queue statistics and interface‑utilization graphs expose the underlying congestion. Different vendors and operating systems expose these counters in slightly different ways, so consistent monitoring is key.
 
 ---
 
 ## Are dropped packets always bad?
 
-Not all packet drops indicate operational failure.
-
-Examples where packet drops may occur normally include:
-- Congestion-control mechanisms
-- QoS traffic shaping
-- Wireless communication environments
-- Burst traffic conditions
-- Traffic policing workflows
-
-However, persistent or excessive packet loss can indicate:
-- Capacity exhaustion
-- Misconfiguration
-- Hardware failure
-- Traffic anomalies
-- Network instability
-
-The operational impact depends on:
-- Application requirements
-- Traffic type
-- Loss duration
-- Network design
-- Protocol behavior
+Some packet drops are normal and even expected, such as those generated by congestion‑control mechanisms, QoS shaping, traffic policing, or wireless conditions. However, persistent or high‑rate loss often signals capacity exhaustion, misconfiguration, failing hardware, or traffic anomalies. Whether loss is “bad” depends on application sensitivity, loss rate, duration, and protocol behavior. For example, small, intermittent loss may be acceptable for web browsing but can be intolerable for video conferencing.
 
 ---
 
-## How Trisul handles dropped-packet analysis
+## In Trisul
 
-Trisul supports traffic-analysis workflows that help operators investigate conditions associated with packet loss.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Historical traffic trending**
-- **Congestion-oriented traffic analysis**
-- **TCP retransmission visibility**
-- **Explore Flows** for traffic investigation and drill-down workflows
-- **Traffic anomaly visibility**
-- **Interface and traffic correlation workflows**
-- **Operational visibility into traffic spikes and saturation patterns**
-
-These capabilities help operators investigate traffic behavior associated with congestion, retransmissions, interface saturation, and operational anomalies.
-
-Trisul primarily provides traffic analytics and visibility rather than direct infrastructure packet-drop instrumentation from every device.
-
-Direct packet-drop counters are typically obtained from:
-- Routers
-- Switches
-- Firewalls
-- Host operating systems
-- SNMP telemetry
-- Device-management platforms
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul supports dropped‑packet investigations by exposing traffic‑level patterns that correlate with packet loss. Using **NetFlow, IPFIX, sFlow**, and similar telemetry, Trisul helps operators see traffic‑congestion events, TCP retransmissions, and interface‑saturation patterns. Features like **Explore Flows**, **historical traffic trending**, and congestion‑oriented dashboards allow teams to drill from high‑level utilization into flows that show retransmission or latency spikes. Trisul does not capture every device‑level drop counter directly but provides the traffic‑analytics layer that complements SNMP‑based interface‑counter monitoring from routers, switches, and firewalls.
 
 ---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Network performance monitoring](/glossary/network-performance-monitoring)
-- [TCP retransmission](/glossary/tcp-retransmission)
-- [Congestion](/glossary/congestion)
-- [QoS](/glossary/qos)
-- [Interface saturation](/glossary/interface-saturation)
-- [Packet loss](/glossary/packet-loss)
+- Dropped packets  
+- Packet loss  
+- Flow monitoring  
+- Network performance monitoring  
+- TCP retransmission  
+- Congestion  
+- QoS  
+- Interface saturation  
 
 ---
 
@@ -309,8 +139,8 @@ Dropped packets are commonly diagnosed using interface counters, flow analytics,
 
 ### Are dropped packets always a problem?
 
-Not always. Some packet drops may occur during congestion-control workflows, wireless communication, traffic shaping, or QoS enforcement. However, sustained or excessive packet loss often indicates operational or performance problems.
+Not always. Some packet drops may occur during congestion‑control workflows, wireless communication, traffic‑shaping, or QoS enforcement. However, sustained or excessive packet loss often indicates operational or performance problems.
 
-### How does Trisul help analyze dropped-packet conditions?
+### How does Trisul help analyze dropped‑packet conditions?
 
-Trisul helps operators analyze traffic behavior associated with packet-loss conditions using flow analytics, retransmission visibility, congestion investigation workflows, and historical traffic analysis.
+Trisul helps operators analyze traffic behavior associated with packet‑loss conditions using flow analytics, retransmission visibility, congestion investigation workflows, and historical traffic analysis.

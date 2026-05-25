@@ -64,163 +64,73 @@ export const jsonLd = {
 
 # What is datacenter monitoring?
 
-**Datacenter monitoring** is the process of observing the health, performance, availability, and traffic behavior of infrastructure, applications, and services inside a datacenter environment.
-
-Datacenter monitoring commonly includes visibility into:
-- Network infrastructure
-- Servers and compute resources
-- Storage systems
-- Applications and services
-- Virtualization platforms
-- Traffic behavior
-- Environmental systems
-- Operational performance metrics
-
-Datacenter monitoring helps operators maintain:
-- Availability
-- Performance
-- Reliability
-- Capacity visibility
-- Operational stability
-
-Trisul supports datacenter-oriented traffic visibility and operational analytics workflows.
+**Datacenter monitoring** is the process of observing the health, performance, availability, and traffic behavior of infrastructure, applications, and services inside a datacenter. It covers network devices, servers, storage, virtualization platforms, and the traffic between them. The goal is to keep services available, detect problems early, and understand usage patterns across the datacenter.
 
 ---
 
 ## How datacenter monitoring works
 
-Datacenter monitoring systems collect telemetry from infrastructure, applications, and network devices across the datacenter environment.
-
-Common telemetry sources include:
-- SNMP metrics
-- Flow telemetry
-- System logs
-- Application metrics
-- Hypervisor statistics
-- Environmental sensors
-- Interface counters
-- Traffic analytics
-
-Typical workflow:
-
-1. **Telemetry collection** → Monitoring systems gather infrastructure and traffic data
-2. **Aggregation and normalization** → Data is organized into operational views
-3. **Correlation and analysis** → Systems identify trends, failures, anomalies, or overload conditions
-4. **Alerting and visualization** → Dashboards and alerts provide operational visibility
-5. **Operational investigation** → Teams troubleshoot incidents and performance problems
-
-Monitoring systems may operate across:
-- Physical infrastructure
-- Virtualized workloads
-- Private cloud environments
-- Hybrid datacenter architectures
+Datacenter monitoring collects telemetry from devices, systems, and applications. Common sources include SNMP, flow telemetry, system logs, application metrics, hypervisor counters, and environmental sensors. This data is aggregated, normalized, and correlated so operators can see availability, resource usage, and traffic patterns from a single view. Alerts and dashboards surface issues, while historical trending helps with capacity planning and troubleshooting.
 
 ---
 
 ## Datacenter monitoring in operations
 
-Datacenter monitoring supports operational visibility across infrastructure and service environments.
-
-Common operational use cases include:
-
-- **Availability monitoring**: Detect outages and failed systems
-- **Performance monitoring**: Identify latency, congestion, and resource bottlenecks
-- **Capacity planning**: Track growth and utilization trends
-- **Traffic analysis**: Analyze east-west and north-south traffic patterns
-- **Security monitoring**: Detect unusual traffic behavior and operational anomalies
-- **Virtualization monitoring**: Observe hypervisors and virtual workloads
-- **Operational troubleshooting**: Investigate application and infrastructure failures
-
-Datacenter visibility is especially important because failures in shared infrastructure can affect many dependent services simultaneously.
+In operations, datacenter monitoring is used for availability, performance, and capacity management. Operators use it to detect outages, investigate latency, understand traffic patterns (east‑west and north‑south), and validate virtualization and storage behavior. Because many services share the same infrastructure, monitoring is critical for quickly isolating failures and avoiding cascading impact across applications and tenants.
 
 ---
 
 ## Common datacenter telemetry signals
 
-| Signal | Purpose |
-|---|---|
-| Device health | Infrastructure availability and status |
-| Link utilization | Network load and traffic activity |
-| Storage utilization | Disk and storage capacity usage |
-| Application health | Service availability and responsiveness |
-| CPU and memory usage | Compute resource consumption |
-| Flow telemetry | Traffic visibility and communication analysis |
-| Environmental metrics | Temperature, power, and cooling conditions |
+| Signal               | Purpose |
+|----------------------|---------|
+| Device health        | Uptime and state of routers, switches, firewalls |
+| Link utilization     | Network load and traffic volume |
+| Storage utilization  | Disk and storage usage |
+| Application health   | Service availability and responsiveness |
+| CPU and memory usage | Server resource consumption |
+| Flow telemetry       | Traffic and communication visibility |
+| Environmental metrics| Temperature, power, and cooling status |
 
-Different operational teams may focus on different telemetry categories depending on their responsibilities.
+Different teams (network, server, storage, cloud) focus on different signals but often share the same monitoring infrastructure.
 
 ---
 
 ## Datacenter monitoring vs cloud monitoring
 
-| Dimension | Datacenter monitoring | Cloud monitoring |
-|---|---|---|
-| Environment | On-premises or private infrastructure | Public or hybrid cloud platforms |
-| Infrastructure visibility | Direct infrastructure control | Provider-managed infrastructure visibility |
-| Telemetry sources | Physical and virtual systems | Cloud APIs and cloud-native telemetry |
-| Operational focus | Local infrastructure operations | Distributed cloud-service operations |
+| Dimension              | Datacenter monitoring                          | Cloud monitoring                                    |
+|------------------------|-----------------------------------------------|----------------------------------------------------|
+| Environment            | On‑premises or private datacenter             | Public or hybrid cloud services                    |
+| Infrastructure control | Full control over physical and virtual systems| Shared control with cloud provider                 |
+| Telemetry sources      | Direct device and system telemetry            | Cloud APIs and cloud‑native telemetry              |
+| Operational focus      | Local infrastructure and applications         | Distributed cloud‑hosted services and microservices |
 
-Modern environments often combine datacenter and cloud monitoring into hybrid operational workflows.
+In practice, many organizations combine both into a hybrid monitoring strategy.
 
 ---
 
 ## Why datacenter monitoring matters
 
-Datacenters support critical applications, storage, and communication infrastructure.
-
-Without effective monitoring, operators may struggle to:
-- Detect outages quickly
-- Identify congestion and bottlenecks
-- Troubleshoot service degradation
-- Plan infrastructure growth
-- Maintain operational reliability
-- Correlate failures across systems
-
-Effective monitoring improves:
-- Uptime
-- Operational visibility
-- Troubleshooting speed
-- Capacity planning accuracy
-- Performance management
-
-Traffic visibility is especially important in high-density environments where application dependencies and traffic patterns can change rapidly.
+Datacenters host critical services, databases, and applications. Without monitoring, operators may miss congestion, overloaded links, failed servers, or storage exhaustion until users report issues. Effective monitoring improves uptime, reduces mean‑time‑to‑resolve, supports capacity planning, and helps teams understand how traffic and dependencies change over time. Traffic visibility is especially important in dense, high‑throughput environments.
 
 ---
 
-## How Trisul handles datacenter monitoring
+## In Trisul
 
-Trisul supports datacenter monitoring workflows through traffic analytics and operational traffic visibility.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Datacenter traffic visibility**
-- **Historical traffic trending**
-- **Congestion and utilization analysis**
-- **Top-K analytics** for identifying dominant traffic consumers
-- **Explore Flows** for traffic investigation and drill-down analysis
-- **Aggregate Flows** for summarizing traffic behavior
-- **Operational visibility into east-west and north-south traffic patterns**
-
-These capabilities help operators investigate traffic behavior, analyze congestion conditions, identify abnormal activity, and improve operational visibility inside datacenter environments.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#capacity-planning
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul supports datacenter‑oriented monitoring through flow‑based traffic analytics and operational visibility. It ingests NetFlow, IPFIX, sFlow, and related telemetry to show east‑west and north‑south traffic, interface utilization, congestion, and top‑talker views. With **Top‑K analytics**, **Explore Flows**, and **historical traffic trending**, Trisul helps operators investigate traffic behavior, spot bottlenecks, and correlate performance issues across switches, routers, and servers in the datacenter.
 
 ---
 
 ## Related terms
 
-- [Network performance](/glossary/network-performance)
-- [Storage](/glossary/storage)
-- [Congestion detection](/glossary/congestion-detection)
-- [Application monitoring](/glossary/application-monitoring)
-- [Cloud monitoring](/glossary/cloud-monitoring)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Infrastructure monitoring](/glossary/infrastructure-monitoring)
-- [East-west traffic](/glossary/east-west-traffic)
+- Datacenter monitoring  
+- Network performance  
+- Infrastructure monitoring  
+- Storage  
+- Application monitoring  
+- Cloud monitoring  
+- Flow monitoring  
+- East‑west traffic  
 
 ---
 

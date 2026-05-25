@@ -64,155 +64,73 @@ export const jsonLd = {
 
 # What is digital forensics?
 
-**Digital forensics** is the practice of collecting, preserving, analyzing, and documenting digital evidence to reconstruct events and support operational, security, compliance, or legal investigations.
-
-Digital forensics is commonly used in:
-- Cybersecurity investigations
-- Incident response
-- Insider-threat analysis
-- Compliance workflows
-- Operational troubleshooting
-- Legal and regulatory investigations
-
-Digital evidence may originate from:
-- Network traffic
-- Packet captures
-- System logs
-- Authentication records
-- Filesystems
-- Endpoint devices
-- Memory captures
-- Cloud infrastructure
-
-Trisul supports network-oriented forensic workflows through traffic visibility and historical traffic analysis.
+**Digital forensics** is the practice of collecting, preserving, analyzing, and documenting digital evidence to reconstruct events and support operational, security, compliance, or legal investigations. It is used in cybersecurity, incident response, insider‑threat analysis, compliance audits, and legal cases to understand what happened, when, and how. Evidence can come from network traffic, logs, files, memory, and authentication systems.
 
 ---
 
 ## How digital forensics works
 
-Digital forensics focuses on preserving evidence integrity while reconstructing operational or security events.
-
-Typical workflow:
-
-1. **Evidence identification** → Relevant digital artifacts are located
-2. **Evidence collection** → Data is collected using controlled procedures
-3. **Preservation** → Evidence integrity is protected against alteration
-4. **Analysis** → Investigators reconstruct timelines and activity patterns
-5. **Correlation** → Multiple evidence sources are compared and validated
-6. **Documentation** → Findings are recorded for operational or legal use
-
-Forensic workflows emphasize:
-- Repeatability
-- Traceability
-- Documentation
-- Evidence integrity
-- Chain-of-custody practices
-
-The exact procedures vary depending on operational, legal, and organizational requirements.
+Digital forensics follows a structured workflow that focuses on preserving evidence and documenting every step. Investigators first identify where relevant evidence exists (for example, packet captures, logs, or endpoint images). They then collect the data using controlled procedures, store it securely, and analyze it to reconstruct timelines and activities. Multiple sources are correlated, findings are documented, and results are presented for operational or legal use. Chain‑of‑custody, integrity checks, and clear documentation are central to the process.
 
 ---
 
 ## Digital forensics in network operations
 
-Digital forensics is important in security and operational environments where historical reconstruction and evidence analysis are required.
-
-Common operational use cases include:
-
-- **Incident response**: Investigate breaches, malware, or unauthorized access
-- **Network forensics**: Analyze traffic behavior and communications
-- **Threat hunting**: Investigate suspicious operational activity
-- **Insider-threat investigations**: Analyze user and device behavior
-- **Compliance investigations**: Support audit and regulatory workflows
-- **Operational troubleshooting**: Reconstruct service-impacting events
-
-Network traffic visibility is especially useful because communications data often provides timeline and behavioral context during investigations.
+In security and operations, digital forensics helps reconstruct breaches, misconfigurations, or performance‑impacting incidents. Teams use it to understand attack timelines, identify malicious traffic, and validate or disprove hypotheses. Network‑centric workflows often leverage flow records, packet captures, logs, and authentication history to build a timeline of events across systems. This visibility is critical for post‑incident reports, regulatory audits, and legal proceedings.
 
 ---
 
 ## Common forensic evidence sources
 
-| Source | Operational use |
-|---|---|
-| Logs | Event reconstruction and timeline analysis |
-| Packet captures | Communication-level evidence |
-| Flow records | Traffic behavior and session visibility |
-| Filesystems | File activity and persistence analysis |
-| Memory captures | Runtime process and malware analysis |
-| Authentication records | User access and login investigation |
-| System artifacts | Host activity reconstruction |
+| Source               | Use |
+|----------------------|-----|
+| Logs                 | Event and timestamp reconstruction |
+| Packet captures      | Detailed communication evidence |
+| Flow records         | Session‑level traffic behavior |
+| Filesystems          | File creation, modification, and access |
+| Memory captures      | Process and runtime analysis |
+| Authentication records| User and session context |
+| System artifacts     | Registry, registry‑like data, and host state |
 
-Investigators commonly correlate multiple evidence sources to improve accuracy and confidence.
+Investigations often combine network and endpoint sources to build a complete picture.
 
 ---
 
 ## Network forensics vs endpoint forensics
 
-| Dimension | Network forensics | Endpoint forensics |
-|---|---|---|
-| Focus | Network communications and traffic | Device and host activity |
-| Common evidence | Packets, flows, logs | Files, memory, processes |
-| Operational scope | Traffic visibility across systems | Detailed host-level analysis |
-| Typical use | Traffic reconstruction and communications analysis | Malware and host investigation |
+| Dimension          | Network forensics                      | Endpoint forensics                         |
+|--------------------|----------------------------------------|--------------------------------------------|
+| Focus              | Traffic and communications             | Device‑level activity                      |
+| Main evidence      | Packets, flows, logs                   | Files, memory, processes, registry         |
+| Operational view   | Cross‑host traffic patterns            | Detailed host‑specific behavior            |
+| Typical use        | Communications reconstruction          | Malware and local‑profile analysis        |
 
-Many investigations combine both approaches for broader operational visibility.
+Effective investigations often tie both together for a full picture of what happened.
 
 ---
 
 ## Why digital forensics matters
 
-Digital forensics helps organizations:
-- Reconstruct incidents
-- Understand attack timelines
-- Preserve evidence
-- Improve incident response
-- Support compliance investigations
-- Validate operational findings
-
-Without proper evidence handling, investigations may become:
-- Incomplete
-- Difficult to verify
-- Operationally unreliable
-- Legally problematic
-
-Historical traffic visibility and accurate timeline reconstruction are especially important in network-security investigations.
+Digital forensics turns raw data into legally and operationally defensible findings. It helps teams understand incident scope, reconstruct sequences of events, and improve defenses. Without proper handling, evidence can be challenged or dismissed. Historical traffic visibility, accurate timestamps, and preserved logs are particularly important for network‑oriented investigations and regulatory or court‑driven reviews.
 
 ---
 
-## How Trisul handles digital forensics
+## In Trisul
 
-Trisul supports network-oriented forensic workflows through traffic visibility and historical analysis capabilities.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Historical traffic investigation**
-- **Packet and flow visibility**
-- **Traffic reconstruction workflows**
-- **Explore Flows** for drill-down investigation
-- **Aggregate Flows** for summarizing traffic behavior
-- **Traffic correlation workflows**
-- **Long-term traffic trending and operational visibility**
-
-These capabilities help investigators analyze communication patterns, reconstruct operational events, investigate suspicious traffic activity, and improve network-oriented forensic analysis.
-
-Trisul is primarily a network analytics and traffic visibility platform rather than a dedicated endpoint forensic suite.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+Trisul supports network‑oriented digital forensics through long‑retained flow and, when available, packet‑level visibility. Using NetFlow, IPFIX, sFlow, and related telemetry, Trisul lets investigators reconstruct traffic patterns, timelines, and communication flows around specific hosts, prefixes, or time windows. With **Explore Flows**, **Aggregate Flows**, and historical trending, Trisul can help trace suspicious activity, correlate traffic across interfaces, and support incident‑response and compliance workflows. Trisul is a network‑analytics and traffic‑visibility platform and is typically used alongside endpoint‑forensics and case‑management tools.
 
 ---
 
 ## Related terms
 
-- [Forensic analysis](/glossary/forensic-analysis)
-- [Incident investigation](/glossary/incident-investigation)
-- [Security auditing](/glossary/security-auditing)
-- [Syslog](/glossary/syslog)
-- [SIEM](/glossary/siem)
-- [Network forensics](/glossary/network-forensics)
-- [Packet capture](/glossary/packet-capture)
+- Digital forensics  
+- Network forensics  
+- Forensic analysis  
+- Incident investigation  
+- Security auditing  
+- Syslog  
+- SIEM  
+- Packet capture  
 
 ---
 
@@ -232,7 +150,7 @@ Digital forensics helps investigators reconstruct events, establish timelines, a
 
 ### How is digital forensics used?
 
-Digital forensics is used in cybersecurity investigations, incident response, insider-threat analysis, operational troubleshooting, compliance investigations, and legal or regulatory workflows.
+Digital forensics is used in cybersecurity investigations, incident response, insider‑threat analysis, operational troubleshooting, compliance investigations, and legal or regulatory workflows.
 
 ### How does Trisul support digital forensics workflows?
 
