@@ -64,279 +64,62 @@ export const jsonLd = {
 
 # What is flow data?
 
-**Flow data** is structured network telemetry that summarizes communication activity between systems using metadata such as addresses, ports, protocols, timestamps, and traffic counters without storing full packet payloads.
-
-A flow record typically represents a communication conversation or traffic exchange observed on the network.
-
-Flow data commonly includes:
-- Source and destination IP addresses
-- Source and destination ports
-- Protocol information
-- Start and end timestamps
-- Byte and packet counters
-- Flow duration
-- Interface information
-- Traffic direction metadata
-
-Unlike packet capture, flow data summarizes communication behavior rather than preserving full packet contents.
-
-This makes flow telemetry:
-- Lightweight
-- Scalable
-- Efficient for long-term retention
-- Useful for broad operational visibility
-- Suitable for historical traffic analysis
-
-Flow data is widely used in:
-- Network monitoring
-- Security operations
-- Capacity planning
-- ISP traffic engineering
-- Incident investigations
-- Traffic trending
-- Compliance workflows
-- Cloud-network visibility
-
-Trisul supports large-scale flow-data analytics using NetFlow, IPFIX, sFlow, and related telemetry technologies.
+**Flow data** is structured network telemetry that summarizes communication activity between systems using metadata such as addresses, ports, protocols, timestamps, and traffic counters without storing full packet payloads. A flow record typically represents a conversation or session between two endpoints, described by the 5‑tuple (source/destination IP, source/destination port, protocol) plus elapsed time, packet count, and byte count. This compact format enables efficient storage and long‑term analysis of network behavior across enterprise, ISP, and cloud environments.
 
 ---
 
 ## What flow data contains
 
-The exact structure of flow data depends on:
-- Export technology
-- Exporter configuration
-- Vendor implementation
-- Telemetry templates
-- Sampling configuration
-
-Basic flow records commonly include:
-- 5-tuple metadata
-- Timestamps
-- Packet counters
-- Byte counters
-- Flow duration
-
-Extended telemetry formats such as IPFIX may also include:
-- VLAN identifiers
-- MPLS labels
-- DSCP markings
-- Interface metadata
-- BGP attributes
-- Application identifiers
-- Autonomous-system information
-- Vendor-specific metadata
-
-Modern telemetry exporters may also provide:
-- Application visibility
-- Security metadata
-- Flow directionality
-- Tunnel information
-- Cloud-network metadata
-
-Different exporters may expose different metadata fields even when using the same export protocol.
-
-Collectors and analytics platforms must interpret telemetry templates correctly to decode incoming records consistently.
-
-![](./images/flow-data.png)
+The exact fields in a flow record vary by exporter and protocol (NetFlow, IPFIX, sFlow, etc.), but most formats include core metadata such as **source and destination IPs**, **ports**, **protocol**, **start/end timestamps**, **packet and byte counters**, **flow duration**, and **interface information**. Extended formats like **IPFIX** can add **VLAN IDs**, **MPLS labels**, **DSCP/BGP attributes**, **application identifiers**, and vendor‑specific fields. Analytics platforms decode these templates and normalize the metadata so operators can search, pivot, and trend traffic consistently regardless of device vendor.
 
 ---
 
 ## Flow data in network operations
 
-Flow data is widely used across operational environments.
-
-### NOC operations
-
-NOC teams use flow data for:
-- Bandwidth trending
-- Interface-utilization analysis
-- Capacity planning
-- Application visibility
-- Congestion investigation
-- Traffic troubleshooting
-
-Flow visibility helps operators identify:
-- Saturated interfaces
-- Traffic-growth patterns
-- High-volume applications
-- Persistent bottlenecks
-- Traffic anomalies
-
-### SOC operations
-
-SOC teams use flow data for:
-- Threat investigations
-- Historical traffic analysis
-- Lateral movement visibility
-- Data-exfiltration investigations
-- Suspicious communication analysis
-- Incident response
-
-Flow retention helps analysts reconstruct:
-- Communication timelines
-- Host relationships
-- Historical network activity
-- Scope of compromise
-- Traffic anomalies
-
-### ISP and carrier operations
-
-Service providers use flow data for:
-- ASN-level traffic analysis
-- Peering visibility
-- Routing analysis
-- Subscriber analytics
-- Capacity engineering
-- Operational reporting
-
-The operational value depends heavily on telemetry completeness, exporter placement, retention depth, and analytics workflows.
+In **NOC** operations, flow data underpins bandwidth trending, capacity planning, interface utilization analysis, and congestion investigations by showing which hosts, applications, or links drive traffic over time. In **SOC** workflows, it enables threat hunting, lateral‑movement analysis, and historical incident reconstruction, because even without payloads, flows reveal who talked to whom, when, and how much data moved. **ISP and carrier** environments use flow data for ASN‑level traffic analysis, peering visibility, subscriber‑level reporting, and regulatory‑style record‑keeping, where long‑term retention of metadata suffices for many use cases.
 
 ---
 
 ## Flow data vs packet data
 
-| Dimension | Flow data | Packet data |
-|---|---|---|
-| Primary visibility | Communication metadata | Individual packets and payloads |
-| Payload visibility | Typically none | Available when not encrypted |
-| Scalability | Very high | Lower because of storage and processing requirements |
-| Retention window | Often weeks or months | Often shorter because of storage demands |
-| Collection source | Exporters or packet-derived telemetry | TAPs, SPAN ports, or packet-capture systems |
-| Common operational use | Trending, detection, scoping, reporting | Deep protocol analysis and forensic investigation |
-
-Flow data and packet data are complementary rather than competing visibility models.
-
-In many operational workflows:
-- Flow data provides broad visibility and historical retention
-- Packet data provides deeper protocol and payload detail
-
-Combining both improves operational context and investigation accuracy.
+**Flow data** summarizes network communications using metadata, making it lightweight and easy to retain for weeks or months. **Packet data** preserves individual packets and, where possible, entire payloads, enabling deep protocol and forensic analysis. The trade‑off is storage and performance: packet capture is expensive and usually short‑lived, while flow data scales well but does not show application‑level content. In practice, teams use flow data to scope and prioritize investigations, then drop to packet‑level tools only when they need to inspect protocol mechanics or payloads.
 
 ---
 
 ## Flow data vs log data
 
-| Dimension | Flow data | Log data |
-|---|---|---|
-| Visibility source | Network communications | Applications, systems, or devices |
-| Data model | Communication metadata | Event records |
-| Operational focus | Traffic behavior and communication visibility | Application and operational events |
-| Deployment dependency | Exporters or traffic observation | Application or system logging configuration |
-| Typical use cases | Traffic analytics and network investigations | Application troubleshooting and event auditing |
-
-Flow telemetry and log data are commonly correlated during:
-- Incident investigations
-- Operational troubleshooting
-- Threat hunting
-- Compliance workflows
-
-Each provides different operational visibility.
+**Flow data** describes network communication patterns derived from traffic observations (routers, switches, firewalls). **Log data** describes events generated by applications, operating systems, or devices (syslogs, authentication logs, application logs). Flows tell you *who talked to whom and how much*, logs tell you *what happened inside the system or app*. In incident response and threat hunting, the two are combined: a suspicious flow leads to a host whose logs then show specific processes, services, or user actions related to the traffic.
 
 ---
 
-## Flow-data retention and compliance
+## Flow‑data retention and compliance
 
-Flow-data retention requirements vary by:
-- Operational requirements
-- Security workflows
-- Regulatory obligations
-- Storage architecture
-- Telemetry scale
-
-Organizations commonly retain flow data for:
-- Historical investigations
-- Capacity trending
-- Security operations
-- Audit workflows
-- Regulatory reporting
-
-Retention periods vary significantly across:
-- Industries
-- Jurisdictions
-- Organizational policies
-- Operational use cases
-
-Because flow data contains metadata rather than payload content, it is generally more storage-efficient than full packet capture.
-
-However, long-term retention still requires:
-- Scalable storage architecture
-- Query optimization
-- Retention management
-- Telemetry lifecycle planning
-
-Organizations should validate retention requirements against applicable operational and regulatory obligations.
+Flow data is commonly retained for **operational troubleshooting**, **capacity planning**, **security investigations**, and **regulatory audits** because it provides a compact, non‑payload way to keep historical records of network communications. Retention periods (days, weeks, or months) depend on organizational policy, industry‑specific regulation, telemetry scale, and storage budget. Longer retention enables deeper historical reconstruction and threat‑hunt capabilities but demands scalable backends and efficient query engines. Many organizations retain just enough flow data to meet their incident‑response and compliance needs without over‑provisioning storage.
 
 ---
 
 ## Sampling and telemetry accuracy
 
-Many flow exporters use sampling to reduce processing and bandwidth overhead.
-
-Sampling may:
-- Improve scalability
-- Reduce exporter load
-- Lower telemetry volume
-
-However, sampled telemetry may also:
-- Miss short-duration flows
-- Underrepresent low-volume traffic
-- Affect anomaly visibility
-- Reduce statistical accuracy
-
-Flow-analysis platforms may estimate traffic totals using exporter-provided sampling metadata.
-
-The accuracy of these estimates depends on:
-- Sampling ratios
-- Traffic patterns
-- Export consistency
-- Telemetry completeness
-
-Operators should understand telemetry limitations when interpreting sampled flow data.
+Many exporters use **sampling** (for example, 1 in N packets) to reduce CPU and bandwidth load. When sampling is enabled, the collector often receives metadata that describes the sampling ratio, allowing it to estimate true volume and counts. However, sampling disproportionately affects short‑lived or low‑volume flows, which can be missed or dramatically underestimated. To maintain reasonable accuracy, operators must understand both the sampling configuration and its limitations, treating sampled flow data as a scalability‑driven approximation rather than a perfect representation of all traffic.
 
 ---
 
 ## How Trisul handles flow data
 
-Trisul supports large-scale flow-data analytics through integrated telemetry-ingestion and traffic-analysis workflows.
-
-Relevant capabilities include:
-
-- **NetFlow, IPFIX, sFlow, and related telemetry ingestion**
-- **Historical traffic analysis**
-- **Explore Flows** for interactive traffic investigations
-- **Flow Taggers** for contextual traffic enrichment
-- **Top-K analytics** for identifying dominant traffic entities
-- **Interface Tracking** for interface-level visibility
-- **Host and application traffic analysis**
-- **Packet-derived flow generation workflows**
-- **Traffic anomaly visibility**
-- **Operational dashboards and historical querying workflows**
-
-Trisul can also generate flow telemetry from packet observations in environments where device-based export is unavailable or sampled.
-
-These capabilities help operators investigate traffic behavior, analyze historical communications, troubleshoot operational problems, and support security investigations.
-
-Trisul primarily focuses on scalable traffic analytics and operational visibility rather than payload-centric packet-forensics workflows.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
+Trisul ingests **flow data** from **NetFlow, IPFIX**, and **sFlow** exporters, indexes it over time, and exposes it through **historical traffic analysis**, **Explore Flows**, **Top‑K analytics**, **Flow Taggers**, and **Interface Tracking**. This lets operators move from high‑level dashboards to detailed investigations of specific hosts, ports, or applications, enriching flows with tags and business context along the way. Trisul can also generate flow records from packet‑based telemetry when native exporters are unavailable or oversampled, bridging the gap between pure packet‑capture and device‑exported flows. The platform is optimized for scalable, metadata‑driven visibility rather than payload‑centric forensics.
 
 ---
 
 ## Related terms
 
-- [Flow](/glossary/flow)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Flow forensics](/glossary/flow-forensics)
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [Flow sampling](/glossary/flow-sampling)
-- [Full packet capture](/glossary/full-packet-capture)
-- [Flow Tagger](/glossary/flow-tagger)
+- Flow  
+- Flow monitoring  
+- Flow forensics  
+- NetFlow  
+- IPFIX  
+- Flow sampling  
+- Full packet capture  
+- Flow Tagger  
 
 ---
 
@@ -344,11 +127,11 @@ Relevant Trisul use cases:
 
 ### What fields does flow data contain?
 
-Flow data commonly contains source and destination IP addresses, ports, protocols, timestamps, byte and packet counters, interface information, and flow duration. Extended telemetry formats such as IPFIX may also include VLAN identifiers, BGP attributes, DSCP values, MPLS labels, application identifiers, and vendor-specific metadata depending on exporter configuration.
+Flow data commonly contains source and destination IP addresses, ports, protocols, timestamps, byte and packet counters, interface information, and flow duration. Extended telemetry formats such as IPFIX may also include VLAN identifiers, BGP attributes, DSCP values, MPLS labels, application identifiers, and vendor‑specific metadata depending on exporter configuration.
 
 ### How is flow data different from log data?
 
-Flow data summarizes network communications using traffic metadata generated from network observations, while log data records application, operating-system, or device events generated by software systems. Flow data provides broad network-communication visibility, whereas logs provide application and event-specific context.
+Flow data summarizes network communications using traffic metadata generated from network observations, while log data records application, operating‑system, or device events generated by software systems. Flow data provides broad network‑communication visibility, whereas logs provide application and event‑specific context.
 
 ### Can flow data support compliance and audit workflows?
 
@@ -356,8 +139,8 @@ Yes. Flow data is commonly used for operational auditing, security investigation
 
 ### How long should flow data be retained?
 
-Flow-data retention depends on operational, security, regulatory, and storage requirements. Security investigations may require weeks or months of retention, while operational trending may require shorter periods. Retention policies vary significantly by organization, industry, jurisdiction, and telemetry scale.
+Flow‑data retention depends on operational, security, regulatory, and storage requirements. Security investigations may require weeks or months of retention, while operational trending may require shorter periods. Retention policies vary significantly by organization, industry, jurisdiction, and telemetry scale.
 
-### How does Trisul support flow-data workflows?
+### How does Trisul support flow‑data workflows?
 
-Trisul supports flow-data workflows through NetFlow, IPFIX, and sFlow ingestion, historical traffic analysis, Explore Flows investigation workflows, Flow Taggers, Top-K analytics, and operational traffic-visibility capabilities.
+Trisul supports flow‑data workflows through NetFlow, IPFIX, and sFlow ingestion, historical traffic analysis, Explore Flows investigation workflows, Flow Taggers, Top‑K analytics, and operational traffic‑visibility capabilities.

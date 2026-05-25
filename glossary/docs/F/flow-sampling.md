@@ -64,331 +64,77 @@ export const jsonLd = {
 
 # What is flow sampling?
 
-**Flow sampling** is a telemetry technique where network devices observe and export only a subset of packets or flows to reduce processing, storage, and export overhead while still providing statistical visibility into network traffic.
-
-Instead of exporting every observed communication:
-- Only selected packets may be sampled
-- Only selected flows may be tracked
-- Export rates may be reduced statistically
-
-Sampling allows flow telemetry to scale across:
-- High-speed links
-- Large enterprise networks
-- ISP backbones
-- Datacenter environments
-- Cloud-network infrastructure
-
-However, sampling also introduces:
-- Statistical estimation
-- Reduced fidelity
-- Potential visibility gaps
-- Lower accuracy for low-volume traffic
-
-Flow sampling is commonly used with:
-- NetFlow
-- IPFIX
-- sFlow
-- High-scale telemetry systems
-
-Trisul supports sampled telemetry ingestion and analysis workflows using NetFlow, IPFIX, sFlow, and packet-derived traffic visibility.
+**Flow sampling** is a telemetry technique where network devices observe and export only a subset of packets or flows to reduce processing, storage, and export overhead while still providing statistical visibility into network traffic. Instead of exporting every packet or session, exporters use a sampling ratio (for example, 1 in N packets) to create a compact, approximate view of traffic. This makes flow‑based monitoring feasible on high‑speed links and large‑scale networks but introduces statistical estimation and potential visibility gaps, especially for low‑volume or short‑lived traffic.
 
 ---
 
 ## How flow sampling works
 
-Sampling reduces telemetry volume by selecting only a subset of observed traffic for export.
-
-Typical workflow:
-
-1. **Traffic observation** → Packets are observed on monitored interfaces
-2. **Sampling selection** → A subset of packets or flows is selected
-3. **Flow generation** → Telemetry records are created from sampled observations
-4. **Sampling metadata export** → Exporters include sampling information where supported
-5. **Collector estimation** → Analytics systems estimate totals using sampling metadata
-
-Sampling behavior depends heavily on:
-- Export protocol
-- Exporter implementation
-- Hardware capabilities
-- Platform configuration
-- Traffic characteristics
-
-Some exporters sample:
-- Individual packets
-- Flow creation events
-- Interface observations
-- Specific traffic classes
-
-The exact telemetry model varies significantly across platforms.
-
-![](./images/flow-sampling.png)
+Flow sampling begins when packets cross a monitored interface. An exporter selects a subset according to a configured ratio—such as **every 100th packet** or via **random probability**—and creates flow records only from the selected samples. The exporter may also attach **sampling metadata** (ratio and method) so that downstream collectors can estimate true traffic volume and counters. Different platforms implement sampling at the **packet level** (sFlow‑style) or at the **flow‑creation level** (NetFlow/IPFIX‑style), and some combine both approaches for efficiency and coverage.
 
 ---
 
 ## Packet sampling vs flow sampling
 
-Different telemetry technologies implement sampling differently.
-
-### Packet sampling
-
-Packet sampling selects packets directly from observed traffic.
-
-This approach is commonly associated with:
-- sFlow
-- High-speed switching telemetry
-- Statistical traffic analysis
-
-Packet sampling may provide:
-- Traffic-distribution visibility
-- Application mix analysis
-- Statistical protocol visibility
-
-However, packet sampling may:
-- Miss short conversations
-- Reduce visibility into low-volume traffic
-- Limit per-flow reconstruction accuracy
-
-### Flow sampling
-
-Flow sampling typically selects only some flows for export or tracking.
-
-This approach is commonly associated with:
-- NetFlow
-- IPFIX
-- Flexible flow exporters
-
-Depending on exporter implementation, flow sampling may involve:
-- Packet-triggered flow selection
-- Probabilistic flow export
-- Hardware-assisted sampling
-- Hybrid telemetry approaches
-
-Different vendors implement flow sampling differently.
-
-Operators should validate exporter behavior before assuming telemetry semantics.
+**Packet sampling** (common in **sFlow**) picks individual packets from the data stream and derives telemetry from those, focusing on traffic‑distribution and interface‑level aggregates. **Flow sampling** (common in **NetFlow/IPFIX**) selects only some flows or flow‑creation events, producing a sparser set of communication records. Packet sampling is good for estimating bandwidth and application mix at wire‑rate speeds; flow sampling is better for reconstructing conversations and per‑host behavior, but both can miss low‑volume or short‑lived traffic if the ratio is too coarse.
 
 ---
 
 ## Flow sampling in network operations
 
-Sampling is widely used in large-scale operational environments.
-
-### NOC operations
-
-Network operations teams use sampled telemetry for:
-- Capacity planning
-- Bandwidth trending
-- Interface-utilization analysis
-- Traffic engineering
-- Application visibility
-- Network baselining
-
-High-volume traffic patterns are often represented adequately for:
-- Trend analysis
-- Traffic engineering
-- Capacity estimation
-
-Sampling reduces:
-- Export bandwidth
-- Collector load
-- Storage requirements
-- Hardware resource consumption
-
-### SOC operations
-
-Security teams may use sampled telemetry for:
-- Threat hunting
-- Communication analysis
-- Historical investigations
-- Traffic anomaly detection
-
-However, low-volume activity may be harder to detect in sampled telemetry.
-
-Potentially affected visibility includes:
-- Slow scanning behavior
-- Low-bandwidth exfiltration
-- Sparse beaconing activity
-- Short-lived sessions
-- Infrequent communications
-
-Security-sensitive deployments may therefore prefer:
-- Lower sampling ratios
-- Selective unsampled telemetry
-- Packet-derived visibility
-- Hybrid monitoring architectures
-
-The operational tradeoff depends on:
-- Network scale
-- Security requirements
-- Exporter capability
-- Storage architecture
-- Investigation goals
+In **NOC** environments, sampling is widely used for **bandwidth trending**, **interface‑utilization analysis**, and **capacity planning**, because it reduces **CPU, export bandwidth, and storage** while still capturing bulk traffic patterns. In **SOC** workflows, however, sampling complicates **anomaly detection** and **threat hunting**, since **slow scans**, **low‑bandwidth exfiltration**, and **infrequent beaconing** may fall below the sampling threshold. Security‑focused deployments often use **lower sampling ratios** or **unsampled visibility at key chokepoints** to preserve detection fidelity while still sampling broadly in the core.
 
 ---
 
 ## Sampled flow vs unsampled flow
 
 | Dimension | Sampled flow telemetry | Unsampled flow telemetry |
-|---|---|---|
-| Visibility model | Statistical subset of observed traffic | Full exported telemetry visibility |
-| Scalability | Higher | Lower because of increased telemetry volume |
-| Resource requirements | Lower exporter and storage overhead | Higher exporter and collector load |
-| Low-volume visibility | May be reduced | Generally stronger |
-| Traffic estimation | Statistical approximation | Direct telemetry reporting |
-| Common use cases | Trending and large-scale monitoring | Detailed investigations and higher-fidelity analysis |
+|----------|------------------------|--------------------------|
+| Visibility model | Statistical subset of traffic | Full exported telemetry |
+| Scalability | High (low overhead) | Lower (higher resource use) |
+| Low‑volume visibility | May be reduced | Generally stronger |
+| Traffic estimation | Statistical approximation | Direct measurement |
+| Common use cases | Trending, large‑scale monitoring | Detailed investigations, high‑fidelity analysis |
 
-Unsampled telemetry generally improves visibility fidelity but may require:
-- More capable exporters
-- Additional collector capacity
-- Larger storage systems
-- Higher ingestion throughput
-
-Operational architecture determines which approach is practical.
+Unsampled telemetry gives more accurate per‑flow visibility but demands stronger **exporter**, **collector**, and **storage** capacity. Organizations typically choose unsampled only at critical crossroads and rely on sampling elsewhere to balance coverage and cost.
 
 ---
 
 ## Sampling accuracy and estimation
 
-Collectors may estimate traffic totals using:
-- Sampling ratios
-- Exporter metadata
-- Statistical scaling logic
-
-Estimation accuracy depends on:
-- Traffic distribution
-- Sampling consistency
-- Export reliability
-- Sampling methodology
-- Exporter implementation
-
-High-volume traffic patterns are often estimated more reliably than:
-- Low-volume traffic
-- Short-duration sessions
-- Sparse communication events
-
-Adaptive or dynamic sampling may further complicate:
-- Historical comparisons
-- Traffic estimation
-- Aggregated reporting
-- Cross-device normalization
-
-Organizations should validate telemetry assumptions before using sampled data for:
-- Compliance workflows
-- Billing
-- Precise accounting
-- Security investigations
+Collectors that receive **sampling metadata** can scale up counters and estimated volumes, but accuracy depends on **sampling method**, **traffic distribution**, and **export consistency**. High‑volume flows are usually represented well; low‑volume or bursty traffic may be undercounted or invisible. Adaptive or dynamic sampling can further complicate **historical comparisons** and **reporting**. Teams should validate sampling assumptions with **interface counters**, **packet‑based checks**, and **cross‑platform baselines** before using sampled data for **billing**, **compliance**, or **precise security‑impact assessments**.
 
 ---
 
 ## Deterministic vs probabilistic sampling
 
-Sampling algorithms vary by platform.
-
-### Deterministic sampling
-
-Deterministic sampling selects packets or flows using fixed intervals such as:
-- Every Nth packet
-- Every Nth flow
-
-Advantages may include:
-- Simplicity
-- Predictable export rates
-- Lower computational overhead
-
-Limitations may include:
-- Predictable selection behavior
-- Potential traffic bias
-- Uneven representation under some traffic patterns
-
-### Probabilistic sampling
-
-Probabilistic sampling uses randomized selection probabilities.
-
-Advantages may include:
-- Better statistical distribution
-- Reduced predictability
-- More uniform selection behavior
-
-However, implementation complexity and operational behavior vary significantly across platforms.
-
-Exporter-specific validation remains important.
+**Deterministic sampling** selects packets or flows at fixed intervals (for example, every Nth item), yielding predictable export rates but potentially introducing **bias** if traffic has regular patterns. **Probabilistic sampling** uses random selection probabilities, giving a more statistically uniform sample but with less predictable export volumes. Different vendors mix both models; operators should test each exporter and confirm how its sampling behavior affects the specific telemetry they care about.
 
 ---
 
 ## Operational considerations
 
-Flow-sampling deployments commonly face operational considerations including:
-- Exporter resource limitations
-- Sampling consistency
-- Multi-vendor telemetry differences
-- Estimation accuracy
-- Collector scaling
-- Historical retention
-- Visibility gaps
-- Security-monitoring limitations
-
-Telemetry interpretation depends heavily on:
-- Sampling methodology
-- Exporter behavior
-- Monitoring placement
-- Traffic characteristics
-- Operational objectives
-
-Organizations commonly validate sampled telemetry using:
-- Interface counters
-- Baseline comparisons
-- Packet-level validation
-- Exporter statistics
-- Traffic-engineering measurements
-
-Understanding telemetry limitations is important for accurate operational analysis.
+Flow‑sampling deployments face **resource limits on exporters**, **inconsistent behavior across vendors**, **potential telemetry gaps**, and **challenges in estimating low‑volume traffic**. Exporter overload can cause additional drops beyond the intended sampling ratio, and multi‑path or multi‑hop environments can make correlation harder. Best practices include **validating telemetry with interface counters**, **monitoring exporter health and sampling stats**, and designing **hybrid architectures** that combine sampled telemetry with **packet‑based or unsampled flows** at key points. This keeps the overall monitoring scalable while preserving fidelity where it matters most.
 
 ---
 
 ## How Trisul handles flow sampling
 
-Trisul supports sampled and unsampled telemetry workflows through integrated traffic-analysis and telemetry-ingestion capabilities.
-
-Relevant capabilities include:
-
-- **NetFlow, IPFIX, sFlow, and related telemetry ingestion**
-- **Sampling-aware traffic analysis workflows**
-- **Historical traffic analysis**
-- **Explore Flows** for interactive investigations
-- **Top-K analytics** for identifying dominant traffic entities
-- **Flow Taggers** for contextual traffic enrichment
-- **Interface Tracking** for interface-level visibility
-- **Packet-derived flow generation workflows**
-- **Host and application traffic analysis**
-- **Operational dashboards and historical querying workflows**
-
-Trisul can also generate flow telemetry from packet observations in environments where:
-- Unsampled visibility is required
-- Exporter capabilities are limited
-- Native flow export is unavailable
-
-These capabilities help operators analyze traffic behavior, estimate utilization, investigate historical communications, and support operational or security workflows across sampled and unsampled environments.
-
-Trisul primarily focuses on scalable traffic analytics and operational visibility rather than payload-only forensic workflows.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
+Trisul ingests **sampled NetFlow, IPFIX, and sFlow** as well as **unsampled packet‑derived flows**, and it can apply **sampling‑aware scaling** to estimate true volumes. Through **historical traffic analysis**, **Explore Flows**, **Top‑K analytics**, and **Flow Taggers**, operators can analyze both sampled and unsampled telemetry, pivoting between compressed, scalable views and higher‑fidelity records. For security‑sensitive or high‑accuracy needs, Trisul can also generate **flow records directly from packet captures**, giving organizations a way to complement sampled telemetry with unsampled visibility at critical locations. Trisul focuses on **scalable, metadata‑driven analytics** rather than payload‑centric forensics, making it suitable for large‑scale NOC, SOC, and ISP environments that rely on sampling to stay within resource and cost limits.
 
 ---
 
 ## Related terms
 
-- [Flow](/glossary/flow)
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [sFlow](/glossary/sflow)
-- [Flow timeout](/glossary/flow-timeout)
-- [Flow stitching](/glossary/flow-stitching)
-- [Full packet capture](/glossary/full-packet-capture)
-- [Network security monitoring](/glossary/network-security-monitoring)
+- Flow sampling  
+- Flow  
+- NetFlow  
+- IPFIX  
+- sFlow  
+- Flow timeout  
+- Flow stitching  
+- Full packet capture  
+- Network security monitoring  
 
 ---
 
@@ -396,19 +142,19 @@ Relevant Trisul use cases:
 
 ### What sampling rate is acceptable for network monitoring?
 
-Acceptable sampling rates depend on operational goals, traffic patterns, exporter capabilities, and network scale. Coarser sampling may be adequate for capacity trending and large-scale traffic analysis, while security investigations and anomaly detection generally benefit from lower sampling ratios or unsampled telemetry because low-volume activity may otherwise be underrepresented.
+Acceptable sampling rates depend on operational goals, traffic patterns, exporter capabilities, and network scale. Coarser sampling may be adequate for capacity trending and large‑scale traffic analysis, while security investigations and anomaly detection generally benefit from lower sampling ratios or unsampled telemetry because low‑volume activity may otherwise be underrepresented.
 
 ### How does flow sampling affect security detection?
 
-Sampling may reduce visibility into short-duration, infrequent, or low-volume communications. Depending on the sampling ratio and traffic characteristics, some security-relevant events may be underrepresented or missed entirely. The operational impact depends on exporter behavior, monitoring placement, and detection requirements.
+Sampling may reduce visibility into short‑duration, infrequent, or low‑volume communications. Depending on the sampling ratio and traffic characteristics, some security‑relevant events may be underrepresented or missed entirely. The operational impact depends on exporter behavior, monitoring placement, and detection requirements.
 
 ### Does sFlow use the same sampling mechanism as NetFlow?
 
-No. sFlow primarily uses packet-based sampling combined with interface counters, while NetFlow and IPFIX exporters may implement packet sampling, flow sampling, or hybrid telemetry behaviors depending on the platform implementation. Sampling behavior varies significantly across vendors and exporter architectures.
+No. sFlow primarily uses packet‑based sampling combined with interface counters, while NetFlow and IPFIX exporters may implement packet sampling, flow sampling, or hybrid telemetry behaviors depending on the platform implementation. Sampling behavior varies significantly across vendors and exporter architectures.
 
 ### Can collectors estimate actual traffic volume from sampled telemetry?
 
-Collectors may estimate traffic totals using exporter-provided sampling metadata. Estimation accuracy is generally stronger for high-volume traffic patterns than for low-volume or short-duration communications. The reliability of estimates depends on sampling methodology, traffic distribution, exporter consistency, and telemetry completeness.
+Collectors may estimate traffic totals using exporter‑provided sampling metadata. Estimation accuracy is generally stronger for high‑volume traffic patterns than for low‑volume or short‑duration communications. The reliability of estimates depends on sampling methodology, traffic distribution, exporter consistency, and telemetry completeness.
 
 ### What is the difference between deterministic and probabilistic sampling?
 

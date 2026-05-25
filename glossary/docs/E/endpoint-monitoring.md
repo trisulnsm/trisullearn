@@ -64,187 +64,56 @@ export const jsonLd = {
 
 # What is endpoint monitoring?
 
-**Endpoint monitoring** is the process of observing endpoints such as laptops, servers, workstations, or virtual machines for operational health, user activity, security events, and network behavior.
-
-Endpoint monitoring helps organizations:
-- Detect suspicious activity
-- Troubleshoot operational issues
-- Monitor host health
-- Investigate incidents
-- Analyze endpoint communications
-- Improve operational visibility
-- Correlate host and network activity
-
-Endpoints commonly include:
-- Employee laptops
-- Workstations
-- Physical servers
-- Virtual machines
-- Cloud-hosted systems
-- Managed desktops
-- Specialized operational devices
-
-Endpoint visibility is important because many operational and security events originate directly on devices.
-
-Trisul supports endpoint-focused traffic investigation workflows through network traffic analytics and host-oriented visibility capabilities.
+**Endpoint monitoring** is the process of observing endpoints such as laptops, servers, workstations, virtual machines, or cloud‑hosted systems for operational health, user activity, security events, and network behavior. It provides visibility into what happens directly on each device, helping operators detect issues, investigate incidents, and correlate host‑level events with broader network‑wide activity.
 
 ---
 
 ## How endpoint monitoring works
 
-Endpoint monitoring systems collect telemetry from managed devices or associated traffic-monitoring infrastructure.
-
-Common telemetry sources include:
-- Endpoint agents
-- Operating-system logs
-- Security telemetry
-- Application telemetry
-- Network connections
-- Authentication records
-- Resource-utilization metrics
-- System event logs
-
-Typical workflow:
-
-1. **Telemetry collection** → Endpoint activity is collected
-2. **Behavioral monitoring** → Systems analyze endpoint behavior
-3. **Alert generation** → Suspicious or abnormal activity is identified
-4. **Operational investigation** → Analysts investigate endpoint and related activity
-5. **Response workflows** → Teams troubleshoot, remediate, or contain issues
-
-Different endpoint-monitoring platforms support different:
-- Telemetry depth
-- Monitoring scope
-- Response workflows
-- Endpoint coverage models
-- Security capabilities
+Endpoint monitoring collects telemetry either directly from agents on devices or from associated logs and event‑forwarding systems. Telemetry typically includes process activity, file and registry changes, authentication events, system‑health metrics, resource usage, and network‑connection data. Monitoring platforms analyze this data for anomalies, generate alerts, and present timelines and dashboards for investigation. Different tools vary in depth and scope, from simple performance monitoring to full‑featured EDR‑style behavioral analysis.
 
 ---
 
 ## Endpoint monitoring in operations
 
-Endpoint monitoring is important in:
-- Security operations
-- IT operations
-- Incident response
-- Threat hunting
-- Compliance monitoring
-- Performance troubleshooting
-- Managed endpoint environments
-
-Common operational use cases include:
-
-- **Host troubleshooting**: Analyze performance or stability issues
-- **Security monitoring**: Detect suspicious endpoint activity
-- **Malware investigation**: Investigate malicious processes or communications
-- **User-activity analysis**: Understand endpoint behavior
-- **Operational health monitoring**: Monitor system performance and resource usage
-- **Incident response**: Correlate endpoint and network events
-
-Endpoint telemetry often reveals activity that may not be fully visible from network-only monitoring approaches.
+Endpoint monitoring is used in IT operations, security, incident response, and compliance. Use cases include **host‑level troubleshooting**, **security monitoring**, **malware and ransomware investigations**, **user‑behavior analysis**, and **capacity or performance reporting**. Because many attacks and outages start at the endpoint, this visibility is often essential for root‑cause analysis and incident response. Endpoint telemetry also reveals details—such as process execution or logon history—that may be invisible to network‑only monitoring tools.
 
 ---
 
 ## Endpoint monitoring vs network monitoring
 
-| Dimension | Endpoint monitoring | Network monitoring |
-|---|---|---|
-| Primary visibility | Device and host activity | Network communications and traffic behavior |
-| Typical telemetry | Processes, files, users, system events | Flows, packets, sessions, network metadata |
-| Deployment location | Endpoints and hosts | Network infrastructure and monitoring points |
-| Operational focus | Host-level visibility | Communication and traffic visibility |
-| Common use case | Device troubleshooting and security | Traffic analytics and network operations |
-
-The two approaches are complementary and are often used together during investigations.
-
-For example:
-- Endpoint monitoring may identify suspicious process activity
-- Network monitoring may reveal external communications or lateral movement
-
-Correlating endpoint and network telemetry improves operational context and investigation accuracy.
+Endpoint monitoring focuses on what happens **on the device**: processes, files, logons, and local events. Network monitoring focuses on **traffic** between systems: flows, sessions, packets, and communication patterns. The two views are complementary: endpoint data can show a process executed on a laptop, while network data can show that same host connecting to a suspicious external IP or exhibiting lateral‑movement behavior. Effective operations usually combine both, stitching endpoint and network telemetry during investigations.
 
 ---
 
 ## Endpoint monitoring and security investigations
 
-Endpoint monitoring plays an important role in:
-- Malware investigations
-- Insider-threat analysis
-- Credential-abuse investigations
-- Ransomware analysis
-- Threat hunting
-- Post-compromise analysis
-
-Common monitored indicators may include:
-- Unusual process execution
-- Suspicious authentication activity
-- Unauthorized software changes
-- Unexpected outbound connections
-- Privilege escalation behavior
-- Persistence mechanisms
-
-Combining endpoint telemetry with network analytics improves visibility into distributed attack activity.
+Endpoint monitoring is critical for malware analysis, insider‑threat investigations, credential‑abuse detection, and post‑compromise analysis. Typical indicators include **unusual process execution**, **unauthorized software changes**, **unexpected outbound connections**, **privilege‑escalation attempts**, and **persistence mechanisms**. When paired with network analytics, this visibility helps trace attackers’ movements across the environment and distinguish legitimate administrative activity from abuse.
 
 ---
 
 ## Operational considerations
 
-Endpoint-monitoring deployments commonly face operational challenges including:
-- Inconsistent endpoint coverage
-- Agent-management overhead
-- Alert fatigue
-- Endpoint performance impact
-- Telemetry storage requirements
-- Unmanaged-device visibility gaps
-- Large-scale operational complexity
-
-Effective endpoint monitoring often requires:
-- Consistent device coverage
-- Historical telemetry retention
-- Centralized analysis workflows
-- Correlation with network telemetry
-- Operational baselining
-
-The exact capabilities depend on deployment architecture and monitoring platforms.
+Endpoint‑monitoring deployments face challenges such as **patchy coverage**, **agent management**, **performance overhead**, and **alert fatigue**. Missing or misconfigured agents can create blind spots, and large‑scale environments require solid telemetry‑retention and indexing to support investigations. Successful operations usually depend on consistent coverage, centralized dashboards, historical baselining, and integration with network and SIEM‑style tools for cross‑domain correlation.
 
 ---
 
-## How Trisul supports endpoint-focused investigations
+## How Trisul supports endpoint‑focused investigations
 
-Trisul supports endpoint-focused investigation workflows through network traffic analytics and operational visibility capabilities.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Host-oriented traffic visibility**
-- **Packet visibility and traffic investigation**
-- **Historical traffic analysis**
-- **Explore Flows** for host and communication investigation
-- **Traffic anomaly visibility**
-- **Lateral movement visibility through traffic analytics**
-- **Flow and packet correlation workflows**
-- **Operational visibility into endpoint communications**
-
-These capabilities help analysts investigate endpoint-related traffic behavior, analyze suspicious communications, correlate endpoint events with network activity, and improve operational visibility during troubleshooting and incident investigations.
-
-Trisul primarily provides network traffic analytics and visibility rather than endpoint-agent monitoring or direct endpoint-management functionality.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+Trisul supports endpoint‑focused investigations by providing network‑level evidence that correlates with host‑level activity. Using **NetFlow, IPFIX, and sFlow**, it exposes traffic patterns associated with specific hosts, such as suspicious external connections, internal lateral movement, or beaconing behavior. Features like **Explore Flows**, historical traffic trending, and anomaly detection allow analysts to trace an endpoint‑detected process or logon across network sessions, validate exfiltration hypotheses, and reconstruct attack timelines. Trisul acts as a traffic‑analytics layer that complements endpoint‑monitoring tools, not as an endpoint‑agent or host‑management platform.
 
 ---
 
 ## Related terms
 
-- [Host monitoring](/glossary/host-monitoring)
-- [Host analytics](/glossary/host-analytics)
-- [EDR](/glossary/endpoint-detection-and-response)
-- [Network observability](/glossary/network-observability)
-- [Device visibility](/glossary/device-visibility)
-- [Threat detection](/glossary/threat-detection)
-- [Flow monitoring](/glossary/flow-monitoring)
+- Endpoint monitoring  
+- Host monitoring  
+- Host analytics  
+- Endpoint detection and response (EDR)  
+- Network observability  
+- Device visibility  
+- Threat detection  
+- Flow monitoring  
 
 ---
 
@@ -260,12 +129,12 @@ Endpoint monitoring may track process activity, system health, resource utilizat
 
 ### Why is endpoint monitoring important?
 
-Endpoint monitoring is important because many operational and security issues originate on devices themselves. Endpoint visibility helps operators troubleshoot problems, detect suspicious behavior, investigate incidents, and understand host-level activity.
+Endpoint monitoring is important because many operational and security issues originate on devices themselves. Endpoint visibility helps operators troubleshoot problems, detect suspicious behavior, investigate incidents, and understand host‑level activity.
 
 ### How is endpoint monitoring different from network monitoring?
 
 Endpoint monitoring focuses on activity occurring directly on devices, while network monitoring analyzes traffic and communications moving across the network. The two approaches provide complementary operational visibility.
 
-### How does Trisul support endpoint-focused investigations?
+### How does Trisul support endpoint‑focused investigations?
 
-Trisul supports endpoint-focused investigations through traffic analytics, host-oriented flow visibility, packet analysis, and historical traffic investigation capabilities that help correlate endpoint activity with network communications.
+Trisul supports endpoint‑focused investigations through traffic analytics, host‑oriented flow visibility, packet analysis, and historical traffic investigation capabilities that help correlate endpoint activity with network communications.

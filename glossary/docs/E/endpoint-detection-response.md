@@ -64,187 +64,56 @@ export const jsonLd = {
 
 # What is endpoint detection and response?
 
-**Endpoint detection and response (EDR)** is a security approach that continuously monitors endpoints for suspicious behavior, supports threat investigation, and enables incident-response actions on devices such as laptops, servers, and workstations.
-
-EDR platforms are commonly used to:
-- Detect malicious activity
-- Investigate endpoint behavior
-- Correlate security events
-- Analyze post-compromise activity
-- Support incident response
-- Improve endpoint visibility
-- Monitor host-level telemetry
-
-Endpoints commonly include:
-- Employee laptops
-- Servers
-- Virtual machines
-- Workstations
-- Cloud-hosted systems
-- Managed desktops
-
-EDR is an important component of modern security operations because many attacks generate observable activity directly on endpoints.
-
-Trisul complements endpoint-oriented investigations through network traffic analytics and traffic-visibility workflows.
+**Endpoint detection and response (EDR)** is a security approach that continuously monitors endpoints for suspicious behavior, supports threat investigation, and enables incident‑response actions on devices such as laptops, servers, virtual machines, and workstations. EDR deploys lightweight agents on endpoints to collect rich host‑level telemetry, then uses behavioral analytics and rules to surface anomalies, investigate confirmed incidents, and perform actions such as isolation, remediation, or containment.
 
 ---
 
 ## How EDR works
 
-EDR platforms commonly deploy agents or monitoring components on managed endpoints.
-
-These systems may collect:
-- Process execution activity
-- File modifications
-- Registry or configuration changes
-- User and authentication activity
-- Network connections
-- Command execution history
-- Security alerts
-- System telemetry
-
-Typical workflow:
-
-1. **Endpoint telemetry collection** → Activity is collected from managed devices
-2. **Behavioral analysis** → Security systems analyze suspicious behavior
-3. **Alert generation** → Potential threats or anomalies are identified
-4. **Investigation workflows** → Analysts review endpoint and related activity
-5. **Response actions** → Systems may isolate, remediate, or contain affected endpoints
-
-Different EDR platforms support different:
-- Detection models
-- Telemetry depth
-- Automated response capabilities
-- Investigation workflows
-- Endpoint coverage models
+EDR systems typically install agents on endpoints that gather a wide range of host‑level events, including process executions, file and registry changes, user and logon activity, network connections, command‑line history, and security alerts. This telemetry is streamed to a central console where analytics engines apply detection models, correlate events, and generate alerts. Security analysts use EDR dashboards to drill into timelines, hunt for indicators of compromise, and execute responses such as quarantining files, killing processes, or isolating the host from the network.
 
 ---
 
 ## EDR in security operations
 
-EDR is widely used in:
-- SOC environments
-- Incident response
-- Threat hunting
-- Malware investigations
-- Insider-threat investigations
-- Compliance monitoring
-- Managed security operations
-
-Common operational use cases include:
-
-- **Malware detection**: Identify suspicious process behavior
-- **Credential-abuse investigation**: Analyze unauthorized access activity
-- **Persistence detection**: Identify long-term attacker footholds
-- **Ransomware investigation**: Analyze endpoint encryption activity
-- **Threat hunting**: Investigate suspicious endpoint patterns
-- **Incident response**: Correlate endpoint and network events
-
-Endpoint telemetry often reveals activity that may not be visible through network-only monitoring approaches.
+EDR is a core part of modern SOC and incident‑response workflows. It helps detect malware, credential‑abuse patterns, ransomware behavior, and persistence techniques that may run entirely on the endpoint. Threat‑hunting teams use EDR to search for subtle indicators across thousands of hosts, while incident‑response teams rely on its detailed endpoint timelines to reconstruct attack sequences. EDR is especially powerful for uncovering stealthy attacks that leave little or no obvious footprint in network traffic alone.
 
 ---
 
 ## EDR vs network security monitoring
 
-| Dimension | EDR | Network security monitoring |
-|---|---|---|
-| Primary visibility | Endpoint and host activity | Network communications and traffic behavior |
-| Data source | Endpoint telemetry and agents | Flow data, packets, and network telemetry |
-| Typical focus | Processes, files, users, execution | Traffic patterns, sessions, communications |
-| Deployment location | Endpoints and hosts | Network infrastructure and monitoring points |
-| Operational strength | Host-level visibility | Network-wide communication visibility |
-
-The two approaches are complementary and often correlated during investigations.
-
-For example:
-- EDR may identify malware execution on a host
-- Network monitoring may reveal command-and-control communications or lateral movement
-
-Combining endpoint and network visibility improves investigation accuracy and operational context.
+EDR and network security monitoring are complementary. **EDR** focuses on what happens on the host: processes, files, logons, and execution. **Network security monitoring** focuses on traffic, sessions, and communication patterns across the network. When an EDR alert flags malware execution on a laptop, network‑monitoring tools can show whether that host communicates with suspicious external IPs or exhibits lateral‑movement behavior. Combining both views gives analysts a more complete picture of attack scope and intent.
 
 ---
 
 ## EDR and lateral movement
 
-Attackers frequently move between systems after initial compromise.
-
-EDR systems may help detect:
-- Suspicious remote execution
-- Credential misuse
-- Abnormal administrative activity
-- Privilege escalation
-- Persistence mechanisms
-
-Network analytics may complement EDR by identifying:
-- Lateral traffic patterns
-- Internal communications
-- Suspicious connections
-- Beaconing activity
-- Data exfiltration behavior
-
-Correlating endpoint and network telemetry improves visibility into distributed attacks.
+After an initial compromise, attackers often move laterally between systems using methods such as remote execution, pass‑the‑hash, or abuse of administrative tools. EDR can detect unusual remote‑process starts, privilege‑escalation attempts, and suspicious logon sequences on endpoints. Network analytics then shows the associated traffic—SMB, RDP, or WinRM flows—allowing operations to trace attackers’ paths across the environment. Correlating EDR‑detected activity with network telemetry strengthens detection and investigation of distributed attacks.
 
 ---
 
 ## Operational considerations
 
-EDR deployments commonly face operational considerations including:
-- Endpoint coverage consistency
-- Agent-management overhead
-- Telemetry retention
-- Alert volume
-- False positives
-- Endpoint performance impact
-- Investigation scalability
-
-Unmanaged or uninstrumented systems may create visibility gaps.
-
-Effective operations often require:
-- Consistent endpoint coverage
-- Centralized investigation workflows
-- Correlation with network telemetry
-- Historical visibility
-- Threat-intelligence integration
-
-The exact capabilities depend on the EDR platform and deployment model.
+EDR introduces several operational trade‑offs. Deploying and maintaining agents across all endpoints requires consistent coverage, update management, and performance tuning to avoid user impact. Alert‑fatigue and false positives can overwhelm analysts if detection rules are not tuned, and long‑term telemetry retention can be expensive at scale. Effective EDR operations usually depend on integration with SIEM, SOAR, and network‑monitoring tools, as well as clear playbooks for triage and response.
 
 ---
 
 ## How Trisul complements EDR workflows
 
-Trisul complements EDR workflows through network traffic analytics and operational visibility capabilities.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Packet visibility and traffic investigation**
-- **Historical traffic analysis**
-- **Explore Flows** for traffic investigation and drill-down workflows
-- **Traffic anomaly visibility**
-- **Lateral movement visibility through traffic analytics**
-- **Flow and packet correlation workflows**
-- **Operational visibility into external and internal communications**
-
-These capabilities help analysts correlate endpoint alerts with network activity, investigate suspicious communications, analyze lateral movement behavior, and improve operational visibility during incident investigations.
-
-Trisul primarily provides network traffic analytics and visibility rather than endpoint-agent functionality or direct endpoint remediation capabilities.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul complements EDR by providing network‑level visibility that helps contextualize endpoint events. Using **NetFlow, IPFIX, sFlow**, and packet‑based telemetry, Trisul surfaces traffic patterns associated with EDR‑flagged hosts, such as suspicious external connections, beaconing, or internal lateral movement. Features like **Explore Flows**, historical traffic trending, and anomaly detection let analysts correlate EDR‑detected executables or logons with network sessions, validate exfiltration hypotheses, and reconstruct attack timelines across the network. Trisul does not act as an EDR agent but enhances EDR‑driven investigations with traffic‑analytics depth.
 
 ---
 
 ## Related terms
 
-- [Network security monitoring](/glossary/network-security-monitoring)
-- [Threat detection](/glossary/threat-detection)
-- [Incident response](/glossary/incident-response)
-- [Host monitoring](/glossary/host-monitoring)
-- [Lateral movement](/glossary/lateral-movement)
-- [XDR](/glossary/xdr)
-- [Flow monitoring](/glossary/flow-monitoring)
+- Endpoint detection and response (EDR)  
+- Network security monitoring  
+- Threat detection  
+- Incident response  
+- Host monitoring  
+- Lateral movement  
+- XDR  
+- Flow monitoring  
 
 ---
 
@@ -252,7 +121,7 @@ Relevant Trisul use cases:
 
 ### What is endpoint detection and response?
 
-Endpoint detection and response (EDR) is a security approach that continuously monitors endpoints for suspicious behavior, supports threat investigation, and enables incident-response actions on devices such as laptops, servers, and workstations.
+Endpoint detection and response (EDR) is a security approach that continuously monitors endpoints for suspicious behavior, supports threat investigation, and enables incident‑response actions on devices such as laptops, servers, and workstations.
 
 ### What does EDR monitor?
 

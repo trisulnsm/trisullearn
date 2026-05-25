@@ -64,249 +64,67 @@ export const jsonLd = {
 
 # What is firewall logging?
 
-Firewall logging is the process of recording firewall events such as allowed connections, denied traffic, policy matches, session activity, and security-related events for operational visibility, troubleshooting, auditing, and incident investigation.
-
-Firewall logs help operators understand:
-- Which traffic was allowed or denied
-- Which policy matched
-- When events occurred
-- Which systems communicated
-- How security policies behaved
-- Whether suspicious activity was observed
-
-Firewall logging is commonly used for:
-- Security monitoring
-- Troubleshooting
-- Incident response
-- Compliance reporting
-- Policy validation
-- Threat investigations
-- Operational auditing
-
-Trisul complements firewall logging workflows through historical traffic analysis and telemetry-correlation capabilities.
+**Firewall logging** is the process of recording firewall events such as allowed connections, denied traffic, policy matches, session activity, and security‑related events for operational visibility, troubleshooting, auditing, and incident investigation. It answers questions like “which traffic was blocked or allowed,” “which rule matched,” and “when and between which systems did the event occur,” turning the firewall’s enforcement decisions into searchable, auditable logs. These logs are used alongside flow telemetry, packet captures, and application logs to build a complete picture of access control, policy behavior, and security‑relevant activity.
 
 ---
 
 ## How firewall logging works
 
-Firewalls generate log entries when traffic matches configured:
-- Security policies
-- Access-control rules
-- Threat signatures
-- Session events
-- Administrative actions
-- Security conditions
-
-Typical workflow:
-
-1. **Traffic inspection** → Firewall evaluates network traffic
-2. **Policy matching** → Rules and policies are applied
-3. **Event generation** → Matching events trigger logging
-4. **Log export or storage** → Logs are retained locally or forwarded
-5. **Operational analysis** → Teams review and correlate events
-
-Firewall logs may be:
-- Stored locally
-- Exported through syslog
-- Sent to SIEM platforms
-- Correlated with network telemetry
-- Retained for compliance or investigations
-
-The exact logging behavior depends on:
-- Firewall platform
-- Policy configuration
-- Logging level
-- Session-tracking behavior
-- Retention architecture
-
-![](./images/firewall-logging.png)
+Firewalls generate log entries whenever traffic matches configured **security policies, access‑control rules, threat signatures, session events**, or **administrative actions**. The workflow is: **traffic inspection → policy matching → event generation → log export/storage → operational analysis**. Logs are often written locally and then forwarded via **syslog, SNMP traps, or API interfaces** to SIEMs, analytics platforms, or centralized logging systems. The exact behavior (what is logged, at what verbosity, and for how long) depends on the **firewall platform, rule structure, logging level, session‑tracking mode, and retention design**.
 
 ---
 
 ## Firewall logging in operations
 
-Firewall logging is widely used across operational and security environments.
-
-### SOC operations
-
-Security teams use firewall logs for:
-- Threat investigations
-- Unauthorized-access detection
-- Port-scan analysis
-- Suspicious connection review
-- Incident response
-- Threat hunting
-
-Firewall logs help analysts determine:
-- Which systems communicated
-- Whether traffic was blocked or allowed
-- Which rules matched
-- Whether repeated suspicious activity occurred
-
-Firewall events are often correlated with:
-- Flow telemetry
-- DNS activity
-- Authentication logs
-- Endpoint telemetry
-- IDS or IPS alerts
-
-to improve investigation quality.
-
-### NOC operations
-
-Network operations teams use firewall logs for:
-- Connectivity troubleshooting
-- Policy validation
-- Service troubleshooting
-- Application debugging
-- Change verification
-- Traffic-path analysis
-
-Logs help operators identify:
-- Incorrect rule behavior
-- Blocked applications
-- Routing or NAT issues
-- Session-establishment failures
-- Policy conflicts
-
-### Compliance and audit workflows
-
-Firewall logging is also commonly used for:
-- Security auditing
-- Regulatory compliance
-- Access reporting
-- Change investigations
-- Historical operational review
-
-The operational value depends heavily on:
-- Log retention
-- Time synchronization
-- Logging completeness
-- Searchability
-- Correlation quality
+In **SOC** environments, firewall logs are core to **threat detection, incident‑response, and policy‑behavior analysis**, because they show which attempts were blocked and which were allowed, often revealing port‑scans, brute‑force attempts, or policy‑misconfigurations. In **NOC** workflows, they support **connectivity troubleshooting, policy‑validation, and application‑debugging**, helping operators see if a service is blocked by a rule, where a NAT or routing issue manifests, or whether a session was reset or dropped. In **compliance and audit** contexts, firewall logs provide the **audit trail** for access‑control decisions and help organizations prove that policies were correctly enforced over time.
 
 ---
 
 ## Common firewall log fields
 
 | Field | Meaning |
-|---|---|
+|------|---------|
 | Source address | Originating host or network |
 | Destination address | Target host or service |
-| Source and destination ports | Service or application context |
-| Protocol | Traffic protocol used |
-| Action | Allowed, denied, reset, or dropped |
-| Rule or policy ID | Matched firewall policy |
+| Source/destination ports | Service or application context |
+| Protocol | Transport or IP version used |
+| Action | Allowed, denied, dropped, reset, or monitored |
+| Rule or policy ID | Which firewall rule or policy matched |
 | Timestamp | Time of the event |
-| Session information | Connection or session metadata |
+| Session information | Connection or session identifier if available |
 
-Additional fields may include:
-- Interface names
-- Zones
-- NAT translations
-- User identity
-- Threat signatures
-- Application identification
-- Geographic metadata
-
-depending on firewall capabilities.
+Depending on the platform, logs may additionally include **interface names, zones, NAT translations, user identity, threat signatures, application identification**, and **geographic metadata**, enriching the context of each access decision.
 
 ---
 
 ## Firewall logging vs flow monitoring
 
-| Dimension | Firewall logging | Flow monitoring |
-|---|---|---|
-| Primary visibility | Security-policy and session events | Traffic behavior and metadata |
-| Operational focus | Access decisions and policy enforcement | Traffic analysis and visibility |
-| Typical data source | Firewall devices | Routers, switches, probes, or collectors |
-| Common use case | Security auditing and troubleshooting | Trending and traffic investigations |
-| Historical context | Policy-oriented visibility | Communication-oriented visibility |
-
-The two workflows are complementary and commonly correlated together.
+**Firewall logging** focuses on **policy‑ and event‑oriented visibility**: it records what the firewall decided (allow/deny/reset) and under which rule, often with rich security metadata. **Flow monitoring** focuses on **communication‑oriented visibility**: it records who talked to whom, when, and how much, without necessarily knowing whether those flows were allowed or blocked by policy. In practice, organizations correlate both, mapping **firewall log entries** to **flow records** so they can see not just that traffic was blocked, but also what conversation it was trying to join and how that behavior evolved over time.
 
 ---
 
 ## What makes firewall logging effective
 
-Effective firewall logging depends heavily on:
-- Appropriate logging policies
-- Sufficient retention
-- Timestamp accuracy
-- Centralized log collection
-- Search performance
-- Correlation workflows
-
-Operational challenges commonly include:
-- Excessive log volume
-- Inconsistent logging policies
-- Incomplete visibility
-- Limited retention
-- High-cardinality event streams
-- Time-synchronization issues
-
-Logging every allowed session may create very large datasets in high-throughput environments, so organizations often balance:
-- Investigative visibility
-- Storage requirements
-- Performance impact
-- Compliance requirements
-
-Organizations commonly improve firewall logging through:
-- Centralized SIEM integration
-- Log normalization
-- Metadata enrichment
-- Historical indexing
-- Correlated traffic analysis
-- Structured retention policies
+Effective firewall logging depends on **consistent logging policies, accurate timestamps, centralized collection, structured normalization, and well‑defined retention**. Challenges include **log‑volume explosion** when too many events are logged, **inconsistent rule actions**, **incomplete visibility**, and **time‑desynchronization** between systems. Teams improve logging by **standardizing log formats**, **enriching logs with host or application context**, **indexing events for fast search**, and **correlating them with flow‑based and packet‑based telemetry**. Over‑verbose logging should be tuned to keep key security events without drowning analysts in noise.
 
 ---
 
 ## How Trisul handles firewall logging
 
-Trisul complements firewall logging workflows through integrated traffic-analysis, telemetry-correlation, and historical investigation capabilities.
-
-Relevant capabilities include:
-
-- **Historical traffic analysis**
-- **Flow and packet visibility**
-- **Explore Flows** for investigative drill-down
-- **Flow Taggers** for contextual telemetry enrichment
-- **Host and application traffic analysis**
-- **Traffic-pattern correlation**
-- **Historical querying workflows**
-- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
-- **Operational dashboards and investigation workflows**
-
-Trisul can help operators:
-- Correlate firewall events with traffic behavior
-- Investigate suspicious communications
-- Validate firewall-policy effects
-- Analyze communication patterns around security events
-- Support operational troubleshooting and incident response
-
-These workflows are particularly useful for:
-- Threat investigations
-- Traffic troubleshooting
-- Historical analysis
-- Security monitoring
-- Incident reconstruction
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+Trisul complements firewall logging by **correlating it with network‑level telemetry** such as **NetFlow, IPFIX, sFlow, and packet‑derived flows**, providing context around the communications that triggered firewall events. Through **historical traffic analysis, Explore Flows, Flow Taggers, and host‑ and application‑level views**, operators can pivot from a **blocked‑connection log entry** into the associated **flow record and packet evidence**, understanding both the policy decision and the underlying network behavior. This is useful for **threat investigations, traffic troubleshooting, incident reconstruction**, and **policy‑validation workflows**, where Trisul acts as the **network‑behavior lens** paired with the firewall’s **access‑control lens**.
 
 ---
 
 ## Related terms
 
-- [Security auditing](/glossary/security-auditing)
-- [Syslog](/glossary/syslog)
-- [SIEM](/glossary/siem)
-- [Incident investigation](/glossary/incident-investigation)
-- [Intrusion prevention system](/glossary/intrusion-prevention-system)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Network security monitoring](/glossary/network-security-monitoring)
+- Firewall logging  
+- Security auditing  
+- Syslog  
+- SIEM  
+- Incident investigation  
+- Intrusion prevention system  
+- Flow monitoring  
+- Network security monitoring  
 
 ---
 
@@ -314,7 +132,7 @@ Relevant Trisul use cases:
 
 ### What is firewall logging?
 
-Firewall logging is the process of recording firewall events such as allowed connections, denied traffic, policy matches, session activity, and security-related events for operational visibility, troubleshooting, auditing, and incident investigation.
+Firewall logging is the process of recording firewall events such as allowed connections, denied traffic, policy matches, session activity, and security‑related events for operational visibility, troubleshooting, auditing, and incident investigation.
 
 ### What information do firewall logs contain?
 

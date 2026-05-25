@@ -64,236 +64,66 @@ export const jsonLd = {
 
 # What is flow analysis?
 
-**Flow analysis** is the practice of examining network flow records to understand traffic patterns, identify top talkers, detect anomalies, and investigate operational or security issues using metadata rather than full packet payloads.
-
-Flow analysis operates primarily on communication metadata such as:
-- Source and destination addresses
-- Ports and protocols
-- Byte and packet counts
-- Timestamps
-- Flow duration
-- TCP flags
-- Interface information
-
-Unlike packet inspection, flow analysis does not require payload visibility. This allows:
-- Broad network coverage
-- Long-term retention
-- Historical traffic analysis
-- Scalable operational monitoring
-- Large-scale traffic trending
-
-Flow analysis is widely used in:
-- NOC operations
-- SOC investigations
-- ISP traffic engineering
-- Datacenter monitoring
-- Cloud-network visibility
-- Capacity planning
-- Security investigations
-
-Trisul provides flow-analysis workflows using NetFlow, IPFIX, sFlow, and related telemetry technologies.
+**Flow analysis** is the practice of examining network flow records to understand traffic patterns, identify top talkers, detect anomalies, and investigate operational or security issues using metadata instead of full packet payloads. A “flow” is typically defined by a 5‑tuple (source and destination IP, source and destination port, protocol), plus timestamps, packet counts, and byte counts, representing a communication session between two endpoints. Because flow data summarizes behavior rather than recording every packet, it enables long‑term retention and large‑scale analysis across the whole network.
 
 ---
 
 ## What flow analysis examines
 
-Flow analysis examines communication behavior across hosts, interfaces, applications, protocols, and time periods.
-
-Common investigation dimensions include:
-- Traffic volume
-- Communication relationships
-- Protocol usage
-- Application behavior
-- Traffic directionality
-- Interface utilization
-- Historical traffic trends
-- Geographic or ASN-based traffic patterns
-
-Flow analysis workflows commonly investigate:
-- Top bandwidth consumers
-- Unexpected traffic spikes
-- Lateral movement patterns
-- Suspicious external communications
-- Capacity trends
-- Interface saturation
-- Traffic anomalies
-- Application usage behavior
-
-Flow metadata may also be enriched using:
-- Tags
-- Threat intelligence
-- ASN mappings
-- Geolocation
-- Application identification
-- Interface context
-
-This enables operators to query traffic using operational or business context rather than only raw IP addresses.
-
-Time-based analysis is especially important because traffic patterns often become meaningful only across extended observation windows.
-
-![](./images/flow-analysis.png)
+Flow analysis focuses on communication behavior across hosts, interfaces, applications, protocols, and time. Analysts commonly look at traffic volume, top talkers, protocol or application mix, conversation patterns, interface utilization, and traffic‑directionality. By enriching flows with tags, threat intelligence, geolocation, or ASN information, operators can query traffic using business‑oriented context (for example, “all traffic to critical‑app‑zone” or “all east‑west traffic between web and DB tiers”) rather than raw IP addresses. Time‑based analysis is especially important, as baselines and anomalies only emerge when traffic is viewed across hours, days, or weeks.
 
 ---
 
 ## Flow analysis in network operations
 
-Flow analysis is widely used across operational environments.
-
-### NOC operations
-
-NOC teams use flow analysis for:
-- Capacity planning
-- Bandwidth trending
-- Interface monitoring
-- Application-usage analysis
-- Congestion investigation
-- Traffic engineering
-
-Flow visibility helps operators identify:
-- Saturated interfaces
-- High-volume applications
-- Unexpected traffic growth
-- Traffic imbalances
-- Persistent operational bottlenecks
-
-### SOC operations
-
-SOC teams use flow analysis for:
-- Threat investigations
-- Lateral movement analysis
-- Command-and-control investigations
-- Historical threat hunting
-- Data-exfiltration investigations
-- Suspicious communication analysis
-
-Flow analysis helps establish:
-- Communication timelines
-- Host relationships
-- Historical network activity
-- Scope of compromise
-- Traffic anomalies
-
-### ISP and carrier operations
-
-ISPs and carriers use flow analysis for:
-- Per-prefix traffic analysis
-- ASN-level visibility
-- Peering analysis
-- Routing optimization
-- Capacity engineering
-- Regulatory and operational reporting
-
-The exact operational value depends on telemetry quality, retention depth, exporter placement, and investigation workflows.
+In **NOC** operations, flow analysis drives capacity planning, bandwidth trending, and congestion investigations. Teams use it to pinpoint saturated links, high‑volume applications, and traffic‑growth patterns. In **SOC** workflows, it supports threat hunting, lateral‑movement analysis, and historical incident reconstruction by showing which hosts talked to each other, when, and how much data moved. For **ISP** and carrier environments, flow analysis enables peering analysis, per‑ASN or per‑prefix visibility, and traffic‑engineering decisions. In all these roles, flow analysis gives a “big‑picture” view of traffic that is hard to see with packet‑level tools alone.
 
 ---
 
 ## Flow analysis vs packet analysis
 
-| Dimension | Flow analysis | Packet analysis |
-|---|---|---|
-| Primary visibility | Communication metadata | Individual packets and payloads |
-| Payload visibility | Typically none | Available when not encrypted |
-| Scalability | Very high | Lower due to storage and processing requirements |
-| Retention window | Often weeks or months | Often hours or days |
-| Coverage model | Broad network-wide visibility | Specific capture locations |
-| Common operational use | Trending, detection, scoping | Deep protocol investigation and validation |
-
-The two approaches are complementary.
-
-In many workflows:
-- Flow analysis establishes scope and communication patterns
-- Packet analysis provides deeper protocol or payload detail
-
-Operational visibility improves when both telemetry types are correlated.
+Flow analysis deals with communication metadata: who talks to whom, when, and how much; packet analysis dives into the individual packets and, where possible, their payloads. Flow records are compact and easy to store for long periods, so flow analysis scales well and supports weeks‑ or months‑long retention. Packet‑level data is much richer for protocol‑level validation and deep inspection, but it is expensive to store and usually limited to short capture windows. In practice, teams use flow analysis to scope and prioritize investigations, then drop to packet analysis only when they need to inspect protocol mechanics or content.
 
 ---
 
 ## Common flow technologies
 
-| Technology | Description |
-|---|---|
-| NetFlow | Cisco-originated flow-export protocol |
-| IPFIX | Standards-based flow-export protocol |
-| sFlow | Packet-sampling and flow-monitoring technology |
-| J-Flow | Juniper flow-export format |
-| NetStream | Huawei flow-export technology |
+Several standards and vendor‑specific formats carry flow telemetry:
 
-Different technologies provide different:
-- Sampling models
-- Metadata depth
-- Export behavior
-- Scalability characteristics
-- Operational visibility
+| Technology | Description |
+|-----------|-----------------------------------------------------------|
+| NetFlow   | Cisco‑originated flow‑export protocol                     |
+| IPFIX     | IETF‑standardized flow export (often used generically)    |
+| sFlow     | Packet‑sampling and flow‑monitoring protocol              |
+| J‑Flow    | Juniper‑specific flow‑export format                       |
+| NetStream | Huawei‑specific flow export                               |
+
+These differ in sampling model, metadata depth, and scale, but all feed the same basic flow‑analysis logic: aggregating and correlating 5‑tuples and related counts over time.
 
 ---
 
 ## What affects flow analysis accuracy
 
-Flow-analysis quality depends heavily on telemetry completeness and exporter design.
-
-Common operational limitations include:
-- Sampled telemetry
-- Exporter placement gaps
-- Collector overload
-- Flow-export latency
-- Asymmetric routing visibility
-- Retention limitations
-- Metadata inconsistencies
-
-Sampled flow technologies may:
-- Miss short-duration flows
-- Underrepresent low-volume traffic
-- Distort traffic distribution visibility
-
-Visibility also depends on:
-- Network topology
-- Exporter configuration
-- Monitoring placement
-- Retention architecture
-- Collection scalability
-
-Understanding telemetry limitations is important when interpreting operational results.
+Flow‑analysis quality depends heavily on telemetry design and placement. Sampled flows (for example, 1 in N packets) can miss short‑lived connections or underestimate low‑volume traffic. Gaps in exporter coverage—certain links or devices not exporting flows—or lossy collectors can create blind spots. Asymmetric routing, where traffic flows differ on ingress vs egress paths, may skew visibility unless both sides export flows. Retention limits and slow or overloaded collectors further degrade what can be queried effectively. Understanding these limitations is as important as the tooling when interpreting results.
 
 ---
 
 ## How Trisul handles flow analysis
 
-Trisul supports large-scale flow-analysis workflows using operational traffic analytics and historical traffic visibility capabilities.
-
-Relevant capabilities include:
-
-- **NetFlow, IPFIX, sFlow, and related telemetry ingestion**
-- **Historical traffic analysis**
-- **Explore Flows** for interactive traffic investigations
-- **Interface Tracking** for per-interface traffic analysis
-- **Top-K analytics** for identifying high-volume traffic entities
-- **Flow Taggers** for traffic enrichment and contextual labeling
-- **Traffic anomaly visibility**
-- **Host and application traffic analysis**
-- **Long-term traffic trending and investigation workflows**
-
-These capabilities help operators investigate traffic behavior, analyze historical communications, identify anomalies, troubleshoot operational problems, and support network-security investigations.
-
-Trisul focuses on scalable traffic analytics and operational visibility rather than payload-centric deep packet inspection workflows.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
+Trisul treats flow analysis as a core operational capability. It ingests **NetFlow, IPFIX, sFlow**, and related telemetry from routers, switches, firewalls, and gateways, then stores and indexes flows for long‑term analysis. Features such as **Historical traffic analysis**, **Explore Flows**, **Interface Tracking**, and **Top‑K analytics** let operators quickly pivot from dashboards to detailed investigations, whether the goal is capacity planning, anomaly hunting, or incident response. **Flow Taggers** enrich records with business‑ or security‑relevant context, and anomaly detection surfaces suspicious patterns automatically. Trisul is not a packet‑based DPI engine but provides the scalable, metadata‑driven layer that powers flow‑centric monitoring across enterprise, ISP, and cloud environments.
 
 ---
 
 ## Related terms
 
-- [Flow](/glossary/flow)
-- [Flow data](/glossary/flow-data)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Flow analyzer](/glossary/flow-analyzer)
-- [Flow forensics](/glossary/flow-forensics)
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [Full packet capture](/glossary/full-packet-capture)
+- Flow  
+- Flow data  
+- Flow monitoring  
+- Flow analyzer  
+- Flow forensics  
+- NetFlow  
+- IPFIX  
+- Full packet capture  
 
 ---
 
@@ -305,11 +135,11 @@ Flow analysis helps answer which systems communicated, when communication occurr
 
 ### How is flow analysis different from packet analysis?
 
-Flow analysis examines summarized network communication metadata such as the 5-tuple, timestamps, packet counts, and byte counts, while packet analysis examines individual packets and payload content when available. Flow analysis typically provides broader retention and scalability, whereas packet analysis provides deeper protocol visibility.
+Flow analysis examines summarized network communication metadata such as the 5‑tuple, timestamps, packet counts, and byte counts, while packet analysis examines individual packets and payload content when available. Flow analysis typically provides broader retention and scalability, whereas packet analysis provides deeper protocol visibility.
 
 ### What use cases does flow analysis support?
 
-Flow analysis supports bandwidth trending, capacity planning, top-talker analysis, anomaly detection, security investigations, traffic engineering, peering analysis, historical traffic investigations, and operational troubleshooting across enterprise, datacenter, ISP, and cloud environments.
+Flow analysis supports bandwidth trending, capacity planning, top‑talker analysis, anomaly detection, security investigations, traffic engineering, peering analysis, historical traffic investigations, and operational troubleshooting across enterprise, datacenter, ISP, and cloud environments.
 
 ### What affects flow analysis accuracy?
 
@@ -317,4 +147,4 @@ Flow analysis accuracy may be affected by sampled telemetry, incomplete exporter
 
 ### How does Trisul support flow analysis workflows?
 
-Trisul supports flow analysis workflows through flow ingestion, historical traffic analysis, Explore Flows investigation workflows, Interface Tracking, Top-K analytics, Flow Taggers, and operational traffic-visibility capabilities using NetFlow, IPFIX, sFlow, and related telemetry.
+Trisul supports flow analysis workflows through flow ingestion, historical traffic analysis, Explore Flows investigation workflows, Interface Tracking, Top‑K analytics, Flow Taggers, and operational traffic‑visibility capabilities using NetFlow, IPFIX, sFlow, and related telemetry.

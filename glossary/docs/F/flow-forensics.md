@@ -64,279 +64,75 @@ export const jsonLd = {
 
 # What is flow forensics?
 
-**Flow forensics** is the use of historical flow telemetry to reconstruct network activity, investigate security incidents, analyze communication patterns, and determine the scope and timeline of operational or security events.
-
-Unlike real-time monitoring, flow forensics focuses on:
-- Historical investigations
-- Timeline reconstruction
-- Communication analysis
-- Lateral movement visibility
-- Threat scoping
-- Traffic-pattern analysis
-- Retrospective investigations
-
-Flow forensics uses stored flow telemetry such as:
-- NetFlow
-- IPFIX
-- sFlow
-- Packet-derived flow records
-
-to answer questions including:
-- Which systems communicated?
-- When did communication occur?
-- How much data was transferred?
-- Which protocols were used?
-- Which hosts communicated with suspicious destinations?
-- How did activity evolve over time?
-
-Because flow telemetry is compact compared to packet capture, organizations commonly retain it for much longer periods.
-
-Trisul supports flow-forensics workflows through historical traffic analysis, flow investigations, and packet-correlation capabilities.
+**Flow forensics** is the use of historical flow telemetry to reconstruct network activity, investigate security incidents, analyze communication patterns, and determine the scope and timeline of operational or security events. It leverages stored **NetFlow, IPFIX, sFlow, or packet‑derived flow records** to show which hosts communicated, when, how often, and with how much data, without storing full packet payloads. Because flow data is compact and highly scalable, organizations often retain it for weeks or months, enabling long‑range investigations that are impractical with full packet capture alone.
 
 ---
 
 ## How flow forensics works
 
-Flow-forensics investigations typically begin with:
-- An indicator of compromise
-- A suspicious host
-- A malicious IP address
-- A domain name
-- An anomalous traffic pattern
-- A timeline of suspicious activity
+Flow‑forensics investigations usually start from **an indicator of compromise**, a suspicious host, an unknown destination, or an anomalous traffic pattern. Analysts then query historical flow storage to:
 
-Analysts query historical flow telemetry to identify:
-- Communication peers
-- Traffic timing
-- Connection duration
-- Data-transfer volumes
-- Protocol usage
-- Traffic directionality
+- Identify **which hosts talked to each other** over a time window.
+- Reconstruct **communication timelines** and session durations.
+- Map **peer‑to‑peer relationships** and protocol usage.
+- Calculate **data‑transfer volumes** and directionality (inbound vs outbound).
 
-Typical workflow:
-
-1. **Indicator identification** → Suspicious activity or indicators are identified
-2. **Historical querying** → Analysts search retained flow telemetry
-3. **Communication mapping** → Related hosts and traffic relationships are identified
-4. **Timeline reconstruction** → Activity progression is reconstructed over time
-5. **Scope expansion** → Additional related communications are investigated
-6. **Operational correlation** → Flow evidence is correlated with logs, alerts, or packet data
-
-Flow-forensics workflows commonly involve iterative pivoting:
-- A suspicious host becomes the next query target
-- A destination becomes a communication cluster
-- A protocol pattern becomes a broader investigation
-
-This iterative process helps analysts reconstruct operational or security events without requiring full packet retention across the entire network.
-
-![](./images/flow-forensics.png)
+A typical workflow is **iterative**:  
+1) start from a suspicious host or IP,  
+2) pivot to all its peers over time,  
+3) examine those peers for further anomalies,  
+4) expand the timeline to see how activity evolved.  
+This loop lets analysts reconstruct attack paths, internal spread, or intermittent operational issues long after the original event.
 
 ---
 
 ## Flow forensics in network operations
 
-Flow forensics is widely used across operational and security environments.
-
-### SOC investigations
-
-Security teams use flow forensics for:
-- Incident response
-- Threat hunting
-- Lateral movement analysis
-- Data-exfiltration investigations
-- Historical communication analysis
-- Scope-of-compromise analysis
-
-Flow telemetry helps analysts determine:
-- Which hosts communicated with suspicious infrastructure
-- Whether malware activity spread internally
-- Which systems exchanged data
-- When suspicious traffic first appeared
-- How incidents evolved over time
-
-### NOC and operational investigations
-
-Operational teams use flow forensics for:
-- Historical troubleshooting
-- Congestion investigations
-- Application-behavior analysis
-- Traffic-pattern reconstruction
-- Service-impact analysis
-- Network anomaly investigations
-
-Historical traffic visibility is especially useful when:
-- Problems are intermittent
-- Incidents are reported late
-- Real-time visibility is unavailable
-- Packet capture has expired
-
-### ISP and carrier environments
-
-ISPs and carriers use flow-forensics workflows for:
-- Historical traffic analysis
-- Subscriber investigations
-- Abuse investigations
-- Traffic-pattern reconstruction
-- Regulatory reporting
-- Operational troubleshooting
-
-The operational value depends heavily on:
-- Retention depth
-- Telemetry completeness
-- Sampling behavior
-- Monitoring placement
-- Analytics workflows
+In **SOC** environments, flow forensics is core to **incident‑response**, **threat hunting**, **lateral‑movement analysis**, and **data‑exfiltration investigations**. It answers “which systems spoke to known‑bad IPs,” “when did that first happen,” and “how did traffic spread across the environment.” In **NOC** and broader operations, teams use it for **historical troubleshooting**, **congestion analysis**, and **application‑behavior reconstruction** when real‑time tools missed the event or packet capture has expired. In **ISP and carrier** settings, flow forensics supports **subscriber abuse investigations**, **regulatory‑style reporting**, and **long‑term traffic‑pattern analysis**, because telemetry is retained for far longer than packet‑based evidence.
 
 ---
 
 ## Flow forensics vs packet forensics
 
-| Dimension | Flow forensics | Packet forensics |
-|---|---|---|
-| Primary visibility | Communication metadata | Full packet and payload visibility |
-| Retention depth | Often weeks or months | Often shorter because of storage demands |
-| Payload visibility | Typically none | Available when not encrypted |
-| Scalability | Very high | Lower because of storage and processing requirements |
-| Common use case | Timeline reconstruction and scoping | Deep protocol and payload investigation |
-
-The two approaches are complementary.
-
-In many investigations:
-- Flow telemetry establishes scope and timelines
-- Packet analysis confirms payload-level evidence
-
-Operational visibility improves significantly when both telemetry types are available together.
+**Flow forensics** operates on **communication metadata** (who, when, and how much) and typically scales to **weeks or months of retention** due to low storage cost. **Packet forensics** works on **full packets and, where possible, payloads**, enabling deep protocol‑level and content‑level validation but usually limited to **shorter, focused retention windows**. In practice, teams use flow data to **scope and timeline** incidents, then drop to packet‑level tools to confirm that payloads match their behavior‑level hypothesis. This layered approach balances breadth (flow) with depth (packets).
 
 ---
 
 ## Flow forensics and telemetry quality
 
-The quality of flow-forensics investigations depends heavily on telemetry completeness.
-
-Important operational factors include:
-- Exporter placement
-- Sampling ratios
-- Retention policies
-- Timestamp accuracy
-- Export reliability
-- Monitoring coverage
-- Collector scalability
-
-Sampled telemetry may:
-- Miss short-duration flows
-- Underrepresent low-volume traffic
-- Reduce anomaly visibility
-- Affect investigation completeness
-
-Unsampled telemetry generally improves forensic visibility but may require:
-- Larger storage systems
-- Higher ingestion capacity
-- Additional monitoring infrastructure
-
-The operational tradeoff depends on:
-- Security requirements
-- Retention goals
-- Network scale
-- Investigation priorities
+The strength of flow‑forensics conclusions depends heavily on telemetry completeness. **Exporter placement**, **sampling ratios**, **retention policies**, **clock synchronization**, and **export reliability** all shape what investigations can see. Sampling, in particular, can cause **low‑volume or short‑lived connections** to be missed entirely, making them invisible to flow‑forensics workflows. To maximize fidelity, many organizations use **unsampled exporters at key chokepoints**, ensure **tight telemetry health monitoring**, and design **retention architectures** that keep flow data long enough to cover incident‑reporting and audit‑retention needs.
 
 ---
 
 ## Flow forensics and packet correlation
 
-Flow forensics often works together with packet-level visibility.
-
-Flow telemetry helps identify:
-- Which conversations matter
-- Which hosts are suspicious
-- Which time windows require inspection
-
-Packet workflows then provide:
-- Protocol-level analysis
-- Payload inspection
-- File recovery
-- Application-level evidence
-- Deep forensic validation
-
-This layered workflow improves operational efficiency because analysts can narrow investigations before reviewing large packet datasets.
-
-Some platforms support direct pivoting from:
-- Flow records
-- Hosts
-- Alerts
-- Time windows
-
-into related packet visibility where available.
+Flow forensics is most effective when paired with **packet‑level visibility**. Flows quickly narrow down **which conversations are interesting**, **which hosts are suspicious**, and **which time windows** deserve closer inspection. Once identified, packet‑based tools can replay or decode those sessions to recover **application‑level evidence**, **payload content**, or **protocol edge cases**. Some platforms support **flow‑to‑packet pivoting**, letting analysts click from a flow record into associated packet captures, so they can move from high‑level timelines to byte‑level forensics in a single interface.
 
 ---
 
 ## Operational considerations
 
-Flow-forensics workflows commonly face operational considerations including:
-- Long-term retention scaling
-- High-cardinality telemetry
-- Telemetry gaps
-- Exporter inconsistency
-- Sampling limitations
-- Query scalability
-- Multi-source correlation complexity
-- Historical indexing requirements
-
-Retention strategies depend on:
-- Storage architecture
-- Regulatory requirements
-- Security policy
-- Investigation goals
-- Telemetry scale
-
-Organizations commonly balance:
-- Retention depth
-- Visibility fidelity
-- Storage cost
-- Operational performance
-
-Understanding telemetry limitations is important for accurate investigative conclusions.
+Flow‑forensics workflows face challenges in **long‑term retention scaling**, **high‑cardinality telemetry**, and **query performance** over weeks or months of data. Telemetry gaps—caused by exporter overload, sampling, or missed interfaces—can mask parts of an incident or operational issue. Organizations must balance **retention depth**, **investigation fidelity**, and **storage cost** while ensuring that exporters, collectors, and analytics engines are monitored for health and completeness. For regulated environments, flow‑forensics retention policies are often defined explicitly in security and compliance documentation, not left as an afterthought.
 
 ---
 
 ## How Trisul handles flow forensics
 
-Trisul supports historical flow-forensics workflows through integrated traffic analytics and operational investigation capabilities.
-
-Relevant capabilities include:
-
-- **Historical traffic analysis**
-- **Explore Flows** for interactive flow investigations
-- **Flow Taggers** for contextual traffic enrichment
-- **Retro-analysis workflows** for applying updated detection logic to historical data
-- **Packet-to-flow correlation workflows**
-- **Host and application traffic analysis**
-- **Top-K analytics** for identifying dominant traffic entities
-- **NetFlow, IPFIX, sFlow, and packet-derived telemetry ingestion**
-- **Operational dashboards and historical querying workflows**
-
-Trisul can also correlate retained packet visibility with historical flow telemetry where packet retention is available.
-
-These capabilities help analysts investigate historical communications, reconstruct timelines, analyze suspicious traffic behavior, and support operational or security investigations.
-
-Trisul primarily focuses on scalable traffic analytics and operational visibility rather than payload-only forensic workflows.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul supports **flow‑forensics workflows** by combining **long‑term flow retention** with **interactive investigation tools**. It ingests **NetFlow, IPFIX, sFlow**, and **packet‑derived flows**, then exposes them via **historical traffic analysis**, **Explore Flows**, **Flow Taggers**, and **packet‑to‑flow correlation**. Analysts can pivot from alerts or timelines into host‑ and application‑level views, and Trisul’s **retro‑analysis** features let them apply new detection logic to historical flows. This is particularly useful for incident‑response and threat‑hunting, where previously‑unseen patterns emerge once updated rules are reapplied to years of retained telemetry. Trisul’s focus is on **scalable, metadata‑driven visibility**, while still enabling tight integration with packet‑based evidence where available.
 
 ---
 
 ## Related terms
 
-- [Flow](/glossary/flow)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Flow Tagger](/glossary/flow-tagger)
-- [Flow sampling](/glossary/flow-sampling)
-- [Full packet capture](/glossary/full-packet-capture)
-- [Retro analysis](/glossary/retro-analysis)
-- [Network security monitoring](/glossary/network-security-monitoring)
-- [Traffic analysis](/glossary/traffic-analysis)
+- Flow forensics  
+- Flow  
+- Flow monitoring  
+- Flow Tagger  
+- Flow sampling  
+- Full packet capture  
+- Retro analysis  
+- Network security monitoring  
+- Traffic analysis  
 
 ---
 
@@ -348,16 +144,16 @@ Flow forensics supports broad historical investigations across long retention wi
 
 ### What are the limits of flow forensics?
 
-Flow forensics primarily provides metadata-level visibility rather than payload content. It can reveal communication behavior, timing, and traffic relationships, but usually cannot recover application payloads, files, commands, or message content without complementary packet-capture visibility.
+Flow forensics primarily provides metadata‑level visibility rather than payload content. It can reveal communication behavior, timing, and traffic relationships, but usually cannot recover application payloads, files, commands, or message content without complementary packet‑capture visibility.
 
 ### How does sampling affect flow forensics?
 
-Sampled telemetry may reduce forensic visibility because low-volume, short-duration, or infrequent communications can be underrepresented or missed entirely. Unsampled telemetry generally provides stronger forensic fidelity, but the operational impact depends on sampling ratios, traffic patterns, exporter behavior, and investigation requirements.
+Sampled telemetry may reduce forensic visibility because low‑volume, short‑duration, or infrequent communications can be underrepresented or missed entirely. Unsampled telemetry generally provides stronger forensic fidelity, but the operational impact depends on sampling ratios, traffic patterns, exporter behavior, and investigation requirements.
 
 ### How far back can flow forensics reach?
 
-Retention depth depends on telemetry volume, storage architecture, retention policy, and operational requirements. Many organizations retain flow telemetry for weeks or months because flow records are significantly more storage-efficient than full packet capture.
+Retention depth depends on telemetry volume, storage architecture, retention policy, and operational requirements. Many organizations retain flow telemetry for weeks or months because flow records are significantly more storage‑efficient than full packet capture.
 
-### How does Trisul support flow-forensics workflows?
+### How does Trisul support flow‑forensics workflows?
 
-Trisul supports flow-forensics workflows through historical traffic analysis, Explore Flows investigations, Flow Taggers, packet-to-flow correlation workflows, retro-analysis capabilities, and operational traffic analytics using NetFlow, IPFIX, sFlow, and packet-derived telemetry.
+Trisul supports flow‑forensics workflows through historical traffic analysis, Explore Flows investigations, Flow Taggers, packet‑to‑flow correlation workflows, retro‑analysis capabilities, and operational traffic analytics using NetFlow, IPFIX, sFlow, and packet‑derived telemetry.

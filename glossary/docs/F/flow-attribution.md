@@ -64,249 +64,74 @@ export const jsonLd = {
 
 # What is flow attribution?
 
-**Flow attribution** is the process of associating network flows with specific users, hosts, applications, services, interfaces, or network segments using flow telemetry and contextual metadata.
-
-Raw flow records alone often provide only:
-- IP addresses
-- Ports
-- Protocols
-- Traffic volumes
-- Timing information
-
-Flow attribution adds operational meaning by correlating traffic with:
-- Devices
-- Users
-- Applications
-- Services
-- Business units
-- Network segments
-- Infrastructure context
-
-This helps operators understand:
-- Who generated traffic
-- What application caused the traffic
-- Which service or system was involved
-- Where the communication originated
-- How traffic relates to operational activity
-
-Flow attribution is widely used in:
-- Security investigations
-- Traffic analysis
-- Operational troubleshooting
-- Compliance reporting
-- Capacity planning
-- Multi-tenant environments
-- Cloud-network operations
-
-Trisul supports flow-attribution workflows through traffic analytics and contextual traffic-correlation capabilities.
+**Flow attribution** is the process of associating network flows with specific users, hosts, applications, services, interfaces, or network segments using flow telemetry and contextual metadata. Raw flow records typically contain only IP addresses, ports, protocols, and traffic volumes; attribution adds operational meaning by tying that traffic to business or infrastructure entities such as “Finance‑DB server,” “User‑John‑Desktop,” or “Tenant‑A‑workload.” This is essential for understanding who did what, troubleshooting effectively, and enforcing policies in environments with dynamic addressing or NAT.
 
 ---
 
 ## How flow attribution works
 
-Flow attribution combines flow telemetry with additional contextual information.
-
-Common attribution sources include:
-- DHCP lease records
-- NAT translation logs
-- Authentication systems
-- DNS records
-- VLAN mappings
-- VRF mappings
-- CMDB systems
-- Cloud metadata
-- Interface mappings
-- Application-identification systems
-
-Typical workflow:
-
-1. **Flow collection** → Traffic telemetry is collected from exporters
-2. **Context gathering** → Operational metadata is gathered from related systems
-3. **Correlation workflows** → Flow records are matched with contextual information
-4. **Identity association** → Traffic is associated with users, hosts, applications, or services
-5. **Operational analysis** → Analysts investigate attributed traffic behavior
-
-The exact attribution quality depends on:
-- Telemetry completeness
-- Metadata quality
-- Timestamp accuracy
-- Correlation logic
-- Retention depth
-- Monitoring placement
-
-Flow attribution may occur:
-- In real time
-- During historical investigations
-- During reporting workflows
-- As part of security analytics
+Flow attribution correlates flow telemetry (NetFlow, IPFIX, sFlow, etc.) with external context. Sources include **DHCP logs**, **NAT translation tables**, **authentication systems (RADIUS, LDAP, SSO)**, **DNS records**, **VLAN/VRF mappings**, **CMDB**, **cloud‑instance metadata**, and **application‑identification feeds**. The system matches timestamps and IP/port combinations to map a flow to a host, user, application, tenant, or segment. Depending on architecture, this can happen in real time, during historical investigations, or as part of reporting pipelines. The quality of attribution depends on telemetry coverage, metadata freshness, and precise time synchronization.
 
 ---
 
 ## Flow attribution in operations
 
-Flow attribution is widely used across operational environments.
-
-### Security operations
-
-SOC teams use flow attribution for:
-- Incident investigations
-- User-activity analysis
-- Data-exfiltration investigations
-- Insider-threat analysis
-- Malware investigations
-- Threat hunting
-
-Attribution helps analysts understand:
-- Which host initiated suspicious traffic
-- Which user was active at the time
-- Which application generated communications
-- How traffic relates to broader incidents
-
-### Network operations
-
-NOC teams use flow attribution for:
-- Capacity planning
-- Application troubleshooting
-- Traffic engineering
-- Service visibility
-- Tenant visibility
-- Bandwidth accountability
-
-Attribution improves operational visibility by associating traffic with meaningful business or infrastructure context.
-
-### ISP and service-provider operations
-
-Service providers may use attribution for:
-- Customer traffic visibility
-- Tenant separation
-- Subscriber analytics
-- Usage reporting
-- Policy analysis
-- Operational troubleshooting
-
-The operational value depends heavily on metadata quality and telemetry correlation accuracy.
+In **security operations**, attribution turns a suspicious flow into an actionable incident: which host, user, and app were involved, and how it fits into an attack timeline. SOC teams use it for incident response, insider‑threat hunting, malware communication analysis, and data‑exfiltration tracing. In **network operations**, attribution improves capacity planning, service‑level visibility, and tenant‑based reporting by tying traffic to applications, business units, or customers. In **ISP and multi‑tenant environments**, it supports subscriber‑level analytics, policy enforcement, and audit‑ready records, especially when many hosts share public IPs via NAT or CGNAT.
 
 ---
 
-## Common flow-attribution targets
+## Common flow‑attribution targets
 
-| Attribution target | Operational meaning |
-|---|---|
-| Host | Device generating or receiving traffic |
-| User | Authenticated identity associated with traffic |
-| Application | Service or software causing communication |
-| Interface | Network path or ingress/egress point |
-| VLAN or VRF | Network segmentation context |
-| Tenant or business unit | Organizational ownership context |
-| Cloud workload | Virtualized or cloud-hosted system |
-| Service | Operational application or platform context |
+| Target                    | Operational meaning |
+|---------------------------|--------------------------------------------------------|
+| Host / device             | Physical or virtual endpoint generating traffic        |
+| User / identity           | Authenticated person or account                      |
+| Application / service     | Software or platform causing the communication       |
+| Interface                 | Path or ingress/egress point in the network          |
+| VLAN / VRF / segment      | Network or security zone context                     |
+| Tenant / business unit    | Organizational or customer ownership context         |
+| Cloud workload / pod      | Virtualized or orchestrated system                   |
+| Service / microservice    | Logical service boundary in distributed architecture  |
 
-Multiple attribution layers may apply simultaneously to the same traffic flow.
-
----
-
-## Flow attribution and NAT
-
-NAT environments make flow attribution more complex because multiple systems may share translated addresses.
-
-Without translation records:
-- Original source identity may be lost
-- User attribution becomes difficult
-- Historical investigations become incomplete
-- Security analysis accuracy may decrease
-
-Flow attribution workflows often correlate:
-- NAT logs
-- DHCP records
-- Authentication timestamps
-- Internal address mappings
-
-This helps reconstruct original communication context across translated environments.
+In practice, multiple labels may apply to a single flow, and operators often use them to filter or slice traffic by business impact.
 
 ---
 
-## Flow attribution and cloud environments
+## Flow attribution and NAT environments
 
-Cloud and virtualized environments introduce additional attribution complexity.
+NAT and PAT obscure the original host behind a shared public IP, so flow attribution without NAT logs is incomplete. In CGNAT or carrier‑grade NAT, operators must correlate flows with translation tables and AAA/DHCP records to recover internal IP‑to‑user mappings. This is critical for lawful‑interception‑style workflows, incident reconstruction, and abuse investigations; if translation logs are missing or poorly retained, attribution accuracy degrades sharply.
 
-Flow attribution may require correlation with:
-- Cloud instance metadata
-- Kubernetes labels
-- Container identities
-- Virtual-network mappings
-- Elastic IP assignments
-- Autoscaling events
+---
 
-Dynamic infrastructure can make attribution more difficult because:
-- Workloads change rapidly
-- Addresses may be temporary
-- Instances may be short-lived
-- Metadata may evolve over time
+## Flow attribution in cloud environments
 
-Operational visibility improves when flow telemetry is enriched with infrastructure context.
+Cloud and virtualized environments are dynamic, with ephemeral instances, elastic IPs, and frequent autoscaling. Attribution here relies on **instance metadata (cloud tags, instance IDs)**, **Kubernetes labels or namespaces**, **container IDs**, and **virtual‑network mappings**. Tools that enrich flow data with these labels let operators see traffic tied to “Production‑Web,” “CI‑CD‑Pipelines,” or “QA‑Database” rather than just IP addresses, improving both operations and security visibility.
 
 ---
 
 ## Operational considerations
 
-Flow-attribution workflows commonly face operational considerations including:
-- Incomplete telemetry coverage
-- NAT visibility limitations
-- Metadata inconsistency
-- Timestamp synchronization issues
-- Dynamic infrastructure changes
-- Retention limitations
-- Correlation complexity
-- Multi-source data integration
-
-Attribution accuracy depends heavily on:
-- Telemetry quality
-- Metadata freshness
-- Infrastructure visibility
-- Correlation logic
-- Operational retention policies
-
-Incorrect or incomplete attribution may lead to inaccurate investigations or misleading operational conclusions.
+Flow attribution faces several constraints: **gaps in telemetry**, **inconsistent metadata**, **clock drift**, and **high‑cardinality environments** where thousands of short‑lived workloads create noise. NAT, DHCP rotation, and dynamic IP assignment increase the risk of misattribution if logs are not retained or synchronized. Best practices include tight timestamp alignment, long‑enough retention for source logs, and automated correlation rules that can be validated and tuned. When attribution is inaccurate, investigations and reporting may draw wrong conclusions.
 
 ---
 
 ## How Trisul handles flow attribution
 
-Trisul supports flow-attribution workflows through traffic analytics and contextual traffic-correlation capabilities.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Flow Taggers** for contextual traffic enrichment
-- **Interface Tracking** for interface-level traffic visibility
-- **Host-oriented traffic analysis**
-- **Historical traffic investigations**
-- **Explore Flows** for interactive traffic correlation workflows
-- **Traffic anomaly visibility**
-- **Operational traffic enrichment and labeling workflows**
-- **Traffic analysis across segmented or translated environments**
-
-These capabilities help operators associate traffic with operational context, investigate communication behavior, analyze segmented traffic environments, and improve troubleshooting and security investigations.
-
-Trisul primarily provides traffic analytics and operational visibility rather than authoritative identity-management or authentication-system functionality.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
+Trisul supports flow attribution by enriching raw telemetry with operational context instead of producing identity data itself. Using **NetFlow, IPFIX, sFlow**, and related telemetry, it can associate traffic with **interfaces, hosts, applications, and segments** via **Flow Taggers**, **Interface Tracking**, and host‑oriented views. Operators then use **Explore Flows**, historical analysis, and anomaly detection to investigate traffic that is already tagged with business‑relevant labels. Trisul does not act as a AAA or identity system but provides the analytics layer that correlates flow‑level behavior with the metadata your network and cloud infrastructure emit.
 
 ---
 
 ## Related terms
 
-- [NAT](/glossary/nat)
-- [PAT](/glossary/pat)
-- [VLAN](/glossary/vlan)
-- [VRF](/glossary/vrf)
-- [Traffic analysis](/glossary/traffic-analysis)
-- [Flow Tagger](/glossary/flow-tagger)
-- [Flow analysis](/glossary/flow-analysis)
-- [DHCP](/glossary/dhcp)
+- Flow attribution  
+- Traffic analysis  
+- Flow analysis  
+- Flow Tagger  
+- NAT  
+- PAT  
+- VLAN  
+- VRF  
+- DHCP  
 
 ---
 
@@ -326,8 +151,8 @@ A network flow may be attributed to users, hosts, applications, interfaces, VLAN
 
 ### How is flow attribution performed?
 
-Flow attribution is commonly performed by correlating flow telemetry with contextual data such as DHCP records, NAT logs, authentication systems, VLAN mappings, DNS information, CMDB data, cloud metadata, or application-identification systems.
+Flow attribution is commonly performed by correlating flow telemetry with contextual data such as DHCP records, NAT logs, authentication systems, VLAN mappings, DNS information, CMDB data, cloud metadata, or application‑identification systems.
 
-### How does Trisul support flow-attribution workflows?
+### How does Trisul support flow‑attribution workflows?
 
-Trisul supports flow-attribution workflows through traffic analytics, flow enrichment, Interface Tracking, Flow Taggers, host-oriented traffic visibility, and operational correlation capabilities that help associate traffic with meaningful operational context.
+Trisul supports flow‑attribution workflows through traffic analytics, flow enrichment, Interface Tracking, Flow Taggers, host‑oriented traffic visibility, and operational correlation capabilities that help associate traffic with meaningful operational context.

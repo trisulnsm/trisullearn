@@ -64,242 +64,68 @@ export const jsonLd = {
 
 # What is a flow tracker?
 
-A **flow tracker** is a monitoring and analysis workflow that follows the behavior of selected network flows, hosts, conversations, or traffic patterns over time to support troubleshooting, operational visibility, and security investigations.
-
-Flow tracking helps analysts focus on specific communications instead of reviewing all network activity simultaneously.
-
-Tracking workflows may follow:
-- Individual conversations
-- Hosts or endpoints
-- Applications
-- Traffic patterns
-- Repeating behaviors
-- Long-running sessions
-- Suspicious communications
-
-Flow tracking is commonly used for:
-- Troubleshooting
-- Historical investigations
-- Threat hunting
-- Traffic validation
-- Behavioral analysis
-- Operational visibility
-- Anomaly investigation
-
-Trisul supports flow-tracking workflows through integrated traffic-analysis and historical investigation capabilities.
+A **flow tracker** is a monitoring and analysis workflow that follows the behavior of selected network flows, hosts, conversations, or traffic patterns over time to support troubleshooting, operational visibility, and security investigations. Instead of scanning the entire telemetry dataset repeatedly, a flow tracker “pins” a specific host, conversation, or behavior and then continuously or retrospectively analyzes all matching traffic across time windows, directions, and peers. This makes it easier to understand how a communication evolves, whether it is stable or anomalous, and how it interacts with other systems.
 
 ---
 
 ## How flow tracking works
 
-Flow tracking begins by selecting traffic of interest using:
-- Hosts
-- IP addresses
-- Conversations
-- Protocols
-- Applications
-- Tags
-- Behavioral patterns
-
-The analytics platform then follows matching telemetry across:
-- Time windows
-- Traffic directions
-- Related conversations
-- Historical records
-- Operational dashboards
-
-Typical workflow:
-
-1. **Traffic selection** → An analyst identifies a flow, host, or pattern
-2. **Telemetry correlation** → Matching records are retrieved and grouped
-3. **Historical tracking** → Activity is followed across time
-4. **Behavior analysis** → Volume, timing, peers, and trends are reviewed
-5. **Operational investigation** → Analysts pivot into related telemetry or evidence
-
-Tracked visibility may include:
-- Traffic volume
-- Packet counts
-- Communication peers
-- Protocol usage
-- Traffic direction
-- Historical trends
-- Timing patterns
-- Session duration
-
-The exact visibility depends on:
-- Telemetry completeness
-- Monitoring architecture
-- Retention depth
-- Analytics capabilities
-- Exporter placement
-
-![](./images/flow-tracker.png)
+Flow tracking starts when an analyst selects something to watch, such as a **host IP**, **application**, **conversation**, or **behavioral pattern** (for example, traffic tagged as “high‑risk” or “beaconing”). The analytics platform then retrieves all matching flow records, correlates them over time, and exposes a timeline of activity, including **bytes**, **packets**, **peers**, **protocols**, and **directionality**. Typical steps are: **selection → correlation → historical tracking → behavioral review → investigation pivot**. The exact visibility depends on retention depth, telemetry completeness, and exporter placement, but the core idea is to keep one focal point tied to all relevant traffic rather than recomputing queries from scratch each time.
 
 ---
 
 ## Flow tracking in network operations
 
-Flow tracking is widely used across operational and security environments.
-
-### NOC operations
-
-Network operations teams use flow tracking for:
-- Traffic troubleshooting
-- Capacity investigations
-- Congestion analysis
-- Application monitoring
-- Historical traffic validation
-- WAN visibility
-
-Tracking workflows help operators understand:
-- How conversations evolve over time
-- Whether traffic patterns are stable
-- Which applications generate load
-- How traffic changes during incidents
-
-### SOC operations
-
-Security teams use flow tracking for:
-- Threat hunting
-- Beaconing analysis
-- Lateral movement investigations
-- Historical communication analysis
-- Data-exfiltration investigations
-- Incident response
-
-Following suspicious communications over time may reveal:
-- Periodic callbacks
-- Expanding communication scope
-- Persistent sessions
-- Repeated destinations
-- Escalating traffic behavior
-
-### ISP and carrier environments
-
-ISPs and carriers may use flow tracking for:
-- Subscriber analysis
-- Traffic engineering
-- Service validation
-- Historical troubleshooting
-- Usage investigations
-- Network-behavior analysis
-
-The operational value depends heavily on:
-- Telemetry retention
-- Correlation quality
-- Query performance
-- Monitoring coverage
+In **NOC** environments, flow tracking is used for **troubleshooting**, **capacity investigations**, **congestion analysis**, and **application‑visibility validation**, letting operators watch how traffic for a specific service or link changes over time. In **SOC** workflows, it becomes a core tool for **threat hunting**, **beaconing analysis**, **lateral‑movement investigation**, and **incident‑response timeline reconstruction**, because teams can follow suspicious endpoints or destinations across hours, days, or even weeks of telemetry. In **ISP and carrier** settings, tracking supports **subscriber‑behavior analysis**, **service‑validation**, and **long‑term capacity planning**, where understanding how a given traffic pattern evolves is more important than just viewing today’s snapshot.
 
 ---
 
 ## What flow tracking can show
 
-| Visibility type | Example insight |
-|---|---|
-| Bytes and packets | Traffic growth or reduction |
-| Communication peers | Who the host communicates with |
-| Directionality | Inbound vs outbound behavior |
-| Timing patterns | Bursts, intervals, or beaconing |
-| Historical trends | Long-term traffic changes |
-| Session duration | Persistent or short-lived activity |
+A flow tracker can expose several dimensions of behavior:
 
-Flow tracking becomes more valuable when telemetry can be correlated with:
-- Applications
-- Interfaces
-- Security alerts
-- Host context
-- Geographic metadata
-- Historical baselines
+| Visibility type | Example insight |
+|-----------------|------------------|
+| Bytes and packets | Whether traffic is growing or shrinking over time |
+| Communication peers | Which systems the tracked host talks to and how that set changes |
+| Directionality | Whether traffic is mostly inbound, outbound, or bidirectional |
+| Timing patterns | Regular beacons, bursts, or idle periods |
+| Historical trends | Long‑term drift in usage or risk level |
+| Session duration | Persistent sessions vs short‑lived bursts |
+
+Flow tracking gains even more value when combined with **application‑level context**, **host‑metadata**, **geographic tags**, **threat‑intel tags**, and **baselines**, so that operators can reason not just about volume and destinations but about who, why, and how traffic behaves.
 
 ---
 
 ## Flow tracker vs flow tagger
 
-| Dimension | Flow tracker | Flow tagger |
-|---|---|---|
-| Primary purpose | Follow and analyze traffic behavior | Enrich flows with contextual labels |
-| Operational focus | Investigations and behavioral visibility | Classification and organization |
-| Common workflow | Tracking conversations over time | Tagging flows during ingestion or analysis |
-| Typical use case | Troubleshooting or incident analysis | Search optimization and enrichment |
-| Output | Investigative or analytical visibility | Searchable contextual metadata |
-
-The two workflows are complementary and commonly used together.
+A **flow tracker** focuses on **following behavior over time**, such as tracking a host, a conversation, or a pattern through historical telemetry, primarily for **investigations and analysis**. A **flow tagger** focuses on **enriching flow records with contextual labels** (for example, by country, service, or threat‑status) so that future queries and tracking become easier to compose. In practice, the two workflows are complementary: tags help you **select what to track**, and the tracker then **maintains and visualizes the behavior** of those tagged entities over time.
 
 ---
 
 ## Operational considerations
 
-Flow-tracking workflows commonly face operational considerations including:
-- Telemetry retention limits
-- Query scalability
-- High-cardinality traffic
-- Sampling limitations
-- Distributed telemetry architectures
-- Historical indexing performance
-- Correlation complexity
-- Visibility gaps
-
-Operational accuracy depends heavily on:
-- Telemetry completeness
-- Exporter placement
-- Historical retention depth
-- Correlation quality
-- Monitoring architecture
-
-Tracking workflows may become more difficult when:
-- Traffic is heavily sampled
-- Visibility is asymmetric
-- Retention windows are short
-- Exporters are inconsistently configured
-- Historical telemetry is incomplete
-
-Organizations commonly improve flow tracking through:
-- Indexed telemetry storage
-- Consistent exporter policies
-- Historical retention planning
-- Metadata enrichment
-- Centralized analytics workflows
+Flow tracking works best when telemetry is **retained long enough**, **indexed efficiently**, and **reasonably complete**. Heavily **sampled flows**, **asymmetric routing**, or **short retention windows** can all limit the usefulness of tracking by introducing gaps or distortions in the timeline. Query performance, **high‑cardinality traffic**, and **cross‑device correlation** are also important, since analysts may track large or noisy entities. Organizations improve tracking by ensuring **consistent exporter policies**, **centralized analytics**, **metadata enrichment**, and **carefully planned retention**, so that “following a flow” yields a trustworthy, fine‑grained behavior picture.
 
 ---
 
 ## How Trisul handles flow tracker
 
-Trisul supports flow-tracking workflows through integrated traffic-analysis, telemetry-correlation, and historical investigation capabilities.
-
-Relevant capabilities include:
-
-- **Historical traffic analysis**
-- **Explore Flows** for interactive investigations
-- **Host and application traffic visibility**
-- **Top-K analytics** for identifying dominant traffic entities
-- **Flow Taggers** for contextual telemetry enrichment
-- **Operational dashboards and drill-down workflows**
-- **Historical querying workflows**
-- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
-- **Traffic-pattern and conversation analysis**
-
-These capabilities help analysts follow communication behavior over time, investigate operational anomalies, analyze suspicious traffic, and support historical troubleshooting or incident response workflows.
-
-Trisul primarily focuses on scalable traffic analytics and operational visibility rather than endpoint-only monitoring workflows.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul supports flow‑tracking workflows by combining **historical traffic analysis**, **Explore Flows**, **host‑ and application‑level visibility**, **Top‑K analytics**, and **Flow Taggers** into a unified investigative interface. Operators can start from a host, tag, alert, or application and then **track all related flows over time**, drill into individual conversations, and pivot between dashboards and detailed records. This is useful for **troubleshooting**, **anomaly investigation**, and **incident‑response**, where the platform’s **scalable, metadata‑driven visibility** lets analysts follow behavioral patterns across large enterprise, ISP, or cloud‑scale environments without switching tools or reconstructing context manually.
 
 ---
 
 ## Related terms
 
-- [Flow analysis](/glossary/flow-analysis)
-- [Host monitor](/glossary/host-monitor)
-- [Top talkers](/glossary/top-talkers)
-- [Traffic investigation](/glossary/traffic-investigation)
-- [Conversation tracking](/glossary/conversation-tracking)
-- [Flow Tagger](/glossary/flow-tagger)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Network security monitoring](/glossary/network-security-monitoring)
+- Flow tracker  
+- Flow analysis  
+- Host monitor  
+- Top talkers  
+- Traffic investigation  
+- Conversation tracking  
+- Flow Tagger  
+- Flow monitoring  
+- Network security monitoring  
 
 ---
 
@@ -321,6 +147,6 @@ Flow tracking helps analysts focus on specific communications or traffic behavio
 
 Security teams use flow tracking to follow suspicious communications over time, investigate beaconing behavior, monitor lateral movement, analyze recurring connections, and reconstruct communication timelines during incident response.
 
-### How does Trisul support flow-tracking workflows?
+### How does Trisul support flow‑tracking workflows?
 
-Trisul supports flow-tracking workflows through historical traffic analysis, Explore Flows investigations, host and application visibility, Top-K analytics, Flow Taggers, and interactive drill-down workflows for operational and security analysis.
+Trisul supports flow‑tracking workflows through historical traffic analysis, Explore Flows investigations, host and application visibility, Top‑K analytics, Flow Taggers, and interactive drill‑down workflows for operational and security analysis.

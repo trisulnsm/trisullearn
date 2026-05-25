@@ -64,232 +64,65 @@ export const jsonLd = {
 
 # What is forensic analysis in network operations?
 
-Forensic analysis is the process of examining historical network traffic, logs, packets, and related telemetry to reconstruct events, investigate incidents, and establish evidence-based timelines of activity.
-
-The objective of forensic analysis is to determine:
-- What happened
-- When it happened
-- Which systems were involved
-- How activity spread
-- What evidence supports the conclusions
-
-Network forensic analysis is commonly used during:
-- Security incidents
-- Threat investigations
-- Operational outages
-- Data-exfiltration analysis
-- Malware investigations
-- Post-incident reviews
-- Compliance investigations
-
-Trisul supports forensic-analysis workflows through historical traffic visibility, packet analysis, telemetry correlation, and investigative drill-down capabilities.
+**Forensic analysis** is the process of examining historical network traffic, logs, packets, and related telemetry to reconstruct events, investigate incidents, and establish evidence‑based timelines of activity. It answers “what happened, when, where, and how” by piecing together logs, flow records, packet captures, authentication events, and endpoint telemetry across systems and time. The goal is to build a defensible, chronological picture of behavior that supports incident response, compliance, and operational learning rather than to provide real‑time operational visibility.
 
 ---
 
 ## How forensic analysis works
 
-Forensic analysis typically begins with:
-- An alert
-- A suspicious event
-- An operational anomaly
-- An incident report
-- A threat indicator
-
-Analysts then gather relevant historical evidence sources including:
-- Flow telemetry
-- Packet captures
-- DNS activity
-- Firewall logs
-- Authentication records
-- Endpoint telemetry
-- Application logs
-
-Typical workflow:
-
-1. **Incident identification** → Suspicious activity is identified
-2. **Evidence collection** → Historical telemetry and logs are gathered
-3. **Timeline reconstruction** → Events are correlated chronologically
-4. **Behavior analysis** → Communications and actions are analyzed
-5. **Impact assessment** → Affected systems and scope are identified
-6. **Evidence preservation** → Relevant findings are retained for reporting or escalation
-
-The exact workflow depends on:
-- Evidence availability
-- Retention policies
-- Monitoring architecture
-- Investigation goals
-- Telemetry completeness
-
-![](./images/forensic-analysis.png)
+Forensic analysis usually starts from an alert, anomaly, or user‑reported incident. Analysts then identify and gather all relevant historical evidence—such as **flow telemetry, packet captures, DNS logs, firewall logs, authentication records, and endpoint telemetry**—and correlate them into a single timeline. A typical workflow is: **incident identification → evidence collection → timeline reconstruction → behavior analysis → impact assessment → evidence preservation**. The exact process depends on **retention policies**, **monitoring architecture**, and **evidence completeness**, but the core idea is to treat every event as a piece of a larger puzzle and link them chronologically and contextually.
 
 ---
 
 ## Forensic analysis in network operations
 
-Forensic analysis is widely used across operational and security environments.
-
-### SOC operations
-
-Security teams use forensic analysis for:
-- Threat hunting
-- Malware investigations
-- Data-exfiltration analysis
-- Lateral movement investigations
-- Command-and-control analysis
-- Incident response
-
-Investigators often correlate:
-- Historical traffic
-- Flow records
-- Packet evidence
-- DNS activity
-- Authentication events
-- Threat-intelligence context
-
-to reconstruct attacker behavior.
-
-### NOC operations
-
-Network operations teams use forensic analysis for:
-- Outage investigations
-- Performance troubleshooting
-- Congestion analysis
-- Historical fault analysis
-- Traffic anomaly investigations
-- Root-cause analysis
-
-Historical telemetry helps operators understand:
-- When a problem started
-- Which systems were involved
-- How traffic patterns changed
-- Whether infrastructure behaved abnormally
-
-### Compliance and audit workflows
-
-Some organizations also use forensic-analysis workflows for:
-- Audit investigations
-- Policy validation
-- Regulatory reporting
-- Internal investigations
-- Historical operational review
-
-The operational value depends heavily on:
-- Historical retention
-- Telemetry quality
-- Time synchronization
-- Correlation accuracy
+In **SOC** environments, forensic analysis is central to **incident response, malware investigations, data‑exfiltration analysis, and threat‑hunting**, because it reveals how attackers moved, what systems were compromised, and how long they remained undetected. In **NOC** workflows, it supports **outage investigations, performance‑troubleshooting**, and **root‑cause analysis**, letting operators replay traffic patterns to see when congestion started, which links failed, or how an application behaved during an incident. In **compliance and audit** workflows, same‑era analysis underpins **regulatory reporting, internal investigations**, and **policy‑validation**, where historical evidence must be preserved and presented in a defensible way.
 
 ---
 
 ## Common forensic evidence
 
 | Evidence source | Investigative value |
-|---|---|
-| Flow records | Communication history and metadata |
-| Packet capture | Packet-level protocol and payload visibility |
-| DNS logs | Domain-resolution history |
-| Authentication logs | User and access activity |
-| Firewall logs | Allowed or blocked communications |
-| Endpoint telemetry | Host behavior and process activity |
+|-----------------|---------------------|
+| Flow records | Who talked to whom, when, and how much data moved |
+| Packet capture | Packet‑level detail including protocol structure and payloads where visible |
+| DNS logs | Which domains were resolved and when, indicating C2, exfiltration, or malicious sites |
+| Authentication logs | Who logged in, when, and from where, showing user‑access patterns |
+| Firewall logs | Which connections were allowed or blocked, providing policy‑level context |
+| Endpoint telemetry | Host‑level processes, registry changes, and artifact evidence |
 
-No single evidence source is usually sufficient on its own. Effective investigations often correlate multiple telemetry sources together.
+No single source is usually enough; effective investigations correlate multiple streams so that conclusions are supported by **cross‑system, multi‑source evidence** rather than relying on any one log or telemetry feed.
 
 ---
 
 ## Forensic analysis vs monitoring
 
-| Dimension | Monitoring | Forensic analysis |
-|---|---|---|
-| Primary focus | Current operational visibility | Historical reconstruction |
-| Typical workflow | Continuous observation | Incident-driven investigation |
-| Time orientation | Real-time or near-real-time | Retrospective analysis |
-| Main objective | Detection and operations | Evidence and reconstruction |
-| Common outputs | Alerts, dashboards, metrics | Timelines, findings, evidence |
-
-The two workflows are complementary.
-
-Monitoring systems frequently provide the historical telemetry later used during forensic investigations.
+**Monitoring** is about **current or near‑real‑time observation**, detection, and operational response through dashboards, alerts, and metrics. **Forensic analysis** is about **retrospective reconstruction** of past events using stored logs, flows, and packets. Monitoring is proactive and continuous; forensic analysis is reactive and evidence‑driven. However, the two are tightly linked: the same telemetry used for **flow monitoring, packet capture, and logging** becomes the raw material for later forensic investigations, so how you design and retain telemetry directly shapes your forensic capability.
 
 ---
 
 ## What makes forensic analysis effective
 
-Effective forensic analysis depends heavily on:
-- Historical retention
-- Accurate timestamps
-- Telemetry completeness
-- Evidence preservation
-- Correlation quality
-- Investigation workflows
-
-Investigations become more difficult when:
-- Logs are incomplete
-- Packet retention is limited
-- Telemetry is heavily sampled
-- Time synchronization is inconsistent
-- Monitoring coverage has gaps
-
-Time synchronization is especially important because:
-- Events from multiple systems must align correctly
-- Timeline reconstruction depends on timestamp accuracy
-- Correlation quality affects investigative confidence
-
-Organizations commonly improve forensic readiness through:
-- Long-term telemetry retention
-- Centralized logging
-- Packet retention strategies
-- Historical indexing
-- Metadata enrichment
-- Consistent time synchronization
+Effective forensic analysis depends on **long‑term retention, accurate timestamps, consistent time‑synchronization, telemetry completeness, and strong correlation workflows**. Investigations break down when logs are short‑lived, packet capture is unavailable, telemetry is heavily sampled, or monitoring coverage has gaps. Time‑synchronization is critical because correlating **firewall logs, DNS events, and flow records** only works if their clocks are aligned. Organizations improve forensic readiness by standardizing on **centralized logging, long‑term retention architectures, packet or flow‑based storage at chokepoints, metadata enrichment**, and clear **evidence‑preservation policies**.
 
 ---
 
 ## How Trisul handles forensic analysis
 
-Trisul supports forensic-analysis workflows through integrated traffic-analysis, historical telemetry retention, and investigative drill-down capabilities.
-
-Relevant capabilities include:
-
-- **Historical traffic analysis**
-- **Packet and flow visibility**
-- **Explore Flows** for investigative drill-down
-- **Flow Taggers** for contextual telemetry enrichment
-- **Host and application traffic analysis**
-- **Historical querying workflows**
-- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
-- **Operational dashboards and timeline-oriented investigations**
-- **Traffic-pattern and conversation analysis**
-
-Trisul can help investigators:
-- Reconstruct communication history
-- Analyze historical traffic behavior
-- Correlate flow and packet evidence
-- Investigate suspicious activity
-- Support operational and security investigations
-
-These workflows are particularly useful for:
-- Incident investigation
-- Threat analysis
-- Historical troubleshooting
-- Traffic reconstruction
-- Operational postmortems
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul supports forensic analysis by combining **historical traffic analysis, packet‑ and flow‑level visibility, timeline‑oriented dashboards, and investigative drill‑down** into a single platform. It ingests **NetFlow, IPFIX, sFlow**, and **packet‑derived telemetry**, then exposes them through **Explore Flows**, **Flow Taggers**, **host and application‑level views**, and **query‑driven investigations** so analysts can trace communication history, reconstruct sessions, and correlate evidence across sources. This is especially useful for **incident investigations, threat‑analysis, and postmortem reviews**, where operators must pivot from broad dashboards to fine‑grained, evidence‑based timelines without leaving the toolset. Trisul is tuned for **scalable, metadata‑driven forensic workflows** rather than just real‑time monitoring, making it suitable for environments where historical reconstruction is as important as live detection.
 
 ---
 
 ## Related terms
 
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [Root cause analysis](/glossary/root-cause-analysis)
-- [Packet capture](/glossary/packet-capture)
-- [Threat detection](/glossary/threat-detection)
-- [Incident response](/glossary/incident-response)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Network security monitoring](/glossary/network-security-monitoring)
+- Forensic analysis  
+- Network traffic analysis  
+- Root cause analysis  
+- Packet capture  
+- Threat detection  
+- Incident response  
+- Flow monitoring  
+- Network security monitoring  
 
 ---
 
@@ -297,7 +130,7 @@ Relevant Trisul use cases:
 
 ### What is forensic analysis in network operations?
 
-Forensic analysis is the process of examining historical network traffic, logs, packets, and related telemetry to reconstruct events, investigate incidents, and establish evidence-based timelines of activity.
+Forensic analysis is the process of examining historical network traffic, logs, packets, and related telemetry to reconstruct events, investigate incidents, and establish evidence‑based timelines of activity.
 
 ### What data sources are used in network forensic analysis?
 
@@ -305,12 +138,12 @@ Network forensic analysis may use flow records, packet capture, DNS logs, authen
 
 ### Why is forensic analysis important?
 
-Forensic analysis helps organizations understand how an incident occurred, what systems were affected, what actions took place, and what evidence supports the investigation findings. It is important for incident response, post-incident review, compliance, and operational learning.
+Forensic analysis helps organizations understand how an incident occurred, what systems were affected, what actions took place, and what evidence supports the investigation findings. It is important for incident response, post‑incident review, compliance, and operational learning.
 
 ### How is forensic analysis different from monitoring?
 
-Monitoring focuses on observing current or near-real-time activity, while forensic analysis focuses on reconstructing past events using retained historical evidence. Monitoring is operationally proactive, whereas forensic analysis is primarily investigative and evidence-driven.
+Monitoring focuses on observing current or near‑real‑time activity, while forensic analysis focuses on reconstructing past events using retained historical evidence. Monitoring is operationally proactive, whereas forensic analysis is primarily investigative and evidence‑driven.
 
 ### What role does packet capture play in forensic analysis?
 
-Packet capture can provide detailed packet-level evidence including protocols, headers, and payload visibility where available. It is often used alongside flow telemetry and logs to validate findings, reconstruct sessions, and support deeper investigations.
+Packet capture can provide detailed packet‑level evidence including protocols, headers, and payload visibility where available. It is often used alongside flow telemetry and logs to validate findings, reconstruct sessions, and support deeper investigations.

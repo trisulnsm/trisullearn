@@ -64,227 +64,72 @@ export const jsonLd = {
 
 # What is a firewall?
 
-**A firewall** is a security control that monitors and filters network traffic between systems, networks, or security zones based on defined security policies.
-
-Firewalls are commonly used to:
-- Enforce network-access policies
-- Restrict unauthorized communications
-- Segment security zones
-- Monitor traffic behavior
-- Protect internal systems
-- Control application access
-- Improve operational visibility
-
-Firewalls may be deployed:
-- Between internal and external networks
-- Between datacenter zones
-- Between cloud environments
-- Between user and server segments
-- Within micro-segmented environments
-
-Modern firewall platforms may combine:
-- Packet filtering
-- Stateful inspection
-- NAT functionality
-- Application awareness
-- Logging and telemetry
-- Threat-detection capabilities
-
-Trisul supports firewall-related traffic investigation workflows through network traffic analytics and operational visibility capabilities.
+**A firewall** is a security control that monitors and filters network traffic between systems, networks, or security zones based on defined security policies. It acts as a gatekeeper at network boundaries (such as between the internet and an internal network, or between datacenter segments), deciding which traffic is allowed or denied according to rule sets. Firewalls can be hardware appliances, virtualized software, or cloud‑native services that combine packet filtering, stateful inspection, and often rich application‑aware and logging capabilities.
 
 ---
 
 ## How a firewall works
 
-Firewalls evaluate traffic against configured rules or security policies.
-
-Typical workflow:
-
-1. **Traffic inspection** → The firewall receives traffic crossing a boundary or security zone
-2. **Policy evaluation** → Rules determine whether traffic is allowed, denied, or further inspected
-3. **State or protocol analysis** → Some firewalls track connection state or analyze protocols
-4. **Traffic decision** → Traffic may be forwarded, blocked, logged, or redirected
-5. **Operational logging** → Events and decisions may be recorded for analysis
-
-Depending on firewall type and deployment model, inspection may include:
-- IP addresses
-- Ports and protocols
-- Connection state
-- Application behavior
-- Session characteristics
-- User identity
-- Traffic anomalies
-
-The exact visibility and enforcement depth depend on:
-- Firewall architecture
-- Deployment placement
-- Encryption usage
-- Performance requirements
-- Security policy configuration
+A firewall evaluates traffic against a configured rule base as packets or sessions cross a security boundary. It inspects header information (IP addresses, ports, protocols), and in many cases also tracks connection state, application behavior, and user‑level context before accepting, dropping, logging, or redirecting traffic. In stateful firewalls, the device keeps track of open sessions (such as TCP handshakes) to allow related return traffic without re‑evaluating the full policy. Modern firewalls may also inspect payloads or TLS metadata and tie rules to application identity, user roles, or threat intelligence, offering more granular control than simple static filters.
 
 ---
 
 ## Firewall types
 
-| Firewall type | Operational purpose |
-|---|---|
-| Packet-filtering firewall | Filters traffic using packet-header rules |
-| Stateful firewall | Tracks active connections and session state |
-| Proxy firewall | Terminates and intermediates application sessions |
-| Next-generation firewall (NGFW) | Adds application-aware inspection and advanced policy capabilities |
-| Web application firewall (WAF) | Protects web applications and HTTP-based services |
+Different firewall types provide varying levels of visibility and policy richness:
 
-Different firewall types provide different:
-- Visibility levels
-- Inspection depth
-- Performance characteristics
-- Operational complexity
-- Policy-enforcement capabilities
+| Type                    | Operational focus |
+|-------------------------|--------------------------------------------------------|
+| Packet‑filtering        | Basic header‑based allow/deny rules                  |
+| Stateful inspection     | Session‑aware filtering using connection state       |
+| Proxy firewall          | Terminates and intermediates sessions (application‑level) |
+| Web application firewall (WAF) | Protects HTTP/S apps from web‑layer threats        |
+| Next‑generation firewall (NGFW) | Application‑aware, integrated IPS, and threat features |
+
+Packet‑filtering and stateful devices form the traditional network‑firewall baseline, while NGFWs and WAFs add deeper inspection and integration with security operations.
 
 ---
 
 ## Firewalls in network operations
 
-Firewalls play an important role in:
-- Security operations
-- Network segmentation
-- Access control
-- Compliance monitoring
-- Incident response
-- Datacenter operations
-- Cloud-security workflows
-
-Common operational use cases include:
-
-- **Access control**: Restrict unauthorized communications
-- **Traffic segmentation**: Separate security zones
-- **Threat monitoring**: Detect suspicious connection behavior
-- **Policy validation**: Verify rule effectiveness
-- **Operational troubleshooting**: Investigate blocked or failed communications
-- **Incident investigations**: Correlate firewall events with network activity
-
-Firewall telemetry and logs are often important during:
-- Security investigations
-- Connectivity troubleshooting
-- Policy audits
-- Threat hunting
-- Operational change analysis
+Firewalls are central to network‑security, segmentation, and access‑control workflows. They enforce zoning (for example, separating internet‑facing, internal‑user, and server segments), restrict unauthorized traffic, and provide detailed logs for analysis. Operations teams use firewalls to block known‑bad hosts, limit lateral‑movement exposure, and manage application‑level policies. In incident response, firewall logs and telemetry often show attempted but blocked connections, helping analysts gauge attack scope and validate reachability assumptions.
 
 ---
 
 ## Firewall monitoring and visibility
 
-Firewall monitoring may include:
-- Traffic logs
-- Session records
-- Policy-hit statistics
-- Blocked-connection analysis
-- NAT visibility
-- Traffic trends
-- Rule usage
-- Security alerts
-
-Operational analysis often focuses on:
-- Blocked traffic
-- Unexpected communications
-- Policy violations
-- Traffic anomalies
-- High-volume flows
-- Suspicious access attempts
-
-Firewall visibility is influenced by:
-- Logging configuration
-- Traffic placement
-- Encryption usage
-- Rule granularity
-- Telemetry retention
-
-Combining firewall telemetry with network analytics improves operational context and investigation depth.
+Effective firewall operations depend on logging and telemetry: traffic‑flow logs, session records, rule‑hit counters, and alerts. Teams monitor these to detect policy violations, review blocked traffic, and investigate suspicious connection attempts. Without analysis, logs can quickly become an undigested stream; that is why operators often combine firewall exports with flow‑based analytics and dashboards to highlight anomalies, policy‑changes, or traffic‑growth patterns related to specific rules or zones. This correlation turns firewall events into actionable insights.
 
 ---
 
 ## Firewalls and encrypted traffic
 
-Encrypted traffic can affect firewall visibility.
-
-Depending on firewall capabilities and deployment architecture, firewalls may analyze:
-- TLS metadata
-- Certificate details
-- Traffic behavior
-- Connection patterns
-- Application fingerprints
-
-Full payload inspection of encrypted traffic may require:
-- TLS interception
-- Decryption workflows
-- Certificate management
-- Additional privacy and compliance considerations
-
-The exact visibility level depends on:
-- Encryption protocols
-- Firewall capabilities
-- Deployment policy
-- Monitoring architecture
+Encrypted traffic changes what a firewall can see. Some firewalls examine TLS‑handshake metadata (cipher suites, SNI, certificate details) and traffic‑behavior patterns even when payloads are encrypted. For full inspection of HTTPS or other TLS‑wrapped traffic, organizations may deploy TLS interception (SSL‑decryption) at the firewall, but this introduces certificate management, performance, and privacy‑compliance trade‑offs. The exact visibility depends on whether the firewall sits in a position where it can intercept and decrypt traffic, and on organizational policy regarding decryption.
 
 ---
 
 ## Operational considerations
 
-Firewall deployments commonly face operational considerations including:
-- Rule-management complexity
-- Performance overhead
-- Logging volume
-- Policy sprawl
-- Encryption visibility limitations
-- Segmentation design
-- Operational scalability
-
-Overly restrictive policies may disrupt legitimate applications, while overly broad policies may reduce security effectiveness.
-
-Effective firewall operations typically require:
-- Rule review processes
-- Traffic baselining
-- Continuous monitoring
-- Historical visibility
-- Operational correlation with network telemetry
+Firewall deployments face rule‑complexity, policy‑sprawl, and performance‑scaling challenges. Large rule sets can become hard to audit and may slow troubleshooting; overly broad rules reduce security; overly restrictive rules break legitimate traffic. To manage this, teams need disciplined change‑control, regular rule reviews, and continuous monitoring to track what flows are actually traversing the firewall. Integration with traffic‑analytics and SIEM‑style platforms helps operators see traffic‑trends that correlate with rule‑changes, policy‑violations, or spike in blocked attempts.
 
 ---
 
-## How Trisul supports firewall-related investigations
+## How Trisul supports firewall‑related investigations
 
-Trisul supports firewall-related traffic investigation workflows through network traffic analytics and operational visibility capabilities.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Packet visibility and traffic investigation**
-- **Historical traffic analysis**
-- **Explore Flows** for communication investigation workflows
-- **Traffic anomaly visibility**
-- **Host and traffic correlation workflows**
-- **Operational visibility into communication patterns**
-- **Historical trend analysis for traffic behavior changes**
-
-These capabilities help operators investigate communication behavior, analyze suspicious traffic patterns, validate operational changes, correlate firewall-related events with traffic activity, and improve troubleshooting workflows.
-
-Trisul primarily provides network traffic analytics and visibility rather than firewall policy enforcement or inline firewall functionality.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
+Trisul complements firewall operations through traffic‑analytics and visibility rather than acting as a firewall itself. It can ingest **NetFlow, IPFIX, and sFlow** telemetry from firewalls and associated routers, switches, and gateways, exposing traffic patterns that firewall log entries represent. Operators then use **Explore Flows**, historical trending, and anomaly detection to investigate which hosts, ports, or applications are generating blocked or heavily filtered flows, how those flows change over time, and whether they correlate with security events elsewhere in the environment. In this way, Trisul helps turn firewall‑level decisions into a broader, context‑rich view of communication behavior and threat posture.
 
 ---
 
 ## Related terms
 
-- [Packet filtering](/glossary/packet-filtering)
-- [ACL](/glossary/acl)
-- [Network segmentation](/glossary/network-segmentation)
-- [Policy enforcement](/glossary/policy-enforcement)
-- [Security zone](/glossary/security-zone)
-- [NGFW](/glossary/ngfw)
-- [Traffic analysis](/glossary/traffic-analysis)
+- Firewall  
+- Packet filtering  
+- ACL  
+- Network segmentation  
+- Policy enforcement  
+- Security zone  
+- NGFW  
+- Traffic analysis  
 
 ---
 
@@ -300,12 +145,12 @@ A firewall evaluates traffic against configured security rules or policies. Depe
 
 ### What types of firewalls are there?
 
-Common firewall types include packet-filtering firewalls, stateful firewalls, proxy firewalls, web application firewalls, and next-generation firewalls. Different firewall types provide different levels of visibility, inspection, and policy enforcement.
+Common firewall types include packet‑filtering firewalls, stateful firewalls, proxy firewalls, web application firewalls, and next‑generation firewalls. Different firewall types provide different levels of visibility, inspection, and policy enforcement.
 
 ### Why is firewall monitoring important?
 
 Firewall monitoring helps organizations analyze blocked traffic, policy violations, suspicious connection attempts, traffic anomalies, and operational changes. Monitoring firewall activity improves troubleshooting, security investigations, and policy validation.
 
-### How does Trisul support firewall-related investigations?
+### How does Trisul support firewall‑related investigations?
 
-Trisul supports firewall-related investigations through traffic analytics, flow visibility, packet analysis, and historical traffic investigation capabilities that help operators analyze communication behavior and correlate firewall-related traffic patterns.
+Trisul supports firewall‑related investigations through traffic analytics, flow visibility, packet analysis, and historical traffic investigation capabilities that help operators analyze communication behavior and correlate firewall‑related traffic patterns.

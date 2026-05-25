@@ -64,201 +64,55 @@ export const jsonLd = {
 
 # What is endpoint visibility?
 
-**Endpoint visibility** is the ability to continuously discover, monitor, and understand the operational state, behavior, and security posture of endpoints connected to a network.
-
-Endpoints may include:
-- Laptops
-- Workstations
-- Servers
-- Virtual machines
-- Mobile devices
-- Printers
-- IoT systems
-- Cloud-hosted systems
-
-Endpoint visibility helps organizations:
-- Identify connected devices
-- Monitor endpoint behavior
-- Investigate suspicious activity
-- Troubleshoot operational issues
-- Maintain asset awareness
-- Improve security monitoring
-- Correlate endpoint and network activity
-
-Endpoint visibility is important because operational and security issues often originate directly on devices rather than exclusively within the network itself.
-
-Trisul supports endpoint-oriented traffic investigation workflows through network traffic analytics and host-level visibility capabilities.
+**Endpoint visibility** is the ability to continuously discover, monitor, and understand the operational state, behavior, and security posture of endpoints connected to a network. It ensures that every device on the network—from laptops and servers to printers and IoT gadgets—is known, tracked, and monitored for normal and abnormal behavior, both from a security and an operations standpoint.
 
 ---
 
 ## What endpoint visibility includes
 
-Endpoint visibility commonly includes:
-- Endpoint discovery
-- Asset inventory
-- Telemetry collection
-- Behavioral monitoring
-- Security-event analysis
-- Operational health monitoring
-- Network-activity correlation
-
-Common telemetry sources include:
-- Endpoint agents
-- Operating-system logs
-- Security telemetry
-- Authentication records
-- Application telemetry
-- Network communications
-- System-event logs
-
-Operational visibility may include:
-- Device identity
-- Operating-system information
-- Endpoint status
-- Network activity
-- User activity
-- Security alerts
-- Resource utilization
-
-Different platforms provide different levels of endpoint visibility depending on:
-- Deployment architecture
-- Agent availability
-- Telemetry depth
-- Operational requirements
-- Security tooling integration
+Endpoint visibility encompasses several layers of awareness: **endpoint discovery**, **asset inventory**, **telemetry collection**, **behavioral monitoring**, and **security‑event analysis**. Organizations use endpoint agents, OS logs, security products, and application telemetry to gather details such as device identity, operating‑system version, network activity, user behavior, and resource usage. This visibility often integrates with network telemetry so that host‑level events can be correlated with flows, sessions, and traffic anomalies.
 
 ---
 
 ## Endpoint visibility in operations
 
-Endpoint visibility is widely used in:
-- SOC environments
-- NOC operations
-- Incident response
-- Threat hunting
-- IT operations
-- Compliance monitoring
-- Asset-management workflows
-
-Common operational use cases include:
-
-- **Security investigations**: Analyze suspicious endpoint activity
-- **Incident response**: Correlate endpoint and network events
-- **Asset management**: Maintain endpoint inventory awareness
-- **Operational troubleshooting**: Investigate endpoint-performance issues
-- **Threat hunting**: Identify abnormal endpoint behavior
-- **Compliance workflows**: Verify endpoint-management coverage
-
-Without endpoint visibility:
-- Unmanaged devices may remain undetected
-- Security gaps may increase
-- Operational troubleshooting becomes more difficult
-- Asset inventory accuracy may degrade
-
-Endpoint visibility improves operational awareness across distributed environments.
+Endpoint visibility is central to SOC, NOC, IT, and compliance workflows. It supports **security investigations**, **incident response**, **threat hunting**, **asset management**, and **operational troubleshooting**. With strong visibility, operators can detect unknown or rogue devices, spot misconfigured or non‑compliant systems, and quickly trace issues back to specific hosts. Without it, unmanaged or shadow devices create blind spots, degrade asset‑inventory accuracy, and make incident response slower and less reliable.
 
 ---
 
 ## Endpoint visibility vs network visibility
 
-| Dimension | Endpoint visibility | Network visibility |
-|---|---|---|
-| Primary visibility | Endpoint and host activity | Network communications and traffic behavior |
-| Typical telemetry | Processes, files, users, system events | Flows, packets, sessions, protocols |
-| Scope | Per-device operational depth | Network-wide communication visibility |
-| Deployment model | Often agent-based or host-integrated | Commonly passive network monitoring |
-| Operational strength | Host-level investigation and telemetry | Traffic analytics and communication analysis |
-
-The two approaches are complementary and are frequently correlated during investigations.
-
-For example:
-- Endpoint visibility may identify suspicious process execution
-- Network visibility may reveal command-and-control communications or lateral movement
-
-Combining endpoint and network telemetry improves operational context and investigation accuracy.
+Endpoint visibility focuses on what happens **on the device**: processes, logons, file changes, and host‑level telemetry. Network visibility focuses on what happens **on the wire**: traffic patterns, flows, sessions, and protocols. Endpoint‑level tools offer deep host‑insight but are often agent‑based, while network‑based tools offer broad‑coverage visibility without requiring software on every device. In practice, teams combine both: using endpoint visibility to see “inside” hosts and network visibility to see how those hosts talk to each other and the outside world.
 
 ---
 
 ## Endpoint visibility and security operations
 
-Endpoint visibility plays an important role in:
-- Malware investigations
-- Insider-threat analysis
-- Credential-abuse investigations
-- Ransomware analysis
-- Threat hunting
-- Post-compromise investigations
-
-Common monitored indicators may include:
-- Suspicious process execution
-- Unauthorized configuration changes
-- Unexpected outbound communications
-- Privilege escalation behavior
-- Persistence mechanisms
-- Unusual authentication activity
-
-Correlating endpoint and network telemetry improves visibility into distributed attacks and operational anomalies.
+In security operations, endpoint visibility underpins malware analysis, insider‑threat detection, credential‑abuse investigations, ransomware triage, and post‑compromise work. Analysts look for suspicious processes, unusual outbound connections, privilege‑escalation events, and persistence mechanisms. When this endpoint telemetry is correlated with network traffic (for example, flows to known‑bad IPs or abnormal C2‑like patterns), it becomes much easier to confirm attacks, scope their impact, and build stronger incident hypotheses.
 
 ---
 
 ## Operational considerations
 
-Endpoint-visibility deployments commonly face operational considerations including:
-- Endpoint coverage consistency
-- Agent-management overhead
-- Telemetry retention requirements
-- Alert volume and false positives
-- Endpoint performance impact
-- Unmanaged-device visibility gaps
-- Large-scale telemetry management
-
-Effective endpoint visibility often requires:
-- Consistent endpoint coverage
-- Historical telemetry retention
-- Centralized operational analysis
-- Correlation with network telemetry
-- Asset inventory maintenance
-
-The exact visibility level depends on deployment architecture and monitoring platforms.
+Endpoint‑visibility programs often struggle with **inconsistent coverage**, **agent management**, **telemetry storage**, and **alert fatigue**. Unmanaged devices such as BYOD phones, IoT gadgets, or legacy machines can evade visibility, while large‑scale environments require careful retention and indexing strategies. Achieving effective visibility usually means combining centralized dashboards with historical baselining, tight integration with network and SIEM tools, and clear policies for asset discovery and onboarding.
 
 ---
 
 ## How Trisul supports endpoint visibility workflows
 
-Trisul supports endpoint visibility workflows through network traffic analytics and host-oriented investigation capabilities.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Host-oriented traffic visibility**
-- **Packet visibility and traffic investigation**
-- **Historical traffic analysis**
-- **Explore Flows** for endpoint communication investigation
-- **Traffic anomaly visibility**
-- **Lateral movement visibility through traffic analytics**
-- **Flow and packet correlation workflows**
-- **Operational visibility into endpoint communications**
-
-These capabilities help analysts investigate endpoint-related communications, correlate network behavior with endpoint activity, analyze suspicious traffic patterns, and improve operational visibility during troubleshooting and incident investigations.
-
-Trisul primarily provides network traffic analytics and visibility rather than endpoint-agent functionality, endpoint management, or direct endpoint remediation capabilities.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
+Trisul strengthens endpoint visibility by providing **network‑level evidence** that complements host‑centric data. Using **NetFlow, IPFIX, and sFlow**, it exposes traffic generated by specific endpoints, such as unexpected external connections, internal lateral‑movement, or beaconing traffic to rare domains. Features like **Explore Flows**, historical traffic trending, and anomaly detection let analysts correlate endpoint‑detected events (for example, a suspicious process) with network‑level communications, validate exfiltration patterns, and reconstruct attack timelines. Trisul does not provide endpoint agents or host‑level telemetry but enhances endpoint visibility through traffic‑analytics and host‑oriented investigation workflows.
 
 ---
 
 ## Related terms
 
-- [Endpoint monitoring](/glossary/endpoint-monitoring)
-- [Network security monitoring](/glossary/network-security-monitoring)
-- [Flow analysis](/glossary/flow-analysis)
-- [Endpoint detection and response](/glossary/endpoint-detection-and-response)
-- [Flow](/glossary/flow)
-- [Full packet capture](/glossary/full-packet-capture)
-- [Host monitoring](/glossary/host-monitoring)
+- Endpoint visibility  
+- Endpoint monitoring  
+- Host monitoring  
+- Endpoint detection and response (EDR)  
+- Network security monitoring  
+- Flow analysis  
+- Full packet capture  
 
 ---
 
@@ -266,7 +120,7 @@ Relevant Trisul use cases:
 
 ### What devices count as endpoints?
 
-Endpoints include laptops, desktops, mobile devices, servers, virtual machines, printers, IoT devices, and other network-connected systems. Any device that communicates on a network may be treated as an endpoint depending on operational and security requirements.
+Endpoints include laptops, desktops, mobile devices, servers, virtual machines, printers, IoT devices, and other network‑connected systems. Any device that communicates on a network may be treated as an endpoint depending on operational and security requirements.
 
 ### What is the difference between endpoint visibility and endpoint protection?
 
@@ -274,12 +128,12 @@ Endpoint visibility focuses on understanding endpoint status, behavior, activity
 
 ### Can network flow monitoring provide endpoint visibility?
 
-Flow monitoring provides network-level visibility into endpoint communications, including traffic patterns, conversations, and connection behavior. However, it does not provide deep host-level visibility such as process execution, file activity, or registry changes that endpoint agents or EDR platforms may collect.
+Flow monitoring provides network‑level visibility into endpoint communications, including traffic patterns, conversations, and connection behavior. However, it does not provide deep host‑level visibility such as process execution, file activity, or registry changes that endpoint agents or EDR platforms may collect.
 
 ### What are the core components of endpoint visibility?
 
-Endpoint visibility commonly includes endpoint discovery, telemetry collection, activity monitoring, asset inventory, security-event analysis, and operational correlation with network or security telemetry.
+Endpoint visibility commonly includes endpoint discovery, telemetry collection, activity monitoring, asset inventory, security‑event analysis, and operational correlation with network or security telemetry.
 
 ### How does Trisul support endpoint visibility workflows?
 
-Trisul supports endpoint visibility workflows through host-oriented traffic analytics, flow visibility, packet analysis, and historical traffic investigation capabilities that help operators correlate endpoint activity with network communications.
+Trisul supports endpoint visibility workflows through host‑oriented traffic analytics, flow visibility, packet analysis, and historical traffic investigation capabilities that help operators correlate endpoint activity with network communications.

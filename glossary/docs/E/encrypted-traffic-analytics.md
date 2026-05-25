@@ -64,199 +64,55 @@ export const jsonLd = {
 
 # What is encrypted traffic analytics?
 
-**Encrypted traffic analytics** is the practice of analyzing encrypted network communications without decrypting payloads, using observable metadata, TLS handshake information, flow behavior, and traffic patterns to detect threats and assess operational risk.
-
-As encrypted traffic becomes dominant across modern networks, traditional payload inspection techniques may lose visibility into application behavior and security events.
-
-Encrypted traffic analytics provides operational visibility by analyzing:
-- TLS handshake metadata
-- JA3 and related fingerprints
-- Certificate information
-- Flow behavior
-- Packet timing
-- Connection characteristics
-- Traffic patterns
-
-This approach helps operators investigate encrypted communications without directly accessing encrypted payload contents.
-
-Trisul supports encrypted-traffic investigation workflows through traffic analytics and TLS metadata visibility capabilities.
+**Encrypted traffic analytics** is the practice of analyzing encrypted network communications without decrypting payloads, using observable metadata, TLS handshake information, flow behavior, and traffic patterns to detect threats and assess operational risk. As more traffic shifts to HTTPS, TLS‑wrapped APIs, and DoT/DoH, security and operations teams increasingly rely on metadata‑based analysis to spot malicious or risky behavior when full payload inspection is not feasible or permitted.
 
 ---
 
 ## What encrypted traffic analytics examines
 
-Encrypted traffic analytics examines metadata and observable characteristics that remain visible outside encrypted payloads.
-
-Commonly analyzed signals include:
-
-| Signal | Operational significance |
-|---|---|
-| JA3 fingerprints | TLS client fingerprint identification |
-| TLS versions | Protocol-version visibility |
-| Cipher suites | Encryption capability analysis |
-| Certificate details | Certificate validity and trust analysis |
-| Server Name Indication (SNI) | Requested domain visibility |
-| Packet timing | Behavioral and communication analysis |
-| Flow behavior | Session characteristics and anomalies |
-| Traffic directionality | Communication-pattern analysis |
-
-Behavioral analysis may identify:
-- Suspicious communication patterns
-- Malware-related TLS behavior
-- Abnormal connection frequency
-- Unusual JA3 fingerprints
-- Potential command-and-control activity
-- Weak or outdated TLS configurations
-- Certificate anomalies
-- Suspicious traffic relationships
-
-The exact visibility depends on:
-- TLS version
-- Encryption protocols
-- Monitoring placement
-- Available telemetry
-- Packet visibility depth
+Encrypted traffic analytics studies signals that remain visible outside the encrypted payload. Commonly inspected elements include **TLS handshake attributes**, **JA3 fingerprints**, **certificate details**, **Server Name Indication (SNI)**, packet‑size distributions, timing, flow duration, and connection‑frequency patterns. Operators use these signals to detect anomalies such as repeated connections to rare domains, mismatched certificates, or highly stereotypical TLS handshakes associated with malware. The exact visibility depends on TLS version, protocol extensions, sensor placement, and whether full packet or flow‑based telemetry is available.
 
 ---
 
 ## Encrypted traffic analytics in network operations
 
-Encrypted traffic analytics is widely used in:
-- SOC environments
-- NOC operations
-- ISP monitoring
-- Enterprise security monitoring
-- Threat hunting
-- Compliance monitoring
-- Incident response
-
-Common operational use cases include:
-
-- **Threat detection**: Identify suspicious encrypted communications
-- **TLS hygiene monitoring**: Detect weak protocols and certificates
-- **Command-and-control analysis**: Investigate malware communications
-- **Traffic investigation**: Analyze encrypted session behavior
-- **Policy monitoring**: Detect non-compliant encrypted traffic
-- **Operational troubleshooting**: Investigate TLS-related connectivity issues
-
-Because payloads remain encrypted, encrypted traffic analytics relies heavily on:
-- Behavioral analysis
-- Historical baselining
-- Flow analytics
-- Metadata correlation
-- TLS fingerprint analysis
+In SOC, NOC, and ISP environments, encrypted traffic analytics helps teams monitor TLS‑heavy traffic at scale without decrypting content. Use cases include **threat detection**, **TLS‑hygiene monitoring** (for weak protocols or expired certificates), **command‑and‑control (C&C) analysis**, and **traffic‑investigation workflows**. Because payloads remain encrypted, analytics leans on behavioral baselining, historical flow data, and correlation with threat‑intelligence feeds. This approach is particularly valuable in regulated or privacy‑sensitive environments where inline decryption is legally or operationally restricted.
 
 ---
 
 ## Encrypted traffic analytics vs decryption
 
-| Dimension | Encrypted traffic analytics | Decryption |
-|---|---|---|
-| Payload visibility | No payload access | Full payload inspection |
-| Privacy impact | Lower operational exposure | Higher privacy sensitivity |
-| Performance overhead | Typically lower | Often significantly higher |
-| Deployment complexity | Lower operational complexity | Requires interception and certificate workflows |
-| Primary visibility | Metadata and behavior | Full application content |
-| Common use case | Large-scale monitoring and behavioral analysis | Deep inspection and content analysis |
-
-Many organizations combine both approaches depending on:
-- Security requirements
-- Privacy constraints
-- Regulatory obligations
-- Operational scale
-- Traffic sensitivity
+Encrypted traffic analytics differs from full decryption in both scope and impact. **Analytics** observes only metadata and traffic‑behavior patterns, preserving payload privacy and keeping performance overhead lower; it does not need TLS‑inspection appliances or certificate‑distribution infrastructure. **Decryption**, in contrast, terminates TLS and inspects plaintext content, yielding much deeper visibility but raising privacy, performance, and operational‑complexity concerns. Many organizations combine both: analytics for broad‑scale monitoring and behavioral baselining, with decryption applied only to high‑risk or policy‑controlled flows.
 
 ---
 
 ## Limitations of encrypted traffic analytics
 
-Encrypted traffic analytics has several operational limitations.
-
-Common limitations include:
-- No direct payload visibility
-- Reduced visibility with newer encryption standards
-- Potential false positives from behavioral analysis
-- Difficulty classifying some applications
-- Limited insight into encrypted content
-- Dependence on metadata quality
-
-Certain technologies may further reduce visibility, including:
-- TLS encryption enhancements
-- Encrypted Client Hello (ECH)
-- Privacy-focused protocols
-- Aggressive certificate rotation
-- Application-layer obfuscation
-
-Encrypted traffic analytics is most effective when combined with:
-- Flow analytics
-- Endpoint telemetry
-- Threat intelligence
-- Historical traffic baselines
-- Operational correlation workflows
+Analytics cannot see the actual content inside encrypted flows, so it cannot read passwords, messages, or file contents. It is also sensitive to evolving encryption standards such as **Encrypted Client Hello (ECH)** and privacy‑enhancing protocols that hide SNI and other metadata. Behavioural models can generate false positives (for example, legitimate apps with stable handshakes), and certain obfuscated malware may mimic benign traffic. Effective analytics therefore requires strong baselines, rich telemetry, and correlation with endpoint logs and threat intelligence.
 
 ---
 
 ## JA3 fingerprinting and TLS analysis
 
-JA3 fingerprinting creates identifiers based on observable TLS client handshake parameters.
-
-JA3-related analysis may help operators:
-- Identify application families
-- Detect malware tooling
-- Correlate suspicious TLS behavior
-- Investigate anomalous encrypted communications
-
-However:
-- JA3 fingerprints are not unique identifiers
-- Legitimate applications may share fingerprints
-- Attackers can modify TLS fingerprints
-- Fingerprint analysis should be combined with broader behavioral context
-
-TLS analysis may also include:
-- Certificate inspection
-- TLS-version analysis
-- Cipher-suite visibility
-- SNI analysis
-- Session-pattern analysis
+**JA3 fingerprinting** extracts an identifier from TLS‑handshake parameters such as supported ciphers, extensions, and order, enabling operators to group similarly behaving clients. This is useful for spotting malware‑toolkit signatures or unusual client‑characteristics, but JA3 is not a unique host ID and can be spoofed or shared by benign applications. TLS‑analysis workflows often expand beyond JA3 to inspect certificate chains, protocol versions, SNI, session‑reuses, and connection patterns, blending fingerprint‑based clustering with broader traffic‑behavior rules.
 
 ---
 
-## How Trisul handles encrypted traffic analytics
+## In Trisul
 
-Trisul supports encrypted-traffic investigation workflows using traffic analytics and TLS metadata visibility capabilities.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **TLS metadata visibility**
-- **JA3 fingerprint analysis**
-- **Certificate-related traffic visibility**
-- **Packet visibility and traffic investigation**
-- **Historical traffic trending**
-- **Explore Flows** for encrypted-session analysis
-- **Traffic anomaly visibility**
-- **Flow and packet correlation workflows**
-
-These capabilities help operators investigate encrypted-session behavior, analyze suspicious communications, identify anomalous TLS activity, and correlate encrypted traffic with broader operational and security investigations.
-
-Trisul primarily provides traffic analytics and visibility rather than inline TLS interception or decryption functionality.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#incident-investigation
+Trisul supports encrypted traffic analytics by exposing TLS‑related metadata and traffic‑behavior patterns through flow‑based and packet‑aware analytics. Using **NetFlow, IPFIX, and sFlow** from firewalls and traffic‑exporting devices, plus **packet‑level telemetry** where available, Trisul lets operators track **TLS‑metadata**, **JA3‑style fingerprints**, and **certificate‑related flows** at scale. Features such as **Explore Flows**, historical traffic trending, and anomaly detection help teams investigate suspicious encrypted sessions, correlate flows with certificates, and monitor TLS‑hygiene in large‑scale environments. Trisul does not perform TLS decryption but provides the visibility layer that feeds encrypted‑traffic‑analytics workflows.
 
 ---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Full packet capture](/glossary/full-packet-capture)
-- [JA3](/glossary/ja3)
-- [Flow analysis](/glossary/flow-analysis)
-- [Network security monitoring](/glossary/network-security-monitoring)
-- [TLS](/glossary/tls)
-- [DPI](/glossary/dpi)
+- Encrypted traffic analytics  
+- Flow monitoring  
+- JA3  
+- TLS  
+- Network security monitoring  
+- Flow analysis  
+- Full packet capture  
 
 ---
 
@@ -264,7 +120,7 @@ Relevant Trisul use cases:
 
 ### How does encrypted traffic analytics detect threats without decryption?
 
-Encrypted traffic analytics analyzes metadata visible outside encrypted payloads, including TLS handshake attributes, JA3 fingerprints, certificate information, traffic timing, packet sizes, flow behavior, and communication patterns. Suspicious or anomalous behavior in these signals may indicate malware, command-and-control activity, or policy violations.
+Encrypted traffic analytics analyzes metadata visible outside encrypted payloads, including TLS handshake attributes, JA3 fingerprints, certificate information, traffic timing, packet sizes, flow behavior, and communication patterns. Suspicious or anomalous behavior in these signals may indicate malware, command‑and‑control activity, or policy violations.
 
 ### What is the difference between encrypted traffic analytics and decryption?
 
@@ -272,7 +128,7 @@ Encrypted traffic analytics observes metadata and behavioral characteristics wit
 
 ### What can encrypted traffic analytics detect?
 
-Encrypted traffic analytics may help identify anomalous TLS behavior, suspicious JA3 fingerprints, outdated protocol versions, unusual certificate usage, command-and-control communications, malware activity, policy violations, suspicious traffic patterns, and potential exfiltration behavior.
+Encrypted traffic analytics may help identify anomalous TLS behavior, suspicious JA3 fingerprints, outdated protocol versions, unusual certificate usage, command‑and‑control communications, malware activity, policy violations, suspicious traffic patterns, and potential exfiltration behavior.
 
 ### Does encrypted traffic analytics require agents or decryption hardware?
 

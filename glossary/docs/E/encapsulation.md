@@ -64,181 +64,71 @@ export const jsonLd = {
 
 # What is encapsulation?
 
-**Encapsulation** is the process of wrapping data or protocol information inside additional protocol headers as traffic moves through networking layers, tunnels, overlays, or transport mechanisms.
-
-Encapsulation is fundamental to networking and is used in:
-- Protocol stacks
-- VPN tunnels
-- Overlay networks
-- MPLS forwarding
-- Virtualization environments
-- Cloud networking
-- Transport protocols
-
-Encapsulation allows one protocol or payload to be carried within another protocol structure.
-
-Examples include:
-- Ethernet frames carrying IP packets
-- IP packets carrying TCP segments
-- VPN tunnels carrying internal traffic
-- VXLAN overlays carrying tenant traffic
-- MPLS label stacks carrying routed traffic
-
-Trisul supports traffic-analysis workflows involving encapsulated traffic and overlay-network visibility.
+**Encapsulation** is the process of wrapping data or protocol information inside additional protocol headers as traffic moves through networking layers, tunnels, overlays, or transport mechanisms. At each layer of the network stack, a protocol adds its own header (and sometimes trailer) around the previous payload, enabling routers, switches, and other devices to forward and handle traffic correctly. This layering is what makes protocols like Ethernet, IP, TCP, and VPNs work together in a single flow.
 
 ---
 
 ## How encapsulation works
 
-Encapsulation occurs when networking layers add protocol-specific headers around existing payloads.
-
-Typical process:
-
-1. **Payload generation** → Application or protocol data is created
-2. **Protocol wrapping** → Additional protocol headers are added
-3. **Transport and forwarding** → Encapsulated traffic traverses the network
-4. **Decapsulation** → Outer headers are removed at the destination
-5. **Payload delivery** → Inner traffic is processed by higher layers
-
-Each networking layer may add:
-- Addressing information
-- Routing information
-- Transport metadata
-- Labels or identifiers
-- Tunnel headers
-- Security-related metadata
-
-The resulting traffic may contain multiple nested protocol layers.
+Encapsulation follows a simple pattern: a higher‑level payload is “wrapped” inside the headers of a lower‑level protocol. For example, a TCP segment is encapsulated in an IP packet, which is then placed inside an Ethernet frame. When traffic enters a tunnel or overlay (such as a VPN or VXLAN), the entire inner packet is wrapped again inside a new outer header. At the destination, the device reverses this process—decapsulating by removing outer headers until the original payload is delivered to the intended application or service.
 
 ---
 
 ## Encapsulation in network operations
 
-Encapsulation is widely used in modern infrastructure.
-
-Common operational use cases include:
-
-- **VPN connectivity**: Carry private traffic across shared networks
-- **Overlay networking**: Build virtualized network fabrics
-- **Cloud networking**: Connect distributed workloads
-- **Traffic segmentation**: Separate tenants or services
-- **MPLS forwarding**: Transport traffic across provider networks
-- **Container networking**: Connect workloads in orchestrated environments
-- **Datacenter virtualization**: Extend logical networks across infrastructure
-
-Encapsulation enables flexible and scalable network designs but can increase operational complexity.
+Modern networks rely heavily on encapsulation for flexibility and scalability. VPNs use encapsulation to carry private traffic securely across shared infrastructure. Overlay networks such as VXLAN and MPLS transport tenant or virtualized traffic across physical fabrics. Cloud and container environments use encapsulation to connect workloads across zones, regions, and hosts while keeping logical segmentation intact. However, each encapsulation layer adds complexity, headers, and potential visibility gaps that operators must manage.
 
 ---
 
 ## Common encapsulation examples
 
-| Technology | Operational purpose |
-|---|---|
-| GRE | Generic Layer 3 tunneling |
-| VXLAN | Overlay networking for virtualized environments |
-| MPLS | Label-based forwarding and traffic engineering |
-| IPsec VPN | Secure encrypted tunneling |
-| Geneve | Cloud and virtualization overlays |
-| Ethernet framing | Link-layer packet transport |
-| QinQ | VLAN stacking and provider bridging |
+| Technology      | Operational purpose |
+|-----------------|---------------------------------------------------------|
+| Ethernet framing | Carry IP packets across physical links                  |
+| IP + TCP/UDP   | Transport application data across networks              |
+| VPNs (IPsec)   | Securely tunnel private traffic over public networks    |
+| GRE            | Simple Layer‑3 tunneling without encryption             |
+| VXLAN / Geneve | Overlay networking for virtualized and cloud environments |
+| MPLS           | Label‑based forwarding and traffic engineering          |
+| QinQ           | VLAN stacking for service‑provider bridging             |
 
-Different encapsulation technologies operate at different networking layers and support different operational goals.
+These technologies show how encapsulation is used at different layers to support routing, virtualization, and security use cases.
 
 ---
 
 ## Encapsulation and traffic visibility
 
-Encapsulation can affect operational visibility because monitoring systems may initially see only outer transport headers.
-
-Operational visibility challenges may include:
-- Hidden inner endpoints
-- Reduced application visibility
-- Tunnel-only traffic visibility
-- Overlay-network complexity
-- Multiple nested protocol layers
-- Encrypted tunnel payloads
-
-To analyze encapsulated traffic effectively, monitoring platforms may require:
-- Tunnel awareness
-- Protocol decoding
-- Flow correlation
-- Packet inspection
-- Overlay visibility
-
-The exact visibility depends on:
-- Monitoring location
-- Available telemetry
-- Encryption usage
-- Protocol support
-- Packet visibility depth
+Encapsulation can obscure inner traffic because monitoring tools may initially see only the outer tunnel or transport headers. If an analytics platform cannot decode or correlate layers, it may miss which hosts, services, or tenants are actually communicating. To get accurate visibility, monitoring systems often need tunnel‑ or overlay‑aware parsing, packet‑level decoding, and the ability to correlate inner flows with outer tunnels. The degree of visibility depends on where sensors sit, what telemetry is exported, and whether tunnels are encrypted.
 
 ---
 
 ## Encapsulation vs tunneling
 
-| Dimension | Encapsulation | Tunneling |
-|---|---|---|
-| Scope | General protocol wrapping process | Specific use of encapsulation for transport |
-| Purpose | Add protocol or transport metadata | Carry traffic across intermediate networks |
-| Operational use | Used throughout protocol stacks | Commonly used for overlays and VPNs |
-| Examples | Ethernet, MPLS, TCP/IP | GRE, VXLAN, IPsec tunnels |
-
-Tunneling is a specialized use case of encapsulation but not all encapsulation is tunneling.
+Encapsulation is a general concept; **tunneling** is a specific use of encapsulation to carry traffic across an intermediate network. In tunneling, one packet (with its own headers) is wrapped inside another so it can cross infrastructure that wouldn’t normally forward the inner payload directly. Not all encapsulation is tunneling—normal Ethernet–IP–TCP nesting is encapsulation, but only when you add an outer tunnel header (GRE, VXLAN, IPsec) does it become tunneling for transport over shared paths.
 
 ---
 
 ## Operational considerations
 
-Encapsulation introduces operational tradeoffs.
-
-Common considerations include:
-- Additional protocol overhead
-- Increased MTU requirements
-- Fragmentation risks
-- Tunnel troubleshooting complexity
-- Reduced payload visibility
-- Overlay-management complexity
-- Monitoring and telemetry limitations
-
-Nested encapsulation layers can make troubleshooting and analytics more difficult without protocol-aware visibility tools.
+Encapsulation adds overhead through extra headers and larger packet sizes, which can lead to higher MTU requirements and fragmentation risk. Deeply nested layers (for example, VXLAN inside IPsec inside GRE) increase complexity for troubleshooting and analytics. Operators must track which tunnels carry which tenants, verify that inner flows follow policy, and choose monitoring tools that can follow packets through multiple layers without becoming a bottleneck. Careful design and protocol‑aware tools are essential to keep performance and visibility in balance.
 
 ---
 
-## How Trisul handles encapsulated traffic
+## In Trisul
 
-Trisul supports traffic-analysis workflows involving encapsulated traffic, overlays, and tunnels.
-
-Relevant capabilities include:
-
-- **Flow-based traffic analytics** using NetFlow, IPFIX, sFlow, and related telemetry
-- **Packet visibility and protocol analysis**
-- **Historical traffic trending**
-- **Traffic investigation workflows**
-- **Explore Flows** for drill-down traffic analysis
-- **Traffic correlation workflows**
-- **Operational visibility into overlay and tunnel traffic behavior**
-- **Flow and packet visibility across encapsulated environments**
-
-These capabilities help operators investigate tunnel behavior, analyze overlay traffic patterns, correlate encapsulated communications, and improve operational visibility in virtualized and distributed networking environments.
-
-Trisul primarily provides traffic analytics and visibility rather than tunnel termination or overlay-network control functionality.
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#datacenter-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
+Trisul supports encapsulated traffic through protocol‑aware flow‑based analytics and packet‑level visibility. By consuming **NetFlow, IPFIX, and sFlow** from tunnel‑capable devices and overlay gateways, Trisul can expose traffic patterns across tunnels and overlays. Features like **Explore Flows**, historical trending, and traffic correlation let operators trace encapsulated flows, analyze tunnel behavior, and investigate anomalies inside virtualized or cloud‑native environments. While Trisul does not terminate tunnels or control overlay networks, it provides the traffic‑analytics layer that helps operators see what inner traffic is actually doing inside the encapsulation.
 
 ---
 
 ## Related terms
 
-- [Tunnel content inspection](/glossary/tunnel-content-inspection)
-- [VPN](/glossary/vpn)
-- [Overlay network](/glossary/overlay-network)
-- [Tunneling](/glossary/tunneling)
-- [Packet decoding](/glossary/packet-decoding)
-- [VXLAN](/glossary/vxlan)
-- [MPLS](/glossary/mpls)
+- Encapsulation  
+- Tunneling  
+- VPN  
+- Overlay network  
+- VXLAN  
+- MPLS  
+- Tunnel content inspection  
 
 ---
 
@@ -262,4 +152,5 @@ Encapsulation can reduce visibility into inner traffic unless analytics systems 
 
 ### How does Trisul analyze encapsulated traffic?
 
-Trisul supports traffic-analysis workflows that help operators investigate encapsulated traffic, overlays, tunnels, and protocol behavior using flow analytics, packet visibility, and operational investigation capabilities.
+Trisul supports traffic‑analysis workflows that help operators investigate encapsulated traffic, overlays, tunnels, and protocol behavior using flow analytics, packet visibility, and operational investigation capabilities.
+```ൻ
