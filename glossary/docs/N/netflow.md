@@ -55,57 +55,70 @@ export const jsonLd = {
 
 # What is NetFlow?
 
-NetFlow is a network protocol developed by Cisco that collects IP traffic information and exports flow records to a collector. It provides bandwidth usage insights, traffic patterns, and network utilization data for monitoring and analysis. NetFlow records summarize conversations between source and destination.
+**NetFlow** is a **network flow‑export protocol** developed by **Cisco** that **collects IP traffic information** and **exports flow records** to a **collector** for monitoring and analysis. It provides **bandwidth usage insights, traffic patterns, and network utilization data** without requiring full packet capture.
 
 ---
 
 ## How NetFlow works
 
-NetFlow exporters on routers and switches observe passing packets and group them into flows based on 5-tuple: source IP, destination IP, source port, destination port, and protocol. When a flow ends or times out, the exporter sends a flow record to the collector. Records are sent periodically via UDP.
+NetFlow:
 
-![](./images/nf.png)
+- Groups packets into **flows** based on **5‑tuple**: source IP, destination IP, source port, destination port, and protocol.  
+- Creates a **flow record** when the flow ends or times out.  
+- Sends the record **periodically to a collector over UDP**.  
+- The collector **aggregates, stores, and analyzes** flow data for dashboards and reports.
 
 ---
 
 ## NetFlow in network operations
 
-In the NOC, use NetFlow to track bandwidth utilization, identify top talkers, and analyze traffic patterns. Security teams detect anomalies through unusual flow patterns. Capacity planning uses NetFlow data to plan network upgrades based on traffic trends.
+In the **NOC and security operations**:
 
-NetFlow provides visibility without packet capture. Flow records show who talked to whom, when, and how much. This enables traffic analysis at scale without storing full packets.
+- Use NetFlow to **track bandwidth utilization**, **identify top talkers**, and **analyze traffic patterns**.  
+- Detect **anomalies** and **troubleshoot performance** through traffic‑based views.  
+- Support **capacity planning** and **compliance** with utilization and top‑N reports.
+
+Because NetFlow records summarize **who talked to whom, when, and how much**, it gives **scalable visibility** at the flow level.
 
 ---
 
 ## NetFlow versions
 
 | Version | Format | Flexibility | Status |
-|---|---|---|---|
-| NetFlow v5 | Fixed | Limited | Legacy |
-| NetFlow v9 | Template-based | High | Active |
-| IPFIX | Template-based | High | IETF standard |
+|--------|--------|------------|--------|
+| NetFlow v5 | Fixed, predefined fields | Low | Legacy but common |
+| NetFlow v9 | Template‑based, extensible | High | Active |
+| IPFIX | Template‑based standard (based on v9) | Very high | IETF‑standard, preferred for new deployments |
 
 ---
 
 ## What makes NetFlow work in practice
 
-Flow export configuration must be enabled on all critical interfaces. Without export, no flow data is collected. Sampling rate must be configured correctly for accurate traffic estimation at high speeds. Router CPU and network bandwidth must handle export volume.
-
-Collector must be configured to receive NetFlow on the correct UDP port. The default is port 2055 for v5 and v9. Collectors must have sufficient storage and processing capacity for the flow volume. Flow aggregation reduces storage requirements.
+- **Export must be enabled** on all relevant interfaces and tuned with **sampling** where needed.  
+- The **collector** must listen on the correct **UDP port** (commonly 2055) and have **sufficient storage and CPU** for incoming records.  
+- Flow‑level aggregation and retention policies help **keep storage under control**.
 
 ---
 
 ## How Trisul handles NetFlow
 
-Trisul collects NetFlow v5, NetFlow v9, J-Flow, sFlow, and IPFIX data natively. Flow records are decoded and aggregated for analysis. Trisul provides real-time traffic graphs, historical reports, and anomaly detection from NetFlow data. Flow monitoring tracks millions of flows enabling long-term retention. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Trisul collects **NetFlow v5, NetFlow v9, J‑Flow, sFlow, and IPFIX** natively. It:
+
+- Decodes flow records and **aggregates them** for real‑time and historical analysis.  
+- Provides **real‑time traffic graphs**, **top‑talker views**, and **anomaly‑style alerts** from flow data.  
+- Supports **long‑term retention and multi‑million‑flow analysis**.
+
+For deployment and tuning guidance, see Trisul documentation at [https://docs.trisul.org/docs/ug/flow/](https://docs.trisul.org/docs/ug/flow/).
 
 ---
 
 ## Related terms
 
-- [What is IPFIX?](/docs/glossary/ipfix)
-- [What is sFlow?](/docs/glossary/sflow)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is J-Flow?](/docs/glossary/jflow)
-- [What is flow collector?](/docs/glossary/flow-collector)
+- [What is IPFIX?](/docs/glossary/ipfix)  
+- [What is sFlow?](/docs/glossary/sflow)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is J‑Flow?](/docs/glossary/jflow)  
+- [What is flow collector?](/docs/glossary/flow-collector)  
 
 ---
 
@@ -117,12 +130,12 @@ NetFlow is a network protocol developed by Cisco that collects IP traffic inform
 
 ### What versions of NetFlow exist?
 
-NetFlow v5 is a fixed-format version with predefined fields including source and destination IP, ports, protocol, byte count, packet count, and timestamps. NetFlow v9 is template-based and flexible, supporting custom fields and enterprise-specific Information Elements. IPFIX is the IETF standard based on NetFlow v9.
+NetFlow v5 is a fixed‑format version with predefined fields including source and destination IP, ports, protocol, byte count, packet count, and timestamps. NetFlow v9 is template‑based and flexible, supporting custom fields and enterprise‑specific Information Elements. IPFIX is the IETF standard based on NetFlow v9.
 
 ### How does NetFlow work?
 
-NetFlow exporters on routers and switches observe passing packets and group them into flows based on 5-tuple. Flow records are created summarizing each conversation. Exporters send flow records periodically to collectors via UDP. Collectors aggregate and analyze the data for monitoring and reporting.
+NetFlow exporters on routers and switches observe passing packets and group them into flows based on 5‑tuple. Flow records are created summarizing each conversation. Exporters send flow records periodically to collectors via UDP. Collectors aggregate and analyze the data for monitoring and reporting.
 
 ### What data does NetFlow export?
 
-NetFlow exports source and destination IP addresses, source and destination ports, protocol type, byte count, packet count, flow start time, flow end time, TCP flags, Type of Service, input and output interface indices, and next-hop IP address. This data enables traffic analysis without packet capture.
+NetFlow exports source and destination IP addresses, source and destination ports, protocol type, byte count, packet count, flow start time, flow end time, TCP flags, Type of Service, input and output interface indices, and next‑hop IP address. This data enables traffic analysis without packet capture.

@@ -54,58 +54,81 @@ export const jsonLd = {
 
 # What is network traffic analysis?
 
-Network traffic analysis is the study of packets, flows, and communication patterns to understand how traffic behaves, what applications are active, and whether anything is unusual.
+**Network traffic analysis** is the study of **packets, flows, and communication patterns** to understand how traffic behaves, **which applications are active**, and **whether anything is unusual**. It turns raw traffic into **meaningful behavior views** for operations and security.
 
 ---
 
 ## How network traffic analysis works
 
-Traffic analysis looks at data moving across the network and turns it into meaningful summaries. It may use packets, flow records, or both.
+Network traffic analysis:
 
-The analysis focuses on relationships: source, destination, volume, timing, application, and direction. These fields show how the network is actually being used.
+- Looks at **data moving across the network** and converts it into **structured summaries**, using **packets, flow records, or both**.  
+- Focuses on **relationships**: source, destination, volume, timing, application, and direction to show **how the network is actually being used** and **who is talking to whom**.
+
+These summaries reveal **communication behavior** that simple interface counters or device‑level metrics cannot show.
 
 ---
 
-## Network traffic analysis in operations
+## Network traffic analysis in network operations
 
-Operations teams use traffic analysis to understand who is using the network and how heavily. It helps identify heavy users, busy services, and unexpected traffic patterns.
+In network operations, traffic analysis:
 
-Security teams also use traffic analysis to spot suspicious connections or hidden behavior. A sudden change in destination, volume, or protocol can be an early warning sign.
+- Helps teams understand **who is using the network**, **how heavily**, and **what services are consuming resources**.  
+- Supports **troubleshooting**, **performance review**, and **capacity planning** by identifying **top talkers**, **busy links**, and **traffic anomalies**.  
+
+Security teams also use traffic analysis to:
+
+- Spot **suspicious connections**, **unusual destinations**, or **protocol‑level oddities**.  
+- Detect **early‑stage attacks** or **hidden malicious behavior** based on abnormal traffic patterns over time.
 
 ---
 
 ## Common traffic analysis outputs
 
 | Output | What it shows |
-|---|---|
-| Top talkers | Biggest traffic consumers |
-| Conversations | Who is talking to whom |
-| Applications | Which services are active |
-| Trends | How traffic changes over time |
+|--------|---------------|
+| Top talkers | Biggest traffic consumers by host or application |
+| Conversations | End‑to‑end communication flows between endpoints |
+| Applications | Which protocols and services are active |
+| Trends | How traffic volume and behavior change over time |
+
+These outputs form the core **“what’s happening on the wire”** dashboard for operators and analysts.
 
 ---
 
-## What makes traffic analysis useful
+## What makes traffic analysis work in practice
 
-Traffic analysis is strongest when it combines summary and detail. Flows give a broad view, while packets provide proof and deeper context.
+Two aspects are critical:
 
-It also depends on good classification. If applications or hosts are not identified well, the analysis becomes harder to interpret.
+- **Combining summary and detail**:  
+  - Flows give a **broad view** of connections and volumes.  
+  - Packets provide **evidence and context** for suspicious or anomalous behavior.  
+- **Good classification**:  
+  - If applications, hosts, or protocols are **not identified correctly**, the analysis becomes much harder to interpret and act on.  
+  - Clean classification lets operators move quickly from **anomalous statistic** to **meaningful incident**.
+
+With this, traffic analysis becomes more than just “top‑talker lists” and evolves into **behavior‑based monitoring**.
 
 ---
 
 ## How Trisul handles network traffic analysis
 
-Trisul is built around traffic analysis. It shows flows, hosts, applications, and behavior patterns so operators can understand what the network is doing in real time and over history.
+Trisul is built around **network traffic analysis**:
+
+- It ingests **flows, packets, and metadata** to show **hosts, conversations, applications, and behavior patterns** in a single environment.  
+- It provides **real‑time and historical views** so operators can understand **what the network is doing now** and **how it has behaved over time**.  
+
+This makes Trisul a central platform for **troubleshooting, performance review, and security investigation** driven by actual traffic behavior.
 
 ---
 
 ## Related terms
 
-- Network monitoring
-- Forensic analysis
-- Flow analysis
-- Packet analysis
-- Network observability
+- [What is network monitoring?](/docs/glossary/network-monitoring)  
+- [What is forensic analysis?](/docs/glossary/forensic-analysis)  
+- [What is flow analysis?](/docs/glossary/flow-analysis)  
+- [What is packet analysis?](/docs/glossary/packet-analysis)  
+- [What is network observability?](/docs/glossary/network-observability)  
 
 ---
 

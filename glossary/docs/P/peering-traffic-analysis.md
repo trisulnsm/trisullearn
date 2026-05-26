@@ -55,62 +55,87 @@ export const jsonLd = {
 
 # What is peering traffic analysis?
 
-Peering traffic analysis monitors and analyzes traffic exchanged with other networks at peering points. It provides visibility into peer AS traffic volumes, helps optimize peering relationships, and supports peering decisions for cost savings and performance improvement. Peering analysis is critical for ISP network operations.
+**Peering traffic analysis** monitors and analyzes **traffic exchanged with other networks** at **peering points**. It provides visibility into **peer AS traffic volumes**, **destinations, and patterns**, and helps **optimize peering relationships**, **support peering decisions**, and **reduce transit‑related costs**. Peering analysis is critical for ISP network operations.
 
 ---
 
 ## How peering traffic analysis works
 
-Flow data from peering interfaces is classified by peer AS using BGP information. Traffic volumes are aggregated per peer and per peering link. Ingress and egress traffic is tracked separately. Top destinations through each peer are identified. Trends are analyzed over time.
+Peering traffic analysis:
 
-BGP peering analytics provides AS-level visibility. Flow records are enriched with peer AS information. Traffic is mapped to peering relationships. Utilization per peering link is calculated.
+- Uses **flow data from peering interfaces** enriched with **BGP information** to classify traffic by **peer AS**.  
+- Aggregates **traffic volumes per peer AS** and **per peering link**, distinguishing **ingress** and **egress** directions.  
+- Identifies **top destinations** through each peer and **analyzes trends over time** (e.g., daily, weekly, monthly).  
 
-![](./images/peering-traffic-analytics.png)
+This builds **AS‑level visibility** into interconnection behavior, tying raw traffic to **peering relationships** and **link utilization**.
+
+![./images/peering-traffic-analytics.png](./images/peering-traffic-analytics.png)
 
 ---
 
 ## Peering traffic analysis in network operations
 
-In the NOC, use peering analysis to monitor peer AS traffic volumes and detect congestion on peering links. The peering team analyzes traffic patterns to optimize peering relationships and negotiate better terms. Capacity planning tracks peering link utilization to plan upgrades.
+In the **NOC and peering teams**, peering traffic analysis:
 
-Engineering uses peering analysis to identify high-volume content providers for direct peering. When traffic to a provider exceeds thresholds, establishing direct peering reduces transit costs.
+- Is used to **monitor peer AS traffic volumes** and **detect congestion on peering links**.  
+- Helps **peering and network‑strategy teams** optimize **peering relationships**, plan **upgrades**, and **negotiate better terms**.  
+
+Engineering also uses it to:
+
+- Identify **high‑volume content providers** for **direct peering**, especially when traffic to those providers exceeds **transit‑cost thresholds**.  
+- Guide **new peering‑partner selection** based on **observed traffic patterns** rather than estimates.
 
 ---
 
 ## Peering analysis metrics
 
 | Metric | Description |
-|---|---|
-| Traffic per peer AS | Volume exchanged with each peer |
+|--------|-------------|
+| Traffic per peer AS | Volume exchanged with each peer AS |
 | Ingress per link | Traffic received on each peering link |
 | Egress per link | Traffic sent on each peering link |
-| Top destinations | Most visited destinations through each peer |
-| Link utilization | Percentage of peering link capacity used |
-| Cost per GB | Transit cost vs peering cost comparison |
+| Top destinations | Most‑visited destinations carried through each peer |
+| Link utilization | Percentage of peering‑link capacity being used |
+| Cost per GB | Effective cost per gigabyte for transit vs peering |
+
+These metrics feed **peering‑economics decisions** and **capacity‑planning models**.
 
 ---
 
 ## What makes peering analysis work in practice
 
-BGP information accuracy determines peer classification. Flow records must be enriched with peer AS data from BGP tables. Without accurate BGP information, traffic appears unclassified. BGP route receivers keep route tables synchronized automatically.
+Peering traffic analysis works best when:
 
-Peering link monitoring is essential. Traffic volumes must be measured at each peering interface. Flow exporters must be enabled on peering links. Without per-link monitoring, peering traffic appears aggregated and peer-specific analysis is impossible.
+- **BGP information is accurate and synchronized**:  
+  - Flow records must be enriched with **peer AS data** from **BGP route tables**;  
+  - Without accurate BGP, traffic appears **unclassified or misclassified**, breaking per‑peer views.  
+- **Peering links are monitored at the interface level**:  
+  - **Flow exporters** must be enabled on **each peering link** so that traffic can be split by **peer AS and direction**.  
+  - Without per‑link monitoring, peering traffic is **over‑aggregated** and fine‑grained analysis becomes impossible.  
+
+Clean BGP enrichment plus per‑link flow data makes peering analysis a **reliable input** for peering‑strategy decisions.
 
 ---
 
 ## How Trisul handles peering traffic analysis
 
-Trisul provides peering traffic analysis through ISP Analytics applications. Flow data is enriched with BGP attributes including peer AS. Traffic is mapped to peering relationships and aggregated per peer. Trisul shows peer AS, origin AS, downstream and upstream analytics with special tracking of popular content providers. Full documentation is at https://docs.trisul.org/.
+Trisul:
+
+- Provides **peering traffic analysis** through **ISP Analytics**‑style views over **flow data enriched with BGP attributes**, including **peer AS, origin AS, and relationship type**.  
+- Maps traffic to **peering relationships** and **aggregates traffic per peer**, showing **downstream, upstream, and content‑provider flows**.  
+- Highlights **popular content providers** and **high‑volume peers** to help operators **identify candidates for direct peering** and **optimize existing peering arrangements**.  
+
+For configuration and usage details, see Trisul documentation at [https://docs.trisul.org/](https://docs.trisul.org/).
 
 ---
 
 ## Related terms
 
-- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
-- [What is ASN?](/docs/glossary/asn)
-- [What is ISP traffic analytics?](/docs/glossary/isp-traffic-analytics)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is transit traffic?](/docs/glossary/transit-traffic)
+- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)  
+- [What is ASN?](/docs/glossary/asn)  
+- [What is ISP traffic analytics?](/docs/glossary/isp-traffic-analytics)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is transit traffic?](/docs/glossary/transit-traffic)  
 
 ---
 

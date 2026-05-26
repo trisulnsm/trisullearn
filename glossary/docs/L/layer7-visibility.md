@@ -55,58 +55,78 @@ export const jsonLd = {
 
 # What is Layer 7 visibility?
 
-Layer 7 visibility provides application-layer insight into network traffic by identifying specific applications, protocols, and content. It enables granular control over HTTP, FTP, DNS, SSL/TLS, and hundreds of other applications. Layer 7 is the topmost layer of the OSI model and is responsible for managing and processing data that directly interacts with user applications.
+**Layer 7 visibility** provides **application‑layer insight into network traffic** by identifying **specific applications, protocols, and content**. It operates at the **topmost layer of the OSI model (the application layer)**, where data directly interacts with user applications and services. This visibility lets operators see not just *who talks to whom* (IPs and ports) but also *what they are doing*—such as using YouTube, Facebook, WhatsApp, or specific HTTP/HTTPS services—enabling granular control and policy enforcement over protocols like **HTTP, FTP, DNS, SSL/TLS, and hundreds of other applications**.
 
 ---
 
 ## How Layer 7 visibility works
 
-Layer 7 visibility inspects packet payloads to identify applications. It reads application-layer headers, signatures, and patterns to classify traffic. Unlike lower layers that focus on data transport and routing, Layer 7 interprets the actual content of communication including HTTP requests, DNS queries, and SSL/TLS handshakes.
+Layer 7 visibility works by **examining packet payloads** to identify **application signatures, protocol headers, and content patterns**. It:
 
-Deep packet inspection enables Layer 7 classification. Flow monitoring tools extract application metadata from packet payloads and add it to flow records. This provides application-level visibility without storing full packets.
+- Reads **application‑layer constructs** such as HTTP methods, URIs, DNS queries, and TLS handshakes.  
+- Uses **signature databases and classification engines** to map traffic into named applications and services.  
+- Often runs as part of **deep packet inspection (DPI)** or **flow‑based analytics**, where application metadata is extracted and attached to flow records without storing full packets.  
 
-![](./images/layer7-visibility.png)
+Unlike **Layer 3 (network) and Layer 4 (transport)**, which focus on IP addresses and ports, Layer 7 interprets the **semantics of the communication**, giving tools the ability to distinguish, for example, YouTube from generic Google video traffic or Facebook from WhatsApp.
+
+![./images/layer7-visibility.png](./images/layer7-visibility.png)
+
 ---
 
 ## Layer 7 visibility in network operations
 
-In the NOC, use Layer 7 visibility to identify which applications consume bandwidth. Security teams detect threats at the application layer including malicious HTTP requests and suspicious DNS queries. Capacity planning tracks application growth to plan bandwidth needs.
+In **NOC and security operations**, Layer 7 visibility is used to:
 
-Layer 7 visibility differentiates between similar applications. It distinguishes YouTube from Google, Facebook from WhatsApp from Instagram. This granularity enables precise traffic management and security policies.
+- Identify **which applications consume bandwidth** and set app‑specific policies (quotas, QoS, or blocking).  
+- Detect **threats at the application layer**, such as malicious HTTP requests, suspicious DNS tunneling attempts, or abuse of allowed services.  
+- Support **capacity planning** by tracking growth trends per application (e.g., streaming, collaboration apps, or SaaS).  
+
+Because Layer 7 distinguishes between **similar but different services** (e.g., YouTube vs Google, Facebook vs WhatsApp vs Instagram), it enables **precise traffic‑management and security policies** rather than broad, port‑based rules that often affect legitimate traffic.
 
 ---
 
 ## Layer 7 vs lower layers comparison
 
 | Layer | Focus | Visibility |
-|---|---|---|
-| Layer 3 (Network) | IP addresses and routing | Source and destination IP |
-| Layer 4 (Transport) | Ports and protocols | TCP/UDP ports |
-| Layer 7 (Application) | Application content | Specific applications and protocols |
+|------|-------|------------|
+| Layer 3 (Network) | IP addresses and routing | Source and destination IP addresses and subnets |
+| Layer 4 (Transport) | Ports and transport protocols | TCP/UDP ports and flows between hosts |
+| Layer 7 (Application) | Application content and behavior | Specific applications, services, and protocols such as HTTP, DNS, TLS, and named apps |
+
+Layer 7 visibility builds on top of Layers 3 and 4, adding **semantic context** that is essential for **application‑centric monitoring, security, and policy**.
 
 ---
 
 ## What makes Layer 7 visibility work in practice
 
-Application signature databases must be updated regularly. New applications emerge constantly and existing applications change their behavior. Signature updates ensure Layer 7 classification remains accurate. Without updates, new applications appear as unknown traffic.
+Two main factors are critical:
 
-Encrypted traffic reduces Layer 7 visibility. TLS encrypts payload content so application signatures cannot be read. Visibility is limited to TLS metadata including certificate details and JA3 fingerprints from the handshake. To inspect encrypted payload content you need TLS inspection proxy or session keys.
+- **Up‑to‑date signature and classification databases**: New apps and update‑driven behaviors constantly change how traffic looks; without regular updates, traffic is misclassified or labeled “unknown.”  
+- **Encryption handling**: With **TLS‑encrypted traffic**, Layer 7 cannot inspect payload content directly; visibility is limited to **TLS metadata** (e.g., SNI, certificate details, JA3 fingerprints). To see inside encrypted payloads, operators may use **TLS‑inspection proxies** or obtain session keys, but this must be done in compliance with policy and regulation.  
+
+Even without full decryption, Layer 7 visibility can still provide **valuable metadata‑level classification** that supports **monitoring, policy, and anomaly detection**.
 
 ---
 
 ## How Trisul handles Layer 7 visibility
 
-Trisul provides Layer 7 visibility through flow monitoring that extracts application metadata from packet payloads. Trisul differentiates between hundreds of applications including YouTube, Facebook, WhatsApp, and Instagram. Flow records include application names and protocols for Layer 7 analysis. Full documentation is at https://docs.trisul.org/docs/ag/install/.
+Trisul delivers **Layer 7 visibility** by integrating **application‑layer classification** into its flow‑monitoring and flow‑based analytics stack. It:
+
+- Extracts **application metadata from packet payloads** (where visible) and enriches flow records with **application names and protocols**.  
+- Differentiates between **hundreds of named applications** such as **YouTube, Facebook, WhatsApp, Instagram, and many other services**.  
+- Exposes **Layer 7‑classified flows** in dashboards, KPIs, and investigative views, so operators can see **application‑specific traffic patterns, Top‑N apps, and app‑involved anomalies**.  
+
+This enables **application‑centric network operations, policy‑driven traffic‑management, and security‑oriented application‑level threat detection** across campus, ISP, and enterprise environments. For installation and configuration details, refer to the Trisul documentation at [https://docs.trisul.org/docs/ag/install/](https://docs.trisul.org/docs/ag/install/).
 
 ---
 
 ## Related terms
 
-- [What is deep packet inspection?](/docs/glossary/dpi)
-- [What is application monitoring?](/docs/glossary/application-monitoring)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is TLS inspection?](/docs/glossary/tls-inspection)
-- [What is OSI model?](/docs/glossary/osi-model)
+- [What is deep packet inspection?](/docs/glossary/dpi)  
+- [What is application monitoring?](/docs/glossary/application-monitoring)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is TLS inspection?](/docs/glossary/tls-inspection)  
+- [What is OSI model?](/docs/glossary/osi-model)  
 
 ---
 
@@ -114,7 +134,7 @@ Trisul provides Layer 7 visibility through flow monitoring that extracts applica
 
 ### What is Layer 7?
 
-Layer 7 is the top layer in the 7-layer OSI Model of the Internet, also known as the application layer. It is just beneath the surface of user interfaces and on top of the other 6 layers. Layer 7 supports communications for end-user processes and applications and the presentation of data for user-facing software applications.
+Layer 7 is the top layer in the 7‑layer OSI Model of the Internet, also known as the application layer. It is just beneath the surface of user interfaces and on top of the other 6 layers. Layer 7 supports communications for end‑user processes and applications and the presentation of data for user‑facing software applications.
 
 ### What does Layer 7 visibility provide?
 
@@ -122,8 +142,8 @@ Layer 7 visibility provides granular insight into network data at the applicatio
 
 ### How does Layer 7 visibility work?
 
-Layer 7 visibility inspects packet payloads to identify applications and protocols. Unlike lower layers that focus on data transport and routing, Layer 7 interprets the actual content of communication. It reads application-layer headers and signatures to classify traffic.
+Layer 7 visibility inspects packet payloads to identify applications and protocols. Unlike lower layers that focus on data transport and routing, Layer 7 interprets the actual content of communication. It reads application‑layer headers and signatures to classify traffic.
 
 ### What are the benefits of Layer 7 visibility?
 
-Benefits include application-specific monitoring, granular traffic control, security threat detection at application level, optimized load balancing based on application type, and compliance with application-specific policies. Layer 7 has full visibility into network data.
+Benefits include application‑specific monitoring, granular traffic control, security threat detection at application level, optimized load balancing based on application type, and compliance with application‑specific policies. Layer 7 has full visibility into network data.

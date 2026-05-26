@@ -54,56 +54,72 @@ export const jsonLd = {
 
 # What is a network TAP?
 
-A network TAP is a device that passively copies traffic from a physical link so monitoring tools can inspect it without affecting the live connection.
+A **network TAP** is a device that **passively copies traffic from a physical link** so monitoring tools can inspect it **without affecting the live connection**. It is a common way to get **full, unmodified visibility** into a link for analysis, troubleshooting, and forensics.
 
 ---
 
 ## How a network TAP works
 
-A TAP sits inline on the cable and duplicates traffic to a monitoring port. The monitored traffic continues on the original link while the copy goes to the analysis tool.
+A network TAP:
 
-Because it is passive, a TAP usually provides more reliable visibility than software-based mirroring. It is often preferred for packet capture and forensic work.
+- Sits **inline on the cable** and **duplicates all traffic** to a **monitoring port** while letting the original traffic continue on the main link.  
+- Operates **passively**, meaning it does not modify packets or participate in routing or switching.
+
+Because it is **physical‑level duplication**, a TAP usually provides **more reliable packet capture** than software‑based mirroring, and is often preferred for **forensic‑grade** and **high‑speed** monitoring.
 
 ---
 
-## Network TAPs in operations
+## Network TAPs in network operations
 
-TAPs are used when teams need accurate packet visibility. They are common in troubleshooting, security monitoring, and incident response.
+In network operations, TAPs are used when teams need **accurate, bit‑level visibility** into traffic:
 
-They are especially useful when dropped or missing mirrored packets would weaken the analysis. That makes them valuable for high-speed environments.
+- For **troubleshooting** and **performance analysis** where missed packets would weaken the investigation.  
+- For **security monitoring** and **incident response**, where full packet capture is needed to reconstruct attacks or policy violations.  
+
+They are especially valuable in **high‑speed environments** (e.g., 10G/25G/100G) and where **switch‑based mirroring limits** (dropped mirrored packets, rate‑limiting) are unacceptable.
 
 ---
 
 ## TAP vs SPAN
 
 | Method | How it works |
-|---|---|
-| TAP | Copies traffic physically from the link |
-| SPAN | Mirrors traffic from a switch port |
+|--------|--------------|
+| TAP | Copies traffic physically from the link without changing the switch configuration |
+| SPAN | Mirrors traffic from a switch port using a software‑defined mirroring session |
+
+TAPs are generally **more reliable** for full‑fidelity capture; SPAN is simpler to deploy but may lose packets under load.
 
 ---
 
-## What makes a TAP useful
+## What makes a TAP useful in practice
 
-A TAP is useful because it preserves traffic visibility without depending on switch configuration. That reduces the risk of missing packets due to mirroring limits.
+A TAP is useful because:
 
-It is a strong choice when accurate capture matters more than convenience.
+- It **preserves traffic visibility** without depending on **switch configuration or mirroring limits**, which can drop or shape mirrored packets.  
+- It provides **full‑fidelity, unaltered packet streams**, making it ideal where **accuracy matters more than convenience**, such as in **forensics**, **compliance**, and **high‑performance monitoring**.  
+
+This makes TAPs a strong choice when **packet‑level completeness** is more important than ease of deployment.
 
 ---
 
 ## How Trisul handles TAP feeds
 
-Trisul can ingest traffic from TAPs to provide detailed visibility into packets, flows, and performance behavior.
+Trisul can:
+
+- **Ingest traffic directly from TAPs** to provide **detailed visibility** into packets, flows, and performance behavior.  
+- Use TAP‑fed data for **deep packet‑level analysis**, **flow‑level correlation**, and **anomaly or threat detection**.  
+
+This lets teams build a **centralized, capture‑based observability layer** that is independent of switch‑level mirroring constraints.
 
 ---
 
 ## Related terms
 
-- SPAN port
-- Wireshark
-- Network troubleshooting
-- Digital forensics
-- Active monitoring
+- [What is a SPAN port?](/docs/glossary/span-port)  
+- [What is Wireshark?](/docs/glossary/wireshark)  
+- [What is network troubleshooting?](/docs/glossary/network-troubleshooting)  
+- [What is digital forensics?](/docs/glossary/digital-forensics)  
+- [What is active monitoring?](/docs/glossary/active-monitoring)  
 
 ---
 

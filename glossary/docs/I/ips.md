@@ -54,55 +54,99 @@ export const jsonLd = {
 
 # What is an intrusion prevention system?
 
-An intrusion prevention system, or IPS, is a security control that inspects network traffic and blocks or drops traffic that matches malicious patterns or policy violations.
+An **intrusion prevention system (IPS)** is a **security control** that **inspects network traffic** and **blocks or drops packets or sessions** that match malicious patterns, exploit signatures, or policy violations. Unlike systems that only observe traffic, an IPS is typically **inline** (or steering‑capable), so it can actively **enforce policy and prevent attacks** from reaching their intended targets. IPS is widely used at **network edges, between security zones, and in front of critical services** to add a real‑time enforcement layer to the security stack.
 
 ---
 
 ## How IPS works
 
-An IPS sits inline with traffic or in a position where it can actively enforce policy. It examines packets or sessions for signatures, rules, or suspicious behavior.
+An IPS is placed in the path of traffic (or in a position that can redirect and block it) and performs deep inspection on packets or sessions. It uses:
 
-If the traffic is judged malicious, the IPS can block the packet, reset the session, or otherwise stop the connection. This makes IPS a prevention layer, not just a detection layer.
+- **Signatures** for known attacks and exploits.  
+- **Rules** for policy‑based blocking (e.g., forbidden ports or protocols).  
+- Often **behavioral or anomaly‑based checks** to catch suspicious traffic even without a precise signature.  
+
+When traffic is judged malicious or unauthorized, the IPS can **drop the packet, reset the connection, or otherwise terminate the session**, effectively stopping the attempted intrusion. This inline enforcement is what distinguishes IPS from pure detection‑only systems.
 
 ---
 
 ## IPS in network operations
 
-IPS is used to stop known attacks, exploit attempts, and unauthorized traffic in real time. It is common at network edges and between trust zones.
+In NOC and security operations, IPS is used to **stop known attacks, exploit attempts, and policy‑violating traffic in real time**, especially at:
 
-Because it can affect traffic flow, IPS must be tuned carefully. Too aggressive a policy can block legitimate traffic, while too loose a policy may allow attacks through.
+- **Network perimeters and extranet boundaries**.  
+- **Zones between trust levels** (e.g., user zone vs server zone).  
+
+Because IPS is **inline**, misconfiguration or poorly tuned rules can cause **false‑positive blocks** of legitimate traffic or **performance bottlenecks** if inspection is too heavy. Effective IPS deployment requires:
+
+- Careful **rule review and tuning**.  
+- Monitoring of **block rates and events**.  
+- Integration with **logging and alerting systems** to support incident response.
 
 ---
 
 ## IDS vs IPS
 
 | Control | Role |
-|---|---|
-| IDS | Detect and alert |
-| IPS | Detect and prevent |
-| Enforcement | Inline blocking |
-| Outcome | Traffic is stopped |
+|--------|------|
+| IDS   | Detects suspicious activity and raises alerts, but does not block traffic |
+| IPS   | Detects and prevents by actively blocking or dropping traffic |
+| Enforcement | IPS is **inline** or actively steering; IDS is typically **passive or mirror‑based** |
+| Outcome | IDS produces **alerts**; IPS produces **blocked or stopped traffic** |
+
+In practice, organizations often run **IDS for monitoring and hunting** and **IPS where inline enforcement is acceptable and required**.
 
 ---
 
 ## What makes IPS work in practice
 
-IPS depends on accurate rules and low-latency inspection. If the policy is poor or the device is overloaded, it can create false blocks or bottlenecks.
+For an IPS to be effective operationally:
 
-It also works best with good visibility. Security teams need to know what was blocked and why so they can tune the policy correctly.
+- **Rules and signatures** must be accurate, up‑to‑date, and aligned with the organization’s risk posture.  
+- The device must be sized to handle peak traffic with **low latency** so it does not become a performance chokepoint.  
+- **Logging and correlation** are essential: operators need to know **what was blocked, by which rule, and why**, so they can tune policies and distinguish between genuine attacks and false positives.  
+
+IPS is most powerful when combined with **good visibility (flows, logs, packet capture)** and **incident‑response playbooks** that can rapidly evaluate and adjust blocking behavior.
 
 ---
 
 ## How Trisul handles IPS
 
-Trisul can provide the traffic context around IPS activity, helping operators understand what was blocked, where it happened, and whether the event matches broader network behavior.
+Trisul provides **traffic‑level context around IPS activity** without necessarily being the IPS itself. It can:
+
+- Show **what traffic was blocked or allowed by the IPS** by correlating flows, DNS, and application telemetry with IPS events.  
+- Help operators see **where a block occurred in the network and whether it matches broader patterns** (e.g., repeated scans, C2‑like traffic, or mass‑download behavior).  
+- Support **post‑mortem analysis** by pivoting from an IPS alert into full traffic and session views, including historical flows and metadata.  
+
+This complements IPS deployments by giving teams a **network‑wide, flow‑based view** of what the IPS is seeing and reacting to, improving both detection confidence and policy‑tuning.
 
 ---
 
 ## Related terms
 
-- IDS
-- Firewall
-- Threat detection
-- Security zone
-- Policy enforcement
+- Intrusion prevention system  
+- IDS  
+- Firewall  
+- Threat detection  
+- Security zone  
+- Policy enforcement  
+
+---
+
+## Frequently asked questions
+
+### What is an intrusion prevention system?
+
+An intrusion prevention system, or IPS, is a security control that inspects network traffic and blocks or drops traffic that matches malicious patterns or policy violations.
+
+### How does IPS work?
+
+An IPS inspects traffic using signatures, rules, or behavior checks. When traffic is judged malicious or unauthorized, it can block, drop, or reset the session.
+
+### What is the difference between IDS and IPS?
+
+An IDS detects and alerts on suspicious activity, while an IPS actively prevents it by blocking or dropping traffic. IPS is inline enforcement.
+
+### Why is IPS important?
+
+IPS is important because it can stop attacks before they reach their target. It is often used to protect critical services and network boundaries.

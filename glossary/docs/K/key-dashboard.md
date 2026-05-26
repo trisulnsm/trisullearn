@@ -55,57 +55,78 @@ export const jsonLd = {
 
 # What is Key Dashboard in Trisul?
 
-In Trisul, the Key Dashboard is a detailed view for a specific network entity including IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
+In **Trisul**, the **Key Dashboard** is a **detailed view for a specific network entity**, such as an **IP address, port, application, or host**. It brings together **real‑time statistics, historical traffic patterns, and investigative tools** for that single “key” object, enabling operators to quickly pivot from a high‑level view into a focused, entity‑centric analysis. You can open the Key Dashboard by clicking the **tag next to any host in the Real Time Traffic dashboard** or by searching for an IP/app and selecting its key.  
 
 ---
 
 ## How the Key Dashboard works
 
-The Key Dashboard aggregates all traffic data for a single entity. It displays metrics from multiple counter groups including Hosts, Applications, Ports, and Flows. Real-time stabbers show current traffic within 3 seconds. Historical charts show traffic patterns over days, weeks, or months.
+The Key Dashboard **aggregates all traffic data tied to one entity** from multiple **counter groups** (Hosts, Applications, Ports, Flows, and others). It shows:
+
+- **Real‑time stabbers** that update every 1–3 seconds, giving a near‑instant view of current traffic.  
+- **Historical charts** displaying traffic patterns over hours, days, weeks, or months.  
+- **Top talkers, top conversations, and top protocols** for that key, together with **flow‑level detail** you can drill into.  
+
+Behind the scenes, Trisul uses **per‑flow indexing** so that selecting a key does not require a full scan of all records; instead, the dashboard loads quickly even for large, multi‑year archives.
 
 ---
 
 ## Key Dashboard in network operations
 
-In the NOC, use the Key Dashboard to investigate suspicious hosts or high-traffic applications. Security teams analyze flow activity for specific IPs to detect compromise. Engineering uses the dashboard to understand traffic patterns for capacity planning.
+In the **NOC and security operations**, the Key Dashboard is used to:
 
-Click on real-time stabbers to drill down into flow activity, top conversations, and application usage. The dashboard provides instant access to all investigative tools for the selected entity.
+- Investigate **suspicious or high‑traffic hosts**, IPs, or applications directly from the Real Time Traffic view.  
+- Analyze **flow activity for a specific IP** to detect lateral movement, C2‑like behavior, or policy‑violating destinations.  
+- Understand **traffic patterns for capacity planning** and before‑after change validation (e.g., deployments, policy changes, or peering shifts).  
+
+By clicking on real‑time stabbers or top‑convo entries, analysts can dive into **flow details, traffic matrices, and application‑level breakdowns** without leaving the context of the selected key.
 
 ---
 
 ## Key Dashboard modules
 
 | Module | Description |
-|---|---|
-| Key Details | Real-time stabbers, toppers, flow activity |
-| Real Time Traffic | Traffic within 3 seconds for the entity |
-| Historical Charts | Long-term traffic patterns and trends |
-| Flow Activity | Current flows involving the entity |
-| Retro Analysis | Tools to investigate past activity |
+|--------|-------------|
+| Key Details | Shows real‑time stabbers, toppers, flow activity, and summary metrics for the key |
+| Real Time Traffic | Displays traffic within the last 3 seconds for the selected entity |
+| Historical Charts | Presents long‑term traffic trends and patterns (e.g., by day, week, or month) |
+| Flow Activity | Lists currently active flows involving the key, with volume and protocol details |
+| Retro Analysis | Provides tools to investigate past activity for the key, including flow‑ history and traffic‑pattern queries |
+
+These modules make the Key Dashboard a **single‑pane investigative workplace** for any network entity that appears in your traffic telemetry.
 
 ---
 
 ## What makes the Key Dashboard work in practice
 
-The dashboard uses Trisul's per-flow indexing to retrieve data quickly. Without indexing, searching for a specific IP would require scanning all flow records. With indexing, the dashboard loads in seconds even for large archives.
+The Key Dashboard’s effectiveness comes from:
 
-Real-time stabbers provide near-instant visibility. Traffic statistics update every 1 to 3 seconds showing current activity. This enables rapid response to emerging issues without waiting for data aggregation.
+- **Per‑flow indexing**: Trisul indexes flows by key (e.g., IP, port, app), so loading a key‑specific view is fast and scalable, even across large archives.  
+- **Near‑real‑time updates**: “Stabber” stats refresh every 1–3 seconds, giving operators **immediate situational awareness** without waiting for hourly aggregates.  
+- **Context‑preserving drilldowns**: Clicking on any chart or stabber keeps you within the same key context, letting you explore **from summary → traffic matrix → individual flows** in one workflow.  
+
+This combination of speed, context, and drilldown depth makes the Key Dashboard one of the most frequently used views in day‑to‑day Trisul operations.
 
 ---
 
 ## How Trisul handles the Key Dashboard
 
-Trisul provides the Key Dashboard as part of its core UI. Login as user, navigate to Dashboards, select Real Time Traffic, and click the tag next to any host. The Key Dashboard displays Key Details module with Real Time Stabbers, Toppers, and flow activity. Use the search box to find an IP and click the key to go to the dashboard. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
+Trisul exposes the **Key Dashboard as part of its core UI**. To use it:
+
+- Log in as a user, go to **Dashboards → Real Time Traffic**, then **click the tag next to any host** to open its Key Dashboard.  
+- Alternatively, use the **search box** to find an IP address, port, or application and **click the key** to jump directly to the dashboard.  
+
+The Key Dashboard is powered by the **Key Details module**, which shows real‑time stabbers, toppers, flow activity, and historical charts, and it integrates with **Explore Flows**, **Flow Tracker**, and **Retro Analysis** for deeper investigations. More details are available in the Trisul user guide at [https://docs.trisul.org/docs/ug/cg/tasks/](https://docs.trisul.org/docs/ug/cg/tasks/).
 
 ---
 
 ## Related terms
 
-- [What is Explore Flows?](/docs/glossary/explore-flows)
-- [What is real-time traffic?](/docs/glossary/realtime-traffic-monitoring)
-- [What is counter group?](/docs/glossary/counter-group)
-- [What is flow tracker?](/docs/glossary/flow-tracker)
-- [What is retro analysis?](/docs/glossary/retro-analysis)
+- [What is Explore Flows?](/docs/glossary/explore-flows)  
+- [What is real‑time traffic?](/docs/glossary/realtime-traffic-monitoring)  
+- [What is counter group?](/docs/glossary/counter-group)  
+- [What is flow tracker?](/docs/glossary/flow-tracker)  
+- [What is retro analysis?](/docs/glossary/retro-analysis)  
 
 ---
 
@@ -113,7 +134,7 @@ Trisul provides the Key Dashboard as part of its core UI. Login as user, navigat
 
 ### What is the Key Dashboard in Trisul?
 
-In Trisul, the Key Dashboard is a detailed view for a specific network entity such as an IP address, port, application, or host. It shows real-time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
+In Trisul, the Key Dashboard is a detailed view for a specific network entity such as an IP address, port, application, or host. It shows real‑time stats, historical traffic, and investigative tools for that key. Click the tag next to any host in the Real Time Traffic dashboard to open the Key Dashboard.
 
 ### What modules are available on the Key Dashboard?
 
@@ -125,4 +146,4 @@ Login as user, select Dashboards, then Real Time Traffic. Click on the tag on th
 
 ### What can you do on the Key Dashboard?
 
-On the Key Dashboard you can view real-time traffic stats, see top hosts by usage within 3 seconds, analyze traffic patterns, investigate past activity using retro analysis, view flow activity in real time, and chart specific metrics for that entity.
+On the Key Dashboard you can view real‑time traffic stats, see top hosts by usage within 3 seconds, analyze traffic patterns, investigate past activity using retro analysis, view flow activity in real time, and chart specific metrics for that entity.

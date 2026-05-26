@@ -64,256 +64,63 @@ export const jsonLd = {
 
 # What is GRE tunnel monitoring?
 
-GRE tunnel monitoring is the process of observing the health, reachability, traffic behavior, and operational performance of Generic Routing Encapsulation (GRE) tunnels using interface telemetry, flow data, packet analysis, and tunnel-validation mechanisms.
-
-GRE tunnels are commonly used to:
-- Carry routed traffic across intermediate networks
-- Build overlays
-- Transport multicast traffic
-- Support WAN connectivity
-- Extend routing domains
-- Encapsulate traffic between endpoints
-
-Monitoring GRE tunnels helps operators understand:
-- Whether tunnels are reachable
-- Whether traffic is flowing normally
-- Whether packet loss or congestion exists
-- Whether routing behavior has changed
-- Whether encapsulated traffic behaves unexpectedly
-
-GRE tunnel monitoring is commonly used for:
-- WAN operations
-- Overlay-network visibility
-- Tunnel troubleshooting
-- Capacity planning
-- Security monitoring
-- Encapsulation analysis
-- Historical traffic investigations
-
-Trisul supports tunnel-traffic analysis and telemetry-correlation workflows relevant to GRE monitoring environments.
+**GRE tunnel monitoring** is the process of observing the health, reachability, traffic behavior, and operational performance of **Generic Routing Encapsulation (GRE) tunnels** using **interface telemetry, flow data, packet analysis, and tunnel‑validation mechanisms**. GRE tunnels encapsulate traffic between endpoints to carry routed traffic, multicast, or overlay‑WAN traffic across an underlying network, but the tunnel interface may stay “up” even when forwarding is degraded or unreachable. Monitoring helps operators detect **tunnel failures, packet loss, congestion, routing shifts, and abnormal encapsulated‑traffic behavior** before end‑user applications are impacted.
 
 ---
 
 ## How GRE tunnel monitoring works
 
-GRE tunnel monitoring combines multiple telemetry and validation methods because interface state alone may not fully reflect operational tunnel health.
-
-Typical workflow:
-
-1. **Tunnel telemetry collection** → Interface and traffic metrics are collected
-2. **Reachability validation** → Tunnel connectivity is verified
-3. **Traffic analysis** → Encapsulated traffic patterns are analyzed
-4. **Historical correlation** → Operators compare tunnel behavior over time
-5. **Operational investigation** → Teams investigate failures or anomalies
-
-Common monitoring inputs include:
-- Interface telemetry
-- Flow records
-- Packet captures
-- Routing-protocol status
-- Tunnel keepalives
-- Reachability tests
-- Traffic counters
-
-Tunnel monitoring may observe:
-- Tunnel utilization
-- Packet rates
-- Traffic direction
-- Packet loss
-- Error counters
-- Reachability changes
-- Traffic-pattern anomalies
-- Encapsulation behavior
-
-The exact visibility depends on:
-- Tunnel architecture
-- Monitoring placement
-- Exporter configuration
-- Routing design
-- Encapsulation visibility
-
-![](./images/gre-tunnel-monitoring.png)
+GRE monitoring combines **interface telemetry, routing‑state signals, keepalives, and traffic analysis** because the tunnel line‑protocol being “up” does not guarantee that traffic is actually flowing correctly. A typical workflow is: **tunnel telemetry collection → reachability validation → traffic analysis → historical correlation → operational investigation**. Common inputs include **tunnel‑interface counters, flow records, packet captures, routing‑protocol status, keepalive packets, and reachability tests**, which together expose **tunnel utilization, packet rates, drops, errors, latency changes, and encapsulation behavior**. The amount of detail visible depends on **monitoring placement (inside vs outside the tunnel), exporter configuration, and whether packet‑level or flow‑level telemetry is available**.
 
 ---
 
 ## GRE tunnel monitoring in network operations
 
-GRE monitoring is widely used across operational and security environments.
-
-### NOC operations
-
-Network operations teams use GRE monitoring for:
-- Tunnel-health validation
-- WAN troubleshooting
-- Overlay visibility
-- Traffic engineering
-- Capacity planning
-- Routing-path investigations
-
-Operators commonly investigate:
-- Tunnel outages
-- Reachability failures
-- Traffic drops
-- Congestion patterns
-- Unexpected routing behavior
-- Encapsulation overhead
-
-Historical telemetry helps teams identify:
-- Recurring tunnel instability
-- Utilization growth
-- Intermittent failures
-- Traffic-pattern changes
-
-### SOC operations
-
-Security teams use GRE visibility for:
-- Encapsulated-traffic analysis
-- Tunnel anomaly detection
-- Threat investigations
-- Covert-channel investigations
-- Suspicious overlay traffic analysis
-- Traffic-pattern monitoring
-
-GRE traffic may complicate visibility because:
-- Encapsulation can obscure inner traffic
-- Tunnel endpoints may aggregate multiple applications
-- Traffic attribution becomes more complex
-
-Security analysis often benefits from correlating:
-- Flow telemetry
-- Packet visibility
-- DNS activity
-- Endpoint context
-- Routing information
-
-### Service-provider and overlay environments
-
-GRE monitoring is also common in:
-- ISP networks
-- Overlay architectures
-- Virtualized environments
-- Hybrid WAN deployments
-- Multi-site connectivity designs
-
-The operational value depends heavily on:
-- Monitoring placement
-- Telemetry completeness
-- Tunnel visibility
-- Historical retention
-- Correlation workflows
+In **NOC** environments, GRE monitoring supports **WAN‑operations, overlay‑network troubleshooting, traffic‑engineering, and capacity‑planning**, by revealing when tunnels flap, become congested, or drop traffic even though routing or the interface appears stable. In **SOC** workflows, it helps with **encapsulated‑traffic analysis**, because GRE can obscure inner traffic; correlating **flow telemetry, packet views, DNS, and endpoint data** around the tunnel endpoints makes it possible to detect anomalies, covert channels, and suspicious overlay traffic. In **service‑provider and multi‑site** designs, GRE monitoring is a core part of **hybrid‑WAN, virtual‑network, and overlay‑architecture visibility**, where operators need to see both the physical underlay and the logical GRE‑based overlays.
 
 ---
 
 ## Common GRE monitoring methods
 
-| Method | What it monitors | Operational value |
-|---|---|---|
-| Interface telemetry | Tunnel operational status and counters | Basic tunnel visibility |
-| Keepalive mechanisms | Endpoint reachability | Tunnel-health validation |
-| Flow telemetry | Encapsulated traffic patterns | Traffic analysis and trending |
-| Packet analysis | GRE headers and traffic behavior | Troubleshooting and investigations |
-| Reachability testing | End-to-end tunnel connectivity | Operational validation |
+| Method                   | What it monitors                            | Operational value |
+|--------------------------|---------------------------------------------|-------------------|
+| Interface telemetry      | Tunnel state, traffic, drops, errors        | Basic health and capacity |
+| Keepalive mechanisms     | Tunnel‑endpoint reachability                | Connectivity validation |
+| Flow telemetry           | Encapsulated traffic patterns and volume    | Traffic trending and anomalies |
+| Packet analysis          | GRE headers and inner traffic behavior      | Deep troubleshooting |
+| Reachability testing     | End‑to‑end path liveliness                  | Proactive validation |
 
-Different methods are often combined because no single method provides complete visibility.
+Operators usually combine several methods since **no single technique** captures the full picture of tunnel health and behavior.
 
 ---
 
 ## GRE tunnel monitoring vs interface monitoring
 
-| Dimension | GRE tunnel monitoring | Standard interface monitoring |
-|---|---|---|
-| Primary focus | Tunnel reachability and encapsulated traffic | Physical or logical interface state |
-| Visibility type | Overlay and encapsulation behavior | Interface utilization and health |
-| Common telemetry | Tunnel flows, keepalives, routing status | Interface counters and SNMP metrics |
-| Operational complexity | Higher due to overlay behavior | Typically lower |
-| Common use case | WAN overlays and encapsulated traffic | Device and link monitoring |
-
-The two workflows are complementary and commonly correlated together.
+**GRE tunnel monitoring** focuses on **overlay and encapsulation behavior**, answering whether traffic is actually forwarding through the tunnel and how it is shaped. **Standard interface monitoring** focuses on **physical or logical interface state and utilization**, such as bandwidth, errors, and line‑protocol status. Tunnel monitoring is more complex but essential in WAN‑overlay and multi‑site environments, while interface monitoring provides the underlying link‑level context. The two workflows are complementary: tunnel telemetry explains the “logical path” and traffic, while interface telemetry explains the “physical path” and health.
 
 ---
 
 ## What makes GRE tunnel monitoring effective
 
-Effective GRE monitoring depends heavily on:
-- Telemetry completeness
-- Reachability validation
-- Historical retention
-- Routing visibility
-- Encapsulation awareness
-- Correlation workflows
-
-Operational challenges commonly include:
-- Tunnel visibility gaps
-- Overlay complexity
-- Encapsulation overhead
-- Routing asymmetry
-- Limited packet visibility
-- Traffic attribution difficulty
-
-Monitoring quality also depends on:
-- Exporter placement
-- Tunnel endpoint visibility
-- Routing stability
-- Keepalive configuration
-- Historical indexing
-
-Organizations commonly improve GRE visibility through:
-- Flow-based monitoring
-- Historical traffic analysis
-- Tunnel-aware dashboards
-- Packet-to-flow correlation
-- Metadata enrichment
-- Centralized analytics workflows
+Effective GRE monitoring depends on **telemetry completeness at both tunnel endpoints, reachability validation (keepalives or routing‑protocol checks), historical retention, and tunnel‑aware correlation workflows**. Challenges include **visibility gaps behind the tunnel, encapsulation overhead hiding inner traffic, routing asymmetry, and limited packet capture inside the GRE path**. Operators improve monitoring by combining **flow‑based traffic analysis** (for scalable trending) with **packet‑level views at key points**, using **tunnel‑specific dashboards, keepalive‑state checks, and metadata enrichment** so that tunnel‑related traffic is easy to select and pivot on.
 
 ---
 
 ## How Trisul handles GRE tunnel monitoring
 
-Trisul supports GRE tunnel monitoring workflows through traffic-analysis, telemetry-correlation, and historical investigation capabilities.
-
-Relevant capabilities include:
-
-- **Flow and packet visibility**
-- **Historical traffic analysis**
-- **Explore Flows** for investigative drill-down
-- **Flow Taggers** for contextual telemetry enrichment
-- **Traffic-pattern analysis**
-- **Tunnel and encapsulated-traffic visibility**
-- **Packet-to-flow correlation**
-- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
-- **Operational dashboards and investigation workflows**
-
-Trisul can help operators:
-- Analyze GRE tunnel utilization
-- Investigate tunnel traffic behavior
-- Correlate encapsulated traffic patterns
-- Troubleshoot overlay-network issues
-- Support operational and security investigations
-
-These workflows are particularly useful for:
-- WAN monitoring
-- Overlay visibility
-- Tunnel troubleshooting
-- Historical investigations
-- Encapsulation analysis
-- Network security monitoring
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
+Trisul supports **GRE tunnel monitoring workflows** through **flow analysis, packet‑to‑flow correlation, and historical traffic‑analysis**, enabling operators to see **encapsulated traffic patterns, tunnel utilization, and tunnel‑related anomalies** without requiring inline packet decryption. With **Explore Flows, Flow Taggers, host‑ and application‑level views**, and **traffic‑pattern analytics**, Trisul helps correlate GRE‑based traffic with routing and application behavior, identify tunnel‑related congestion or drops, and investigate overlay‑network issues. This is especially useful for **WAN monitoring, overlay‑visibility, tunnel‑troubleshooting, and security investigations** in environments where GRE tunnels carry critical or sensitive traffic.
 
 ---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Tunnel content inspection](/glossary/tunnel-content-inspection)
-- [Encapsulation](/glossary/encapsulation)
-- [Point-to-point link](/glossary/point-to-point-link)
-- [Interface monitoring](/glossary/interface-monitoring)
-- [Overlay network](/glossary/overlay-network)
+- GRE tunnel monitoring  
+- Flow monitoring  
+- Tunnel content inspection  
+- Encapsulation  
+- Point‑to‑point link  
+- Interface monitoring  
+- Overlay network  
 
 ---
 
@@ -325,11 +132,11 @@ GRE tunnel monitoring is important because tunnels may appear operational even w
 
 ### What metrics are commonly monitored for GRE tunnels?
 
-Common GRE tunnel metrics include interface state, tunnel reachability, traffic volume, packet counts, packet drops, error counters, latency, flow telemetry, and keepalive or routing-protocol status depending on the tunnel architecture.
+Common GRE tunnel metrics include interface state, tunnel reachability, traffic volume, packet counts, packet drops, error counters, latency, flow telemetry, and keepalive or routing‑protocol status depending on the tunnel architecture.
 
 ### How do GRE keepalives work?
 
-GRE keepalives periodically verify tunnel reachability by sending validation traffic between tunnel endpoints. Monitoring systems may use keepalive status, routing-protocol behavior, or traffic telemetry to determine whether the tunnel is operational.
+GRE keepalives periodically verify tunnel reachability by sending validation traffic between tunnel endpoints. Monitoring systems may use keepalive status, routing‑protocol behavior, or traffic telemetry to determine whether the tunnel is operational.
 
 ### How is GRE traffic analyzed in flow monitoring?
 
@@ -337,4 +144,4 @@ Flow monitoring platforms can observe GRE tunnel traffic using interface telemet
 
 ### How does Trisul support GRE tunnel monitoring workflows?
 
-Trisul supports GRE tunnel monitoring workflows through flow analysis, tunnel-traffic visibility, historical traffic analysis, packet and flow correlation, Explore Flows investigations, and telemetry-based monitoring of encapsulated traffic behavior.
+Trisul supports GRE tunnel monitoring workflows through flow analysis, tunnel‑traffic visibility, historical traffic analysis, packet and flow correlation, Explore Flows investigations, and telemetry‑based monitoring of encapsulated traffic behavior.

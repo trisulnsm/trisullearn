@@ -55,57 +55,91 @@ export const jsonLd = {
 
 # What is observation point?
 
-An observation point is the location in a network where packets are observed for flow monitoring or packet capture. It is the interface or device where traffic is monitored and flow records are generated. In IPFIX, the observation point is defined as the point in the network where traffic is observed.
+An **observation point** is the **location in a network where packets are observed** for **flow monitoring or packet capture**. It is the **interface or device** where traffic is monitored and **flow records are generated**. In IPFIX, the observation point is defined as the point in the network where traffic is observed.
 
 ---
 
-## How observation point works
+## How an observation point works
 
-Observation points are placed at strategic network locations. Flow exporters on routers and switches observe passing packets at the observation point. Packets are grouped into flows and flow records are generated. Flow records include observation point identifier so collectors know where traffic was observed.
+Observation points are placed at **strategic network locations**:
 
-Packet capture at observation points records all packets passing through. TAPs or SPAN ports provide observation points for packet capture. TAPs provide lossless observation while SPAN ports may drop packets under load.
+- **Flow exporters** on routers and switches observe passing packets at the observation point and **group them into flows**, from which **flow records** are created.  
+- Flow records include an **observation point identifier** so flow collectors know exactly where traffic was captured.  
+
+For **packet capture**, observation points are often implemented using **network TAPs or SPAN ports**:
+
+- **TAPs** provide **lossless, passive** observation of all packets on a link.  
+- **SPAN ports** mirror traffic from a switch interface; they are easier to deploy but **may drop packets under load**.  
+
+In both cases, the observation point defines **where in the network** telemetry is collected.
 
 ---
 
 ## Observation point in network operations
 
-In network design, place observation points at critical locations including data center edge, internet gateway, WAN links, and server farm entry points. Strategic placement ensures visibility into all traffic that needs monitoring. Missing observation points create visibility gaps.
+In network design, observation points are placed at **critical locations** such as:
 
-Flow exporters must be enabled at each observation point. Without export, no flow data is collected. Monitor flow exporter status to ensure observation points are active. When routers are replaced or interfaces change, reconfigure observation points.
+- Data center edge.  
+- Internet gateway.  
+- WAN links.  
+- Server farm entry points.  
+- Branch office connections.  
+
+Strategic placement ensures **end‑to‑end visibility** into all traffic that needs monitoring; **missing observation points** create **visibility gaps**.
+
+In operations you must also:
+
+- **Enable flow exporters** at each observation point; without export, no flow data is generated.  
+- **Monitor exporter status** and **reconfigure** when routers are replaced or interfaces change, to keep all observation points active.
 
 ---
 
 ## Observation point types
 
 | Type | Description | Pros | Cons |
-|---|---|---|---|
-| Router interface | Built-in flow exporter | No extra hardware | May not capture all traffic |
-| Network TAP | Passive optical tap | Lossless capture | Requires per-link hardware |
-| SPAN port | Switch port mirroring | No extra hardware | May drop packets under load |
+|------|-------------|------|------|
+| Router interface | Built‑in flow exporter on the interface | No extra hardware; easy to deploy | May not see all traffic (e.g., internal or bypass paths) |
+| Network TAP | Passive optical/electrical tap on the link | Lossless capture; no impact on traffic | Requires per‑link hardware deployment |
+| SPAN port | Switch port mirroring of traffic | No extra hardware; simple to configure | May drop packets under load; no loss notification |
+
+Each type has a trade‑off between **coverage, loss tolerance, and deployment cost**.
 
 ---
 
-## What makes observation point work in practice
+## What makes an observation point work in practice
 
-Complete coverage requires observation points at all critical locations. Map traffic flows and place observation points where traffic passes. Missing observation points create blind spots where threats or problems go undetected.
+Observation points work effectively when:
 
-Lossless observation requires passive TAPs. SPAN ports drop packets under load without indicating loss. For forensic investigation, passive TAPs ensure complete packet capture. For flow monitoring, SPAN ports are acceptable since flow data is less sensitive to packet loss.
+- **Coverage is complete**: map traffic flows and place observation points at **all critical chokepoints** to avoid **blind spots** where threats or performance problems go undetected.  
+- **Lossless capture is matched to the use case**:  
+  - Use **passive TAPs** when **forensic‑grade, full‑packet capture** is required.  
+  - Use **SPAN ports or router‑level exporters** for flow‑based monitoring where **small packet loss is acceptable**.  
+
+Without good placement and appropriate hardware, observation points become **partial‑view sensors** rather than true visibility anchors.
 
 ---
 
 ## How Trisul handles observation point
 
-Trisul collects flow data from multiple observation points through NetFlow, J-Flow, sFlow, and IPFIX exporters. Flow records include observation domain identifiers enabling multi-point traffic analysis. Trisul correlates data from multiple observation points to provide complete visibility. Passive TAPs or SPAN ports provide observation points for packet capture. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Trisul:
+
+- **Collects flow data** from multiple observation points using **NetFlow, J‑Flow, sFlow, and IPFIX exporters**.  
+- Uses **observation domain and observation point identifiers** in flow records to enable **multi‑point traffic analysis and correlation**.  
+- **Correlates data from multiple observation points** to give a unified view of traffic across the network.  
+
+Passive TAPs or SPAN ports at these points feed **packet‑level streams** into Trisul for **deep packet‑level inspection** alongside flow‑level analysis.
+
+For configuration details, see Trisul documentation at [https://docs.trisul.org/docs/ug/flow/](https://docs.trisul.org/docs/ug/flow/).
 
 ---
 
 ## Related terms
 
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is packet capture?](/docs/glossary/packet-capture)
-- [What is network TAP?](/docs/glossary/network-tap)
-- [What is SPAN port?](/docs/glossary/span-port)
-- [What is IPFIX?](/docs/glossary/ipfix)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is packet capture?](/docs/glossary/packet-capture)  
+- [What is network TAP?](/docs/glossary/network-tap)  
+- [What is SPAN port?](/docs/glossary/span-port)  
+- [What is IPFIX?](/docs/glossary/ipfix)  
 
 ---
 

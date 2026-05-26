@@ -55,57 +55,78 @@ export const jsonLd = {
 
 # What is live traffic monitoring?
 
-Live traffic monitoring observes network traffic in real-time as packets flow across the network. It provides immediate visibility into current traffic patterns, enabling rapid detection of anomalies and fast response to network issues. NetFlow Analyzer generates traffic graphs as soon as NetFlow data is received.
+**Live traffic monitoring** observes **network traffic in real time** as packets move across the network, giving operators **immediate visibility into current traffic patterns**. It enables **rapid detection of anomalies, congestion, or outages** and supports **fast incident response**. In practice, live monitoring often uses **flow‑based telemetry (NetFlow, sFlow, IPFIX, or J‑Flow)**, which the collector transforms into traffic graphs and dashboards within seconds of receiving data, rather than relying only on delayed SNMP‑based counters.
 
 ---
 
 ## How live traffic monitoring works
 
-Flow exporters on routers and switches send NetFlow, sFlow, or IPFIX data continuously to the collector. The collector processes data as it arrives and updates traffic graphs within seconds. Traffic Pattern Analysis empowers you to scrutinize shifts in network interface behavior and identify unusual traffic patterns as anomalies.
+Flow exporters on **routers, switches, and gateways** continuously send **NetFlow, sFlow, or IPFIX records** to a central collector. As the collector receives each batch of flow data, it:
+
+- Aggregates traffic by **interface, IP, application, and protocol**.  
+- Updates **real‑time charts and “stabber” statistics** within roughly **1–5 seconds**.  
+- Runs **traffic pattern analysis** that flags sudden shifts in interface or path behavior as anomalies.  
+
+The result is an **instantaneous view of traffic matrix and utilization**, not just a post‑processed summary, which is critical for reactive and proactive operations.
 
 ---
 
 ## Live traffic monitoring in network operations
 
-In the NOC, use live traffic monitoring to detect congestion, outages, and anomalies instantly. Real-time 2-second views of gateway port utilization, AS traffic, and prefix flows enable rapid response to emerging issues. Security teams monitor live traffic for indicators of compromise and unusual patterns.
+In the **NOC and security operations**, live traffic monitoring is used to:
 
-Traffic pattern alerts are promptly generated in real-time for anomalies that deviate from expected patterns. This enables automated response before problems impact users.
+- Detect **emerging congestion or sudden spikes** on gateway or core links.  
+- Observe **2‑second live views of gateway port utilization, AS traffic, and prefix flows**, enabling quick validation of incidents or policy changes.  
+- Help security teams **spot indicators of compromise in real time**, such as flood‑like traffic or unusual internal‑to‑external flows.  
+
+**Pattern‑based alerts** trigger when traffic deviates from baselines, enabling **automated responses** (e.g., rerouting, policy activation, or escalation) before users are heavily impacted.
 
 ---
 
 ## Live traffic features
 
 | Feature | Description |
-|---|---|
-| Traffic graphs | Real-time graphs for incoming and outgoing traffic |
-| Top conversations | Current top talkers by bandwidth |
-| Interface utilization | Real-time bandwidth usage per interface |
-| Pattern alerts | Real-time alerts for traffic anomalies |
-| Real-time stabbers | Traffic stats within 3 seconds |
+|--------|-------------|
+| Traffic graphs | Real‑time inbound and outbound graphs per interface or path |
+| Top conversations | Live Top‑N hosts, apps, or destinations by bandwidth |
+| Interface utilization | Instant bandwidth usage per physical or logical interface |
+| Pattern alerts | Real‑time notifications for anomalous traffic spikes or shifts |
+| Real‑time stabbers | Traffic stats updated within about 3 seconds of the activity |
+
+These features turn raw flow telemetry into an **operational “glass cockpit”** for network behavior.
 
 ---
 
 ## What makes live traffic monitoring work in practice
 
-Collection frequency determines real-time accuracy. High-frequency collection provides more accurate real-time views but generates more load on network devices. Trade-off collection frequency against device CPU and network overhead.
+Two operational considerations dominate:
 
-Buffer management ensures data is not lost during processing spikes. The collector buffers incoming flow data when processing is slow. Without adequate buffering, data is dropped during traffic spikes and real-time monitoring shows gaps.
+- **Collection frequency and overhead**: Exporters can be tuned to send flows more frequently for better real‑time accuracy, but this increases **CPU and bandwidth load** on devices; operators must balance freshness against stability.  
+- **Buffering and processing**: The collector uses **buffers** to absorb bursts of flow data during traffic spikes; insufficient buffering leads to **gaps in real‑time views**, while strong buffering plus efficient processing keeps latency under 1–5 seconds.  
+
+When combined with **good baseline‑driven thresholds**, live monitoring becomes a reliable early‑warning system for issues.
 
 ---
 
 ## How Trisul handles live traffic monitoring
 
-Trisul provides live traffic monitoring through real-time flow data collection. Flow data is processed as it arrives from NetFlow, J-Flow, sFlow, and IPFIX exporters. Real-time stabbers show traffic within 3 seconds. Flow Tracker Alerts trigger in near real-time with latency of 1 to 5 seconds. Login as user, select Dashboards, then Real Time Traffic to view live traffic. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
+Trisul provides **live traffic monitoring** by consuming **real‑time flow data from NetFlow, J‑Flow, sFlow, and IPFIX exporters** and processing it with minimal delay. Key behaviors:
+
+- **Real‑time stabbers** update traffic statistics **within about 3 seconds** of the observed activity.  
+- **Flow Tracker Alerts** trigger in **near real time (1–5 seconds)** when traffic crosses defined thresholds.  
+- The **Real Time Traffic** dashboard (reachable via **Dashboards → Real Time Traffic** after login) exposes **live graphs, top conversations, and interface‑level utilization**.  
+
+This enables operators to **spot congestion, misrouted traffic, or suspicious flows as they happen**, not hours later in post‑mortem reports. For configuration and UI details, see the Trisul documentation at [https://docs.trisul.org/docs/ug/cg/tasks/](https://docs.trisul.org/docs/ug/cg/tasks/).
 
 ---
 
 ## Related terms
 
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is real-time traffic?](/docs/glossary/realtime-traffic-monitoring)
-- [What is Key Dashboard?](/docs/glossary/key-dashboard)
-- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
-- [What is NetFlow?](/docs/glossary/netflow)
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is real-time traffic?](/docs/glossary/realtime-traffic-monitoring)  
+- [What is Key Dashboard?](/docs/glossary/key-dashboard)  
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)  
+- [What is NetFlow?](/docs/glossary/netflow)  
 
 ---
 

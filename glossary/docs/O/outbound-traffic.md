@@ -54,55 +54,94 @@ export const jsonLd = {
 
 # What is outbound traffic?
 
-Outbound traffic is network traffic that leaves a device, interface, host, or network boundary. It is commonly used to describe sent communication.
+**Outbound traffic** is **network traffic that leaves a device, interface, host, or network boundary**. It is commonly used to describe **sent communication**, such as **uploads, responses, or egress data** leaving a network.
 
 ---
 
 ## How outbound traffic works
 
-Traffic is outbound relative to the observation point when it leaves that point. A packet leaving a server interface is outbound for that server.
+Traffic is labeled **outbound relative to the observation point**:
 
-The same packet may be inbound elsewhere in the path. Direction depends on where you measure it.
+- A packet leaving a **server interface** is **outbound** for that server.  
+- The same packet may be **inbound** at the receiving host or at another point in the path.  
+
+Direction therefore depends on **which interface or boundary** you are measuring from.
 
 ---
 
 ## Outbound traffic in network operations
 
-Outbound traffic is important for tracking uploads, responses, and communications leaving a site or service. It can also reveal unusual data movement.
+In network operations, outbound traffic:
 
-Security teams often watch outbound traffic for signs of policy violation or data exfiltration. Operations teams watch it for load and usage trends.
+- Is used to **track uploads, responses, and data sent out from a site or service**.  
+- Helps **NOC teams** understand **transmission load and usage trends**, such as how much content is leaving a data center or branch office.  
+
+Security teams also watch outbound traffic closely:
+
+- To detect **policy violations** or **data exfiltration**, where internal information is sent to external destinations.  
+- To see **what leaves a network**, not just what enters it, which is critical for **compliance and incident response**.
 
 ---
 
 ## Common outbound examples
 
 | Example | Meaning |
-|---|---|
-| API responses | Data leaving a service |
-| File uploads | User data sent out |
-| Remote sync | Outbound transfer to another site |
-| Exfiltration | Suspicious outbound data movement |
+|--------|---------|
+| API responses | Data leaving a service to a client |
+| File uploads | User data sent out of a system (e.g., cloud storage, SaaS uploads) |
+| Remote sync | Outbound transfers to another site or data center |
+| Exfiltration | Suspicious or large‑volume outbound data movement that may indicate data theft |
+
+These examples show how **outbound traffic** can range from normal business use to security‑critical behavior.
 
 ---
 
-## What makes outbound traffic useful
+## What makes outbound traffic useful in practice
 
-Outbound traffic helps show what leaves a system, not just what enters it. That makes it important for both performance and security analysis.
+Outbound traffic is useful because:
 
-It is most informative when compared with inbound traffic and total usage trends.
+- It shows **what data is leaving a system or network**, not just what is entering.  
+- It becomes **especially informative** when compared with **inbound traffic and total usage trends**, so operators can see **net flow direction, asymmetric loads, and unusual egress patterns**.  
+
+This makes outbound traffic central to **load planning, policy‑based monitoring, and security‑focused traffic analysis**.
 
 ---
 
 ## How Trisul handles outbound traffic
 
-Trisul can identify outbound traffic so operators can separate internal consumption from traffic leaving a network or service.
+Trisul can:
+
+- **Identify outbound traffic** relative to each **interface, zone, or service boundary**, so operators can separate **internal consumption** from **traffic leaving the network**.  
+- Show **top‑talkers, volumes, and applications** for outbound flows, enabling both **performance and security investigations**.  
+
+This lets teams **monitor egress**, detect **unexpected data movement**, and **validate normal outbound patterns** over time.
 
 ---
 
 ## Related terms
 
-- Inbound traffic
-- Traffic direction
-- Flow attribution
-- Security auditing
-- Network performance
+- [What is inbound traffic?](/docs/glossary/inbound-traffic)  
+- [What is traffic direction?](/docs/glossary/traffic-direction)  
+- [What is flow attribution?](/docs/glossary/flow-attribution)  
+- [What is security auditing?](/docs/glossary/security-auditing)  
+- [What is network performance?](/docs/glossary/network-performance)  
+
+---
+
+## Frequently asked questions
+
+### What is outbound traffic?
+
+Outbound traffic is network traffic that leaves a device, interface, host, or network boundary. It is commonly used to describe sent communication.
+
+### Why is outbound traffic important?
+
+Outbound traffic is important because it shows what data is leaving a system or network and can reveal uploads, responses, or exfiltration.
+
+### How is outbound traffic used in analysis?
+
+Outbound traffic is used to study traffic direction, transmission load, and communication leaving a network or host.
+
+### What is the opposite of outbound traffic?
+
+The opposite of outbound traffic is inbound traffic.

@@ -64,270 +64,65 @@ export const jsonLd = {
 
 # What are heavy hitters in networking?
 
-Heavy hitters are flows, hosts, applications, subscribers, or other traffic entities that contribute a disproportionately large share of network activity, bandwidth consumption, packets, or sessions within a monitored environment.
-
-In many networks, a relatively small number of entities generate a large percentage of:
-- Bandwidth usage
-- Packet volume
-- Session counts
-- Flow activity
-- Application load
-
-Heavy hitter analysis helps operators identify:
-- Which systems dominate traffic
-- Which applications consume bandwidth
-- Which subscribers generate the most usage
-- Which flows contribute to congestion
-- Whether unusual traffic patterns exist
-
-Heavy hitter analysis is commonly used for:
-- Capacity planning
-- Congestion analysis
-- Traffic engineering
-- Network troubleshooting
-- Security monitoring
-- Subscriber analysis
-- Traffic optimization
-- Operational reporting
-
-Trisul supports Top-K and ranking-oriented traffic-analysis workflows relevant to heavy hitter investigations.
+**Heavy hitters** are **flows, hosts, applications, subscribers, or other traffic entities** that contribute a **disproportionately large share** of network activity, bandwidth consumption, packets, or sessions within a monitored environment. In many networks, a small set of entities accounts for most of the traffic, so identifying heavy hitters lets operators quickly separate “normal high‑volume” from “problematic or abnormal” usage. This is widely used for **capacity planning, congestion analysis, traffic engineering, and security investigations**, where operators ask: “who or what is responsible for the bulk of the load on this link?”
 
 ---
 
 ## How heavy hitter analysis works
 
-Heavy hitter analysis groups and ranks telemetry records according to selected metrics over a defined time interval.
-
-Typical workflow:
-
-1. **Telemetry collection** → Flow, packet, or interface telemetry is collected
-2. **Entity grouping** → Records are grouped by selected attributes
-3. **Metric aggregation** → Volume or activity metrics are calculated
-4. **Ranking generation** → Top contributors are identified
-5. **Operational investigation** → Analysts drill into dominant entities
-
-Heavy hitter analysis may rank entities using:
-- Bytes
-- Packets
-- Flows
-- Sessions
-- Connection counts
-- Utilization
-- Application activity
-
-Common telemetry sources include:
-- NetFlow
-- IPFIX
-- sFlow
-- Packet analysis
-- Interface telemetry
-- Subscriber telemetry
-
-The exact results depend on:
-- Telemetry completeness
-- Aggregation interval
-- Exporter configuration
-- Sampling behavior
-- Monitoring placement
-
-![](./images/heavy-hitters.png)
+Heavy hitter analysis **groups and ranks** telemetry records according to a chosen metric over a fixed time window. The workflow is: **telemetry collection → entity grouping → metric aggregation → ranking → investigation**. Operators usually rank by **bytes, packets, flows, sessions, or utilization**, and then inspect the **Top‑N** contributors. Common telemetry sources include **NetFlow, IPFIX, sFlow, packet‑based flows, interface counters, and subscriber‑level logs**, with the exact shape depending on exporter configuration, sampling, and monitoring placement. Because heavy‑hitter behavior can change over time, analysts often compare **current Top‑K** against **historical baselines** to spot anomalies.
 
 ---
 
 ## Heavy hitters in network operations
 
-Heavy hitter analysis is widely used across operational and security environments.
-
-### NOC operations
-
-Network operations teams use heavy hitter analysis for:
-- Congestion troubleshooting
-- Capacity planning
-- Interface utilization analysis
-- WAN optimization
-- Traffic engineering
-- Performance investigations
-
-Operators commonly investigate:
-- Which hosts consume bandwidth
-- Which applications dominate links
-- Which conversations create congestion
-- Which interfaces experience unusual growth
-
-Historical analysis helps teams identify:
-- Long-term traffic trends
-- Recurring utilization spikes
-- Peak-usage patterns
-- Capacity bottlenecks
-
-### SOC operations
-
-Security teams use heavy hitter analysis for:
-- Traffic anomaly detection
-- Data-exfiltration investigations
-- DDoS analysis
-- Threat hunting
-- Beaconing investigations
-- Suspicious communication analysis
-
-Unexpected heavy hitters may indicate:
-- Malware activity
-- Bulk transfers
-- Compromised systems
-- Scanning activity
-- Misconfigured applications
-- Traffic floods
-
-Heavy hitter visibility becomes more useful when correlated with:
-- DNS activity
-- Endpoint telemetry
-- Firewall logs
-- Threat intelligence
-- Historical baselines
-
-### ISP and carrier environments
-
-ISPs and carriers commonly use heavy hitter analysis for:
-- Subscriber usage analysis
-- Capacity planning
-- Backbone utilization monitoring
-- ASN traffic analysis
-- Traffic shaping
-- Peering investigations
-
-The operational value depends heavily on:
-- Telemetry scale
-- Historical retention
-- Ranking accuracy
-- Query performance
-- Aggregation quality
+In **NOC** environments, heavy‑hitter analysis reveals **which hosts, applications, or conversations dominate interface utilization**, making it easier to troubleshoot congestion, plan capacity, and tune traffic‑engineering policies. In **SOC** workflows, it supports **anomaly detection, DDoS‑investigation, and data‑exfiltration analysis**, because unexpectedly large senders or receivers may indicate malware, bulk transfers, or compromised systems. In **ISP and carrier** settings, it drives **subscriber‑usage analysis, backbone‑capacity planning, and peering‑traffic‑shaping**, where understanding which customers, ASNs, or services generate the most traffic is critical for business and engineering decisions.
 
 ---
 
 ## Common heavy hitter targets
 
-| Target | Operational meaning |
-|---|---|
-| Host | Device generating large traffic volume |
-| Flow or conversation | High-volume communication pair |
-| Application | Dominant service or protocol |
-| Subscriber | High-usage customer or account |
-| ASN | Dominant network operator |
-| Interface | Heavily utilized network segment |
+| Target            | Operational meaning |
+|-------------------|---------------------|
+| Host              | Single device driving high volume |
+| Flow/conversation | High‑volume communication pair |
+| Application       | Dominant service or protocol |
+| Subscriber        | High‑usage customer or account |
+| ASN               | Dominant network operator |
+| Interface         | Heavily utilized network segment |
 
-Additional targets may include:
-- VLANs
-- VRFs
-- Geographic regions
-- Tunnel interfaces
-- Service groups
-
-depending on telemetry availability.
+Depending on telemetry, additional targets can include **VLANs, VRFs, geographic regions, tunnel interfaces, or service‑groups**, any of which can be ranked as “heavy hitters” over time.
 
 ---
 
 ## Heavy hitters vs top talkers
 
-| Dimension | Heavy hitters | Top talkers |
-|---|---|---|
-| Primary focus | Dominant entities by measurable activity | Highest traffic-generating hosts or endpoints |
-| Scope | Broad analytical concept | Common operational reporting term |
-| Common metrics | Bytes, packets, sessions, utilization | Usually bytes or packets |
-| Typical entities | Hosts, apps, subscribers, flows, ASNs | Mostly hosts or endpoints |
-| Operational use | Capacity, security, optimization | Quick operational visibility |
-
-The terms are closely related and are often used interchangeably in operational environments.
+**Heavy hitters** is a broader analytical concept: any entity that dominates measured activity (bytes, packets, sessions, utilization) on a given dimension. **Top talkers** usually refers more narrowly to **hosts or endpoints ranked by traffic volume** in operational dashboards. In practice, the terms are often used interchangeably; “heavy hitters” emphasizes the analytic pattern, while “top talkers” emphasizes the operational view.
 
 ---
 
 ## What makes heavy hitter analysis effective
 
-Effective heavy hitter analysis depends heavily on:
-- Telemetry completeness
-- Historical retention
-- Aggregation quality
-- Query scalability
-- Sampling configuration
-- Correlation workflows
-
-Operational challenges commonly include:
-- High-cardinality traffic
-- Sampled telemetry distortion
-- Short aggregation windows
-- Large-scale traffic environments
-- Incomplete exporter coverage
-- Traffic-attribution complexity
-
-Heavy hitter interpretation also depends on:
-- Historical baselines
-- Time-of-day patterns
-- Business context
-- Expected operational behavior
-
-A large traffic source is not necessarily abnormal. Effective analysis compares:
-- Current behavior
-- Historical behavior
-- Operational expectations
-- Peer traffic patterns
-
-Organizations commonly improve heavy hitter visibility through:
-- Historical ranking analysis
-- Flow-based telemetry
-- Metadata enrichment
-- Centralized analytics platforms
-- Correlated operational dashboards
+Effective heavy‑hitter analysis depends on **telemetry completeness, accurate aggregation, historical retention, and scalable ranking**. High‑cardinality, heavily sampled, or inconsistently exported telemetry can distort rankings and hide true heavy‑hitter patterns. Operators must also interpret results in context: **a large legitimate file‑transfer or backup job** may be a normal heavy hitter, whereas an unknown host suddenly appearing at the top of a Top‑K chart can signal something abnormal. Teams improve analysis by using **historical base‑line‑aware dashboards, flow‑based telemetry, metadata enrichment, and centralized analytics platforms** that can rank and drill down consistently across large topologies.
 
 ---
 
 ## How Trisul handles heavy hitters
 
-Trisul supports heavy hitter analysis through integrated traffic-analysis, Top-K analytics, and historical investigation workflows.
-
-Relevant capabilities include:
-
-- **Top-K analytics**
-- **Historical traffic analysis**
-- **Flow and packet visibility**
-- **Explore Flows** for investigative drill-down
-- **Flow Taggers** for contextual telemetry enrichment
-- **Traffic-pattern and ranking analysis**
-- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
-- **Operational dashboards and trend analysis workflows**
-- **Host, application, and conversation visibility**
-
-Trisul can help operators:
-- Identify dominant traffic sources
-- Analyze bandwidth consumers
-- Investigate congestion contributors
-- Detect unusual traffic spikes
-- Correlate traffic patterns over time
-- Support operational and security investigations
-
-These workflows are particularly useful for:
-- Capacity planning
-- Congestion analysis
-- Network troubleshooting
-- Subscriber visibility
-- Threat investigations
-- Operational reporting
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
+Trisul supports **heavy hitter analysis** via **Top‑K analytics, historical traffic analysis, flow‑ and packet‑level visibility**, and **drill‑down workflows**. Its **explore‑based interfaces, Flow Taggers, host‑ and application‑views, and traffic‑pattern dashboards** let operators quickly identify **dominant traffic sources, bandwidth consumers, and congestion‑causing flows** and then pivot into detailed records. This is especially useful for **capacity planning, congestion analysis, WAN‑troubleshooting, subscriber‑usage analysis, and threat‑investigations**, where Trisul acts as the **ranking and investigative lens** on top of flow‑centric telemetry.
 
 ---
 
 ## Related terms
 
-- [Top talkers](/glossary/top-talkers)
-- [Traffic spike analysis](/glossary/traffic-spike-analysis)
-- [Link load](/glossary/link-load)
-- [Subscriber analytics](/glossary/subscriber-analytics)
-- [Summary statistics](/glossary/summary-statistics)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Capacity planning](/glossary/capacity-planning)
+- Heavy hitters  
+- Top talkers  
+- Traffic spike analysis  
+- Link load  
+- Subscriber analytics  
+- Summary statistics  
+- Flow monitoring  
+- Capacity planning  
 
 ---
 
@@ -347,8 +142,8 @@ Heavy hitters may include hosts, applications, protocols, subscribers, ASNs, int
 
 ### How are heavy hitters detected?
 
-Heavy hitters are detected by grouping and ranking telemetry records according to metrics such as bytes, packets, flows, sessions, or utilization over a defined time interval. Monitoring systems typically generate Top-N or ranking views for operational analysis.
+Heavy hitters are detected by grouping and ranking telemetry records according to metrics such as bytes, packets, flows, sessions, or utilization over a defined time interval. Monitoring systems typically generate Top‑N or ranking views for operational analysis.
 
 ### How does Trisul support heavy hitter analysis?
 
-Trisul supports heavy hitter analysis through Top-K analytics, historical traffic analysis, flow monitoring, ranking workflows, and drill-down investigation capabilities that help operators identify dominant traffic sources and communication patterns.
+Trisul supports heavy hitter analysis through Top‑K analytics, historical traffic analysis, flow monitoring, ranking workflows, and drill‑down investigation capabilities that help operators identify dominant traffic sources and communication patterns.

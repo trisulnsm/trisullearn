@@ -64,277 +64,65 @@ export const jsonLd = {
 
 # What is historical traffic analysis?
 
-Historical traffic analysis is the process of examining retained network telemetry and traffic data over time to identify trends, recurring patterns, anomalies, utilization growth, and operational behavior for troubleshooting, capacity planning, and security investigations.
-
-Instead of focusing only on current network activity, historical analysis helps operators understand:
-- How traffic changes over time
-- Which applications grow or decline
-- Which systems generate recurring congestion
-- Which patterns repeat daily or seasonally
-- Whether operational changes improved performance
-- How historical baselines compare with current behavior
-
-Historical analysis is commonly used for:
-- Capacity planning
-- Congestion analysis
-- Trend analysis
-- Historical troubleshooting
-- Security investigations
-- Traffic engineering
-- Baseline creation
-- Operational reporting
-
-Historical traffic analysis is widely associated with:
-- NetFlow
-- IPFIX
-- sFlow
-- SNMP telemetry
-- Packet analysis
-- Long-term traffic retention
-
-Trisul supports historical traffic-analysis workflows through retained telemetry, traffic correlation, and operational investigation capabilities.
+**Historical traffic analysis** is the process of examining **retained network telemetry and traffic data over time** to identify **trends, recurring patterns, anomalies, utilization growth, and operational behavior** for troubleshooting, capacity planning, and security investigations. Instead of focusing on “right now,” it asks what traffic looked like yesterday, last month, or last year, and how conditions have evolved. This view is essential for understanding **long‑term capacity needs, recurring congestion, baseline behavior, and slow‑moving or intermittent security events** that are invisible in real‑time dashboards.
 
 ---
 
 ## How historical traffic analysis works
 
-Historical analysis relies on telemetry collected continuously and retained for later analysis.
-
-Common telemetry sources include:
-- NetFlow
-- IPFIX
-- sFlow
-- J-Flow
-- SNMP metrics
-- Packet telemetry
-- DNS activity
-- Interface statistics
-
-Typical workflow:
-
-1. **Telemetry collection** → Traffic and operational data is gathered
-2. **Retention and indexing** → Historical records are stored and indexed
-3. **Aggregation and summarization** → Metrics are grouped across time intervals
-4. **Trend analysis** → Operators analyze changes and recurring behavior
-5. **Operational investigation** → Teams correlate historical patterns with events
-
-Historical analysis may examine:
-- Bandwidth utilization
-- Application growth
-- Protocol distribution
-- Traffic spikes
-- Interface saturation
-- Conversation behavior
-- Peak usage periods
-- Long-term anomalies
-
-The exact visibility depends on:
-- Telemetry completeness
-- Retention policies
-- Aggregation intervals
-- Monitoring architecture
-- Historical indexing quality
-
-![](./images/historical-traffic-analysis.png)
+Historical analysis depends on **continuous telemetry collection and retention**, typically from **NetFlow, IPFIX, sFlow, J‑Flow, SNMP metrics, packet‑derived flows, interface counters, and DNS or application logs**. The workflow is: **collection → retention/indexing → aggregation → trend analysis → investigation**. Operators aggregate metrics such as **bandwidth, application volume, protocol distribution, flow counts, and interface utilization** over time windows (hourly, daily, weekly), then visualize trends and drill into specific periods after incidents, policy changes, or upgrades. The quality of analysis is directly tied to **telemetry completeness, retention depth, aggregation intervals, and indexing performance**.
 
 ---
 
 ## Historical traffic analysis in network operations
 
-Historical traffic analysis is widely used across operational and security environments.
-
-### NOC operations
-
-Network operations teams use historical analysis for:
-- Capacity planning
-- Congestion investigations
-- WAN optimization
-- Traffic engineering
-- Utilization trending
-- Root-cause analysis
-
-Operators commonly investigate:
-- Recurring performance issues
-- Growth trends
-- Peak utilization periods
-- Application bandwidth growth
-- Long-term congestion patterns
-- Infrastructure bottlenecks
-
-Historical baselines help teams determine:
-- Whether traffic behavior is normal
-- Whether issues are recurring
-- Whether upgrades are necessary
-- Whether traffic distribution changed unexpectedly
-
-### SOC operations
-
-Security teams use historical analysis for:
-- Threat hunting
-- Incident investigations
-- Beaconing analysis
-- Data-exfiltration investigations
-- Traffic-baseline analysis
-- Long-term anomaly detection
-
-Historical visibility helps analysts identify:
-- Persistent suspicious communication
-- Rare traffic patterns
-- Slow-moving threats
-- Behavioral deviations
-- Long-term attacker activity
-
-Security investigations commonly correlate:
-- Flow telemetry
-- Packet analysis
-- DNS activity
-- Firewall logs
-- Endpoint telemetry
-- Historical baselines
-
-### ISP and carrier environments
-
-ISPs and carriers commonly use historical analysis for:
-- Subscriber trending
-- Backbone utilization analysis
-- Peering optimization
-- Traffic forecasting
-- Capacity growth analysis
-- Regional traffic visibility
-
-The operational value depends heavily on:
-- Retention duration
-- Telemetry scalability
-- Query performance
-- Aggregation quality
-- Historical indexing
+In **NOC** environments, historical analysis underpins **capacity planning, congestion investigations, WAN‑optimization, and traffic‑engineering**, by revealing recurring bottlenecks, peak‑usage patterns, and application‑growth curves. In **SOC** workflows, it supports **threat hunting, incident‑investigation, and anomaly detection**, because many threats (such as beaconing or slow‑moving attackers) only become obvious when traffic is compared against historical baselines over days or weeks. In **ISP and carrier** settings, historical analysis drives **subscriber‑trend reporting, backbone‑capacity modeling, peering‑optimization, and traffic‑forecasting**, where years‑of‑retained telemetry become a core planning asset.
 
 ---
 
 ## Common historical analysis capabilities
 
 | Capability | Operational purpose |
-|---|---|
+|-----------|----------------------|
 | Bandwidth trending | Track utilization growth over time |
-| Top-K analysis | Identify dominant traffic sources historically |
-| Seasonal pattern analysis | Detect recurring traffic cycles |
-| Before-and-after comparison | Validate operational changes |
-| Traffic baselining | Establish normal operational behavior |
-| Historical anomaly analysis | Detect unusual long-term changes |
+| Top‑K analysis | Identify dominant traffic sources historically |
+| Seasonal pattern analysis | Detect daily, weekly, or periodic cycles |
+| Before‑and‑after comparison | Validate network or policy changes |
+| Traffic baselining | Define “normal” behavior for alerts |
+| Historical anomaly detection | Find unusual long‑term shifts |
 
-Additional workflows may include:
-- Traffic forecasting
-- Application growth analysis
-- Capacity modeling
-- Security timeline reconstruction
-
-depending on the monitoring platform.
+Depending on the platform, these can be combined with **traffic‑forecasting**, **capacity‑modeling**, **security‑timeline reconstruction**, and **cross‑source correlation** (flows, packets, logs, DNS) to build a robust long‑term understanding of behavior.
 
 ---
 
-## Historical analysis vs real-time monitoring
+## Historical analysis vs real‑time monitoring
 
-| Dimension | Historical traffic analysis | Real-time monitoring |
-|---|---|---|
-| Primary focus | Long-term trends and retained telemetry | Current operational visibility |
-| Time orientation | Retrospective analysis | Immediate observation |
-| Common use case | Capacity planning and investigations | Alerting and rapid response |
-| Typical workflows | Trend analysis and correlation | Incident detection and monitoring |
-| Data scope | Historical retained telemetry | Current or near-real-time telemetry |
-
-The two workflows are complementary and commonly used together.
+**Real‑time monitoring** focuses on **current or near‑real‑time visibility**, immediate alerting, and operational response, using live flows, SNMP, and streaming telemetry to detect incidents as they occur. **Historical traffic analysis** focuses on **retrospective, time‑spanning investigation**, using stored telemetry to answer “how bad is this really?” and “has this happened before?” The two are complementary: real‑time monitors raise alerts, and historical analysis helps triage them, validate impact, and decide whether to adjust capacity, policy, or security posture.
 
 ---
 
 ## What makes historical traffic analysis effective
 
-Effective historical analysis depends heavily on:
-- Telemetry retention
-- Historical indexing
-- Query scalability
-- Aggregation quality
-- Time synchronization
-- Correlation workflows
-
-Operational challenges commonly include:
-- Large data volumes
-- Storage scalability
-- High-cardinality telemetry
-- Incomplete retention
-- Sampled telemetry distortion
-- Long-term indexing performance
-
-Analysis quality also depends on:
-- Baseline accuracy
-- Monitoring coverage
-- Exporter configuration
-- Aggregation intervals
-- Historical consistency
-
-Historical data is most useful when:
-- Baselines are well understood
-- Retention is consistent
-- Time-series analysis is available
-- Multiple telemetry sources can be correlated
-
-Organizations commonly improve historical visibility through:
-- Long-term telemetry retention
-- Centralized analytics platforms
-- Indexed querying workflows
-- Metadata enrichment
-- Flow-based monitoring architectures
+Effectiveness depends on **long‑term retention, performant indexing, consistent telemetry, and good correlation workflows**. Challenges include **large data volumes, storage scalability, high‑cardinality traffic, sampling artifacts, and incomplete or inconsistent exporters**. To get useful historical insights, organizations need **accurate time‑synchronization**, **well‑defined baselines**, **aggregation‑interval discipline**, and **centralized analytics that can correlate flows, packets, DNS, and logs** over months or years. When done well, historical analysis transforms raw telemetry into **operational knowledge**, telling not just what happened, but what it means over time.
 
 ---
 
 ## How Trisul handles historical traffic analysis
 
-Trisul supports historical traffic-analysis workflows through retained telemetry, historical querying, and traffic-correlation capabilities.
-
-Relevant capabilities include:
-
-- **Historical traffic analysis**
-- **Flow and packet visibility**
-- **Explore Flows** for investigative drill-down
-- **Top-K analytics**
-- **Flow Taggers** for contextual telemetry enrichment
-- **Traffic-pattern and trend analysis**
-- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
-- **Operational dashboards and historical reporting workflows**
-- **Traffic correlation and investigation workflows**
-
-Trisul can help operators:
-- Analyze historical traffic trends
-- Investigate recurring operational issues
-- Identify long-term congestion patterns
-- Compare traffic behavior across time ranges
-- Support operational and security investigations
-- Correlate historical traffic patterns
-
-These workflows are particularly useful for:
-- Capacity planning
-- Traffic engineering
-- Historical troubleshooting
-- Threat investigations
-- Operational reporting
-- Baseline analysis
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
+Trisul supports **historical traffic analysis** by **retaining and indexing flow and packet‑based telemetry** and exposing it via **Explore Flows, Top‑K analytics, traffic‑pattern dashboards, and historical‑query workflows**. Operators can pivot between **time‑series trend views**, **Top‑K traffic sources**, and **detailed flow records** to understand long‑term trends, recurring congestion, and security‑relevant patterns. This is especially useful for **capacity planning, traffic‑engineering, historical troubleshooting, threat‑investigations, and operational reporting**, where Trisul’s scale‑optimized indexing and traffic‑correlation features turn retained telemetry into an actionable historical lens.
 
 ---
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Capacity planning](/glossary/capacity-planning)
-- [Bandwidth monitoring](/glossary/bandwidth-monitoring)
-- [Trend analysis](/glossary/trend-analysis)
-- [Realtime traffic monitoring](/glossary/realtime-traffic-monitoring)
-- [Top talkers](/glossary/top-talkers)
-- [Network performance monitoring](/glossary/network-performance-monitoring)
+- Historical traffic analysis  
+- Flow monitoring  
+- Capacity planning  
+- Bandwidth monitoring  
+- Trend analysis  
+- Realtime traffic monitoring  
+- Top talkers  
+- Network performance monitoring  
 
 ---
 
@@ -346,16 +134,16 @@ Historical traffic analysis is the process of examining retained network telemet
 
 ### What data sources are used for historical traffic analysis?
 
-Historical traffic analysis commonly uses flow telemetry such as NetFlow, IPFIX, sFlow, and J-Flow, along with SNMP metrics, packet analysis, interface telemetry, DNS activity, and other retained operational telemetry depending on the monitoring architecture.
+Historical traffic analysis commonly uses flow telemetry such as NetFlow, IPFIX, sFlow, and J‑Flow, along with SNMP metrics, packet analysis, interface telemetry, DNS activity, and other retained operational telemetry depending on the monitoring architecture.
 
 ### What are common use cases for historical traffic analysis?
 
-Common use cases include capacity planning, congestion analysis, recurring-issue investigation, bandwidth trending, anomaly detection, traffic-pattern analysis, historical troubleshooting, security investigations, and validation of infrastructure or policy changes.
+Common use cases include capacity planning, congestion analysis, recurring‑issue investigation, bandwidth trending, anomaly detection, traffic‑pattern analysis, historical troubleshooting, security investigations, and validation of infrastructure or policy changes.
 
 ### How does historical traffic analysis differ from real-time monitoring?
 
-Real-time monitoring focuses on current operational visibility and immediate event detection, while historical traffic analysis examines retained telemetry over extended periods to identify trends, recurring behaviors, long-term anomalies, and operational baselines.
+Real‑time monitoring focuses on current operational visibility and immediate event detection, while historical traffic analysis examines retained telemetry over extended periods to identify trends, recurring behaviors, long‑term anomalies, and operational baselines.
 
 ### How does Trisul support historical traffic analysis?
 
-Trisul supports historical traffic analysis through retained flow telemetry, packet and flow visibility, Explore Flows investigations, trend analysis workflows, Top-K analytics, and historical querying capabilities for operational and security investigations.
+Trisul supports historical traffic analysis through retained flow telemetry, packet and flow visibility, Explore Flows investigations, trend analysis workflows, Top‑K analytics, and historical querying capabilities for operational and security investigations.

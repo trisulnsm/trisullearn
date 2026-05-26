@@ -54,58 +54,74 @@ export const jsonLd = {
 
 # What is network troubleshooting?
 
-Network troubleshooting is the process of finding, isolating, and fixing problems that affect network connectivity, performance, or access.
+**Network troubleshooting** is the process of **finding, isolating, and fixing problems** that affect **network connectivity, performance, or access**. It is a core activity in operations and security whenever users or applications cannot reach services as expected.
 
 ---
 
 ## How network troubleshooting works
 
-Troubleshooting starts with a symptom, such as slowness, packet loss, or a failed connection. The next step is to narrow the issue by checking infrastructure, traffic, and logs.
+Network troubleshooting:
 
-The goal is to move from a vague complaint to a specific root cause. That often requires examining multiple layers of the network.
+- Starts from a **symptom**, such as **slowness, packet loss, or a failed connection**.  
+- Narrows the issue by checking **infrastructure (devices, links, routing), traffic patterns, and logs** until a specific root cause is identified.  
+
+The goal is to move from a **vague complaint** to a **pinpointed problem** (e.g., misconfigured ACL, failing link, or overloaded router), often by examining **multiple layers** of the network stack.
 
 ---
 
-## Network troubleshooting in operations
+## Network troubleshooting in network operations
 
-Network troubleshooting is one of the core tasks of operations teams. It helps restore service quickly and reduce downtime.
+In network operations, troubleshooting:
 
-It is also a major reason to keep good monitoring and history. If you can inspect traffic before and during the issue, the diagnosis becomes much easier.
+- Is one of the **core daily tasks**: it helps restore service quickly and reduce **downtime and user impact**.  
+- Relies heavily on **good monitoring and historical data**: if operators can inspect **traffic before and during the issue**, diagnosis becomes much faster and more accurate.  
+
+Good troubleshooting practices also feed into **runbooks and playbooks** that make repeated incidents easier to resolve.
 
 ---
 
 ## Common troubleshooting inputs
 
 | Input | Use |
-|---|---|
-| Logs | Find events |
-| Flows | Understand communication |
-| Packets | Inspect detail |
-| Metrics | Spot performance problems |
+|--------|-----|
+| Logs | Find events and changes (e.g., device restarts, configuration changes) |
+| Flows | Understand which hosts are communicating and how much traffic they exchange |
+| Packets | Inspect protocol behavior, payload patterns, and retransmissions in detail |
+| Metrics | Spot performance problems (latency, loss, errors, utilization) |
+
+Together, these inputs let operators **connect user‑reported symptoms** to **network‑level root causes**.
 
 ---
 
-## What makes troubleshooting useful
+## What makes network troubleshooting work in practice
 
-Troubleshooting is most effective when it is systematic. Guesswork can waste time and lead to wrong fixes.
+Network troubleshooting works best when:
 
-Clear visibility into traffic, performance, and logs makes the process much faster.
+- It is **systematic and methodical**: guesswork wastes time and can lead to **incorrect fixes** or **masking of the real problem**.  
+- It is supported by **clear visibility** into **traffic, performance, and logs**, so operators can **trace issues from symptom to root cause** step by step.  
+
+A structured approach plus strong telemetry turns troubleshooting from reactive firefighting into **repeatable, data‑driven diagnosis**.
 
 ---
 
 ## How Trisul handles network troubleshooting
 
-Trisul supports troubleshooting by giving operators traffic history, flow visibility, and packet context for issue isolation.
+Trisul supports network troubleshooting by:
+
+- Giving operators **traffic history**, **flow‑level visibility**, and **packet context** for any given issue window.  
+- Allowing analysts to **pivot from top‑talkers, metrics, or alerts to the underlying packets and connections** involved in the problem.  
+
+This lets teams **isolate faults faster** and **validate fixes** against the same data used to detect the initial symptom.
 
 ---
 
 ## Related terms
 
-- Wireshark
-- Active monitoring
-- TCP
-- Latency
-- Incident investigation
+- [What is Wireshark?](/docs/glossary/wireshark)  
+- [What is active monitoring?](/docs/glossary/active-monitoring)  
+- [What is TCP?](/docs/glossary/tcp)  
+- [What is latency?](/docs/glossary/latency)  
+- [What is incident investigation?](/docs/glossary/incident-investigation)  
 
 ---
 

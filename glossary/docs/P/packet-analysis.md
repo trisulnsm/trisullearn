@@ -31,7 +31,7 @@ export const jsonLd = {
       "name": "What does packet analysis reveal?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Packet analysis reveals security threats including malware communication and intrusion attempts, performance issues including latency and packet loss,protocol problems including malformed packets and protocol violations, application behavior including requests and responses, and network configuration problems including routing issues."
+        "text": "Packet analysis reveals security threats including malware communication and intrusion attempts, performance issues including latency and packet loss, protocol problems including malformed packets and protocol violations, application behavior including requests and responses, and network configuration problems including routing issues."
       }
     },
     {
@@ -55,59 +55,76 @@ export const jsonLd = {
 
 # What is packet analysis?
 
-Packet analysis captures and inspects individual packets to reveal security threats, performance issues, and protocol problems in real time. It uses packet capture data to diagnose network problems and investigate security incidents. Packet analysis provides deep visibility into network traffic.
+**Packet analysis** captures and **inspects individual packets** to reveal **security threats, performance issues, and protocol problems** in real time. It uses **packet capture data** (PCAP) to **diagnose network problems** and **investigate security incidents**, providing **deep visibility** into actual traffic behavior.
 
 ---
 
 ## How packet analysis works
 
-Packet analyzers capture real-time network traffic giving immediate insight into how data flows. Packets contain headers and payloads with crucial information revealing where slowdowns or issues occur. Tools like Wireshark and tcpdump capture and examine packets.
+Packet analysis:
 
-Analysis involves filtering by IP, port, or protocol. Protocol decoding interprets application-layer data. Statistics show traffic patterns and anomalies. Deep packet inspection reveals payload content for security analysis.
+- Uses **packet capture** (via TAPs, SPAN ports, or embedded capture) to collect **every packet or a representative subset** on a link.  
+- Relies on **packet analyzers** (e.g., Wireshark, tcpdump, Trisul) to **filter by IP, port, or protocol**, **decode layers**, and **extract application‑level details** from headers and payloads.  
+
+This combination reveals **exactly what is happening on the wire**, from **round‑trip timing and retransmissions** to **protocol‑level anomalies and payload content**.
 
 ---
 
 ## Packet analysis in network operations
 
-In the NOC, use packet analysis to troubleshoot application performance issues. Packet analyzers identify latency and response time problems by measuring round-trip times. Packet loss and retransmissions are detected through sequence number analysis. Jitter is monitored by tracking inter-packet delay.
+In the **NOC and network operations**, packet analysis:
 
-Security teams use packet analysis to investigate threats. PCAP files provide evidence for incident investigation. Protocol analysis reveals malware communication patterns. Payload inspection identifies malicious content.
+- Is used to **troubleshoot application performance**, identifying **latency, loss, retransmissions, and jitter** by inspecting TCP sequence numbers and timing.  
+- Helps **security teams** investigate **threats and intrusions** by examining **PCAP evidence**, **malware‑like patterns**, and **malformed or encrypted streams**.  
+
+Because it provides **full‑fidelity context**, packet analysis is often the **final step** in root‑cause analysis for both **performance and security incidents**.
 
 ---
 
 ## Packet analysis use cases
 
-| Use Case | Description |
-|---|---|
-| Security threat detection | Identify malware, intrusions, and attacks |
-| Performance troubleshooting | Diagnose latency, loss, and bottlenecks |
-| Protocol debugging | Find protocol violations and errors |
-| Application analysis | Understand requests and responses |
-| Network configuration | Identify routing and configuration issues |
+| Use case | Description |
+|----------|-------------|
+| Security threat detection | Identify malware, C2 traffic, intrusion attempts, and policy‑violating behavior |
+| Performance troubleshooting | Diagnose latency, packet loss, bottlenecks, and application responsiveness |
+| Protocol debugging | Find protocol violations, malformed packets, and corner‑case behavior |
+| Application analysis | Understand requests, responses, and application‑level flows (e.g., HTTP, DNS, VoIP) |
+| Network configuration | Identify routing problems, ACL issues, and other configuration‑related anomalies |
+
+These use cases make packet analysis a core tool for **troubleshooting, forensics, and compliance**.
 
 ---
 
 ## What makes packet analysis work in practice
 
-Capture completeness determines analysis quality. Packet capture must record all packets including headers and payloads. Missing packets create blind spots. Passive TAPs provide lossless capture while SPAN ports may drop packets under load.
+Packet analysis works best when:
 
-Analysis tool capability determines insight depth. Modern packet analyzers provide real-time analysis, filtering, protocol decoding, and statistics. Without capable tools, analysis becomes manual and time-consuming. Automated detection identifies threats faster.
+- **Capture is complete and reliable**: packet capture must record headers and, where allowed, payloads; **missing packets** create **blind spots**. **Passive TAPs** provide **lossless capture**, while **SPAN ports** may drop traffic under load.  
+- **Analysis tools are capable and integrated**: modern packet analyzers offer **filters, protocol decoders, statistics, and real‑time detection**; without powerful tools, packet analysis becomes slow, manual, and hard to scale.  
+
+Together, good capture and strong tooling turn packet analysis from a one‑off forensic chore into an **operational capability**.
 
 ---
 
 ## How Trisul handles packet analysis
 
-Trisul provides packet analysis through packet capture and flow data. From any alert, topper, or flow in the dashboard, analysts can pivot directly to the matching PCAP without manual file correlation. Packet capture records every packet headers and payload. Trisul builds per-flow index enabling fast PCAP retrieval. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+Trisul provides **packet analysis** by:
+
+- Ingesting **packet capture streams** and combining them with **flow‑level data** to give a unified view of traffic.  
+- Allowing analysts to **pivot directly from alerts, top‑talkers, or flows** to the **matching PCAP**, without manual file correlation.  
+- Building **per‑flow indexes** so that full packet records for any flow can be retrieved **quickly and contextually**.  
+
+For implementation details, see Trisul documentation at [https://docs.trisul.org/docs/ug/caps/](https://docs.trisul.org/docs/ug/caps/).
 
 ---
 
 ## Related terms
 
-- [What is packet capture?](/docs/glossary/packet-capture)
-- [What is PCAP analysis?](/docs/glossary/pcap-analysis)
-- [What is deep packet inspection?](/docs/glossary/dpi)
-- [What is Wireshark?](/docs/glossary/wireshark)
-- [What is network troubleshooting?](/docs/glossary/network-troubleshooting)
+- [What is packet capture?](/docs/glossary/packet-capture)  
+- [What is PCAP analysis?](/docs/glossary/pcap-analysis)  
+- [What is deep packet inspection?](/docs/glossary/dpi)  
+- [What is Wireshark?](/docs/glossary/wireshark)  
+- [What is network troubleshooting?](/docs/glossary/network-troubleshooting)  
 
 ---
 
@@ -115,7 +132,7 @@ Trisul provides packet analysis through packet capture and flow data. From any a
 
 ### What is packet analysis?
 
-Packet analysis captures and inspects individual packets to reveal security threats, performance issues, and protocol problems in real time. Network packet analysis captures and inspects individual packets to reveal security threats, performance issues, and protocol problems. It uses packet sniffers to intercept and store network packets for analysis.
+Packet analysis captures and inspects individual packets to reveal security threats, performance issues, and protocol problems in real time. It uses packet capture data to diagnose network problems and investigate security incidents.
 
 ### What does packet analysis reveal?
 
@@ -123,7 +140,7 @@ Packet analysis reveals security threats including malware communication and int
 
 ### What tools are used for packet analysis?
 
-Packet analyzers such as Wireshark, tcpdump, and Trisul capture and examine packets. Packet sniffers generate PCAP files for detailed analysis. Tools provide filtering, protocol decoding, and statistics. Modern packet analyzers offer real-time analysis and threat detection.
+Packet analyzers such as Wireshark, tcpdump, and Trisul capture and examine packets. Packet sniffers generate PCAP files for detailed analysis. Tools provide filtering, protocol decoding, and statistics. Modern packet analyzers offer real‑time analysis and threat detection.
 
 ### How is packet analysis performed?
 

@@ -1,5 +1,5 @@
 ---
-title: What is network security monitoring?
+title: What is Network Security Monitoring?
 description: Network Security Monitoring (NSM) is the collection and analysis of network data to detect and respond to security threats. It combines flow monitoring, packet capture, and IDS to provide comprehensive security visibility.
 sidebar_label: Network security monitoring
 sidebar_position: 74
@@ -55,59 +55,89 @@ export const jsonLd = {
 
 # What is Network Security Monitoring?
 
-Network Security Monitoring (NSM) is the collection and analysis of network data to detect and respond to security threats. It combines flow monitoring, packet capture, and intrusion detection systems to provide comprehensive security visibility. NSM detects and responds to security incidents through network data analysis.
+**Network Security Monitoring (NSM)** is the **collection and analysis of network data** to **detect and respond to security threats**. It combines **flow monitoring, packet capture, and intrusion detection systems (IDS)** to provide **comprehensive security visibility** across the network. NSM is the practice of **detecting, containing, and investigating security incidents** using network telemetry, and is a core discipline in modern SOC operations.
 
 ---
 
 ## How Network Security Monitoring works
 
-NSM collects flow data from NetFlow, sFlow, and IPFIX exporters. Full packet capture records every packet headers and payload. Intrusion detection systems analyze traffic for known attack patterns. Network behavior analysis identifies anomalies indicating threats. SIEM correlates alerts from all sources.
+NSM operates by:
 
-![](./images/nsm.png)
+- Collecting **flow data** (NetFlow, sFlow, IPFIX) to continuously track **who talks to whom, when, and how much** at high speed.  
+- **Capturing full packets (PCAP)** on selected segments or in response to alerts to enable **forensic‑level analysis** of traffic content.  
+- Running **signature‑ and anomaly‑based IDS/IPS** to detect known attack patterns and suspicious behavior.  
+- Using **network behavior analysis** (NBA) and **SIEM** to correlate alerts, flows, and logs into **incident timelines** and **evidence packages**.  
+
+This layered approach allows NSM to detect threats early at the flow level and then drop down to the packet level for confirmation and deep analysis.
+
+![./images/nsm.png](./images/nsm.png)
 
 ---
 
 ## NSM in network operations
 
-In the SOC, NSM is the security detection layer. Flow data or IDS alerts tell you something suspicious happened. Packet capture tells you what was exchanged: commands issued, files transferred, credentials passed. For incident confirmation, packet capture is the definitive record.
+In the **SOC**, NSM is the **primary security‑detection layer**:
 
-NOC teams use NSM data for application performance root cause analysis. TCP retransmissions, window behavior, TLS handshake failures, and application-level error codes indicate security issues or performance problems. Flow telemetry shows a conversation; packet capture shows whether it was broken.
+- **Flow or IDS alerts** indicate that something suspicious has occurred.  
+- **Packet capture** reveals **what was actually exchanged**: commands, files, credentials, or C2 traffic needed for incident confirmation.  
+
+In the **NOC**, NSM‑grade data also supports:
+
+- **Application‑level root‑cause analysis** of TCP, TLS, or application‑layer errors that can indicate either performance issues or covert exfiltration.  
+- **Security‑aware troubleshooting** where performance problems are cross‑checked against known malicious indicators.  
+
+NSM thus bridges **security and performance** into a single intelligence layer.
 
 ---
 
 ## NSM components
 
 | Component | Function |
-|---|---|
-| Flow monitoring | Traffic visibility through NetFlow and IPFIX |
-| Packet capture | Forensic investigation through PCAP |
-| IDS | Threat detection through signature and anomaly analysis |
-| SIEM | Alert correlation and centralized logging |
-| Network behavior analysis | Anomaly detection through machine learning |
+|----------|----------|
+| Flow monitoring | Continuous traffic visibility at scale using NetFlow, sFlow, or IPFIX |
+| Packet capture | PCAP‑based forensic investigation of any suspicious conversation |
+| IDS | Threat detection using signatures, heuristics, and protocol‑anomaly rules |
+| SIEM | Centralized correlation of alerts, logs, and events across the environment |
+| Network behavior analysis | Anomaly‑based detection of unknown or zero‑day threats |
+
+When properly integrated, these components form a **defense‑in‑depth monitoring stack** that supports both real‑time response and post‑incident forensics.
 
 ---
 
 ## What makes NSM work in practice
 
-Flow data enables early detection. Flow monitoring scales to gigabit speeds providing continuous visibility. When flow data indicates anomalies, packet capture is triggered for deep investigation. This reduces storage by 60 to 80 percent compared to continuous capture while retaining the ability to investigate any alert.
+Two design principles are critical:
 
-Index quality determines investigation speed. Without per-flow indexing, analysts scan raw files manually. With it, any alert can pivot directly to the relevant packets in seconds. For a terabyte-scale archive, this is the difference between a usable tool and an unusable one.
+- **Tiered capture and retention**:  
+  - Use **flow telemetry** for **continuous, high‑speed visibility**; only trigger or retain **PCAP on high‑risk segments or around alerts**.  
+  - This can reduce storage by **60–80%** versus full‑time capture while still allowing deep investigation of any alert.  
+- **Indexing and pivoting**:  
+  - **Per‑flow indexing** of PCAP lets analysts pivot from **any alert, flow, or host** directly to the matching packets in seconds, even in multi‑terabyte archives.  
+  - Without this, analysts must manually search huge files, making the system effectively unusable at scale.  
+
+Balancing coverage, fidelity, and storage is what separates a **production NSM** deployment from a lab‑only tool.
 
 ---
 
 ## How Trisul handles Network Security Monitoring
 
-Trisul supports NSM by providing flow-based visibility and packet capture for forensic investigation. Flow data enables identification of indicators of compromise, detection of unusual traffic patterns, and tracing of attack paths. From any alert, topper, or flow in the dashboard, analysts can pivot directly to the matching PCAP. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+Trisul supports **Network Security Monitoring** by:
+
+- Providing **flow‑based visibility** (NetFlow, sFlow, IPFIX, J‑Flow) to detect **indicators of compromise and unusual traffic patterns**.  
+- Capturing **raw packets continuously** and building a **per‑flow index**, so that from any **alert, top‑talker, or flow** in the dashboard, analysts can **pivot to the matching PCAP** without manual file correlation.  
+- Enabling **retro‑style analysis** where detection logic and taggers can be applied to historical packet data after the fact, to uncover previously undetected activity.  
+
+This architecture lets Trisul serve as the **central NSM platform** for both detection and forensic investigation. For deployment and capture‑topology guidance, see Trisul documentation at [https://docs.trisul.org/docs/ug/caps/](https://docs.trisul.org/docs/ug/caps/).
 
 ---
 
 ## Related terms
 
-- [What is threat detection?](/docs/glossary/threat-detection)
-- [What is intrusion detection system?](/docs/glossary/ids)
-- [What is packet capture?](/docs/glossary/packet-capture)
-- [What is SIEM?](/docs/glossary/siem)
-- [What is incident response?](/docs/glossary/incident-response)
+- [What is threat detection?](/docs/glossary/threat-detection)  
+- [What is intrusion detection system?](/docs/glossary/ids)  
+- [What is packet capture?](/docs/glossary/packet-capture)  
+- [What is SIEM?](/docs/glossary/siem)  
+- [What is incident response?](/docs/glossary/incident-response)  
 
 ---
 

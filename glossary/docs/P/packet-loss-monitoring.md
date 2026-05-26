@@ -55,62 +55,87 @@ export const jsonLd = {
 
 # What is packet loss monitoring?
 
-Packet loss monitoring detects and measures packets that fail to reach their destination. It identifies network problems including congestion, hardware failures, and configuration errors that degrade application performance and user experience. Packet loss occurs when packets are dropped before reaching their destination.
+**Packet loss monitoring** detects and **measures packets that fail to reach their destination**. It identifies **network problems** such as **congestion, hardware failures, and configuration errors** that degrade **application performance and user experience**. Packet loss occurs when packets are dropped before reaching their destination.
 
 ---
 
 ## How packet loss monitoring works
 
-Flow monitoring tracks input and output packet counts on interfaces. The difference between input and output indicates loss. Packet capture detects loss by analyzing TCP sequence numbers for gaps. Active probes measure loss by sending test packets and counting missing responses.
+Packet loss monitoring:
 
-Loss rates are calculated as percentage of packets lost. A 1% loss rate means 1 packet out of 100 is dropped. Monitoring alerts when loss exceeds thresholds. Trend analysis identifies increasing loss patterns.
+- Uses **flow monitoring** to track **input and output packet counts** on interfaces; the difference indicates loss.  
+- Uses **packet capture** to detect loss by **analyzing TCP sequence numbers** for gaps where packets are missing.  
+- Uses **active probes** to measure loss by **sending test packets** and **counting missing responses**.  
 
-![](./images/packetloss-monitoring.png)
+Loss rates are calculated as a **percentage of packets lost** (e.g., 1% loss means 1 out of 100 packets is dropped). Thresholds trigger **alerts** when loss exceeds acceptable levels, and **trend analysis** reveals **slowly degrading or suddenly spiking loss patterns**.
+
+![./images/packetloss-monitoring.png](./images/packetloss-monitoring.png)
 
 ---
 
 ## Packet loss monitoring in network operations
 
-In the NOC, monitor packet loss on critical links to detect problems before users report issues. Real-time applications like VoIP are especially sensitive to loss. Security teams detect loss patterns that might indicate attacks or network problems.
+In the **NOC**, packet loss monitoring:
 
-Capacity planning tracks loss trends. When loss increases consistently on a link, it signals congestion. Upgrade links before loss severely impacts application performance. Investigate sudden loss spikes immediately.
+- Is used on **critical links** to detect problems **before users report issues**, especially for **real‑time applications** such as **VoIP and video conferencing** that are highly sensitive to loss.  
+- Helps **security teams** spot patterns that may indicate **attacks, hardware faults, or configuration drift**.  
+
+For **capacity planning**, operators:
+
+- Track **loss trends** over time; rising loss on a link signals **congestion or aging hardware**.  
+- **Upgrade links or paths** proactively before loss severely impacts application performance.  
+- **Investigate sudden loss spikes** immediately to rule out outages or attacks.
 
 ---
 
 ## Packet loss causes
 
 | Cause | Description |
-|---|---|
-| Network congestion | Routers drop packets when buffers fill |
-| Hardware failures | Bad cables, faulty NICs, router issues |
-| Software bugs | Bugs in routers or switches |
-| Configuration errors | Incorrect MTU, routing problems |
-| Wireless interference | Wi-Fi signal interference and collisions |
-| Security attacks | DoS flooding overwhelming buffers |
+|-------|-------------|
+| Network congestion | Routers drop packets when buffers fill under load |
+| Hardware failures | Bad cables, faulty NICs, or failing router/switch components |
+| Software bugs | Bugs in router or switch code that drop packets incorrectly |
+| Configuration errors | Incorrect MTU, routing, or QoS settings |
+| Wireless interference | Wi‑Fi signal interference and collisions |
+| Security attacks | DoS or flooding attacks that overwhelm buffers |
+
+These conditions all lead to **packets being discarded** somewhere along the path.
 
 ---
 
 ## What makes packet loss monitoring work in practice
 
-Accurate measurement requires baseline knowledge. Normal networks have some loss. Monitor typical loss rates to establish baselines. Alert when loss exceeds baseline by significant margin. Without baselines, normal variation triggers false positives.
+Packet loss monitoring works best when:
 
-Interface counter reliability affects accuracy. Some interfaces reset counters on configuration changes. Monitor counter reset events. Track cumulative counts over long periods to detect trends. Short-term measurements may miss intermittent loss.
+- **Baselines are established**:  
+  - Even “healthy” networks show **small, normal loss rates**; monitoring these over time lets operators **set meaningful thresholds** and avoid **false positives** from normal variation.  
+- **Interface counters and long‑term trends** are trusted:  
+  - Counter resets on config changes or reboots can distort short‑term loss calculations.  
+  - **Cumulative counts over long periods** are more reliable for spotting **intermittent or gradual loss**.  
+
+Without baselines and stable counters, packet loss monitoring can become noisy or misleading.
 
 ---
 
 ## How Trisul handles packet loss monitoring
 
-Trisul monitors packet loss through flow data analysis tracking input and output packet counts on interfaces. The difference indicates loss. Packet capture detects loss by analyzing TCP sequence numbers for gaps. Loss rates are calculated and alerts trigger when thresholds are exceeded. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Trisul:
+
+- Monitors packet loss through **flow data analysis**, tracking **input and output packet counts** on interfaces; the difference indicates loss.  
+- Uses **packet capture** to detect loss by **analyzing TCP sequence numbers** for gaps.  
+- **Calculates loss rates** and **triggers alerts** when thresholds are exceeded, supporting both **real‑time monitoring** and **trend‑based capacity‑planning workflows**.  
+
+For configuration and usage details, see Trisul documentation at [https://docs.trisul.org/docs/ug/flow/](https://docs.trisul.org/docs/ug/flow/).
 
 ---
 
 ## Related terms
 
-- [What is network congestion?](/docs/glossary/congestion)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is packet capture?](/docs/glossary/packet-capture)
-- [What is network performance?](/docs/glossary/network-performance)
-- [What is VoIP?](/docs/glossary/voip)
+- [What is network congestion?](/docs/glossary/congestion)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is packet capture?](/docs/glossary/packet-capture)  
+- [What is network performance?](/docs/glossary/network-performance)  
+- [What is VoIP?](/docs/glossary/voip)  
 
 ---
 

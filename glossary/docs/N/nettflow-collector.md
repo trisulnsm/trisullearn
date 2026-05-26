@@ -55,58 +55,77 @@ export const jsonLd = {
 
 # What is NetFlow Collector?
 
-A NetFlow Collector receives, decodes, and stores flow records exported by NetFlow exporters. It aggregates flow data, provides analysis, and generates reports for bandwidth monitoring, traffic analysis, and security monitoring. The collector listens on UDP port 2055 or 9995 for incoming NetFlow data.
+A **NetFlow Collector** receives, decodes, and stores **flow records exported by NetFlow exporters** on routers and switches. It **aggregates flow data from multiple devices**, provides **analysis**, and generates **reports for bandwidth monitoring, traffic analysis, and security monitoring**. The collector typically listens on **UDP port 2055 or 9995** for incoming records.
 
 ---
 
 ## How NetFlow Collector works
 
-NetFlow Collector listens on a UDP port for incoming flow records. When records arrive, the collector decodes them based on NetFlow version and template. NetFlow v9 and IPFIX require template caching to decode variable-format records. Data is stored in databases or files for analysis.
+A NetFlow Collector:
+
+- Listens on a **UDP port** for incoming flow records (NetFlow, sFlow, J‑Flow, IPFIX).  
+- **Decodes** each record using the appropriate format or **template** (for v9 and IPFIX).  
+- **Stores** records in **databases or files** and **aggregates** them by interface, host, application, or protocol.  
+
+For **NetFlow v9 and IPFIX**, the collector must **cache templates** to decode variable‑format data correctly.
 
 ---
 
 ## NetFlow Collector in network operations
 
-In the NOC, use the NetFlow Collector to aggregate flow data from all routers and switches. Bandwidth utilization reports show link usage over time. Top talkers reports identify hosts consuming most bandwidth. Security teams analyze flow data for anomalies and threats.
+In the **NOC and security operations**:
 
-Collector capacity must match flow volume. If flow rate exceeds collector capacity, data is dropped. Monitor collector CPU, memory, and storage to ensure capacity is adequate. Scale collectors when flow volume increases.
+- Use the collector as the **central hub** for traffic‑level telemetry.  
+- Generate **bandwidth, top‑talker, and application‑usage reports** for operations and security.  
+- Implement **anomaly detection and capacity‑planning reports** from the same data.
+
+Capacity planning, storage, and CPU must scale with **flow volume** from all exporters.
 
 ---
 
-## Collector capabilities
+## NetFlow Collector capabilities
 
 | Capability | Description |
-|---|---|
-| Flow aggregation | Aggregate flows by interface, host, application |
-| Bandwidth tracking | Track utilization over time |
-| Top talkers | Identify high-traffic hosts |
-| Anomaly detection | Detect unusual traffic patterns |
-| Reporting | Generate utilization and capacity reports |
-| Storage | Store flow data for historical analysis |
+|-----------|-------------|
+| Flow aggregation | Group flows by interface, host, app, or service |
+| Bandwidth tracking | Monitor utilization over time |
+| Top talkers | Identify high‑traffic hosts and services |
+| Anomaly detection | Detect traffic patterns deviating from baseline |
+| Reporting | Generate utilization, capacity, billing‑style reports |
+| Storage | Retain flow data for historical analysis and forensics |
 
 ---
 
 ## What makes NetFlow Collector work in practice
 
-Template caching is essential for NetFlow v9 and IPFIX. The collector must cache templates to decode data records. If templates are lost or expired, data cannot be decoded until new templates arrive. Template resend intervals must be configured correctly on exporters.
-
-Storage capacity must support retention requirements. Flow data volume depends on network size and flow rate. High-speed networks generate millions of flows per hour. Storage must hold data for the required retention period. Archiving old data to cheaper storage extends retention.
+- **Template caching**: For v9 and IPFIX, the collector must **keep templates up to date**; expired or lost templates make records unreadable until new templates arrive.  
+- **Storage and retention**:  
+  - High‑speed networks generate **millions of flows per hour**.  
+  - Retention must match **compliance and operational needs**, often using **tiered storage** for long‑term data.  
+- **Scalability**:  
+  - Large environments may use **clustered or distributed collectors** to avoid bottlenecks.
 
 ---
 
 ## How Trisul handles NetFlow Collector
 
-Trisul acts as a NetFlow Collector receiving NetFlow v5, NetFlow v9, J-Flow, sFlow, and IPFIX data. Trisul decodes flow records using template caching for v9 and IPFIX. Flow data is stored in backend databases enabling historical analysis and reporting. Login as user to view dashboards, charts, and reports. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Trisul acts as a **NetFlow Collector**, receiving **NetFlow v5, NetFlow v9, J‑Flow, sFlow, and IPFIX** data. It:
+
+- Decodes records using **template‑aware parsing**.  
+- Stores data in **backend databases** for **historical analysis and reporting**.  
+- Provides dashboards, charts, and reports from the aggregated flow data.  
+
+Operators log in to view views and alerts. For sizing and topology guidance, see Trisul documentation at [https://docs.trisul.org/docs/ug/flow/](https://docs.trisul.org/docs/ug/flow/).
 
 ---
 
 ## Related terms
 
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is IPFIX?](/docs/glossary/ipfix)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
-- [What is traffic analysis?](/docs/glossary/network-traffic-analysis)
+- [What is NetFlow?](/docs/glossary/netflow)  
+- [What is IPFIX?](/docs/glossary/ipfix)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)  
+- [What is traffic analysis?](/docs/glossary/network-traffic-analysis)  
 
 ---
 

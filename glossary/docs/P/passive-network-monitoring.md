@@ -55,57 +55,89 @@ export const jsonLd = {
 
 # What is passive network monitoring?
 
-Passive network monitoring observes network traffic without injecting test traffic or interfering with normal operations. It captures packets or flows from network links using TAPs or SPAN ports. Passive monitoring provides visibility without affecting network performance or introducing additional latency.
+**Passive network monitoring** observes **network traffic** without injecting test traffic or interfering with normal operations. It captures **packets or flows** from network links using **TAPs or SPAN ports**, providing **visibility without affecting network performance or introducing additional latency**.
 
 ---
 
 ## How passive monitoring works
 
-Passive monitoring uses network TAPs or SPAN ports to copy traffic to monitoring devices. TAPs provide lossless passive observation by splitting the optical or electrical signal. SPAN ports mirror traffic from source ports to destination monitoring ports. Flow exporters observe passing packets and generate flow records.
+Passive monitoring:
 
-Packet capture at passive observation points records all packets. Flow monitoring generates metadata from observed packets. Both methods observe traffic without injecting test packets.
+- Uses **network TAPs** or **SPAN ports** to **copy traffic** to monitoring devices.  
+  - **TAPs** provide **lossless passive observation** by splitting the optical or electrical signal.  
+  - **SPAN ports** mirror traffic from source ports to destination monitoring ports.  
+- Uses **flow exporters** on routers and switches to **observe passing packets** and **generate flow records** (e.g., NetFlow, IPFIX, sFlow).  
+
+At passive observation points:
+
+- **Packet capture** records **all packets** (or a representative subset).  
+- **Flow monitoring** extracts **metadata** (e.g., 5‑tuple, bytes, duration) from the observed packets.  
+
+In both cases, passive monitoring **does not inject test traffic**.
 
 ---
 
 ## Passive monitoring in network operations
 
-In the NOC, use passive monitoring to observe real user traffic without affecting network performance. Security teams detect threats through passive traffic analysis. Capacity planning uses passive traffic data showing actual usage patterns.
+In the **NOC**, passive monitoring:
 
-Passive monitoring provides complete visibility into encrypted traffic. While payload content is encrypted, flow metadata and TLS handshake information are visible. Passive monitoring captures this data without breaking encryption.
+- Is used to observe **real user traffic** without affecting network performance.  
+- Supports **capacity planning** by showing **actual usage patterns** rather than synthetic workloads.  
+- Enables **security teams** to detect threats through **traffic‑based analysis** (e.g., unusual flows, DNS exfiltration, covert channels).  
+
+Passive monitoring also:
+
+- Provides **full visibility into encrypted traffic**: while payload content is encrypted, **flow metadata and TLS handshake information** remain visible.  
+- Captures this data **without breaking encryption** or requiring inline inspection.
 
 ---
 
 ## Passive monitoring methods
 
 | Method | Description | Lossless |
-|---|---|---|
+|--------|-------------|----------|
 | Network TAP | Passive optical or electrical signal splitter | Yes |
-| SPAN port | Switch port mirroring | No, may drop under load |
+| SPAN port | Switch port mirroring to a monitoring port | No, may drop under load |
 | Flow exporter | Router observes packets and exports flow data | No, sampling may miss packets |
+
+Each method has its own **trade‑off between fidelity, scalability, and deployment cost**.
 
 ---
 
 ## What makes passive monitoring work in practice
 
-Observation point placement determines coverage. Passive monitoring can only see traffic passing observation points. Place TAPs or SPAN ports at all critical locations. Missing observation points create blind spots where traffic goes unmonitored.
+Passive monitoring works best when:
 
-Lossless monitoring requires passive TAPs. SPAN ports drop packets under load without indicating loss. For forensic investigation passive TAPs ensure complete packet capture. For flow monitoring SPAN ports are acceptable since flow data is less sensitive to packet loss.
+- **Observation points are well‑placed**:  
+  - Passive monitoring can only see traffic that **passes its observation points**.  
+  - **Critical links and borders** (e.g., WAN edges, internet gateways, core links) must have **TAPs or SPAN ports**; missing points create **blind spots**.  
+- **Lossless capture is matched to the use case**:  
+  - **Passive TAPs** are required for **full‑fidelity forensic monitoring** where packet‑level completeness matters.  
+  - **SPAN ports and flow exporters** are often sufficient for **trending, anomaly detection, and capacity planning**, where some sampling is acceptable.  
+
+Combining thoughtful placement with the right capture method turns passive monitoring into a **reliable, non‑intrusive visibility layer**.
 
 ---
 
 ## How Trisul handles passive monitoring
 
-Trisul implements passive network monitoring through flow data collection from routers and switches. NetFlow, J-Flow, sFlow, and IPFIX exporters observe passing packets and export flow records. Packet capture uses passive TAPs or SPAN ports for observation. Trisul does not inject test traffic providing passive visibility. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Trisul:
+
+- Implements **passive network monitoring** through **flow data collection** from routers and switches (NetFlow, J‑Flow, sFlow, IPFIX).  
+- Uses **packet capture** fed from **passive TAPs or SPAN ports** to provide **wire‑level visibility**.  
+- **Does not inject test traffic**, so it remains **non‑intrusive and latency‑neutral** while still giving both **flow‑based and packet‑based views** of the network.  
+
+For configuration and deployment details, see Trisul documentation at [https://docs.trisul.org/docs/ug/flow/](https://docs.trisul.org/docs/ug/flow/).
 
 ---
 
 ## Related terms
 
-- [What is network TAP?](/docs/glossary/network-tap)
-- [What is SPAN port?](/docs/glossary/span-port)
-- [What is active monitoring?](/docs/glossary/active-monitoring)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is packet capture?](/docs/glossary/packet-capture)
+- [What is network TAP?](/docs/glossary/network-tap)  
+- [What is SPAN port?](/docs/glossary/span-port)  
+- [What is active monitoring?](/docs/glossary/active-monitoring)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is packet capture?](/docs/glossary/packet-capture)  
 
 ---
 

@@ -64,277 +64,65 @@ export const jsonLd = {
 
 # What is host analytics?
 
-Host analytics is the analysis of traffic, communication patterns, and operational behavior associated with a specific host or endpoint using flow telemetry, packet analysis, historical trends, and contextual metadata.
-
-Host analytics focuses on understanding how individual systems behave on the network, including:
-- Which systems they communicate with
-- Which applications they use
-- How much bandwidth they consume
-- How behavior changes over time
-- Whether unusual activity exists
-- Whether traffic patterns match operational expectations
-
-Host analytics is commonly used for:
-- Troubleshooting
-- Security investigations
-- Endpoint visibility
-- Traffic analysis
-- Capacity planning
-- Threat hunting
-- User-behavior analysis
-- Operational reporting
-
-Common host targets include:
-- Workstations
-- Servers
-- Virtual machines
-- Cloud instances
-- IoT devices
-- Subscriber devices
-
-Trisul supports host-level traffic-analysis workflows through flow visibility, historical analysis, and investigative drill-down capabilities.
+**Host analytics** is the analysis of **traffic, communication patterns, and operational behavior** associated with a specific host or endpoint using **flow telemetry, packet analysis, historical trends, and contextual metadata**. Instead of looking at the network as a whole, it drills down to individual systems such as workstations, servers, virtual machines, cloud instances, or IoT devices, answering questions like “who is this host talking to?”, “how much does it transfer?”, and “has its behavior changed over time?”. Host analytics is widely used for **troubleshooting, security investigations, endpoint visibility, and capacity‑aware design**.
 
 ---
 
 ## How host analytics works
 
-Host analytics gathers telemetry associated with a specific endpoint and organizes it into operationally useful views.
-
-Common telemetry sources include:
-- NetFlow
-- IPFIX
-- sFlow
-- Packet telemetry
-- DNS activity
-- Interface traffic analysis
-- Host metadata
-- Subscriber context
-
-Typical workflow:
-
-1. **Telemetry collection** → Flow and traffic data is collected
-2. **Host identification** → Traffic is grouped by endpoint identity
-3. **Behavior aggregation** → Traffic patterns are summarized
-4. **Trend analysis** → Historical behavior is analyzed
-5. **Operational investigation** → Analysts drill into host activity
-
-Host analytics may examine:
-- Bandwidth consumption
-- Communication peers
-- Applications and protocols
-- Port usage
-- Traffic direction
-- Session behavior
-- Historical trends
-- Anomalous activity
-
-The exact visibility depends on:
-- Telemetry completeness
-- Host-identification quality
-- Monitoring placement
-- Historical retention
-- Metadata enrichment
-
-![](./images/host-analytics.png)
+Host analytics starts by **grouping telemetry around a specific endpoint** (IP address, hostname, or device‑identifier) and then aggregating metrics over time. Common telemetry sources include **NetFlow, IPFIX, sFlow, packet‑derived flows, DNS logs, firewall events, and host metadata**. The workflow is: **telemetry collection → host identification → behavior aggregation → trend analysis → investigation**. Operators can examine a host’s **bandwidth, peers, applications, ports, protocols, traffic direction, session patterns, and anomaly‑scores** to understand whether its activity is normal, overloaded, or potentially malicious.
 
 ---
 
 ## Host analytics in network operations
 
-Host analytics is widely used across operational and security environments.
-
-### NOC operations
-
-Network operations teams use host analytics for:
-- Endpoint troubleshooting
-- Application-performance analysis
-- Bandwidth investigations
-- Capacity planning
-- Utilization trending
-- Traffic engineering
-
-Operators commonly investigate:
-- Which applications a host uses
-- Which peers communicate most frequently
-- Whether bandwidth consumption changed
-- Whether traffic patterns appear abnormal
-- Which systems dominate traffic
-
-Historical analysis helps teams identify:
-- Recurring endpoint behavior
-- Utilization growth
-- Peak-usage patterns
-- Application-related congestion
-
-### SOC operations
-
-Security teams use host analytics for:
-- Threat investigations
-- Malware analysis
-- Beaconing investigations
-- Data-exfiltration analysis
-- Lateral-movement investigations
-- Behavioral anomaly detection
-
-Host analytics helps analysts determine:
-- Which external systems a host contacted
-- Whether communication patterns changed unexpectedly
-- Whether suspicious destinations exist
-- Whether unusual protocols or ports appeared
-- Whether traffic timing matches known attack behavior
-
-Security analysis commonly correlates:
-- Flow telemetry
-- DNS activity
-- Firewall logs
-- Endpoint telemetry
-- Threat intelligence
-- Historical baselines
-
-### ISP and carrier environments
-
-ISPs and carriers may use host analytics for:
-- Subscriber visibility
-- Customer troubleshooting
-- Usage analysis
-- Capacity planning
-- Service investigations
-- Traffic engineering
-
-The operational value depends heavily on:
-- Telemetry quality
-- Historical retention
-- Host-identification accuracy
-- Query performance
-- Correlation workflows
+In **NOC** environments, host analytics supports **application‑troubleshooting, capacity planning, and performance analysis** by revealing which applications a host uses, which peers it talks to most, and how its bandwidth consumption evolves. In **SOC** workflows, it is central to **threat‑hunting, beaconing analysis, lateral‑movement investigations, and data‑exfiltration detection**, because analysts can inspect a single host’s communication history, compare it against baselines, and correlate it with DNS, firewall, and endpoint logs. In **ISP and carrier** settings, host analytics improves **subscriber‑visibility and customer‑troubleshooting**, where operators need to understand per‑device usage without losing scalability at network scale.
 
 ---
 
 ## Common host analytics views
 
 | View | Operational purpose |
-|---|---|
-| Top peers | Identify major communication partners |
-| Applications and protocols | Understand service usage |
-| Traffic trends | Observe historical behavior changes |
-| Ports and services | Analyze service access patterns |
-| Directional traffic | Examine inbound and outbound communication |
-| Historical ranking | Compare host activity over time |
+|------|----------------------|
+| Top peers | Discover a host’s main communication partners |
+| Applications and protocols | Reveal what services or protocols a host uses |
+| Traffic trends | Spot long‑term changes in usage or anomalies |
+| Ports and services | Identify listening or client‑side service usage |
+| Directional traffic | Separate inbound and outbound behavior |
+| Historical ranking | Track how a host’s activity compares over time |
 
-Additional workflows may include:
-- ASN analysis
-- Geographic visibility
-- DNS analysis
-- Session investigation
-- Packet drill-down
-
-depending on telemetry availability.
+Depending on telemetry, these views can be extended with **ASN‑, geography‑, or DNS‑based context**, enriching each host with more operational meaning.
 
 ---
 
-## Host analytics vs network-wide analytics
+## Host analytics vs network‑wide analytics
 
-| Dimension | Host analytics | Network-wide analytics |
-|---|---|---|
-| Primary focus | Individual endpoint behavior | Aggregate network behavior |
-| Scope | Single host or endpoint | Entire network environment |
-| Common use case | Endpoint investigations | Capacity and infrastructure visibility |
-| Typical workflows | Host troubleshooting and investigations | Trend analysis and operational monitoring |
-| Common telemetry | Host-associated traffic | Aggregated network telemetry |
-
-The two workflows are complementary and commonly correlated together.
+**Host analytics** focuses on **individual‑endpoint behavior**, helping operators investigate specific workstations, servers, or subscribers. **Network‑wide analytics** focuses on **aggregate patterns** across the entire topology, such as link‑utilization, application‑mix, or top‑talker distributions. The two are complementary: network‑wide dashboards show where traffic is dense, and host analytics explains **which devices drive that traffic** and how they are behaving. In security, this combination lets teams go from “a segment is spiking” to “this specific host caused the spike.”
 
 ---
 
 ## What makes host analytics effective
 
-Effective host analytics depends heavily on:
-- Accurate host identification
-- Historical telemetry retention
-- Metadata enrichment
-- Correlation workflows
-- Query scalability
-- Traffic visibility
-
-Operational challenges commonly include:
-- NAT visibility limitations
-- Dynamic IP addressing
-- Shared systems
-- Incomplete telemetry
-- High-cardinality traffic
-- Cloud and hybrid-network complexity
-
-Analysis quality also depends on:
-- DNS visibility
-- Endpoint context
-- Historical baselines
-- Traffic attribution accuracy
-- Monitoring placement
-
-Host analytics becomes more useful when:
-- Hostnames are resolved consistently
-- Subscriber mappings are available
-- Historical trends can be compared
-- Multiple telemetry sources are correlated
-
-Organizations commonly improve host visibility through:
-- Flow-based monitoring
-- Historical telemetry retention
-- Metadata enrichment
-- DNS correlation
-- Centralized analytics workflows
+Host analytics is effective when it has **accurate host‑identification, good historical telemetry, and rich metadata**. Challenges include **NAT, dynamic IPs, shared systems, and cloud‑provider mobility**, which can obscure true endpoint identity. Organizations improve accuracy by combining **flow‑based visibility, DNS resolution, endpoint inventories, and metadata enrichment**, and by indexing host‑level telemetry so that queries on a given IP or hostname return consistent, time‑spanning behavior views. Effective teams also define **behavioral baselines** (e.g., a “normal” email‑server pattern) to detect anomalies automatically.
 
 ---
 
 ## How Trisul handles host analytics
 
-Trisul supports host analytics through integrated traffic-analysis, historical visibility, and investigative workflows.
-
-Relevant capabilities include:
-
-- **Host-level traffic visibility**
-- **Historical traffic analysis**
-- **Flow and packet visibility**
-- **Explore Flows** for investigative drill-down
-- **Top-K analytics**
-- **Flow Taggers** for contextual telemetry enrichment
-- **Traffic-pattern and trend analysis**
-- **NetFlow, IPFIX, sFlow, and packet-derived telemetry support**
-- **Operational dashboards and investigation workflows**
-
-Trisul can help operators:
-- Investigate endpoint behavior
-- Analyze host communication patterns
-- Identify bandwidth consumers
-- Correlate traffic behavior historically
-- Investigate suspicious endpoint activity
-- Support operational and security investigations
-
-These workflows are particularly useful for:
-- Endpoint investigations
-- Threat hunting
-- Troubleshooting
-- Traffic analysis
-- Capacity planning
-- Operational reporting
-
-Relevant Trisul use cases:
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-security-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#advanced-threat-detection
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#network-performance-monitoring
-- https://www.trisul.org/trisul-netflow-analyzer-usecases/#isp-and-carrier-monitoring
+Trisul supports **host analytics** by exposing **host‑level traffic visibility, historical‑flow analysis, and investigative workflows** built around any chosen endpoint. Through **Explore Flows, Top‑K analytics, Flow Taggers, and traffic‑pattern views**, operators can pivot from broad dashboards to **detailed per‑host traffic cards**, drilling into peers, applications, and time‑series trends. This is useful for **endpoint‑troubleshooting, threat‑investigations, capacity‑analysis, and subscriber‑usage reporting**, where Trisul’s flow‑centric engine and historical‑indexing turn per‑host telemetry into an actionable, searchable resource.
 
 ---
 
 ## Related terms
 
-- [Endpoint monitoring](/glossary/endpoint-monitoring)
-- [Host monitor](/glossary/host-monitor)
-- [Top talkers](/glossary/top-talkers)
-- [Traffic investigation](/glossary/traffic-investigation)
-- [Device visibility](/glossary/device-visibility)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Flow attribution](/glossary/flow-attribution)
+- Host analytics  
+- Endpoint monitoring  
+- Host monitor  
+- Top talkers  
+- Traffic investigation  
+- Device visibility  
+- Flow monitoring  
+- Flow attribution  
 
 ---
 
@@ -358,4 +146,4 @@ Host analytics is used to investigate individual systems by analyzing traffic pa
 
 ### How does Trisul support host analytics?
 
-Trisul supports host analytics through host-level traffic visibility, historical flow analysis, Explore Flows investigations, Top-K analytics, and contextual traffic analysis workflows that help operators investigate endpoint behavior.
+Trisul supports host analytics through host‑level traffic visibility, historical flow analysis, Explore Flows investigations, Top‑K analytics, and contextual traffic analysis workflows that help operators investigate endpoint behavior.

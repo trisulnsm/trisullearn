@@ -54,58 +54,73 @@ export const jsonLd = {
 
 # What is an internet exchange?
 
-An internet exchange, or IX, is a place where networks connect and exchange traffic directly instead of sending it through a third party.
+An **internet exchange** (or **IX**, also called an **internet exchange point** or **IXP**) is a **physical or virtual location where networks connect and exchange traffic directly**, rather than sending it through a third‑party transit provider. At an IX, networks peer with each other over a shared **exchange fabric**, enabling traffic between them to bypass commercial transit links. This improves efficiency, reduces latency, and lowers transit costs, especially for high‑volume services such as cloud providers, CDNs, and large ISPs.
 
 ---
 
 ## How internet exchanges work
 
-Networks connect to the exchange and peer with each other over shared infrastructure. This allows traffic to move directly between participants.
+Networks connect to the IX by **provisioning ports on the exchange fabric** and then **establishing peering sessions** (often via BGP) with other participants. When traffic between two networks flows through the IX, it is **routed directly** across the fabric, not via an intermediary upstream provider. This direct path:
 
-Direct exchange can reduce cost and improve latency. It also keeps more traffic local, which can improve performance.
+- **Reduces latency**, because the distance between networks is shorter.  
+- **Improves performance**, especially for content‑heavy traffic such as video.  
+- **Lowers costs**, because traffic that would otherwise be metered as transit is instead exchanged locally.  
+
+IXPs often provide **management interfaces, route servers, and traffic statistics** to help operators manage and monitor their peering relationships.
 
 ---
 
 ## Internet exchanges in network operations
 
-Internet exchanges are important for service providers, content networks, and large enterprises. They can carry high volumes of traffic and need careful monitoring.
-
-Operators watch load, peering patterns, and performance at the exchange. Congestion at this point can affect many downstream users.
+Internet exchanges are especially important for **ISPs, cloud providers, CDNs, and large enterprises** that carry large volumes of traffic and want to optimize routing. Operators watch **traffic volume, link utilization, peering counts, and congestion** on their IX‑connected links, because problems at the exchange can affect many downstream users. For example, **congested IX ports or failures in the exchange fabric** can increase latency, cause packet loss, or trigger traffic‑routing shifts to more expensive transit paths. Accurate monitoring of IX traffic also supports **capacity planning, peering strategy, and SLA‑based reporting**.
 
 ---
 
 ## Common exchange concepts
 
 | Concept | Meaning |
-|---|---|
-| Peering | Direct traffic exchange |
-| Transit | Traffic through a third party |
-| Exchange fabric | Shared interconnection network |
-| Local delivery | Traffic stays closer to source |
+|--------|---------|
+| Peering | Direct exchange of traffic between networks at the IX |
+| Transit | Traffic that is carried over a third‑party provider’s network |
+| Exchange fabric | Shared Ethernet or switched fabric that interconnects IX participants |
+| Local delivery | Traffic that stays close to source and destination via direct peering |
+
+Understanding how these concepts interact helps operators design and troubleshoot networks that leverage IX‑based peering.
 
 ---
 
 ## What makes internet exchanges useful
 
-Internet exchanges are useful because they improve routing efficiency and can lower latency. They also give networks more control over where traffic goes.
+Internet exchanges are useful because they **optimize routing, reduce latency, and lower transit costs**. By keeping traffic **local** between participating networks, IXs:
 
-Because they can carry large volumes, they are often important points for monitoring and capacity planning.
+- Improve **end‑user experience** for content‑heavy and real‑time services.  
+- Give networks **more control** over where their traffic goes and how it is billed.  
+- Reduce **dependence on upstream providers** for heavily used destinations.  
+
+Because IX‑connected links often carry very high volumes, they are **critical points for monitoring and capacity planning**, where even small changes in peering behavior or congestion can have broad impact.
 
 ---
 
 ## How Trisul handles internet exchanges
 
-Trisul can help observe traffic patterns and load at internet exchange points so operators can understand peering and congestion behavior.
+Trisul can observe **traffic patterns and load at internet exchange points** by analyzing **flow‑based telemetry (NetFlow, IPFIX, sFlow, J‑Flow)** and key performance indicators. Operators can:
+
+- Track **traffic volume and peering‑partner behavior** across IX‑connected interfaces.  
+- Detect **congestion, traffic spikes, or routing shifts** that may indicate fabric or policy issues.  
+- Correlate IX‑fabric traffic with **interface utilization and packet‑loss metrics** for capacity‑aware analysis.  
+
+This is especially useful for **ISPs, carriers, and large enterprises** that rely on IX‑based peering, where understanding peering and congestion behavior at the exchange is essential for performance and cost‑control.
 
 ---
 
 ## Related terms
 
-- Cloud monitoring
-- Network performance
-- Traffic pattern analysis
-- Link load
-- Congestion detection
+- Internet exchange  
+- Cloud monitoring  
+- Network performance  
+- Traffic pattern analysis  
+- Link load  
+- Congestion detection  
 
 ---
 

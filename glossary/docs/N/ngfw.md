@@ -54,55 +54,104 @@ export const jsonLd = {
 
 # What is an NGFW?
 
-An NGFW, or next-generation firewall, is a firewall that combines traditional packet filtering with application awareness, intrusion prevention, and advanced security controls.
+An **NGFW**, or **next‑generation firewall**, is a firewall that combines **traditional packet filtering** with **application awareness, intrusion prevention, and advanced security controls**. Unlike basic stateful firewalls that filter only by IP, port, and protocol, NGFWs inspect traffic content, identify applications, and enforce rich security policies across the network.
 
 ---
 
 ## How an NGFW works
 
-An NGFW still filters traffic like a classic firewall, but it also looks deeper into application behavior. It can identify applications, inspect traffic patterns, and apply richer security policy.
+An NGFW:
 
-This gives operators more control than simple port-based filtering. It also helps detect threats that hide behind allowed ports or protocols.
+- Performs **classic packet and stateful inspection** (allow/deny based on source/destination, port, and protocol).  
+- Adds **deep‑packet inspection (DPI)** and **application identification** to recognize apps (e.g., SaaS, video conferencing, cloud storage) regardless of port.  
+- Integrates **intrusion prevention (IPS)** to detect and block known attack signatures and some zero‑day patterns.  
+- Enforces **user‑based policies**, URL filtering, and TLS/SSL inspection (often in decryption‑mode deployments).  
+
+This allows operators to **block risky apps**, contain threats that hide behind common ports, and enforce security not just by IP but by **application, user, and content**.
 
 ---
 
 ## NGFW in network operations
 
-NGFWs are used at network boundaries and between security zones. They help protect user, server, and internet-facing segments.
+NGFWs are typically deployed:
 
-They also produce logs that are useful in investigations. Analysts can see what was allowed, what was blocked, and which applications were being used.
+- At **network perimeters** (e.g., between internal networks and the internet).  
+- Between **security zones** such as user, server, and DMZ segments.  
+
+In practice:
+
+- NGFWs protect **user, server, and internet‑facing workloads** with stronger, more granular policy than traditional firewalls.  
+- They generate **traffic and security logs** that show **allowed vs denied traffic, application usage, and detected threats**, which are crucial for incident investigation and policy tuning.
 
 ---
 
 ## NGFW vs classic firewall
 
 | Feature | Classic firewall | NGFW |
-|---|---|---|
+|--------|------------------|------|
 | Packet filtering | Yes | Yes |
-| Application awareness | Limited | Yes |
-| Intrusion prevention | Limited | Often yes |
-| Policy depth | Basic | Advanced |
+| Stateful inspection | Yes | Yes |
+| Application awareness | Very limited | Yes (by app, not just port) |
+| Intrusion prevention | Minimal or none | Often built‑in IPS |
+| Policy depth | Source/dest, port, protocol | User, app, content, URL, threat |
+
+NGFWs retain firewall basics but layer on **application‑level visibility and threat‑focused enforcement**.
 
 ---
 
 ## What makes NGFW work in practice
 
-NGFW policy needs to be carefully tuned. Too much inspection can create overhead, and too many rules can make policy hard to manage.
+Three operational aspects are key:
 
-The best NGFW deployments balance control, performance, and visibility. Monitoring is needed to make sure the firewall is not becoming a bottleneck.
+- **Policy tuning**:  
+  - Over‑broad inspection or too many rules can create **CPU load and latency** and make policy hard to maintain.  
+  - Policies should be scoped to **business‑important apps and services** with clear change‑control.  
+- **Performance and scalability**:  
+  - NGFWs can become **bottlenecks** if not sized correctly for traffic volume, especially with TLS decrypt‑inspect‑reencrypt.  
+  - Monitoring **throughput, CPU, and dropped sessions** is essential.  
+- **Visibility and logging**:  
+  - NGFWs must export **logs and flow data** to monitoring tools so that allowed/blocked traffic and threat detections are visible to security and operations.
+
+When tuned well, NGFWs strike a balance of **strong security, acceptable performance, and manageable policy**.
 
 ---
 
 ## How Trisul handles NGFW
 
-Trisul helps show the effect of NGFW policy on traffic by tracking flows, applications, and performance patterns. This helps operators verify that security controls are working without hiding important traffic behavior.
+Trisul helps operators **observe and validate NGFW‑driven behavior** by:
+
+- Tracking **flows, application usage, and traffic patterns** upstream and downstream of the NGFW.  
+- Correlating **NGFW logs and NetFlow‑style data** to show **what traffic is allowed, which apps are being used, and where policy may be hiding important behavior**.  
+- Enabling **performance and capacity views** so that teams can see whether the NGFW is introducing latency or dropping sessions.  
+
+This integration lets Trisul act as a **traffic‑visibility counterpart** to NGFW control, helping operators verify that security policy is effective without obscuring critical traffic behavior.
 
 ---
 
 ## Related terms
 
-- Firewall
-- IDS
-- IPS
-- Application visibility
-- Packet filtering
+- [What is firewall?](/docs/glossary/firewall)  
+- [What is IDS?](/docs/glossary/ids)  
+- [What is IPS?](/docs/glossary/ips)  
+- [What is application visibility?](/docs/glossary/application-visibility)  
+- [What is packet filtering?](/docs/glossary/packet-filtering)  
+
+---
+
+## Frequently asked questions
+
+### What is an NGFW?
+
+An NGFW, or next‑generation firewall, is a firewall that combines traditional packet filtering with application awareness, intrusion prevention, and advanced security controls.
+
+### How is an NGFW different from a normal firewall?
+
+A normal firewall mainly filters traffic by address, port, or protocol. An NGFW adds deeper inspection, application identification, and often intrusion prevention features.
+
+### Why are NGFWs used?
+
+NGFWs are used to enforce stronger security policy, understand application traffic, and detect more advanced threats than basic port‑based filtering can catch.
+
+### What should be monitored on an NGFW?
+
+Operators should monitor allowed and denied traffic, application usage, threat detections, utilization, and latency impact. This shows whether the firewall is helping or causing problems.

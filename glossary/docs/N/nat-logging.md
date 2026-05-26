@@ -55,36 +55,46 @@ export const jsonLd = {
 
 # What is NAT logging?
 
-NAT logging records Network Address Translation events including source and destination IP address mappings, port translations, and timestamps. It tracks address translations for security auditing, troubleshooting, and compliance. NAT logging preserves the mapping between private and public IPs to enable traffic tracing.
+**NAT logging** records **Network Address Translation (NAT) events** including **source and destination IP address mappings, port translations, and timestamps**. It preserves the mapping between **private internal IPs and public or translated IPs** so that traffic can be traced back to the original host. NAT logging is used for **security auditing, troubleshooting, and compliance** in NAT‑heavy environments.
 
 ---
 
 ## How NAT logging works
 
-NAT logging occurs on routers, firewalls, and NAT gateways that perform address translation. When a packet is translated, the NAT device creates a translation entry and logs the event. Logs are sent to collectors via Syslog or stored locally. Each log entry includes original and translated addresses with timestamps.
+NAT logging occurs on **routers, firewalls, and NAT gateways** that perform address translation. When a packet is translated, the device:
 
-![](./images/nat-logging.png)
+- Creates a **translation entry** in its NAT table.  
+- Optionally **logs the event**, including the **original and translated IP/port pairs** and **timestamps**.
+
+Logs are usually sent to a **collector via Syslog** or stored locally. Each log entry enables **reverse‑mapping** from a public IP/port back to the original internal host.
 
 ---
 
 ## NAT logging in network operations
 
-In the NOC, use NAT logs to troubleshoot connectivity issues caused by translation failures. Security teams analyze NAT logs to trace external threats back to internal hosts. Compliance teams use NAT logs for audit requirements showing who accessed what external resources from inside the network.
+In the **NOC and security operations**:
 
-NAT logs help identify unauthorized NAT configurations. When internal hosts use unexpected external IPs, NAT logs reveal the translation and identify the source.
+- Use NAT logs to **troubleshoot connectivity** caused by translation failures or timer expirations.  
+- Security teams use NAT logs to **trace external threats back to internal hosts**, especially when traffic is seen from a public IP.  
+- Compliance teams use NAT logs for **audit reports** on who accessed external resources from inside the network.
+
+NAT logs also help detect **unauthorized NAT configurations**; for example, when internal hosts use unexpected public IPs, the logs reveal the source.
 
 ---
 
 ## NAT logging data fields
 
 | Field | Description |
-|---|---|
+|-------|-------------|
 | Original source IP | Internal IP before translation |
 | Translated source IP | Public IP after translation |
 | Original source port | Internal port before translation |
-| Translated source port | Public port after translation |
-| Timestamp creation | When translation entry was created |
-| Timestamp expiration | When translation entry was removed |
+| Translated source port | Port assigned during translation |
+| Original destination IP | Destination IP seen from the inside |
+| Translated destination IP | Destination IP as seen from the outside |
+| Protocol | IP protocol (TCP, UDP, ICMP, etc.) |
+| Timestamp creation | When the NAT entry was created |
+| Timestamp expiration | When the NAT entry was removed |
 | Bytes transferred | Total bytes in the translation session |
 | Packets transferred | Total packets in the translation session |
 
@@ -92,25 +102,27 @@ NAT logs help identify unauthorized NAT configurations. When internal hosts use 
 
 ## What makes NAT logging work in practice
 
-Log completeness determines investigation capability. Missing NAT logs mean lost translation history. Enable logging on all NAT devices and ensure logs reach the collector reliably. Retry logic handles temporary collector outages.
-
-Log retention period must match compliance requirements. Some regulations require NAT logs for 90 days or longer. Storage capacity must support the retention period. NAT logging generates significant data during high translation volumes.
+- Logs must be **enabled on all NAT devices** and reach a **reliable, centralized collector** with retry on failures.  
+- Retention period must match or exceed **compliance requirements** (often 90 days or more).  
+- NAT logs should be **correlated with flow and firewall logs** so that analysts can pivot from a public IP to the internal source.
 
 ---
 
 ## How Trisul handles NAT logging
 
-Trisul correlates NAT logging data with flow records to provide visibility into address translations. When NAT logs are available, Trisul maps translated IPs back to original internal IPs. This enables accurate traffic analysis even when NAT obscures the original source. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Trisul can **correlate NAT logging data with flow records**, mapping **translated IPs back to original internal IPs**. This enables accurate traffic analysis and attribution, even when NAT obscures the true source. Trisul then shows **per‑tenant or per‑subscriber views** enriched with NAT mapping.
+
+For configuration and correlation guidance, see Trisul documentation at [https://docs.trisul.org/docs/ug/flow/](https://docs.trisul.org/docs/ug/flow/).
 
 ---
 
 ## Related terms
 
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is security auditing?](/docs/glossary/security-auditing)
-- [What is firewall logging?](/docs/glossary/firewall-logging)
-- [What is incident investigation?](/docs/glossary/incident-investigation)
-- [What is Syslog?](/docs/glossary/syslog)
+- [What is NetFlow?](/docs/glossary/netflow)  
+- [What is security auditing?](/docs/glossary/security-auditing)  
+- [What is firewall logging?](/docs/glossary/firewall-logging)  
+- [What is incident investigation?](/docs/glossary/incident-investigation)  
+- [What is Syslog?](/docs/glossary/syslog)  
 
 ---
 

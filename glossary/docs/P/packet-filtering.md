@@ -54,58 +54,90 @@ export const jsonLd = {
 
 # What is packet filtering?
 
-Packet filtering is the process of allowing or blocking network packets based on rules such as source, destination, protocol, port, or application. It is a core function of firewalls and access control systems.
+**Packet filtering** is the process of **allowing or blocking network packets** based on **rules** such as **source, destination, protocol, port, or application**. It is a **core function of firewalls and access control systems**, used to enforce which traffic is permitted on a network.
 
 ---
 
 ## How packet filtering works
 
-Packet filtering checks each packet against a configured rule set. A packet that matches an allow rule is forwarded. A packet that matches a deny rule is dropped. Rules can be based on IP addresses, ports, protocols, or connection state.
+Packet filtering:
 
-Filtering may be stateless or stateful. Stateless filtering evaluates each packet independently. Stateful filtering tracks connection context and uses that state to decide whether a packet should pass.
+- Checks **each packet** against a **configured rule set**.  
+- Allows packets that match **accept rules** and **drops** those that match **deny rules**.  
+
+Rules can be based on:
+
+- **IP addresses, ports, protocols**, or  
+- **Connection state** (stateful vs stateless filtering).  
+
+- **Stateless filtering** evaluates each packet independently.  
+- **Stateful filtering** tracks **connection context** (e.g., established sessions) and uses that state to decide whether a packet should pass.
 
 ---
 
 ## Packet filtering in network operations
 
-Packet filtering is used to enforce network security policy. It blocks traffic that is not permitted and reduces exposure to unnecessary or malicious connections. It also helps limit broadcast, multicast, or unwanted application traffic.
+In network operations, packet filtering:
 
-In network operations, packet filtering is often deployed at the edge, between zones, or around sensitive services. It is a basic control used in both enterprise and ISP environments.
+- **Enforces security policy** by blocking traffic that is not allowed and reducing exposure to **unnecessary or malicious connections**.  
+- Helps **limit broadcast, multicast, and unwanted application traffic**.  
+
+It is typically deployed:
+
+- At the **network edge**,  
+- **Between security zones**, or  
+- Around **sensitive services or segments**.  
+
+This makes it a **basic but critical control** in both enterprise and ISP environments.
 
 ---
 
 ## Packet filtering vs related controls
 
 | Control | Purpose |
-|---|---|
+|---------|---------|
 | Packet filtering | Allow or block packets by rule |
-| Firewall | Enforce security policy using filtering and state |
-| ACL | Simple rule-based traffic control |
-| IDS/IPS | Detect or prevent malicious traffic |
+| Firewall | Enforce security policy using filtering and connection state |
+| ACL | Simple rule‑based traffic control on routers and switches |
+| IDS/IPS | Detect or prevent malicious traffic patterns |
+
+Packet filtering is the **foundational mechanism** behind many of these systems.
 
 ---
 
 ## What makes packet filtering work in practice
 
-Rule order matters because the first matching rule may decide the outcome. Too many rules can increase processing overhead. Poorly written rules can accidentally block valid traffic or allow unwanted traffic.
+Packet filtering works best when:
 
-Filtering must be reviewed regularly as applications and network paths change. A rule set that was correct last month may no longer match current traffic patterns.
+- **Rule order and logic are clear**:  
+  - Rule order often matters because the **first matching rule decides the outcome**.  
+  - Too many rules can increase **processing overhead** and make troubleshooting harder.  
+- **Policies are reviewed regularly**:  
+  - Applications and network paths change; rules that were correct last month may **no longer reflect current traffic**.  
+  - Poorly written rules can **accidentally block valid traffic** or **allow unwanted traffic**.  
+
+Regular audits and traffic‑based validation keep filtering aligned with business and security needs.
 
 ---
 
 ## How Trisul handles packet filtering
 
-Trisul can observe the effect of packet filtering by showing what traffic is actually passing through the network. This helps operators compare intended policy against real traffic. It also helps identify denied traffic patterns, unexpected sources, and blocked application flows.
+Trisul can:
+
+- **Observe the effect of packet filtering** by showing **what traffic is actually passing through the network**.  
+- Help operators **compare intended policy** against **real‑world traffic**, identifying **denied flows, unexpected sources, and blocked application conversations**.  
+
+This makes Trisul useful for **policy validation**, **change‑impact analysis**, and **security‑monitoring workflows** around filtered segments.
 
 ---
 
 ## Related terms
 
-- Firewall
-- ACL
-- Packet capture
-- Network security monitoring
-- Policy enforcement
+- [What is a firewall?](/docs/glossary/firewall)  
+- [What is an ACL?](/docs/glossary/acl)  
+- [What is packet capture?](/docs/glossary/packet-capture)  
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)  
+- [What is policy enforcement?](/docs/glossary/policy-enforcement)  
 
 ---
 

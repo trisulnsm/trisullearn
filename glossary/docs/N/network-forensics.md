@@ -55,59 +55,84 @@ export const jsonLd = {
 
 # What is network forensics?
 
-Network forensics is the capture, recording, and analysis of network events to investigate security incidents, troubleshoot problems, and gather evidence for legal proceedings. It uses packet capture and flow data to reconstruct network activity. Network forensics is a sub-branch of digital forensics focused on network traffic.
+**Network forensics** is the **capture, recording, and analysis of network events** to **investigate security incidents, troubleshoot problems, and gather evidence for legal or compliance proceedings**. It uses **packet capture (PCAP)** and **flow data** to reconstruct **what network activity occurred, when, and between which hosts**. Network forensics is a **sub‑branch of digital forensics** focused specifically on traffic‑level artifacts.
 
 ---
 
 ## How network forensics works
 
-Network forensics captures full packet capture (PCAP) recording every packet headers and payload. Flow records summarize conversations between source and destination. Logs from routers, firewalls, and servers provide additional context. Analysts use tools like Wireshark to filter and analyze captured data.
+Network forensics typically:
 
-Retro analysis enables new detection rules to be run against stored historical PCAP after the fact. This matters because threat intelligence often arrives days after an intrusion. With retro analysis, you can determine whether a host communicated with a newly-discovered malicious domain before you knew to look for it.
+- Captures **full packet capture (PCAP)**, recording **every packet header and payload** for selected segments or time windows.  
+- Collects **flow records** from **NetFlow or IPFIX** that summarize **who talked to whom, when, and how much**.  
+- Pulls in **logs** from routers, firewalls, DNS servers, and authentication systems for context.  
+- Lets analysts use tools like **Wireshark** to **filter, dissect, and reconstruct sessions** to understand command‑and‑control traffic, file transfers, or application‑level errors.
+
+A key capability is **retro analysis**: new detection rules or indicators can be run against stored PCAP **after an incident is discovered**, to determine whether a host communicated with a newly‑known malicious domain or pattern before the rule existed.
 
 ---
 
 ## Network forensics in network operations
 
-In the SOC, network forensics is the evidence layer for incident investigation. Flow data or IDS alerts tell you something suspicious happened. PCAP tells you what was exchanged: commands issued, files transferred, credentials passed. For incident confirmation, there is no substitute.
+In the **SOC and NOC**:
 
-NOC teams use network forensics for application performance root cause analysis. TCP retransmissions, window behavior, TLS handshake failures, and application-level error codes are only visible at the packet level. Flow telemetry shows a conversation; it does not show that the conversation was broken.
+- Network forensics provides the **evidence layer** for incident investigation, where **flow‑level alerts** indicate suspicion and **packet‑level captures** show **exactly what was exchanged** (e.g., commands, files, credentials).  
+- For **incident confirmation**, there is **no substitute for PCAP**; flow telemetry shows a conversation, but only packets show that the conversation was encrypted, malformed, or compromised.  
+- NOC teams use network forensics for **application‑level root‑cause analysis** (e.g., TCP retransmits, window stalls, TLS handshake failures, application‑level errors) that are invisible at the flow layer.  
+- It supports **legal and compliance cases** by providing **timestamped, chain‑of‑custody–ready evidence** showing **who did what and when** on the network.
+
+Where **network monitoring** is **forward‑looking and real‑time**, **network forensics** is **backward‑looking and evidence‑driven**.
 
 ---
 
 ## Network forensics data sources
 
 | Source | What it provides |
-|---|---|
-| PCAP | Full packet content headers and payload |
-| Flow records | Who talked to whom, when, how much |
-| Network logs | Device events and configuration changes |
-| DNS logs | Name resolution queries and responses |
-| Authentication logs | Login attempts and session data |
+|--------|------------------|
+| PCAP | Full packet headers and payloads; the “ground truth” of network behavior |
+| Flow records | Summarized conversations (who, when, how much) for triage and reporting |
+| Network logs | Device events, policy changes, and topology information |
+| DNS logs | Name‑resolution queries and responses mapping domains to IPs |
+| Authentication logs | Login attempts, session start/end times, and user IDs |
+
+When combined, these sources let analysts move from a **high‑level alert** to a **detailed timeline** efficiently.
 
 ---
 
 ## What makes network forensics work in practice
 
-Capture point determines loss. SPAN ports drop mirrored packets under load silently, above roughly 500 Mbps on a busy switch. Passive optical taps are the only lossless option for high-speed links. Lossless capture ensures forensic evidence is complete.
+Two design choices are critical:
 
-Index quality determines investigation speed. Without per-flow indexing, analysts scan raw files manually. With it, any alert can pivot directly to the relevant packets in seconds. For a terabyte-scale archive, this is the difference between a usable tool and an unusable one.
+- **Capture method and fidelity**:  
+  - **SPAN / RSPAN** can be **lossy under load**, especially above roughly 500 Mbps on a busy switch.  
+  - **Passive optical taps** are the only **lossless** option for high‑speed links; they guarantee that **no packets are dropped** during the capture window.  
+- **Indexing and queryability**:  
+  - Without **per‑flow or per‑session indexing**, analysts must **manually scan raw PCAP files**, which is infeasible at terabyte‑scale.  
+  - With indexing, **any alert can pivot directly to the matching packets in seconds**, making archives **operationally usable** rather than just “stored.”
+
+Retention and storage must also match **incident‑response and compliance requirements**, often using **tiered storage** for long‑term evidence.
 
 ---
 
 ## How Trisul handles network forensics
 
-Trisul captures raw packets continuously using PF_RING or AF_PACKET and builds a per-flow index at write time. From any alert, topper, or flow in the dashboard, analysts can pivot directly to the matching PCAP without manual file correlation. Retro analysis allows detection logic and flow taggers to be run against historical packet data after the fact. Full documentation is at https://docs.trisul.org/docs/ug/caps/.
+Trisul supports **network forensics** by:
+
+- Capturing **raw packets continuously** using **PF_RING or AF_PACKET** on selected segments, ensuring **near‑lossless or lossless capture** when properly deployed.  
+- Building a **per‑flow index at write time**, so that from any **alert, top‑talker, or flow** in the dashboard, analysts can **pivot directly to the matching PCAP** without manual file correlation.  
+- Enabling **retro analysis**, where **new detection logic and flow taggers** can be applied to **historical packet data** after the fact, to uncover previously undetected activity.  
+
+This integration lets Trisul serve as a **centralized, forensics‑ready platform** at the intersection of **flow‑based detection** and **packet‑level investigation**. For capture‑topology and sizing guidance, see Trisul documentation at [https://docs.trisul.org/docs/ug/caps/](https://docs.trisul.org/docs/ug/caps/).
 
 ---
 
 ## Related terms
 
-- [What is packet capture?](/docs/glossary/packet-capture)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is incident response?](/docs/glossary/incident-response)
-- [What is retro analysis?](/docs/glossary/retro-analysis)
-- [What is digital forensics?](/docs/glossary/digital-forensics)
+- [What is packet capture?](/docs/glossary/packet-capture)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is incident response?](/docs/glossary/incident-response)  
+- [What is retro analysis?](/docs/glossary/retro-analysis)  
+- [What is digital forensics?](/docs/glossary/digital-forensics)  
 
 ---
 
@@ -115,7 +140,7 @@ Trisul captures raw packets continuously using PF_RING or AF_PACKET and builds a
 
 ### What is network forensics?
 
-Network forensics is the capture, recording, and analysis of network events to investigate security incidents, troubleshoot problems, and gather evidence for legal proceedings. It uses packet capture and flow data to reconstruct network activity. Network forensics is a sub-branch of digital forensics.
+Network forensics is the capture, recording, and analysis of network events to investigate security incidents, troubleshoot problems, and gather evidence for legal proceedings. It uses packet capture and flow data to reconstruct network activity. Network forensics is a sub‑branch of digital forensics.
 
 ### What data is used in network forensics?
 
@@ -127,4 +152,4 @@ Network forensics investigates security breaches to determine what happened, how
 
 ### How does network forensics differ from network monitoring?
 
-Network monitoring focuses on real-time visibility and anomaly detection for operations. Network forensics focuses on historical investigation and evidence collection for incidents. Monitoring detects problems, forensics investigates them. Both use flow data and packet capture but for different purposes.
+Network monitoring focuses on real‑time visibility and anomaly detection for operations. Network forensics focuses on historical investigation and evidence collection for incidents. Monitoring detects problems, forensics investigates them. Both use flow data and packet capture but for different purposes.

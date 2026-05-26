@@ -54,55 +54,95 @@ export const jsonLd = {
 
 # What is link load?
 
-Link load is the amount of traffic carried by a network link relative to its available capacity. It is a key measure of how heavily a link is being used.
+**Link load** is the **amount of traffic carried by a network link relative to its available capacity**. It is a core metric for understanding how heavily a given circuit or interface is being used and is often expressed either as a **traffic rate (e.g., Mbps, Gbps)** or as a **percentage of the link’s maximum bandwidth**. Because link load directly reflects how close a path is to its throughput limit, it serves as a key input for **capacity planning, congestion detection, and traffic‑engineering decisions**.
 
 ---
 
 ## How link load works
 
-Link load is calculated by comparing observed traffic with the link’s maximum bandwidth. A 500 Mbps stream on a 1 Gbps link means the link is carrying about half of its capacity.
+Link load is calculated by **comparing the observed traffic volume on a link with its maximum configured speed**. For example:
 
-The number may be shown as Mbps, Gbps, or a percentage. The important part is how close the traffic is to the link limit.
+- A **1 Gbps Ethernet link** carrying **500 Mbps** of traffic has a link load of roughly **50%**.  
+- A **10 Gbps backbone interface** carrying **8 Gbps** of traffic is operating at about **80% load**.  
+
+This comparison can be applied per direction (inbound vs outbound) or as a bidirectional total, depending on the measurement scope. The critical insight is not just the absolute rate, but **how close that rate is to the link’s capacity** and whether it is sustained over time.
 
 ---
 
 ## Link load in network operations
 
-Operators use link load to see which circuits are busy and which are underused. It helps with capacity planning and with identifying when a link is becoming stressed.
+In **NOC and infrastructure teams**, link load is used to:
 
-High load does not always mean a problem, but it often leads to queueing or packet loss if it stays high for too long. That is why load is watched over time.
+- Identify **which circuits or interfaces are busy** and which are underutilized.  
+- Detect **links that are approaching or exceeding their capacity**, potentially causing **congestion, queuing, and packet loss**.  
+- Support **capacity planning** by showing long‑term load trends and peak utilization windows.  
+
+A **temporary spike** in link load may be acceptable (e.g., backups or large transfers), but **sustained high load**, especially above 70–80% of capacity, often indicates a candidate for **upgrade, traffic‑steering, or policy adjustment**.
 
 ---
 
 ## Link load vs related measures
 
 | Measure | Meaning |
-|---|---|
-| Link load | Traffic carried by the link |
-| Utilization | Percent of capacity used |
-| Saturation | Load high enough to cause issues |
-| Throughput | Actual delivered data rate |
+|--------|---------|
+| Link load | Traffic currently carried by the link (rate or percent of capacity) |
+| Utilization | Percentage of link capacity being used over a given interval |
+| Saturation | Load high enough that the link is consistently congested |
+| Throughput | Actual delivered data rate experienced end‑to‑end |
+
+These metrics are closely related but distinct: **link load** is the instant‑on traffic rate, **utilization** is its normalized expression over time, and **saturation** is the operational state where load consistently pushes the link into congestion.
 
 ---
 
 ## What makes link load useful
 
-Load is best understood as a trend, not a single number. A temporary spike may be acceptable, but sustained high load is more important.
+Link load is most valuable when viewed as a **trend**, not a single snapshot. Operators gain the most insight by:
 
-The most useful view compares load with latency, loss, and queueing. That shows whether the link is simply busy or actually struggling.
+- Watching **how load evolves over minutes, hours, and days**.  
+- Correlating load with **latency, packet loss, and queueing** to distinguish a merely busy link from a **bottlenecked one**.  
+- Comparing **links within the same path or role** (e.g., core vs edge, WAN vs LAN) to spot imbalances.  
+
+When combined with **traffic‑matrix and path‑level analytics**, link load transforms from a simple counter into a powerful signal for **capacity‑planning, traffic‑engineering, and SLA monitoring**.
 
 ---
 
 ## How Trisul handles link load
 
-Trisul shows link load through interface and traffic views so operators can track how busy a circuit is and whether it is approaching saturation.
+Trisul shows **link load** through **interface‑ and circuit‑level views**, aggregating traffic telemetry (e.g., NetFlow, sFlow, IPFIX, or SNMP‑based counters) to expose utilization over time. It enables operators to:
+
+- Track **how busy a circuit is** and whether it is **approaching saturation**.  
+- Visualize **load trends** and compare **multiple interfaces or segments** side‑by‑side.  
+- Correlate load with **traffic patterns, application behavior, and anomalies** to understand *why* a link is busy.  
+
+This supports **capacity‑planning workflows, congestion detection, and proactive path‑optimization decisions** without requiring per‑link packet capture.
 
 ---
 
 ## Related terms
 
-- Interface utilization
-- Interface saturation
-- Queueing
-- Packet loss
-- Capacity planning
+- Link load  
+- Interface utilization  
+- Interface saturation  
+- Queueing  
+- Packet loss  
+- Capacity planning  
+
+---
+
+## Frequently asked questions
+
+### What is link load?
+
+Link load is the amount of traffic carried by a network link relative to its available capacity. It is a key measure of how heavily a link is being used.
+
+### How is link load measured?
+
+Link load is usually measured by comparing traffic volume against the configured speed of the link. The result is often shown as a percentage or traffic rate.
+
+### Why is link load important?
+
+Link load is important because high load can lead to congestion, queueing, and packet loss. It is also a basic input to capacity planning.
+
+### How is link load used in analytics?
+
+Link load is used to identify busy circuits, compare traffic across interfaces, and detect when a link is nearing saturation.

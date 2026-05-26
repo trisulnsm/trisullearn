@@ -1,6 +1,6 @@
 ---
 title: What is IPDR?
-description: IPDR (Internet Protocol Detail Record) is an industry standard for collecting and exchanging IP-based service usage and billing data in telecommunications networks, similar to Call Detail Records but for IP services.
+description: IPDR (Internet Protocol Detail Record) is a standardized framework for collecting and exchanging IP-based service usage data in telecommunications and service-provider networks for subscriber visibility, usage accounting, compliance, and OSS/BSS workflows.
 sidebar_label: IPDR
 sidebar_position: 53
 slug: /glossary/ipdr
@@ -23,7 +23,7 @@ export const jsonLd = {
       "name": "What is IPDR?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "IPDR (Internet Protocol Detail Record) is an industry standard for collecting and exchanging IP-based service usage and performance data in telecommunications networks. It provides information about IP-based service usage and other activities that can be used by operations support systems and business support systems. IPDR is the IP equivalent of the traditional telecom Call Detail Record."
+        "text": "IPDR (Internet Protocol Detail Record) is a standardized framework for collecting and exchanging IP-based service usage data in telecommunications and service-provider networks. It is commonly used for subscriber visibility, usage accounting, compliance, OSS/BSS integration, and service-provider analytics workflows."
       }
     },
     {
@@ -31,7 +31,7 @@ export const jsonLd = {
       "name": "What data does IPDR contain?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "IPDR contains detailed information about network events including source and destination IP addresses, timestamps, packet sizes, protocols used, service quality metrics, subscriber identification, session duration, and data volume. The content is determined by the service provider, network element vendor, or community of users specifying particulars of IP-based services in a given context."
+        "text": "IPDR records commonly contain source and destination IP addresses, timestamps, session duration, subscriber identifiers, usage metrics, protocol information, service attributes, and traffic statistics associated with IP-based services."
       }
     },
     {
@@ -39,7 +39,7 @@ export const jsonLd = {
       "name": "What are the use cases for IPDR?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "IPDR is used for billing and accounting including usage-based billing and data volume tracking, traffic analysis including identifying heavy users and popular applications and bottlenecks, capacity planning including resource allocation and infrastructure scaling, security monitoring including anomaly detection and threat detection and incident response, QoS monitoring to ensure critical services receive necessary bandwidth, compliance and auditing for regulatory requirements and data retention laws, and policy enforcement for access controls and traffic rules."
+        "text": "IPDR is commonly used for subscriber accounting, usage monitoring, telecom analytics, capacity planning, security investigations, regulatory compliance, and OSS/BSS integration workflows."
       }
     },
     {
@@ -47,7 +47,7 @@ export const jsonLd = {
       "name": "What is the IPDR Streaming Protocol?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The IPDR Streaming Protocol is a real-time reporting protocol released in 2004 that provides an advanced streaming protocol for accounting information exchange. It works with templates negotiated between the collector and exporter, supports TCP, SCTP, or BEEP as transport protocols, and offers reliability through transport protocol-level acknowledgments and IPDR streaming protocol-level acknowledgments. The protocol is largely based on the CRANE protocol."
+        "text": "The IPDR Streaming Protocol is a protocol designed for real-time exchange of IPDR records between exporters and collectors. It supports reliable transport, template-based record exchange, and subscriber-accounting workflows in telecommunications environments."
       }
     }
   ]
@@ -55,60 +55,133 @@ export const jsonLd = {
 
 # What is IPDR?
 
-IPDR (Internet Protocol Detail Record) is an industry standard for collecting and exchanging IP-based service usage and billing data in telecommunications networks, similar to Call Detail Records but for IP services. It provides detailed insights into network events, traffic flows, and subscriber usage for billing, monitoring, security, and capacity planning.
+**IPDR (Internet Protocol Detail Record)** is a standardized framework for collecting and exchanging IP-based service usage data in telecommunications and service-provider networks. It is commonly used for subscriber visibility, usage accounting, billing support, telecom analytics, regulatory compliance, and OSS/BSS integration workflows.
+
+IPDR is often compared to traditional telecom **Call Detail Records (CDR)**, but instead of voice-call metadata, IPDR records capture information about IP-based sessions, subscriber activity, service usage, traffic behavior, and network events across broadband and IP services.
+
+Unlike traditional flow telemetry, IPDR workflows are often tightly integrated with subscriber accounting systems, billing platforms, compliance processes, and telecom-service operations where subscriber-centric visibility is operationally important.
+
+In provider environments, IPDR helps teams maintain visibility into subscriber usage, traffic consumption, service utilization, and network behavior across large-scale access infrastructure.
 
 ---
 
 ## How IPDR works
 
-IPDR data is created by networking devices like cable modems, set-top boxes, CMTS, OLT, gateways, and other network elements. Each IPDR record contains metadata about network activity including IP addresses, timestamps, packet sizes, and protocols. IPDR data is stored, aggregated, and sent to operations and business support systems for processing.
+IPDR records are generated by network infrastructure elements such as broadband gateways, CMTS platforms, OLT systems, access concentrators, BRAS/BNG devices, and other service-edge infrastructure.
 
-![](./images/ipdr.png)
+These records typically contain metadata associated with network sessions or subscriber activity, including:
+
+- Source and destination IP addresses
+- Session timestamps and duration
+- Subscriber identifiers
+- Traffic volume and usage statistics
+- Protocol or service information
+- QoS-related metrics and service attributes
+
+A typical workflow includes:
+
+1. **Session or service activity occurs** – Subscriber traffic or service activity is observed by network infrastructure
+2. **Record generation** – Network devices generate IPDR records describing the activity
+3. **Collection and export** – Records are exported to collectors, OSS/BSS systems, analytics platforms, or compliance systems
+4. **Correlation and analysis** – Teams correlate usage records with subscriber systems, billing platforms, traffic telemetry, or service-management infrastructure
+5. **Retention and reporting** – Historical records are retained for analytics, compliance, troubleshooting, or accounting workflows
+
+IPDR implementations commonly use XML-based schemas with extensible fields, allowing providers and vendors to support environment-specific telecom requirements and subscriber-accounting workflows.
+
+![./images/ipdr.png](./images/ipdr.png)
 
 ---
 
 ## IPDR in network operations
 
-IPDR supports billing and accounting with usage-based billing and data volume tracking. Traffic analysis identifies heavy users, popular applications, and bottlenecks. Capacity planning uses resource usage patterns to scale infrastructure appropriately. Security monitoring detects anomalies and suspicious behavior and supports incident response. QoS monitoring ensures critical services receive necessary bandwidth and prioritizes traffic. Compliance and auditing meet regulatory requirements and facilitate audits with comprehensive records.
+In telecommunications and broadband-provider environments, IPDR supports a broad set of subscriber-management and telecom-analysis workflows.
+
+Common uses include:
+
+- Subscriber accounting and usage tracking
+- Billing and OSS/BSS integration
+- Capacity planning and usage forecasting
+- Subscriber-behavior visibility
+- Traffic and service analytics
+- Regulatory compliance and audit workflows
+- Security investigations and infrastructure troubleshooting
+
+In broadband and large-scale access environments, IPDR records help operators understand how subscribers consume services, how bandwidth is utilized, and how traffic patterns evolve across access infrastructure over time.
+
+Provider teams often correlate IPDR records with flow telemetry, DNS visibility, authentication records, subscriber mapping systems, and traffic-analysis platforms to improve attribution accuracy and troubleshooting visibility.
+
+In NAT-heavy or carrier-grade environments, IPDR workflows are especially valuable because subscriber activity may otherwise be difficult to associate with specific users or sessions using flow telemetry alone.
 
 ---
 
 ## Uses of IPDR data
 
-| Use Case | Description |
-|---|---|
-| Billing and accounting | Track data usage by individual users and customers for usage-based billing |
-| Traffic analysis | Identify heavy users, popular applications, and network bottlenecks |
-| Capacity planning | Understand resource usage patterns to scale infrastructure appropriately |
-| Security monitoring | Detect anomalies and suspicious behavior and support incident response |
-| QoS monitoring | Ensure critical services receive necessary bandwidth and prioritize traffic |
-| Compliance and auditing | Meet regulatory requirements and facilitate audits with comprehensive records |
-| Policy enforcement | Enforce network security policies and access controls based on traffic rules |
-| Threat detection | Identify malicious network activity using intrusion detection systems |
+| Use case | Purpose |
+|----------|---------------------|
+| Billing and accounting | Support subscriber usage accounting and billing workflows |
+| Traffic analysis | Analyze subscriber traffic patterns and bandwidth utilization |
+| Capacity planning | Forecast bandwidth growth and infrastructure demand |
+| Security investigations | Support investigation and anomaly-analysis workflows |
+| QoS monitoring | Analyze service usage and traffic-priority behavior |
+| Compliance and auditing | Retain subscriber usage records for regulatory requirements |
+| Policy enforcement | Support subscriber-based service or traffic policies |
+
+Depending on the environment, IPDR data may also be correlated with subscriber identity systems, flow telemetry, DNS activity, authentication systems, or telecom analytics platforms.
 
 ---
 
-## What makes IPDR work in practice
+## What makes IPDR workflows effective
 
-Data completeness determines billing accuracy. Missing IPDR records mean unbilled usage. Network elements must be configured to generate IPDR for all sessions and send them to the collector reliably. Retry logic handles temporary collector outages. Duplicate detection prevents double-billing when records are resent.
+Effective IPDR deployments depend on reliable export workflows, accurate subscriber attribution, consistent schemas, synchronized timestamps, and long-term historical retention.
 
-Schema flexibility enables vendor-specific extensions. IPDR uses XML Schema with a mapping to binary format based on XDR. Standard fields cover common use cases. Enterprise-specific extensions add custom metrics without breaking compatibility. Collectors must parse both standard and extended fields correctly.
+Common challenges include:
+
+- Missing or incomplete export records
+- Inconsistent vendor-specific schema extensions
+- Duplicate-record handling
+- Large-scale subscriber-data retention requirements
+- Synchronization issues between telecom systems
+- Attribution complexity in NAT-heavy environments
+
+Organizations commonly improve IPDR workflows by centralizing record collection, normalizing schema variations, correlating IPDR records with subscriber systems and flow telemetry, and maintaining searchable historical archives for investigation and compliance workflows.
+
+Reliable retention and attribution workflows are especially important in service-provider environments where subscriber visibility and regulatory reporting requirements are business-critical.
 
 ---
 
-## How Trisul handles IPDR
+## In Trisul
 
-Trisul collects and analyzes IPDR data from various sources including CMTS, OLT, gateways, and other network elements. IPDR records are parsed and correlated with flow data including NetFlow, IPFIX, and sFlow to provide comprehensive visibility into subscriber usage, traffic patterns, and service quality. This enables billing support, capacity planning, and security monitoring with detailed subscriber-level data. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+Trisul supports IPDR-oriented subscriber-analysis workflows through flow telemetry analysis, subscriber visibility workflows, historical traffic analysis, and large-scale ISP traffic monitoring capabilities.
+
+Using NetFlow, IPFIX, sFlow, and related telemetry workflows, operators can correlate subscriber usage behavior with historical traffic patterns, DNS activity, authentication telemetry, and flow records to investigate service-consumption trends or troubleshoot subscriber-impact events.
+
+Traffic-analysis workflows help teams investigate subscriber behavior, analyze bandwidth utilization patterns, retain long-term visibility for compliance reporting, and improve attribution accuracy across NAT-heavy or distributed broadband environments.
+
+Trisul workflows commonly combine:
+
+- Flow telemetry
+- Historical traffic analysis
+- Subscriber visibility workflows
+- DNS and subscriber correlation
+- Explore Flows investigations
+
+These capabilities are particularly useful for ISPs, broadband providers, telecom operators, and large-scale access networks where subscriber-centric visibility, attribution accuracy, and telecom analytics are important.
+
+Additional subscriber and flow-analysis workflows are documented in the Trisul documentation:
+
+[Trisul Flow Documentation](https://docs.trisul.org/docs/ug/flow/)
 
 ---
 
 ## Related terms
 
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is IPFIX?](/docs/glossary/ipfix)
-- [What is CDR?](/docs/glossary/cdr)
-- [What is subscriber billing?](/docs/glossary/subscriber-billing)
-- [What is OSS BSS?](/docs/glossary/oss-bss)
+- [NetFlow](/glossary/netflow)
+- [IPFIX](/glossary/ipfix)
+- [CDR](/glossary/cdr)
+- [Subscriber mapping](/glossary/subscriber-mapping)
+- [OSS/BSS](/glossary/oss-bss)
+- [Flow telemetry](/glossary/flow-telemetry)
+- [Carrier-grade NAT](/glossary/carrier-grade-nat)
 
 ---
 
@@ -116,16 +189,16 @@ Trisul collects and analyzes IPDR data from various sources including CMTS, OLT,
 
 ### What is IPDR?
 
-IPDR (Internet Protocol Detail Record) is an industry standard for collecting and exchanging IP-based service usage and performance data in telecommunications networks. It provides information about IP-based service usage and other activities that can be used by operations support systems and business support systems. IPDR is the IP equivalent of the traditional telecom Call Detail Record.
+IPDR (Internet Protocol Detail Record) is a standardized framework for collecting and exchanging IP-based service usage data in telecommunications and service-provider networks. It is commonly used for subscriber visibility, usage accounting, compliance, OSS/BSS integration, and service-provider analytics workflows.
 
 ### What data does IPDR contain?
 
-IPDR contains detailed information about network events including source and destination IP addresses, timestamps, packet sizes, protocols used, service quality metrics, subscriber identification, session duration, and data volume. The content is determined by the service provider, network element vendor, or community of users specifying particulars of IP-based services in a given context.
+IPDR records commonly contain source and destination IP addresses, timestamps, session duration, subscriber identifiers, usage metrics, protocol information, service attributes, and traffic statistics associated with IP-based services.
 
 ### What are the use cases for IPDR?
 
-IPDR is used for billing and accounting including usage-based billing and data volume tracking, traffic analysis including identifying heavy users and popular applications and bottlenecks, capacity planning including resource allocation and infrastructure scaling, security monitoring including anomaly detection and threat detection and incident response, QoS monitoring to ensure critical services receive necessary bandwidth, compliance and auditing for regulatory requirements and data retention laws, and policy enforcement for access controls and traffic rules.
+IPDR is commonly used for subscriber accounting, usage monitoring, telecom analytics, capacity planning, security investigations, regulatory compliance, and OSS/BSS integration workflows.
 
 ### What is the IPDR Streaming Protocol?
 
-The IPDR Streaming Protocol is a real-time reporting protocol released in 2004 that provides an advanced streaming protocol for accounting information exchange. It works with templates negotiated between the collector and exporter, supports TCP, SCTP, or BEEP as transport protocols, and offers reliability through transport protocol-level acknowledgments and IPDR streaming protocol-level acknowledgments. The protocol is largely based on the CRANE protocol.
+The IPDR Streaming Protocol is a protocol designed for real-time exchange of IPDR records between exporters and collectors. It supports reliable transport, template-based record exchange, and subscriber-accounting workflows in telecommunications environments.

@@ -55,60 +55,85 @@ export const jsonLd = {
 
 # What is OTT traffic analytics?
 
-OTT traffic analytics analyzes Over-The-Top application traffic including streaming video, voice over IP, and messaging services. It provides visibility into bandwidth consumption, quality of experience, and usage patterns for OTT applications. OTT applications consume the majority of internet bandwidth.
+**OTT traffic analytics** analyzes **Over‑The‑Top (OTT) application traffic**, including **streaming video, VoIP, and messaging services**. It provides visibility into **bandwidth consumption, quality of experience (QoE), and usage patterns** for OTT applications, which typically consume the majority of internet bandwidth.
 
 ---
 
 ## How OTT traffic analytics works
 
-OTT analytics uses Layer 7 visibility to identify OTT applications through deep packet inspection or flow metadata analysis. Flow data is classified by application name such as Netflix, YouTube, Zoom, or WhatsApp. Traffic volumes are aggregated by application and analyzed over time.
+OTT traffic analytics:
 
-Quality of experience metrics are derived from packet timing and loss patterns. Video streaming quality is measured through buffering events and bitrate changes. VoIP quality is measured through jitter and latency. These metrics indicate subscriber experience.
+- Uses **Layer 7 visibility** to identify OTT applications via **deep packet inspection (DPI)** or **flow metadata analysis** (e.g., TLS fingerprints, JA3, SNI).  
+- Classifies flow data by **application name** (e.g., Netflix, YouTube, Zoom, WhatsApp) and **aggregates traffic volumes** by application over time.  
+
+Quality‑of‑experience metrics are then derived from **packet timing and loss patterns**:
+
+- **Video streaming quality** is measured by **buffering and rebuffering events**, bitrate changes, and playback continuity.  
+- **VoIP quality** is measured by **jitter, latency, and packet loss**, which directly affect call clarity and stability.  
+
+This lets operators connect **raw traffic** to **per‑subscriber experience**.
 
 ---
 
 ## OTT traffic analytics in network operations
 
-In the NOC, use OTT analytics to track bandwidth consumption by streaming services and VoIP. Capacity planning uses OTT usage patterns to plan network upgrades. Quality of experience monitoring detects when subscribers experience buffering or poor call quality.
+In the **NOC and network operations**, OTT analytics:
 
-Content delivery optimization uses OTT analytics to identify high-traffic OTT providers. ISPs can establish peering relationships or cache content locally to reduce transit costs and improve quality.
+- Helps **track bandwidth consumption** by streaming services, VoIP, and other OTT applications to **inform capacity planning** and **network upgrade decisions**.  
+- Enables **QoE monitoring** by detecting when subscribers experience **buffering, freezing, or poor call quality**, so operators can act before complaints pile up.  
+
+For **content delivery optimization**, OTT analytics:
+
+- Identifies **high‑traffic OTT providers** (e.g., Netflix, YouTube) and **geographic hotspots** of OTT usage.  
+- Guides **peering, caching, and content‑delivery network (CDN) strategies** to **reduce transit costs** and **improve local performance**.
 
 ---
 
 ## OTT analytics metrics
 
 | Metric | Description |
-|---|---|
-| Bandwidth consumption | Total bandwidth used by each OTT application |
-| Peak usage times | When OTT traffic is highest |
-| Buffering events | Video rebuffering incidents |
-| Subscriber usage | Per-subscriber OTT consumption |
-| Content provider volume | Traffic per OTT provider |
-| Geographic distribution | Where OTT traffic originates |
+|--------|-------------|
+| Bandwidth consumption | Total bandwidth used by each OTT application across the network |
+| Peak usage times | When OTT traffic is highest each day or week |
+| Buffering events | Video rebuffering incidents and playback interruptions |
+| Subscriber usage | OTT consumption per subscriber or per subscriber group |
+| Content provider volume | Traffic volumes per OTT provider (e.g., Netflix vs YouTube) |
+| Geographic distribution | Where OTT traffic originates and flows within the network |
+
+These metrics feed **capacity planning, QoE dashboards, and peering/caching decisions**.
 
 ---
 
 ## What makes OTT analytics work in practice
 
-Application identification accuracy determines analytics quality. OTT applications use various ports and encryption. Layer 7 visibility through deep packet inspection or TLS fingerprinting identifies applications correctly. Without accurate identification, OTT traffic appears as unknown.
+OTT analytics works when:
 
-Encryption reduces visibility into OTT content. TLS encrypts payload so DPI cannot inspect application data. TLS fingerprinting and JA3 certificate analysis identify applications from handshake metadata. This provides OTT visibility without breaking encryption.
+- **Application identification is accurate**: OTT apps use dynamic ports and encryption; **Layer 7 visibility through DPI or TLS fingerprinting** ensures they are classified correctly instead of appearing as “unknown”.  
+- **Encryption‑aware methods are used**: With TLS‑encrypted traffic, **payload‑level inspection is not possible**, but **handshake‑level metadata** (SNI, JA3, certificate patterns) can still identify applications and characterize OTT behavior without breaking encryption.  
+
+Without accurate, encryption‑resilient classification, OTT traffic becomes a **black‑box** that is hard to monitor and optimize.
 
 ---
 
 ## How Trisul handles OTT traffic analytics
 
-Trisul provides OTT traffic analytics through Layer 7 visibility that identifies OTT applications including Netflix, YouTube, Zoom, and WhatsApp. Flow records include application names enabling OTT traffic aggregation and analysis. Trisul differentiates between hundreds of applications providing granular OTT visibility. Full documentation is at https://docs.trisul.org/docs/ag/install/.
+Trisul provides **OTT traffic analytics** by:
+
+- Applying **Layer 7 visibility** to identify **hundreds of OTT applications** (e.g., Netflix, YouTube, Zoom, WhatsApp) from flow and packet data.  
+- Including **application names in flow records**, enabling **aggregation and analysis of OTT traffic by application, subscriber, and geography**.  
+- Supporting **granular per‑application views** so operators can see **which OTT services dominate bandwidth** and **where quality‑of‑experience is degrading**.  
+
+This makes Trisul a useful engine for **bandwidth‑shaping, QoE‑driven tuning, and peering/cache planning** in ISP environments. For deployment details, see Trisul documentation at [https://docs.trisul.org/docs/ag/install/](https://docs.trisul.org/docs/ag/install/).
 
 ---
 
 ## Related terms
 
-- [What is Layer 7 visibility?](/docs/glossary/layer-7-visibility)
-- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
-- [What is quality of experience?](/docs/glossary/quality-of-experience)
-- [What is deep packet inspection?](/docs/glossary/dpi)
-- [What is streaming video?](/docs/glossary/streaming-video)
+- [What is Layer 7 visibility?](/docs/glossary/layer-7-visibility)  
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)  
+- [What is quality of experience?](/docs/glossary/quality-of-experience)  
+- [What is deep packet inspection?](/docs/glossary/dpi)  
+- [What is streaming video?](/docs/glossary/streaming-video)  
 
 ---
 
@@ -116,7 +141,7 @@ Trisul provides OTT traffic analytics through Layer 7 visibility that identifies
 
 ### What is OTT traffic?
 
-OTT (Over-The-Top) traffic refers to content and services delivered over the internet without the ISP controlling or managing the content. Examples include Netflix, YouTube, Spotify, Zoom, Skype, WhatsApp, and Facebook. OTT traffic typically consumes significant bandwidth and requires quality of service.
+OTT (Over‑The‑Top) traffic refers to content and services delivered over the internet without the ISP controlling or managing the content. Examples include Netflix, YouTube, Spotify, Zoom, Skype, WhatsApp, and Facebook. OTT traffic typically consumes significant bandwidth and requires quality of service.
 
 ### Why analyze OTT traffic?
 

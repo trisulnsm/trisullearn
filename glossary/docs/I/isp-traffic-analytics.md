@@ -55,56 +55,80 @@ export const jsonLd = {
 
 # What is ISP traffic analytics?
 
-ISP traffic analytics provides real-time and historical visibility into traffic flows across Autonomous Systems, prefixes, peering interfaces, and gateway devices in an ISP network. It combines data sources such as NetFlow, BGP, SNMP, Syslog, and RADIUS to deliver a rich view of flow patterns, helping ISPs optimize routing, peering relationships, cache performance, content flows, and subscriber traffic.
+**ISP traffic analytics** provides **real‑time and historical visibility** into **traffic flows across Autonomous Systems (ASes), prefixes, peering interfaces, and gateway devices** in an Internet Service Provider (ISP) network. It combines **flow data (NetFlow/IPFIX), BGP routing information, SNMP counters, Syslog events, and RADIUS subscriber data** to build a comprehensive view of flow patterns, helping operators **optimize routing, peering, cache placement, content delivery, and subscriber‑level traffic**. This visibility is essential for cost‑efficient, scalable ISP operations and for making informed peering and capacity decisions.
 
 ---
 
 ## How ISP traffic analytics works
 
-Trisul collects NetFlow from all gateway devices, BGP route information from an inbuilt BGP route receiver, and SNMP interface counters. Traffic flows are mapped to Autonomous System numbers, prefixes, and peering interfaces in real time. A dozen dashboards and reports provide visibility at physical port level as well as detailed AS, Prefix, and Route traffic flows.
+In a typical ISP environment, **Trisul** or a similar platform:
+
+- Collects **NetFlow** from **all gateway devices** at the network edge and aggregation points.  
+- Ingests **BGP route information** from an **inbuilt BGP route receiver** that stays synchronized with the ISP’s routing tables.  
+- Integrates **SNMP interface counters** for utilization and errors.  
+
+Traffic flows are then **mapped to AS numbers, prefixes, and peering interfaces** in real time, enabling dozens of dashboards and reports that show traffic at the **port level, AS level, prefix level, and route level**. This allows operators to switch quickly from high‑level summaries (e.g., “which AS uses the most bandwidth”) to detailed views (e.g., “which gateway and next‑hop carries that traffic”).
 
 ---
 
 ## ISP traffic analytics in network operations
 
-In the NOC, use real-time 2-second views of gateway port utilization, AS traffic, and prefix flows to detect congestion or anomalies instantly. The peering team analyzes peer AS, origin AS, downstream and upstream traffic volumes to evaluate and optimize peering relationships. Engineering uses route analytics with nested table and Sankey views to understand active route topology and plan routing policy changes.
+In the **NOC** and **engineering teams**, ISP traffic analytics is used to:
+
+- Monitor **real‑time (e.g., 2‑second) views** of gateway port utilization, AS‑based traffic, and prefix flows to detect **congestion, anomalies, or shifts in routing**.  
+- Let the **peering team** analyze **peer AS, origin AS, downstream and upstream traffic volumes** to evaluate existing peering relationships and identify candidates for new or improved peering.  
+- Enable **engineering** to run **route analytics** with nested tables and Sankey‑style views, understanding how active routes map to traffic and planning changes to **BGP policy, routing‑table size, or traffic‑steering logic**.  
+
+These capabilities support **capacity planning, SLA‑based reporting, and rapid incident response** across a large, multi‑tenant ISP fabric.
 
 ---
 
 ## Key capabilities
 
 | Capability | Description |
-|---|---|
-| AS traffic mapping | Traffic volume per AS split into upstream, downstream, peer, and origin AS |
-| Prefix analysis | Real-time and historical traffic per prefix mapped to gateways and next hops |
-| Route analytics | Active routes from internal BGP and external RRDB viewpoints |
-| Geo traffic | Country-level traffic mapped to gateway exits for optimal routing |
-| Content to subscriber maps | Track popular content prefixes such as YouTube and Facebook to optimize delivery |
-| Port AS Prefix drilldowns | Full M:N degree drilldowns to pivot from one analysis angle to another |
+|-----------|-------------|
+| AS traffic mapping | Shows traffic volume per AS, split into upstream, downstream, peer, and origin AS for peering and cost‑analysis |
+| Prefix analysis | Provides real‑time and historical traffic per IP prefix, mapped to gateways and next‑hops |
+| Route analytics | Exposes active routes from both internal BGP and external RRDB‑based ASPATH views |
+| Geo traffic | Maps traffic by country and exit gateway, helping optimize egress routing and CDNs |
+| Content‑to‑subscriber maps | Tracks popular content prefixes (e.g., YouTube, Facebook, Netflix) and their impact on subscribers |
+| Port–AS–Prefix drilldowns | Enables full M:N drilldowns, pivoting from physical port → AS → prefix → session and back |
+
+These capabilities allow ISPs to move from reactive troubleshooting to **data‑driven, policy‑based operations**.
 
 ---
 
 ## What makes ISP traffic analytics work in practice
 
-AS mapping accuracy determines the value of the analytics. Without correct AS assignment, traffic appears as unknown or misclassified. Trisul uses BGP route tables to map IP prefixes to AS numbers in real time. When routes change, the mapping updates automatically. This ensures AS traffic counts reflect current routing, not stale data.
+Two factors dominate real‑world success:
 
-Storage and query performance are the second constraint. ISP traffic volumes are orders of magnitude higher than enterprise networks. Aggregation at write time reduces the data the database must store. Pre-computed summaries for AS, prefix, and geo enable fast dashboards. Drilldowns from summary to detail use indexed flow data, not raw scans.
+- **AS mapping accuracy**: Traffic must be correctly attributed to AS numbers. Trisul and similar platforms use **live BGP route tables** to map prefixes to ASNs in real time; when routes change, the mapping updates automatically, so AS‑based counts and costs always reflect current routing rather than stale data.  
+- **Storage and query performance**: ISP traffic volumes are large, so **aggregation at write time** and **pre‑computed summaries** (for AS, prefix, and geo) are used to keep dashboards fast. Drilldowns from summary to detailed flow records rely on **indexed flow storage** instead of raw scans, enabling responsive exploration even at scale.
+
+Together, these design choices ensure that ISP traffic analytics remains **accurate, performant, and usable** across large networks.
 
 ---
 
 ## How Trisul handles ISP traffic analytics
 
-Trisul ISP Analytics is a set of applications installed on top of the base Trisul platform. These apps install analytics modules of specific value to Internet Service Providers. Gateway device monitoring provides complete NetFlow-based real-time and historical monitoring of all gateway interfaces and sub-interfaces. The inbuilt BGP route receiver stays automatically in sync with routing tables, and ASPATH views are available from both inside and outside via public RRDB. Full documentation is at https://docs.trisul.org/.
+Trisul ISP Analytics is a **suite of applications** layered on top of the base Trisul platform, specifically designed for ISPs. Key features include:
+
+- **Gateway device monitoring**: Complete, NetFlow‑based real‑time and historical monitoring of all gateway interfaces and sub‑interfaces.  
+- **Built‑in BGP route receiver**: Automatically stays in sync with internal BGP tables, providing AS‑to‑prefix mapping and active‑route views.  
+- **External‑view integration**: Uses public **RRDB (Routing Registry Database)** ASPATH data to compare internal and external routing perspectives.  
+- **Subscriber‑aware flows**: Integrates **RADIUS or similar AAA** data to map traffic to individual subscribers where needed.  
+
+The full ISP Analytics workflow, including installation, topology setup, and report configuration, is documented at [https://docs.trisul.org/](https://docs.trisul.org/).
 
 ---
 
 ## Related terms
 
-- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)
-- [What is ASN?](/docs/glossary/asn)
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is prefix?](/docs/glossary/prefix)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is BGP peering analytics?](/docs/glossary/bgp-peering-analytics)  
+- [What is ASN?](/docs/glossary/asn)  
+- [What is NetFlow?](/docs/glossary/netflow)  
+- [What is prefix?](/docs/glossary/prefix)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
 
 ---
 
@@ -112,15 +136,15 @@ Trisul ISP Analytics is a set of applications installed on top of the base Trisu
 
 ### What is ISP traffic analytics?
 
-ISP traffic analytics provides real-time and historical visibility into traffic flows across Autonomous Systems, prefixes, peering interfaces, and gateway devices in an ISP network. It combines data sources such as NetFlow, BGP, SNMP, Syslog, and RADIUS to deliver a rich view of flow patterns. This helps ISPs optimize routing, peering relationships, cache performance, content flows, and subscriber traffic.
+ISP traffic analytics provides real‑time and historical visibility into traffic flows across Autonomous Systems, prefixes, peering interfaces, and gateway devices in an ISP network. It combines data sources such as NetFlow, BGP, SNMP, Syslog, and RADIUS to deliver a rich view of flow patterns. This helps ISPs optimize routing, peering relationships, cache performance, content flows, and subscriber traffic.
 
 ### What are the key use cases for ISP traffic analytics?
 
-Key use cases include AS traffic mapping to know traffic volume per Autonomous System split into upstream, downstream, peer, and origin AS, prefix traffic analysis per gateway and next-hop, route analytics from internal and external BGP viewpoints, geo traffic monitoring to ensure optimal exit routing, content-to-subscriber mapping for popular content providers, and drilldown AS troubleshooting by entering any ASN to view network-wide traffic instantly.
+Key use cases include AS traffic mapping to know traffic volume per Autonomous System split into upstream, downstream, peer, and origin AS, prefix traffic analysis per gateway and next‑hop, route analytics from internal and external BGP viewpoints, geo traffic monitoring to ensure optimal exit routing, content‑to‑subscriber mapping for popular content providers, and drilldown AS troubleshooting by entering any ASN to view network‑wide traffic instantly.
 
 ### How does ISP traffic analytics help with peering decisions?
 
-ISP traffic analytics shows peer AS, origin AS, downstream and upstream analytics with special tracking of popular content providers. With clear visibility of AS-based traffic, ISPs can save transit costs by establishing direct relationships, negotiate better with content providers, optimize routing policies, and select new peering partners based on real traffic data.
+ISP traffic analytics shows peer AS, origin AS, downstream and upstream analytics with special tracking of popular content providers. With clear visibility of AS‑based traffic, ISPs can save transit costs by establishing direct relationships, negotiate better with content providers, optimize routing policies, and select new peering partners based on real traffic data.
 
 ### What data sources does ISP traffic analytics use?
 

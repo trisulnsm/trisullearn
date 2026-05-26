@@ -55,62 +55,72 @@ export const jsonLd = {
 
 # What is NetFlow Analyzer?
 
-NetFlow Analyzer is a network monitoring tool that collects and analyzes NetFlow data to provide bandwidth usage insights, traffic patterns, application visibility, and network utilization reports for capacity planning and security monitoring. It generates real-time traffic graphs as soon as NetFlow data is received.
+**NetFlow Analyzer** is a **network monitoring tool** that collects and analyzes **NetFlow data** to provide **bandwidth usage insights, traffic patterns, application visibility, and network utilization reports**. It generates **real‑time traffic graphs** as soon as flow data is received and is used for **capacity planning, troubleshooting, and security monitoring**.
 
 ---
 
 ## How NetFlow Analyzer works
 
-NetFlow Analyzer collects flow data from routers and switches via NetFlow, sFlow, J-Flow, or IPFIX. Flow exporters send records continuously to the collector. The collector aggregates flow data by interface, application, host, or protocol. Traffic graphs and reports are generated from aggregated data.
+NetFlow Analyzer:
 
-Real-time traffic graphs update within seconds of flow data arrival. Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior and identifies unusual traffic patterns as anomalies. Historical reports show trends over days, weeks, and months.
+- Collects flow data from **routers, switches, and gateways** via **NetFlow, sFlow, J‑Flow, or IPFIX**.  
+- The **collector** receives flow records and **aggregates them by interface, application, host, or protocol**.  
+- **Traffic graphs and reports** are generated from the aggregated data, showing **bandwidth utilization, top talkers, and traffic patterns**.
 
-![](./images/nf-analyzer.png)
+Graphs update within seconds of flow arrival. Historical reports show **trends over days, weeks, and months**, supporting capacity‑planning and compliance workflows.
 
 ---
 
 ## NetFlow Analyzer in network operations
 
-In the NOC, use NetFlow Analyzer to track bandwidth utilization and identify top talkers. Security teams detect anomalies through traffic pattern alerts generated in real-time. Capacity planning uses utilization reports to plan network upgrades before links reach saturation.
+In the **NOC and security operations**:
 
-Generate monthly usage reports for billing and chargeback. Track application usage to understand what consumes bandwidth. Identify network bottlenecks through interface utilization analysis.
+- Use NetFlow Analyzer to **track bandwidth utilization**, **identify top talkers**, and **detect anomalies** through traffic‑pattern alerts.  
+- **Capacity planning** teams use utilization reports to **plan upgrades before links saturate**.  
+- Generate **monthly usage reports** for **billing and chargeback**, and **track application usage** to understand what consumes bandwidth.
 
 ---
 
 ## NetFlow Analyzer capabilities
 
 | Capability | Description |
-|---|---|
-| Bandwidth monitoring | Real-time and historical bandwidth utilization |
-| Top talkers | Identify hosts and applications consuming most bandwidth |
-| Traffic patterns | Analyze traffic patterns and detect anomalies |
-| Application visibility | Identify applications using Layer 7 visibility |
-| Capacity planning | Reports for network upgrade planning |
-| Security monitoring | Detect anomalies through traffic pattern analysis |
+|-----------|-------------|
+| Bandwidth monitoring | Real‑time and historical bandwidth per interface or path |
+| Top talkers | Hosts, apps, or destinations consuming the most bandwidth |
+| Traffic patterns | Temporal and directional patterns plus anomaly detection |
+| Application visibility | Application‑level metrics (L7 or port‑based) |
+| Capacity planning | Reports for upgrade and redesign justification |
+| Security monitoring | Anomaly‑based detection and alerts |
 
 ---
 
 ## What makes NetFlow Analyzer work in practice
 
-Accurate NetFlow export configuration is essential. Flow exporters must be enabled on all critical interfaces. Sampling rate must be configured correctly for accurate traffic estimation. Without proper configuration, NetFlow Analyzer shows incomplete data.
-
-Real-time collection frequency determines monitoring accuracy. High-frequency collection provides more accurate real-time views but generates more load on network devices. Balance collection frequency against device CPU and network overhead.
+- **Flow exporters** must be **enabled on all critical interfaces** and configured with the correct **sampling rate**.  
+- The **collector** must handle expected **flow volume** without dropping records.  
+- Retention and storage must support **historical analysis and compliance timelines**.
 
 ---
 
 ## How Trisul handles NetFlow Analyzer
 
-Trisul provides NetFlow Analyzer capabilities through flow collection and analysis. Trisul collects NetFlow, J-Flow, sFlow, and IPFIX data. Real-time traffic graphs show utilization within 1 to 3 seconds. Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior. Login as user, select Dashboards, then Real Time Traffic to view traffic graphs. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
+Trisul provides **NetFlow Analyzer–style functionality** through **flow‑based collection and real‑time analytics**. It:
+
+- Collects **NetFlow, J‑Flow, sFlow, and IPFIX** data.  
+- Shows **real‑time traffic graphs** within **1–3 seconds** of traffic transit.  
+- Offers **traffic pattern analysis** and anomaly detection from flow data.  
+
+From the UI, log in, select **Dashboards → Real Time Traffic** to view traffic graphs. For configuration details, see Trisul documentation at [https://docs.trisul.org/docs/ug/cg/tasks/](https://docs.trisul.org/docs/ug/cg/tasks/).
 
 ---
 
 ## Related terms
 
-- [What is NetFlow?](/docs/glossary/netflow)
-- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
-- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is capacity planning?](/docs/glossary/capacity-planning)
+- [What is NetFlow?](/docs/glossary/netflow)  
+- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)  
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
+- [What is capacity planning?](/docs/glossary/capacity-planning)  
 
 ---
 
@@ -118,7 +128,7 @@ Trisul provides NetFlow Analyzer capabilities through flow collection and analys
 
 ### What is NetFlow Analyzer?
 
-NetFlow Analyzer is a network monitoring tool that collects and analyzes NetFlow data to provide bandwidth usage insights, traffic patterns, application visibility, and network utilization reports. It generates real-time traffic graphs as soon as NetFlow data is received. The Traffic tab shows real-time traffic graphs for incoming and outgoing traffic.
+NetFlow Analyzer is a network monitoring tool that collects and analyzes NetFlow data to provide bandwidth usage insights, traffic patterns, application visibility, and network utilization reports. It generates real‑time traffic graphs as soon as NetFlow data is received. The Traffic tab shows real‑time traffic graphs for incoming and outgoing traffic.
 
 ### What does NetFlow Analyzer provide?
 
@@ -126,7 +136,7 @@ NetFlow Analyzer provides bandwidth utilization tracking, top talkers identifica
 
 ### How does NetFlow Analyzer work?
 
-NetFlow Analyzer collects flow data from routers and switches via NetFlow, sFlow, J-Flow, or IPFIX. The collector receives flow records and aggregates them by interface, application, host, or protocol. Traffic graphs and reports are generated from aggregated data showing utilization patterns and trends.
+NetFlow Analyzer collects flow data from routers and switches via NetFlow, sFlow, J‑Flow, or IPFIX. The collector receives flow records and aggregates them by interface, application, host, or protocol. Traffic graphs and reports are generated from aggregated data showing utilization patterns and trends.
 
 ### What are the use cases for NetFlow Analyzer?
 

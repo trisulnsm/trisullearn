@@ -31,7 +31,7 @@ export const jsonLd = {
       "name": "How does Network Behavior Analysis work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "NBA collects traffic data over time and builds baseline models of normal behavior. Machine learning algorithms identify patterns in bandwidth usage, traffic volumes, protocol distribution, and communication patterns. When current traffic deviates significantly from baseline, NBA generates alerts indicating potential threats."
+        "text": "NBA collects traffic data over time and builds baseline models of normal behavior. Machine learning algorithms analyze bandwidth usage, traffic volumes, protocol distribution, and communication patterns. When current traffic deviates significantly from baseline, NBA generates alerts indicating potential threats."
       }
     },
     {
@@ -55,60 +55,72 @@ export const jsonLd = {
 
 # What is Network Behavior Analysis?
 
-Network Behavior Analysis (NBA) monitors network traffic patterns to detect anomalies, threats, and policy violations. It uses machine learning and statistical modeling to identify unusual behavior that indicates security incidents or operational issues. NBA baselines normal traffic and alerts when deviations occur.
+**Network Behavior Analysis (NBA)** monitors **network traffic patterns** to detect **anomalies, threats, and policy violations**. It uses **machine learning and statistical modeling** to identify **unusual behavior** that indicates **security incidents or operational issues**. NBA **builds a baseline of “normal” traffic** and alerts when current behavior deviates from that baseline.
 
 ---
 
 ## How Network Behavior Analysis works
 
-NBA collects traffic data over time and builds baseline models of normal behavior. Machine learning algorithms analyze bandwidth usage, traffic volumes, protocol distribution, and communication patterns. When current traffic deviates significantly from baseline, NBA generates alerts indicating potential threats.
+NBA:
 
-Traffic Pattern Analysis empowers scrutiny of shifts in network interface behavior and identifies unusual traffic patterns as anomalies. Baselines are continuously updated to adapt to changing network conditions.
+- Collects **traffic data over time** and builds **baseline models** of normal behavior.  
+- Applies **machine‑learning and statistical models** to **bandwidth usage, traffic volumes, protocol distribution, and communication patterns**.  
+- Flags **significant deviations** from the baseline as potential threats or issues.  
+
+Baselines are **continuously updated** to adapt to changing applications, traffic volumes, and business cycles.
 
 ---
 
 ## Network Behavior Analysis in network operations
 
-In the NOC, use NBA to detect anomalies that indicate network problems or attacks. Security teams analyze alerts from NBA to identify threats like DDoS, data exfiltration, and lateral movement. Operations teams use NBA to detect capacity issues before they impact users.
+In the **NOC and SOC**:
 
-NBA reduces false positives by comparing current behavior against expectations. When traffic deviates from baseline, the alert indicates the deviation magnitude and type. This helps prioritize investigation based on severity.
+- Use NBA to detect **anomalies** such as **DDoS, scanning, data exfiltration, lateral movement, and policy violations**.  
+- Security teams use NBA alerts to **prioritize incidents** by severity and impact.  
+- Operations teams use NBA to **spot capacity issues or performance degradation** before they affect users.
 
 ---
 
 ## NBA detection capabilities
 
 | Detection Type | Description |
-|---|---|
+|----------------|-------------|
 | Bandwidth anomalies | Sudden spikes or drops in utilization |
 | Traffic volume anomalies | Unusual flow counts or byte volumes |
-| Communication patterns | New or unexpected host communications |
-| Protocol anomalies | Unexpected protocol usage or distribution |
-| Security threats | DDoS, data exfiltration, lateral movement |
-| Policy violations | Traffic violating security policies |
+| Communication patterns | New or unexpected host‑to‑host communication |
+| Protocol anomalies | Unexpected protocol usage |
+| Security threats | Indicators of DDoS, data exfiltration, lateral movement, malware |
+| Policy violations | Traffic violating segmentation or security rules |
 
 ---
 
 ## What makes Network Behavior Analysis work in practice
 
-Baseline quality determines detection accuracy. NBA needs sufficient historical data to build accurate baselines. During the learning phase, NBA may generate false positives until baselines stabilize. Start NBA after collecting weeks of traffic data for best results.
-
-Adaptive baselines prevent false positives from legitimate changes. Networks change over time as new applications are deployed and usage patterns evolve. NBA must adapt baselines continuously. Static baselines generate excessive false positives as legitimate traffic changes.
+- **Baseline quality**: NBA needs **sufficient historical data** (often several weeks) to build accurate baselines.  
+- **Adaptiveness**: NBA must **continuously update models** to reflect legitimate changes without generating false positives.  
+- **Telemetry quality**: Flow‑level and time‑series data must be **consistent and well‑structured** so that models remain accurate.
 
 ---
 
 ## How Trisul handles Network Behavior Analysis
 
-Trisul provides Network Behavior Analysis through Traffic Pattern Analysis that empowers scrutiny of shifts in network interface behavior. Flow data is analyzed to identify unusual traffic patterns as anomalies. Alerts are generated when traffic deviates from expected patterns. Login as user, select Dashboards to view NBA insights. Full documentation is at https://docs.trisul.org/docs/ug/cg/tasks/.
+Trisul delivers **Network Behavior Analysis** through **Traffic Pattern Analysis**:
+
+- Analyzes flow data to identify **shifts in interface and host‑level behavior**.  
+- Flags **unusual traffic patterns** as anomalies or alerts.  
+- Enables operators to view NBA‑driven dashboards from the UI and pivot to underlying flows or packets.  
+
+For configuration and use‑case guidance, see Trisul documentation at [https://docs.trisul.org/docs/ug/cg/tasks/](https://docs.trisul.org/docs/ug/cg/tasks/).
 
 ---
 
 ## Related terms
 
-- [What is anomaly detection?](/docs/glossary/anomaly-detection)
-- [What is threat detection?](/docs/glossary/threat-detection)
-- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
-- [What is machine learning?](/docs/glossary/machine-learning)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What is anomaly detection?](/docs/glossary/anomaly-detection)  
+- [What is threat detection?](/docs/glossary/threat-detection)  
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)  
+- [What is machine learning?](/docs/glossary/machine-learning)  
+- [What is flow monitoring?](/docs/glossary/flow-monitoring)  
 
 ---
 
@@ -128,4 +140,4 @@ NBA detects bandwidth spikes, unusual traffic volumes, new communication pattern
 
 ### What is the benefit of NBA over signature-based detection?
 
-NBA detects unknown threats that signature-based systems miss. Signatures require known attack patterns. NBA detects anomalies regardless of whether the attack pattern is known. NBA is effective against zero-day attacks, insider threats, and advanced persistent threats where signatures do not exist.
+NBA detects unknown threats that signature‑based systems miss. Signatures require known attack patterns. NBA detects anomalies regardless of whether the attack pattern is known. NBA is effective against zero‑day attacks, insider threats, and advanced persistent threats where signatures do not exist.

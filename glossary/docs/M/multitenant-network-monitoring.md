@@ -55,59 +55,69 @@ export const jsonLd = {
 
 # What is multi-tenant network monitoring?
 
-Multi-tenant network monitoring provides isolated visibility for multiple tenants sharing the same network infrastructure. It enables separate dashboards, reports, and alerts for each tenant while monitoring shared infrastructure centrally. Trisul is a distributed monitoring system that can be deployed for multi-tenant environments.
+**Multi‑tenant network monitoring** provides **isolated visibility for multiple tenants** who share the same network infrastructure. It enables **separate dashboards, reports, and alerts for each tenant** while **monitoring shared infrastructure centrally**. Trisul is a **distributed monitoring system** that can be deployed for multi‑tenant environments.
 
 ---
 
 ## How multi-tenant monitoring works
 
-Multi-tenant monitoring uses network segmentation with VLANs, VRFs, or tenant IDs to separate traffic. Flow data is tagged with tenant identifiers. Dashboards and reports filter by tenant ID to provide isolated visibility. Shared infrastructure is monitored centrally with tenant breakdowns.
+Multi‑tenant monitoring uses **network segmentation** (VLANs, VRFs, or tenant IDs) to separate traffic. **Flow data is tagged with tenant identifiers**, and **dashboards and reports filter by tenant ID** to give each tenant its own view. **Shared infrastructure is monitored centrally**, with utilization broken down by tenant.
 
-Probe and hub architecture supports multi-tenant deployment. Trisul-probe instances capture traffic close to network segments and send data to trisul-hub. The hub receives data from multiple probes and provides dashboards, reports, search, and analytics for all tenants.
+In a **probe‑and‑hub architecture**:
+
+- **Trisul‑probe** instances capture traffic near segments and tag it with tenant context.  
+- **Trisul‑hub** aggregates data from multiple probes and delivers dashboards, search, and analytics for all tenants.
 
 ---
 
 ## Multi-tenant monitoring in network operations
 
-Cloud providers use multi-tenant monitoring to track customer traffic and provide billing reports. Each tenant gets isolated visibility into their traffic without seeing other tenant data. MSPs manage multiple customer networks from a single monitoring platform.
+Cloud providers use multi‑tenant monitoring to:
 
-Data centers track tenant utilization for capacity planning and billing. Shared infrastructure monitoring identifies bottlenecks affecting multiple tenants. Tenant-specific alerts notify when individual tenants exceed thresholds.
+- Track **customer traffic and usage** for billing and SLA reports.  
+- Ensure each tenant only sees its own data, while operators see **shared‑link utilization** and **capacity trends**.
+
+MSPs and large data centers use it to:
+
+- Manage **many customer networks or tenant segments** from a single platform.  
+- Identify which tenants are driving **link congestion or policy violations**.
 
 ---
 
 ## Multi-tenant architecture
 
 | Component | Function |
-|---|---|
+|----------|----------|
 | Tenant ID | Identifies traffic belonging to each tenant |
-| VLAN/VRF | Network segmentation for tenant isolation |
-| Probe | Captures traffic close to network segments |
-| Hub | Receives data from probes, provides dashboards |
-| Dashboard | Per-tenant isolated visibility |
+| VLAN / VRF | Network segmentation constructs for tenant isolation |
+| Probe | Captures traffic near the network segment and tags it |
+| Hub | Aggregates data from multiple probes and provides dashboards |
+| Dashboard | Per‑tenant filtered views for isolated visibility |
 
 ---
 
 ## What makes multi-tenant monitoring work in practice
 
-Tenant isolation must be enforced at every layer. Flow data tagged with tenant ID at the probe ensures data is not mixed. Dashboard filtering by tenant ID prevents cross-tenant visibility. Access control ensures tenants only see their own data.
-
-Shared infrastructure monitoring provides centralized visibility. Bandwidth utilization on shared links is broken down by tenant. When a shared link is congested, identify which tenants contribute most to the load. This enables capacity planning and fair usage enforcement.
+- **Tenant isolation** must be enforced at every layer: tagging, query filtering, dashboards, and access control.  
+- **Shared‑infrastructure dashboards** must show utilization **by tenant** so that operators can plan capacity and enforce fair usage.
 
 ---
 
 ## How Trisul handles multi-tenant monitoring
 
-Trisul is deployed as trisul-probe instances reporting back to trisul-hub in distributed monitoring architecture. Trisul can be deployed in many types of networks from small branch offices to large ISP and enterprise backbones. Multi-tenant monitoring uses context and profile configuration to isolate tenant data. Login as user to see dashboards and charts. Full documentation is at https://docs.trisul.org/docs/ag/install/.
+Trisul uses a **distributed probe‑hub model**. Each probe exports tenant‑tagged flow data to a hub. Trisul can apply **context and profile configuration** so that users only see their own tenant data in dashboards and reports.
+
+For topology and configuration details, see the Trisul documentation at [https://docs.trisul.org/docs/ag/install/](https://docs.trisul.org/docs/ag/install/).
 
 ---
 
 ## Related terms
 
-- [What is network segmentation?](/docs/glossary/network-segmentation)
-- [What is VLAN?](/docs/glossary/vlan)
-- [What is VRF?](/docs/glossary/vrf)
-- [What is cloud monitoring?](/docs/glossary/cloud-monitoring)
-- [What is MSP?](/docs/glossary/msp)
+- [What is network segmentation?](/docs/glossary/network-segmentation)  
+- [What is VLAN?](/docs/glossary/vlan)  
+- [What is VRF?](/docs/glossary/vrf)  
+- [What is cloud monitoring?](/docs/glossary/cloud-monitoring)  
+- [What is MSP?](/docs/glossary/msp)  
 
 ---
 
@@ -115,15 +125,15 @@ Trisul is deployed as trisul-probe instances reporting back to trisul-hub in dis
 
 ### What is multi-tenant network monitoring?
 
-Multi-tenant network monitoring provides isolated visibility for multiple tenants sharing the same network infrastructure. It enables separate dashboards, reports, and alerts for each tenant while monitoring shared infrastructure centrally. Trisul is a distributed monitoring system that can be deployed for multi-tenant environments.
+Multi‑tenant network monitoring provides isolated visibility for multiple tenants sharing the same network infrastructure. It enables separate dashboards, reports, and alerts for each tenant while monitoring shared infrastructure centrally. Trisul is a distributed monitoring system that can be deployed for multi‑tenant environments.
 
 ### Why is multi-tenant monitoring important?
 
-Multi-tenant monitoring is critical for cloud providers, MSPs, and data centers serving multiple customers. Each tenant needs isolated visibility into their traffic without seeing other tenants data. Central monitoring tracks shared infrastructure utilization across all tenants.
+Multi‑tenant monitoring is critical for cloud providers, MSPs, and data centers serving multiple customers. Each tenant needs isolated visibility into their traffic without seeing other tenants’ data. Central monitoring tracks shared infrastructure utilization across all tenants.
 
 ### How does multi-tenant monitoring work?
 
-Multi-tenant monitoring uses network segmentation with VLANs, VRFs, or tenant IDs to separate traffic. Flow data is tagged with tenant identifiers. Dashboards and reports filter by tenant ID to provide isolated visibility. Shared infrastructure is monitored centrally with tenant breakdowns.
+Multi‑tenant monitoring uses network segmentation with VLANs, VRFs, or tenant IDs to separate traffic. Flow data is tagged with tenant identifiers. Dashboards and reports filter by tenant ID to provide isolated visibility. Shared infrastructure is monitored centrally with tenant breakdowns.
 
 ### What are the use cases for multi-tenant monitoring?
 
