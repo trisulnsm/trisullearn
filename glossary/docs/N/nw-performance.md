@@ -1,6 +1,6 @@
 ---
 title: What is network performance?
-description: Network performance describes how well a network delivers traffic in terms of speed, delay, loss, and reliability. It is used to judge whether the network is meeting user and application needs.
+description: Network performance describes how effectively a network delivers traffic in terms of latency, throughput, packet loss, jitter, utilization, and reliability across applications and services.
 sidebar_label: Network performance
 sidebar_position: 198
 slug: /glossary/network-performance
@@ -11,6 +11,10 @@ keywords:
   - packet loss
   - jitter
   - reliability
+  - network latency
+  - application performance
+  - congestion analysis
+  - network troubleshooting
 ---
 
 export const jsonLd = {
@@ -22,7 +26,7 @@ export const jsonLd = {
       "name": "What is network performance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Network performance describes how well a network delivers traffic in terms of speed, delay, loss, and reliability. It is used to judge whether the network is meeting user and application needs."
+        "text": "Network performance describes how effectively a network delivers traffic in terms of latency, throughput, packet loss, jitter, utilization, and reliability across applications and services."
       }
     },
     {
@@ -30,7 +34,7 @@ export const jsonLd = {
       "name": "What affects network performance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Network performance can be affected by bandwidth limits, congestion, queueing, packet loss, latency, jitter, and device health."
+        "text": "Network performance can be affected by bandwidth limits, congestion, queueing, packet loss, latency, jitter, routing conditions, application behavior, retransmissions, and device or interface health."
       }
     },
     {
@@ -38,7 +42,7 @@ export const jsonLd = {
       "name": "Why is network performance important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Network performance is important because poor performance can slow applications, disrupt calls, and reduce user experience."
+        "text": "Network performance is important because degraded performance can affect application responsiveness, service availability, voice and video quality, operational efficiency, and user experience even when infrastructure remains reachable."
       }
     },
     {
@@ -46,7 +50,7 @@ export const jsonLd = {
       "name": "How is network performance measured?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Network performance is measured with metrics such as latency, jitter, throughput, utilization, retransmissions, and packet loss."
+        "text": "Network performance is measured using metrics such as latency, jitter, throughput, utilization, retransmissions, error rates, and packet loss together with traffic-analysis and telemetry-correlation workflows."
       }
     }
   ]
@@ -54,78 +58,99 @@ export const jsonLd = {
 
 # What is network performance?
 
-**Network performance** describes how well a network **delivers traffic** in terms of **speed, delay, loss, and reliability**. It is used to judge whether the network is meeting **user and application needs**, not just staying “up”.
+**Network performance** describes how effectively a network delivers traffic in terms of latency, throughput, packet loss, jitter, utilization, and reliability across applications and services.
+
+Network performance directly affects application responsiveness, voice and video quality, file transfers, cloud connectivity, and overall user experience across network infrastructure.
+
+In enterprise, ISP, telecom, cloud, SD-WAN, and data-center environments, performance analysis helps operators identify congestion, instability, inefficient traffic behavior, routing problems, overloaded infrastructure, and application-delivery issues that may affect communication quality.
+
+Unlike basic availability monitoring, network performance analysis focuses on how well communication occurs across the network, not simply whether systems or links remain reachable.
 
 ---
 
-## How network performance works
+## How network performance is evaluated
 
-Network performance is described by a set of **core metrics**, not a single number:
+Network performance is evaluated using multiple telemetry signals and behavioral metrics rather than a single measurement.
 
-- **Latency**: delay before a packet is delivered.  
-- **Throughput**: data delivered per second.  
-- **Jitter**: variation in latency between packets.  
-- **Packet loss**: percentage of packets not delivered.  
-- **Utilization**: how much of the link’s capacity is in use.  
+Key performance indicators commonly include latency, throughput, jitter, packet loss, utilization, retransmissions, and interface error rates. These metrics help operators understand both transport behavior and application-delivery quality across the network.
 
-A network can be **fast** yet **poor performing** if it **drops packets** or **adds high, variable delay**; performance must therefore be viewed as a **combination of signals**, not just raw speed.
+The relationship between these metrics is operationally important because performance problems are often interconnected rather than isolated.
+
+For example, congestion may increase queueing delays and latency, packet loss may reduce throughput because TCP retransmits lost packets, and excessive jitter can severely affect VoIP or real-time video quality even when bandwidth utilization appears normal.
+
+Similarly, a WAN link may show moderate utilization while users still experience poor application performance because latency spikes, retransmissions, routing instability, or packet loss affect application responsiveness.
+
+Depending on the environment, performance analysis may involve flow telemetry, packet analysis, SNMP metrics, synthetic testing, DNS visibility, application telemetry, and infrastructure monitoring workflows.
+
+Operators commonly correlate these telemetry sources to understand not only whether performance degraded, but also which traffic patterns, applications, infrastructure conditions, or routing behaviors contributed to the issue.
 
 ---
 
 ## Network performance in network operations
 
-In the **NOC and operations teams**, network performance:
+In operational environments, network performance analysis helps teams maintain application quality, infrastructure stability, and reliable communication across distributed systems.
 
-- Helps keep **services responsive** by revealing **congestion, overloaded devices, and degraded paths**.  
-- Guides **capacity planning**: rising **latency or utilization trends** signal that the network is approaching its limits and may need changes.  
+Performance analysis is commonly used for WAN visibility, cloud and SD-WAN monitoring, VoIP quality analysis, congestion investigations, application troubleshooting, backbone visibility, ISP and telecom monitoring, SLA reporting, and long-term capacity planning.
 
-Performance is also central to **SLA and service‑quality reporting**, where operators must show that key paths and services meet agreed‑upon experience levels.
+Because modern applications often depend on cloud services, encrypted traffic, distributed infrastructure, and real-time communication, performance degradation may occur even when interfaces remain operational and link availability appears normal.
 
----
+For example, users may experience slow SaaS applications, unstable VoIP calls, or delayed transactions because of packet loss, DNS delays, retransmissions, asymmetric routing, or intermittent latency spikes that are not immediately visible through basic interface monitoring alone.
 
-## Common performance signals
-
-| Signal | Meaning |
-|--------|---------|
-| Latency | Delay between packet transmission and delivery |
-| Jitter | Variation in delay between packets |
-| Throughput | Actual data rate delivered over time |
-| Packet loss | Percentage of packets not delivered |
-| Utilization | Fraction of link or path capacity in use |
-
-These signals form the **core “quality” set** for understanding how the network behaves from the application’s perspective.
+Historical visibility is especially important because intermittent congestion, unstable routing behavior, traffic bursts, or application slowdowns may only become visible when operators correlate telemetry across different systems and time periods.
 
 ---
 
-## What makes network performance useful in practice
+## Common performance metrics
 
-Network performance is most useful when measured from **the application’s point of view**:
+| Metric | Operational meaning |
+|---|---|
+| Latency | Delay between transmission and delivery |
+| Jitter | Variation in packet delay over time |
+| Throughput | Actual volume of successfully delivered traffic |
+| Packet loss | Percentage of packets not successfully delivered |
+| Utilization | Portion of available link capacity currently used |
+| Retransmissions | Repeated packet delivery attempts associated with transport issues |
+| Error rates | Interface or transport-layer transmission errors |
 
-- A link may look **healthy** from an interface‑utilization graph, but a **specific service may still be slow** due to congestion, loss, or high jitter on a deeper path.  
-- Performance analysis is most effective when it **combines traffic data, interface‑level metrics, and application‑level context** (e.g., VoIP scores, session timing, retransmissions) to show **why** something feels slow or unreliable.
-
-Without this holistic view, operators can miss **experience‑killing bottlenecks** that are invisible at the raw‑availability level.
+These metrics are commonly analyzed together because isolated measurements may not fully explain traffic behavior or application performance.
 
 ---
 
-## How Trisul handles network performance
+## Network performance challenges and best practices
 
-Trisul helps teams track **network performance** by:
+Effective performance analysis depends on broad telemetry visibility, accurate timestamps, historical retention, and meaningful correlation across traffic, infrastructure, and application telemetry.
 
-- **Correlating traffic volume, delay signals, packet loss, and application‑level behavior** in a single analytics environment.  
-- Providing **per‑interface, per‑path, and per‑application performance views** so operators can see both **how fast the network is** and **how well services are performing**.  
+Common challenges include distributed infrastructure visibility gaps, encrypted-traffic limitations, dynamic application behavior, high-volume telemetry environments, multi-vendor infrastructure correlation, incomplete application visibility, and long-term telemetry retention at scale.
 
-This lets teams move beyond “link is up” to **understanding quality of experience** for real‑time and data‑heavy applications.
+Organizations commonly improve troubleshooting accuracy by combining flow telemetry, packet analysis, SNMP metrics, DNS visibility, application telemetry, and historical traffic analysis into unified investigation workflows.
+
+Correlating these telemetry sources helps operators perform root-cause analysis more effectively by identifying how traffic behavior, infrastructure conditions, application activity, and routing changes are related during performance degradation events.
+
+As environments become increasingly distributed and application-driven, performance analysis increasingly depends on telemetry correlation and historical visibility rather than isolated interface metrics alone.
+
+---
+
+## In Trisul
+
+Trisul supports network-performance analysis workflows through flow telemetry analysis, packet-analysis workflows, historical traffic visibility, and traffic-investigation capabilities.
+
+Using NetFlow, IPFIX, sFlow, packet analysis, interface telemetry, and historical analysis workflows, operators can analyze traffic behavior, investigate latency and congestion conditions, correlate traffic patterns with infrastructure activity, and perform historical performance investigations across enterprise, ISP, telecom, WAN, and cloud environments.
+
+Trisul workflows commonly combine flow analysis, packet analysis, historical traffic visibility, protocol analysis, and telemetry correlation to provide broader insight into application behavior, traffic conditions, and infrastructure performance across distributed environments.
+
+Additional traffic-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- [What is congestion detection?](/docs/glossary/congestion-detection)  
-- [What is VoIP?](/docs/glossary/voip)  
-- [What is realtime traffic?](/docs/glossary/realtime-traffic)  
-- [What is application monitoring?](/docs/glossary/application-monitoring)  
-- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)  
+- [What is congestion detection?](/docs/glossary/congestion-detection)
+- [What is VoIP?](/docs/glossary/voip)
+- [What is realtime traffic?](/docs/glossary/realtime-traffic)
+- [What is application monitoring?](/docs/glossary/application-monitoring)
+- [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
 
 ---
 
@@ -133,16 +158,24 @@ This lets teams move beyond “link is up” to **understanding quality of exper
 
 ### What is network performance?
 
-Network performance describes how well a network delivers traffic in terms of speed, delay, loss, and reliability. It is used to judge whether the network is meeting user and application needs.
+Network performance describes how effectively a network delivers traffic in terms of latency, throughput, packet loss, jitter, utilization, and reliability across applications and services.
 
 ### What affects network performance?
 
-Network performance can be affected by bandwidth limits, congestion, queueing, packet loss, latency, jitter, and device health.
+Network performance can be affected by bandwidth limits, congestion, queueing, packet loss, latency, jitter, routing conditions, application behavior, retransmissions, and device or interface health.
 
 ### Why is network performance important?
 
-Network performance is important because poor performance can slow applications, disrupt calls, and reduce user experience.
+Network performance is important because degraded performance can affect application responsiveness, service availability, voice and video quality, operational efficiency, and user experience even when infrastructure remains reachable.
 
 ### How is network performance measured?
 
-Network performance is measured with metrics such as latency, jitter, throughput, utilization, retransmissions, and packet loss.
+Network performance is measured using metrics such as latency, jitter, throughput, utilization, retransmissions, error rates, and packet loss together with traffic-analysis and telemetry-correlation workflows.
+
+### Why can applications feel slow even when bandwidth usage appears normal?
+
+Applications may still perform poorly because latency spikes, packet loss, retransmissions, DNS delays, or routing instability can affect communication quality even when bandwidth utilization is moderate.
+
+### How does packet loss affect performance?
+
+Packet loss can reduce application responsiveness and throughput because transport protocols such as TCP retransmit lost packets. Excessive packet loss may also affect VoIP, video conferencing, cloud applications, and real-time communication quality.

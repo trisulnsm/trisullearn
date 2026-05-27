@@ -1,6 +1,6 @@
 ---
 title: What is QoS?
-description: QoS, or Quality of Service, is a set of network techniques used to prioritize important traffic and manage congestion. It helps protect latency-sensitive applications such as voice, video, and interactive services.
+description: QoS, or Quality of Service, is a set of network techniques used to classify, prioritize, and manage traffic during congestion. QoS helps protect latency-sensitive and business-critical applications such as voice, video, and interactive services.
 sidebar_label: QoS
 sidebar_position: 129
 slug: /glossary/qos
@@ -12,6 +12,9 @@ keywords:
   - latency control
   - network performance
   - traffic classes
+  - traffic shaping
+  - DSCP
+  - queueing
 ---
 
 export const jsonLd = {
@@ -23,7 +26,7 @@ export const jsonLd = {
       "name": "What is QoS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "QoS, or Quality of Service, is a set of network techniques used to prioritize important traffic and manage congestion. It helps protect latency-sensitive applications such as voice, video, and interactive services."
+        "text": "QoS, or Quality of Service, is a set of network techniques used to classify, prioritize, and manage traffic during congestion. QoS helps protect latency-sensitive and business-critical applications such as voice, video, and interactive services."
       }
     },
     {
@@ -31,7 +34,7 @@ export const jsonLd = {
       "name": "How does QoS work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "QoS classifies traffic into different groups and applies rules such as priority, shaping, policing, or queue management. High-priority traffic is forwarded first when congestion occurs, while lower-priority traffic may be delayed or limited."
+        "text": "QoS classifies traffic into categories and applies policies such as queueing, shaping, policing, scheduling, and packet marking to control how traffic is forwarded during congestion."
       }
     },
     {
@@ -39,15 +42,15 @@ export const jsonLd = {
       "name": "Why is QoS important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "QoS is important because not all traffic has the same sensitivity to delay or loss. Voice and video need low latency and low jitter, while file transfers can tolerate delay. QoS helps the network treat traffic according to business need."
+        "text": "QoS is important because applications have different sensitivity to latency, jitter, packet loss, and congestion. Realtime traffic such as voice and video often requires more stable delivery behavior than bulk-transfer traffic."
       }
     },
     {
       "@type": "Question",
-      "name": "How is QoS monitored?",
+      "name": "Can QoS increase bandwidth?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "QoS is monitored by watching utilization, delay, packet loss, jitter, and queue behavior. Network analytics tools help show whether priority classes are working as intended and whether congestion is affecting performance."
+        "text": "No. QoS does not increase total bandwidth capacity. Instead, it controls how available bandwidth and forwarding behavior are allocated when multiple traffic types compete for network resources."
       }
     }
   ]
@@ -55,23 +58,41 @@ export const jsonLd = {
 
 # What is QoS?
 
-QoS, or Quality of Service, is a set of network techniques used to prioritize important traffic and manage congestion. It helps protect latency-sensitive applications such as voice, video, and interactive services.
+**QoS (Quality of Service)** is a set of network techniques used to classify, prioritize, and manage traffic during congestion. QoS helps protect latency-sensitive and business-critical applications such as voice, video, and interactive services.
+
+QoS does not increase total bandwidth capacity. Instead, it controls how available bandwidth, queue space, and forwarding behavior are allocated when multiple traffic types compete for network resources.
+
+QoS is widely used in enterprise, ISP, telecom, cloud, SD-WAN, and service-provider environments where stable application behavior and predictable traffic delivery are important.
 
 ---
 
 ## How QoS works
 
-QoS classifies traffic into different groups and applies rules such as priority, shaping, policing, or queue management. High-priority traffic is forwarded first when congestion occurs, while lower-priority traffic may be delayed or limited.
+QoS identifies different types of traffic and applies forwarding policies that influence how packets are queued, delayed, prioritized, shaped, or rate-limited during congestion.
 
-The goal is not to make the network faster overall. The goal is to make the network behave better for traffic that matters most under load.
+Latency-sensitive traffic such as VoIP, video conferencing, interactive applications, and realtime services is commonly prioritized to reduce delay, jitter, and packet loss during periods of heavy utilization.
+
+Lower-priority traffic such as backups, software updates, or bulk file transfers may experience shaping, delay, or reduced forwarding preference during congestion events.
+
+QoS policies usually become most important when links are congested and multiple traffic types compete for limited bandwidth.
+
+For example, during heavy WAN utilization, a QoS policy may prioritize voice traffic over large file transfers so phone calls remain stable even while backups or downloads slow down.
+
+QoS can improve traffic handling during congestion, but it cannot fully compensate for severely overloaded or undersized network links.
+
+Depending on the environment, QoS policies may operate across LAN, WAN, MPLS, wireless, internet-edge, cloud, or SD-WAN infrastructure.
 
 ---
 
 ## QoS in network operations
 
-QoS is used to protect business-critical applications from congestion. Voice calls, video sessions, and transactional applications are common candidates for prioritization. Bulk transfers and backup traffic are often assigned lower priority.
+QoS is commonly used to protect voice traffic, video conferencing, interactive applications, cloud services, WAN communication, SaaS connectivity, and other latency-sensitive or business-critical traffic from congestion-related degradation.
 
-Operators use QoS to reduce complaints during busy periods. If a link is saturated, QoS helps ensure important traffic still performs acceptably.
+Operators commonly investigate congested interfaces, queue drops, latency spikes, high jitter, packet loss, DSCP-marking inconsistencies, uneven bandwidth allocation, and incorrect traffic classification.
+
+Because poorly designed QoS policies can affect application responsiveness even when bandwidth utilization appears acceptable, visibility into queueing behavior and traffic prioritization is important for troubleshooting and performance analysis.
+
+Historical visibility is especially useful for investigating intermittent congestion, unstable application behavior, recurring latency spikes, or periods where traffic-prioritization policies may not behave as intended.
 
 ---
 
@@ -79,35 +100,48 @@ Operators use QoS to reduce complaints during busy periods. If a link is saturat
 
 | Technique | Purpose |
 |---|---|
-| Classification | Group traffic by type |
-| Marking | Tag traffic for priority handling |
-| Shaping | Smooth traffic bursts |
-| Policing | Limit traffic that exceeds policy |
-| Queueing | Control which traffic goes first |
+| Classification | Identify traffic types or applications |
+| Marking | Assign forwarding priority or service classes |
+| Shaping | Smooth bursty traffic patterns |
+| Policing | Enforce bandwidth limits |
+| Queueing | Control forwarding order during congestion |
+| Scheduling | Allocate forwarding opportunities across queues |
+
+The effectiveness of QoS depends on traffic behavior, application requirements, policy design, and available infrastructure capacity.
 
 ---
 
-## What makes QoS work in practice
+## Benefits and challenges of QoS
 
-QoS must be designed around real traffic patterns. If classes are poorly defined, critical traffic may not get the protection it needs. If policies are too strict, users may see unnecessary slowdown.
+QoS helps networks protect realtime traffic, reduce congestion-related degradation, improve traffic predictability, and prioritize important applications during heavy utilization.
 
-QoS also depends on monitoring. Without visibility into delay, loss, and queue behavior, it is hard to know whether the policy is effective.
+However, inaccurate traffic classification, aggressive policing, inconsistent DSCP handling, queue congestion, multi-vendor policy differences, and limited encrypted-traffic visibility can reduce QoS effectiveness.
+
+Organizations commonly combine flow telemetry, interface monitoring, packet analysis, latency analysis, jitter monitoring, historical traffic visibility, and queue statistics to investigate congestion and validate QoS behavior.
+
+Correlating these telemetry sources helps operators determine whether queueing behavior, congestion, application traffic patterns, or policy configuration is affecting application performance.
 
 ---
 
-## How Trisul handles QoS
+## In Trisul
 
-Trisul helps show how traffic volume, latency, and saturation affect service quality. This makes it easier to confirm whether QoS policy is protecting the right traffic and whether congestion is causing performance issues.
+Trisul supports QoS-related visibility through flow telemetry analysis, interface monitoring, latency analysis, packet analysis, and historical traffic investigations.
+
+Using NetFlow, IPFIX, packet-analysis workflows, interface telemetry, and historical traffic analysis, operators can analyze congestion trends affecting applications, investigate latency, jitter, packet loss, and retransmissions, correlate traffic behavior with applications and interfaces, troubleshoot traffic-prioritization problems, and perform historical investigations associated with service degradation across enterprise, ISP, WAN, SD-WAN, telecom, and cloud environments.
+
+Additional traffic-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/docs/ug/flow/
 
 ---
 
 ## Related terms
 
-- Traffic prioritization
-- Congestion
-- Latency
-- Jitter
-- Packet loss
+- [What is traffic prioritization?](/docs/glossary/traffic-prioritization)
+- [What is congestion?](/docs/glossary/congestion)
+- [What is latency?](/docs/glossary/latency)
+- [What is jitter?](/docs/glossary/jitter)
+- [What is packet loss?](/docs/glossary/packet-loss)
 
 ---
 
@@ -115,16 +149,24 @@ Trisul helps show how traffic volume, latency, and saturation affect service qua
 
 ### What is QoS?
 
-QoS, or Quality of Service, is a set of network techniques used to prioritize important traffic and manage congestion. It helps protect latency-sensitive applications such as voice, video, and interactive services.
+QoS, or Quality of Service, is a set of network techniques used to classify, prioritize, and manage traffic during congestion. QoS helps protect latency-sensitive and business-critical applications such as voice, video, and interactive services.
 
 ### How does QoS work?
 
-QoS classifies traffic into different groups and applies rules such as priority, shaping, policing, or queue management. High-priority traffic is forwarded first when congestion occurs, while lower-priority traffic may be delayed or limited.
+QoS classifies traffic into categories and applies policies such as queueing, shaping, policing, scheduling, and packet marking to control how traffic is forwarded during congestion.
 
 ### Why is QoS important?
 
-QoS is important because not all traffic has the same sensitivity to delay or loss. Voice and video need low latency and low jitter, while file transfers can tolerate delay. QoS helps the network treat traffic according to business need.
+QoS is important because applications have different sensitivity to latency, jitter, packet loss, and congestion. Realtime traffic such as voice and video often requires more stable delivery behavior than bulk-transfer traffic.
 
-### How is QoS monitored?
+### Can QoS increase bandwidth?
 
-QoS is monitored by watching utilization, delay, packet loss, jitter, and queue behavior. Network analytics tools help show whether priority classes are working as intended and whether congestion is affecting performance.
+No. QoS does not increase total bandwidth capacity. Instead, it controls how available bandwidth and forwarding behavior are allocated when multiple traffic types compete for network resources.
+
+### Why is QoS important during congestion?
+
+QoS becomes especially important during congestion because it determines how competing traffic types are prioritized when available bandwidth and queue space become limited.
+
+### Can QoS fix slow internet connections?
+
+QoS can improve how traffic is handled during congestion, but it cannot fully compensate for severely overloaded, unstable, or undersized network links.

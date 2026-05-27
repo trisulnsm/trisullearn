@@ -1,16 +1,19 @@
 ---
 title: What is a node in network analytics?
-description: A node is a single physical or virtual machine running the Trisul Network Analytics software. Nodes work together in a distributed deployment to collect, process, and store network telemetry at scale.
+description: A node is a physical or virtual system participating in a network analytics deployment. In Trisul Network Analytics, nodes perform roles such as traffic collection, telemetry processing, aggregation, storage, and centralized analysis within distributed deployments.
 sidebar_label: Node
 sidebar_position: 138
 slug: /glossary/node
 keywords:
   - node
-  - Trisul node
   - network analytics node
+  - Trisul node
   - distributed analytics
+  - telemetry node
   - probe node
   - hub node
+  - distributed monitoring
+  - traffic analytics infrastructure
 ---
 
 export const jsonLd = {
@@ -22,7 +25,7 @@ export const jsonLd = {
       "name": "What is a node in network analytics?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A node is a single physical or virtual machine running the Trisul Network Analytics software. Nodes work together in a distributed deployment to collect, process, and store network telemetry at scale."
+        "text": "A node is a physical or virtual system participating in a network analytics deployment. In Trisul Network Analytics, nodes perform roles such as traffic collection, telemetry processing, aggregation, storage, and centralized analysis within distributed deployments."
       }
     },
     {
@@ -30,7 +33,7 @@ export const jsonLd = {
       "name": "What types of nodes exist in Trisul?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul uses two primary node types: the probe node which collects and processes traffic, and the hub node which aggregates data and serves the dashboard. A single machine can run both roles in smaller deployments."
+        "text": "Trisul deployments commonly use probe nodes and hub nodes. Probe nodes collect and process telemetry near monitored network segments, while hub nodes aggregate data and provide centralized dashboards, querying, and analysis workflows."
       }
     },
     {
@@ -38,7 +41,7 @@ export const jsonLd = {
       "name": "How do nodes work together?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Probe nodes capture and process traffic at collection points. They send summarized data to a hub node which consolidates results and serves the web interface. Multiple probes can feed a single hub."
+        "text": "Probe nodes collect and process telemetry from monitored environments and forward summarized analytics data to hub nodes. Hub nodes consolidate traffic visibility, historical analysis, dashboards, and centralized investigation workflows across distributed deployments."
       }
     },
     {
@@ -46,7 +49,7 @@ export const jsonLd = {
       "name": "Why is the node concept important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The node concept is important because it defines how Trisul scales. Adding more probe nodes extends coverage to more network segments without changing the central hub."
+        "text": "The node concept is important because distributed node architectures allow analytics platforms to scale traffic collection, telemetry processing, and centralized visibility across multiple network segments, sites, or environments."
       }
     }
   ]
@@ -54,80 +57,90 @@ export const jsonLd = {
 
 # What is a node in network analytics?
 
-In **network analytics**, a **node** is a **single physical or virtual machine** running the **Trisul Network Analytics software**. Nodes collaborate in a **distributed deployment** to **collect, process, and store network telemetry** at scale, enabling consistent visibility across large or multi‑site networks.
+In network analytics, a **node** is a physical or virtual system participating in a distributed monitoring or analytics deployment.
+
+In Trisul Network Analytics, nodes work together to collect, process, aggregate, store, and analyze telemetry across enterprise, ISP, telecom, cloud, and distributed network environments.
+
+Distributed node architectures allow telemetry collection and traffic analysis to occur closer to monitored traffic sources while still providing centralized visibility, historical analysis, and investigation workflows across the organization.
+
+This approach improves scalability because traffic collection and telemetry processing can be distributed across multiple systems instead of concentrating all workloads into a single analytics server.
 
 ---
 
 ## How nodes work
 
-Trisul defines two primary node roles:
+Trisul deployments commonly use two primary node roles:
 
-- A **probe node** sits at a **collection point** (e.g., near a ToR switch or WAN edge) and **captures flow or packet data** directly from the network. It performs local processing such as aggregation, decodes, and flow‑based analytics.  
-- A **hub node** **aggregates data** from one or more probe nodes and **serves the web dashboard, query interface, and alerting** layer.  
+- **Probe nodes**, which collect and process telemetry near monitored traffic sources or collection points
+- **Hub nodes**, which aggregate telemetry and provide centralized querying, dashboards, historical visibility, and analysis workflows
 
-In **small deployments**, a single machine can run **both probe and hub roles**. In **larger or distributed environments**, probes and hubs run on **separate nodes** to scale capture, processing, and UI load independently.
+In smaller deployments, a single system may perform both probe and hub functions. In larger or geographically distributed environments, these roles are commonly separated so telemetry collection, storage, and analysis can scale independently.
+
+When traffic is observed, probe nodes process packet, flow, or telemetry data locally before forwarding summarized analytics information toward centralized systems. Hub nodes then aggregate this telemetry, index historical data, and provide centralized traffic visibility and investigation workflows across distributed environments.
+
+For example, an ISP may deploy probe nodes near regional POPs or peering locations to process local traffic telemetry while forwarding aggregated analytics data to centralized hub nodes for organization-wide visibility and historical analysis.
+
+Depending on deployment requirements, nodes may be distributed across data centers, WAN locations, cloud environments, ISP infrastructure, enterprise branch offices, or regional monitoring points.
 
 ---
 
 ## Nodes in network operations
 
-Nodes define the **physical and logical layout** of a Trisul deployment:
+Node-based deployments are operationally important because they allow analytics platforms to scale across large or distributed environments without requiring all telemetry collection and processing to occur in a single location.
 
-- Each **probe node** covers **one or more network segments** (e.g., a data‑center pod, branch, or ISP POP).  
-- Adding a **new probe node** extends visibility to **another location or segment** without redesigning the hub.  
-- All **operators interact through the hub node**, regardless of how many probes are deployed, providing a **centralized view** of distributed telemetry.
+These architectures are commonly used for WAN visibility, branch monitoring, ISP and telecom analytics, distributed traffic collection, multi-site telemetry aggregation, and centralized historical analysis across geographically distributed networks.
 
-This model also supports **multi‑tenant and multi‑domain environments**, where multiple probes feed into a shared hub for consolidated analytics and reporting.
+Probe placement typically depends on monitoring objectives, traffic visibility requirements, available telemetry sources, and network topology. Organizations often deploy probe nodes near WAN edges, internet gateways, data-center aggregation layers, cloud-connectivity points, ISP peering environments, or branch locations where visibility into traffic behavior is operationally important.
+
+Distributed node architectures also improve deployment flexibility because additional nodes can extend monitoring coverage without redesigning the entire analytics environment.
 
 ---
 
-## Node roles
+## Common node roles
 
 | Role | Function |
-|------|----------|
-| Probe node | Captures and processes traffic at the collection point; exports summarized telemetry |
-| Hub node | Aggregates data from multiple probes and serves dashboards, queries, and alerts |
-| Combined node | Runs both probe and hub roles on a single machine (typical in smaller deployments) |
+|---|---|
+| Probe node | Collects and processes telemetry from monitored environments |
+| Hub node | Aggregates telemetry and provides centralized visibility and analysis |
+| Combined node | Performs both probe and hub functions within the same system |
 
-Each role can be replicated and distributed to meet **scale, resiliency, and locality** requirements.
-
----
-
-## What makes nodes work in practice
-
-Three operational aspects are critical:
-
-- **Traffic access**:  
-  - Each probe node must have **reliable, low‑latency access** to traffic at its segment (via SPAN port, TAP, or inline).  
-- **Probe‑to‑hub connectivity**:  
-  - The **network path** between probe and hub must be stable and have **sufficient throughput and low packet loss** to carry summarized telemetry without gaps.  
-- **Node health monitoring**:  
-  - If a probe node goes offline, **visibility over that segment is lost** until it recovers.  
-  - Trisul and external monitoring should **alert on node availability, resource exhaustion, and traffic‑loss thresholds** so operators can respond quickly.  
-
-Proper node design enables **scalable, resilient telemetry** that matches network topology and growth.
+Exact deployment models vary depending on telemetry volume, infrastructure scale, retention requirements, and architectural design.
 
 ---
 
-## How Trisul handles nodes
+## Node deployment challenges and best practices
 
-Trisul’s architecture is built around the **probe‑hub node model**:
+Effective node-based analytics deployments depend on reliable telemetry access, scalable storage and processing, stable inter-node communication, and visibility into node health.
 
-- Each node appears as a managed entity in the **web UI**; operators can view **per‑node status, metrics, and configuration** from the hub.  
-- **Probes send processed and summarized data** to the hub, which then **correlates, stores, and indexes** it for queries, dashboards, and alerts.  
-- The system supports **multi‑probe, multi‑hub deployments**, where **multiple hub nodes** can operate in **distributed or sharded topologies** for very large environments.  
+Common deployment challenges include handling distributed telemetry collection, managing inter-node bandwidth requirements, maintaining long-term storage retention, coordinating multi-site deployments, and planning for high availability across distributed infrastructure.
 
-For node‑level sizing, topology patterns, and high‑availability guidance, see Trisul documentation at [https://docs.trisul.org/](https://docs.trisul.org/).
+Monitoring node health is especially important because packet loss, exporter failures, storage issues, or probe outages can reduce visibility into monitored environments and create telemetry gaps during investigations.
+
+Organizations commonly improve deployment reliability by combining distributed telemetry collection with centralized analysis, redundant deployment architectures, node-health monitoring, historical traffic visibility, and investigation workflows that span multiple monitoring locations.
+
+---
+
+## In Trisul
+
+Trisul uses a distributed probe-and-hub architecture for scalable telemetry collection and traffic-analysis workflows.
+
+Using probe nodes, hub nodes, flow telemetry analysis, packet-analysis workflows, and historical traffic visibility, operators can collect telemetry across distributed network environments, aggregate visibility from multiple monitored locations, support centralized traffic investigations, and perform historical traffic analysis across enterprise, ISP, telecom, and carrier deployments.
+
+Trisul deployments commonly combine distributed probe infrastructure with centralized hub workflows to provide scalable traffic visibility, telemetry analysis, and investigation capabilities across large or geographically distributed environments.
+
+Additional deployment and architectural workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/docs/ag/install/
 
 ---
 
 ## Related terms
 
-- [What is a distributed domain?](/docs/glossary/distributed-domain)  
-- [What is a probe?](/docs/glossary/probe)  
-- [What is a hub?](/docs/glossary/hub)  
-- [What is multitenancy?](/docs/glossary/multitenancy)  
-- [What is a flow collector?](/docs/glossary/flow-collector)  
+- [What is a distributed domain?](/docs/glossary/distributed-domain)
+- [What is a probe?](/docs/glossary/probe)
+- [What is a hub?](/docs/glossary/hub)
+- [What is multitenancy?](/docs/glossary/multitenancy)
+- [What is a flow collector?](/docs/glossary/flow-collector)
 
 ---
 
@@ -135,16 +148,20 @@ For node‑level sizing, topology patterns, and high‑availability guidance, se
 
 ### What is a node in network analytics?
 
-A node is a single physical or virtual machine running the Trisul Network Analytics software. Nodes work together in a distributed deployment to collect, process, and store network telemetry at scale.
+A node is a physical or virtual system participating in a network analytics deployment. In Trisul Network Analytics, nodes perform roles such as traffic collection, telemetry processing, aggregation, storage, and centralized analysis within distributed deployments.
 
 ### What types of nodes exist in Trisul?
 
-Trisul uses two primary node types: the probe node which collects and processes traffic, and the hub node which aggregates data and serves the dashboard. A single machine can run both roles in smaller deployments.
+Trisul deployments commonly use probe nodes and hub nodes. Probe nodes collect and process telemetry near monitored network segments, while hub nodes aggregate data and provide centralized dashboards, querying, and analysis workflows.
 
 ### How do nodes work together?
 
-Probe nodes capture and process traffic at collection points. They send summarized data to a hub node which consolidates results and serves the web interface. Multiple probes can feed a single hub.
+Probe nodes collect and process telemetry from monitored environments and forward summarized analytics data to hub nodes. Hub nodes consolidate traffic visibility, historical analysis, dashboards, and centralized investigation workflows across distributed deployments.
 
 ### Why is the node concept important?
 
-The node concept is important because it defines how Trisul scales. Adding more probe nodes extends coverage to more network segments without changing the central hub.
+The node concept is important because distributed node architectures allow analytics platforms to scale telemetry collection, processing, storage, and visibility across multiple network segments, sites, or environments.
+
+### Can a single node perform multiple roles?
+
+Yes. In smaller deployments, a single system may perform both probe and hub functions. Larger environments commonly separate these roles to improve scalability and distribute telemetry-processing workloads more efficiently.

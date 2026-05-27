@@ -1,16 +1,20 @@
 ---
 title: What is passive DNS?
-description: Passive DNS is the collection of DNS query and response data from observed traffic rather than from an active resolver. It helps analysts see which domains were resolved and when.
+description: Passive DNS collects and analyzes observed DNS traffic to provide historical visibility into domain resolutions, IP mappings, DNS behavior, and infrastructure activity over time.
 sidebar_label: Passive DNS
 sidebar_position: 156
 slug: /glossary/passive-dns
 keywords:
   - passive DNS
   - DNS visibility
-  - DNS logs
+  - DNS analytics
+  - DNS history
   - domain resolution
   - threat hunting
-  - DNS analytics
+  - DNS telemetry
+  - DNS investigations
+  - infrastructure tracking
+  - DNS monitoring
 ---
 
 export const jsonLd = {
@@ -22,7 +26,7 @@ export const jsonLd = {
       "name": "What is passive DNS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Passive DNS is the collection of DNS query and response data from observed traffic rather than from an active resolver. It helps analysts see which domains were resolved and when."
+        "text": "Passive DNS collects and analyzes observed DNS traffic to provide historical visibility into domain resolutions, IP mappings, DNS behavior, and infrastructure activity over time."
       }
     },
     {
@@ -30,7 +34,7 @@ export const jsonLd = {
       "name": "How does passive DNS work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Passive DNS records DNS queries and responses as they pass through the network. The data is then stored and analyzed to understand domain lookups, IP mappings, and DNS behavior over time."
+        "text": "Passive DNS observes DNS traffic already occurring on the network and stores DNS queries, responses, timestamps, and domain-to-IP mappings for historical analysis and investigations."
       }
     },
     {
@@ -38,7 +42,7 @@ export const jsonLd = {
       "name": "Why is passive DNS useful?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Passive DNS is useful because it gives visibility into domain resolution without requiring active probing. It helps with threat hunting, incident investigation, and tracking suspicious domains."
+        "text": "Passive DNS is useful because it helps analysts investigate historical domain activity, suspicious infrastructure, communication patterns, DNS anomalies, and infrastructure changes without actively querying DNS systems."
       }
     },
     {
@@ -46,7 +50,7 @@ export const jsonLd = {
       "name": "What can passive DNS reveal?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Passive DNS can reveal which domains were queried, which IP addresses they resolved to, and how those relationships changed over time. This is valuable for tracking infrastructure and anomalies."
+        "text": "Passive DNS can reveal queried domains, resolved IP addresses, DNS record types, historical domain-to-IP relationships, DNS timing behavior, and communication patterns associated with hosts or applications."
       }
     }
   ]
@@ -54,75 +58,89 @@ export const jsonLd = {
 
 # What is passive DNS?
 
-**Passive DNS** is the **collection of DNS query and response data** from **observed traffic** rather than from an **active resolver**. It helps analysts **see which domains were resolved and when**, without directly querying DNS themselves.
+**Passive DNS** collects and analyzes observed DNS traffic to provide historical visibility into domain resolutions, IP mappings, DNS behavior, and infrastructure activity over time.
+
+Unlike active DNS lookups, passive DNS observes DNS traffic already occurring on the network instead of generating new DNS queries.
+
+Passive DNS is widely used in enterprise, ISP, telecom, cloud, and security-monitoring environments for DNS visibility, threat hunting, infrastructure tracking, traffic investigations, and historical analysis workflows.
+
+Because DNS activity often appears before application communication begins, passive DNS can provide valuable insight into external services, infrastructure usage, suspicious domains, and communication intent across the network.
 
 ---
 
 ## How passive DNS works
 
-Passive DNS:
+Passive DNS systems observe DNS queries and responses as they traverse monitored network environments.
 
-- **Observes DNS traffic** as it crosses the network (e.g., UDP/TCP DNS packets).  
-- **Records** the **domain name**, **resolved IP**, **record type**, and **timestamp** for each query and response.  
+The collected telemetry commonly includes queried domains, resolved IP addresses, DNS record types, timestamps, and related metadata associated with DNS activity.
 
-This builds a **time‑stamped map** of domain‑to‑IP relationships. Analysts can then **search and pivot** through this data to see **how DNS activity changed over time**.
+This information is indexed and stored for historical analysis so analysts can investigate how domain-to-IP relationships changed over time.
+
+Passive DNS is especially useful because domains and infrastructure often change rapidly. A suspicious domain may no longer resolve to the same IP address during a later investigation, but passive DNS records can still reveal historical infrastructure relationships and communication patterns.
+
+Depending on visibility and encryption support, passive DNS may analyze traditional DNS traffic, DNS logs, packet captures, or partially visible encrypted DNS metadata.
 
 ---
 
 ## Passive DNS in network operations
 
-In network operations, passive DNS:
+Passive DNS is commonly used for threat hunting, incident investigations, malware analysis, DNS troubleshooting, infrastructure tracking, subscriber investigations, and traffic attribution workflows.
 
-- Gives **security and SOC teams visibility into domain resolution** without active probing.  
-- Helps with **threat hunting, incident investigation, and tracking suspicious domains** (e.g., rare or malicious domains).  
-- Adds **context** to flows: if a host connects to a suspicious IP, passive DNS can show **which domain** that host likely resolved first.
+Security teams often use passive DNS to investigate suspicious domains, track infrastructure changes, and pivot between related IP addresses or domain activity during threat investigations.
 
-Because DNS is often the **first step** in reaching a service or command‑and‑control infrastructure, passive DNS is a powerful **early‑visibility signal**.
+For example, analysts may identify unusual outbound communication from a host and use passive DNS records to determine which domains resolved to the associated infrastructure during earlier communication activity.
+
+Passive DNS is also useful for identifying rapidly changing DNS behavior, DNS tunneling activity, suspicious external services, and communication with malicious infrastructure.
+
+Because DNS activity reflects how systems locate services and communicate externally, passive DNS visibility often provides early indicators of application behavior, infrastructure changes, or suspicious activity across the network.
 
 ---
 
 ## Common passive DNS outputs
 
-| Output | Example |
-|--------|---------|
-| Domain queried | `example.com` |
-| Resolved IP | `203.0.113.10` |
-| Query time | When the lookup happened (timestamp) |
-| Response pattern | How DNS answers changed over time (e.g., new IPs, TTLs, record types) |
+| Output | Meaning |
+|---|---|
+| Queried domain | Domain requested by a host or application |
+| Resolved IP address | IP returned in a DNS response |
+| DNS record type | Record categories such as A, AAAA, CNAME, MX, or TXT |
+| Timestamps | Timing associated with DNS activity |
+| Historical resolution changes | Changes in domain-to-IP mappings over time |
 
-These outputs form the backbone of **DNS‑based threat‑hunting and forensic workflows**.
-
----
-
-## What makes passive DNS work in practice
-
-Passive DNS works best when:
-
-- **DNS traffic is visible** at the observation point; if DNS is fully encrypted (e.g., DoH, DoT not decrypted) or tunneled away from capture points, visibility drops sharply.  
-- Passive‑DNS records are **correlated with flows and alerts**, so analysts can move quickly from a **domain event** to **host activity**, **traffic patterns**, and **potential threats**.  
-
-Without visibility and correlation, passive DNS becomes a partial or noisy data source.
+These outputs help analysts investigate communication behavior, infrastructure changes, and DNS-related activity historically.
 
 ---
 
-## How Trisul handles passive DNS
+## Challenges in passive DNS analysis
 
-Trisul:
+Effective passive DNS analysis depends on reliable DNS visibility, scalable historical retention, and accurate correlation across traffic and infrastructure telemetry.
 
-- Can **inspect DNS traffic** to extract **queries, responses, and domain‑to‑IP mappings**, providing **passive DNS–style visibility**.  
-- **Correlates DNS events with flows and packets**, so analysts can see **which hosts resolved which domains** and **how those lookups relate to traffic behavior**.  
+Common challenges include encrypted DNS technologies such as DNS-over-HTTPS (DoH) and DNS-over-TLS (DoT), short-lived cloud infrastructure, CDN-related DNS variability, large-scale DNS telemetry ingestion, and distributed monitoring environments.
 
-This enables **DNS‑driven investigation** and **threat‑hunting workflows** without relying on external DNS‑log pipelines.
+Organizations commonly improve DNS visibility by combining passive DNS with flow telemetry, packet analysis, threat intelligence, historical traffic analysis, and infrastructure monitoring.
+
+Correlating DNS telemetry with broader traffic behavior helps analysts investigate both communication intent and infrastructure activity across the network.
+
+---
+
+## In Trisul
+
+Trisul supports passive DNS-style workflows through DNS visibility, packet analysis, flow telemetry analysis, and historical traffic investigations.
+
+Using DNS telemetry together with NetFlow, IPFIX, packet analysis, and historical traffic analysis workflows, operators can analyze DNS query and response behavior, correlate DNS activity with hosts and flows, investigate suspicious domain activity, and perform historical traffic investigations across enterprise, ISP, telecom, WAN, cloud, and distributed environments.
+
+Additional DNS-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- [What is DNS?](/docs/glossary/dns)  
-- [What is DNS tunneling?](/docs/glossary/dns-tunneling)  
-- [What is domain reputation?](/docs/glossary/domain-reputation)  
-- [What is threat hunting?](/docs/glossary/threat-hunting)  
-- [What is network security monitoring?](/docs/glossary/network-security-monitoring)  
+- [What is DNS?](/docs/glossary/dns)
+- [What is DNS tunneling?](/docs/glossary/dns-tunneling)
+- [What is threat hunting?](/docs/glossary/threat-hunting)
+- [What is domain reputation?](/docs/glossary/domain-reputation)
+- [What is network security monitoring?](/docs/glossary/network-security-monitoring)
 
 ---
 
@@ -130,16 +148,24 @@ This enables **DNS‑driven investigation** and **threat‑hunting workflows** w
 
 ### What is passive DNS?
 
-Passive DNS is the collection of DNS query and response data from observed traffic rather than from an active resolver. It helps analysts see which domains were resolved and when.
+Passive DNS collects and analyzes observed DNS traffic to provide historical visibility into domain resolutions, IP mappings, DNS behavior, and infrastructure activity over time.
 
 ### How does passive DNS work?
 
-Passive DNS records DNS queries and responses as they pass through the network. The data is then stored and analyzed to understand domain lookups, IP mappings, and DNS behavior over time.
+Passive DNS observes DNS traffic already occurring on the network and stores DNS queries, responses, timestamps, and domain-to-IP mappings for historical analysis and investigations.
 
 ### Why is passive DNS useful?
 
-Passive DNS is useful because it gives visibility into domain resolution without requiring active probing. It helps with threat hunting, incident investigation, and tracking suspicious domains.
+Passive DNS is useful because it helps analysts investigate historical domain activity, suspicious infrastructure, communication patterns, DNS anomalies, and infrastructure changes without actively querying DNS systems.
 
 ### What can passive DNS reveal?
 
-Passive DNS can reveal which domains were queried, which IP addresses they resolved to, and how those relationships changed over time. This is valuable for tracking infrastructure and anomalies.
+Passive DNS can reveal queried domains, resolved IP addresses, DNS record types, historical domain-to-IP relationships, DNS timing behavior, and communication patterns associated with hosts or applications.
+
+### Why is passive DNS useful for threat hunting?
+
+Passive DNS helps analysts investigate suspicious domains, identify historical infrastructure relationships, correlate communication behavior, and track infrastructure changes associated with malicious activity.
+
+### What is the difference between active DNS and passive DNS?
+
+Active DNS generates live DNS queries to retrieve current records, while passive DNS observes DNS traffic already occurring on the network and stores historical DNS activity for later analysis.

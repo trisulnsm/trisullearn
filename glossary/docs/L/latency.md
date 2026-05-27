@@ -1,6 +1,6 @@
 ---
 title: What is latency?
-description: Latency is the delay between sending data and receiving it. It is one of the most important measures of network performance.
+description: Latency is the communication delay between sending data and receiving a response across a network. It is one of the most important measurements for network, application, and user-experience performance.
 sidebar_label: Latency
 sidebar_position: 229
 slug: /glossary/latency
@@ -8,6 +8,7 @@ keywords:
   - latency
   - delay
   - round trip time
+  - RTT
   - network delay
   - response time
   - performance
@@ -22,7 +23,7 @@ export const jsonLd = {
       "name": "What is latency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Latency is the delay between sending data and receiving it. It is one of the most important measures of network performance."
+        "text": "Latency is the communication delay between sending data and receiving a response across a network. It is one of the most important measurements for network, application, and user-experience performance."
       }
     },
     {
@@ -30,7 +31,7 @@ export const jsonLd = {
       "name": "Why does latency matter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Latency matters because high delay makes applications feel slow or unresponsive."
+        "text": "Latency matters because excessive delay makes applications feel slow or unresponsive and can negatively affect voice, video, gaming, cloud applications, and interactive services."
       }
     },
     {
@@ -38,7 +39,7 @@ export const jsonLd = {
       "name": "What causes latency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Latency can be caused by distance, queueing, congestion, processing delay, or path changes."
+        "text": "Latency can be caused by propagation delay, congestion, queueing, packet-processing overhead, routing-path changes, bandwidth saturation, or internet and cloud transit behavior."
       }
     },
     {
@@ -46,7 +47,7 @@ export const jsonLd = {
       "name": "How is latency used in analysis?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Latency is used to judge responsiveness, detect congestion, and explain delays in voice, video, and interactive traffic."
+        "text": "Latency is used to measure responsiveness, detect congestion, evaluate network performance, troubleshoot application slowness, and analyze delays affecting voice, video, and interactive traffic."
       }
     }
   ]
@@ -54,78 +55,156 @@ export const jsonLd = {
 
 # What is latency?
 
-**Latency** is the **delay between sending data and receiving it** and is one of the most important measures of **network performance**. It represents how long it takes for a packet or request to travel from source to destination and back, and users perceive it as **slowness or lag** in applications, web browsing, voice, and video. Latency is typically measured in **milliseconds (ms)** and is tracked alongside **throughput, packet loss, and jitter** to get a complete picture of service quality.
+**Latency** is the communication delay between sending data and receiving a response across a network. It represents how long packets, requests, or application transactions take to travel between systems and is typically measured in milliseconds (ms).
+
+Latency is one of the most important measurements for network, application, and user-experience performance because it directly affects responsiveness, interactivity, and service quality.
+
+Unlike complete outages, latency problems are often operationally difficult because applications and services may continue functioning while users experience delayed responses, intermittent slowness, lag, buffering, unstable calls, or inconsistent application behavior. Infrastructure may appear technically “up” even while service quality steadily deteriorates.
+
+This makes latency operationally important for identifying gradual degradation before performance problems become severe enough to trigger widespread outages, customer-impact events, or escalation incidents.
+
+Latency is commonly analyzed together with throughput, packet loss, jitter, retransmissions, and congestion metrics to provide broader operational context.
 
 ---
 
 ## How latency works
 
-Latency is made up of several components:
+Latency is influenced by multiple factors affecting packet delivery across a communication path.
 
-- **Propagation delay**: Time taken for a signal to travel the physical distance between locations.  
-- **Queueing and processing delay**: Time spent waiting in router/switch buffers and being processed by devices.  
-- **Serialization and transmission delay**: Time to put the packet onto the wire at a given link speed.  
+As traffic traverses routers, switches, WAN links, cloud infrastructure, firewalls, internet transit paths, and other network systems, each stage introduces measurable delay. Even relatively small delays accumulated across congested links, overloaded devices, long-distance routes, or inspection systems can significantly affect application responsiveness and user experience.
 
-Even when **bandwidth (throughput) is high**, high latency can still make services feel sluggish, so operators monitor **round‑trip time (RTT)** or **one‑way delay** to understand how responsive a path really is.
+Common latency components include:
+
+| Component | Description |
+|---|---|
+| Propagation delay | Time required for signals to travel across physical distance |
+| Queueing delay | Time packets spend waiting in buffers during congestion |
+| Processing delay | Time required for routers, firewalls, switches, or applications to process traffic |
+| Serialization delay | Time required to place packets onto a transmission medium |
+
+Monitoring systems commonly calculate latency using:
+- Round-trip time (RTT)
+- One-way delay measurements
+- Packet analysis
+- Synthetic probes
+- Transaction monitoring
+- Flow-analysis workflows
+
+Latency visibility may be gathered actively through synthetic testing workflows or passively through packet analysis, traffic telemetry, and application-observation systems.
+
+Even when bandwidth appears sufficient, high latency can still significantly degrade responsiveness and real-time communication quality.
 
 ---
 
 ## Latency in network operations
 
-In **NOC and security operations**, latency is used to:
+Latency is operationally important because many infrastructure problems first appear as degradation rather than complete failure.
 
-- Measure **application responsiveness** and **user experience**.  
-- Detect **network stress, congestion, or path changes** that degrade interactive traffic.  
-- Troubleshoot **real‑time applications** such as VoIP and interactive games, where even small extra delays are noticeable.  
+In enterprise, ISP, SD-WAN, cloud, and hybrid-network environments, rising latency may indicate:
+- Congestion conditions
+- Routing instability
+- WAN degradation
+- Device overload
+- Internet-transit issues
+- Cloud-provider path problems
+- Packet inspection or firewall-processing delays
 
-A **sudden increase in latency** on a link or path often signals emerging congestion, routing changes, or device‑level issues, making it a useful **early warning signal** in addition to loss or utilization metrics.
+Because these conditions often develop gradually, latency visibility helps operators identify deteriorating infrastructure behavior before widespread service disruption occurs.
+
+Latency analysis is especially important for:
+- VoIP and video conferencing
+- SaaS and cloud applications
+- Financial systems
+- Gaming platforms
+- Remote-access services
+- Interactive and real-time workloads
+
+Even moderate delay increases can noticeably affect usability long before systems become unavailable.
+
+Latency monitoring also helps teams distinguish between:
+- Network-level delay
+- Application slowness
+- Congestion-related instability
+- Routing inefficiencies
+- Infrastructure bottlenecks
+- External provider or cloud-transit conditions
+
+This investigative visibility is important because users often report latency problems as generalized “slowness” even when the underlying cause originates from specific infrastructure conditions elsewhere in the communication path.
 
 ---
 
 ## Common latency views
 
-| View | Meaning |
-|------|---------|
-| Round‑trip time (RTT) | Time from sending a request to receiving the response |
-| One‑way delay | Time for a packet to travel in one direction only |
-| Application latency | End‑to‑end delay as perceived by the user or application |
+| View | Description |
+|---|---|
+| Round-trip time (RTT) | Total time required for a request and response exchange |
+| One-way delay | Time required for packets to travel in a single direction |
+| Application latency | Delay experienced directly by users or applications |
+| Network latency | Delay introduced by the network path and infrastructure |
 
-Different use cases (e.g., TCP‑based apps vs UDP‑based real‑time streams) may rely on different latency views, and tools often derive these from flow telemetry, ICMP, or application‑layer measurements.
-
----
-
-## What makes latency useful
-
-Latency is useful because it **directly affects user experience**; even small delays can be noticeable in **voice calls, gaming, remote desktop sessions, and cloud applications**. It becomes more meaningful when examined together with:
-
-- **Queueing behavior** and **throughput**.  
-- **Packet loss** and **jitter**.  
-- **Routing and path stability**.  
-
-By combining these metrics, operators can answer questions like **“Is traffic slow because the path is long, or because queues are starved?”** instead of relying on isolated observations.
+Different monitoring workflows may derive latency measurements from packet analysis, synthetic probes, ICMP measurements, flow telemetry, or application-level observations.
 
 ---
 
-## How Trisul handles latency
+## What makes latency operationally useful
 
-Trisul helps correlate **latency with traffic load, retransmissions, and application behavior** so operators can understand what is slowing traffic down. It does this by:
+Latency is operationally useful because it provides measurable insight into responsiveness, communication quality, and infrastructure behavior across applications and services.
 
-- Using **flow‑level timing data** to infer delay patterns across sessions and paths.  
-- Correlating **latency‑like trends** with **error rates, congestion witnesses (e.g., retransmissions, ECN), and jitter**.  
-- Enabling drill‑downs from **high‑level KPIs (e.g., RTT) to specific flows, hosts, or applications**.  
+Latency becomes significantly more meaningful when correlated with:
+- Packet loss
+- Jitter
+- Throughput and utilization
+- Routing behavior
+- Retransmissions
+- Congestion indicators
+- Application response metrics
 
-This lets teams distinguish between **network‑induced latency**, **application‑level slowness**, and **end‑host‑side delays**, improving both performance troubleshooting and capacity‑planning decisions.
+Correlating these conditions helps operators determine whether performance degradation is caused by congestion, path instability, overloaded infrastructure, application behavior, wireless instability, or external connectivity conditions.
+
+Historical latency visibility is especially important because many performance problems evolve gradually over time rather than appearing as isolated failure events.
+
+Long-term latency trends can reveal recurring congestion patterns, unstable WAN behavior, deteriorating cloud connectivity, or infrastructure conditions that would otherwise remain difficult to identify through short-term monitoring alone.
+
+---
+
+## In Trisul
+
+Trisul supports latency-oriented traffic investigations and performance-analysis workflows through flow telemetry analysis, packet-analysis workflows, historical traffic visibility, and operational traffic investigations.
+
+Using NetFlow, IPFIX, sFlow, packet analysis, and traffic-analysis workflows, operators can investigate how congestion, retransmissions, routing behavior, traffic shifts, WAN instability, or infrastructure conditions contribute to latency-related performance degradation.
+
+Rather than viewing latency in isolation, Trisul workflows allow teams to correlate delay-related behavior with traffic flows, communication activity, interface utilization, routing changes, and historical traffic conditions to understand why responsiveness deteriorated and which infrastructure behaviors contributed to the problem.
+
+These workflows are particularly useful for:
+- WAN monitoring
+- Cloud-connectivity analysis
+- ISP operations
+- Application troubleshooting
+- SD-WAN investigations
+- Performance investigations across distributed environments
+
+Trisul workflows commonly integrate:
+- Flow analysis
+- Historical traffic analysis
+- Packet analysis
+- Retro Analysis
+- Traffic Investigation workflows
+- Operational dashboards and entity-centric investigations
+
+Additional traffic-analysis workflows are documented in the Trisul documentation:
+
+[Trisul Documentation](https://docs.trisul.org/)
 
 ---
 
 ## Related terms
 
-- Latency  
-- TCP  
-- Quality of experience  
-- Congestion detection  
-- Streaming video  
-- Network performance  
+- [Latency Monitoring](/glossary/latency-monitoring)
+- [Jitter Monitoring](/glossary/jitter-monitoring)
+- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
+- [Dropped Packets](/glossary/dropped-packets)
+- [Packet Capture](/glossary/packet-capture)
+- [Application Visibility](/glossary/application-visibility)
 
 ---
 
@@ -133,16 +212,16 @@ This lets teams distinguish between **network‑induced latency**, **application
 
 ### What is latency?
 
-Latency is the delay between sending data and receiving it. It is one of the most important measures of network performance.
+Latency is the communication delay between sending data and receiving a response across a network. It is one of the most important measurements for network, application, and user-experience performance.
 
 ### Why does latency matter?
 
-Latency matters because high delay makes applications feel slow or unresponsive.
+Latency matters because excessive delay makes applications feel slow or unresponsive and can negatively affect voice, video, gaming, cloud applications, and interactive services.
 
 ### What causes latency?
 
-Latency can be caused by distance, queueing, congestion, processing delay, or path changes.
+Latency can be caused by propagation delay, congestion, queueing, packet-processing overhead, routing-path changes, bandwidth saturation, or internet and cloud transit behavior.
 
 ### How is latency used in analysis?
 
-Latency is used to judge responsiveness, detect congestion, and explain delays in voice, video, and interactive traffic.
+Latency is used to measure responsiveness, detect congestion, evaluate network performance, troubleshoot application slowness, and analyze delays affecting voice, video, and interactive traffic.

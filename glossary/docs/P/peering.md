@@ -1,17 +1,20 @@
 ---
 title: What is peering?
-description: Peering is a network arrangement where two networks exchange traffic directly instead of sending it through a third-party transit provider. It reduces cost and improves performance for traffic between the two networks.
+description: Peering is a direct traffic-exchange arrangement between autonomous networks that improves routing efficiency, reduces transit dependency, lowers latency, and optimizes internet traffic delivery.
 sidebar_label: Peering
 sidebar_position: 133
 slug: /glossary/peering
 keywords:
   - peering
   - network peering
+  - internet peering
   - internet exchange
-  - traffic exchange
-  - transit replacement
-  - ISP peering
+  - IXP
+  - BGP peering
+  - ASN traffic
+  - transit provider
   - direct interconnect
+  - peering traffic analysis
 ---
 
 export const jsonLd = {
@@ -23,7 +26,7 @@ export const jsonLd = {
       "name": "What is peering?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Peering is a network arrangement where two networks exchange traffic directly instead of sending it through a third-party transit provider. It reduces cost and improves performance for traffic between the two networks."
+        "text": "Peering is a direct traffic-exchange arrangement where autonomous networks exchange traffic without routing it through a third-party transit provider. Peering improves routing efficiency, reduces transit dependency, and optimizes internet traffic delivery."
       }
     },
     {
@@ -31,7 +34,7 @@ export const jsonLd = {
       "name": "How does peering work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Peering works by establishing a direct interconnection between two networks, often at an internet exchange point or private interconnect. Traffic then flows directly between the peers instead of taking a longer transit path."
+        "text": "Peering works by connecting networks through Internet Exchange Points (IXPs) or private interconnects where they exchange routing information using BGP and send traffic directly between each other."
       }
     },
     {
@@ -39,7 +42,7 @@ export const jsonLd = {
       "name": "Why is peering important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Peering is important because it can lower transit costs, reduce latency, and improve traffic quality. It is often used by ISPs, content providers, and large enterprises."
+        "text": "Peering is important because it can reduce latency, improve routing efficiency, lower transit costs, and keep regional traffic closer to its destination instead of routing it through distant upstream providers."
       }
     },
     {
@@ -47,7 +50,7 @@ export const jsonLd = {
       "name": "What is peering analysis?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Peering analysis looks at how much traffic each peer carries, which prefixes are involved, and whether a direct interconnect is delivering the expected value. It is used to guide routing and capacity decisions."
+        "text": "Peering analysis examines traffic exchanged between networks, including ASN relationships, routing behavior, traffic distribution, interconnect utilization, and peering performance."
       }
     }
   ]
@@ -55,58 +58,90 @@ export const jsonLd = {
 
 # What is peering?
 
-Peering is a network arrangement where two networks exchange traffic directly instead of sending it through a third-party transit provider. It reduces cost and improves performance for traffic between the two networks.
+**Peering** is a direct traffic-exchange arrangement where autonomous networks exchange traffic without routing it through a third-party transit provider.
+
+Peering allows participating networks to exchange traffic more efficiently by shortening routing paths, reducing dependency on upstream transit providers, lowering latency, and improving traffic delivery between networks.
+
+Peering relationships commonly exist between ISPs, telecom providers, cloud platforms, CDNs, content providers, and large enterprise networks.
+
+Large content providers and CDNs commonly use peering to deliver streaming, cloud, and application traffic more efficiently to ISPs and end users.
 
 ---
 
 ## How peering works
 
-Two networks connect at an exchange point or through a private interconnect. Traffic between them takes the direct path rather than a longer transit route.
+Peering is commonly established through Internet Exchange Points (IXPs) or private interconnects where networks exchange routes using BGP and send traffic directly between each other.
 
-Peering can be settlement-free or paid depending on the arrangement. The main goal is to exchange traffic more efficiently than using transit.
+Unlike transit providers, which offer broader internet reachability, peering networks exchange traffic directly only for their own customers, services, or routing policies.
+
+Direct traffic exchange can reduce latency, shorten routing paths, lower upstream transit costs, and improve traffic-delivery efficiency across internet-facing infrastructure.
+
+Peering often allows local or regional traffic to remain within a geographic region instead of traversing distant upstream transit networks.
+
+For example, without peering, traffic between two regional ISPs might traverse upstream transit providers in another city or country before reaching its destination, increasing latency and transit costs.
+
+Depending on the agreement, peering may be settlement-free or involve commercial arrangements such as paid peering.
 
 ---
 
 ## Peering in network operations
 
-Peering is important for ISPs, content networks, and large enterprises. It helps reduce upstream bandwidth usage and can improve user experience by shortening the path to popular destinations.
+Peering is widely used for ISP traffic exchange, CDN delivery, cloud connectivity, regional internet optimization, low-latency application delivery, and transit-cost reduction.
 
-Operators use peering data to decide where to add capacity or establish a new interconnect. It is also useful for understanding traffic distribution across external networks.
+Operators commonly monitor interconnect utilization, ASN traffic distribution, routing changes, congestion, latency behavior, and traffic growth across peering links.
+
+Because internet traffic patterns can change rapidly, peering visibility is important for understanding how routing decisions and external traffic sources affect infrastructure performance.
+
+For example, streaming platforms or cloud services may suddenly increase traffic volumes across specific peering links during peak usage periods or large-scale events.
+
+Peering analysis is also important for capacity planning, routing optimization, traffic engineering, and identifying imbalanced traffic relationships between networks.
 
 ---
 
-## Peering types
+## Common peering types
 
 | Type | Description |
 |---|---|
-| Public peering | Exchange through an internet exchange point |
-| Private peering | Direct link between two networks |
-| Settlement-free peering | Traffic exchanged without payment |
-| Paid peering | One side pays for the interconnect |
+| Public peering | Traffic exchange through an Internet Exchange Point (IXP) |
+| Private peering | Dedicated direct interconnect between networks |
+| Settlement-free peering | Traffic exchanged without direct financial settlement |
+| Paid peering | Commercial interconnection arrangement between networks |
+
+The peering model used depends on traffic volume, geographic presence, routing policy, and business relationships between participating networks.
 
 ---
 
-## What makes peering work in practice
+## Challenges in peering
 
-Peering only helps if traffic volume is large enough and the remote network is a useful destination. A peering link that is underused may not justify the cost.
+Effective peering depends on reliable routing visibility, scalable interconnect capacity, accurate traffic analysis, and stable BGP policy management.
 
-Visibility matters because traffic trends can change quickly. Operators need to know which peers are carrying the most traffic and whether the link is still delivering value.
+Common challenges include interconnect congestion, routing-policy complexity, traffic-ratio disputes, BGP instability, changing traffic patterns, geographic traffic shifts, and coordinating traffic exchange across multiple providers.
+
+Organizations commonly improve peering visibility by combining flow telemetry, ASN analysis, BGP visibility, interface monitoring, and historical traffic analysis.
+
+Correlating these telemetry sources helps operators understand how routing decisions, peer relationships, and traffic distribution affect latency, congestion, and interconnect performance.
 
 ---
 
-## How Trisul handles peering
+## In Trisul
 
-Trisul shows peering traffic patterns so operators can see which peers carry the most traffic and how that traffic changes over time. This helps with peering decisions, capacity planning, and ISP analytics.
+Trisul supports peering-analysis workflows through ASN visibility, flow telemetry analysis, BGP-related visibility, interface monitoring, and historical traffic investigations.
+
+Using NetFlow, IPFIX, ASN analytics, interface telemetry, and historical traffic analysis workflows, operators can analyze traffic exchanged with external peers, monitor interconnect utilization, investigate ASN-specific traffic behavior, analyze routing-related trends, and perform historical investigations across ISP, telecom, cloud, internet-edge, and distributed network environments.
+
+Additional ASN-analysis and flow-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/docs/ug/flow/
 
 ---
 
 ## Related terms
 
-- Transit
-- BGP
-- ASN
-- Internet exchange
-- Peering traffic analysis
+- [What is BGP?](/docs/glossary/bgp)
+- [What is transit?](/docs/glossary/transit)
+- [What is ASN?](/docs/glossary/asn)
+- [What is an Internet Exchange Point (IXP)?](/docs/glossary/internet-exchange-point)
+- [What is peering traffic analysis?](/docs/glossary/peering-traffic-analysis)
 
 ---
 
@@ -114,16 +149,24 @@ Trisul shows peering traffic patterns so operators can see which peers carry the
 
 ### What is peering?
 
-Peering is a network arrangement where two networks exchange traffic directly instead of sending it through a third-party transit provider. It reduces cost and improves performance for traffic between the two networks.
+Peering is a direct traffic-exchange arrangement where autonomous networks exchange traffic without routing it through a third-party transit provider. Peering improves routing efficiency, reduces transit dependency, and optimizes internet traffic delivery.
 
 ### How does peering work?
 
-Peering works by establishing a direct interconnection between two networks, often at an internet exchange point or private interconnect. Traffic then flows directly between the peers instead of taking a longer transit path.
+Peering works by connecting networks through Internet Exchange Points (IXPs) or private interconnects where they exchange routing information using BGP and send traffic directly between each other.
 
 ### Why is peering important?
 
-Peering is important because it can lower transit costs, reduce latency, and improve traffic quality. It is often used by ISPs, content providers, and large enterprises.
+Peering is important because it can reduce latency, improve routing efficiency, lower transit costs, and keep regional traffic closer to its destination instead of routing it through distant upstream providers.
 
 ### What is peering analysis?
 
-Peering analysis looks at how much traffic each peer carries, which prefixes are involved, and whether a direct interconnect is delivering the expected value. It is used to guide routing and capacity decisions.
+Peering analysis examines traffic exchanged between networks, including ASN relationships, routing behavior, traffic distribution, interconnect utilization, and peering performance.
+
+### What is the difference between peering and transit?
+
+Transit providers offer broader internet connectivity by carrying traffic to external networks, while peering allows networks to exchange traffic directly with each other without relying entirely on upstream transit paths.
+
+### Why are Internet Exchange Points important?
+
+IXPs help networks exchange traffic locally and efficiently, reducing latency, improving routing efficiency, and minimizing dependency on long-distance upstream transit providers.

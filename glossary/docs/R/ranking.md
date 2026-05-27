@@ -1,16 +1,20 @@
 ---
 title: What is ranking in network analytics?
-description: Ranking in network analytics is the ordering of entities such as hosts, flows, or applications based on a chosen metric such as traffic volume, usage, or frequency.
+description: Ranking in network analytics is the ordering of entities such as hosts, flows, applications, or subscribers based on metrics such as traffic volume, utilization, frequency, latency, or traffic significance.
 sidebar_label: Ranking
 sidebar_position: 255
 slug: /glossary/ranking
 keywords:
   - ranking
   - top n
+  - top talkers
   - ordered results
   - analytics ranking
   - top hosts
   - top applications
+  - heavy hitters
+  - bandwidth consumers
+  - traffic ranking
 ---
 
 export const jsonLd = {
@@ -22,7 +26,7 @@ export const jsonLd = {
       "name": "What is ranking in network analytics?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ranking in network analytics is the ordering of entities such as hosts, flows, or applications based on a chosen metric such as traffic volume, usage, or frequency."
+        "text": "Ranking in network analytics is the ordering of entities such as hosts, flows, applications, or subscribers based on metrics such as traffic volume, utilization, frequency, latency, or traffic significance."
       }
     },
     {
@@ -30,7 +34,7 @@ export const jsonLd = {
       "name": "Why is ranking useful?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ranking is useful because it highlights the most important or most active entities first."
+        "text": "Ranking is useful because it helps operators quickly identify dominant, high-impact, or abnormal entities within large traffic datasets and network environments."
       }
     },
     {
@@ -38,15 +42,15 @@ export const jsonLd = {
       "name": "What can be ranked?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hosts, flows, users, applications, subscribers, and alerts can all be ranked."
+        "text": "Hosts, flows, users, applications, subscribers, autonomous systems, interfaces, conversations, and alerts can all be ranked using traffic-related or infrastructure-related metrics."
       }
     },
     {
       "@type": "Question",
-      "name": "How is ranking used?",
+      "name": "What is Top-N analysis?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ranking is used to simplify analysis, prioritize attention, and create top-N views."
+        "text": "Top-N analysis displays only the highest-ranking entities, such as top hosts or top applications, to simplify visibility and troubleshooting across large telemetry datasets."
       }
     }
   ]
@@ -54,23 +58,48 @@ export const jsonLd = {
 
 # What is ranking in network analytics?
 
-Ranking in network analytics is the ordering of entities such as hosts, flows, or applications based on a chosen metric such as traffic volume, usage, or frequency.
+**Ranking** in network analytics is the ordering of entities such as hosts, flows, applications, or subscribers based on metrics such as traffic volume, utilization, frequency, latency, or traffic significance.
+
+Ranking helps operators reduce large telemetry datasets into prioritized views that highlight dominant, unusual, or high-impact entities.
+
+Ranking is widely used in enterprise, ISP, telecom, cloud, SD-WAN, and traffic-analysis environments for troubleshooting, visibility, anomaly detection, reporting, and capacity analysis.
 
 ---
 
 ## How ranking works
 
-A system calculates a chosen metric for each entity and then sorts the results. The output may show the top consumers, most active sessions, or most frequent events.
+Ranking systems calculate metrics for monitored entities and sort them based on traffic volume, activity level, utilization, latency, session counts, packet rates, or other analysis criteria.
 
-This simplifies large datasets into a small list of high-value items. Operators can focus on the most important entries first.
+Ranking helps operators quickly identify dominant, unusual, or high-impact entities without manually reviewing large telemetry datasets.
+
+For example, a ranking dashboard may reveal that a single host or application is responsible for most WAN bandwidth consumption during a congestion event.
+
+Many ranking systems use **Top-N analysis**, where only the highest-ranking entities are displayed to simplify visibility and troubleshooting.
+
+Rankings may be generated in realtime or historically depending on the investigation, reporting, or monitoring workflow.
+
+Common ranking metrics include traffic volume, session counts, packet rates, application usage, utilization, latency, retransmissions, alert frequency, and subscriber activity.
 
 ---
 
-## Ranking in operations
+## Ranking in network operations
 
-Ranking is useful for dashboards, reports, and investigations. It helps show which systems, users, or applications deserve the most attention.
+Ranking is commonly used to identify top talkers, heavy hitters, dominant applications, high-bandwidth subscribers, congested interfaces, abnormal traffic spikes, and frequently triggered alerts.
 
-It is also often used with heavy hitter analysis. Ranking makes dominant entities easy to spot.
+Because modern networks generate extremely large telemetry volumes, ranking helps operators focus attention on the entities contributing most significantly to traffic behavior, congestion, infrastructure load, or abnormal activity.
+
+Operators commonly investigate:
+
+- High-bandwidth hosts
+- Dominant applications
+- Unusual traffic spikes
+- Excessive session activity
+- Heavy-hitter flows
+- Congested interfaces
+- High-volume autonomous systems
+- Frequently triggered alerts
+
+Historical ranking visibility is especially useful for identifying recurring congestion contributors, long-term bandwidth consumers, changing traffic patterns, or abnormal activity trends across large environments.
 
 ---
 
@@ -78,34 +107,49 @@ It is also often used with heavy hitter analysis. Ranking makes dominant entitie
 
 | Target | Example metric |
 |---|---|
-| Host | Total bytes |
-| Flow | Session volume |
-| Application | Usage share |
-| Alert | Frequency |
+| Host | Total bytes or packets |
+| Flow | Session duration or traffic volume |
+| Application | Usage share or bandwidth consumption |
+| Subscriber | Data consumption or session count |
+| Interface | Utilization or packet rate |
+| Alert | Frequency or severity |
+| ASN | Traffic contribution or routing activity |
+
+The usefulness of rankings depends on metric selection, telemetry quality, visibility coverage, and analysis context.
 
 ---
 
-## What makes ranking useful
+## Benefits and challenges of ranking
 
-Ranking is useful because it reduces complexity. Instead of reviewing every record, teams can look at the most significant ones first.
+Ranking simplifies troubleshooting, reduces analysis complexity, highlights abnormal behavior, supports capacity planning, and improves visibility into traffic distribution and infrastructure usage.
 
-The value depends on choosing the right metric. A good ranking measure makes the results meaningful.
+However, misleading metrics, incomplete telemetry visibility, short-term traffic spikes, sampling limitations, and lack of contextual analysis can produce rankings that appear important but do not reflect sustained or meaningful behavior.
+
+Organizations commonly combine flow telemetry, packet analysis, interface monitoring, ASN visibility, subscriber analytics, and historical traffic analysis to investigate why specific entities consistently rank highly.
+
+Correlating these telemetry sources helps operators determine whether highly ranked entities represent normal traffic patterns, temporary bursts, congestion contributors, security-related activity, or infrastructure problems.
 
 ---
 
-## How Trisul handles ranking
+## In Trisul
 
-Trisul can produce ranked views of traffic, hosts, applications, and other entities to speed up analysis.
+Trisul supports ranking-oriented analysis through flow telemetry analysis, historical traffic visibility, Top-N analysis, ASN visibility, subscriber analytics, and traffic investigations.
+
+Using NetFlow, IPFIX, packet-analysis workflows, ASN analytics, and historical traffic analysis, operators can rank hosts, applications, interfaces, subscribers, and autonomous systems by traffic behavior, identify heavy hitters and top talkers, investigate congestion contributors and abnormal traffic spikes, analyze traffic distribution trends, and perform historical investigations across enterprise, ISP, telecom, WAN, cloud, and multi-tenant environments.
+
+Additional traffic-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/docs/ug/flow/
 
 ---
 
 ## Related terms
 
-- Heavy hitters
-- Summary statistics
-- Batch processing
-- Monthly usage reports
-- Traffic estimation
+- [What are heavy hitters?](/docs/glossary/heavy-hitters)
+- [What is Top-N analysis?](/docs/glossary/top-n-analysis)
+- [What are summary statistics?](/docs/glossary/summary-statistics)
+- [What is traffic estimation?](/docs/glossary/traffic-estimation)
+- [What is anomaly detection?](/docs/glossary/anomaly-detection)
 
 ---
 
@@ -113,16 +157,24 @@ Trisul can produce ranked views of traffic, hosts, applications, and other entit
 
 ### What is ranking in network analytics?
 
-Ranking in network analytics is the ordering of entities such as hosts, flows, or applications based on a chosen metric such as traffic volume, usage, or frequency.
+Ranking in network analytics is the ordering of entities such as hosts, flows, applications, or subscribers based on metrics such as traffic volume, utilization, frequency, latency, or traffic significance.
 
 ### Why is ranking useful?
 
-Ranking is useful because it highlights the most important or most active entities first.
+Ranking is useful because it helps operators quickly identify dominant, high-impact, or abnormal entities within large traffic datasets and network environments.
 
 ### What can be ranked?
 
-Hosts, flows, users, applications, subscribers, and alerts can all be ranked.
+Hosts, flows, users, applications, subscribers, autonomous systems, interfaces, conversations, and alerts can all be ranked using traffic-related or infrastructure-related metrics.
 
-### How is ranking used?
+### What is Top-N analysis?
 
-Ranking is used to simplify analysis, prioritize attention, and create top-N views.
+Top-N analysis displays only the highest-ranking entities, such as top hosts or top applications, to simplify visibility and troubleshooting across large telemetry datasets.
+
+### Why are rankings important in troubleshooting?
+
+Rankings help operators quickly identify top talkers, heavy hitters, congestion contributors, abnormal traffic spikes, or dominant applications that may be affecting network behavior.
+
+### What is a top talker?
+
+A top talker is a host, application, subscriber, or other entity generating a disproportionately large amount of traffic compared to others in the environment.

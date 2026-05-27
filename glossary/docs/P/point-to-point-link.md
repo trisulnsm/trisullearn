@@ -1,16 +1,20 @@
 ---
 title: What is a point-to-point link?
-description: A point-to-point link is a direct communication path between exactly two network devices or endpoints. It carries traffic only between those two points, without shared access by other devices.
+description: A point-to-point link is a dedicated communication path between exactly two network devices or locations, commonly used for WAN connectivity, inter-site communication, backbone transport, and router-to-router traffic.
 sidebar_label: Point to point link
 sidebar_position: 170
 slug: /glossary/point-to-point-link
 keywords:
   - point to point link
   - P2P link
-  - direct link
-  - network link
   - dedicated circuit
   - WAN link
+  - leased line
+  - router to router link
+  - site to site connectivity
+  - direct link
+  - MPLS circuit
+  - backbone link
 ---
 
 export const jsonLd = {
@@ -22,7 +26,7 @@ export const jsonLd = {
       "name": "What is a point-to-point link?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A point-to-point link is a direct communication path between exactly two network devices or endpoints. It carries traffic only between those two points, without shared access by other devices."
+        "text": "A point-to-point link is a dedicated communication path between exactly two network devices or locations. It carries traffic only between those endpoints without shared access by other devices."
       }
     },
     {
@@ -30,7 +34,7 @@ export const jsonLd = {
       "name": "Where are point-to-point links used?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Point-to-point links are used in WAN circuits, leased lines, backhaul links, radio links, and direct interconnects between sites or devices."
+        "text": "Point-to-point links are commonly used for WAN circuits, leased lines, MPLS connectivity, microwave backhaul, router-to-router communication, branch-office connectivity, and inter-datacenter traffic."
       }
     },
     {
@@ -38,7 +42,7 @@ export const jsonLd = {
       "name": "Why are point-to-point links important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Point-to-point links are important because they simplify traffic analysis and routing. Since only two endpoints share the link, attribution and troubleshooting are usually easier."
+        "text": "Point-to-point links provide predictable communication between two endpoints, simplify traffic attribution, support stable routing behavior, and improve visibility into latency, utilization, and communication issues."
       }
     },
     {
@@ -46,7 +50,7 @@ export const jsonLd = {
       "name": "How are point-to-point links monitored?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Point-to-point links are monitored by tracking utilization, errors, loss, latency, and traffic direction. This shows how heavily the dedicated path is being used."
+        "text": "Point-to-point links are monitored using interface telemetry, flow analysis, packet analysis, routing visibility, latency measurements, and utilization tracking to evaluate link health and communication behavior."
       }
     }
   ]
@@ -54,23 +58,51 @@ export const jsonLd = {
 
 # What is a point-to-point link?
 
-A point-to-point link is a direct communication path between exactly two network devices or endpoints. It carries traffic only between those two points, without shared access by other devices.
+A **point-to-point link** is a dedicated communication path between exactly two network devices or locations. It carries traffic only between those endpoints without shared access by other devices.
+
+Unlike shared-access networks where multiple devices compete for bandwidth, point-to-point links dedicate the communication path to two endpoints only.
+
+Point-to-point links are commonly used for WAN connectivity, router-to-router communication, branch-office connectivity, inter-datacenter traffic, wireless backhaul infrastructure, MPLS networks, and direct site-to-site communication.
+
+Because the communication path is dedicated to two known endpoints, traffic behavior, routing, latency, and utilization are usually easier to analyze and troubleshoot than in shared-access environments.
 
 ---
 
 ## How a point-to-point link works
 
-The link is dedicated to a single pair of endpoints. Traffic enters at one end and exits at the other without intermediate sharing by other hosts.
+A point-to-point link establishes direct connectivity between two systems or network locations.
 
-This makes the path easy to reason about. There is usually no ambiguity about where the traffic came from or where it is going.
+Traffic entering one side of the link is forwarded directly to the opposite endpoint without unrelated devices sharing the same communication path.
+
+Point-to-point links may use leased lines, MPLS circuits, fiber interconnects, microwave backhaul links, Ethernet services, or encrypted site-to-site tunnels depending on bandwidth, distance, and deployment requirements.
+
+These links commonly form the foundation of WAN and provider infrastructure by connecting branch offices, data centers, ISP backbone paths, cloud interconnects, and aggregation sites.
+
+For example, a branch office may connect to a headquarters network using a dedicated WAN circuit where all communication between the two sites traverses the point-to-point link.
+
+Depending on the deployment model, point-to-point links may be physical, wireless, virtual, or carrier-provided.
 
 ---
 
 ## Point-to-point links in network operations
 
-Point-to-point links are common in WANs, leased circuits, backhaul paths, and direct interconnects. They are also used between routers, branches, and data centers.
+Point-to-point links are commonly used for WAN transport, backbone connectivity, cloud interconnects, branch communication, traffic engineering, routing exchange, and inter-site application traffic.
 
-These links are often critical because many services depend on them. If the link fails or saturates, the connected sites are affected immediately.
+Because traffic traverses a dedicated communication path, network teams can usually correlate utilization, latency, packet loss, retransmissions, and routing behavior more accurately than in shared-access environments.
+
+Operators commonly investigate:
+
+- Link saturation
+- Packet loss and retransmissions
+- Latency spikes
+- Interface errors
+- Routing instability
+- Carrier or transport problems
+- Uneven traffic distribution
+
+Point-to-point visibility is important because issues affecting these links may directly impact dependent sites, applications, cloud services, or internet connectivity.
+
+Historical visibility is especially useful for investigating intermittent congestion, unstable transport behavior, or recurring communication problems across WAN and backbone links.
 
 ---
 
@@ -78,31 +110,71 @@ These links are often critical because many services depend on them. If the link
 
 | Link type | Description |
 |---|---|
-| Point-to-point | Two endpoints only |
-| Shared link | Multiple devices share capacity |
-| Benefit | Easier attribution |
-| Benefit | Simpler troubleshooting |
+| Point-to-point | Dedicated communication path between two endpoints |
+| Shared link | Multiple devices or subscribers share available bandwidth |
+| Point-to-point visibility | Easier traffic attribution and utilization analysis |
+| Shared-network visibility | More complex contention and traffic analysis |
+
+Communication quality still depends on bandwidth availability, routing design, transport stability, and infrastructure quality regardless of the link model.
 
 ---
 
-## What makes point-to-point links useful
+## Benefits and challenges of point-to-point links
 
-Because only two endpoints are involved, performance analysis is usually straightforward. Utilization, loss, and delay can be tied directly to the link.
+Point-to-point links are widely used because they provide predictable communication paths, simplified traffic attribution, stable routing behavior, and easier inter-site troubleshooting.
 
-The main risk is assuming the link is always healthy because it is dedicated. Even point-to-point links can congest or fail.
+However, these links may still experience congestion, latency, packet loss, carrier instability, wireless interference, or single-link dependency risks depending on the infrastructure design.
+
+Organizations commonly combine flow telemetry, interface monitoring, routing visibility, packet analysis, and historical traffic analysis to investigate communication behavior and troubleshoot performance problems across dedicated links.
+
+Correlating these telemetry sources helps operators understand both infrastructure conditions and application behavior across WAN and backbone environments.
 
 ---
 
-## How Trisul handles point-to-point links
+## In Trisul
 
-Trisul can monitor traffic across point-to-point links and show utilization and flow behavior for that dedicated path.
+Trisul supports point-to-point link monitoring through flow telemetry analysis, interface visibility, packet analysis, routing-related visibility, and historical traffic investigations.
+
+Using NetFlow, IPFIX, interface telemetry, packet-analysis workflows, and historical traffic analysis, operators can analyze utilization across dedicated links, investigate packet loss and latency behavior, correlate traffic activity with hosts and applications, troubleshoot WAN communication problems, and perform historical investigations across enterprise, ISP, telecom, backbone, and branch-connectivity environments.
+
+Additional flow-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/docs/ug/flow/
 
 ---
 
 ## Related terms
 
-- Interface monitoring
-- WAN link
-- Dedicated circuit
-- Traffic analysis
-- Link utilization
+- [What is a WAN link?](/docs/glossary/wan-link)
+- [What is MPLS?](/docs/glossary/mpls)
+- [What is a dedicated circuit?](/docs/glossary/dedicated-circuit)
+- [What is interface monitoring?](/docs/glossary/interface-monitoring)
+- [What is link utilization?](/docs/glossary/link-utilization)
+
+---
+
+## Frequently asked questions
+
+### What is a point-to-point link?
+
+A point-to-point link is a dedicated communication path between exactly two network devices or locations. It carries traffic only between those endpoints without shared access by other devices.
+
+### Where are point-to-point links used?
+
+Point-to-point links are commonly used for WAN circuits, leased lines, MPLS connectivity, microwave backhaul, router-to-router communication, branch-office connectivity, and inter-datacenter traffic.
+
+### Why are point-to-point links important?
+
+Point-to-point links provide predictable communication between two endpoints, simplify traffic attribution, support stable routing behavior, and improve visibility into latency, utilization, and communication issues.
+
+### How are point-to-point links monitored?
+
+Point-to-point links are monitored using interface telemetry, flow analysis, packet analysis, routing visibility, latency measurements, and utilization tracking to evaluate link health and communication behavior.
+
+### What is the difference between a point-to-point link and a shared network?
+
+A point-to-point link is dedicated to communication between two endpoints, while shared networks distribute bandwidth among multiple devices or subscribers sharing the same infrastructure.
+
+### Why are point-to-point links commonly used in WAN environments?
+
+Point-to-point links provide stable inter-site communication, predictable routing behavior, and easier traffic analysis, making them useful for branch connectivity, backbone transport, cloud interconnects, and router-to-router communication.
