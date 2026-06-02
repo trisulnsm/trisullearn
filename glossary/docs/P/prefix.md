@@ -2,7 +2,7 @@
 title: What is a prefix?
 description: A prefix is a contiguous block of IP addresses identified by a network address and prefix length, such as 192.0.2.0/24. Prefixes are fundamental to routing, subnetting, traffic aggregation, and scalable internet routing.
 sidebar_label: Prefix
-sidebar_position: 182
+sidebar_position: 170
 slug: /glossary/prefix
 keywords:
   - prefix
@@ -146,11 +146,11 @@ https://docs.trisul.org/docs/ug/flow/
 
 ## Related terms
 
-- [What is CIDR?](/docs/glossary/cidr)
+- What is CIDR?
 - [What is a subnet mask?](/docs/glossary/subnet-mask)
-- [What is BGP?](/docs/glossary/bgp)
-- [What is an ASN?](/docs/glossary/asn)
-- [What is route aggregation?](/docs/glossary/route-aggregation)
+- What is BGP?
+- What is an ASN?
+- What is route aggregation?
 
 ---
 

@@ -2,13 +2,12 @@
 // `@type` JSDoc annotations allow editor autocompletion and type checking
 // (when paired with `@ts-check`).
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Glossary',
+  favicon: 'img/Trisul Logo BG Removed.png',
 
   // ENABLE MERMAID
   markdown: {
@@ -76,11 +75,11 @@ const config = {
       },
 
       navbar: {
-        title: 'My Site',
+        title: 'Trisul Learn',
 
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Trisul Logo',
+          src: 'img/Trisul Logo BG Removed.png',
         },
 
         items: [
@@ -89,6 +88,126 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Glossary',
+          },
+          {
+            to: '/docs/glossary/a',
+            label: 'A',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/b',
+            label: 'B',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/c',
+            label: 'C',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/d',
+            label: 'D',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/e',
+            label: 'E',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/f',
+            label: 'F',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/g',
+            label: 'G',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/h',
+            label: 'H',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/i',
+            label: 'I',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/j',
+            label: 'J',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/k',
+            label: 'K',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/l',
+            label: 'L',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/m',
+            label: 'M',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/n',
+            label: 'N',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/o',
+            label: 'O',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/p',
+            label: 'P',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/q',
+            label: 'Q',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/r',
+            label: 'R',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/s',
+            label: 'S',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/t',
+            label: 'T',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/u',
+            label: 'U',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/v',
+            label: 'V',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/w',
+            label: 'W',
+            position: 'left',
+          },
+          {
+            to: '/docs/glossary/x',
+            label: 'X',
+            position: 'left',
           },
 
           {

@@ -2,7 +2,7 @@
 title: What is OTT traffic analytics?
 description: OTT traffic analytics analyzes Over-The-Top application traffic such as streaming video, voice, messaging, and collaboration services to provide visibility into bandwidth consumption, traffic patterns, application behavior, and usage trends.
 sidebar_label: OTT traffic analytics
-sidebar_position: 77
+sidebar_position: 151
 slug: /glossary/ott-traffic-analytics
 keywords:
   - OTT traffic analytics
@@ -136,7 +136,7 @@ https://docs.trisul.org/
 ## Related terms
 
 - [What is Layer 7 visibility?](/docs/glossary/layer-7-visibility)
-- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- What is bandwidth monitoring?
 - [What is quality of experience?](/docs/glossary/quality-of-experience)
 - [What is deep packet inspection?](/docs/glossary/dpi)
 - [What is streaming video?](/docs/glossary/streaming-video)

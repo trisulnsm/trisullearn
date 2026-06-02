@@ -2,7 +2,7 @@
 title: What is prefix analytics?
 description: Prefix analytics analyzes traffic by IP prefixes and CIDR blocks to understand routed traffic behavior, interconnection utilization, routing influence, traffic concentration, and ASN-related traffic distribution across enterprise and ISP environments.
 sidebar_label: Prefix analytics
-sidebar_position: 86
+sidebar_position: 171
 slug: /glossary/prefix-analytics
 keywords:
   - prefix analytics
@@ -166,11 +166,11 @@ https://docs.trisul.org/docs/ug/flow/
 ## Related terms
 
 - [BGP peering analytics](/docs/glossary/bgp-peering-analytics)
-- [ASN](/docs/glossary/asn)
-- [CIDR](/docs/glossary/cidr)
+- ASN
+- CIDR
 - [Transit traffic](/docs/glossary/transit-traffic)
 - [ISP traffic analytics](/docs/glossary/isp-traffic-analytics)
-- [Flow monitoring](/docs/glossary/flow-monitoring)
+- Flow monitoring
 
 ---
 

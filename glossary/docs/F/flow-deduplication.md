@@ -2,7 +2,7 @@
 title: What is flow deduplication?
 description: Flow deduplication is the process of identifying and handling duplicate flow records generated when multiple exporters observe and export telemetry for the same network communication.
 sidebar_label: Flow deduplication
-sidebar_position: 11
+sidebar_position: 62
 slug: /glossary/flow-deduplication
 keywords:
   - flow deduplication
@@ -116,12 +116,12 @@ Trisul supports flow‑deduplication through **flow‑leg correlation** and the 
 
 ## Related terms
 
-- Flow deduplication  
-- Flow legs  
+- [Flow deduplication](/docs/glossary/flow-deduplication)
+- [Flow legs](/docs/glossary/flow-legs)
 - Flow stitching  
 - Flow monitoring  
-- Flow exporter  
-- NetFlow  
+- [Flow exporter](/docs/glossary/flow-exporter)
+- [NetFlow](/docs/glossary/netflow)
 - Flow sampling  
 - Packet deduplication  
 

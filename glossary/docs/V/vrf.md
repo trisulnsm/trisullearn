@@ -1,8 +1,8 @@
 ---
 title: What is a VRF?
-description: A VRF, or Virtual Routing and Forwarding instance, is a logical routing table that allows multiple separate IP routing domains to exist on the same device.
+description: A VRF (Virtual Routing and Forwarding) is a technology that allows multiple independent routing tables to coexist on the same router or Layer 3 device. It enables Layer 3 segmentation, traffic isolation, and multi-tenant networking on shared infrastructure.
 sidebar_label: VRF
-sidebar_position: 211
+sidebar_position: 243
 slug: /glossary/vrf
 keywords:
   - VRF
@@ -11,6 +11,7 @@ keywords:
   - routing table
   - network isolation
   - layer 3 segmentation
+  - multi tenant networking
 ---
 
 export const jsonLd = {
@@ -22,7 +23,7 @@ export const jsonLd = {
       "name": "What is a VRF?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A VRF, or Virtual Routing and Forwarding instance, is a logical routing table that allows multiple separate IP routing domains to exist on the same device."
+        "text": "A VRF (Virtual Routing and Forwarding) is a technology that allows multiple independent routing tables to coexist on the same router or Layer 3 device. It enables Layer 3 segmentation, traffic isolation, and multi-tenant networking on shared infrastructure."
       }
     },
     {
@@ -30,7 +31,7 @@ export const jsonLd = {
       "name": "Why are VRFs used?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VRFs are used to isolate routing domains, support multi-tenant designs, and keep traffic separated on shared infrastructure."
+        "text": "VRFs are used to isolate routing domains, support multi-tenant environments, separate customer networks, and allow overlapping IP address spaces on shared infrastructure."
       }
     },
     {
@@ -38,15 +39,15 @@ export const jsonLd = {
       "name": "How is a VRF different from a VLAN?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A VLAN separates traffic at Layer 2, while a VRF separates routing at Layer 3. They are often used together."
+        "text": "A VLAN provides Layer 2 segmentation, while a VRF provides Layer 3 routing separation. VLANs isolate broadcast domains, whereas VRFs isolate routing tables and forwarding decisions."
       }
     },
     {
       "@type": "Question",
-      "name": "How are VRFs monitored?",
+      "name": "Why is VRF visibility important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VRFs are monitored by tracking routing, traffic flow, and usage within each logical routing domain."
+        "text": "VRF visibility helps operators understand traffic and routing behavior within the correct routing domain, which is essential in multi-tenant and overlapping-address environments."
       }
     }
   ]
@@ -54,53 +55,107 @@ export const jsonLd = {
 
 # What is a VRF?
 
-A VRF, or Virtual Routing and Forwarding instance, is a logical routing table that allows multiple separate IP routing domains to exist on the same device.
+A **VRF (Virtual Routing and Forwarding)** is a technology that allows multiple independent routing tables to coexist on the same router or Layer 3 device.
+
+A routing table determines how packets are forwarded through a network. By maintaining separate routing tables, a device can make completely independent forwarding decisions for different traffic domains.
+
+As a result, a single router can behave as though it were multiple independent routers, each with its own routes, interfaces, and network view.
+
+VRFs are commonly used to provide **Layer 3 segmentation**, allowing multiple logical networks to share the same physical infrastructure while remaining isolated from one another.
 
 ---
 
 ## How VRFs work
 
-A device can hold more than one routing table when VRFs are configured. That means traffic in one VRF is kept separate from traffic in another.
+Under normal conditions, a router maintains a single routing table. With VRFs, the router maintains multiple routing tables simultaneously.
 
-This is useful when different customers, departments, or services need isolated routing on shared hardware. It is a Layer 3 form of segmentation.
+Interfaces are assigned to specific VRFs, and traffic entering a VRF is forwarded only according to that VRF's routing information. Routes learned within one VRF are typically invisible to other VRFs unless explicit route-sharing mechanisms are configured.
+
+This separation enables multiple independent routing domains to operate on the same device without interfering with one another.
+
+For example, two customers can use the same private IP address range without creating routing conflicts because each customer's traffic remains within its own VRF.
 
 ---
 
-## VRFs in network operations
+## Why VRFs matter
 
-VRFs are common in service provider and enterprise designs. They help keep traffic and routes separated without needing separate devices.
+VRFs provide strong traffic isolation without requiring separate physical routers for every network.
 
-They also make analysis more precise. If the same IP appears in multiple VRFs, the context of the VRF determines what that traffic means.
+They are widely used in service-provider, MPLS VPN, enterprise, managed-services, and multi-tenant environments where multiple networks must share infrastructure while maintaining independent routing policies.
+
+The ability to support overlapping IP address spaces is one of the most important advantages of VRFs. Because each routing domain is isolated, identical IP addresses can exist in different VRFs and represent completely different systems.
+
+This makes VRFs a foundational technology for scalable multi-tenant networking.
 
 ---
 
 ## VRF vs VLAN
 
+Both VRFs and VLANs provide network segmentation, but they operate at different layers.
+
 | Concept | Layer | Purpose |
 |---|---|---|
-| VLAN | Layer 2 | Segment local network traffic |
-| VRF | Layer 3 | Separate routing domains |
+| VLAN | Layer 2 | Segments broadcast domains and local network traffic |
+| VRF | Layer 3 | Separates routing domains and forwarding decisions |
+
+A useful way to think about this distinction is that VLANs provide segmentation at Layer 2, while VRFs provide segmentation at Layer 3.
+
+The two technologies are often used together. A VLAN can separate traffic within a local network segment, while a VRF provides routing isolation for that segment.
 
 ---
 
-## What makes VRFs useful
+## VRFs in network operations
 
-VRFs are useful because they support secure sharing of infrastructure. Multiple logical networks can coexist on one physical system.
+When analyzing network traffic, VRF context is often as important as IP addresses.
 
-They also matter for troubleshooting. Route visibility must be interpreted in the right VRF context.
+In multi-tenant environments, the same IP address may appear in multiple VRFs and refer to entirely different systems. Without VRF visibility, traffic records and routing behavior may be difficult to interpret correctly.
+
+For this reason, operators often analyze traffic, utilization, routing activity, and communication patterns within the context of the appropriate VRF rather than viewing the network as a single routing domain.
 
 ---
 
-## How Trisul handles VRFs
+## In Trisul
 
-Trisul can analyze traffic in VRF-aware contexts so operators can separate routing domains and understand usage correctly.
+VRFs are relevant in environments where traffic analysis must account for multiple routing domains.
+
+When VRF information is included in exported telemetry, Trisul can use that context to analyze traffic patterns, utilization, communication behavior, and network activity within the appropriate routing domain.
+
+This visibility is particularly valuable in service-provider, MPLS VPN, managed-services, cloud, and multi-tenant environments where routing isolation is a fundamental design requirement.
 
 ---
 
 ## Related terms
 
-- VLAN
-- Network segmentation
-- Traffic direction
-- Network performance
-- Traffic pattern analysis
+- [What is VLAN?](/docs/glossary/vlan)
+- [What is network segmentation?](/docs/glossary/network-segmentation)
+- What is MPLS VPN?
+- What is route leaking?
+- What is multi-tenant networking?
+
+---
+
+## Frequently asked questions
+
+### What is a VRF?
+
+A VRF (Virtual Routing and Forwarding) is a technology that allows multiple independent routing tables to coexist on the same router or Layer 3 device. It enables Layer 3 segmentation, traffic isolation, and multi-tenant networking on shared infrastructure.
+
+### Why are VRFs used?
+
+VRFs are used to isolate routing domains, support multi-tenant environments, separate customer networks, and allow overlapping IP address spaces on shared infrastructure.
+
+### How is a VRF different from a VLAN?
+
+A VLAN provides Layer 2 segmentation, while a VRF provides Layer 3 routing separation. VLANs isolate broadcast domains, whereas VRFs isolate routing tables and forwarding decisions.
+
+### Why are overlapping IP addresses possible with VRFs?
+
+Because each VRF maintains an independent routing table, the same IP address can exist in multiple VRFs without creating routing conflicts.
+
+### Can a router have multiple VRFs?
+
+Yes. A single router can maintain multiple VRFs simultaneously, each operating as an independent routing domain with its own routes and forwarding decisions.
+
+### Why is VRF visibility important?
+
+VRF visibility helps operators understand traffic and routing behavior within the correct routing domain, which is essential in multi-tenant and overlapping-address environments.

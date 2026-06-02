@@ -2,7 +2,7 @@
 title: What is Network Security Monitoring?
 description: Network Security Monitoring (NSM) is the collection and analysis of network telemetry to detect threats, investigate suspicious activity, and reconstruct security incidents using flow data, packet capture, and historical traffic analysis.
 sidebar_label: Network security monitoring
-sidebar_position: 74
+sidebar_position: 140
 slug: /glossary/network-security-monitoring
 keywords:
   - network security monitoring
@@ -143,12 +143,12 @@ Additional deployment and capture workflows are documented in the Trisul documen
 
 ## Related terms
 
-- [Threat detection](/glossary/threat-detection)
-- [Intrusion detection system](/glossary/ids)
-- [Packet capture](/glossary/packet-capture)
-- [SIEM](/glossary/siem)
-- [Incident response](/glossary/incident-response)
-- [Retro analysis](/glossary/retro-analysis)
+- Threat detection
+- Intrusion detection system
+- Packet capture
+- SIEM
+- [Incident response](/docs/glossary/incident-response)
+- Retro analysis
 
 ---
 

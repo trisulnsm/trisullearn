@@ -2,7 +2,7 @@
 title: What is a firewall?
 description: A firewall is a security control that monitors and filters network traffic between systems, networks, or security zones based on defined security policies.
 sidebar_label: Firewall
-sidebar_position: 128
+sidebar_position: 56
 slug: /glossary/firewall
 keywords:
   - firewall
@@ -122,13 +122,13 @@ Trisul complements firewall operations through traffic‑analytics and visibilit
 
 ## Related terms
 
-- Firewall  
-- Packet filtering  
-- ACL  
-- Network segmentation  
-- Policy enforcement  
-- Security zone  
-- NGFW  
+- [Firewall](/docs/glossary/firewall)
+- [Packet filtering](/docs/glossary/packet-filtering)
+- [ACL](/docs/glossary/access-control-list)
+- [Network segmentation](/docs/glossary/network-segmentation)
+- [Policy enforcement](/docs/glossary/policy-enforcement)
+- [Security zone](/docs/glossary/security-zone)
+- [NGFW](/docs/glossary/ngfw)
 - Traffic analysis  
 
 ---

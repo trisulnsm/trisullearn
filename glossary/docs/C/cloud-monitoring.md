@@ -2,7 +2,7 @@
 title: What is cloud monitoring?
 description: Cloud monitoring is the process of observing cloud infrastructure, services, workloads, and traffic to track performance, availability, utilization, and security across cloud environments. Trisul supports cloud-oriented traffic visibility and flow analytics for hybrid and cloud-connected networks.
 sidebar_label: Cloud monitoring
-sidebar_position: 212
+sidebar_position: 26
 slug: /glossary/cloud-monitoring
 keywords:
   - cloud monitoring
@@ -167,14 +167,14 @@ These features help operators analyze cloud‑related traffic, detect anomalies,
 
 ## Related terms
 
-- Cloud monitoring  
+- [Cloud monitoring](/docs/glossary/cloud-monitoring)
 - Cloud observability  
 - Infrastructure monitoring  
 - Service monitoring  
-- Application monitoring  
-- Network performance  
-- SIEM  
-- Traffic pattern analysis  
+- [Application monitoring](/docs/glossary/application-monitoring)
+- [Network performance](/docs/glossary/network-performance)
+- [SIEM](/docs/glossary/siem)
+- [Traffic pattern analysis](/docs/glossary/traffic-pattern-analysis)
 - Flow monitoring  
 - Hybrid cloud  
 

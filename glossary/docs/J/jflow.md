@@ -2,7 +2,7 @@
 title: What is JFlow?
 description: JFlow is a flow export technology used on Juniper devices that exports summarized traffic-flow records to collectors for traffic analysis, troubleshooting, reporting, and long-term network visibility.
 sidebar_label: JFlow
-sidebar_position: 219
+sidebar_position: 102
 slug: /glossary/jflow
 keywords:
   - JFlow
@@ -138,13 +138,13 @@ Additional flow-analysis workflows are documented in the Trisul documentation:
 
 ## Related terms
 
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [sFlow](/glossary/sflow)
-- [Flow telemetry](/glossary/flow-telemetry)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [Traffic engineering](/glossary/traffic-engineering)
-- [BGP](/glossary/bgp)
+- NetFlow
+- IPFIX
+- sFlow
+- Flow telemetry
+- Network traffic analysis
+- Traffic engineering
+- BGP
 
 ---
 

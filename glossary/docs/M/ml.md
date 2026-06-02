@@ -2,7 +2,7 @@
 title: What is machine learning in network analytics?
 description: Machine learning in network analytics uses statistical models to identify patterns, detect anomalies, classify traffic, and improve operational visibility across dynamic network environments.
 sidebar_label: Machine learning
-sidebar_position: 220
+sidebar_position: 114
 slug: /glossary/machine-learning
 keywords:
   - machine learning
@@ -135,12 +135,12 @@ Additional analytics workflows are documented in the Trisul documentation:
 
 ## Related terms
 
-- [Anomaly detection](/glossary/anomaly-detection)
-- [Behavioral analytics](/glossary/behavioral-analytics)
-- [Traffic pattern analysis](/glossary/traffic-pattern-analysis)
-- [Network telemetry](/glossary/network-telemetry)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Predictive analytics](/glossary/predictive-analytics)
+- [Anomaly detection](/docs/glossary/anomaly-detection)
+- Behavioral analytics
+- [Traffic pattern analysis](/docs/glossary/traffic-pattern-analysis)
+- Network telemetry
+- Flow monitoring
+- Predictive analytics
 
 ---
 

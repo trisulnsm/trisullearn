@@ -1,16 +1,17 @@
 ---
 title: What is Webadmin?
-description: Webadmin is the browser-based administration interface in Trisul Network Analytics. It is used to configure nodes, manage users, set up data sources, and control platform settings.
+description: Webadmin is the browser-based administration interface in Trisul Network Analytics. It provides centralized control over deployment configuration, user access, platform settings, node management, and operational administration.
 sidebar_label: Webadmin
-sidebar_position: 141
+sidebar_position: 244
 slug: /glossary/webadmin
 keywords:
   - webadmin
   - Trisul webadmin
   - admin interface
-  - network analytics administration
+  - deployment management
   - configuration interface
-  - Trisul configuration
+  - user administration
+  - platform administration
 ---
 
 export const jsonLd = {
@@ -22,7 +23,7 @@ export const jsonLd = {
       "name": "What is Webadmin?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Webadmin is the browser-based administration interface in Trisul Network Analytics. It is used to configure nodes, manage users, set up data sources, and control platform settings."
+        "text": "Webadmin is the browser-based administration interface in Trisul Network Analytics. It provides centralized control over deployment configuration, user access, platform settings, node management, and operational administration."
       }
     },
     {
@@ -30,23 +31,15 @@ export const jsonLd = {
       "name": "What can you do in Webadmin?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Webadmin allows administrators to manage nodes and contexts, configure flow and packet data sources, set retention policies, manage user accounts and roles, and monitor system health."
+        "text": "Webadmin allows administrators to manage deployment settings, users and permissions, nodes, contexts, data sources, and operational platform configuration."
       }
     },
     {
       "@type": "Question",
-      "name": "How is Webadmin different from the main dashboard?",
+      "name": "How is Webadmin different from the dashboard?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Webadmin is the administration layer used for configuration and management. The main dashboard is the analytics layer used for monitoring, investigation, and reporting. They serve different audiences and purposes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who uses Webadmin?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Webadmin is used by system administrators and platform operators who manage the Trisul deployment. Regular analysts and NOC operators typically work in the main dashboard rather than Webadmin."
+        "text": "Webadmin is used for administration and platform management, while the dashboard is used for traffic analysis, monitoring, investigations, and reporting."
       }
     }
   ]
@@ -54,56 +47,53 @@ export const jsonLd = {
 
 # What is Webadmin?
 
-Webadmin is the browser-based administration interface in Trisul Network Analytics. It is used to configure nodes, manage users, set up data sources, and control platform settings.
+**Webadmin** is the browser-based administration interface in Trisul Network Analytics. It provides centralized control over deployment configuration, user access, platform settings, node management, and operational administration.
 
----
+Unlike the analytics dashboard, which focuses on traffic analysis and investigations, Webadmin is designed for managing how a Trisul deployment operates. It serves as the primary interface for deployment administration throughout the lifecycle of the platform.
 
-## How Webadmin works
+## Why is Webadmin important?
 
-Webadmin provides a separate interface from the main analytics dashboard. Administrators log in to Webadmin to configure the platform rather than to monitor traffic.
+As Trisul deployments grow, administrators must manage infrastructure, user access, contexts, data sources, and platform configuration in a consistent manner.
 
-From Webadmin, they can add and manage probe and hub nodes, configure flow exporters and packet capture inputs, set data retention policies, and manage user access.
+Webadmin centralizes these administrative functions, making it easier to maintain operational control, enforce access policies, manage deployment settings, and support distributed environments.
 
----
+This separation between administration and analytics helps ensure that platform governance and operational management remain distinct from day-to-day monitoring and investigation workflows.
 
-## Webadmin in network operations
+## Webadmin in deployment operations
 
-Webadmin is the starting point for any new Trisul deployment. It is where the system is set up, sources are configured, and users are provisioned.
+Webadmin is used throughout the deployment lifecycle, from initial setup and configuration to ongoing administration and maintenance.
 
-It is also used for ongoing operations such as changing retention settings, adding new probes, or reviewing system health. Most changes to how the platform behaves start in Webadmin.
+Administrators use it to manage deployment components, configure operational settings, maintain user access controls, administer contexts, and monitor the status of the platform.
 
----
+Because many organizations operate multi-user or distributed deployments, Webadmin plays an important role in maintaining consistency, operational governance, and administrative oversight.
 
-## Webadmin vs dashboard
+## What makes Webadmin useful?
 
-| Interface | Purpose |
-|---|---|
-| Webadmin | Configuration, user management, node setup |
-| Dashboard | Traffic monitoring, investigation, reporting |
-| Who uses it | System administrators |
-| Who uses it | NOC and SOC analysts |
+Webadmin brings administrative functions together in a single interface.
 
----
+This simplifies deployment management, improves configuration consistency, centralizes user administration, and provides visibility into the operational state of the platform.
 
-## What makes Webadmin work in practice
+Its value becomes particularly apparent in larger environments where multiple administrators, deployment nodes, tenants, or operational teams must be managed within the same Trisul deployment.
 
-Access to Webadmin should be restricted to trusted administrators. Because it controls the platform configuration, unrestricted access creates risk.
+## In Trisul
 
-Changes made in Webadmin take effect on the running system, so it is important to review changes carefully before applying them in production environments.
+Webadmin is a core component of Trisul Network Analytics and serves as the primary administrative interface for managing the platform.
 
----
+It provides centralized access to deployment configuration, user management, node administration, context management, and operational settings required to maintain a Trisul environment.
 
-## How Trisul handles Webadmin
+By separating platform administration from traffic analysis workflows, Webadmin helps organizations maintain operational control while allowing analysts and operators to focus on monitoring, investigations, and reporting through the analytics interface.
 
-Trisul provides Webadmin as a dedicated administration interface separate from the main user-facing dashboard. It is accessible via browser and covers all configuration and management tasks. Full documentation is at https://docs.trisul.org/.
+For deployment and administration guidance, refer to the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- Node
-- Context
-- Multitenancy
+- [Node](/docs/glossary/node)
+- [Context](/docs/glossary/context)
+- [Multitenancy](/docs/glossary/multitenancy)
 - Role-based access control
 - Trisul dashboard
 
@@ -113,16 +103,12 @@ Trisul provides Webadmin as a dedicated administration interface separate from t
 
 ### What is Webadmin?
 
-Webadmin is the browser-based administration interface in Trisul Network Analytics. It is used to configure nodes, manage users, set up data sources, and control platform settings.
+Webadmin is the browser-based administration interface in Trisul Network Analytics. It provides centralized control over deployment configuration, user access, platform settings, node management, and operational administration.
 
 ### What can you do in Webadmin?
 
-Webadmin allows administrators to manage nodes and contexts, configure flow and packet data sources, set retention policies, manage user accounts and roles, and monitor system health.
+Webadmin allows administrators to manage deployment settings, users and permissions, nodes, contexts, data sources, and operational platform configuration.
 
-### How is Webadmin different from the main dashboard?
+### How is Webadmin different from the dashboard?
 
-Webadmin is the administration layer used for configuration and management. The main dashboard is the analytics layer used for monitoring, investigation, and reporting. They serve different audiences and purposes.
-
-### Who uses Webadmin?
-
-Webadmin is used by system administrators and platform operators who manage the Trisul deployment. Regular analysts and NOC operators typically work in the main dashboard rather than Webadmin.
+Webadmin is used for administration and platform management, while the dashboard is used for traffic analysis, monitoring, investigations, and reporting.

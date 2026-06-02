@@ -2,7 +2,7 @@
 title: What is congestion in network analytics?
 description: Congestion is a network condition where traffic demand exceeds available forwarding or transmission capacity, causing queue buildup, increased latency, packet loss, jitter, or reduced throughput. It is one of the most common causes of degraded network performance.
 sidebar_label: Congestion
-sidebar_position: 148
+sidebar_position: 27
 slug: /glossary/congestion
 keywords:
   - congestion
@@ -123,15 +123,15 @@ Trisul supports congestion‑oriented analysis through flow‑based telemetry (N
 
 ## Related terms
 
-- Congestion  
+- [Congestion](/docs/glossary/congestion)
 - Network congestion  
-- Interface utilization  
-- Interface saturation  
-- Packet loss  
-- TCP retransmission  
+- [Interface utilization](/docs/glossary/interface-utilization)
+- [Interface saturation](/docs/glossary/interface-saturation)
+- [Packet loss](/docs/glossary/packet-loss)
+- [TCP retransmission](/docs/glossary/tcp-retransmission)
 - Capacity planning  
-- Queueing  
-- Congestion detection  
+- [Queueing](/docs/glossary/queueing)
+- [Congestion detection](/docs/glossary/congestion-detection)
 - Burst traffic  
 
 ---

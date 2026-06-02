@@ -2,7 +2,7 @@
 title: What is digital forensics?
 description: Digital forensics is the practice of collecting, preserving, analyzing, and documenting digital evidence to reconstruct events and support operational, security, compliance, or legal investigations.
 sidebar_label: Digital forensics
-sidebar_position: 221
+sidebar_position: 42
 slug: /glossary/digital-forensics
 keywords:
   - digital forensics
@@ -123,14 +123,14 @@ Trisul supports network‑oriented digital forensics through long‑retained flo
 
 ## Related terms
 
-- Digital forensics  
-- Network forensics  
-- Forensic analysis  
-- Incident investigation  
-- Security auditing  
-- Syslog  
-- SIEM  
-- Packet capture  
+- [Digital forensics](/docs/glossary/digital-forensics)
+- [Network forensics](/docs/glossary/network-forensics)
+- [Forensic analysis](/docs/glossary/forensic-analysis)
+- [Incident investigation](/docs/glossary/incident-investigation)
+- [Security auditing](/docs/glossary/security-auditing)
+- [Syslog](/docs/glossary/syslog)
+- [SIEM](/docs/glossary/siem)
+- [Packet capture](/docs/glossary/packet-capture)
 
 ---
 

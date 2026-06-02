@@ -2,7 +2,7 @@
 title: What is a node in network analytics?
 description: A node is a physical or virtual system participating in a network analytics deployment. In Trisul Network Analytics, nodes perform roles such as traffic collection, telemetry processing, aggregation, storage, and centralized analysis within distributed deployments.
 sidebar_label: Node
-sidebar_position: 138
+sidebar_position: 146
 slug: /glossary/node
 keywords:
   - node
@@ -137,8 +137,8 @@ https://docs.trisul.org/docs/ag/install/
 ## Related terms
 
 - [What is a distributed domain?](/docs/glossary/distributed-domain)
-- [What is a probe?](/docs/glossary/probe)
-- [What is a hub?](/docs/glossary/hub)
+- What is a probe?
+- What is a hub?
 - [What is multitenancy?](/docs/glossary/multitenancy)
 - [What is a flow collector?](/docs/glossary/flow-collector)
 

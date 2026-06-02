@@ -2,7 +2,7 @@
 title: What is Key Dashboard in Trisul?
 description: In Trisul, the Key Dashboard is an entity-centric analysis view that provides real-time traffic visibility, historical traffic analysis, and investigative workflows for specific network entities such as IP addresses, applications, hosts, ports, and services.
 sidebar_label: Key Dashboard
-sidebar_position: 57
+sidebar_position: 103
 slug: /glossary/key-dashboard
 keywords:
   - key dashboard
@@ -142,11 +142,11 @@ Additional workflow details are documented in the Trisul documentation:
 
 ## Related terms
 
-- [Explore Flows](/glossary/explore-flows)
-- [Real-time traffic monitoring](/glossary/realtime-traffic-monitoring)
-- [Counter group](/glossary/counter-group)
-- [Flow tracker](/glossary/flow-tracker)
-- [Retro analysis](/glossary/retro-analysis)
+- [Explore Flows](/docs/glossary/explore-flows)
+- [Real-time traffic monitoring](/docs/glossary/realtime-traffic-monitoring)
+- Counter group
+- [Flow tracker](/docs/glossary/flow-tracker)
+- Retro analysis
 
 ---
 

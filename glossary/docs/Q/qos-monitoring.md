@@ -2,7 +2,7 @@
 title: What is QoS monitoring?
 description: QoS monitoring analyzes network performance and traffic behavior to understand how latency, jitter, congestion, packet loss, throughput, and queue conditions affect application responsiveness and service quality across network environments.
 sidebar_label: QoS monitoring
-sidebar_position: 87
+sidebar_position: 173
 slug: /glossary/qos-monitoring
 keywords:
   - QoS monitoring
@@ -161,12 +161,12 @@ https://docs.trisul.org/docs/ug/flow/
 
 ## Related terms
 
-- [Latency monitoring](/glossary/latency-monitoring)
-- [Jitter](/glossary/jitter)
-- [Packet loss](/glossary/packet-loss)
-- [Bandwidth monitoring](/glossary/bandwidth-monitoring)
-- [Congestion](/glossary/congestion)
-- [Network performance monitoring](/glossary/network-performance-monitoring)
+- Latency monitoring
+- Jitter
+- Packet loss
+- Bandwidth monitoring
+- [Congestion](/docs/glossary/congestion)
+- [Network performance monitoring](/docs/glossary/network-performance-monitoring)
 
 ---
 

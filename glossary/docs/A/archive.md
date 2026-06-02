@@ -2,7 +2,7 @@
 title: What is an archive in network analytics?
 description: An archive in network analytics is retained historical data stored for later search, reporting, compliance, or forensic review.
 sidebar_label: Archive
-sidebar_position: 253
+sidebar_position: 9
 slug: /glossary/archive
 keywords:
   - archive
@@ -101,11 +101,11 @@ Through its flow‑based storage and query capabilities, Trisul allows operators
 
 ## Related terms
 
-- Archive
-- Storage
-- Batch processing
-- Summary statistics
-- Forensic analysis
+- [Archive](/docs/glossary/archive)
+- [Storage](/docs/glossary/storage)
+- [Batch processing](/docs/glossary/batch-processing)
+- [Summary statistics](/docs/glossary/summary-statistics)
+- [Forensic analysis](/docs/glossary/forensic-analysis)
 - Compliance reporting
 
 ---

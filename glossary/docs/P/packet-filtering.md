@@ -2,7 +2,7 @@
 title: What is packet filtering?
 description: Packet filtering is the process of allowing, blocking, or controlling network packets based on policy rules such as IP addresses, ports, protocols, interfaces, traffic direction, or connection state. It is a foundational mechanism used in firewalls, ACLs, and traffic-control systems.
 sidebar_label: Packet filtering
-sidebar_position: 127
+sidebar_position: 156
 slug: /glossary/packet-filtering
 keywords:
   - packet filtering
@@ -140,12 +140,12 @@ Additional flow-monitoring and traffic-analysis workflows are documented in the 
 
 ## Related terms
 
-- [Firewall](/glossary/firewall)
-- [ACL](/glossary/acl)
-- [Stateful firewall](/glossary/stateful-firewall)
-- [Network segmentation](/glossary/network-segmentation)
-- [Policy enforcement](/glossary/policy-enforcement)
-- [Network Security Monitoring](/glossary/network-security-monitoring)
+- Firewall
+- ACL
+- Stateful firewall
+- [Network segmentation](/docs/glossary/network-segmentation)
+- [Policy enforcement](/docs/glossary/policy-enforcement)
+- [Network Security Monitoring](/docs/glossary/network-security-monitoring)
 
 ---
 

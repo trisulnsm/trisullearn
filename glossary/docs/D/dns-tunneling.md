@@ -2,7 +2,7 @@
 title: What is DNS tunneling?
 description: DNS tunneling is the use of DNS queries and responses to carry non-DNS data or conceal communications inside DNS traffic. It is commonly associated with covert communication, command-and-control activity, and data exfiltration attempts.
 sidebar_label: DNS tunneling
-sidebar_position: 157
+sidebar_position: 45
 slug: /glossary/dns-tunneling
 keywords:
   - DNS tunneling
@@ -122,14 +122,14 @@ Trisul helps investigate DNS tunneling by giving visibility into DNS‑related t
 
 ## Related terms
 
-- DNS tunneling  
-- DNS traffic analysis  
-- Passive DNS  
+- [DNS tunneling](/docs/glossary/dns-tunneling)
+- [DNS traffic analysis](/docs/glossary/dns-traffic-analysis)
+- [Passive DNS](/docs/glossary/passive-dns)
 - Covert channel  
 - Data exfiltration  
-- Threat detection  
+- [Threat detection](/docs/glossary/threat-detection)
 - DNS security  
-- Flow analysis  
+- [Flow analysis](/docs/glossary/flow-analysis)
 
 ---
 

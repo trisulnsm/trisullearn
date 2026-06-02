@@ -2,7 +2,7 @@
 title: What is a context menu in network analytics?
 description: A context menu in network analytics is an interactive menu that provides investigation and navigation actions related to a selected traffic item, flow, host, alert, or metric. In Trisul, context menus support rapid drill-down and traffic investigation workflows.
 sidebar_label: Context menu
-sidebar_position: 142
+sidebar_position: 30
 slug: /glossary/context-menu
 keywords:
   - context menu
@@ -116,14 +116,14 @@ Trisul adds context menus throughout dashboards and analytical views so you can 
 
 ## Related terms
 
-- Context menu  
-- Traffic investigation  
-- Flow analysis  
-- Packet capture  
-- Host monitor  
+- [Context menu](/docs/glossary/context-menu)
+- [Traffic investigation](/docs/glossary/traffic-investigation)
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Packet capture](/docs/glossary/packet-capture)
+- [Host monitor](/docs/glossary/host-monitor)
 - Drill‑down  
-- Explore Flows  
-- Top‑K analytics  
+- [Explore Flows](/docs/glossary/explore-flows)
+- [Top‑K analytics](/docs/glossary/top-k-analytics)
 
 ---
 

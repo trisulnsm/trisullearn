@@ -1,8 +1,8 @@
 ---
 title: What is Top-K Analyticsᵀ?
-description: Top-K Analyticsᵀ is Trisul's proprietary technology for efficiently computing top-N lists (top talkers, top applications, top conversations) from massive flow data using pre-computed summaries enabling instant queries even with millions of flows.
+description: Top-K Analyticsᵀ is Trisul's proprietary technology for efficiently computing top-N rankings from large-scale flow data using ingestion-time stream summaries instead of expensive query-time scans.
 sidebar_label: Top-K Analyticsᵀ
-sidebar_position: 113
+sidebar_position: 219
 slug: /glossary/top-k-analytics
 keywords:
   - Top-K Analytics
@@ -11,7 +11,10 @@ keywords:
   - top talkers analytics
   - stream summaries
   - flow analytics
-  - efficient top-K
+  - top talkers
+  - write-time aggregation
+  - scalable analytics
+  - flow summaries
 ---
 
 export const jsonLd = {
@@ -23,15 +26,7 @@ export const jsonLd = {
       "name": "What is Top-K Analyticsᵀ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Top-K Analyticsᵀ is Trisul's proprietary technology for efficiently computing top-N lists (top talkers, top applications, top conversations) from massive flow data using pre-computed summaries enabling instant queries even with millions of flows. Top-K identifies the K highest items."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does Top-K Analyticsᵀ work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Top-K Analyticsᵀ maintains summaries at write time as flow data arrives. When flows are written to disk, top-N summaries are updated incrementally. Queries retrieve pre-computed summaries instantly without scanning all flows. This enables sub-second top talker queries from terabytes of data."
+        "text": "Top-K Analyticsᵀ is Trisul's proprietary technology for efficiently computing top-N rankings from large-scale flow data using ingestion-time stream summaries instead of expensive query-time scans."
       }
     },
     {
@@ -39,15 +34,23 @@ export const jsonLd = {
       "name": "Why is Top-K Analyticsᵀ important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Top-K Analyticsᵀ is critical because without it top-N queries must scan all flow records and sort. For millions of flows this is slow. With Top-K Analyticsᵀ, queries retrieve pre-computed summaries instantly. This enables real-time dashboards and fast historical analysis."
+        "text": "Top-K Analyticsᵀ improves scalability by avoiding repeated scans and sorting across massive flow datasets. This allows systems to retrieve top traffic rankings quickly even across large historical archives."
       }
     },
     {
       "@type": "Question",
-      "name": "What does Top-K Analyticsᵀ compute?",
+      "name": "How does Top-K Analyticsᵀ work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Top-K Analyticsᵀ computes top-N lists for sources, destinations, conversations, applications, ASN, countries, ports, and custom groupings. Any flow aggregation can have Top-K summaries computed at write time enabling instant queries."
+        "text": "Top-K Analyticsᵀ continuously maintains stream summaries while flow data is ingested. Queries retrieve these pre-computed summaries instead of scanning all raw flow records."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can Top-K Analyticsᵀ analyze?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Top-K Analyticsᵀ can compute top-N rankings for hosts, applications, conversations, ASN, countries, ports, interfaces, and other flow-based traffic groupings."
       }
     }
   ]
@@ -55,59 +58,112 @@ export const jsonLd = {
 
 # What is Top-K Analyticsᵀ?
 
-Top-K Analyticsᵀ is Trisul's proprietary technology for efficiently computing top-N lists (top talkers, top applications, top conversations) from massive flow data using pre-computed summaries enabling instant queries even with millions of flows. Top-K identifies the K highest items.
+**Top-K Analyticsᵀ** is Trisul's proprietary technology for efficiently computing top-N rankings from large-scale flow data using ingestion-time stream summaries instead of expensive query-time scans.
+
+It is used to identify top traffic consumers such as:
+- Top talkers
+- Top applications
+- Top conversations
+- Top destinations
+- Top protocols
+
+In networking, **K** refers to the highest-ranked items in a dataset, such as the top 10 hosts by bandwidth or top 100 applications by traffic volume.
+
+Top-K Analyticsᵀ is designed for environments where flow archives may contain millions or billions of records.
+
+---
+
+## Why Top-K analytics matters
+
+In large flow archives, identifying top traffic consumers normally requires scanning and sorting massive numbers of flow records.
+
+As datasets grow, repeated query-time scans become computationally expensive and can slow dashboards, investigations, and historical analysis.
+
+Top-K systems improve scalability by continuously maintaining summaries as traffic data is ingested instead of recalculating rankings from raw records during every query.
+
+This shifts computation from query time to write time.
+
+As a result, systems can retrieve top-N rankings quickly even across very large historical datasets.
 
 ---
 
 ## How Top-K Analyticsᵀ works
 
-Top-K Analyticsᵀ maintains summaries at write time as flow data arrives. Stream summaries are computed incrementally. When flows are written to disk, top-N summaries for various groupings are updated. Queries retrieve pre-computed summaries instantly without scanning all flows.
+Top-K Analyticsᵀ continuously maintains stream summaries while flow data is ingested.
 
-For terabyte-scale archives, this is the difference between usable and unusable top talker queries. Without pre-computation, queries must scan raw files and sort. With Top-K Analyticsᵀ, queries return in milliseconds.
+Instead of storing and sorting every individual flow during queries, the system updates compact ranking summaries incrementally as traffic arrives.
 
----
+Queries retrieve these summaries directly without repeatedly scanning raw flow archives.
 
-## Top-K Analyticsᵀ in network operations
+This approach is especially useful for:
+- Large historical datasets
+- Real-time dashboards
+- High-ingestion environments
+- Continuous traffic monitoring
+- Long-term flow retention
 
-In the NOC, Top-K Analyticsᵀ enables instant top talker dashboards. Operators see top bandwidth consumers immediately without waiting for queries to complete. Real-time top talkers update continuously. Historical top talkers are instant even from long time periods.
+Stream-summary algorithms reduce memory usage while preserving reasonably accurate rankings for high-volume traffic analysis.
 
-Security teams use Top-K Analyticsᵀ for rapid incident investigation. When an alert indicates suspicious activity, top talkers show affected hosts instantly. Top-K Analyticsᵀ reduces investigation time from hours to seconds.
-
----
-
-## Top-K Analyticsᵀ capabilities
-
-| Capability | Description | Query Speed |
-|---|---|---|
-| Top sources | Top sender IPs by bandwidth | Milliseconds |
-| Top destinations | Top receiver IPs by bandwidth | Milliseconds |
-| Top conversations | Top source-destination pairs | Milliseconds |
-| Top applications | Top applications by bandwidth | Milliseconds |
-| Top ASN | Top autonomous systems | Milliseconds |
-| Historical top-K | Any time period | Instant |
+The architecture is optimized for fast ranking queries across large-scale telemetry environments.
 
 ---
 
-## What makes Top-K Analyticsᵀ work in practice
+## Common Top-K analytics use cases
 
-Write-time aggregation enables fast queries. Summaries are computed when flows are written, not when queried. This shifts computation from query time to write time. Query performance is constant regardless of data volume.
+| Use case | Example |
+|---|---|
+| Top talkers | Highest-bandwidth hosts |
+| Top applications | Most active applications |
+| Top conversations | Largest source-destination pairs |
+| Top ASN | Highest-volume autonomous systems |
+| Top countries | Geographic traffic rankings |
+| Historical rankings | Top traffic across past time periods |
 
-Memory efficiency is critical. Top-K summaries must fit in memory for fast access. Stream summary algorithms use minimal memory while maintaining accuracy. The tradeoff between memory and accuracy is optimized for typical network monitoring.
+Actual Top-K calculations depend on grouping logic, ranking criteria, telemetry type, and retention strategy.
 
 ---
 
-## How Trisul handles Top-K Analyticsᵀ
+## Top-K Analyticsᵀ in network analysis
 
-Trisul implements Top-K Analyticsᵀ as proprietary technology computing stream summaries at write time. Top-N lists for sources, destinations, conversations, applications, and custom groupings are pre-computed. Queries retrieve summaries instantly enabling sub-second responses from terabyte-scale archives. Login as user to view top talkers dashboards powered by Top-K Analyticsᵀ. Full documentation is at https://docs.trisul.org/.
+Top-K analytics is commonly used for bandwidth monitoring, traffic analysis, anomaly detection, capacity planning, troubleshooting, and security investigations.
+
+Teams commonly investigate:
+- Unexpected bandwidth spikes
+- High-volume hosts
+- Dominant applications
+- Traffic concentration
+- Large external transfers
+- Abnormal traffic growth
+- DDoS traffic patterns
+
+Because Top-K rankings summarize dominant traffic behavior quickly, they are useful for both real-time visibility and historical investigations.
+
+Top-K visibility is often combined with flow telemetry, packet analysis, historical traffic analysis, and behavioral analytics to investigate unusual traffic activity.
+
+---
+
+## How Trisul uses Top-K Analyticsᵀ
+
+Trisul implements Top-K Analyticsᵀ using ingestion-time stream summaries and write-time aggregation techniques.
+
+Top-N rankings for hosts, destinations, conversations, applications, ASN, countries, ports, and custom traffic groupings are continuously maintained as flow data is written.
+
+This allows Trisul to retrieve ranking information quickly without repeatedly scanning massive historical flow archives.
+
+Top-K Analyticsᵀ supports dashboards, historical analysis, traffic investigations, and large-scale flow visibility across enterprise, ISP, telecom, cloud, and security-monitoring environments.
+
+Additional Top-K and flow-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- [What is top talkers?](/docs/glossary/top-talkers)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- [What are top talkers?](/docs/glossary/top-talkers)
+- What is flow monitoring?
 - [What is streaming analytics?](/docs/glossary/streaming-analytics)
-- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- What is bandwidth monitoring?
 - [What is traffic analysis?](/docs/glossary/network-traffic-analysis)
 
 ---
@@ -116,16 +172,24 @@ Trisul implements Top-K Analyticsᵀ as proprietary technology computing stream 
 
 ### What is Top-K Analyticsᵀ?
 
-Top-K Analyticsᵀ is Trisul's proprietary technology for efficiently computing top-N lists (top talkers, top applications, top conversations) from massive flow data using pre-computed summaries enabling instant queries even with millions of flows. Top-K identifies the K highest items.
-
-### How does Top-K Analyticsᵀ work?
-
-Top-K Analyticsᵀ maintains summaries at write time as flow data arrives. When flows are written to disk, top-N summaries are updated incrementally. Queries retrieve pre-computed summaries instantly without scanning all flows. This enables sub-second top talker queries from terabytes of data.
+Top-K Analyticsᵀ is Trisul's proprietary technology for efficiently computing top-N rankings from large-scale flow data using ingestion-time stream summaries instead of expensive query-time scans.
 
 ### Why is Top-K Analyticsᵀ important?
 
-Top-K Analyticsᵀ is critical because without it top-N queries must scan all flow records and sort. For millions of flows this is slow. With Top-K Analyticsᵀ, queries retrieve pre-computed summaries instantly. This enables real-time dashboards and fast historical analysis.
+Top-K Analyticsᵀ improves scalability by avoiding repeated scans and sorting across massive flow datasets. This allows systems to retrieve top traffic rankings quickly even across large historical archives.
 
-### What does Top-K Analyticsᵀ compute?
+### How does Top-K Analyticsᵀ work?
 
-Top-K Analyticsᵀ computes top-N lists for sources, destinations, conversations, applications, ASN, countries, ports, and custom groupings. Any flow aggregation can have Top-K summaries computed at write time enabling instant queries.
+Top-K Analyticsᵀ continuously maintains stream summaries while flow data is ingested. Queries retrieve these pre-computed summaries instead of scanning all raw flow records.
+
+### What can Top-K Analyticsᵀ analyze?
+
+Top-K Analyticsᵀ can compute top-N rankings for hosts, applications, conversations, ASN, countries, ports, interfaces, and other flow-based traffic groupings.
+
+### Why are stream summaries useful?
+
+Stream summaries reduce memory and processing overhead by maintaining compact ranking data instead of repeatedly scanning and sorting massive flow archives.
+
+### Why does write-time aggregation improve performance?
+
+Write-time aggregation shifts computation from query time to ingestion time, allowing ranking queries to retrieve pre-computed summaries much more efficiently.

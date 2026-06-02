@@ -2,7 +2,7 @@
 title: What is authentication logging?
 description: Authentication logging is the recording of login attempts, success or failure events, and identity-related actions on systems and networks.
 sidebar_label: Authentication logging
-sidebar_position: 241
+sidebar_position: 12
 slug: /glossary/authentication-logging
 keywords:
   - authentication logging
@@ -106,12 +106,12 @@ By linking a user‑ or device‑level authentication event to corresponding flo
 
 ## Related terms
 
-- Authentication logging
-- AAA
-- Network access
-- Syslog
-- Security auditing
-- Incident investigation
+- [Authentication logging](/docs/glossary/authentication-logging)
+- [AAA](/docs/glossary/aaa)
+- [Network access](/docs/glossary/network-access)
+- [Syslog](/docs/glossary/syslog)
+- [Security auditing](/docs/glossary/security-auditing)
+- [Incident investigation](/docs/glossary/incident-investigation)
 - Access logs
 
 ---

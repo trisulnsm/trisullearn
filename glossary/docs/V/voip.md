@@ -1,8 +1,8 @@
 ---
 title: What is VoIP?
-description: VoIP, or Voice over Internet Protocol, is the delivery of voice calls over an IP network instead of a traditional phone circuit. It depends on low delay, low jitter, and minimal packet loss.
+description: VoIP, or Voice over Internet Protocol, is the delivery of voice communications over IP networks instead of traditional circuit-switched telephone networks. Because voice traffic is highly sensitive to latency, jitter, and packet loss, VoIP quality depends heavily on network performance.
 sidebar_label: VoIP
-sidebar_position: 199
+sidebar_position: 241
 slug: /glossary/voip
 keywords:
   - VoIP
@@ -11,6 +11,8 @@ keywords:
   - call quality
   - jitter
   - packet loss
+  - SIP
+  - RTP
 ---
 
 export const jsonLd = {
@@ -22,7 +24,7 @@ export const jsonLd = {
       "name": "What is VoIP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VoIP, or Voice over Internet Protocol, is the delivery of voice calls over an IP network instead of a traditional phone circuit. It depends on low delay, low jitter, and minimal packet loss."
+        "text": "VoIP, or Voice over Internet Protocol, is the delivery of voice communications over IP networks instead of traditional circuit-switched telephone networks. VoIP quality depends heavily on latency, jitter, packet loss, and network stability."
       }
     },
     {
@@ -30,7 +32,7 @@ export const jsonLd = {
       "name": "What affects VoIP quality?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VoIP quality is affected by latency, jitter, packet loss, bandwidth contention, and congestion."
+        "text": "VoIP quality is affected by latency, jitter, packet loss, congestion, routing issues, QoS effectiveness, and overall network stability."
       }
     },
     {
@@ -38,15 +40,7 @@ export const jsonLd = {
       "name": "Why is VoIP sensitive to network issues?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VoIP is sensitive to network issues because voice traffic must arrive quickly and in order to sound natural."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is VoIP monitored?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "VoIP is monitored using call quality metrics, traffic analysis, jitter checks, loss measurements, and session visibility."
+        "text": "VoIP is a real-time application that cannot tolerate significant delays, packet loss, or excessive variation in packet arrival times. Even small network problems can affect call quality."
       }
     }
   ]
@@ -54,56 +48,78 @@ export const jsonLd = {
 
 # What is VoIP?
 
-VoIP, or Voice over Internet Protocol, is the delivery of voice calls over an IP network instead of a traditional phone circuit. It depends on low delay, low jitter, and minimal packet loss.
+**VoIP (Voice over Internet Protocol)** is the delivery of voice communications over IP networks instead of traditional circuit-switched telephone networks.
 
----
+Rather than using dedicated telephone circuits, VoIP converts voice into IP packets and transports them across enterprise networks, broadband connections, mobile networks, and the Internet.
+
+VoIP is one of the most common examples of real-time network traffic. Unlike web browsing or file transfers, voice traffic is highly sensitive to latency, jitter, packet loss, and network instability. As a result, call quality problems can occur even when bandwidth utilization appears normal.
 
 ## How VoIP works
 
-VoIP converts voice into packets and sends them across the network like other data. The receiving side rebuilds the audio stream in real time.
+VoIP systems convert audio into digital packets and transmit them across an IP network.
 
-Because voice is time-sensitive, even small network problems can affect quality. That is why VoIP needs steady delivery rather than just high bandwidth.
+A typical VoIP session uses signaling protocols such as SIP to establish and manage calls, while media protocols such as RTP carry the voice traffic between endpoints.
 
----
+Because voice communication occurs in real time, packets must arrive consistently and with minimal delay variation. Excessive latency, packet loss, or jitter can quickly degrade call quality and affect the user experience.
 
 ## VoIP in network operations
 
-Operators watch VoIP closely because call quality is easy to degrade but hard for users to diagnose. Problems often appear as choppiness, echoes, or dropped audio.
+VoIP is closely tied to network performance because users immediately notice service degradation.
 
-The most important signals are delay, jitter, and packet loss. These often reveal more about call quality than raw bandwidth does.
+Common symptoms include:
 
----
+- Choppy or distorted audio
+- Delayed conversations
+- Audio dropouts
+- One-way audio
+- Failed call setup
 
-## Common VoIP signals
+Unlike many applications, VoIP problems often appear before bandwidth becomes fully utilized. A network may appear healthy from a utilization perspective while still delivering poor voice quality due to latency, jitter, routing instability, or QoS issues.
 
-| Signal | Meaning |
-|---|---|
-| Latency | Delay in voice delivery |
-| Jitter | Uneven arrival times |
-| Packet loss | Missing audio packets |
-| MOS | Quality score estimate |
-| Call setup | Signaling success or failure |
+For this reason, VoIP troubleshooting focuses on performance metrics rather than bandwidth consumption alone.
 
----
+## What makes VoIP monitoring effective?
 
-## What makes VoIP useful
+Effective VoIP monitoring requires visibility into both signaling activity and the network conditions that affect voice traffic.
 
-VoIP is a good example of realtime traffic. It shows why a network can be “up” but still not usable.
+Latency, jitter, packet loss, QoS effectiveness, and call setup performance all contribute to the user experience. Monitoring these factors helps operators identify the conditions responsible for degraded call quality and understand whether issues originate from the network, the application, or the underlying infrastructure.
 
-For that reason, VoIP monitoring usually looks at both the network path and the application stream.
+Historical visibility is particularly valuable because intermittent voice-quality problems can be difficult to investigate after a call has ended.
 
----
+## In Trisul
 
-## How Trisul handles VoIP
+VoIP monitoring is highly relevant to Trisul Network Analytics because voice traffic is sensitive to network performance and service quality.
 
-Trisul helps identify VoIP traffic and correlate call quality with network behavior so operators can diagnose issues faster.
+Trisul helps operators analyze VoIP-related traffic, investigate latency, jitter, packet loss, and traffic behavior, and correlate network conditions with call-quality issues. Using packet analytics, flow telemetry, and historical traffic visibility, operators can move from user-reported symptoms to the underlying conditions responsible for degraded voice performance.
+
+These workflows are commonly used for VoIP troubleshooting, QoS validation, performance monitoring, and operational investigations.
+
+For flow monitoring and traffic analytics guidance, see the Trisul documentation:
+
+https://docs.trisul.org/docs/ug/flow/
 
 ---
 
 ## Related terms
 
-- Realtime traffic
-- Network performance
-- Congestion detection
-- Packet loss
+- Real-time traffic
 - Jitter
+- [Packet loss](/docs/glossary/packet-loss)
+- [Quality of Service (QoS)](/docs/glossary/qos)
+- [Network performance monitoring](/docs/glossary/network-performance-monitoring)
+
+---
+
+## Frequently asked questions
+
+### What is VoIP?
+
+VoIP, or Voice over Internet Protocol, is the delivery of voice communications over IP networks instead of traditional circuit-switched telephone networks. VoIP quality depends heavily on latency, jitter, packet loss, and network stability.
+
+### What affects VoIP quality?
+
+VoIP quality is affected by latency, jitter, packet loss, congestion, routing issues, QoS effectiveness, and overall network stability.
+
+### Why is VoIP sensitive to network issues?
+
+VoIP is a real-time application that cannot tolerate significant delays, packet loss, or excessive variation in packet arrival times. Even small network problems can affect call quality.

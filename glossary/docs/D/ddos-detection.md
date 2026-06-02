@@ -2,7 +2,7 @@
 title: What is DDoS detection?
 description: DDoS detection is the process of identifying distributed denial-of-service attacks by monitoring traffic patterns, volume anomalies, protocol behavior, and other indicators associated with malicious flood traffic targeting networks, services, or applications.
 sidebar_label: DDoS detection
-sidebar_position: 24
+sidebar_position: 40
 slug: /glossary/ddos-detection
 keywords:
   - ddos detection
@@ -112,14 +112,14 @@ Trisul supports DDoS‑oriented detection and investigation through flow‑based
 
 ## Related terms
 
-- DDoS detection  
+- [DDoS detection](/docs/glossary/ddos-detection)
 - Flow monitoring  
-- Flow analysis  
-- Anomaly detection  
-- SYN flood  
-- Network security monitoring  
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Anomaly detection](/docs/glossary/anomaly-detection)
+- [SYN flood](/docs/glossary/syn-flood)
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
 - Traffic anomaly detection  
-- Top‑K analytics  
+- [Top‑K analytics](/docs/glossary/top-k-analytics)
 
 ---
 

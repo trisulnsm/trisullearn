@@ -2,7 +2,7 @@
 title: What is latency?
 description: Latency is the communication delay between sending data and receiving a response across a network. It is one of the most important measurements for network, application, and user-experience performance.
 sidebar_label: Latency
-sidebar_position: 229
+sidebar_position: 105
 slug: /glossary/latency
 keywords:
   - latency
@@ -199,12 +199,12 @@ Additional traffic-analysis workflows are documented in the Trisul documentation
 
 ## Related terms
 
-- [Latency Monitoring](/glossary/latency-monitoring)
-- [Jitter Monitoring](/glossary/jitter-monitoring)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Dropped Packets](/glossary/dropped-packets)
-- [Packet Capture](/glossary/packet-capture)
-- [Application Visibility](/glossary/application-visibility)
+- Latency Monitoring
+- Jitter Monitoring
+- Bandwidth Monitoring
+- Dropped Packets
+- Packet Capture
+- Application Visibility
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is passive DNS?
 description: Passive DNS collects and analyzes observed DNS traffic to provide historical visibility into domain resolutions, IP mappings, DNS behavior, and infrastructure activity over time.
 sidebar_label: Passive DNS
-sidebar_position: 156
+sidebar_position: 159
 slug: /glossary/passive-dns
 keywords:
   - passive DNS
@@ -136,10 +136,10 @@ https://docs.trisul.org/
 
 ## Related terms
 
-- [What is DNS?](/docs/glossary/dns)
+- What is DNS?
 - [What is DNS tunneling?](/docs/glossary/dns-tunneling)
-- [What is threat hunting?](/docs/glossary/threat-hunting)
-- [What is domain reputation?](/docs/glossary/domain-reputation)
+- What is threat hunting?
+- What is domain reputation?
 - [What is network security monitoring?](/docs/glossary/network-security-monitoring)
 
 ---

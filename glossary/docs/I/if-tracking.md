@@ -2,7 +2,7 @@
 title: What is interface tracking?
 description: Interface tracking is the process of monitoring network interfaces for operational status, utilization, traffic volume, errors, and performance trends over time to support troubleshooting, congestion analysis, and capacity planning.
 sidebar_label: Interface tracking
-sidebar_position: 149
+sidebar_position: 91
 slug: /glossary/interface-tracking
 keywords:
   - interface tracking
@@ -172,13 +172,13 @@ These capabilities are particularly useful for WAN analysis, network-performance
 
 ## Related terms
 
-- [Interface monitoring](/glossary/interface-monitoring)
-- [Interface saturation](/glossary/interface-saturation)
-- [WAN monitoring](/glossary/wan-monitoring)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Capacity planning](/glossary/capacity-planning)
-- [Network telemetry](/glossary/network-telemetry)
-- [Traffic engineering](/glossary/traffic-engineering)
+- [Interface monitoring](/docs/glossary/interface-monitoring)
+- [Interface saturation](/docs/glossary/interface-saturation)
+- WAN monitoring
+- Flow monitoring
+- Capacity planning
+- Network telemetry
+- Traffic engineering
 
 ---
 

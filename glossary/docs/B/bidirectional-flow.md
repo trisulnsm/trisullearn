@@ -2,7 +2,7 @@
 title: What is bidirectional flow?
 description: A bidirectional flow is a network conversation that combines two unidirectional flow records into a single record showing both directions of communication between two endpoints.
 sidebar_label: Bidirectional flow
-sidebar_position: 33
+sidebar_position: 18
 slug: /glossary/bidirectional-flow
 keywords:
   - bidirectional flow
@@ -95,11 +95,11 @@ Explore Flows displays results in **conversation view** by default, with **legs 
 
 ## Related terms
 
-- Bidirectional flow
+- [Bidirectional flow](/docs/glossary/bidirectional-flow)
 - Flow stitching
-- Conversation view
-- Flow legs
-- Flow deduplication
+- [Conversation view](/docs/glossary/conversation-view)
+- [Flow legs](/docs/glossary/flow-legs)
+- [Flow deduplication](/docs/glossary/flow-deduplication)
 - NetFlow biflow
 - Flow monitoring
 

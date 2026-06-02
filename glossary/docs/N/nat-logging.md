@@ -2,7 +2,7 @@
 title: What is NAT logging?
 description: NAT logging records Network Address Translation events including IP address mappings, port translations, protocols, and timestamps to support troubleshooting, subscriber attribution, security investigations, and compliance workflows.
 sidebar_label: NAT logging
-sidebar_position: 66
+sidebar_position: 127
 slug: /glossary/nat-logging
 keywords:
   - NAT logging

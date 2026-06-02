@@ -2,7 +2,7 @@
 title: What is NAT?
 description: NAT, or Network Address Translation, rewrites IP addresses and ports as traffic passes through a router or gateway. It is widely used to share public IPv4 addresses across private networks and large subscriber environments.
 sidebar_label: NAT
-sidebar_position: 130
+sidebar_position: 126
 slug: /glossary/nat
 keywords:
   - NAT
@@ -133,12 +133,12 @@ Additional flow-analysis workflows are documented in the Trisul documentation:
 
 ## Related terms
 
-- [CGNAT](/glossary/cgnat)
-- [Subscriber mapping](/glossary/subscriber-mapping)
-- [Flow attribution](/glossary/flow-attribution)
-- [Port Address Translation](/glossary/port-address-translation)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
+- [CGNAT](/docs/glossary/cgnat)
+- [Subscriber mapping](/docs/glossary/subscriber-mapping)
+- Flow attribution
+- Port Address Translation
+- Flow monitoring
+- Historical traffic analysis
 
 ---
 

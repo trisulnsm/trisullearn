@@ -2,7 +2,7 @@
 title: What is interface monitoring?
 description: Interface monitoring is the process of observing network interfaces for traffic volume, operational status, utilization, errors, drops, and performance trends to maintain network health and operational visibility.
 sidebar_label: Interface monitoring
-sidebar_position: 171
+sidebar_position: 89
 slug: /glossary/interface-monitoring
 keywords:
   - interface monitoring
@@ -172,13 +172,13 @@ These capabilities are particularly useful for WAN visibility, congestion analys
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [SNMP monitoring](/glossary/snmp-monitoring)
-- [Capacity planning](/glossary/capacity-planning)
-- [WAN monitoring](/glossary/wan-monitoring)
-- [Network telemetry](/glossary/network-telemetry)
-- [Traffic engineering](/glossary/traffic-engineering)
-- [Link utilization](/glossary/link-utilization)
+- Flow monitoring
+- SNMP monitoring
+- Capacity planning
+- WAN monitoring
+- Network telemetry
+- Traffic engineering
+- Link utilization
 
 ---
 

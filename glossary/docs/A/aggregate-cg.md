@@ -2,7 +2,7 @@
 title: What is an aggregate counter group?
 description: An aggregate counter group is a summarized set of related counters combined into one higher-level metric view. It helps operators analyze traffic or system behavior at a broader level.
 sidebar_label: Aggregate counter group
-sidebar_position: 197
+sidebar_position: 4
 slug: /glossary/aggregate-counter-group
 keywords:
   - aggregate counter group
@@ -106,7 +106,7 @@ Through its dashboard and analytics layers, Trisul allows you to view traffic an
 - Metrics
 - Aggregation
 - Dashboard
-- Trend analysis
+- [Trend analysis](/docs/glossary/trend-analysis)
 - Traffic summary
 - Health metrics
 

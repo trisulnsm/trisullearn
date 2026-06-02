@@ -2,7 +2,7 @@
 title: What is a flow?
 description: A network flow is a sequence of packets sharing common traffic attributes such as source and destination addresses, ports, and protocol, treated as a logical unit of communication for monitoring and analysis.
 sidebar_label: Flow
-sidebar_position: 2
+sidebar_position: 58
 slug: /glossary/flow
 keywords:
   - network flow
@@ -125,11 +125,11 @@ Trisul supports **scalable flow analysis** by ingesting **NetFlow, IPFIX, sFlow*
 - 5‑tuple  
 - Traffic flow  
 - Flow record  
-- Flow analysis  
-- Flow tagger  
-- Flow tracker  
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Flow tagger](/docs/glossary/flow-tagger)
+- [Flow tracker](/docs/glossary/flow-tracker)
 - Flow sampling  
-- Network security monitoring  
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
 
 ---
 

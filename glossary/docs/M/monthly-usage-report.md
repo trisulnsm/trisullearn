@@ -2,7 +2,7 @@
 title: What is a monthly usage report?
 description: A monthly usage report summarizes network usage over a defined monthly period, helping organizations analyze traffic trends, utilization patterns, subscriber activity, and long-term infrastructure behavior.
 sidebar_label: Monthly usage reports
-sidebar_position: 205
+sidebar_position: 119
 slug: /glossary/monthly-usage-reports
 keywords:
   - monthly usage reports
@@ -147,12 +147,12 @@ Additional reporting and traffic-analysis workflows are documented in the Trisul
 
 ## Related terms
 
-- [Capacity planning](/glossary/capacity-planning)
-- [Traffic pattern analysis](/glossary/traffic-pattern-analysis)
-- [Subscriber analytics](/glossary/subscriber-analytics)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
-- [Bandwidth monitoring](/glossary/bandwidth-monitoring)
+- Capacity planning
+- [Traffic pattern analysis](/docs/glossary/traffic-pattern-analysis)
+- [Subscriber analytics](/docs/glossary/subscriber-analytics)
+- Flow monitoring
+- Historical traffic analysis
+- Bandwidth monitoring
 
 ---
 

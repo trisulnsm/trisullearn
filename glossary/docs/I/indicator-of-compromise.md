@@ -2,7 +2,7 @@
 title: What is an indicator of compromise?
 description: An indicator of compromise, or IoC, is a sign that a system or network may have been breached. It may include suspicious IPs, domains, hashes, URLs, or unusual behavior.
 sidebar_label: Indicator of compromise
-sidebar_position: 187
+sidebar_position: 87
 slug: /glossary/indicator-of-compromise
 keywords:
   - indicator of compromise
@@ -104,12 +104,12 @@ This supports **threat detection, incident response, and historical hunts** wher
 
 ## Related terms
 
-- Indicator of compromise  
-- Threat detection  
-- Threat intelligence  
-- DNS tunneling  
-- Passive DNS  
-- Incident response  
+- [Indicator of compromise](/docs/glossary/indicator-of-compromise)
+- [Threat detection](/docs/glossary/threat-detection)
+- [Threat intelligence](/docs/glossary/threat-intelligence)
+- [DNS tunneling](/docs/glossary/dns-tunneling)
+- [Passive DNS](/docs/glossary/passive-dns)
+- [Incident response](/docs/glossary/incident-response)
 
 ---
 

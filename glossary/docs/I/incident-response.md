@@ -2,7 +2,7 @@
 title: What is incident response?
 description: Incident response is the organized approach to detecting, responding to, containing, and recovering from security incidents or cyberattacks, following a structured process to minimize damage and prevent future incidents.
 sidebar_label: Incident response
-sidebar_position: 54
+sidebar_position: 86
 slug: /glossary/incident-response
 keywords:
   - incident response
@@ -154,13 +154,13 @@ Additional flow-analysis workflows related to incident response are documented i
 
 ## Related terms
 
-- [Incident investigation](/glossary/incident-investigation)
-- [Threat detection](/glossary/threat-detection)
-- [SIEM](/glossary/siem)
-- [Forensic analysis](/glossary/forensic-analysis)
-- [Firewall logging](/glossary/firewall-logging)
-- [Root cause analysis](/glossary/root-cause-analysis)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
+- [Incident investigation](/docs/glossary/incident-investigation)
+- Threat detection
+- SIEM
+- [Forensic analysis](/docs/glossary/forensic-analysis)
+- [Firewall logging](/docs/glossary/firewall-logging)
+- [Root cause analysis](/docs/glossary/root-cause-analysis)
+- Network traffic analysis
 
 ---
 

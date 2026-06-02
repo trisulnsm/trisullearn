@@ -2,7 +2,7 @@
 title: What is IDS integration?
 description: IDS integration connects Intrusion Detection Systems with network telemetry, traffic analysis, and security-monitoring platforms to correlate security alerts with network activity for investigation, threat detection, and operational visibility.
 sidebar_label: IDS integration
-sidebar_position: 56
+sidebar_position: 82
 slug: /glossary/ids-integration
 keywords:
   - IDS integration
@@ -192,13 +192,13 @@ These workflows align naturally with Trisul use cases involving network security
 
 ## Related terms
 
-- [Threat detection](/glossary/threat-detection)
-- [Indicator of compromise](/glossary/indicator-of-compromise)
-- [Intrusion prevention system](/glossary/intrusion-prevention-system)
-- [SIEM](/glossary/siem)
-- [Incident response](/glossary/incident-response)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [Security monitoring](/glossary/security-monitoring)
+- Threat detection
+- [Indicator of compromise](/docs/glossary/indicator-of-compromise)
+- [Intrusion prevention system](/docs/glossary/intrusion-prevention-system)
+- SIEM
+- [Incident response](/docs/glossary/incident-response)
+- Network traffic analysis
+- Security monitoring
 
 ---
 

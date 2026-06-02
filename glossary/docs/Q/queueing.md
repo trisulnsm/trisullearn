@@ -2,7 +2,7 @@
 title: What is queueing in networking?
 description: Queueing is the temporary holding of packets when a device or link cannot forward them immediately. Queueing is a normal part of packet forwarding, but excessive queue buildup can increase latency, jitter, congestion, and packet loss.
 sidebar_label: Queueing
-sidebar_position: 195
+sidebar_position: 175
 slug: /glossary/queueing
 keywords:
   - queueing
@@ -140,7 +140,7 @@ https://docs.trisul.org/docs/ug/flow/
 - [What is packet loss?](/docs/glossary/packet-loss)
 - [What is QoS?](/docs/glossary/qos)
 - [What is latency?](/docs/glossary/latency)
-- [What is traffic shaping?](/docs/glossary/traffic-shaping)
+- What is traffic shaping?
 
 ---
 

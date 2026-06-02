@@ -1,16 +1,18 @@
 ---
 title: What is user analytics?
-description: User analytics is the study of user behavior, activity, and patterns to understand how people interact with systems, services, or networks.
+description: User analytics is the analysis of user activity, behavior, access patterns, and resource usage to understand how individuals or groups interact with applications, services, and network resources. It helps organizations associate activity with specific users and identify behavioral, operational, and security-related insights.
 sidebar_label: User analytics
-sidebar_position: 243
+sidebar_position: 236
 slug: /glossary/user-analytics
 keywords:
   - user analytics
+  - user behavior analytics
+  - user activity analysis
   - user behavior
-  - activity analysis
+  - identity analytics
   - access patterns
+  - user monitoring
   - usage analysis
-  - user insights
 ---
 
 export const jsonLd = {
@@ -22,31 +24,23 @@ export const jsonLd = {
       "name": "What is user analytics?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "User analytics is the study of user behavior, activity, and patterns to understand how people interact with systems, services, or networks."
+        "text": "User analytics is the analysis of user activity, behavior, access patterns, and resource usage to understand how individuals or groups interact with applications, services, and network resources."
       }
     },
     {
       "@type": "Question",
-      "name": "What does user analytics show?",
+      "name": "Why is user analytics important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "User analytics can show login trends, access frequency, usage behavior, and activity patterns."
+        "text": "User analytics adds identity context to activity data, helping organizations understand who is responsible for observed behavior, resource consumption, and access activity."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is user analytics useful?",
+      "name": "What can user analytics reveal?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "User analytics is useful because it helps teams understand demand, spot unusual behavior, and improve services."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is user analytics used?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "User analytics is used for reporting, security review, capacity planning, and service improvement."
+        "text": "User analytics can reveal access patterns, application usage, resource consumption, behavioral trends, unusual activity, and changes in user behavior over time."
       }
     }
   ]
@@ -54,58 +48,55 @@ export const jsonLd = {
 
 # What is user analytics?
 
-User analytics is the study of user behavior, activity, and patterns to understand how people interact with systems, services, or networks.
+**User analytics** is the analysis of user activity, behavior, access patterns, and resource usage to understand how individuals or groups interact with applications, services, and network resources.
 
----
+The primary value of user analytics is attribution. By associating activity with specific users or identities, organizations can understand who is responsible for observed behavior rather than viewing activity only as IP addresses, hosts, sessions, or network flows.
 
-## How user analytics works
+This additional context helps transform technical activity data into meaningful operational and security insights.
 
-User analytics collects activity data such as logins, sessions, traffic usage, and feature interactions. That data is then summarized to show trends and behavior.
+## Why is user analytics important?
 
-The goal is to understand what users do, when they do it, and how their behavior changes over time. This is useful both for operations and security.
+Without identity context, operators may only see network activity, application sessions, or resource consumption without knowing who generated it.
 
----
+User analytics bridges this gap by connecting activity to specific users, subscribers, accounts, or groups. This helps organizations understand application adoption, resource consumption, access behavior, usage trends, and changes in activity over time.
 
-## User analytics in operations
+Because user behavior often drives network and application demand, user analytics also plays an important role in capacity planning, operational visibility, troubleshooting, and service optimization.
 
-Operations teams use user analytics to understand demand, usage patterns, and possible access issues. It helps reveal which users or groups are generating traffic.
+## User analytics in operations and security
 
-Security teams also use it to spot unusual behavior. A sudden change in access pattern may need review.
+Operations teams use user analytics to understand how services and resources are consumed, identify heavy users, analyze adoption trends, and align infrastructure planning with actual user demand.
 
----
+Security teams use user analytics to investigate unusual access patterns, suspicious account activity, authentication anomalies, and behavioral changes that may indicate misuse or compromise.
 
-## Common user analytics views
+In both cases, the value comes from understanding activity in the context of real users rather than isolated technical events.
 
-| View | Meaning |
-|---|---|
-| Login trends | Access over time |
-| Usage patterns | How services are used |
-| Session counts | Volume of activity |
-| Behavioral changes | Unusual shifts |
+## What makes user analytics useful?
 
----
+User analytics is most effective when identity information can be correlated with network, application, authentication, and activity data.
 
-## What makes user analytics useful
+Historical visibility is particularly important because behavioral changes often become meaningful only when compared against previous activity. By combining identity context with long-term activity trends, organizations can better understand how user behavior evolves over time and identify meaningful deviations from expected patterns.
 
-User analytics is useful because it connects traffic or system events to actual people or accounts. That makes the data more meaningful.
+## In Trisul
 
-It is strongest when combined with identity, logging, and flow attribution.
+User analytics becomes significantly more valuable when identity information can be correlated with network activity and traffic behavior.
 
----
+Trisul Network Analytics helps operators associate users, subscribers, hosts, and services with observed traffic activity, enabling deeper visibility into resource consumption, application usage, behavioral trends, and operational activity.
 
-## How Trisul handles user analytics
+These workflows are particularly useful in enterprise and ISP environments where understanding user behavior, subscriber activity, and resource utilization is important for troubleshooting, reporting, security investigations, and operational visibility.
 
-Trisul can help with user analytics by correlating traffic and access behavior with users, hosts, and services.
+For additional guidance, see the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- AAA
-- Network access
-- Authentication logging
-- Flow attribution
-- Security auditing
+- [AAA](/docs/glossary/aaa)
+- [Authentication logging](/docs/glossary/authentication-logging)
+- [Subscriber analytics](/docs/glossary/subscriber-analytics)
+- [Flow attribution](/docs/glossary/flow-attribution)
+- [Security auditing](/docs/glossary/security-auditing)
 
 ---
 
@@ -113,16 +104,12 @@ Trisul can help with user analytics by correlating traffic and access behavior w
 
 ### What is user analytics?
 
-User analytics is the study of user behavior, activity, and patterns to understand how people interact with systems, services, or networks.
+User analytics is the analysis of user activity, behavior, access patterns, and resource usage to understand how individuals or groups interact with applications, services, and network resources.
 
-### What does user analytics show?
+### Why is user analytics important?
 
-User analytics can show login trends, access frequency, usage behavior, and activity patterns.
+User analytics adds identity context to activity data, helping organizations understand who is responsible for observed behavior, resource consumption, and access activity.
 
-### Why is user analytics useful?
+### What can user analytics reveal?
 
-User analytics is useful because it helps teams understand demand, spot unusual behavior, and improve services.
-
-### How is user analytics used?
-
-User analytics is used for reporting, security review, capacity planning, and service improvement.
+User analytics can reveal access patterns, application usage, resource consumption, behavioral trends, unusual activity, and changes in user behavior over time.

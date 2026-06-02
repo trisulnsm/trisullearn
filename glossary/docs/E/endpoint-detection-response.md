@@ -2,7 +2,7 @@
 title: What is endpoint detection and response?
 description: Endpoint detection and response (EDR) is a security approach that continuously monitors endpoints for suspicious behavior, supports threat investigation, and enables incident-response actions on devices such as laptops, servers, and workstations.
 sidebar_label: Endpoint detection and response
-sidebar_position: 160
+sidebar_position: 52
 slug: /glossary/endpoint-detection-and-response
 keywords:
   - EDR
@@ -106,13 +106,13 @@ Trisul complements EDR by providing network‑level visibility that helps contex
 
 ## Related terms
 
-- Endpoint detection and response (EDR)  
-- Network security monitoring  
-- Threat detection  
-- Incident response  
+- [Endpoint detection and response (EDR)](/docs/glossary/endpoint-detection-and-response)
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
+- [Threat detection](/docs/glossary/threat-detection)
+- [Incident response](/docs/glossary/incident-response)
 - Host monitoring  
-- Lateral movement  
-- XDR  
+- [Lateral movement](/docs/glossary/lateral-movement)
+- [XDR](/docs/glossary/xdr)
 - Flow monitoring  
 
 ---

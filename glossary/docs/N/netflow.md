@@ -2,7 +2,7 @@
 title: What is NetFlow?
 description: NetFlow is a flow-export technology originally developed by Cisco that summarizes IP traffic into flow records and exports telemetry for bandwidth monitoring, traffic analysis, network visibility, and traffic analytics.
 sidebar_label: NetFlow
-sidebar_position: 69
+sidebar_position: 129
 slug: /glossary/netflow
 keywords:
   - NetFlow
@@ -174,8 +174,8 @@ https://docs.trisul.org/docs/ug/flow/
 ## Related terms
 
 - [What is IPFIX?](/docs/glossary/ipfix)
-- [What is sFlow?](/docs/glossary/sflow)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- What is sFlow?
+- What is flow monitoring?
 - [What is J-Flow?](/docs/glossary/jflow)
 - [What is a NetFlow Analyzer?](/docs/glossary/netflow-analyzer)
 - [What is a flow collector?](/docs/glossary/flow-collector)

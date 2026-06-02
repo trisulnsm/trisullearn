@@ -2,7 +2,7 @@
 title: What is multi-tenant network monitoring?
 description: Multi-tenant network monitoring provides isolated operational visibility for multiple tenants using shared monitoring infrastructure.
 sidebar_label: Multi-tenant network monitoring
-sidebar_position: 65
+sidebar_position: 123
 slug: /glossary/multi-tenant-network-monitoring
 keywords:
   - multi-tenant monitoring
@@ -121,12 +121,12 @@ Additional deployment and operational workflows are documented in the Trisul doc
 
 ## Related terms
 
-- [MSP](/glossary/msp)
-- [Context](/glossary/context)
-- [VLAN](/glossary/vlan)
-- [VRF](/glossary/vrf)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
-- [Flow monitoring](/glossary/flow-monitoring)
+- [MSP](/docs/glossary/msp)
+- [Context](/docs/glossary/context)
+- [VLAN](/docs/glossary/vlan)
+- [VRF](/docs/glossary/vrf)
+- Historical traffic analysis
+- Flow monitoring
 
 ---
 

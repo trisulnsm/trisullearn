@@ -2,7 +2,7 @@
 title: What is historical traffic analysis?
 description: Historical traffic analysis is the process of examining retained network telemetry and traffic data over time to identify trends, recurring patterns, anomalies, utilization growth, and operational behavior for troubleshooting, capacity planning, and security investigations.
 sidebar_label: Historical traffic analysis
-sidebar_position: 50
+sidebar_position: 75
 slug: /glossary/historical-traffic-analysis
 keywords:
   - historical traffic analysis
@@ -115,14 +115,14 @@ Trisul supports **historical traffic analysis** by **retaining and indexing flow
 
 ## Related terms
 
-- Historical traffic analysis  
+- [Historical traffic analysis](/docs/glossary/historical-traffic-analysis)
 - Flow monitoring  
 - Capacity planning  
 - Bandwidth monitoring  
-- Trend analysis  
-- Realtime traffic monitoring  
-- Top talkers  
-- Network performance monitoring  
+- [Trend analysis](/docs/glossary/trend-analysis)
+- [Realtime traffic monitoring](/docs/glossary/realtime-traffic-monitoring)
+- [Top talkers](/docs/glossary/top-talkers)
+- [Network performance monitoring](/docs/glossary/network-performance-monitoring)
 
 ---
 

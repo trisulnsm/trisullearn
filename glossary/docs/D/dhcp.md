@@ -2,7 +2,7 @@
 title: What is DHCP?
 description: DHCP (Dynamic Host Configuration Protocol) is a client-server protocol that automatically assigns IP addresses and related network configuration parameters to devices on an IP network.
 sidebar_label: DHCP
-sidebar_position: 251
+sidebar_position: 41
 slug: /glossary/dhcp
 keywords:
   - DHCP
@@ -123,14 +123,14 @@ Trisul is not a DHCP server, but it can use DHCP‑related information during op
 
 ## Related terms
 
-- DHCP  
-- IP address  
-- Network access  
-- Authentication logging  
+- [DHCP](/docs/glossary/dhcp)
+- [IP address](/docs/glossary/ip-address)
+- [Network access](/docs/glossary/network-access)
+- [Authentication logging](/docs/glossary/authentication-logging)
 - DHCP relay  
-- Syslog  
-- Flow attribution  
-- User analytics  
+- [Syslog](/docs/glossary/syslog)
+- [Flow attribution](/docs/glossary/flow-attribution)
+- [User analytics](/docs/glossary/user-analytics)
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is incident investigation?
 description: Incident investigation is the process of examining alerts, logs, traffic, and evidence to determine what happened during a security or operations event.
 sidebar_label: Incident investigation
-sidebar_position: 216
+sidebar_position: 85
 slug: /glossary/incident-investigation
 keywords:
   - incident investigation
@@ -147,13 +147,13 @@ These capabilities are particularly useful for security investigations, infrastr
 
 ## Related terms
 
-- [Incident response](/glossary/incident-response)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [SIEM](/glossary/siem)
-- [Threat detection](/glossary/threat-detection)
-- [Firewall logging](/glossary/firewall-logging)
-- [Forensic analysis](/glossary/forensic-analysis)
-- [Root cause analysis](/glossary/root-cause-analysis)
+- [Incident response](/docs/glossary/incident-response)
+- Network traffic analysis
+- SIEM
+- Threat detection
+- [Firewall logging](/docs/glossary/firewall-logging)
+- [Forensic analysis](/docs/glossary/forensic-analysis)
+- [Root cause analysis](/docs/glossary/root-cause-analysis)
 
 ---
 

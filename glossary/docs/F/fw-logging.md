@@ -2,7 +2,7 @@
 title: What is firewall logging?
 description: Firewall logging is the process of recording firewall events such as allowed connections, denied traffic, policy matches, session activity, and security-related events for operational visibility, troubleshooting, auditing, and incident investigation.
 sidebar_label: Firewall logging
-sidebar_position: 215
+sidebar_position: 57
 slug: /glossary/firewall-logging
 keywords:
   - firewall logging
@@ -117,14 +117,14 @@ Trisul complements firewall logging by **correlating it with network‑level tel
 
 ## Related terms
 
-- Firewall logging  
-- Security auditing  
-- Syslog  
-- SIEM  
-- Incident investigation  
-- Intrusion prevention system  
+- [Firewall logging](/docs/glossary/firewall-logging)
+- [Security auditing](/docs/glossary/security-auditing)
+- [Syslog](/docs/glossary/syslog)
+- [SIEM](/docs/glossary/siem)
+- [Incident investigation](/docs/glossary/incident-investigation)
+- [Intrusion prevention system](/docs/glossary/intrusion-prevention-system)
 - Flow monitoring  
-- Network security monitoring  
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
 
 ---
 

@@ -2,7 +2,7 @@
 title: What are rare flows?
 description: Rare flows are network traffic flows that occur infrequently, deviate from historical communication patterns, or represent unusual communication behavior compared with established traffic baselines across the environment.
 sidebar_label: Rare flows
-sidebar_position: 257
+sidebar_position: 178
 slug: /glossary/rare-flows
 keywords:
   - rare flows

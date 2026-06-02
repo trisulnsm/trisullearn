@@ -2,7 +2,7 @@
 title: What is network monitoring?
 description: Network monitoring is the continuous observation of network infrastructure, traffic, and telemetry to maintain operational visibility, detect problems, analyze traffic behavior, and preserve service health.
 sidebar_label: Network monitoring
-sidebar_position: 188
+sidebar_position: 136
 slug: /glossary/network-monitoring
 keywords:
   - network monitoring
@@ -139,12 +139,12 @@ Additional deployment and traffic-analysis workflows are documented in the Trisu
 
 ## Related terms
 
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Network observability](/glossary/network-observability)
-- [Bandwidth monitoring](/glossary/bandwidth-monitoring)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
-- [Anomaly detection](/glossary/anomaly-detection)
+- Network traffic analysis
+- Flow monitoring
+- [Network observability](/docs/glossary/network-observability)
+- Bandwidth monitoring
+- Historical traffic analysis
+- [Anomaly detection](/docs/glossary/anomaly-detection)
 
 ---
 

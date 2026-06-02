@@ -2,7 +2,7 @@
 title: What is anomaly detection?
 description: Anomaly detection identifies data points, events, or observations that deviate significantly from normal behavior, used in network security to detect threats like DDoS attacks, port scans, and data exfiltration by comparing current traffic against established baselines.
 sidebar_label: Anomaly detection
-sidebar_position: 42
+sidebar_position: 7
 slug: /glossary/anomaly-detection
 keywords:
   - anomaly detection
@@ -92,9 +92,9 @@ Trisul provides anomaly detection through flow monitoring with baseline trending
 
 ## Related terms
 
-- Anomaly detection
+- [Anomaly detection](/docs/glossary/anomaly-detection)
 - Baseline traffic analytics
-- DDoS detection
+- [DDoS detection](/docs/glossary/ddos-detection)
 - Flow monitoring
 - Burst traffic
 - Capacity planning

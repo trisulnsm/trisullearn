@@ -2,7 +2,7 @@
 title: What is Layer 7 visibility?
 description: Layer 7 visibility provides application-aware insight into network traffic by identifying services, applications, protocols, and communication behavior beyond traditional IP- and port-based analysis.
 sidebar_label: Layer 7 visibility
-sidebar_position: 60
+sidebar_position: 109
 slug: /glossary/layer-7-visibility
 keywords:
   - layer 7 visibility
@@ -179,11 +179,11 @@ Additional traffic-analysis workflows are documented in the Trisul documentation
 
 ## Related terms
 
-- [Deep packet inspection](/glossary/dpi)
-- [Application monitoring](/glossary/application-monitoring)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [TLS inspection](/glossary/tls-inspection)
-- [OSI model](/glossary/osi-model)
+- [Deep packet inspection](/docs/glossary/dpi)
+- [Application monitoring](/docs/glossary/application-monitoring)
+- Flow monitoring
+- [TLS inspection](/docs/glossary/tls-inspection)
+- [OSI model](/docs/glossary/osi-model)
 
 ---
 

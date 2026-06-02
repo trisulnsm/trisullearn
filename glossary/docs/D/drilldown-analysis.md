@@ -2,7 +2,7 @@
 title: What is drilldown analysis?
 description: Drilldown analysis is the process of moving from high-level summaries to progressively more detailed views in order to investigate underlying records, traffic behavior, anomalies, or operational events.
 sidebar_label: Drilldown analysis
-sidebar_position: 20
+sidebar_position: 49
 slug: /glossary/drilldown-analysis
 keywords:
   - drilldown analysis
@@ -106,13 +106,13 @@ Trisul supports drilldown analysis through interactive flow‑based analytics an
 
 ## Related terms
 
-- Drilldown analysis  
+- [Drilldown analysis](/docs/glossary/drilldown-analysis)
 - Flow monitoring  
-- Flow analysis  
-- Top talkers  
-- Root cause analysis  
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Top talkers](/docs/glossary/top-talkers)
+- [Root cause analysis](/docs/glossary/root-cause-analysis)
 - Traffic analysis  
-- Interface tracking  
+- [Interface tracking](/docs/glossary/interface-tracking)
 
 ---
 

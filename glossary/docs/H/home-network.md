@@ -2,7 +2,7 @@
 title: What is home network in Trisul?
 description: In Trisul, home network refers to the IP subnets and network ranges considered part of the monitored administrative domain. Trisul uses this definition to classify traffic direction as incoming, outgoing, internal, or transit for traffic analysis, reporting, and flow-tagging workflows.
 sidebar_label: Home network
-sidebar_position: 49
+sidebar_position: 76
 slug: /glossary/home-network
 keywords:
   - home network
@@ -114,13 +114,13 @@ Trisul uses **home‑network definitions** to enrich **flow and packet‑based t
 
 ## Related terms
 
-- Home network  
+- [Home network](/docs/glossary/home-network)
 - Flow tagging  
-- Explore Flows  
+- [Explore Flows](/docs/glossary/explore-flows)
 - Counter group  
-- BGP peering analytics  
+- [BGP peering analytics](/docs/glossary/bgp-peering-analytics)
 - RFC1918  
-- Flow attribution  
+- [Flow attribution](/docs/glossary/flow-attribution)
 - Traffic analysis  
 
 ---

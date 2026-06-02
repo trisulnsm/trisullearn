@@ -2,7 +2,7 @@
 title: What is an MSP?
 description: An MSP, or Managed Service Provider, is a company that remotely manages IT, network, monitoring, or operational services for other organizations using centralized operational workflows and shared infrastructure.
 sidebar_label: MSP
-sidebar_position: 213
+sidebar_position: 121
 slug: /glossary/msp
 keywords:
   - MSP
@@ -154,12 +154,12 @@ Additional monitoring and analytics workflows are documented in the Trisul docum
 
 ## Related terms
 
-- [Multi-tenancy](/glossary/multi-tenancy)
-- [Monthly usage reports](/glossary/monthly-usage-reports)
-- [SLA monitoring](/glossary/sla-monitoring)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Subscriber analytics](/glossary/subscriber-analytics)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
+- Multi-tenancy
+- [Monthly usage reports](/docs/glossary/monthly-usage-reports)
+- [SLA monitoring](/docs/glossary/sla-monitoring)
+- Flow monitoring
+- [Subscriber analytics](/docs/glossary/subscriber-analytics)
+- Historical traffic analysis
 
 ---
 

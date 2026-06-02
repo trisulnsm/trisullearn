@@ -2,7 +2,7 @@
 title: What is application monitoring?
 description: Application monitoring is the process of observing application behavior, availability, and performance to detect problems and understand user impact.
 sidebar_label: Application monitoring
-sidebar_position: 201
+sidebar_position: 8
 slug: /glossary/application-monitoring
 keywords:
   - application monitoring
@@ -102,11 +102,11 @@ By correlating application‑level symptoms (such as high latency or errors) wit
 
 ## Related terms
 
-- Application monitoring
+- [Application monitoring](/docs/glossary/application-monitoring)
 - Application performance
-- Network performance
-- Traffic pattern analysis
-- TLS inspection
+- [Network performance](/docs/glossary/network-performance)
+- [Traffic pattern analysis](/docs/glossary/traffic-pattern-analysis)
+- [TLS inspection](/docs/glossary/tls-inspection)
 - Realtime traffic
 - Service monitoring
 

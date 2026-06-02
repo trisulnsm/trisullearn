@@ -2,7 +2,7 @@
 title: What is realtime traffic monitoring?
 description: Realtime traffic monitoring observes network traffic with minimal delay to provide near-immediate visibility into traffic patterns, congestion, anomalies, utilization, and changing network conditions across monitored infrastructure.
 sidebar_label: Realtime traffic monitoring
-sidebar_position: 90
+sidebar_position: 179
 slug: /glossary/realtime-traffic-monitoring
 keywords:
   - realtime traffic monitoring
@@ -140,10 +140,10 @@ https://docs.trisul.org/docs/ug/cg/tasks/
 
 ## Related terms
 
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is live traffic monitoring?](/docs/glossary/live-traffic-monitoring)
+- What is flow monitoring?
+- What is live traffic monitoring?
 - [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
-- [What is a network dashboard?](/docs/glossary/network-dashboard)
+- What is a network dashboard?
 - [What is NetFlow?](/docs/glossary/netflow)
 
 ---

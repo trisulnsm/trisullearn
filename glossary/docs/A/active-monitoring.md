@@ -2,7 +2,7 @@
 title: What is active monitoring?
 description: Active monitoring is the practice of sending test traffic or synthetic checks to measure connectivity, response, and service behavior.
 sidebar_label: Active monitoring
-sidebar_position: 236
+sidebar_position: 3
 slug: /glossary/active-monitoring
 keywords:
   - active monitoring
@@ -102,11 +102,11 @@ By analyzing flows, protocols, and application behavior around the reported even
 
 ## Related terms
 
-- Network troubleshooting
-- Latency
-- Quality of experience
-- Passive monitoring
-- Network performance
+- [Network troubleshooting](/docs/glossary/network-troubleshooting)
+- [Latency](/docs/glossary/latency)
+- [Quality of experience](/docs/glossary/quality-of-experience)
+- [Passive monitoring](/docs/glossary/passive-network-monitoring)
+- [Network performance](/docs/glossary/network-performance)
 - Synthetic transactions
 - Availability checks
 

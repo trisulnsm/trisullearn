@@ -2,7 +2,7 @@
 title: What is BGP peering analytics?
 description: BGP peering analytics monitors traffic flows across BGP peerings by combining flow data with BGP routing information to analyze traffic per autonomous system, prefix, and peering interface in real time.
 sidebar_label: BGP peering analytics
-sidebar_position: 35
+sidebar_position: 17
 slug: /glossary/bgp-peering-analytics
 keywords:
   - bgp peering analytics
@@ -95,11 +95,11 @@ An inbuilt BGP route receiver keeps routing information automatically in sync wi
 
 ## Related terms
 
-- BGP peering analytics
+- [BGP peering analytics](/docs/glossary/bgp-peering-analytics)
 - BGP
 - ASN
 - Flow monitoring
-- Peering
+- [Peering](/docs/glossary/peering)
 - Transit provider
 - Route analytics
 

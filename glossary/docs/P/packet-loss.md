@@ -2,7 +2,7 @@
 title: What is packet loss?
 description: Packet loss is the failure of one or more network packets to successfully reach their destination. It is commonly associated with congestion, interface errors, unstable paths, or network performance problems that affect application behavior and user experience.
 sidebar_label: Packet loss
-sidebar_position: 196
+sidebar_position: 157
 slug: /glossary/packet-loss
 keywords:
   - packet loss
@@ -147,12 +147,12 @@ Additional flow-monitoring and traffic-analysis workflows are documented in the 
 
 ## Related terms
 
-- [Congestion](/glossary/congestion)
-- [TCP retransmission](/glossary/tcp-retransmission)
-- [Latency monitoring](/glossary/latency-monitoring)
-- [Jitter](/glossary/jitter)
-- [Queueing](/glossary/queueing)
-- [Network performance monitoring](/glossary/network-performance-monitoring)
+- [Congestion](/docs/glossary/congestion)
+- [TCP retransmission](/docs/glossary/tcp-retransmission)
+- Latency monitoring
+- Jitter
+- [Queueing](/docs/glossary/queueing)
+- [Network performance monitoring](/docs/glossary/network-performance-monitoring)
 
 ---
 

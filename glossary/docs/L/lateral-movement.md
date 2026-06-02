@@ -2,7 +2,7 @@
 title: What is lateral movement?
 description: Lateral movement is the stage of an attack where an intruder moves from one compromised system to other systems inside a network in order to expand access, escalate privileges, or reach high-value targets.
 sidebar_label: Lateral movement
-sidebar_position: 162
+sidebar_position: 107
 slug: /glossary/lateral-movement
 keywords:
   - lateral movement
@@ -168,12 +168,12 @@ Additional flow-analysis and traffic-investigation workflows are documented in t
 
 ## Related terms
 
-- [East-west traffic](/glossary/east-west-traffic)
-- [Threat hunting](/glossary/threat-hunting)
-- [Network segmentation](/glossary/network-segmentation)
-- [Security zone](/glossary/security-zone)
-- [EDR](/glossary/edr)
-- [Host monitor](/glossary/host-monitor)
+- East-west traffic
+- Threat hunting
+- [Network segmentation](/docs/glossary/network-segmentation)
+- [Security zone](/docs/glossary/security-zone)
+- EDR
+- [Host monitor](/docs/glossary/host-monitor)
 
 ---
 

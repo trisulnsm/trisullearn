@@ -2,7 +2,7 @@
 title: What are heavy hitters in networking?
 description: Heavy hitters are flows, hosts, applications, subscribers, or other traffic entities that contribute a disproportionately large share of network activity, bandwidth consumption, packets, or sessions within a monitored environment.
 sidebar_label: Heavy hitters
-sidebar_position: 254
+sidebar_position: 73
 slug: /glossary/heavy-hitters
 keywords:
   - heavy hitters
@@ -115,12 +115,12 @@ Trisul supports **heavy hitter analysis** via **Top‑K analytics, historical tr
 
 ## Related terms
 
-- Heavy hitters  
-- Top talkers  
-- Traffic spike analysis  
-- Link load  
-- Subscriber analytics  
-- Summary statistics  
+- [Heavy hitters](/docs/glossary/heavy-hitters)
+- [Top talkers](/docs/glossary/top-talkers)
+- [Traffic spike analysis](/docs/glossary/traffic-spike-analysis)
+- [Link load](/docs/glossary/link-load)
+- [Subscriber analytics](/docs/glossary/subscriber-analytics)
+- [Summary statistics](/docs/glossary/summary-statistics)
 - Flow monitoring  
 - Capacity planning  
 

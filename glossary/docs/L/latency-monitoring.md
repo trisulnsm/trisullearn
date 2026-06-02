@@ -1,7 +1,7 @@
 ---
 title: What is Latency Monitoring?
 sidebar_label: Latency Monitoring
-sidebar_position: 62
+sidebar_position: 106
 slug: /glossary/latency-monitoring
 description: Latency monitoring is the process of measuring and analyzing communication delay across networks, applications, and services to identify degradation, congestion, routing issues, cloud-connectivity problems, and user-experience impact.
 keywords:
@@ -148,12 +148,12 @@ Additional traffic-analysis workflows are documented in the Trisul documentation
 
 ## Related Terms
 
-- [Jitter Monitoring](/glossary/jitter-monitoring)
-- [Bandwidth Monitoring](/glossary/bandwidth-monitoring)
-- [Dropped Packets](/glossary/dropped-packets)
-- [Packet Capture](/glossary/packet-capture)
-- [Application Visibility](/glossary/application-visibility)
-- [Traffic Investigation](/glossary/traffic-investigation)
+- Jitter Monitoring
+- Bandwidth Monitoring
+- Dropped Packets
+- Packet Capture
+- Application Visibility
+- [Traffic Investigation](/docs/glossary/traffic-investigation)
 
 ---
 

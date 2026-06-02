@@ -2,7 +2,7 @@
 title: What is flow analysis?
 description: Flow analysis is the practice of examining network flow records to understand traffic patterns, identify top talkers, detect anomalies, and investigate operational or security issues using metadata rather than full packet payloads.
 sidebar_label: Flow analysis
-sidebar_position: 15
+sidebar_position: 59
 slug: /glossary/flow-analysis
 keywords:
   - flow analysis
@@ -116,14 +116,14 @@ Trisul treats flow analysis as a core operational capability. It ingests **NetFl
 
 ## Related terms
 
-- Flow  
+- [Flow](/docs/glossary/flow)
 - Flow data  
 - Flow monitoring  
 - Flow analyzer  
 - Flow forensics  
-- NetFlow  
-- IPFIX  
-- Full packet capture  
+- [NetFlow](/docs/glossary/netflow)
+- [IPFIX](/docs/glossary/ipfix)
+- [Full packet capture](/docs/glossary/full-packet-capture)
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is Network Behavior Analysis?
 description: Network Behavior Analysis (NBA) analyzes network traffic patterns and telemetry to identify anomalies, suspicious activity, infrastructure issues, and deviations from expected communication behavior.
 sidebar_label: Network Behavior Analysis
-sidebar_position: 71
+sidebar_position: 134
 slug: /glossary/network-behavior-analysis
 keywords:
   - network behavior analysis
@@ -148,9 +148,9 @@ https://docs.trisul.org/docs/ug/flow/
 - [What is anomaly detection?](/docs/glossary/anomaly-detection)
 - [What is threat detection?](/docs/glossary/threat-detection)
 - [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
-- [What is Network Detection and Response (NDR)?](/docs/glossary/network-detection-and-response)
+- What is Network Detection and Response (NDR)?
 - [What is machine learning?](/docs/glossary/machine-learning)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- What is flow monitoring?
 
 ---
 

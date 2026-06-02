@@ -2,7 +2,7 @@
 title: What is IPDR?
 description: IPDR (Internet Protocol Detail Record) is a standardized framework for collecting and exchanging IP-based service usage data in telecommunications and service-provider networks for subscriber visibility, usage accounting, compliance, and OSS/BSS workflows.
 sidebar_label: IPDR
-sidebar_position: 53
+sidebar_position: 98
 slug: /glossary/ipdr
 keywords:
   - IPDR
@@ -175,13 +175,13 @@ Additional subscriber and flow-analysis workflows are documented in the Trisul d
 
 ## Related terms
 
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [CDR](/glossary/cdr)
-- [Subscriber mapping](/glossary/subscriber-mapping)
-- [OSS/BSS](/glossary/oss-bss)
-- [Flow telemetry](/glossary/flow-telemetry)
-- [Carrier-grade NAT](/glossary/carrier-grade-nat)
+- NetFlow
+- IPFIX
+- [CDR](/docs/glossary/cdr)
+- [Subscriber mapping](/docs/glossary/subscriber-mapping)
+- [OSS/BSS](/docs/glossary/oss-bss)
+- Flow telemetry
+- Carrier-grade NAT
 
 ---
 

@@ -7,6 +7,20 @@
   background-color: #17132e !important;
 }
 
+.navbar__link,
+.navbar__brand,
+.navbar__title {
+  color: #ffffff !important;
+}
+
+.navbar__link:hover {
+  color: #93c5fd !important;
+}
+
+.navbar__link--active {
+  color: #60a5fa !important;
+}
+
 .glossary-search {
   width: 100%;
   max-width: 720px;

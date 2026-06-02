@@ -2,7 +2,7 @@
 title: What is custom flow analytics?
 description: Custom flow analytics extends standard flow monitoring by applying user-defined classification, enrichment, tagging, and detection logic to flow data for organization-specific operational, security, and business analytics workflows.
 sidebar_label: Custom flow analytics
-sidebar_position: 25
+sidebar_position: 36
 slug: /glossary/custom-flow-analytics
 keywords:
   - custom flow analytics
@@ -121,13 +121,13 @@ Trisul supports custom flow analytics through **Flow Taggers**, **Lua scripting*
 
 ## Related terms
 
-- Custom flow analytics  
-- Flow tagger  
+- [Custom flow analytics](/docs/glossary/custom-flow-analytics)
+- [Flow tagger](/docs/glossary/flow-tagger)
 - Flow monitoring  
-- Flow analysis  
-- Top‑K analytics  
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Top‑K analytics](/docs/glossary/top-k-analytics)
 - Flow data  
-- Counter groups  
+- [Counter groups](/docs/glossary/counter-groups)
 - Traffic enrichment  
 
 ---

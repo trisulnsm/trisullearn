@@ -2,7 +2,7 @@
 title: What is Explore Flows?
 description: Explore Flows is an investigative workflow that allows analysts to browse, filter, and investigate related network flow records starting from a selected host, conversation, interface, application, or traffic event.
 sidebar_label: Explore Flows
-sidebar_position: 176
+sidebar_position: 55
 slug: /glossary/explore-flows
 keywords:
   - Explore Flows
@@ -114,14 +114,14 @@ Trisul integrates **Explore Flows** as a core investigative workflow on top of i
 
 ## Related terms
 
-- Explore Flows  
-- Flow tracker  
-- Traffic investigation  
+- [Explore Flows](/docs/glossary/explore-flows)
+- [Flow tracker](/docs/glossary/flow-tracker)
+- [Traffic investigation](/docs/glossary/traffic-investigation)
 - Host monitoring  
-- Drilldown analysis  
+- [Drilldown analysis](/docs/glossary/drilldown-analysis)
 - Flow monitoring  
-- Flow analysis  
-- Top talkers  
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Top talkers](/docs/glossary/top-talkers)
 
 ---
 

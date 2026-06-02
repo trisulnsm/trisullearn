@@ -2,7 +2,7 @@
 title: What is an IP address?
 description: An IP address is a unique numerical label assigned to a device or network interface on an IP network. It identifies the source and destination of traffic and is fundamental to routing, forwarding, and network analytics.
 sidebar_label: IP address
-sidebar_position: 144
+sidebar_position: 95
 slug: /glossary/ip-address
 keywords:
   - IP address
@@ -158,13 +158,13 @@ Additional IP and flow-analysis workflows are documented in the Trisul documenta
 
 ## Related terms
 
-- [IPv6](/glossary/ipv6)
-- [NAT](/glossary/nat)
-- [Flow attribution](/glossary/flow-attribution)
-- [Subnetting](/glossary/subnetting)
-- [Network telemetry](/glossary/network-telemetry)
-- [DNS telemetry](/glossary/dns-telemetry)
-- [Subscriber mapping](/glossary/subscriber-mapping)
+- IPv6
+- [NAT](/docs/glossary/nat)
+- Flow attribution
+- Subnetting
+- Network telemetry
+- DNS telemetry
+- [Subscriber mapping](/docs/glossary/subscriber-mapping)
 
 ---
 

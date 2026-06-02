@@ -2,7 +2,7 @@
 title: What is network forensics?
 description: Network forensics is the collection, preservation, and analysis of network traffic and telemetry to investigate security incidents, reconstruct historical activity, and support operational or compliance investigations.
 sidebar_label: Network forensics
-sidebar_position: 73
+sidebar_position: 135
 slug: /glossary/network-forensics
 keywords:
   - network forensics
@@ -141,12 +141,12 @@ Additional capture and traffic-analysis workflows are documented in the Trisul d
 
 ## Related terms
 
-- [Packet capture](/glossary/packet-capture)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Incident response](/glossary/incident-response)
-- [Retro analysis](/glossary/retro-analysis)
-- [Digital forensics](/glossary/digital-forensics)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
+- Packet capture
+- Flow monitoring
+- [Incident response](/docs/glossary/incident-response)
+- Retro analysis
+- [Digital forensics](/docs/glossary/digital-forensics)
+- Historical traffic analysis
 
 ---
 

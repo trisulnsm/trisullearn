@@ -2,7 +2,7 @@
 title: What is flow attribution?
 description: Flow attribution is the process of associating network flows with specific users, hosts, applications, services, interfaces, or network segments using flow telemetry and contextual metadata.
 sidebar_label: Flow attribution
-sidebar_position: 226
+sidebar_position: 60
 slug: /glossary/flow-attribution
 keywords:
   - flow attribution
@@ -123,15 +123,15 @@ Trisul supports flow attribution by enriching raw telemetry with operational con
 
 ## Related terms
 
-- Flow attribution  
+- [Flow attribution](/docs/glossary/flow-attribution)
 - Traffic analysis  
-- Flow analysis  
-- Flow Tagger  
-- NAT  
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Flow Tagger](/docs/glossary/flow-tagger)
+- [NAT](/docs/glossary/nat)
 - PAT  
-- VLAN  
-- VRF  
-- DHCP  
+- [VLAN](/docs/glossary/vlan)
+- [VRF](/docs/glossary/vrf)
+- [DHCP](/docs/glossary/dhcp)
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is micro segmentation?
 description: Micro segmentation is a security approach that applies granular communication controls between workloads and services in order to reduce implicit trust and restrict lateral movement across modern distributed environments.
 sidebar_label: Micro segmentation
-sidebar_position: 163
+sidebar_position: 116
 slug: /glossary/micro-segmentation
 keywords:
   - micro segmentation
@@ -129,12 +129,12 @@ Additional traffic-analysis workflows are documented in the Trisul documentation
 
 ## Related terms
 
-- [Network segmentation](/glossary/network-segmentation)
-- [Zero Trust](/glossary/zero-trust)
-- [East-west traffic](/glossary/east-west-traffic)
-- [Lateral movement](/glossary/lateral-movement)
-- [Policy enforcement](/glossary/policy-enforcement)
-- [Flow monitoring](/glossary/flow-monitoring)
+- [Network segmentation](/docs/glossary/network-segmentation)
+- Zero Trust
+- East-west traffic
+- [Lateral movement](/docs/glossary/lateral-movement)
+- [Policy enforcement](/docs/glossary/policy-enforcement)
+- Flow monitoring
 
 ---
 

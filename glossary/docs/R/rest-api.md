@@ -2,7 +2,7 @@
 title: What is a REST API?
 description: A REST API is an HTTP-based programmable interface that allows monitoring platforms, analytics systems, automation workflows, and infrastructure tools to exchange telemetry, coordinate operations, retrieve analytics, and automate distributed workflows across modern network environments.
 sidebar_label: REST API
-sidebar_position: 37
+sidebar_position: 181
 slug: /glossary/rest-api
 keywords:
   - rest api
@@ -154,12 +154,12 @@ https://docs.trisul.org/
 
 ## Related terms
 
-- [Webhook integration](/glossary/webhook-integration)
-- [Network telemetry](/glossary/network-telemetry)
-- [Automation workflow](/glossary/automation-workflow)
-- [Infrastructure as Code](/glossary/infrastructure-as-code)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Audit log](/glossary/audit-log)
+- [Webhook integration](/docs/glossary/webhook-integration)
+- Network telemetry
+- Automation workflow
+- Infrastructure as Code
+- Flow monitoring
+- [Audit log](/docs/glossary/audit-log)
 
 ---
 

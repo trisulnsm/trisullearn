@@ -2,7 +2,7 @@
 title: What is a counter group?
 description: A counter group is a logical collection of traffic counters in Trisul used to measure and analyze specific dimensions of network activity such as hosts, applications, protocols, interfaces, or traffic categories over time.
 sidebar_label: Counter groups
-sidebar_position: 26
+sidebar_position: 33
 slug: /glossary/counter-groups
 keywords:
   - counter groups
@@ -133,9 +133,9 @@ Counter groups are a core part of Trisul’s analytics architecture. Trisul main
 ## Related terms
 
 - Counter group  
-- Top‑K analytics  
-- Custom flow analytics  
-- Flow tagger  
+- [Top‑K analytics](/docs/glossary/top-k-analytics)
+- [Custom flow analytics](/docs/glossary/custom-flow-analytics)
+- [Flow tagger](/docs/glossary/flow-tagger)
 - Flow monitoring  
 - Flow analyzer  
 - Aggregate Flows  

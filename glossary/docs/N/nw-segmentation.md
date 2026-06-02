@@ -2,7 +2,7 @@
 title: What is network segmentation?
 description: Network segmentation divides networks into controlled trust boundaries to reduce lateral movement, restrict unnecessary communication, improve security visibility, and simplify policy enforcement.
 sidebar_label: Network segmentation
-sidebar_position: 165
+sidebar_position: 141
 slug: /glossary/network-segmentation
 keywords:
   - network segmentation
@@ -137,12 +137,12 @@ Additional traffic-analysis workflows are documented in the Trisul documentation
 
 ## Related terms
 
-- [Microsegmentation](/glossary/microsegmentation)
-- [Security zone](/glossary/security-zone)
-- [Lateral movement](/glossary/lateral-movement)
-- [East-west traffic](/glossary/east-west-traffic)
-- [Firewall](/glossary/firewall)
-- [Policy enforcement](/glossary/policy-enforcement)
+- Microsegmentation
+- [Security zone](/docs/glossary/security-zone)
+- [Lateral movement](/docs/glossary/lateral-movement)
+- East-west traffic
+- Firewall
+- [Policy enforcement](/docs/glossary/policy-enforcement)
 
 ---
 

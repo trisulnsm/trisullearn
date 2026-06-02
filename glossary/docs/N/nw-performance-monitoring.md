@@ -2,7 +2,7 @@
 title: What is network performance monitoring?
 description: Network performance monitoring measures latency, packet loss, jitter, throughput, and traffic behavior to detect degradation, troubleshoot service issues, and maintain application and network performance.
 sidebar_label: Network performance monitoring
-sidebar_position: 146
+sidebar_position: 139
 slug: /glossary/network-performance-monitoring
 keywords:
   - network performance monitoring
@@ -142,12 +142,12 @@ Additional deployment and flow-analysis workflows are documented in the Trisul d
 
 ## Related terms
 
-- [Latency monitoring](/glossary/latency-monitoring)
-- [Packet loss monitoring](/glossary/packet-loss-monitoring)
-- [QoS](/glossary/qos)
-- [SLA monitoring](/glossary/sla-monitoring)
-- [Bandwidth monitoring](/glossary/bandwidth-monitoring)
-- [Network observability](/glossary/network-observability)
+- Latency monitoring
+- [Packet loss monitoring](/docs/glossary/packet-loss-monitoring)
+- [QoS](/docs/glossary/qos)
+- [SLA monitoring](/docs/glossary/sla-monitoring)
+- Bandwidth monitoring
+- [Network observability](/docs/glossary/network-observability)
 
 ---
 

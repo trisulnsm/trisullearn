@@ -2,7 +2,7 @@
 title: What is a NetFlow Analyzer?
 description: A NetFlow Analyzer is a network traffic analysis platform that collects and analyzes flow telemetry such as NetFlow, IPFIX, sFlow, and J-Flow to provide visibility into bandwidth usage, traffic patterns, application activity, and network utilization.
 sidebar_label: NetFlow Analyzer
-sidebar_position: 67
+sidebar_position: 130
 slug: /glossary/netflow-analyzer
 keywords:
   - NetFlow Analyzer
@@ -135,11 +135,11 @@ https://docs.trisul.org/docs/ug/flow/
 
 - [What is NetFlow?](/docs/glossary/netflow)
 - [What is IPFIX?](/docs/glossary/ipfix)
-- [What is sFlow?](/docs/glossary/sflow)
-- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- What is sFlow?
+- What is bandwidth monitoring?
 - [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
-- [What is capacity planning?](/docs/glossary/capacity-planning)
+- What is flow monitoring?
+- What is capacity planning?
 
 ---
 

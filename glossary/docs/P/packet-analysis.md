@@ -2,7 +2,7 @@
 title: What is packet analysis?
 description: Packet analysis captures and inspects network packets to investigate traffic behavior, protocol activity, communication issues, and security-related events using packet-level visibility and PCAP data.
 sidebar_label: Packet analysis
-sidebar_position: 79
+sidebar_position: 153
 slug: /glossary/packet-analysis
 keywords:
   - packet analysis

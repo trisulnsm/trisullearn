@@ -2,7 +2,7 @@
 title: What is packet capture?
 description: Packet capture (PCAP) records network packets for troubleshooting, protocol inspection, traffic analysis, security investigations, and historical forensic analysis using packet-level visibility.
 sidebar_label: Packet capture
-sidebar_position: 80
+sidebar_position: 155
 slug: /glossary/packet-capture
 keywords:
   - packet capture
@@ -146,7 +146,7 @@ https://docs.trisul.org/docs/ug/caps/
 
 - [What is packet analysis?](/docs/glossary/packet-analysis)
 - [What is full packet capture?](/docs/glossary/full-packet-capture)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- What is flow monitoring?
 - [What is a network TAP?](/docs/glossary/network-tap)
 - [What is network forensics?](/docs/glossary/network-forensics)
 

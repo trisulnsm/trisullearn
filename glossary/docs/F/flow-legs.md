@@ -2,7 +2,7 @@
 title: What is a flow leg?
 description: A flow leg is an individual flow-telemetry record representing a network conversation as observed and exported from a specific device, interface, or observation point within the traffic path.
 sidebar_label: Flow legs
-sidebar_position: 8
+sidebar_position: 64
 slug: /glossary/flow-legs
 keywords:
   - flow legs
@@ -113,14 +113,14 @@ Trisul supports **flow‑leg workflows** through **Flow Legs Correlation**, **Me
 ## Related terms
 
 - Flow leg  
-- Flow  
+- [Flow](/docs/glossary/flow)
 - Flow stitching  
 - Flow monitoring  
-- NetFlow  
+- [NetFlow](/docs/glossary/netflow)
 - Flow sampling  
 - Flow timeout  
-- Flow deduplication  
-- NAT  
+- [Flow deduplication](/docs/glossary/flow-deduplication)
+- [NAT](/docs/glossary/nat)
 
 ---
 

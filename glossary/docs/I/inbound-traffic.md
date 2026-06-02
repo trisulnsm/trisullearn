@@ -2,7 +2,7 @@
 title: What is inbound traffic?
 description: Inbound traffic is network traffic entering a device, interface, host, service, or network boundary from the perspective of the observation point. It is commonly analyzed for access control, traffic visibility, performance monitoring, and security investigations.
 sidebar_label: Inbound traffic
-sidebar_position: 222
+sidebar_position: 83
 slug: /glossary/inbound-traffic
 keywords:
   - inbound traffic
@@ -179,13 +179,13 @@ These capabilities are particularly useful for network operations, WAN visibilit
 
 ## Related terms
 
-- [Outbound traffic](/glossary/outbound-traffic)
-- [Traffic direction](/glossary/traffic-direction)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [WAN monitoring](/glossary/wan-monitoring)
-- [Firewall logging](/glossary/firewall-logging)
-- [Network telemetry](/glossary/network-telemetry)
-- [Traffic analysis](/glossary/traffic-analysis)
+- [Outbound traffic](/docs/glossary/outbound-traffic)
+- [Traffic direction](/docs/glossary/traffic-direction)
+- Flow monitoring
+- WAN monitoring
+- [Firewall logging](/docs/glossary/firewall-logging)
+- Network telemetry
+- Traffic analysis
 
 ---
 

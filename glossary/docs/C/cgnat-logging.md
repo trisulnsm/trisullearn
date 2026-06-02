@@ -2,7 +2,7 @@
 title: What is CGNAT logging?
 description: CGNAT logging records the mapping between subscriber private IP addresses and translated public IPv4 addresses and ports assigned by Carrier-Grade NAT systems. These logs help ISPs support subscriber traceability, troubleshooting, compliance, and security investigations.
 sidebar_label: CGNAT logging
-sidebar_position: 30
+sidebar_position: 25
 slug: /glossary/cgnat-logging
 keywords:
   - cgnat logging
@@ -192,13 +192,13 @@ These capabilities help ISPs and service providers investigate traffic, detect a
 
 ## Related terms
 
-- CGNAT logging  
+- [CGNAT logging](/docs/glossary/cgnat-logging)
 - Carrier‑Grade NAT  
 - Port Block Allocation  
-- NAT  
-- IPDR  
-- DoT compliance  
-- Subscriber analytics  
+- [NAT](/docs/glossary/nat)
+- [IPDR](/docs/glossary/ipdr)
+- [DoT compliance](/docs/glossary/dot-compliance)
+- [Subscriber analytics](/docs/glossary/subscriber-analytics)
 - Flow monitoring  
 
 ---

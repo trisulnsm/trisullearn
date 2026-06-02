@@ -2,7 +2,7 @@
 title: What is mode selection?
 description: Mode selection in Trisul Network Analytics is the process of choosing the operational analytics mode that best aligns with deployment scale, telemetry requirements, retention strategy, and investigative workflows.
 sidebar_label: Mode selection
-sidebar_position: 30
+sidebar_position: 118
 slug: /glossary/mode-selection
 keywords:
   - mode selection
@@ -149,12 +149,12 @@ Additional configuration details are documented in the Trisul documentation:
 
 ## Related terms
 
-- [NetFlow](/glossary/netflow)
-- [Full packet capture](/glossary/full-packet-capture)
-- [IPDR](/glossary/ipdr)
-- [ISP analytics](/glossary/isp-analytics)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Network telemetry](/glossary/network-telemetry)
+- NetFlow
+- [Full packet capture](/docs/glossary/full-packet-capture)
+- [IPDR](/docs/glossary/ipdr)
+- ISP analytics
+- Flow monitoring
+- Network telemetry
 
 ---
 

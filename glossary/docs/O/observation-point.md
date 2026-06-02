@@ -2,7 +2,7 @@
 title: What is observation point?
 description: An observation point is the location in a network where traffic is observed for flow monitoring, packet capture, telemetry generation, or traffic analysis. Observation-point placement directly determines what traffic is visible to monitoring systems.
 sidebar_label: Observation point
-sidebar_position: 76
+sidebar_position: 147
 slug: /glossary/observation-point
 keywords:
   - observation point
@@ -141,12 +141,12 @@ Additional deployment and telemetry-analysis workflows are documented in the Tri
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Packet capture](/glossary/packet-capture)
-- [Network TAP](/glossary/network-tap)
-- [SPAN port](/glossary/span-port)
-- [IPFIX](/glossary/ipfix)
-- [East-west traffic](/glossary/east-west-traffic)
+- Flow monitoring
+- Packet capture
+- [Network TAP](/docs/glossary/network-tap)
+- [SPAN port](/docs/glossary/span-port)
+- IPFIX
+- East-west traffic
 
 ---
 

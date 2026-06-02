@@ -2,7 +2,7 @@
 title: What is ISP traffic analytics?
 description: ISP traffic analytics provides real-time and historical visibility into traffic flows across Autonomous Systems, prefixes, peering interfaces, gateway infrastructure, and subscriber environments in ISP networks. It helps providers optimize routing, understand peering behavior, manage congestion, reduce transit costs, and analyze large-scale network traffic patterns.
 sidebar_label: ISP traffic analytics
-sidebar_position: 51
+sidebar_position: 100
 slug: /glossary/isp-traffic-analytics
 keywords:
   - ISP traffic analytics
@@ -139,13 +139,13 @@ Additional ISP and flow-analysis workflows are documented in the Trisul document
 
 ## Related terms
 
-- [BGP peering analytics](/glossary/bgp-peering-analytics)
-- [ASN](/glossary/asn)
-- [NetFlow](/glossary/netflow)
-- [Prefix](/glossary/prefix)
-- [Flow telemetry](/glossary/flow-telemetry)
-- [Traffic engineering](/glossary/traffic-engineering)
-- [Carrier-grade NAT](/glossary/carrier-grade-nat)
+- [BGP peering analytics](/docs/glossary/bgp-peering-analytics)
+- ASN
+- NetFlow
+- [Prefix](/docs/glossary/prefix)
+- Flow telemetry
+- Traffic engineering
+- Carrier-grade NAT
 
 ---
 

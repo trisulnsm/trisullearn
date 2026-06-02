@@ -2,7 +2,7 @@
 title: What is an NGFW?
 description: An NGFW, or next-generation firewall, combines traditional stateful inspection with application awareness, intrusion prevention, and advanced traffic inspection to provide deeper security visibility and policy enforcement.
 sidebar_label: NGFW
-sidebar_position: 152
+sidebar_position: 145
 slug: /glossary/ngfw
 keywords:
   - NGFW
@@ -143,12 +143,12 @@ Additional traffic-analysis workflows are documented in the Trisul documentation
 
 ## Related terms
 
-- [Firewall](/glossary/firewall)
-- [Intrusion detection system](/glossary/ids)
-- [Intrusion prevention system](/glossary/ips)
-- [Application visibility](/glossary/application-visibility)
-- [Packet filtering](/glossary/packet-filtering)
-- [Network Security Monitoring](/glossary/network-security-monitoring)
+- Firewall
+- Intrusion detection system
+- Intrusion prevention system
+- Application visibility
+- [Packet filtering](/docs/glossary/packet-filtering)
+- [Network Security Monitoring](/docs/glossary/network-security-monitoring)
 
 ---
 

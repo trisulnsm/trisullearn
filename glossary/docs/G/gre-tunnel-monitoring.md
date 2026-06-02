@@ -2,7 +2,7 @@
 title: What is GRE tunnel monitoring?
 description: GRE tunnel monitoring is the process of observing the health, reachability, traffic behavior, and operational performance of Generic Routing Encapsulation (GRE) tunnels using interface telemetry, flow data, packet analysis, and tunnel-validation mechanisms.
 sidebar_label: GRE tunnel monitoring
-sidebar_position: 45
+sidebar_position: 72
 slug: /glossary/gre-tunnel-monitoring
 keywords:
   - gre tunnel monitoring
@@ -114,12 +114,12 @@ Trisul supports **GRE tunnel monitoring workflows** through **flow analysis, pac
 
 ## Related terms
 
-- GRE tunnel monitoring  
+- [GRE tunnel monitoring](/docs/glossary/gre-tunnel-monitoring)
 - Flow monitoring  
-- Tunnel content inspection  
-- Encapsulation  
-- Point‑to‑point link  
-- Interface monitoring  
+- [Tunnel content inspection](/docs/glossary/tunnel-content-inspection)
+- [Encapsulation](/docs/glossary/encapsulation)
+- [Point‑to‑point link](/docs/glossary/point-to-point-link)
+- [Interface monitoring](/docs/glossary/interface-monitoring)
 - Overlay network  
 
 ---

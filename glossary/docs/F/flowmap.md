@@ -2,7 +2,7 @@
 title: What is FlowMap?
 description: FlowMap in Trisul Network Analytics is a visual traffic analysis interface that displays communication patterns, traffic relationships, and flow behavior between hosts and network entities to accelerate operational investigations and traffic analysis workflows.
 sidebar_label: FlowMap
-sidebar_position: 32
+sidebar_position: 67
 slug: /glossary/flowmap
 keywords:
   - flowmap
@@ -154,12 +154,12 @@ Additional workflow details are documented in the Trisul documentation:
 
 ## Related terms
 
-- [Flow monitoring](/glossary/flow-monitoring)
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [Dashboards and modules](/glossary/dashboards-and-modules)
-- [Network telemetry](/glossary/network-telemetry)
-- [Retro analysis](/glossary/retro-analysis)
+- Flow monitoring
+- NetFlow
+- IPFIX
+- [Dashboards and modules](/docs/glossary/dashboards-and-modules)
+- Network telemetry
+- Retro analysis
 
 ---
 

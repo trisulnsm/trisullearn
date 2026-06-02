@@ -1,8 +1,8 @@
 ---
 title: What is TCP?
-description: TCP, or Transmission Control Protocol, is a transport protocol that provides reliable, ordered delivery of data between hosts on an IP network.
+description: TCP, or Transmission Control Protocol, is a connection-oriented transport protocol that provides reliable, ordered, and error-checked data delivery between hosts on IP networks.
 sidebar_label: TCP
-sidebar_position: 228
+sidebar_position: 210
 slug: /glossary/tcp
 keywords:
   - TCP
@@ -11,6 +11,10 @@ keywords:
   - reliable delivery
   - retransmission
   - congestion control
+  - TCP handshake
+  - flow control
+  - TCP vs UDP
+  - RTT
 ---
 
 export const jsonLd = {
@@ -22,7 +26,7 @@ export const jsonLd = {
       "name": "What is TCP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TCP, or Transmission Control Protocol, is a transport protocol that provides reliable, ordered delivery of data between hosts on an IP network."
+        "text": "TCP, or Transmission Control Protocol, is a connection-oriented transport protocol that provides reliable, ordered, and error-checked data delivery between hosts on IP networks."
       }
     },
     {
@@ -30,7 +34,7 @@ export const jsonLd = {
       "name": "Why is TCP used?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TCP is used because it delivers data reliably and in order, which is important for many applications."
+        "text": "TCP is used because it ensures reliable and ordered data delivery, making it suitable for applications where delivery accuracy is important."
       }
     },
     {
@@ -38,15 +42,15 @@ export const jsonLd = {
       "name": "What does TCP handle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TCP handles sequencing, retransmission, flow control, and congestion control."
+        "text": "TCP handles connection establishment, sequencing, retransmission, flow control, congestion control, and session termination."
       }
     },
     {
       "@type": "Question",
-      "name": "How is TCP monitored?",
+      "name": "What is the difference between TCP and UDP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TCP is monitored by watching retransmissions, round-trip behavior, connection setup, and throughput."
+        "text": "TCP prioritizes reliable and ordered delivery, while UDP prioritizes lower overhead and lower latency without guaranteed delivery."
       }
     }
   ]
@@ -54,23 +58,50 @@ export const jsonLd = {
 
 # What is TCP?
 
-TCP, or Transmission Control Protocol, is a transport protocol that provides reliable, ordered delivery of data between hosts on an IP network.
+**TCP (Transmission Control Protocol)** is a connection-oriented transport protocol that provides reliable, ordered, and error-checked data delivery between hosts on IP networks.
+
+TCP is widely used for web browsing, file transfers, email, database communication, and enterprise applications where reliable communication is important.
+
+Unlike UDP, TCP prioritizes reliable and ordered delivery instead of lower overhead or low-latency transmission.
+
+TCP compensates for packet loss, reordering, and unreliable delivery behavior that can occur on IP networks.
 
 ---
 
 ## How TCP works
 
-TCP breaks data into segments and numbers them so they can be reassembled in order. If segments are lost, TCP can retransmit them.
+TCP establishes a connection between two hosts before exchanging data.
 
-It also uses flow control and congestion control to manage how much data is sent at a time. This makes TCP more reliable than a simple best-effort transport.
+A typical TCP session includes:
+
+1. **Connection establishment** using a three-way handshake:
+   - SYN
+   - SYN-ACK
+   - ACK
+
+2. **Data transfer** using ordered TCP segments
+
+3. **Acknowledgment and retransmission** to recover lost packets
+
+4. **Flow control** to regulate transmission speed
+
+5. **Congestion control** to reduce network congestion
+
+6. **Connection termination** using FIN and ACK exchanges
+
+TCP maintains session state and ensures that data arrives in the correct order.
+
+For example, if packets are lost or arrive out of order, TCP can retransmit and reorder them before delivering data to the application.
 
 ---
 
-## TCP in network operations
+## TCP in network analysis
 
-TCP is the basis for many common applications, including web traffic, file transfers, and email. Because it is reliable, it is widely used where data integrity matters.
+TCP visibility helps teams investigate retransmissions, packet loss, latency, resets, handshake failures, congestion, and slow application performance.
 
-Operations teams often watch TCP retransmissions, resets, and handshake behavior. Those signals can reveal loss, congestion, or path issues.
+Because many application issues eventually appear as transport-layer problems, TCP analysis is important for troubleshooting network and application behavior.
+
+Historical visibility is useful for identifying recurring retransmissions, unstable sessions, long-term latency trends, or congestion-related performance issues.
 
 ---
 
@@ -78,34 +109,47 @@ Operations teams often watch TCP retransmissions, resets, and handshake behavior
 
 | Signal | Meaning |
 |---|---|
-| Sequence | Packet order |
-| Retransmission | Data sent again |
-| Handshake | Connection setup |
-| Congestion control | Sending rate adjustment |
+| Sequence numbers | Maintain packet ordering |
+| Retransmissions | Recover lost packets |
+| TCP handshake | Establish session state |
+| Flow control | Regulate receiver-side transmission |
+| Congestion control | Adjust traffic during congestion |
+| TCP resets (RST) | Abruptly terminate sessions |
+| Round-trip time (RTT) | Measure latency |
 
 ---
 
-## What makes TCP useful
+## Why TCP matters
 
-TCP is useful because it hides many delivery problems from the application. The tradeoff is added overhead and sometimes slower performance under loss or congestion.
+TCP simplifies application communication by automatically handling retransmission, sequencing, flow control, congestion management, and connection state.
 
-It remains one of the most important protocols to understand in troubleshooting and traffic analysis.
+These mechanisms help applications exchange data reliably even when networks experience packet loss or congestion.
+
+However, TCP reliability mechanisms can also increase overhead and introduce latency during packet loss or congestion events.
+
+Teams commonly combine flow telemetry, packet analysis, and application telemetry to investigate TCP-related performance issues.
 
 ---
 
-## How Trisul handles TCP
+## In Trisul
 
-Trisul can analyze TCP behavior through flow and packet visibility, helping operators spot retransmissions, resets, and performance problems.
+Trisul supports TCP visibility through flow telemetry analysis, packet analysis, historical traffic visibility, and traffic investigations.
+
+Using NetFlow, IPFIX, and packet-analysis workflows, operators can analyze TCP session behavior, investigate retransmissions, resets, latency issues, and handshake failures, correlate TCP activity with hosts and applications, and perform historical investigations associated with TCP-based services.
+
+Additional TCP-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- Latency
-- Network troubleshooting
-- Wireshark
-- Streaming video
-- Quality of experience
+- What is UDP?
+- [What is latency?](/docs/glossary/latency)
+- [What is TCP retransmission?](/docs/glossary/tcp-retransmission)
+- [What is network troubleshooting?](/docs/glossary/network-troubleshooting)
+- [What is Wireshark?](/docs/glossary/wireshark)
 
 ---
 
@@ -113,16 +157,20 @@ Trisul can analyze TCP behavior through flow and packet visibility, helping oper
 
 ### What is TCP?
 
-TCP, or Transmission Control Protocol, is a transport protocol that provides reliable, ordered delivery of data between hosts on an IP network.
+TCP, or Transmission Control Protocol, is a connection-oriented transport protocol that provides reliable, ordered, and error-checked data delivery between hosts on IP networks.
 
 ### Why is TCP used?
 
-TCP is used because it delivers data reliably and in order, which is important for many applications.
+TCP is used because it ensures reliable and ordered data delivery, making it suitable for applications where delivery accuracy is important.
 
 ### What does TCP handle?
 
-TCP handles sequencing, retransmission, flow control, and congestion control.
+TCP handles connection establishment, sequencing, retransmission, flow control, congestion control, and session termination.
 
-### How is TCP monitored?
+### What is the difference between TCP and UDP?
 
-TCP is monitored by watching retransmissions, round-trip behavior, connection setup, and throughput.
+TCP prioritizes reliable and ordered delivery, while UDP prioritizes lower overhead and lower latency without guaranteed delivery.
+
+### Why does TCP retransmit packets?
+
+TCP retransmits packets when acknowledgments are not received, helping recover from packet loss and maintain reliable communication.

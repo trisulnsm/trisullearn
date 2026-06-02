@@ -2,7 +2,7 @@
 title: What is a point-to-point link?
 description: A point-to-point link is a dedicated communication path between exactly two network devices or locations, commonly used for WAN connectivity, inter-site communication, backbone transport, and router-to-router traffic.
 sidebar_label: Point to point link
-sidebar_position: 170
+sidebar_position: 167
 slug: /glossary/point-to-point-link
 keywords:
   - point to point link
@@ -145,11 +145,11 @@ https://docs.trisul.org/docs/ug/flow/
 
 ## Related terms
 
-- [What is a WAN link?](/docs/glossary/wan-link)
-- [What is MPLS?](/docs/glossary/mpls)
-- [What is a dedicated circuit?](/docs/glossary/dedicated-circuit)
+- What is a WAN link?
+- What is MPLS?
+- What is a dedicated circuit?
 - [What is interface monitoring?](/docs/glossary/interface-monitoring)
-- [What is link utilization?](/docs/glossary/link-utilization)
+- What is link utilization?
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is PCAP analysis?
 description: PCAP analysis examines packet capture files to investigate protocol behavior, troubleshoot communication problems, analyze traffic activity, and support security and forensic investigations using packet-level visibility.
 sidebar_label: PCAP analysis
-sidebar_position: 83
+sidebar_position: 161
 slug: /glossary/pcap-analysis
 keywords:
   - PCAP analysis
@@ -143,7 +143,7 @@ https://docs.trisul.org/docs/ug/caps/
 - [What is packet analysis?](/docs/glossary/packet-analysis)
 - [What is Wireshark?](/docs/glossary/wireshark)
 - [What is network forensics?](/docs/glossary/network-forensics)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- What is flow monitoring?
 
 ---
 

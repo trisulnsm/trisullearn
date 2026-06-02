@@ -2,7 +2,7 @@
 title: What is the OSI model?
 description: The OSI model is a seven-layer conceptual framework used to describe how network communication functions across physical connectivity, switching, routing, transport, and application interactions.
 sidebar_label: OSI model
-sidebar_position: 203
+sidebar_position: 149
 slug: /glossary/osi-model
 keywords:
   - OSI model
@@ -148,7 +148,7 @@ https://docs.trisul.org/
 
 - [What is packet loss?](/docs/glossary/packet-loss)
 - [What is network troubleshooting?](/docs/glossary/network-troubleshooting)
-- [What is protocol analysis?](/docs/glossary/protocol-analysis)
+- What is protocol analysis?
 - [What is latency?](/docs/glossary/latency)
 - [What is network performance?](/docs/glossary/network-performance)
 

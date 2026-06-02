@@ -2,7 +2,7 @@
 title: What is datacenter monitoring?
 description: Datacenter monitoring is the process of observing the health, performance, availability, and traffic behavior of infrastructure, applications, and services inside a datacenter environment.
 sidebar_label: Datacenter monitoring
-sidebar_position: 224
+sidebar_position: 38
 slug: /glossary/datacenter-monitoring
 keywords:
   - datacenter monitoring
@@ -123,12 +123,12 @@ Trisul supports datacenter‑oriented monitoring through flow‑based traffic an
 
 ## Related terms
 
-- Datacenter monitoring  
-- Network performance  
+- [Datacenter monitoring](/docs/glossary/datacenter-monitoring)
+- [Network performance](/docs/glossary/network-performance)
 - Infrastructure monitoring  
-- Storage  
-- Application monitoring  
-- Cloud monitoring  
+- [Storage](/docs/glossary/storage)
+- [Application monitoring](/docs/glossary/application-monitoring)
+- [Cloud monitoring](/docs/glossary/cloud-monitoring)
 - Flow monitoring  
 - East‑west traffic  
 

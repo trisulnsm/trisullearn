@@ -2,7 +2,7 @@
 title: What is interface saturation?
 description: Interface saturation is the condition where a network interface operates near or at its effective capacity for sustained periods, causing queue growth, increased latency, packet drops, retransmissions, and degraded application performance.
 sidebar_label: Interface saturation
-sidebar_position: 132
+sidebar_position: 90
 slug: /glossary/interface-saturation
 keywords:
   - interface saturation
@@ -179,13 +179,13 @@ These capabilities are particularly useful for WAN analysis, congestion troubles
 
 ## Related terms
 
-- [Interface utilization](/glossary/interface-utilization)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [WAN monitoring](/glossary/wan-monitoring)
-- [Traffic engineering](/glossary/traffic-engineering)
-- [Packet loss](/glossary/packet-loss)
-- [QoS](/glossary/qos)
-- [Queue management](/glossary/queue-management)
+- [Interface utilization](/docs/glossary/interface-utilization)
+- Flow monitoring
+- WAN monitoring
+- Traffic engineering
+- Packet loss
+- [QoS](/docs/glossary/qos)
+- Queue management
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is DoT Compliance?
 description: DoT Compliance refers to adherence to regulatory requirements issued by India's Department of Telecommunications (DoT), including obligations related to lawful interception, subscriber traceability, traffic logging, and Internet Protocol Detail Record (IPDR) retention for licensed telecom and ISP operators.
 sidebar_label: DoT Compliance
-sidebar_position: 22
+sidebar_position: 47
 slug: /glossary/dot-compliance
 keywords:
   - dot compliance
@@ -114,13 +114,13 @@ Trisul supports DoT‑compliance workflows by providing scalable flow‑based IP
 
 ## Related terms
 
-- DoT Compliance  
-- IPDR  
-- Lawful interception  
+- [DoT Compliance](/docs/glossary/dot-compliance)
+- [IPDR](/docs/glossary/ipdr)
+- [Lawful interception](/docs/glossary/lawful-interception)
 - Flow monitoring  
-- TRAI compliance  
-- NAT  
-- CGNAT  
+- [TRAI compliance](/docs/glossary/trai-compliance)
+- [NAT](/docs/glossary/nat)
+- [CGNAT](/docs/glossary/cgnat)
 
 ---
 

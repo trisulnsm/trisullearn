@@ -2,7 +2,7 @@
 title: What is encrypted traffic analytics?
 description: Encrypted traffic analytics is the practice of analyzing encrypted network communications without decrypting payloads, using observable metadata, TLS handshake information, flow behavior, and traffic patterns to detect threats and assess operational risk.
 sidebar_label: Encrypted traffic analytics
-sidebar_position: 17
+sidebar_position: 51
 slug: /glossary/encrypted-traffic-analytics
 keywords:
   - encrypted traffic analytics
@@ -106,13 +106,13 @@ Trisul supports encrypted traffic analytics by exposing TLS‑related metadata a
 
 ## Related terms
 
-- Encrypted traffic analytics  
+- [Encrypted traffic analytics](/docs/glossary/encrypted-traffic-analytics)
 - Flow monitoring  
-- JA3  
-- TLS  
-- Network security monitoring  
-- Flow analysis  
-- Full packet capture  
+- [JA3](/docs/glossary/ja3)
+- [TLS](/docs/glossary/tls)
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Full packet capture](/docs/glossary/full-packet-capture)
 
 ---
 

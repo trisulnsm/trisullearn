@@ -2,7 +2,7 @@
 title: What is batch processing?
 description: Batch processing is the execution of data processing tasks in grouped runs rather than continuously in real time.
 sidebar_label: Batch processing
-sidebar_position: 249
+sidebar_position: 16
 slug: /glossary/batch-processing
 keywords:
   - batch processing
@@ -102,12 +102,12 @@ By running batch jobs over archived or historical flow data, Trisul can generate
 
 ## Related terms
 
-- Batch processing
-- Archive
-- Summary statistics
-- Ranking
-- Monthly usage reports
-- Traffic estimation
+- [Batch processing](/docs/glossary/batch-processing)
+- [Archive](/docs/glossary/archive)
+- [Summary statistics](/docs/glossary/summary-statistics)
+- [Ranking](/docs/glossary/ranking)
+- [Monthly usage reports](/docs/glossary/monthly-usage-reports)
+- [Traffic estimation](/docs/glossary/traffic-estimation)
 - Real‑time processing
 
 ---

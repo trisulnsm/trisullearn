@@ -2,7 +2,7 @@
 title: What is inbound vs outbound traffic?
 description: Inbound traffic is traffic entering a network, host, interface, or monitored environment, while outbound traffic is traffic leaving it. The distinction depends on the observation point and is important for traffic analysis, security monitoring, and directional visibility.
 sidebar_label: Inbound vs outbound traffic
-sidebar_position: 55
+sidebar_position: 84
 slug: /glossary/inbound-vs-outbound-traffic
 keywords:
   - inbound traffic
@@ -167,13 +167,13 @@ These capabilities are particularly useful for WAN monitoring, service monitorin
 
 ## Related terms
 
-- [Inbound traffic](/glossary/inbound-traffic)
-- [Outbound traffic](/glossary/outbound-traffic)
-- [Traffic direction](/glossary/traffic-direction)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [WAN monitoring](/glossary/wan-monitoring)
-- [Firewall logging](/glossary/firewall-logging)
-- [Network telemetry](/glossary/network-telemetry)
+- [Inbound traffic](/docs/glossary/inbound-traffic)
+- [Outbound traffic](/docs/glossary/outbound-traffic)
+- [Traffic direction](/docs/glossary/traffic-direction)
+- Flow monitoring
+- WAN monitoring
+- [Firewall logging](/docs/glossary/firewall-logging)
+- Network telemetry
 
 ---
 

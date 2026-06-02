@@ -2,7 +2,7 @@
 title: What is flow tagger?
 description: A flow tagger is a rule-based enrichment mechanism that assigns contextual labels to network flows based on matching conditions such as addresses, ports, protocols, applications, or metadata-derived attributes.
 sidebar_label: Flow tagger
-sidebar_position: 4
+sidebar_position: 65
 slug: /glossary/flow-tagger
 keywords:
   - flow tagger
@@ -106,14 +106,14 @@ Trisul provides **Flow Taggers** and **Trisul Filter Format**‑based rules to e
 
 ## Related terms
 
-- Flow tagger  
-- Flow  
-- Flow tracker  
+- [Flow tagger](/docs/glossary/flow-tagger)
+- [Flow](/docs/glossary/flow)
+- [Flow tracker](/docs/glossary/flow-tracker)
 - Flow timeout  
-- NetFlow  
-- IPFIX  
-- Full packet capture  
-- Network security monitoring  
+- [NetFlow](/docs/glossary/netflow)
+- [IPFIX](/docs/glossary/ipfix)
+- [Full packet capture](/docs/glossary/full-packet-capture)
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
 - Traffic analysis  
 
 ---

@@ -2,7 +2,7 @@
 title: What is inter-VLAN routing?
 description: Inter-VLAN routing is the process of forwarding traffic between different VLANs so devices in separate Layer 2 segments can communicate.
 sidebar_label: Inter VLAN routing
-sidebar_position: 262
+sidebar_position: 88
 slug: /glossary/inter-vlan-routing
 keywords:
   - inter VLAN routing
@@ -121,12 +121,12 @@ This is particularly useful for **segmented enterprise and campus networks** whe
 
 ## Related terms
 
-- Inter‑VLAN routing  
-- VLAN  
-- VRF  
-- Network access  
-- Traffic direction  
-- Flow attribution  
+- [Inter‑VLAN routing](/docs/glossary/inter-vlan-routing)
+- [VLAN](/docs/glossary/vlan)
+- [VRF](/docs/glossary/vrf)
+- [Network access](/docs/glossary/network-access)
+- [Traffic direction](/docs/glossary/traffic-direction)
+- [Flow attribution](/docs/glossary/flow-attribution)
 
 ---
 

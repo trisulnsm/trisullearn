@@ -2,7 +2,7 @@
 title: What is link load?
 description: Link load is the amount of traffic carried by a network link relative to its available capacity. It is a key operational metric used for utilization analysis, congestion monitoring, traffic engineering, and capacity planning.
 sidebar_label: Link load
-sidebar_position: 194
+sidebar_position: 111
 slug: /glossary/link-load
 keywords:
   - link load
@@ -154,11 +154,11 @@ Additional traffic-analysis workflows are documented in the Trisul documentation
 
 ## Related terms
 
-- [Interface utilization](/glossary/interface-utilization)
-- [Interface saturation](/glossary/interface-saturation)
-- [Queueing](/glossary/queueing)
-- [Packet loss](/glossary/packet-loss)
-- [Capacity planning](/glossary/capacity-planning)
+- [Interface utilization](/docs/glossary/interface-utilization)
+- [Interface saturation](/docs/glossary/interface-saturation)
+- [Queueing](/docs/glossary/queueing)
+- Packet loss
+- Capacity planning
 
 ---
 

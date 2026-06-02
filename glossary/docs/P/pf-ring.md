@@ -2,7 +2,7 @@
 title: What is PF_RING?
 description: PF_RING is a high-performance packet capture framework for Linux designed to improve packet acquisition efficiency, reduce packet loss, and sustain reliable traffic visibility in high-speed monitoring environments.
 sidebar_label: PF_RING
-sidebar_position: 265
+sidebar_position: 166
 slug: /glossary/pf-ring
 keywords:
   - PF_RING
@@ -144,12 +144,12 @@ https://docs.trisul.org/docs/ug/caps/
 
 ## Related terms
 
-- [Packet capture](/glossary/packet-capture)
-- [Network TAP](/glossary/network-tap)
-- [SPAN port](/glossary/span-port)
-- [Packet broker](/glossary/packet-broker)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [Intrusion detection system](/glossary/intrusion-detection-system)
+- Packet capture
+- [Network TAP](/docs/glossary/network-tap)
+- [SPAN port](/docs/glossary/span-port)
+- [Packet broker](/docs/glossary/packet-broker)
+- Network traffic analysis
+- Intrusion detection system
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is gigabit traffic monitoring?
 description: Gigabit traffic monitoring is the process of observing and analyzing network traffic on high-speed links, typically 1 Gbps and above, using flow telemetry, packet analysis, interface metrics, and scalable monitoring architectures.
 sidebar_label: Gigabit traffic monitoring
-sidebar_position: 46
+sidebar_position: 71
 slug: /glossary/gigabit-traffic-monitoring
 keywords:
   - gigabit traffic monitoring
@@ -113,14 +113,14 @@ Trisul supports **scalable traffic‑analysis workflows** for **gigabit and mult
 
 ## Related terms
 
-- Gigabit traffic monitoring  
+- [Gigabit traffic monitoring](/docs/glossary/gigabit-traffic-monitoring)
 - Flow monitoring  
 - Bandwidth monitoring  
-- SNMP  
-- NetFlow  
-- Interface saturation  
-- Packet capture  
-- Network performance monitoring  
+- [SNMP](/docs/glossary/snmp)
+- [NetFlow](/docs/glossary/netflow)
+- [Interface saturation](/docs/glossary/interface-saturation)
+- [Packet capture](/docs/glossary/packet-capture)
+- [Network performance monitoring](/docs/glossary/network-performance-monitoring)
 
 ---
 

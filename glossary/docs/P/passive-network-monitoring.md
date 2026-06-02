@@ -2,7 +2,7 @@
 title: What is passive network monitoring?
 description: Passive network monitoring observes real network traffic without injecting synthetic probes or interfering with production communication. It uses packet capture and flow telemetry to provide visibility into actual network behavior, application activity, and operational conditions.
 sidebar_label: Passive network monitoring
-sidebar_position: 82
+sidebar_position: 160
 slug: /glossary/passive-network-monitoring
 keywords:
   - passive network monitoring
@@ -146,12 +146,12 @@ Additional deployment and traffic-analysis workflows are documented in the Trisu
 
 ## Related terms
 
-- [Active monitoring](/glossary/active-monitoring)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Packet capture](/glossary/packet-capture)
-- [Network TAP](/glossary/network-tap)
-- [SPAN port](/glossary/span-port)
-- [Observation point](/glossary/observation-point)
+- [Active monitoring](/docs/glossary/active-monitoring)
+- Flow monitoring
+- Packet capture
+- [Network TAP](/docs/glossary/network-tap)
+- [SPAN port](/docs/glossary/span-port)
+- [Observation point](/docs/glossary/observation-point)
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is IP address translation?
 description: IP address translation is the process of changing the source or destination IP address in a packet, often for routing, security, or address-sharing purposes.
 sidebar_label: IP address translation
-sidebar_position: 225
+sidebar_position: 96
 slug: /glossary/ip-address-translation
 keywords:
   - IP address translation
@@ -149,13 +149,13 @@ These capabilities are particularly useful for service providers, enterprise int
 
 ## Related terms
 
-- Flow attribution
-- IP address translation
-- NAT
-- Port translation
-- Inbound traffic
-- Outbound traffic
-- Firewall logging
+- [Flow attribution](/docs/glossary/flow-attribution)
+- [IP address translation](/docs/glossary/ip-address-translation)
+- [NAT](/docs/glossary/nat)
+- [Port translation](/docs/glossary/port-translation)
+- [Inbound traffic](/docs/glossary/inbound-traffic)
+- [Outbound traffic](/docs/glossary/outbound-traffic)
+- [Firewall logging](/docs/glossary/firewall-logging)
 
 ---
 

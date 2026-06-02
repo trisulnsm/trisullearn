@@ -2,7 +2,7 @@
 title: What is log rotation?
 description: Log rotation is the process of archiving, compressing, deleting, or replacing log files automatically to prevent disk exhaustion, preserve operational visibility, and maintain manageable log retention over time.
 sidebar_label: Log rotation
-sidebar_position: 29
+sidebar_position: 112
 slug: /glossary/log-rotation
 keywords:
   - log rotation
@@ -131,12 +131,12 @@ Additional storage and retention workflows are documented in the Trisul document
 
 ## Related terms
 
-- [Syslog](/glossary/syslog)
-- [Log retention](/glossary/log-retention)
-- [SIEM](/glossary/siem)
-- [Audit log](/glossary/audit-log)
-- [Network telemetry](/glossary/network-telemetry)
-- [Flow monitoring](/glossary/flow-monitoring)
+- [Syslog](/docs/glossary/syslog)
+- Log retention
+- SIEM
+- [Audit log](/docs/glossary/audit-log)
+- Network telemetry
+- Flow monitoring
 
 ---
 

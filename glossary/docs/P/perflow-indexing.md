@@ -2,7 +2,7 @@
 title: What is per-flow indexing?
 description: Per-flow indexing organizes flow records and traffic metadata so individual network conversations can be efficiently stored, searched, correlated, and retrieved across large telemetry environments for traffic analysis, troubleshooting, and historical investigations.
 sidebar_label: Per-flow indexing
-sidebar_position: 238
+sidebar_position: 164
 slug: /glossary/per-flow-indexing
 keywords:
   - per-flow indexing
@@ -152,12 +152,12 @@ Additional flow-monitoring and traffic-analysis workflows are documented in the 
 
 ## Related terms
 
-- [Flow attribution](/glossary/flow-attribution)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
-- [Forensic analysis](/glossary/forensic-analysis)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [Telemetry retention](/glossary/telemetry-retention)
+- Flow attribution
+- Historical traffic analysis
+- [Forensic analysis](/docs/glossary/forensic-analysis)
+- Flow monitoring
+- Network traffic analysis
+- Telemetry retention
 
 ---
 

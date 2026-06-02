@@ -2,7 +2,7 @@
 title: What is IPFIX?
 description: IPFIX (IP Flow Information Export) is an IETF standard protocol for exporting IP flow information from routers, probes, and other network devices to collectors for traffic analysis, accounting, billing, security monitoring, and network telemetry workflows.
 sidebar_label: IPFIX
-sidebar_position: 52
+sidebar_position: 99
 slug: /glossary/ipfix
 keywords:
   - IPFIX
@@ -187,13 +187,13 @@ Additional IPFIX and flow-analysis workflows are documented in the Trisul docume
 
 ## Related terms
 
-- [NetFlow](/glossary/netflow)
-- [sFlow](/glossary/sflow)
-- [Flow telemetry](/glossary/flow-telemetry)
-- [Flow exporter](/glossary/flow-exporter)
-- [Flow collector](/glossary/flow-collector)
-- [Information Element](/glossary/information-element)
-- [Network telemetry](/glossary/network-telemetry)
+- NetFlow
+- sFlow
+- Flow telemetry
+- [Flow exporter](/docs/glossary/flow-exporter)
+- [Flow collector](/docs/glossary/flow-collector)
+- Information Element
+- Network telemetry
 
 ---
 

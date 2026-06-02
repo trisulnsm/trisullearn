@@ -2,7 +2,7 @@
 title: What is outbound traffic?
 description: Outbound traffic is network traffic that leaves a device, host, interface, or network boundary toward another system or external destination. Outbound traffic visibility helps organizations understand communication behavior, bandwidth usage, and external connectivity patterns.
 sidebar_label: Outbound traffic
-sidebar_position: 223
+sidebar_position: 152
 slug: /glossary/outbound-traffic
 keywords:
   - outbound traffic
@@ -139,12 +139,12 @@ Additional deployment and traffic-analysis workflows are documented in the Trisu
 
 ## Related terms
 
-- [Inbound traffic](/glossary/inbound-traffic)
-- [Traffic direction](/glossary/traffic-direction)
-- [Flow attribution](/glossary/flow-attribution)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [Data exfiltration](/glossary/data-exfiltration)
-- [East-west traffic](/glossary/east-west-traffic)
+- [Inbound traffic](/docs/glossary/inbound-traffic)
+- [Traffic direction](/docs/glossary/traffic-direction)
+- Flow attribution
+- Network traffic analysis
+- Data exfiltration
+- East-west traffic
 
 ---
 

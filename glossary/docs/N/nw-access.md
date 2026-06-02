@@ -2,7 +2,7 @@
 title: What is network access?
 description: Network access is the ability of a user, device, application, or system to connect to and communicate across a network according to defined authentication, authorization, and policy controls.
 sidebar_label: Network access
-sidebar_position: 242
+sidebar_position: 133
 slug: /glossary/network-access
 keywords:
   - network access
@@ -146,7 +146,7 @@ https://docs.trisul.org/
 - [What is AAA?](/docs/glossary/aaa)
 - [What is authentication logging?](/docs/glossary/authentication-logging)
 - [What is user analytics?](/docs/glossary/user-analytics)
-- [What is Network Access Control (NAC)?](/docs/glossary/network-access-control)
+- What is Network Access Control (NAC)?
 - [What is security auditing?](/docs/glossary/security-auditing)
 
 ---

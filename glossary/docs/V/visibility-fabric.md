@@ -1,17 +1,18 @@
 ---
 title: What is Visibility Fabric?
-description: Visibility Fabric is a network architecture that aggregates traffic from multiple observation points (TAPs, SPAN ports, virtual TAPs) and distributes it to monitoring tools. It provides comprehensive network visibility through centralized traffic aggregation.
+description: Visibility Fabric is a network architecture that collects, aggregates, and distributes traffic from multiple observation points to monitoring and analytics platforms. It helps organizations centralize network visibility, reduce monitoring complexity, and improve access to traffic data across distributed environments.
 sidebar_label: Visibility Fabric
-sidebar_position: 119
+sidebar_position: 238
 slug: /glossary/visibility-fabric
 keywords:
   - visibility fabric
   - network visibility
   - traffic aggregation
-  - observation fabric
   - monitoring fabric
-  - network TAP fabric
+  - observation fabric
   - packet broker
+  - network analytics
+  - traffic distribution
 ---
 
 export const jsonLd = {
@@ -23,7 +24,15 @@ export const jsonLd = {
       "name": "What is Visibility Fabric?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Visibility Fabric is a network architecture that aggregates traffic from multiple observation points (TAPs, SPAN ports, virtual TAPs) and distributes it to monitoring tools. It provides comprehensive network visibility through centralized traffic aggregation. Visibility Fabric eliminates monitoring blind spots."
+        "text": "Visibility Fabric is a network architecture that collects, aggregates, and distributes traffic from multiple observation points to monitoring and analytics platforms. It helps organizations centralize network visibility, reduce monitoring complexity, and improve access to traffic data across distributed environments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Visibility Fabric important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visibility Fabric helps organizations eliminate visibility gaps by making traffic from distributed network environments available to monitoring, analytics, troubleshooting, and security platforms."
       }
     },
     {
@@ -31,23 +40,7 @@ export const jsonLd = {
       "name": "How does Visibility Fabric work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Visibility Fabric collects traffic from observation points through network TAPs, SPAN ports, and virtual TAPs. Packet brokers aggregate, filter, and replicate traffic to monitoring tools. Traffic is distributed based on rules ensuring each tool receives relevant traffic."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What are the benefits of Visibility Fabric?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Visibility Fabric provides comprehensive visibility eliminating blind spots, centralized management of observation points, efficient tool utilization through traffic filtering and replication, scalability adding observation points without reconfiguration, and reduced complexity through standardized architecture."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What components make up Visibility Fabric?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Visibility Fabric components include network TAPs (physical and virtual), SPAN ports, packet brokers for aggregation and filtering, monitoring tools (IDS, NMS, PCAP), and interconnected switching infrastructure. Packet brokers are the core intelligence layer."
+        "text": "Visibility Fabric gathers traffic from observation points such as TAPs, SPAN ports, virtual taps, and cloud environments, then aggregates, filters, and distributes that traffic to monitoring and analytics tools."
       }
     }
   ]
@@ -55,60 +48,57 @@ export const jsonLd = {
 
 # What is Visibility Fabric?
 
-Visibility Fabric is a network architecture that aggregates traffic from multiple observation points (TAPs, SPAN ports, virtual TAPs) and distributes it to monitoring tools. It provides comprehensive network visibility through centralized traffic aggregation. Visibility Fabric eliminates monitoring blind spots.
+**Visibility Fabric** is a network architecture that collects, aggregates, and distributes traffic from multiple observation points to monitoring and analytics platforms.
 
----
+Modern networks often span data centers, branch offices, cloud environments, virtual infrastructure, and remote locations. As networks become more distributed, traffic visibility can become fragmented. Visibility Fabrics help solve this problem by centralizing access to network traffic and making it available to the tools that need it.
+
+Rather than connecting monitoring tools directly to every observation point, a Visibility Fabric provides a scalable way to collect, process, and distribute traffic across the environment.
+
+## Why is Visibility Fabric important?
+
+Network visibility is only useful if relevant traffic can reach monitoring and analytics platforms.
+
+Visibility Fabrics help eliminate blind spots by providing consistent access to traffic from distributed parts of the infrastructure. This improves monitoring coverage, simplifies operational workflows, and reduces the complexity of large-scale monitoring deployments.
+
+The result is a more efficient visibility architecture that can support performance monitoring, security operations, troubleshooting, packet analysis, flow analytics, and historical investigations.
 
 ## How Visibility Fabric works
 
-Visibility Fabric collects traffic from observation points through network TAPs, SPAN ports, and virtual TAPs. Packet brokers aggregate traffic from multiple sources. Traffic is filtered, aggregated, and replicated based on rules. Monitoring tools receive relevant traffic.
+A Visibility Fabric gathers traffic from observation sources such as network TAPs, SPAN ports, virtual taps, cloud traffic mirrors, and other monitoring points.
 
-Traffic distribution ensures each tool receives what it needs. IDS receives security-relevant traffic. PCAP systems receive traffic for retention. NMS receives flow data. Packet brokers optimize tool utilization by eliminating redundant traffic.
+The traffic is then aggregated, filtered, replicated, or distributed through visibility infrastructure such as packet brokers before being delivered to monitoring and analytics platforms.
 
----
+This architecture allows multiple tools to access relevant traffic without requiring direct connections to every observation point in the network.
 
 ## Visibility Fabric in network operations
 
-In the NOC, Visibility Fabric provides centralized visibility into distributed network segments. Observation points are managed centrally through the packet broker. Adding new observation points doesn't require reconfiguring monitoring tools.
+Visibility Fabrics are commonly used in enterprise networks, data centers, cloud environments, service-provider infrastructures, and hybrid deployments.
 
-Security teams use Visibility Fabric to ensure comprehensive coverage. Critical links have TAPs feeding the fabric. Traffic from all critical segments is visible. Security tools receive traffic from across the network.
+Operations teams use Visibility Fabrics to improve monitoring coverage, simplify traffic collection, support distributed environments, and ensure that monitoring platforms receive the traffic required for analysis and investigations.
 
----
+Because modern infrastructures continue to expand across physical, virtual, and cloud environments, Visibility Fabrics play an important role in maintaining consistent network visibility.
 
-## Visibility Fabric components
+## In Trisul
 
-| Component | Purpose |
-|---|---|
-| Network TAPs | Passive observation points |
-| SPAN ports | Switch-based observation |
-| Virtual TAPs | Virtual machine observation |
-| Packet brokers | Aggregation, filtering, replication |
-| Monitoring tools | IDS, NMS, PCAP, flow collectors |
-| Switching | Interconnects fabric components |
+A Visibility Fabric solves the problem of collecting and distributing traffic across the network. Trisul Network Analytics helps transform that traffic into operational insight.
 
----
+Trisul can analyze packet data, flow telemetry, and traffic statistics delivered through TAPs, SPAN ports, packet brokers, and other visibility infrastructure. By combining traffic visibility with flow analytics, packet analysis, historical retention, and investigation workflows, Trisul helps operators understand network behavior and investigate operational issues.
 
-## What makes Visibility Fabric work in practice
+These deployments are common in enterprise, data center, ISP, and security-monitoring environments where centralized traffic visibility is important.
 
-Packet broker capacity determines fabric scale. Packet brokers must handle aggregate traffic from all observation points. Oversubscription causes packet loss. Capacity must exceed total observation point traffic.
+For flow monitoring and packet analytics guidance, see the Trisul documentation:
 
-Rule configuration determines traffic distribution. Packet broker rules filter and replicate traffic to tools. Incorrect rules send wrong traffic to tools. Rules must be carefully designed for each tool's requirements.
-
----
-
-## How Trisul handles Visibility Fabric
-
-Trisul integrates with Visibility Fabric through flow data and packet capture from aggregated observation points. Trisul receives traffic from packet brokers aggregating multiple TAPs and SPAN ports. Trisul's flow monitoring and packet capture work with Visibility Fabric providing comprehensive visibility. Full documentation is at https://docs.trisul.org/docs/ug/flow/.
+https://docs.trisul.org/docs/ug/flow/
 
 ---
 
 ## Related terms
 
-- [What is network TAP?](/docs/glossary/network-tap)
-- [What is SPAN port?](/docs/glossary/span-port)
-- [What is packet broker?](/docs/glossary/packet-broker)
-- [What is observation point?](/docs/glossary/observation-point)
-- [What is passive network monitoring?](/docs/glossary/passive-network-monitoring)
+- [Network TAP](/docs/glossary/network-tap)
+- [SPAN port](/docs/glossary/span-port)
+- [Packet broker](/docs/glossary/packet-broker)
+- Flow monitoring
+- [Packet analysis](/docs/glossary/packet-analysis)
 
 ---
 
@@ -116,16 +106,12 @@ Trisul integrates with Visibility Fabric through flow data and packet capture fr
 
 ### What is Visibility Fabric?
 
-Visibility Fabric is a network architecture that aggregates traffic from multiple observation points (TAPs, SPAN ports, virtual TAPs) and distributes it to monitoring tools. It provides comprehensive network visibility through centralized traffic aggregation. Visibility Fabric eliminates monitoring blind spots.
+Visibility Fabric is a network architecture that collects, aggregates, and distributes traffic from multiple observation points to monitoring and analytics platforms. It helps organizations centralize network visibility, reduce monitoring complexity, and improve access to traffic data across distributed environments.
+
+### Why is Visibility Fabric important?
+
+Visibility Fabric helps organizations eliminate visibility gaps by making traffic from distributed network environments available to monitoring, analytics, troubleshooting, and security platforms.
 
 ### How does Visibility Fabric work?
 
-Visibility Fabric collects traffic from observation points through network TAPs, SPAN ports, and virtual TAPs. Packet brokers aggregate, filter, and replicate traffic to monitoring tools. Traffic is distributed based on rules ensuring each tool receives relevant traffic.
-
-### What are the benefits of Visibility Fabric?
-
-Visibility Fabric provides comprehensive visibility eliminating blind spots, centralized management of observation points, efficient tool utilization through traffic filtering and replication, scalability adding observation points without reconfiguration, and reduced complexity through standardized architecture.
-
-### What components make up Visibility Fabric?
-
-Visibility Fabric components include network TAPs (physical and virtual), SPAN ports, packet brokers for aggregation and filtering, monitoring tools (IDS, NMS, PCAP), and interconnected switching infrastructure. Packet brokers are the core intelligence layer.
+Visibility Fabric gathers traffic from observation points such as TAPs, SPAN ports, virtual taps, and cloud environments, then aggregates, filters, and distributes that traffic to monitoring and analytics tools.

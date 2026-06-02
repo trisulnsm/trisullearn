@@ -2,7 +2,7 @@
 title: What is microburst detection?
 description: Microburst detection identifies short-duration traffic spikes and transient congestion events that may overload buffers, create queue instability, and degrade application performance even when average utilization appears operationally normal.
 sidebar_label: Microburst detection
-sidebar_position: 64
+sidebar_position: 117
 slug: /glossary/microburst-detection
 keywords:
   - microburst detection
@@ -169,12 +169,12 @@ Additional traffic-analysis workflows are documented in the Trisul documentation
 
 ## Related terms
 
-- [Queueing](/glossary/queueing)
-- [Packet loss](/glossary/packet-loss)
-- [Interface utilization](/glossary/interface-utilization)
-- [Congestion detection](/glossary/congestion-detection)
-- [Traffic spikes](/glossary/traffic-spikes)
-- [Latency monitoring](/glossary/latency-monitoring)
+- [Queueing](/docs/glossary/queueing)
+- Packet loss
+- [Interface utilization](/docs/glossary/interface-utilization)
+- [Congestion detection](/docs/glossary/congestion-detection)
+- Traffic spikes
+- Latency monitoring
 
 ---
 

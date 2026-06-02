@@ -1,8 +1,8 @@
 ---
 title: What are summary statistics in network analytics?
-description: Summary statistics are aggregate numerical measures that describe the overall behavior of a dataset, such as totals, averages, minimums, maximums, and counts.
+description: Summary statistics are aggregate numerical measures used to describe the overall behavior of network and telemetry datasets, including totals, averages, counts, minimums, maximums, rates, and percentiles.
 sidebar_label: Summary statistics
-sidebar_position: 256
+sidebar_position: 204
 slug: /glossary/summary-statistics
 keywords:
   - summary statistics
@@ -11,6 +11,10 @@ keywords:
   - totals
   - descriptive statistics
   - metrics summary
+  - percentiles
+  - network analytics
+  - baselines
+  - anomaly detection
 ---
 
 export const jsonLd = {
@@ -22,7 +26,7 @@ export const jsonLd = {
       "name": "What are summary statistics in network analytics?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Summary statistics are aggregate numerical measures that describe the overall behavior of a dataset, such as totals, averages, minimums, maximums, and counts."
+        "text": "Summary statistics are aggregate numerical measures used to describe the overall behavior of network and telemetry datasets, including totals, averages, counts, minimums, maximums, rates, and percentiles."
       }
     },
     {
@@ -30,7 +34,7 @@ export const jsonLd = {
       "name": "Why are summary statistics useful?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Summary statistics are useful because they condense large amounts of data into a small number of understandable measures."
+        "text": "Summary statistics simplify large datasets into smaller sets of meaningful measurements that help teams understand traffic behavior, trends, anomalies, and overall network conditions."
       }
     },
     {
@@ -38,7 +42,7 @@ export const jsonLd = {
       "name": "What do summary statistics include?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Summary statistics can include totals, means, peaks, counts, percentiles, and rates."
+        "text": "Summary statistics commonly include totals, averages, peaks, counts, percentiles, rates, distributions, minimums, and maximums depending on the analytics use case."
       }
     },
     {
@@ -46,7 +50,7 @@ export const jsonLd = {
       "name": "How are summary statistics used?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Summary statistics are used in reporting, dashboards, baselines, and trend analysis."
+        "text": "Summary statistics are used in dashboards, reporting, baseline analysis, anomaly detection, trend analysis, capacity planning, and network-performance investigations."
       }
     }
   ]
@@ -54,23 +58,52 @@ export const jsonLd = {
 
 # What are summary statistics in network analytics?
 
-Summary statistics are aggregate numerical measures that describe the overall behavior of a dataset, such as totals, averages, minimums, maximums, and counts.
+**Summary statistics** are aggregate numerical measures used to describe the overall behavior of network and telemetry datasets, including totals, averages, counts, minimums, maximums, rates, and percentiles.
+
+Summary statistics help reduce large volumes of telemetry and traffic data into smaller measurements that humans can interpret more efficiently.
+
+They are widely used in enterprise, ISP, telecom, cloud, security-monitoring, and analytics environments for dashboards, reporting, anomaly detection, baseline analysis, and long-term traffic visibility.
 
 ---
 
 ## How summary statistics work
 
-Instead of inspecting every individual record, a system calculates a small set of descriptive measures. These measures show the overall shape and scale of the data.
+Analytics systems summarize large telemetry datasets by calculating aggregate values such as totals, averages, rates, counts, peaks, distributions, and percentiles.
 
-For example, a dataset of flows might be summarized by total bytes, average session size, and peak traffic rate. That gives a quick sense of what the traffic looked like.
+These summaries help teams understand traffic behavior and long-term trends without inspecting every individual flow, session, or packet.
+
+Summary statistics are especially useful for dashboards, utilization reporting, baseline analysis, anomaly detection, and historical traffic comparisons across large-scale environments.
+
+Common telemetry sources include:
+
+- NetFlow
+- IPFIX
+- sFlow
+- SNMP telemetry
+- Packet-analysis telemetry
+- Session telemetry
+- Interface counters
+- Application telemetry
+
+For example, a dashboard may summarize millions of flow records into average bandwidth usage, peak utilization, top applications, session counts, and 95th-percentile traffic measurements.
+
+Summary statistics are commonly used to establish baselines for normal network behavior and detect deviations over time.
+
+Percentiles are especially important because averages alone may hide short periods of severe congestion, latency spikes, or abnormal traffic behavior.
+
+These measures provide a high-level analytical view without requiring direct inspection of every individual record.
 
 ---
 
-## Summary statistics in operations
+## Summary statistics in network analytics
 
-Summary statistics are widely used in dashboards, reports, and historical analysis. They help teams understand network behavior without reading raw records.
+Summary statistics are commonly used for traffic reporting, dashboard visualization, baseline analysis, capacity planning, utilization tracking, trend analysis, anomaly detection, SLA reporting, QoS visibility, and historical traffic analysis.
 
-They are also useful for baselines. Comparing current statistics with past values can show whether something has changed.
+Teams commonly investigate traffic spikes, bandwidth saturation, abnormal utilization patterns, long-term traffic growth, high-volume applications, congestion indicators, subscriber usage behavior, and service-performance trends.
+
+Because large-scale telemetry environments can generate enormous amounts of raw data, summarized measurements help teams identify meaningful patterns and unusual behavior more quickly.
+
+Historical summaries are especially useful for comparing long-term traffic behavior, identifying recurring anomalies, validating capacity trends, and analyzing changes in network usage over time.
 
 ---
 
@@ -78,34 +111,49 @@ They are also useful for baselines. Comparing current statistics with past value
 
 | Measure | Meaning |
 |---|---|
-| Total | Overall amount |
-| Average | Typical value |
-| Maximum | Highest observed value |
-| Count | Number of records |
+| Total | Overall measured quantity |
+| Average | Typical observed value |
+| Maximum | Highest observed measurement |
+| Minimum | Lowest observed measurement |
+| Count | Number of events or records |
+| Rate | Activity level over time |
+| Percentile | Distribution-based performance indicator |
+
+Actual statistical measures depend on reporting goals, telemetry type, infrastructure scale, and analytical requirements.
 
 ---
 
-## What makes summary statistics useful
+## Benefits and challenges of summary statistics
 
-Summary statistics are useful because they reduce complexity while preserving important patterns. They make large datasets easier to communicate.
+Summary statistics simplify large datasets, improve trend visibility, support anomaly detection, and make dashboards and reports easier to interpret.
 
-Their main limitation is loss of detail. If a statistic looks unusual, raw data may still be needed for explanation.
+However, excessive aggregation may hide outliers, short-lived spikes, detailed traffic behavior, or brief performance anomalies that are only visible in raw telemetry.
+
+Organizations commonly combine summary statistics, flow telemetry, packet analysis, historical traffic analysis, ranking workflows, and alert correlation to investigate unusual network behavior.
+
+Correlating these telemetry sources helps teams determine whether unusual summary values represent genuine infrastructure problems, temporary traffic spikes, application changes, or abnormal communication behavior.
 
 ---
 
-## How Trisul handles summary statistics
+## In Trisul
 
-Trisul can compute and present summary statistics to help operators understand traffic and performance at a glance.
+Trisul supports summary-statistics workflows through flow telemetry analysis, aggregate counters, historical traffic visibility, dashboards, and traffic investigations.
+
+Using NetFlow, IPFIX, packet-analysis workflows, interface telemetry, and traffic-analysis capabilities, operators can analyze summarized traffic and utilization behavior, generate aggregate views for hosts, applications, interfaces, and subscribers, correlate summary metrics with traffic anomalies and infrastructure conditions, support baseline analysis and historical reporting workflows, and investigate traffic behavior using both summarized and detailed telemetry views across enterprise, ISP, telecom, cloud, bandwidth-analysis, and analytics environments.
+
+Additional analytics and traffic-investigation workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- Batch processing
-- Ranking
-- Aggregate counter group
-- Monthly usage reports
-- Traffic estimation
+- [What is batch processing?](/docs/glossary/batch-processing)
+- [What is ranking?](/docs/glossary/ranking)
+- [What is an aggregate counter group?](/docs/glossary/aggregate-counter-group)
+- [What are monthly usage reports?](/docs/glossary/monthly-usage-reports)
+- [What is traffic estimation?](/docs/glossary/traffic-estimation)
 
 ---
 
@@ -113,16 +161,24 @@ Trisul can compute and present summary statistics to help operators understand t
 
 ### What are summary statistics in network analytics?
 
-Summary statistics are aggregate numerical measures that describe the overall behavior of a dataset, such as totals, averages, minimums, maximums, and counts.
+Summary statistics are aggregate numerical measures used to describe the overall behavior of network and telemetry datasets, including totals, averages, counts, minimums, maximums, rates, and percentiles.
 
 ### Why are summary statistics useful?
 
-Summary statistics are useful because they condense large amounts of data into a small number of understandable measures.
+Summary statistics simplify large datasets into smaller sets of meaningful measurements that help teams understand traffic behavior, trends, anomalies, and overall network conditions.
 
 ### What do summary statistics include?
 
-Summary statistics can include totals, means, peaks, counts, percentiles, and rates.
+Summary statistics commonly include totals, averages, peaks, counts, percentiles, rates, distributions, minimums, and maximums depending on the analytics use case.
 
 ### How are summary statistics used?
 
-Summary statistics are used in reporting, dashboards, baselines, and trend analysis.
+Summary statistics are used in dashboards, reporting, baseline analysis, anomaly detection, trend analysis, capacity planning, and network-performance investigations.
+
+### Why are percentiles important in network analytics?
+
+Percentiles help identify short periods of congestion or abnormal behavior that averages alone may hide, making them useful for SLA analysis, QoS monitoring, and performance investigations.
+
+### Why are summary statistics useful for large telemetry environments?
+
+Summary statistics reduce enormous datasets into manageable measurements that help teams quickly identify trends, anomalies, utilization changes, and overall traffic behavior.

@@ -2,7 +2,7 @@
 title: What is network traffic analysis?
 description: Network traffic analysis examines packets, flow telemetry, and communication behavior to understand how traffic moves across the network, identify abnormal activity, and improve operational visibility.
 sidebar_label: Network traffic analysis
-sidebar_position: 189
+sidebar_position: 143
 slug: /glossary/network-traffic-analysis
 keywords:
   - network traffic analysis
@@ -141,12 +141,12 @@ Additional deployment and traffic-analysis workflows are documented in the Trisu
 
 ## Related terms
 
-- [Network monitoring](/glossary/network-monitoring)
-- [Flow analysis](/glossary/flow-analysis)
-- [Packet analysis](/glossary/packet-analysis)
-- [Network observability](/glossary/network-observability)
-- [East-west traffic](/glossary/east-west-traffic)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
+- [Network monitoring](/docs/glossary/network-monitoring)
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Packet analysis](/docs/glossary/packet-analysis)
+- [Network observability](/docs/glossary/network-observability)
+- East-west traffic
+- Historical traffic analysis
 
 ---
 

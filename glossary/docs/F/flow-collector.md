@@ -2,7 +2,7 @@
 title: What is a flow collector?
 description: A flow collector is a system that receives, processes, stores, and makes queryable network flow telemetry exported by devices using technologies such as NetFlow, IPFIX, and sFlow.
 sidebar_label: Flow collector
-sidebar_position: 13
+sidebar_position: 61
 slug: /glossary/flow-collector
 keywords:
   - flow collector
@@ -124,12 +124,12 @@ Trisul integrates **flow‑collection and flow‑analysis** into a single platfo
 
 ## Related terms
 
-- Flow collector  
-- Flow exporter  
+- [Flow collector](/docs/glossary/flow-collector)
+- [Flow exporter](/docs/glossary/flow-exporter)
 - Flow monitoring  
 - Flow data  
-- NetFlow  
-- IPFIX  
+- [NetFlow](/docs/glossary/netflow)
+- [IPFIX](/docs/glossary/ipfix)
 - sFlow  
 - Flow sampling  
 

@@ -2,6 +2,8 @@
 slug: /
 title: Trisul Glossary
 hide_table_of_contents: true
+sidebar_label: Trisul Glossary
+sidebar_position: 0
 ---
 
 # Trisul Glossary

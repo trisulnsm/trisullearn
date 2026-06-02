@@ -2,7 +2,7 @@
 title: What is endpoint monitoring?
 description: Endpoint monitoring is the process of observing endpoints such as laptops, servers, workstations, or virtual machines for operational health, user activity, security events, and network behavior.
 sidebar_label: Endpoint monitoring
-sidebar_position: 180
+sidebar_position: 53
 slug: /glossary/endpoint-monitoring
 keywords:
   - endpoint monitoring
@@ -106,13 +106,13 @@ Trisul supports endpoint‑focused investigations by providing network‑level e
 
 ## Related terms
 
-- Endpoint monitoring  
+- [Endpoint monitoring](/docs/glossary/endpoint-monitoring)
 - Host monitoring  
-- Host analytics  
-- Endpoint detection and response (EDR)  
-- Network observability  
+- [Host analytics](/docs/glossary/host-analytics)
+- [Endpoint detection and response (EDR)](/docs/glossary/endpoint-detection-and-response)
+- [Network observability](/docs/glossary/network-observability)
 - Device visibility  
-- Threat detection  
+- [Threat detection](/docs/glossary/threat-detection)
 - Flow monitoring  
 
 ---

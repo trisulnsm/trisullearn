@@ -2,7 +2,7 @@
 title: What is AAA?
 description: AAA stands for authentication, authorization, and accounting. It is a framework for controlling access and recording user activity on networks and systems.
 sidebar_label: AAA
-sidebar_position: 240
+sidebar_position: 1
 slug: /glossary/aaa
 keywords:
   - AAA
@@ -111,11 +111,11 @@ This lets network operators see which user was behind a specific IP address or f
 
 ## Related terms
 
-- Authentication logging
-- Network access
-- User analytics
-- Security auditing
-- Syslog
+- [Authentication logging](/docs/glossary/authentication-logging) 
+- [Network access](/docs/glossary/network-access)
+- [User analytics](/docs/glossary/user-analytics)
+- [Security auditing](/docs/glossary/security-auditing)
+- [Syslog](/docs/glossary/syslog)
 
 ---
 

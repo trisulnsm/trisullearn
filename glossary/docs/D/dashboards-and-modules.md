@@ -2,7 +2,7 @@
 title: What are dashboards and modules?
 description: Dashboards and modules in Trisul Network Analytics provide organized operational workspaces and reusable analytical components for monitoring, traffic analysis, and investigative workflows.
 sidebar_label: Dashboards and modules
-sidebar_position: 31
+sidebar_position: 37
 slug: /glossary/dashboards-and-modules
 keywords:
   - dashboards and modules
@@ -134,12 +134,12 @@ Additional workflow details are documented in the Trisul documentation:
 
 ## Related terms
 
-- [Mode selection](/glossary/mode-selection)
-- [FlowMap](/glossary/flowmap)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Key Dashboard](/glossary/key-dashboard)
-- [Network telemetry](/glossary/network-telemetry)
-- [Retro analysis](/glossary/retro-analysis)
+- [Mode selection](/docs/glossary/mode-selection)
+- [FlowMap](/docs/glossary/flowmap)
+- Flow monitoring
+- [Key Dashboard](/docs/glossary/key-dashboard)
+- Network telemetry
+- Retro analysis
 
 ---
 

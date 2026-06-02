@@ -2,7 +2,7 @@
 title: What is a flow exporter?
 description: A flow exporter is a network device, software probe, or telemetry component that observes traffic, generates flow records, and exports summarized flow telemetry to collectors using protocols such as NetFlow, IPFIX, or sFlow.
 sidebar_label: Flow exporter
-sidebar_position: 10
+sidebar_position: 63
 slug: /glossary/flow-exporter
 keywords:
   - flow exporter
@@ -112,15 +112,15 @@ Trisul ingests **NetFlow, IPFIX, and sFlow** telemetry from a wide range of expo
 
 ## Related terms
 
-- Flow exporter  
-- Flow  
+- [Flow exporter](/docs/glossary/flow-exporter)
+- [Flow](/docs/glossary/flow)
 - Flow monitoring  
-- NetFlow  
-- IPFIX  
+- [NetFlow](/docs/glossary/netflow)
+- [IPFIX](/docs/glossary/ipfix)
 - sFlow  
 - Flow sampling  
-- Flow legs  
-- Flow collector  
+- [Flow legs](/docs/glossary/flow-legs)
+- [Flow collector](/docs/glossary/flow-collector)
 
 ---
 

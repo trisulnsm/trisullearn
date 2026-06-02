@@ -2,7 +2,7 @@
 title: What is network performance?
 description: Network performance describes how effectively a network delivers traffic in terms of latency, throughput, packet loss, jitter, utilization, and reliability across applications and services.
 sidebar_label: Network performance
-sidebar_position: 198
+sidebar_position: 138
 slug: /glossary/network-performance
 keywords:
   - network performance
@@ -148,7 +148,7 @@ https://docs.trisul.org/
 
 - [What is congestion detection?](/docs/glossary/congestion-detection)
 - [What is VoIP?](/docs/glossary/voip)
-- [What is realtime traffic?](/docs/glossary/realtime-traffic)
+- What is realtime traffic?
 - [What is application monitoring?](/docs/glossary/application-monitoring)
 - [What is traffic pattern analysis?](/docs/glossary/traffic-pattern-analysis)
 

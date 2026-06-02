@@ -2,7 +2,7 @@
 title: What is GeoIP enrichment?
 description: GeoIP enrichment is the process of adding geographic and network‑ownership metadata such as country, city, ASN, coordinates, and ISP information to IP addresses in network telemetry, logs, and flow records for operational visibility and security analysis.
 sidebar_label: GeoIP enrichment
-sidebar_position: 47
+sidebar_position: 70
 slug: /glossary/geoip-enrichment
 keywords:
   - geoip enrichment
@@ -117,13 +117,13 @@ Trisul supports **ASN‑aware traffic analysis and telemetry‑correlation** as 
 
 ## Related terms
 
-- GeoIP enrichment  
+- [GeoIP enrichment](/docs/glossary/geoip-enrichment)
 - ASN  
 - Flow monitoring  
-- BGP peering analytics  
-- IP address  
-- Threat intelligence  
-- Network security monitoring  
+- [BGP peering analytics](/docs/glossary/bgp-peering-analytics)
+- [IP address](/docs/glossary/ip-address)
+- [Threat intelligence](/docs/glossary/threat-intelligence)
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
 
 ---
 

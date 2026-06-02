@@ -2,7 +2,7 @@
 title: What is an Access Control List (ACL)?
 description: An Access Control List (ACL) is a set of rules on a network device that permits or denies traffic based on source IP, destination IP, protocol, and port, used for security, traffic filtering, and network management.
 sidebar_label: Access Control List
-sidebar_position: 44
+sidebar_position: 2
 slug: /glossary/access-control-list
 keywords:
   - access control list
@@ -93,10 +93,10 @@ Trisul flow monitoring can analyze traffic that matches ACL rules by examining f
 ## Related terms
 
 - Flow monitoring
-- Network firewall
-- Packet filtering
+- [Network firewall](/docs/glossary/firewall)
+- [Packet filtering](/docs/glossary/packet-filtering)
 - Network security policy
-- NetFlow / IPFIX
+- [NetFlow / IPFIX](/docs/glossary/ipfix)
 
 ---
 

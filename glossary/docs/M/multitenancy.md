@@ -2,7 +2,7 @@
 title: What is multitenancy in network analytics?
 description: Multitenancy allows a single analytics platform to support multiple isolated tenants while sharing the same underlying infrastructure.
 sidebar_label: Multitenancy
-sidebar_position: 140
+sidebar_position: 125
 slug: /glossary/multitenancy
 keywords:
   - multitenancy
@@ -121,12 +121,12 @@ Additional operational workflows are documented in the Trisul documentation:
 
 ## Related terms
 
-- [Distributed domain](/glossary/distributed-domain)
-- [Context](/glossary/context)
-- [Role-based access control](/glossary/role-based-access-control)
-- [MSP](/glossary/msp)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
+- [Distributed domain](/docs/glossary/distributed-domain)
+- [Context](/docs/glossary/context)
+- Role-based access control
+- [MSP](/docs/glossary/msp)
+- Flow monitoring
+- Historical traffic analysis
 
 ---
 

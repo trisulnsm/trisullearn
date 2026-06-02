@@ -2,7 +2,7 @@
 title: What is alerting?
 description: Alerting is the process of notifying operators when monitored systems, traffic, or services match a condition that may need attention.
 sidebar_label: Alerting
-sidebar_position: 248
+sidebar_position: 6
 slug: /glossary/alerting
 keywords:
   - alerting
@@ -102,12 +102,12 @@ Through its analytics and dashboard layers, Trisul can trigger alerts based on f
 
 ## Related terms
 
-- Alerting
+- [Alerting](/docs/glossary/alerting)
 - Availability monitoring
 - Thresholds
 - Baseline traffic analytics
-- Syslog correlation
-- Network troubleshooting
+- [Syslog correlation](/docs/glossary/syslog-correlation)
+- [Network troubleshooting](/docs/glossary/network-troubleshooting)
 - Security alerting
 
 ---

@@ -2,7 +2,7 @@
 title: What is performance bottleneck analysis?
 description: Performance bottleneck analysis identifies components or conditions slowing traffic delivery, application responsiveness, or network performance by analyzing congestion, latency, packet loss, retransmissions, and infrastructure behavior.
 sidebar_label: Performance bottleneck analysis
-sidebar_position: 85
+sidebar_position: 165
 slug: /glossary/performance-bottleneck-analysis
 keywords:
   - performance bottleneck analysis
@@ -138,10 +138,10 @@ https://docs.trisul.org/docs/ug/cg/tasks/
 ## Related terms
 
 - [What is network congestion?](/docs/glossary/congestion)
-- [What is capacity planning?](/docs/glossary/capacity-planning)
-- [What is bandwidth monitoring?](/docs/glossary/bandwidth-monitoring)
+- What is capacity planning?
+- What is bandwidth monitoring?
 - [What is packet loss monitoring?](/docs/glossary/packet-loss-monitoring)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- What is flow monitoring?
 
 ---
 

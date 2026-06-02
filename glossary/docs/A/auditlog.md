@@ -2,7 +2,7 @@
 title: What is an audit log?
 description: An audit log is a chronological record of user activity, configuration changes, authentication events, and operational actions used for accountability, compliance, security investigations, and forensic reconstruction.
 sidebar_label: Audit log
-sidebar_position: 28
+sidebar_position: 11
 slug: /glossary/audit-log
 keywords:
   - audit log
@@ -134,12 +134,12 @@ Documentation: [Trisul Documentation](https://docs.trisul.org/)
 
 ## Related terms
 
-- [Syslog](/glossary/syslog)
-- [SIEM](/glossary/siem)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [Network telemetry](/glossary/network-telemetry)
+- [Syslog](/docs/glossary/syslog)
+- [SIEM](/docs/glossary/siem)
+- Flow monitoring
+- [NetFlow](/docs/glossary/netflow)
+- [IPFIX](/docs/glossary/ipfix)
+- Network telemetry
 
 ---
 

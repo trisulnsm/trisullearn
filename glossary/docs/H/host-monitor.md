@@ -2,7 +2,7 @@
 title: What is host monitor?
 description: Host monitor is a network analytics view that tracks traffic, communication patterns, and operational behavior for a specific host or endpoint using flow telemetry, packet analysis, historical trends, and contextual metadata.
 sidebar_label: Host monitor
-sidebar_position: 135
+sidebar_position: 78
 slug: /glossary/host-monitor
 keywords:
   - host monitor
@@ -115,11 +115,11 @@ Trisul supports **host‑monitor‑style workflows** by exposing **host‑level 
 
 ## Related terms
 
-- Host monitor  
-- Host analytics  
-- Endpoint monitoring  
-- Top talkers  
-- Traffic investigation  
+- [Host monitor](/docs/glossary/host-monitor)
+- [Host analytics](/docs/glossary/host-analytics)
+- [Endpoint monitoring](/docs/glossary/endpoint-monitoring)
+- [Top talkers](/docs/glossary/top-talkers)
+- [Traffic investigation](/docs/glossary/traffic-investigation)
 - Device visibility  
 - Flow monitoring  
 

@@ -2,7 +2,7 @@
 title: What is JA3?
 description: JA3 is a TLS client fingerprinting method that generates identifiers from TLS handshake parameters to help identify applications, clients, and suspicious encrypted traffic without decrypting payloads.
 sidebar_label: JA3
-sidebar_position: 153
+sidebar_position: 101
 slug: /glossary/ja3
 keywords:
   - JA3
@@ -116,12 +116,12 @@ Additional TLS and flow-analysis workflows are documented in the Trisul document
 
 ## Related terms
 
-- [TLS](/glossary/tls)
-- [Encrypted traffic](/glossary/encrypted-traffic)
-- [Threat hunting](/glossary/threat-hunting)
-- [Passive DNS](/glossary/passive-dns)
-- [Application identification](/glossary/application-identification)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
+- [TLS](/docs/glossary/tls)
+- Encrypted traffic
+- Threat hunting
+- [Passive DNS](/docs/glossary/passive-dns)
+- Application identification
+- Network traffic analysis
 
 ---
 

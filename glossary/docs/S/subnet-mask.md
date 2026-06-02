@@ -1,8 +1,8 @@
 ---
 title: What is a subnet mask?
-description: A subnet mask is a 32-bit number that defines the network and host portions of an IP address. It determines which part of an IP address identifies the network and which part identifies the individual host.
+description: A subnet mask is a 32-bit value used in IPv4 networking to define the network and host portions of an IP address. It determines subnet boundaries and helps devices identify local and remote networks.
 sidebar_label: Subnet mask
-sidebar_position: 143
+sidebar_position: 200
 slug: /glossary/subnet-mask
 keywords:
   - subnet mask
@@ -11,6 +11,10 @@ keywords:
   - IP subnet
   - network addressing
   - host addressing
+  - IPv4 subnetting
+  - default gateway
+  - subnetting
+  - routing
 ---
 
 export const jsonLd = {
@@ -22,7 +26,7 @@ export const jsonLd = {
       "name": "What is a subnet mask?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A subnet mask is a 32-bit number that defines the network and host portions of an IP address. It determines which part of an IP address identifies the network and which part identifies the individual host."
+        "text": "A subnet mask is a 32-bit value used in IPv4 networking to define the network and host portions of an IP address. It determines subnet boundaries and helps devices identify local and remote networks."
       }
     },
     {
@@ -30,7 +34,7 @@ export const jsonLd = {
       "name": "How does a subnet mask work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A subnet mask is applied to an IP address using a bitwise AND operation. The result reveals the network address. For example, 192.168.1.50 with mask 255.255.255.0 belongs to the 192.168.1.0 network."
+        "text": "A subnet mask is applied to an IPv4 address using a bitwise AND operation to identify the network portion of the address. For example, 192.168.1.50 with subnet mask 255.255.255.0 belongs to the 192.168.1.0/24 subnet."
       }
     },
     {
@@ -38,15 +42,15 @@ export const jsonLd = {
       "name": "What is CIDR notation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CIDR notation expresses the subnet mask as a prefix length. A /24 means 24 bits are the network portion, equivalent to 255.255.255.0. A /16 means 16 bits are network, equivalent to 255.255.0.0."
+        "text": "CIDR notation expresses subnet size as a prefix length. For example, /24 corresponds to the subnet mask 255.255.255.0 and indicates that 24 bits are used for the network portion of the address."
       }
     },
     {
       "@type": "Question",
-      "name": "Why do subnet masks matter in network analytics?",
+      "name": "Why do subnet masks matter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Subnet masks matter because they define network boundaries used in analytics. Traffic can be grouped, filtered, and analyzed by subnet. Understanding subnets is necessary for correct IP address interpretation."
+        "text": "Subnet masks help devices determine whether traffic should remain within the local network or be forwarded through a router. They are essential for routing, subnetting, segmentation, and address planning."
       }
     }
   ]
@@ -54,58 +58,102 @@ export const jsonLd = {
 
 # What is a subnet mask?
 
-A subnet mask is a 32-bit number that defines the network and host portions of an IP address. It determines which part of an IP address identifies the network and which part identifies the individual host.
+A **subnet mask** is a 32-bit value used in IPv4 networking to define the network and host portions of an IP address. It determines subnet boundaries and helps devices identify local and remote networks.
+
+Subnet masks are fundamental to IPv4 routing, subnetting, traffic segmentation, and address planning across enterprise, ISP, telecom, cloud, and data-center environments.
+
+Subnet masks are closely associated with CIDR (Classless Inter-Domain Routing) notation, which represents subnet size using prefix lengths such as `/24` or `/16`.
 
 ---
 
 ## How a subnet mask works
 
-A subnet mask uses consecutive binary ones for the network portion and zeros for the host portion. Applying the mask to an IP address reveals the network it belongs to.
+A subnet mask uses contiguous binary `1` bits to represent the network portion of an address and binary `0` bits to represent the host portion.
 
-For example, the address 192.168.1.50 with mask 255.255.255.0 belongs to the 192.168.1.0/24 network. Any address in the range 192.168.1.1 to 192.168.1.254 is on the same subnet.
+Network devices apply the subnet mask to an IPv4 address using a bitwise AND operation to determine the subnet or network address.
+
+For example:
+
+| IP address | Subnet mask | Network |
+|---|---|---|
+| 192.168.1.50 | 255.255.255.0 | 192.168.1.0/24 |
+
+In this example:
+
+- The first 24 bits identify the network
+- The remaining bits identify individual hosts within the subnet
+
+Any address in the range `192.168.1.1` through `192.168.1.254` belongs to the same `/24` subnet.
+
+Devices use subnet masks to determine whether another IP address belongs to the same local network or must be reached through a router.
+
+For example, a device with address `192.168.1.10/24` can communicate directly with `192.168.1.20`, but traffic destined for `192.168.2.20` must normally pass through a router or default gateway.
+
+Smaller subnets can reduce unnecessary broadcast traffic and improve segmentation efficiency.
+
+Subnet masks are an IPv4 concept. IPv6 networking primarily uses prefix-length notation instead of dotted-decimal subnet masks.
 
 ---
 
 ## Subnet masks in network operations
 
-Subnet masks define the boundaries used for routing, filtering, and analytics. Network devices use them to decide whether traffic is local or must be forwarded. Analytics tools use them to group and aggregate traffic by network segment.
+Subnet masks are commonly used for IP subnetting, routing decisions, VLAN segmentation, address planning, traffic grouping, internal-network classification, WAN design, and policy enforcement.
 
-In Trisul, subnet masks are used to define internal networks, customer prefixes, and traffic groupings for reporting and investigation.
+Teams commonly investigate incorrect subnet boundaries, overlapping address ranges, routing problems, gateway misconfiguration, segmentation inconsistencies, and inefficient subnet design.
+
+Because subnet definitions directly affect routing behavior and traffic delivery, incorrect subnet masks can cause connectivity failures, unexpected routing behavior, communication problems, or inaccurate traffic classification.
+
+Historical traffic visibility is especially useful for investigating recurring routing problems, segmentation issues, misconfigured address ranges, or unexpected communication patterns between network segments.
 
 ---
 
 ## Common subnet masks
 
-| CIDR | Mask | Hosts |
+| CIDR | Subnet mask | Typical usage |
 |---|---|---|
-| /8 | 255.0.0.0 | 16 million |
-| /16 | 255.255.0.0 | 65,534 |
-| /24 | 255.255.255.0 | 254 |
-| /30 | 255.255.255.252 | 2 |
+| /8 | 255.0.0.0 | Very large networks |
+| /16 | 255.255.0.0 | Medium-sized networks |
+| /24 | 255.255.255.0 | Standard LAN subnet |
+| /30 | 255.255.255.252 | Point-to-point links |
+| /32 | 255.255.255.255 | Single-host route |
+
+Actual subnet sizing depends on address-planning strategy, infrastructure scale, segmentation requirements, and routing architecture.
 
 ---
 
-## What makes subnet masks work in practice
+## Benefits and challenges of subnet masks
 
-Subnet design must reflect the actual network structure. Poorly planned subnets can complicate routing, monitoring, and analytics. Consistent use of CIDR notation across tools reduces confusion.
+Subnet masks simplify routing, address planning, traffic grouping, segmentation, and network organization.
 
-In analytics, correct subnet definitions ensure that traffic is grouped accurately. If subnet boundaries are wrong, aggregated views will be misleading.
+They also help reduce broadcast-domain size and improve control over how traffic moves between network segments.
+
+However, inconsistent subnet definitions, overlapping address ranges, poor subnet-design strategy, incorrect gateway configuration, and complex large-scale subnetting can create routing and segmentation problems.
+
+Organizations commonly combine routing visibility, flow telemetry, interface monitoring, prefix-based analytics, historical traffic analysis, and packet analysis to investigate subnet-related connectivity or routing behavior.
+
+Correlating these telemetry sources helps teams determine whether traffic anomalies, routing problems, segmentation issues, or connectivity failures are associated with incorrect subnet definitions or infrastructure misconfiguration.
 
 ---
 
-## How Trisul handles subnet masks
+## In Trisul
 
-Trisul uses subnet definitions to group traffic, identify internal hosts, and support analytics by network segment. Subnets can be configured to label and organize traffic in dashboards and reports. Full documentation is at https://docs.trisul.org/.
+Trisul supports subnet-based traffic visibility through flow telemetry analysis, prefix-based traffic grouping, historical traffic visibility, and traffic investigations.
+
+Using NetFlow, IPFIX, packet-analysis workflows, and traffic-analysis capabilities, operators can group and analyze traffic by subnet or prefix, identify internal and external communication patterns, correlate traffic behavior with hosts, interfaces, and routing conditions, support subnet-based reporting and traffic investigations, and perform historical investigations associated with network segments and prefixes across enterprise, ISP, telecom, cloud, WAN, and infrastructure-monitoring environments.
+
+Additional traffic-analysis and flow-analysis workflows are documented in the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- IP address
-- CIDR
-- Prefix analytics
-- Network segmentation
-- Routing
+- [What is an IP address?](/docs/glossary/ip-address)
+- What is CIDR?
+- What is routing?
+- [What is network segmentation?](/docs/glossary/network-segmentation)
+- What is a default gateway?
 
 ---
 
@@ -113,16 +161,24 @@ Trisul uses subnet definitions to group traffic, identify internal hosts, and su
 
 ### What is a subnet mask?
 
-A subnet mask is a 32-bit number that defines the network and host portions of an IP address. It determines which part of an IP address identifies the network and which part identifies the individual host.
+A subnet mask is a 32-bit value used in IPv4 networking to define the network and host portions of an IP address. It determines subnet boundaries and helps devices identify local and remote networks.
 
 ### How does a subnet mask work?
 
-A subnet mask is applied to an IP address using a bitwise AND operation. The result reveals the network address. For example, 192.168.1.50 with mask 255.255.255.0 belongs to the 192.168.1.0 network.
+A subnet mask is applied to an IPv4 address using a bitwise AND operation to identify the network portion of the address. For example, 192.168.1.50 with subnet mask 255.255.255.0 belongs to the 192.168.1.0/24 subnet.
 
 ### What is CIDR notation?
 
-CIDR notation expresses the subnet mask as a prefix length. A /24 means 24 bits are the network portion, equivalent to 255.255.255.0. A /16 means 16 bits are network, equivalent to 255.255.0.0.
+CIDR notation expresses subnet size as a prefix length. For example, /24 corresponds to the subnet mask 255.255.255.0 and indicates that 24 bits are used for the network portion of the address.
 
-### Why do subnet masks matter in network analytics?
+### Why do subnet masks matter?
 
-Subnet masks matter because they define network boundaries used in analytics. Traffic can be grouped, filtered, and analyzed by subnet. Understanding subnets is necessary for correct IP address interpretation.
+Subnet masks help devices determine whether traffic should remain within the local network or be forwarded through a router. They are essential for routing, subnetting, segmentation, and address planning.
+
+### What happens if a subnet mask is configured incorrectly?
+
+Incorrect subnet masks can cause routing problems, communication failures, unreachable hosts, broadcast-domain issues, or unexpected traffic behavior between network segments.
+
+### What is the relationship between subnet masks and default gateways?
+
+If a destination address falls outside the local subnet, traffic is normally forwarded to a default gateway or router for delivery to other networks.

@@ -2,7 +2,7 @@
 title: What is encapsulation?
 description: Encapsulation is the process of wrapping data or protocol information inside additional protocol headers as traffic moves through networking layers, tunnels, overlays, or transport mechanisms.
 sidebar_label: Encapsulation
-sidebar_position: 169
+sidebar_position: 50
 slug: /glossary/encapsulation
 keywords:
   - encapsulation
@@ -122,13 +122,13 @@ Trisul supports encapsulated traffic through protocol‑aware flow‑based analy
 
 ## Related terms
 
-- Encapsulation  
+- [Encapsulation](/docs/glossary/encapsulation)
 - Tunneling  
 - VPN  
 - Overlay network  
 - VXLAN  
 - MPLS  
-- Tunnel content inspection  
+- [Tunnel content inspection](/docs/glossary/tunnel-content-inspection)
 
 ---
 

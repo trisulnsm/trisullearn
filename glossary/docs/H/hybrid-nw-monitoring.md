@@ -2,7 +2,7 @@
 title: What is hybrid network monitoring?
 description: Hybrid network monitoring combines visibility across on‑premises, cloud, and distributed infrastructure to provide unified operational analysis of traffic, performance, connectivity, and security behavior across mixed environments.
 sidebar_label: Hybrid network monitoring
-sidebar_position: 174
+sidebar_position: 81
 slug: /glossary/hybrid-network-monitoring
 keywords:
   - hybrid network monitoring
@@ -130,14 +130,14 @@ Trisul supports **hybrid network‑monitoring** by ingesting **flow telemetry (N
 
 ## Related terms
 
-- Hybrid network monitoring  
-- Network observability  
-- Distributed domain  
-- Tunnel content inspection  
-- Point‑to‑point link  
-- Cloud monitoring  
-- Hybrid flow monitoring  
-- Historical traffic analysis  
+- [Hybrid network monitoring](/docs/glossary/hybrid-network-monitoring)
+- [Network observability](/docs/glossary/network-observability)
+- [Distributed domain](/docs/glossary/distributed-domain)
+- [Tunnel content inspection](/docs/glossary/tunnel-content-inspection)
+- [Point‑to‑point link](/docs/glossary/point-to-point-link)
+- [Cloud monitoring](/docs/glossary/cloud-monitoring)
+- [Hybrid flow monitoring](/docs/glossary/hybrid-flow-monitoring)
+- [Historical traffic analysis](/docs/glossary/historical-traffic-analysis)
 
 ---
 

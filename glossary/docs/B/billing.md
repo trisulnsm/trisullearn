@@ -2,7 +2,7 @@
 title: What is billing in network analytics?
 description: Billing in network analytics is the process of turning usage data into charges, allocations, or account summaries for customers or internal groups.
 sidebar_label: Billing
-sidebar_position: 259
+sidebar_position: 19
 slug: /glossary/billing
 keywords:
   - billing
@@ -102,15 +102,15 @@ Through flow‑based usage tracking, subscriber‑level tags, and time‑categor
 
 ## Related terms
 
-- Billing
+- [Billing](/docs/glossary/billing)
 - Usage billing
 - Chargeback
 - Network billing
 - Customer billing
-- Subscriber analytics
-- Monthly usage reports
-- Traffic estimation
-- Flow attribution
+- [Subscriber analytics](/docs/glossary/subscriber-analytics)
+- [Monthly usage reports](/docs/glossary/monthly-usage-reports)
+- [Traffic estimation](/docs/glossary/traffic-estimation)
+- [Flow attribution](/docs/glossary/flow-attribution)
 
 ---
 

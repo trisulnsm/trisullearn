@@ -2,7 +2,7 @@
 title: What is network troubleshooting?
 description: Network troubleshooting is the process of identifying and resolving problems affecting network connectivity, performance, stability, or application communication.
 sidebar_label: Network troubleshooting
-sidebar_position: 235
+sidebar_position: 144
 slug: /glossary/network-troubleshooting
 keywords:
   - network troubleshooting

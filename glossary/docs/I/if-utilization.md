@@ -2,7 +2,7 @@
 title: What is interface utilization?
 description: Interface utilization is the percentage of a network interface’s available bandwidth currently being used over a given time interval. It is a core metric for monitoring link load, congestion risk, traffic growth, and network capacity.
 sidebar_label: Interface utilization
-sidebar_position: 131
+sidebar_position: 92
 slug: /glossary/interface-utilization
 keywords:
   - interface utilization
@@ -185,13 +185,13 @@ These capabilities are particularly useful for WAN monitoring, congestion analys
 
 ## Related terms
 
-- [Interface saturation](/glossary/interface-saturation)
-- [Bandwidth monitoring](/glossary/bandwidth-monitoring)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [WAN monitoring](/glossary/wan-monitoring)
-- [Capacity planning](/glossary/capacity-planning)
-- [QoS](/glossary/qos)
-- [Traffic engineering](/glossary/traffic-engineering)
+- [Interface saturation](/docs/glossary/interface-saturation)
+- Bandwidth monitoring
+- Flow monitoring
+- WAN monitoring
+- Capacity planning
+- [QoS](/docs/glossary/qos)
+- Traffic engineering
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is congestion detection?
 description: Congestion detection is the process of identifying when network demand approaches or exceeds available forwarding or transmission capacity. It helps operators detect bottlenecks, queue buildup, latency increases, and packet loss before severe service degradation occurs.
 sidebar_label: Congestion detection
-sidebar_position: 207
+sidebar_position: 28
 slug: /glossary/congestion-detection
 keywords:
   - congestion detection
@@ -118,16 +118,16 @@ Top‑K analytics highlights the largest traffic contributors, and Explore Flows
 
 ## Related terms
 
-- Congestion detection  
+- [Congestion detection](/docs/glossary/congestion-detection)
 - Network congestion  
 - Bottleneck detection  
-- Packet loss  
-- Queueing  
-- Network performance  
+- [Packet loss](/docs/glossary/packet-loss)
+- [Queueing](/docs/glossary/queueing)
+- [Network performance](/docs/glossary/network-performance)
 - Burst traffic  
-- Buffer monitoring  
-- Interface utilization  
-- Link load  
+- [Buffer monitoring](/docs/glossary/buffer-monitoring)
+- [Interface utilization](/docs/glossary/interface-utilization)
+- [Link load](/docs/glossary/link-load)
 
 ---
 

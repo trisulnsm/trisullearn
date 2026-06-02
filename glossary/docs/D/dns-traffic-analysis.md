@@ -2,7 +2,7 @@
 title: What is DNS traffic analysis?
 description: DNS traffic analysis examines DNS queries and responses to understand domain-resolution behavior, detect security threats, identify anomalous activity, and analyze network communications at the DNS layer.
 sidebar_label: DNS traffic analysis
-sidebar_position: 23
+sidebar_position: 44
 slug: /glossary/dns-traffic-analysis
 keywords:
   - dns traffic analysis
@@ -112,13 +112,13 @@ Trisul supports DNS‑oriented analysis by combining flow and packet visibility.
 
 ## Related terms
 
-- DNS traffic analysis  
+- [DNS traffic analysis](/docs/glossary/dns-traffic-analysis)
 - Flow monitoring  
-- Passive DNS  
-- DNS tunneling  
+- [Passive DNS](/docs/glossary/passive-dns)
+- [DNS tunneling](/docs/glossary/dns-tunneling)
 - Threat hunting  
-- DNSSEC  
-- Full packet capture  
+- [DNSSEC](/docs/glossary/dnssec)
+- [Full packet capture](/docs/glossary/full-packet-capture)
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is a NetFlow Collector?
 description: A NetFlow Collector receives, decodes, stores, and analyzes flow telemetry exported by network devices. It provides operational visibility into traffic behavior, bandwidth usage, applications, hosts, and long-term network activity.
 sidebar_label: NetFlow collector
-sidebar_position: 70
+sidebar_position: 131
 slug: /glossary/netflow-collector
 keywords:
   - NetFlow collector
@@ -146,12 +146,12 @@ Additional flow-analysis workflows are documented in the Trisul documentation:
 
 ## Related terms
 
-- [NetFlow](/glossary/netflow)
-- [IPFIX](/glossary/ipfix)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Bandwidth monitoring](/glossary/bandwidth-monitoring)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
+- NetFlow
+- IPFIX
+- Flow monitoring
+- Bandwidth monitoring
+- Network traffic analysis
+- Historical traffic analysis
 
 ---
 

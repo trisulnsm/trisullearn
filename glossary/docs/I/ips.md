@@ -2,7 +2,7 @@
 title: What is an intrusion prevention system?
 description: An intrusion prevention system (IPS) is a security control that inspects network traffic and blocks or drops traffic matching malicious patterns, exploit signatures, suspicious behavior, or policy violations.
 sidebar_label: Intrusion prevention system
-sidebar_position: 192
+sidebar_position: 94
 slug: /glossary/intrusion-prevention-system
 keywords:
   - intrusion prevention system
@@ -162,13 +162,13 @@ Additional flow-analysis and traffic-investigation workflows are documented in t
 
 ## Related terms
 
-- [IDS](/glossary/ids)
-- [Firewall](/glossary/firewall)
-- [Threat detection](/glossary/threat-detection)
-- [Deep packet inspection](/glossary/deep-packet-inspection)
-- [Security zone](/glossary/security-zone)
-- [Policy enforcement](/glossary/policy-enforcement)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
+- IDS
+- Firewall
+- Threat detection
+- Deep packet inspection
+- [Security zone](/docs/glossary/security-zone)
+- [Policy enforcement](/docs/glossary/policy-enforcement)
+- Network traffic analysis
 
 ---
 

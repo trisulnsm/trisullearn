@@ -1,7 +1,7 @@
 ---
 title: What is KPI Monitoring?
 sidebar_label: KPI Monitoring
-sidebar_position: 61
+sidebar_position: 104
 slug: /glossary/kpi-monitoring
 description: KPI monitoring is the process of tracking Key Performance Indicators (KPIs) to measure network, application, and infrastructure performance, operational health, service quality, and long-term reliability over time.
 keywords:
@@ -117,12 +117,12 @@ Additional traffic-analysis and operational workflows are documented in the Tris
 
 ## Related Terms
 
-- [Key Dashboard](/glossary/key-dashboard)
-- [Bandwidth monitoring](/glossary/bandwidth-monitoring)
-- [Latency monitoring](/glossary/latency-monitoring)
-- [Jitter monitoring](/glossary/jitter-monitoring)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
-- [Flow analysis](/glossary/flow-analysis)
+- [Key Dashboard](/docs/glossary/key-dashboard)
+- Bandwidth monitoring
+- Latency monitoring
+- Jitter monitoring
+- Historical traffic analysis
+- [Flow analysis](/docs/glossary/flow-analysis)
 
 ---
 

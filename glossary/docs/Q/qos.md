@@ -2,7 +2,7 @@
 title: What is QoS?
 description: QoS, or Quality of Service, is a set of network techniques used to classify, prioritize, and manage traffic during congestion. QoS helps protect latency-sensitive and business-critical applications such as voice, video, and interactive services.
 sidebar_label: QoS
-sidebar_position: 129
+sidebar_position: 172
 slug: /glossary/qos
 keywords:
   - QoS
@@ -140,7 +140,7 @@ https://docs.trisul.org/docs/ug/flow/
 - [What is traffic prioritization?](/docs/glossary/traffic-prioritization)
 - [What is congestion?](/docs/glossary/congestion)
 - [What is latency?](/docs/glossary/latency)
-- [What is jitter?](/docs/glossary/jitter)
+- What is jitter?
 - [What is packet loss?](/docs/glossary/packet-loss)
 
 ---

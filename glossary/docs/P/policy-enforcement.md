@@ -2,7 +2,7 @@
 title: What is policy enforcement in network analytics?
 description: Policy enforcement is the application of network and security rules that control how traffic is allowed, blocked, redirected, shaped, or monitored across a network environment. It directly influences communication behavior, segmentation boundaries, and operational visibility across distributed infrastructures.
 sidebar_label: Policy enforcement
-sidebar_position: 166
+sidebar_position: 168
 slug: /glossary/policy-enforcement
 keywords:
   - policy enforcement
@@ -143,12 +143,12 @@ https://docs.trisul.org/docs/ug/flow/
 
 ## Related terms
 
-- [Network segmentation](/glossary/network-segmentation)
-- [Firewall](/glossary/firewall)
-- [Security zone](/glossary/security-zone)
-- [Microsegmentation](/glossary/microsegmentation)
-- [Access control](/glossary/access-control)
-- [Packet filtering](/glossary/packet-filtering)
+- [Network segmentation](/docs/glossary/network-segmentation)
+- Firewall
+- [Security zone](/docs/glossary/security-zone)
+- Microsegmentation
+- Access control
+- [Packet filtering](/docs/glossary/packet-filtering)
 
 ---
 

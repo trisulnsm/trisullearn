@@ -2,7 +2,7 @@
 title: What is bandwidth asymmetry?
 description: Bandwidth asymmetry is a condition where the upstream and downstream capacities of a link are different. It is common in access networks and can affect performance planning.
 sidebar_label: Bandwidth asymmetry
-sidebar_position: 258
+sidebar_position: 15
 slug: /glossary/bandwidth-asymmetry
 keywords:
   - bandwidth asymmetry
@@ -101,12 +101,12 @@ By analyzing inbound and outbound flows, interface‑level utilization, and peak
 
 ## Related terms
 
-- Bandwidth asymmetry
-- Traffic direction
-- Link load
-- Congestion detection
-- Inbound traffic
-- Outbound traffic
+- [Bandwidth asymmetry](/docs/glossary/bandwidth-asymmetry)
+- [Traffic direction](/docs/glossary/traffic-direction)
+- [Link load](/docs/glossary/link-load)
+- [Congestion detection](/docs/glossary/congestion-detection)
+- [Inbound traffic](/docs/glossary/inbound-traffic)
+- [Outbound traffic](/docs/glossary/outbound-traffic)
 - Access link
 
 ---

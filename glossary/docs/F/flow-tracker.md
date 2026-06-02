@@ -2,7 +2,7 @@
 title: What is a flow tracker?
 description: A flow tracker is a monitoring and analysis workflow that follows the behavior of selected network flows, hosts, conversations, or traffic patterns over time to support troubleshooting, operational visibility, and security investigations.
 sidebar_label: Flow tracker
-sidebar_position: 164
+sidebar_position: 66
 slug: /glossary/flow-tracker
 keywords:
   - flow tracker
@@ -117,15 +117,15 @@ Trisul supports flow‑tracking workflows by combining **historical traffic anal
 
 ## Related terms
 
-- Flow tracker  
-- Flow analysis  
-- Host monitor  
-- Top talkers  
-- Traffic investigation  
+- [Flow tracker](/docs/glossary/flow-tracker)
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Host monitor](/docs/glossary/host-monitor)
+- [Top talkers](/docs/glossary/top-talkers)
+- [Traffic investigation](/docs/glossary/traffic-investigation)
 - Conversation tracking  
-- Flow Tagger  
+- [Flow Tagger](/docs/glossary/flow-tagger)
 - Flow monitoring  
-- Network security monitoring  
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
 
 ---
 

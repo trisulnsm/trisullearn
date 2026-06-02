@@ -2,7 +2,7 @@
 title: What is network observability?
 description: Network observability is the ability to understand network behavior by collecting, correlating, and analyzing telemetry such as flows, packets, metrics, logs, and contextual data across network environments.
 sidebar_label: Network observability
-sidebar_position: 173
+sidebar_position: 137
 slug: /glossary/network-observability
 keywords:
   - network observability
@@ -153,11 +153,11 @@ https://docs.trisul.org/
 
 ## Related terms
 
-- [What is network visibility?](/docs/glossary/network-visibility)
+- What is network visibility?
 - [What is flow analysis?](/docs/glossary/flow-analysis)
 - [What is packet capture?](/docs/glossary/packet-capture)
 - [What is root cause analysis?](/docs/glossary/root-cause-analysis)
-- [What is telemetry?](/docs/glossary/telemetry)
+- What is telemetry?
 
 ---
 

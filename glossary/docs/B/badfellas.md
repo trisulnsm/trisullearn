@@ -2,7 +2,7 @@
 title: What is Badfellas in Trisul?
 description: Badfellas is a Trisul internal feature that manages Host Monitor allow-lists and deny-lists for long-tail hosts, automatically updating which hosts are monitored as top talkers or excluded from monitoring.
 sidebar_label: Badfellas
-sidebar_position: 38
+sidebar_position: 14
 slug: /glossary/badfellas
 keywords:
   - badfellas
@@ -91,10 +91,10 @@ Badfellas is built into Trisul 3.6 and later as part of the Long‑Tail Hosts mo
 
 ## Related terms
 
-- Badfellas
+- [Badfellas](/docs/glossary/badfellas)
 - Long‑tail hosts monitoring
-- Host Monitor
-- Top‑K analytics
+- [Host Monitor](/docs/glossary/host-monitor)
+- [Top‑K analytics](/docs/glossary/top-k-analytics)
 - Flow monitoring
 - Host exclusions
 

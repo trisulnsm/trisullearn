@@ -1,9 +1,8 @@
-yes please modify and fix them
 ---
 title: What is Trisul AI (CLI)?
-description: Trisul AI (CLI) is an AI-assisted command-line interface for interacting with Trisul Network Analytics through conversational and terminal-driven workflows for traffic analysis, telemetry exploration, investigation, and operational querying.
+description: Trisul AI (CLI) is an AI-assisted command-line interface that helps operators interact with Trisul Network Analytics using natural language. It simplifies traffic investigations, telemetry exploration, and analytical workflows by reducing the effort required to navigate large datasets.
 sidebar_label: Trisul AI (CLI)
-sidebar_position: 33
+sidebar_position: 230
 slug: /glossary/trisul-ai-cli
 keywords:
   - trisul ai
@@ -24,23 +23,15 @@ export const jsonLd = {
       "name": "What is Trisul AI (CLI)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trisul AI (CLI) is an AI-assisted command-line interface for interacting with Trisul Network Analytics through operational querying, traffic analysis, and investigation workflows."
+        "text": "Trisul AI (CLI) is an AI-assisted command-line interface that helps operators interact with Trisul Network Analytics using natural language for traffic investigations, telemetry exploration, and operational analysis."
       }
     },
     {
       "@type": "Question",
-      "name": "Why are AI-assisted CLI workflows useful in network operations?",
+      "name": "Why use Trisul AI (CLI)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AI-assisted CLI workflows help operators navigate large telemetry datasets, reduce query complexity, accelerate investigations, and interact with traffic analytics more efficiently without relying entirely on graphical interfaces."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can Trisul AI (CLI) help during investigations?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Trisul AI (CLI) can assist operators during troubleshooting and threat investigations by helping navigate traffic data, refine analytical queries, explore telemetry relationships, and accelerate investigative workflows."
+        "text": "Trisul AI (CLI) helps operators navigate large telemetry datasets more efficiently by reducing query complexity and accelerating investigative workflows through conversational interaction."
       }
     },
     {
@@ -48,7 +39,7 @@ export const jsonLd = {
       "name": "Does Trisul AI (CLI) replace dashboards?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Trisul AI (CLI) complements graphical dashboards and visual workflows by providing a terminal-driven interface for operational querying, automation, and investigative interaction with telemetry."
+        "text": "No. Trisul AI (CLI) complements dashboard-based workflows by providing a conversational interface for investigation and analysis, while dashboards remain useful for monitoring and visualization."
       }
     }
   ]
@@ -56,105 +47,39 @@ export const jsonLd = {
 
 # What is Trisul AI (CLI)?
 
-Trisul AI (CLI) is an AI-assisted command-line interface for interacting with Trisul Network Analytics through conversational and terminal-driven workflows for traffic analysis, telemetry exploration, operational querying, and investigations.
+**Trisul AI (CLI)** is an AI-assisted command-line interface that helps operators interact with Trisul Network Analytics using natural language for traffic investigations, telemetry exploration, and operational analysis.
 
-Modern monitoring environments continuously generate enormous volumes of telemetry, flow records, packet-analysis data, historical analytics, alerts, and operational metadata. During troubleshooting or security investigations, analysts rarely follow a simple linear workflow. Investigations often evolve dynamically as new traffic patterns, anomalies, or behavioral indicators appear during analysis.
+Network investigations often require analysts to move repeatedly between hosts, conversations, applications, historical traffic records, and analytical views to understand what happened and why. Trisul AI (CLI) helps simplify these workflows by allowing operators to interact with telemetry through conversational queries rather than manually navigating multiple interfaces.
 
-In practice, operators may repeatedly pivot between dashboards, flow searches, packet-analysis workflows, historical telemetry views, and investigative tools while attempting to understand how infrastructure behavior changed over time. This process can become operationally slow because every investigative pivot introduces additional query construction, interface navigation, and context switching.
+## Why is Trisul AI (CLI) useful?
 
-Trisul AI (CLI) helps reduce this operational friction by allowing operators to interact with telemetry and analytical workflows more directly through AI-assisted terminal interaction.
+The primary value of Trisul AI (CLI) is reducing the effort required to explore large telemetry datasets.
 
-Instead of repeatedly navigating multiple graphical interfaces or manually rebuilding investigative queries, analysts can refine investigations iteratively while maintaining operational context across telemetry exploration workflows.
+Instead of constructing complex searches or navigating multiple analytical views, operators can use natural-language prompts to investigate traffic behavior, refine investigative paths, explore historical activity, and access operational insights more efficiently.
 
----
-
-## How Trisul AI (CLI) works
-
-Trisul AI (CLI) combines terminal-based interaction with AI-assisted analytical workflows to simplify how operators navigate large telemetry environments.
-
-Traditional traffic-analysis platforms often require deep familiarity with platform navigation, query syntax, workflow organization, and telemetry correlation methods before analysts can investigate infrastructure behavior efficiently. As investigations become more complex, operators may need to repeatedly adjust queries, pivot between telemetry sources, revisit historical records, and correlate multiple analytical workflows simultaneously.
-
-AI-assisted CLI workflows help reduce this complexity by allowing operators to interact with telemetry conversationally or through guided operational queries while remaining inside a terminal-driven workflow.
-
-Rather than treating telemetry exploration as a sequence of disconnected searches across multiple interfaces, Trisul AI (CLI) allows investigations to evolve more continuously. Analysts can progressively refine operational queries, explore communication behavior, navigate historical analytics, and pivot across investigative workflows without repeatedly rebuilding operational context from scratch.
-
-This becomes especially useful during large-scale investigations where telemetry volume, workflow fragmentation, and repeated query refinement would otherwise slow operational analysis significantly.
-
----
+This is particularly useful during troubleshooting, security investigations, threat hunting, traffic analysis, and exploratory workflows where analysts frequently move between different investigative contexts.
 
 ## Trisul AI (CLI) in network operations
 
-CLI workflows remain operationally important because terminal-driven interaction scales efficiently across automation, scripting, remote administration, iterative investigations, and large telemetry environments.
+Command-line workflows remain widely used in network operations because they support automation, scripting, remote administration, and rapid analysis.
 
-During active troubleshooting or threat investigations, analysts often refine hypotheses continuously as new telemetry becomes available. A single investigation may involve repeated pivots across flow records, packet analysis, historical telemetry, operational alerts, traffic behavior, and infrastructure relationships before the underlying cause becomes clear.
+Trisul AI (CLI) extends these workflows by combining terminal-based interaction with AI-assisted analysis. This helps operators move more quickly between investigative pivots such as hosts, conversations, applications, traffic patterns, and historical telemetry while maintaining investigative context throughout the analysis process.
 
-Graphical dashboards remain valuable for visualization and situational awareness, but deeply iterative investigations can become cumbersome when every analytical step depends on repeated interface navigation or manually constructed searches.
+Rather than replacing existing workflows, Trisul AI (CLI) provides an additional interface for accelerating telemetry exploration and operational investigations.
 
-AI-assisted CLI workflows help reduce this investigative overhead by allowing operators to interact with telemetry more fluidly through terminal-driven analysis.
+## Why operators use Trisul AI (CLI)
 
-This operational flexibility becomes especially valuable in environments where teams must:
-- investigate large telemetry volumes
-- automate repetitive workflows
-- perform remote operational analysis
-- iterate rapidly during active incidents
-- refine investigative queries continuously
-- move quickly between analytical contexts
+Trisul AI (CLI) is most valuable when operators need to investigate large volumes of telemetry while maintaining analytical context.
 
-Rather than replacing dashboards, AI-assisted CLI workflows complement visual analysis by providing a faster operational layer for iterative querying, telemetry exploration, and investigation-oriented interaction.
-
----
-
-## Trisul AI (CLI) vs dashboard-based workflows
-
-| Category | Trisul AI (CLI) | Dashboard workflows |
-|---|---|---|
-| Primary interface | Terminal and conversational interaction | Graphical interface |
-| Operational focus | Querying, investigation, and automation | Monitoring and visualization |
-| Workflow style | Iterative and terminal-driven | Visual navigation and dashboards |
-| Investigation approach | Fast query refinement and telemetry exploration | Situational visibility and monitoring |
-| Automation suitability | High | Limited |
-| Best fit | Operational analysis, scripting, and investigations | Real-time visibility and visual workflows |
-
-CLI workflows prioritize investigative flexibility, automation, and rapid telemetry interaction. Dashboard workflows prioritize visualization, operational awareness, and high-level monitoring visibility.
-
----
-
-## What makes Trisul AI (CLI) effective in practice
-
-AI-assisted CLI workflows are most effective when operators need continuous interaction with large telemetry datasets without repeatedly breaking investigative flow through interface switching and manual query reconstruction.
-
-The operational value comes not only from faster querying, but from reducing the cognitive overhead involved in navigating complex monitoring environments during active investigations.
-
-These workflows become particularly useful when investigations require repeated refinement across historical telemetry, traffic relationships, flow analysis, anomaly exploration, and operational correlation workflows over extended periods of time.
-
-AI-assisted workflows still depend heavily on accurate telemetry, historical visibility, and well-correlated operational data. Incomplete traffic coverage, fragmented telemetry, or insufficient historical retention can still limit investigative accuracy regardless of how efficiently analytical workflows are navigated.
-
-Operational effectiveness therefore depends both on the quality of the telemetry itself and on how efficiently operators can interact with that telemetry during real-world investigations.
-
----
-
-## How Trisul handles AI-assisted CLI workflows
-
-Trisul provides AI-assisted operational workflows through a command-line interface designed for telemetry exploration, traffic analysis, operational querying, investigative interaction, and terminal-driven analytical workflows.
-
-The CLI complements Trisul’s graphical dashboards and visual workflows by giving operators an additional interface for navigating telemetry, refining investigations, exploring traffic relationships, and interacting with analytical workflows more efficiently during operational analysis.
-
-Rather than forcing investigations entirely through either graphical interfaces or manual command workflows alone, Trisul allows teams to combine visual monitoring with AI-assisted terminal interaction depending on the operational situation and investigative depth required.
-
-This hybrid workflow model is especially useful in environments where analysts need both high-level visualization and rapid iterative interaction with telemetry during troubleshooting, threat hunting, traffic analysis, or large-scale operational investigations.
-
-Additional workflow details are documented in the Trisul documentation:
-
-[Trisul Documentation](https://www.trisul.org/)
+By reducing the need to manually navigate multiple investigative workflows, it helps accelerate exploratory analysis, shorten investigation times, and simplify access to operational data. The result is a more efficient workflow for understanding network behavior and answering operational questions.
 
 ## Related terms
 
-- [Dashboards and modules](/glossary/dashboards-and-modules)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Full packet capture](/glossary/full-packet-capture)
-- [Network telemetry](/glossary/network-telemetry)
-- [Retro analysis](/glossary/retro-analysis)
-- [Mode selection](/glossary/mode-selection)
+- [Dashboards and modules](/docs/glossary/dashboards-and-modules)
+- Flow monitoring
+- Network telemetry
+- Retro analysis
+- [Mode selection](/docs/glossary/mode-selection)
 
 ---
 
@@ -162,16 +87,12 @@ Additional workflow details are documented in the Trisul documentation:
 
 ### What is Trisul AI (CLI)?
 
-Trisul AI (CLI) is an AI-assisted command-line interface for interacting with Trisul Network Analytics through operational querying, traffic analysis, and investigation workflows.
+Trisul AI (CLI) is an AI-assisted command-line interface that helps operators interact with Trisul Network Analytics using natural language for traffic investigations, telemetry exploration, and operational analysis.
 
-### Why are AI-assisted CLI workflows useful in network operations?
+### Why use Trisul AI (CLI)?
 
-AI-assisted CLI workflows help operators navigate large telemetry datasets, reduce query complexity, accelerate investigations, and interact with traffic analytics more efficiently without relying entirely on graphical interfaces.
-
-### Can Trisul AI (CLI) help during investigations?
-
-Yes. Trisul AI (CLI) can assist operators during troubleshooting and threat investigations by helping navigate traffic data, refine analytical queries, explore telemetry relationships, and accelerate investigative workflows.
+Trisul AI (CLI) helps operators navigate large telemetry datasets more efficiently by reducing query complexity and accelerating investigative workflows through conversational interaction.
 
 ### Does Trisul AI (CLI) replace dashboards?
 
-No. Trisul AI (CLI) complements graphical dashboards and visual workflows by providing a terminal-driven interface for operational querying, automation, and investigative interaction with telemetry.
+No. Trisul AI (CLI) complements dashboard-based workflows by providing a conversational interface for investigation and analysis, while dashboards remain useful for monitoring and visualization.

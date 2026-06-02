@@ -2,7 +2,7 @@
 title: What is conversation view?
 description: Conversation view is a flow-analysis representation that combines traffic from both directions of a network exchange into a single conversational record for easier analysis and investigation.
 sidebar_label: Conversation view
-sidebar_position: 27
+sidebar_position: 31
 slug: /glossary/conversation-view
 keywords:
   - conversation view
@@ -114,14 +114,14 @@ Trisul supports conversation‑oriented traffic analysis through flow correlatio
 
 ## Related terms
 
-- Conversation view  
+- [Conversation view](/docs/glossary/conversation-view)
 - Flow stitching  
-- Flow legs  
-- Flow deduplication  
+- [Flow legs](/docs/glossary/flow-legs)
+- [Flow deduplication](/docs/glossary/flow-deduplication)
 - Flow monitoring  
-- Flow  
-- Bidirectional flow  
-- Explore Flows  
+- [Flow](/docs/glossary/flow)
+- [Bidirectional flow](/docs/glossary/bidirectional-flow)
+- [Explore Flows](/docs/glossary/explore-flows)
 
 ---
 

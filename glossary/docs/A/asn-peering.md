@@ -2,7 +2,7 @@
 title: What is ASN peering?
 description: ASN peering is the practice of establishing BGP peering relationships between two Autonomous Systems to exchange routing information and traffic directly, reducing transit costs and improving performance.
 sidebar_label: ASN peering
-sidebar_position: 40
+sidebar_position: 10
 slug: /glossary/asn-peering
 keywords:
   - asn peering
@@ -95,11 +95,11 @@ Peering‑oriented dashboards can show traffic per peer AS, per prefix, and per 
 
 ## Related terms
 
-- ASN peering
+- [ASN peering](/docs/glossary/asn-peering)
 - BGP
 - ASN
-- BGP peering analytics
-- Internet exchange
+- [BGP peering analytics](/docs/glossary/bgp-peering-analytics)
+- [Internet exchange](/docs/glossary/internet-exchange)
 - Transit provider
 - Peering policy
 

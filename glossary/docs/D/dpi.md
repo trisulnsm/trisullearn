@@ -2,7 +2,7 @@
 title: What is DPI?
 description: Deep packet inspection (DPI) is a method of analyzing network packets beyond basic headers by examining protocol details and, where possible, packet payloads to identify applications, detect threats, enforce policies, and analyze network behavior.
 sidebar_label: DPI
-sidebar_position: 21
+sidebar_position: 48
 slug: /glossary/dpi
 keywords:
   - dpi
@@ -106,14 +106,14 @@ Trisul complements DPI workflows by adding scalable packet‑ and flow‑level a
 
 ## Related terms
 
-- DPI  
+- [DPI](/docs/glossary/dpi)
 - Flow monitoring  
-- Full packet capture  
-- Encrypted traffic analytics  
-- IDS  
-- NGFW  
-- JA3  
-- Packet analysis  
+- [Full packet capture](/docs/glossary/full-packet-capture)
+- [Encrypted traffic analytics](/docs/glossary/encrypted-traffic-analytics)
+- [IDS](/docs/glossary/ids-integration)
+- [NGFW](/docs/glossary/ngfw)
+- [JA3](/docs/glossary/ja3)
+- [Packet analysis](/docs/glossary/packet-analysis)
 
 ---
 

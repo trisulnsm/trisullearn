@@ -2,7 +2,7 @@
 title: What is CGNAT?
 description: CGNAT (Carrier-Grade NAT) is a large-scale network address translation technique used by service providers to share public IPv4 addresses among many subscribers. It helps ISPs conserve IPv4 address space while continuing to provide Internet connectivity at scale.
 sidebar_label: CGNAT
-sidebar_position: 145
+sidebar_position: 24
 slug: /glossary/cgnat
 keywords:
   - CGNAT
@@ -162,13 +162,13 @@ These capabilities help operators analyze traffic patterns, detect anomalies, an
 
 ## Related terms
 
-- CGNAT  
+- [CGNAT](/docs/glossary/cgnat)
 - Carrier‑Grade NAT  
-- NAT  
-- IPDR  
+- [NAT](/docs/glossary/nat)
+- [IPDR](/docs/glossary/ipdr)
 - IPv4 exhaustion  
-- Subscriber mapping  
-- CGNAT logging  
+- [Subscriber mapping](/docs/glossary/subscriber-mapping)
+- [CGNAT logging](/docs/glossary/cgnat-logging)
 - Flow monitoring  
 - Lawful intercept  
 

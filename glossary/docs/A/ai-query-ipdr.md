@@ -2,7 +2,7 @@
 title: What is AI Query (IPDR)?
 description: AI Query (IPDR) in Trisul Network Analytics is an AI-assisted investigation and query workflow that helps operators navigate large-scale IPDR datasets, subscriber records, NAT mappings, and session metadata more efficiently during compliance and operational investigations.
 sidebar_label: AI Query (IPDR)
-sidebar_position: 35
+sidebar_position: 5
 slug: /glossary/ai-query-ipdr
 keywords:
   - ai query ipdr
@@ -165,12 +165,12 @@ Additional workflow details are documented in the Trisul documentation:
 
 ## Related terms
 
-- [IPDR](/glossary/ipdr)
-- [Trisul AI (UI)](/glossary/trisul-ai-ui)
-- [Trisul AI (CLI)](/glossary/trisul-ai-cli)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Audit log](/glossary/audit-log)
-- [Network telemetry](/glossary/network-telemetry)
+- [IPDR](/docs/glossary/ipdr)
+- [Trisul AI (UI)](/docs/glossary/trisul-ai-ui)
+- [Trisul AI (CLI)](/docs/glossary/trisul-ai-cli)
+- Flow monitoring
+- [Audit log](/docs/glossary/audit-log)
+- Network telemetry
 
 ---
 

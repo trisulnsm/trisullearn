@@ -2,7 +2,7 @@
 title: What is an internet exchange?
 description: An internet exchange, or IX, is a place where networks connect and exchange traffic directly instead of sending it through a third party.
 sidebar_label: Internet exchange
-sidebar_position: 237
+sidebar_position: 93
 slug: /glossary/internet-exchange
 keywords:
   - internet exchange
@@ -115,12 +115,12 @@ This is especially useful for **ISPs, carriers, and large enterprises** that rel
 
 ## Related terms
 
-- Internet exchange  
-- Cloud monitoring  
-- Network performance  
-- Traffic pattern analysis  
-- Link load  
-- Congestion detection  
+- [Internet exchange](/docs/glossary/internet-exchange)
+- [Cloud monitoring](/docs/glossary/cloud-monitoring)
+- [Network performance](/docs/glossary/network-performance)
+- [Traffic pattern analysis](/docs/glossary/traffic-pattern-analysis)
+- [Link load](/docs/glossary/link-load)
+- [Congestion detection](/docs/glossary/congestion-detection)
 
 ---
 

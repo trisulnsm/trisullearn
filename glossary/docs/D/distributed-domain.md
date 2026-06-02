@@ -2,7 +2,7 @@
 title: What is a distributed domain?
 description: A distributed domain is a logical grouping of Trisul nodes that operate together as a unified analytics deployment, enabling centralized visibility, management, and querying across multiple distributed traffic-collection points.
 sidebar_label: Distributed domain
-sidebar_position: 139
+sidebar_position: 43
 slug: /glossary/distributed-domain
 keywords:
   - distributed domain
@@ -119,13 +119,13 @@ Trisul implements distributed domains through its hub‑and‑probe architecture
 
 ## Related terms
 
-- Distributed domain  
-- Node  
+- [Distributed domain](/docs/glossary/distributed-domain)
+- [Node](/docs/glossary/node)
 - Probe  
 - Hub  
-- Multitenancy  
+- [Multitenancy](/docs/glossary/multitenancy)
 - Centralized monitoring  
-- Context  
+- [Context](/docs/glossary/context)
 - Distributed analytics  
 
 ---

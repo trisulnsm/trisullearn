@@ -2,7 +2,7 @@
 title: What is quality of experience?
 description: Quality of Experience (QoE) measures how users actually perceive application responsiveness, communication quality, stability, and service usability under real network and operational conditions rather than relying only on infrastructure metrics.
 sidebar_label: Quality of experience
-sidebar_position: 230
+sidebar_position: 174
 slug: /glossary/quality-of-experience
 keywords:
   - quality of experience
@@ -160,12 +160,12 @@ https://docs.trisul.org/docs/ug/flow/
 
 ## Related terms
 
-- [Latency](/glossary/latency)
-- [Jitter](/glossary/jitter)
-- [Packet loss](/glossary/packet-loss)
-- [VoIP](/glossary/voip)
-- [Application monitoring](/glossary/application-monitoring)
-- [QoS monitoring](/glossary/qos-monitoring)
+- [Latency](/docs/glossary/latency)
+- Jitter
+- Packet loss
+- [VoIP](/docs/glossary/voip)
+- [Application monitoring](/docs/glossary/application-monitoring)
+- [QoS monitoring](/docs/glossary/qos-monitoring)
 
 ---
 

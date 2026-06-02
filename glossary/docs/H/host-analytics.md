@@ -2,7 +2,7 @@
 title: What is host analytics?
 description: Host analytics is the analysis of traffic, communication patterns, and operational behavior associated with a specific host or endpoint using flow telemetry, packet analysis, historical trends, and contextual metadata.
 sidebar_label: Host analytics
-sidebar_position: 181
+sidebar_position: 77
 slug: /glossary/host-analytics
 keywords:
   - host analytics
@@ -115,14 +115,14 @@ Trisul supports **host analytics** by exposing **host‑level traffic visibility
 
 ## Related terms
 
-- Host analytics  
-- Endpoint monitoring  
-- Host monitor  
-- Top talkers  
-- Traffic investigation  
+- [Host analytics](/docs/glossary/host-analytics)
+- [Endpoint monitoring](/docs/glossary/endpoint-monitoring)
+- [Host monitor](/docs/glossary/host-monitor)
+- [Top talkers](/docs/glossary/top-talkers)
+- [Traffic investigation](/docs/glossary/traffic-investigation)
 - Device visibility  
 - Flow monitoring  
-- Flow attribution  
+- [Flow attribution](/docs/glossary/flow-attribution)
 
 ---
 

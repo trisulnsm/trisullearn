@@ -2,7 +2,7 @@
 title: What is a packet broker?
 description: A packet broker is a network visibility device that aggregates, filters, processes, and distributes traffic copies from TAPs and SPAN ports to monitoring and security tools as part of scalable visibility architectures.
 sidebar_label: Packet broker
-sidebar_position: 261
+sidebar_position: 154
 slug: /glossary/packet-broker
 keywords:
   - packet broker
@@ -144,12 +144,12 @@ Additional packet-analysis and flow-monitoring workflows are documented in the T
 
 ## Related terms
 
-- [Network TAP](/glossary/network-tap)
-- [SPAN port](/glossary/span-port)
-- [Observation point](/glossary/observation-point)
-- [Packet capture](/glossary/packet-capture)
-- [Network visibility](/glossary/network-visibility)
-- [Network traffic analysis](/glossary/network-traffic-analysis)
+- [Network TAP](/docs/glossary/network-tap)
+- [SPAN port](/docs/glossary/span-port)
+- [Observation point](/docs/glossary/observation-point)
+- Packet capture
+- Network visibility
+- Network traffic analysis
 
 ---
 

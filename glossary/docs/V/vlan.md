@@ -1,8 +1,8 @@
 ---
 title: What is a VLAN?
-description: A VLAN, or Virtual Local Area Network, is a logical subdivision of a physical network that groups devices as if they were on the same local network.
+description: A VLAN (Virtual Local Area Network) is a logical Layer 2 network segment that creates separate broadcast domains within the same physical network infrastructure. VLANs are commonly used for network segmentation, traffic isolation, security, and operational organization.
 sidebar_label: VLAN
-sidebar_position: 210
+sidebar_position: 239
 slug: /glossary/vlan
 keywords:
   - VLAN
@@ -10,7 +10,9 @@ keywords:
   - network segmentation
   - broadcast domain
   - layer 2
-  - logical network
+  - VLAN tagging
+  - traffic isolation
+  - network visibility
 ---
 
 export const jsonLd = {
@@ -22,7 +24,7 @@ export const jsonLd = {
       "name": "What is a VLAN?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A VLAN, or Virtual Local Area Network, is a logical subdivision of a physical network that groups devices as if they were on the same local network."
+        "text": "A VLAN, or Virtual Local Area Network, is a logical Layer 2 network segment that creates separate broadcast domains within the same physical network infrastructure. VLANs are commonly used for network segmentation, traffic isolation, security, and operational organization."
       }
     },
     {
@@ -30,7 +32,7 @@ export const jsonLd = {
       "name": "Why are VLANs used?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VLANs are used to separate traffic, improve security, and organize networks without changing the physical wiring."
+        "text": "VLANs are used to separate traffic, improve security, reduce broadcast domains, and organize networks without requiring separate physical infrastructure."
       }
     },
     {
@@ -38,15 +40,7 @@ export const jsonLd = {
       "name": "What is the benefit of VLAN segmentation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "VLAN segmentation reduces broadcast scope and helps isolate departments, services, or customer groups."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How are VLANs monitored?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "VLANs are monitored by tracking traffic volume, interface activity, and communication patterns inside and across segments."
+        "text": "VLAN segmentation improves traffic isolation, enhances security, reduces broadcast traffic, and helps organizations separate users, services, applications, or customer environments."
       }
     }
   ]
@@ -54,55 +48,75 @@ export const jsonLd = {
 
 # What is a VLAN?
 
-A VLAN, or Virtual Local Area Network, is a logical subdivision of a physical network that groups devices as if they were on the same local network.
+A **VLAN (Virtual Local Area Network)** is a logical Layer 2 network segment that creates separate broadcast domains within the same physical network infrastructure.
 
----
+VLANs allow administrators to logically separate devices and traffic without requiring dedicated physical switches or cabling. Devices assigned to the same VLAN behave as though they are connected to the same local network, even when they share the same switching infrastructure.
+
+VLANs are widely used for network segmentation, traffic isolation, security enforcement, multi-tenant environments, and operational organization.
 
 ## How VLANs work
 
-VLANs separate traffic at Layer 2 without requiring separate physical switches. Devices in the same VLAN can communicate more easily with each other than devices in different VLANs.
+VLANs use Layer 2 tagging mechanisms, commonly based on IEEE 802.1Q, to identify which logical network a frame belongs to.
 
-This lets administrators build logical groups for departments, services, or tenants. A single physical network can therefore behave like several smaller ones.
+Switches use VLAN identifiers (VLAN IDs) to keep traffic separated between network segments. Devices within the same VLAN can communicate directly at Layer 2, while communication between VLANs typically requires routing through a Layer 3 device such as a router, Layer 3 switch, or firewall.
 
----
+This approach allows multiple logical networks to coexist on the same physical infrastructure while maintaining traffic separation.
 
 ## VLANs in network operations
 
-VLANs are used for segmentation, organization, and security. They limit broadcast scope and reduce unnecessary traffic between groups.
+VLANs are a fundamental building block of modern network design.
 
-They also make troubleshooting easier when the network is divided by function. Operators can focus on one segment instead of the entire environment.
+Organizations use VLANs to separate users, servers, applications, departments, services, and customer environments into distinct network segments. This improves security, simplifies administration, and helps control how traffic moves across the network.
 
----
+From an operational perspective, VLAN visibility helps operators understand how traffic behaves within and between network segments. This visibility is valuable for troubleshooting, utilization analysis, segmentation validation, capacity planning, and identifying abnormal traffic patterns.
 
-## Common VLAN concepts
+## What makes VLAN visibility useful?
 
-| Concept | Meaning |
-|---|---|
-| Broadcast domain | Devices that receive Layer 2 broadcasts |
-| Segmentation | Separation of traffic groups |
-| Tagging | Marking frames with a VLAN ID |
-| Trunking | Carrying multiple VLANs on one link |
+Creating network segments is only part of the solution. Operators also need visibility into how those segments are being used.
 
----
+VLAN-level visibility helps answer questions such as:
 
-## What makes VLANs useful
+- Which VLANs generate the most traffic?
+- Which network segments communicate most frequently?
+- Are segmentation policies behaving as expected?
+- Which VLANs are experiencing congestion or abnormal activity?
 
-VLANs are useful because they let teams organize the network logically rather than physically. That makes scale and security easier to manage.
+Understanding traffic behavior at the VLAN level provides important context during troubleshooting, performance monitoring, security investigations, and network planning activities.
 
-They are also important for visibility. Traffic analysis often starts by understanding which VLAN a flow belongs to.
+## In Trisul
 
----
+VLAN visibility is highly relevant to Trisul Network Analytics because VLANs are commonly used to segment modern networks.
 
-## How Trisul handles VLANs
+When VLAN information is available in packet captures or flow telemetry, Trisul helps operators analyze traffic behavior within and between VLANs, understand utilization patterns, identify communication trends, and investigate segmentation-related issues.
 
-Trisul can identify and analyze VLAN-tagged traffic so operators can see how usage and behavior differ across segments.
+These workflows are particularly useful in enterprise, data center, ISP, and multi-tenant environments where understanding traffic distribution across network segments is important for operational visibility and troubleshooting.
+
+For flow monitoring and traffic analytics guidance, see the Trisul documentation:
+
+https://docs.trisul.org/docs/ug/flow/
 
 ---
 
 ## Related terms
 
-- VRF
-- Traffic direction
-- Network segmentation
-- Application monitoring
-- Traffic pattern analysis
+- [Network segmentation](/docs/glossary/network-segmentation)
+- [VRF](/docs/glossary/vrf)
+- Traffic isolation
+- East-West traffic
+- Microsegmentation
+
+---
+
+## Frequently asked questions
+
+### What is a VLAN?
+
+A VLAN, or Virtual Local Area Network, is a logical Layer 2 network segment that creates separate broadcast domains within the same physical network infrastructure.
+
+### Why are VLANs used?
+
+VLANs are used to separate traffic, improve security, reduce broadcast domains, and organize networks without requiring separate physical infrastructure.
+
+### What is the benefit of VLAN segmentation?
+
+VLAN segmentation improves traffic isolation, enhances security, reduces broadcast traffic, and helps organizations separate users, services, applications, or customer environments.

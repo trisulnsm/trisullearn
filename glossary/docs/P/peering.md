@@ -2,7 +2,7 @@
 title: What is peering?
 description: Peering is a direct traffic-exchange arrangement between autonomous networks that improves routing efficiency, reduces transit dependency, lowers latency, and optimizes internet traffic delivery.
 sidebar_label: Peering
-sidebar_position: 133
+sidebar_position: 162
 slug: /glossary/peering
 keywords:
   - peering
@@ -137,10 +137,10 @@ https://docs.trisul.org/docs/ug/flow/
 
 ## Related terms
 
-- [What is BGP?](/docs/glossary/bgp)
-- [What is transit?](/docs/glossary/transit)
-- [What is ASN?](/docs/glossary/asn)
-- [What is an Internet Exchange Point (IXP)?](/docs/glossary/internet-exchange-point)
+- What is BGP?
+- What is transit?
+- What is ASN?
+- What is an Internet Exchange Point (IXP)?
 - [What is peering traffic analysis?](/docs/glossary/peering-traffic-analysis)
 
 ---

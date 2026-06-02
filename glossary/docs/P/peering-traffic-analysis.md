@@ -2,7 +2,7 @@
 title: What is peering traffic analysis?
 description: Peering traffic analysis examines traffic exchanged between networks at peering and interconnection points using flow telemetry and BGP routing intelligence. It helps operators understand inter-network traffic behavior, interconnect utilization, routing influence, and traffic distribution across autonomous systems.
 sidebar_label: Peering traffic analysis
-sidebar_position: 84
+sidebar_position: 163
 slug: /glossary/peering-traffic-analysis
 keywords:
   - peering traffic analysis
@@ -143,12 +143,12 @@ Additional ISP analytics and flow-monitoring workflows are documented in the Tri
 
 ## Related terms
 
-- [BGP peering analytics](/glossary/bgp-peering-analytics)
-- [ASN](/glossary/asn)
-- [Transit traffic](/glossary/transit-traffic)
-- [ISP traffic analytics](/glossary/isp-traffic-analytics)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [BGP routing](/glossary/bgp-routing)
+- [BGP peering analytics](/docs/glossary/bgp-peering-analytics)
+- ASN
+- [Transit traffic](/docs/glossary/transit-traffic)
+- [ISP traffic analytics](/docs/glossary/isp-traffic-analytics)
+- Flow monitoring
+- BGP routing
 
 ---
 

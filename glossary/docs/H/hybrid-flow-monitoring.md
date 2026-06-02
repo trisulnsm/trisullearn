@@ -2,7 +2,7 @@
 title: What is hybrid flow monitoring?
 description: Hybrid flow monitoring combines scalable flow telemetry with selective packet analysis or enriched metadata to provide broad network visibility alongside deeper investigative context for troubleshooting and security analysis.
 sidebar_label: Hybrid flow monitoring
-sidebar_position: 48
+sidebar_position: 80
 slug: /glossary/hybrid-flow-monitoring
 keywords:
   - hybrid flow monitoring
@@ -128,14 +128,14 @@ Trisul supports **hybrid flow‑monitoring** by combining **flow‑ and packet�
 
 ## Related terms
 
-- Hybrid flow monitoring  
+- [Hybrid flow monitoring](/docs/glossary/hybrid-flow-monitoring)
 - Flow monitoring  
-- Packet capture  
-- Network observability  
-- Hybrid network monitoring  
-- Historical traffic analysis  
+- [Packet capture](/docs/glossary/packet-capture)
+- [Network observability](/docs/glossary/network-observability)
+- [Hybrid network monitoring](/docs/glossary/hybrid-network-monitoring)
+- [Historical traffic analysis](/docs/glossary/historical-traffic-analysis)
 - Flow telemetry  
-- Traffic investigation  
+- [Traffic investigation](/docs/glossary/traffic-investigation)
 
 ---
 

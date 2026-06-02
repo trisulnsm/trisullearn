@@ -2,7 +2,7 @@
 title: What is OSS BSS?
 description: OSS BSS refers to the operational support systems and business support systems used by telecom operators and service providers to manage provisioning, subscriber operations, billing, service assurance, and telecom service delivery workflows.
 sidebar_label: OSS BSS
-sidebar_position: 185
+sidebar_position: 150
 slug: /glossary/oss-bss
 keywords:
   - OSS BSS
@@ -142,12 +142,12 @@ Additional telecom and traffic-analysis workflows are documented in the Trisul d
 
 ## Related terms
 
-- [CDR](/glossary/cdr)
-- [IPDR](/glossary/ipdr)
-- [Subscriber billing](/glossary/subscriber-billing)
-- [Provisioning](/glossary/provisioning)
-- [Service assurance](/glossary/service-assurance)
-- [Telecom operations](/glossary/telecom-operations)
+- [CDR](/docs/glossary/cdr)
+- [IPDR](/docs/glossary/ipdr)
+- [Subscriber billing](/docs/glossary/subscriber-billing)
+- Provisioning
+- Service assurance
+- Telecom operations
 
 ---
 

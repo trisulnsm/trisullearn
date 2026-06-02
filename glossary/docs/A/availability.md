@@ -2,7 +2,7 @@
 title: What is availability?
 description: Availability is the measure of whether a service, system, or network is accessible and functioning when needed.
 sidebar_label: Availability
-sidebar_position: 246
+sidebar_position: 13
 slug: /glossary/availability
 keywords:
   - availability
@@ -102,12 +102,12 @@ By correlating flow‑based traffic patterns, protocol behavior, and interface m
 
 ## Related terms
 
-- Availability
-- Uptime monitoring
-- Active monitoring
-- Network access
-- Network performance
-- Quality of experience
+- [Availability](/docs/glossary/availability)
+- [Uptime monitoring](/docs/glossary/uptime-monitoring)
+- [Active monitoring](/docs/glossary/active-monitoring)
+- [Network access](/docs/glossary/network-access)
+- [Network performance](/docs/glossary/network-performance)
+- [Quality of experience](/docs/glossary/quality-of-experience)
 - Service‑level agreement
 
 ---

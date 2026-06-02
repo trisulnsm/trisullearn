@@ -2,7 +2,7 @@
 title: What is port translation?
 description: Port translation modifies transport-layer ports in network traffic to support NAT, PAT, session mapping, address sharing, and communication between internal and external networks.
 sidebar_label: Port translation
-sidebar_position: 227
+sidebar_position: 169
 slug: /glossary/port-translation
 keywords:
   - port translation
@@ -139,7 +139,7 @@ https://docs.trisul.org/docs/ug/flow/
 ## Related terms
 
 - [What is NAT?](/docs/glossary/nat)
-- [What is Port Address Translation (PAT)?](/docs/glossary/pat)
+- What is Port Address Translation (PAT)?
 - [What is CGNAT?](/docs/glossary/cgnat)
 - [What is flow attribution?](/docs/glossary/flow-attribution)
 - [What is firewall logging?](/docs/glossary/firewall-logging)

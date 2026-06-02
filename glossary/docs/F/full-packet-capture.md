@@ -2,7 +2,7 @@
 title: What is full packet capture?
 description: Full packet capture (PCAP) is the practice of recording complete network packets, including headers and payload where visible, for troubleshooting, traffic analysis, forensic investigation, and security monitoring.
 sidebar_label: Full packet capture
-sidebar_position: 1
+sidebar_position: 69
 slug: /glossary/full-packet-capture
 keywords:
   - full packet capture
@@ -106,15 +106,15 @@ Trisul supports **full packet capture and indexed analysis** by integrating **pa
 
 ## Related terms
 
-- Full packet capture  
-- NetFlow  
-- IPFIX  
-- Flow tagger  
-- Retro analysis  
-- Network security monitoring  
-- Deep packet inspection  
+- [Full packet capture](/docs/glossary/full-packet-capture)
+- [NetFlow](/docs/glossary/netflow)
+- [IPFIX](/docs/glossary/ipfix)
+- [Flow tagger](/docs/glossary/flow-tagger)
+- [Retro analysis](/docs/glossary/retro-analysis)
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
+- [Deep packet inspection](/docs/glossary/dpi)
 - sFlow  
-- Flow tracker  
+- [Flow tracker](/docs/glossary/flow-tracker)
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is ranking in network analytics?
 description: Ranking in network analytics is the ordering of entities such as hosts, flows, applications, or subscribers based on metrics such as traffic volume, utilization, frequency, latency, or traffic significance.
 sidebar_label: Ranking
-sidebar_position: 255
+sidebar_position: 177
 slug: /glossary/ranking
 keywords:
   - ranking
@@ -146,7 +146,7 @@ https://docs.trisul.org/docs/ug/flow/
 ## Related terms
 
 - [What are heavy hitters?](/docs/glossary/heavy-hitters)
-- [What is Top-N analysis?](/docs/glossary/top-n-analysis)
+- What is Top-N analysis?
 - [What are summary statistics?](/docs/glossary/summary-statistics)
 - [What is traffic estimation?](/docs/glossary/traffic-estimation)
 - [What is anomaly detection?](/docs/glossary/anomaly-detection)

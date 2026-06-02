@@ -2,7 +2,7 @@
 title: What is buffer monitoring?
 description: Buffer monitoring is the process of watching device buffers to see whether packets are being queued, delayed, or dropped because output capacity is not keeping up with demand.
 sidebar_label: Buffer monitoring
-sidebar_position: 209
+sidebar_position: 21
 slug: /glossary/buffer-monitoring
 keywords:
   - buffer monitoring
@@ -100,12 +100,12 @@ Trisul can help correlate buffer‑related symptoms—such as traffic spikes, in
 
 ## Related terms
 
-- Buffer monitoring
-- Queueing
-- Congestion detection
-- Packet loss
-- Link load
-- Network performance
+- [Buffer monitoring](/docs/glossary/buffer-monitoring)
+- [Queueing](/docs/glossary/queueing)
+- [Congestion detection](/docs/glossary/congestion-detection)
+- [Packet loss](/docs/glossary/packet-loss)
+- [Link load](/docs/glossary/link-load)
+- [Network performance](/docs/glossary/network-performance)
 
 ---
 

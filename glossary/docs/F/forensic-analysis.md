@@ -2,7 +2,7 @@
 title: What is forensic analysis in network operations?
 description: Forensic analysis is the process of examining historical network traffic, logs, packets, and related telemetry to reconstruct events, investigate incidents, and establish evidence-based timelines of activity.
 sidebar_label: Forensic analysis
-sidebar_position: 190
+sidebar_position: 68
 slug: /glossary/forensic-analysis
 keywords:
   - forensic analysis
@@ -115,14 +115,14 @@ Trisul supports forensic analysis by combining **historical traffic analysis, pa
 
 ## Related terms
 
-- Forensic analysis  
-- Network traffic analysis  
-- Root cause analysis  
-- Packet capture  
-- Threat detection  
-- Incident response  
+- [Forensic analysis](/docs/glossary/forensic-analysis)
+- [Network traffic analysis](/docs/glossary/network-traffic-analysis)
+- [Root cause analysis](/docs/glossary/root-cause-analysis)
+- [Packet capture](/docs/glossary/packet-capture)
+- [Threat detection](/docs/glossary/threat-detection)
+- [Incident response](/docs/glossary/incident-response)
 - Flow monitoring  
-- Network security monitoring  
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
 
 ---
 

@@ -2,7 +2,7 @@
 title: What is a network TAP?
 description: A network TAP is a hardware device that passively copies traffic from a network link to monitoring systems, enabling packet analysis, troubleshooting, security monitoring, and traffic visibility without interfering with live traffic.
 sidebar_label: Network TAP
-sidebar_position: 232
+sidebar_position: 142
 slug: /glossary/network-tap
 keywords:
   - network TAP

@@ -2,7 +2,7 @@
 title: What is packet loss monitoring?
 description: Packet loss monitoring measures and analyzes packets that fail to reach their destination to identify congestion, retransmissions, routing issues, hardware faults, and degraded application performance.
 sidebar_label: Packet loss monitoring
-sidebar_position: 81
+sidebar_position: 158
 slug: /glossary/packet-loss-monitoring
 keywords:
   - packet loss monitoring
@@ -142,7 +142,7 @@ https://docs.trisul.org/docs/ug/flow/
 ## Related terms
 
 - [What is network congestion?](/docs/glossary/congestion)
-- [What is flow monitoring?](/docs/glossary/flow-monitoring)
+- What is flow monitoring?
 - [What is packet capture?](/docs/glossary/packet-capture)
 - [What is network performance?](/docs/glossary/network-performance)
 - [What is VoIP?](/docs/glossary/voip)

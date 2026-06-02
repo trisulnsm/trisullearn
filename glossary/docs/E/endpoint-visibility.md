@@ -2,7 +2,7 @@
 title: What is endpoint visibility?
 description: Endpoint visibility is the ability to continuously discover, monitor, and understand the operational state, behavior, and security posture of endpoints connected to a network.
 sidebar_label: Endpoint visibility
-sidebar_position: 16
+sidebar_position: 54
 slug: /glossary/endpoint-visibility
 keywords:
   - endpoint visibility
@@ -106,13 +106,13 @@ Trisul strengthens endpoint visibility by providing **network‑level evidence**
 
 ## Related terms
 
-- Endpoint visibility  
-- Endpoint monitoring  
+- [Endpoint visibility](/docs/glossary/endpoint-visibility)
+- [Endpoint monitoring](/docs/glossary/endpoint-monitoring)
 - Host monitoring  
-- Endpoint detection and response (EDR)  
-- Network security monitoring  
-- Flow analysis  
-- Full packet capture  
+- [Endpoint detection and response (EDR)](/docs/glossary/endpoint-detection-and-response)
+- [Network security monitoring](/docs/glossary/network-security-monitoring)
+- [Flow analysis](/docs/glossary/flow-analysis)
+- [Full packet capture](/docs/glossary/full-packet-capture)
 
 ---
 

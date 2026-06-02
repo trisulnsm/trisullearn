@@ -1,8 +1,8 @@
 ---
 title: What is Wireshark?
-description: Wireshark is a packet analysis tool that lets users capture, inspect, and analyze network traffic in detail.
+description: Wireshark is an open-source packet analyzer used to capture, inspect, and analyze network traffic at the packet level. It provides detailed visibility into network communications and is widely used for troubleshooting, protocol analysis, security investigations, and network diagnostics.
 sidebar_label: Wireshark
-sidebar_position: 234
+sidebar_position: 247
 slug: /glossary/wireshark
 keywords:
   - Wireshark
@@ -11,6 +11,7 @@ keywords:
   - protocol analyzer
   - network troubleshooting
   - traffic inspection
+  - packet analysis
 ---
 
 export const jsonLd = {
@@ -22,7 +23,7 @@ export const jsonLd = {
       "name": "What is Wireshark?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Wireshark is a packet analysis tool that lets users capture, inspect, and analyze network traffic in detail."
+        "text": "Wireshark is an open-source packet analyzer used to capture, inspect, and analyze network traffic at the packet level. It provides detailed visibility into network communications and is widely used for troubleshooting, protocol analysis, security investigations, and network diagnostics."
       }
     },
     {
@@ -30,7 +31,7 @@ export const jsonLd = {
       "name": "What is Wireshark used for?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Wireshark is used for packet capture, protocol inspection, troubleshooting, and learning how network traffic behaves."
+        "text": "Wireshark is used for packet capture, protocol analysis, troubleshooting, performance investigations, security analysis, and understanding how network communications work."
       }
     },
     {
@@ -38,15 +39,7 @@ export const jsonLd = {
       "name": "Why is Wireshark useful?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Wireshark is useful because it shows packet-level detail that helps diagnose communication problems."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does Wireshark relate to monitoring?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Wireshark is often used with TAPs or SPAN ports to inspect traffic collected from the network."
+        "text": "Wireshark provides packet-level visibility into network communications, allowing analysts to diagnose issues that may not be visible through flow records, counters, or summary metrics."
       }
     }
   ]
@@ -54,58 +47,59 @@ export const jsonLd = {
 
 # What is Wireshark?
 
-Wireshark is a packet analysis tool that lets users capture, inspect, and analyze network traffic in detail.
+**Wireshark** is an open-source packet analyzer used to capture, inspect, and analyze network traffic at the packet level.
 
----
+It is one of the most widely used network analysis tools and provides detailed visibility into individual packets and protocol exchanges. This makes it particularly useful for troubleshooting, protocol analysis, security investigations, application diagnostics, and packet-level forensics.
+
+Unlike flow monitoring or summary statistics, Wireshark allows analysts to examine the actual network communications taking place between systems.
 
 ## How Wireshark works
 
-Wireshark reads packet data and decodes protocol fields so users can see what is happening at the wire level. It is commonly used during troubleshooting and protocol analysis.
+Wireshark captures or imports packet data and decodes network protocols so analysts can examine traffic across multiple layers of the network stack.
 
-It is especially useful when deeper detail is needed than flows or counters can provide. Packet-level evidence can reveal the exact cause of a problem.
+Packet analysis can reveal source and destination addresses, protocol behavior, connection establishment, application transactions, timing information, and communication errors.
 
----
+Because it operates at the packet level, Wireshark can reveal issues that may not be visible through flow records, counters, dashboards, or other higher-level monitoring systems.
 
 ## Wireshark in network operations
 
-Operators use Wireshark to debug connection failures, inspect retransmissions, and study application behavior. It is one of the most common analysis tools in the field.
+Wireshark is commonly used when higher-level monitoring identifies a problem but does not fully explain its cause.
 
-It is often paired with packet sources such as a TAP or SPAN port. That gives the analyst direct access to traffic for inspection.
+Operators frequently use packet analysis to investigate connectivity issues, packet loss, TCP behavior, application problems, protocol errors, performance degradation, and security-related events.
 
----
+Packet-level visibility is particularly valuable when detailed evidence is required to understand exactly how a communication occurred and why a problem is happening.
 
-## Common Wireshark uses
+For this reason, Wireshark is often used as part of a broader investigation workflow rather than as the first step in network analysis.
 
-| Use | Purpose |
-|---|---|
-| Packet capture | Collect traffic |
-| Protocol analysis | Decode fields |
-| Troubleshooting | Find faults |
-| Learning | Study behavior |
+## What makes Wireshark useful?
 
----
+Wireshark provides visibility into the packet, the fundamental unit of network communication.
 
-## What makes Wireshark useful
+Its greatest strength is the ability to answer questions that higher-level monitoring tools cannot. While dashboards, counters, and flow analytics can help identify where a problem exists, packet analysis often explains why the problem is occurring.
 
-Wireshark is useful because it shows the smallest practical unit of network behavior: the packet. That makes it valuable for precise diagnosis.
+Because packet analysis generates large amounts of detailed information, Wireshark is most effective when analysts already have a specific issue, traffic flow, application, or communication pattern they want to investigate.
 
-Its strength is detail, but that also means the analyst needs some protocol knowledge to use it well.
+## In Trisul
 
----
+Wireshark is complementary to Trisul Network Analytics.
 
-## How Trisul handles Wireshark workflows
+Trisul helps operators identify traffic patterns, investigate network behavior, analyze flows, and narrow investigations to specific hosts, applications, conversations, and traffic events. When packet-level inspection is required, analysts can retrieve or export packet data and use Wireshark to examine the underlying communications in greater detail.
 
-Trisul can complement Wireshark by providing broad traffic visibility and history, while Wireshark is used for packet-level inspection.
+This workflow allows operators to move efficiently from large-scale traffic visibility to detailed packet-level evidence when troubleshooting performance issues, investigating incidents, or analyzing protocol behavior.
+
+For flow monitoring and packet-analysis workflows, see the Trisul documentation:
+
+https://docs.trisul.org/
 
 ---
 
 ## Related terms
 
-- Network TAP
-- SPAN port
-- Network troubleshooting
-- Digital forensics
-- TCP
+- [Packet analysis](/docs/glossary/packet-analysis)
+- [Network TAP](/docs/glossary/network-tap)
+- [SPAN port](/docs/glossary/span-port)
+- [TCP](/docs/glossary/tcp)
+- [Network troubleshooting](/docs/glossary/network-troubleshooting)
 
 ---
 
@@ -113,16 +107,12 @@ Trisul can complement Wireshark by providing broad traffic visibility and histor
 
 ### What is Wireshark?
 
-Wireshark is a packet analysis tool that lets users capture, inspect, and analyze network traffic in detail.
+Wireshark is an open-source packet analyzer used to capture, inspect, and analyze network traffic at the packet level. It provides detailed visibility into network communications and is widely used for troubleshooting, protocol analysis, security investigations, and network diagnostics.
 
 ### What is Wireshark used for?
 
-Wireshark is used for packet capture, protocol inspection, troubleshooting, and learning how network traffic behaves.
+Wireshark is used for packet capture, protocol analysis, troubleshooting, performance investigations, security analysis, and understanding how network communications work.
 
 ### Why is Wireshark useful?
 
-Wireshark is useful because it shows packet-level detail that helps diagnose communication problems.
-
-### How does Wireshark relate to monitoring?
-
-Wireshark is often used with TAPs or SPAN ports to inspect traffic collected from the network.
+Wireshark provides packet-level visibility into network communications, allowing analysts to diagnose issues that may not be visible through flow records, counters, or summary metrics.

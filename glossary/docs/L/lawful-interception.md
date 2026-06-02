@@ -2,7 +2,7 @@
 title: What is lawful interception?
 description: Lawful interception (LI) is the regulated process of collecting communications or traffic-related data under valid legal authorization while maintaining subscriber attribution accuracy, auditability, retention integrity, and compliance controls across telecom and ISP environments.
 sidebar_label: Lawful interception
-sidebar_position: 154
+sidebar_position: 108
 slug: /glossary/lawful-interception
 keywords:
   - lawful interception
@@ -171,12 +171,12 @@ Additional flow-analysis and operational workflows are documented in the Trisul 
 
 ## Related terms
 
-- [IPDR](/glossary/ipdr)
-- [TRAI compliance](/glossary/trai-compliance)
-- [NAT logging](/glossary/nat-logging)
-- [Subscriber mapping](/glossary/subscriber-mapping)
-- [Audit trail](/glossary/audit-trail)
-- [Flow telemetry](/glossary/flow-telemetry)
+- [IPDR](/docs/glossary/ipdr)
+- [TRAI compliance](/docs/glossary/trai-compliance)
+- [NAT logging](/docs/glossary/nat-logging)
+- [Subscriber mapping](/docs/glossary/subscriber-mapping)
+- Audit trail
+- Flow telemetry
 
 ---
 

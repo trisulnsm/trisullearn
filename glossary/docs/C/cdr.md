@@ -2,7 +2,7 @@
 title: What is a CDR?
 description: A CDR (Call Detail Record) is a structured log that captures metadata about a communication session such as participants, timestamps, duration, routing, and usage information. CDRs are widely used in telecom systems for billing, reporting, auditing, and operational analytics.
 sidebar_label: CDR
-sidebar_position: 183
+sidebar_position: 23
 slug: /glossary/cdr
 keywords:
   - CDR
@@ -152,15 +152,15 @@ Capabilities such as **flow‑based telemetry**, **subscriber‑oriented traffic
 
 ## Related terms
 
-- CDR
+- [CDR](/docs/glossary/cdr)
 - Call Detail Record
-- IPDR
+- [IPDR](/docs/glossary/ipdr)
 - OSS/BSS
-- Subscriber billing
+- [Subscriber billing](/docs/glossary/subscriber-billing)
 - Session logs
 - Telecom reporting
 - Flow monitoring
-- Subscriber analytics
+- [Subscriber analytics](/docs/glossary/subscriber-analytics)
 
 ---
 

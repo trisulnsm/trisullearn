@@ -2,7 +2,7 @@
 title: What is NetFlow sampling?
 description: NetFlow sampling selects a subset of packets for flow export instead of processing every packet. It reduces CPU and export overhead while preserving useful visibility into traffic patterns and bandwidth utilization at high speeds.
 sidebar_label: NetFlow sampling
-sidebar_position: 68
+sidebar_position: 132
 slug: /glossary/netflow-sampling
 keywords:
   - NetFlow sampling
@@ -142,12 +142,12 @@ Additional flow-analysis workflows are documented in the Trisul documentation:
 
 ## Related terms
 
-- [NetFlow](/glossary/netflow)
-- [sFlow](/glossary/sflow)
-- [Flow monitoring](/glossary/flow-monitoring)
-- [Traffic estimation](/glossary/traffic-estimation)
-- [Capacity planning](/glossary/capacity-planning)
-- [Historical traffic analysis](/glossary/historical-traffic-analysis)
+- NetFlow
+- sFlow
+- Flow monitoring
+- [Traffic estimation](/docs/glossary/traffic-estimation)
+- Capacity planning
+- Historical traffic analysis
 
 ---
 

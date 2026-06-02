@@ -2,7 +2,7 @@
 title: What is DNSSEC?
 description: DNSSEC (Domain Name System Security Extensions) adds cryptographic authentication and integrity verification to DNS responses to help protect against spoofing, tampering, and forged DNS data.
 sidebar_label: DNSSEC
-sidebar_position: 158
+sidebar_position: 46
 slug: /glossary/dnssec
 keywords:
   - DNSSEC
@@ -126,10 +126,10 @@ Trisul does not perform DNSSEC validation itself, but it can help monitor DNSSEC
 
 ## Related terms
 
-- DNSSEC  
+- [DNSSEC](/docs/glossary/dnssec)
 - DNS  
-- DNS traffic analysis  
-- Passive DNS  
+- [DNS traffic analysis](/docs/glossary/dns-traffic-analysis)
+- [Passive DNS](/docs/glossary/passive-dns)
 - DNS security  
 - Cache poisoning  
 - DoT  

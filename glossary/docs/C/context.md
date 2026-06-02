@@ -2,7 +2,7 @@
 title: What is a Trisul context?
 description: A Trisul context is an isolated analytics domain within a Trisul deployment, with its own database, configuration, and processing state while sharing common administration and web management infrastructure.
 sidebar_label: Context
-sidebar_position: 28
+sidebar_position: 29
 slug: /glossary/context
 keywords:
   - context
@@ -109,12 +109,12 @@ Trisul supports multi‑context deployments for analytics isolation and multi‑
 
 ## Related terms
 
-- Context  
-- Node  
-- Distributed domain  
-- Multitenancy  
-- Webadmin  
-- Context menu  
+- [Context](/docs/glossary/context)
+- [Node](/docs/glossary/node)
+- [Distributed domain](/docs/glossary/distributed-domain)
+- [Multitenancy](/docs/glossary/multitenancy)
+- [Webadmin](/docs/glossary/webadmin)
+- [Context menu](/docs/glossary/context-menu)
 - Hub node  
 
 ---
